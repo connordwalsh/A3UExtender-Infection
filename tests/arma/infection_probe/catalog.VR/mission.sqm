@@ -1,0 +1,66 @@
+version=54;
+binarizationWanted=0;
+sourceName="Infection_Probe_Catalog";
+addons[]={"A3_Characters_F"};
+class AddonsMetaData
+{
+    class List
+    {
+        items=1;
+        class Item0
+        {
+            className="A3_Characters_F";
+            name="Arma 3 Alpha - Characters and Clothing";
+            author="Bohemia Interactive";
+            url="https://www.arma3.com";
+        };
+    };
+};
+randomSeed=12112026;
+class Mission
+{
+    assetType="Free";
+    class Intel
+    {
+        briefingName="Infection development: prepared-class smoke test";
+        year=2026;
+        month=11;
+        day=12;
+        hour=12;
+        minute=0;
+        startWeather=0;
+        forecastWeather=0;
+        resistanceWest=0;
+        resistanceEast=0;
+    };
+    class Entities
+    {
+        items=1;
+        class Item0
+        {
+            dataType="Group";
+            side="West";
+            id=0;
+            class Entities
+            {
+                items=1;
+                class Item0
+                {
+                    dataType="Object";
+                    side="West";
+                    type="B_Soldier_F";
+                    id=1;
+                    flags=7;
+                    class PositionInfo { position[]={1000,0,990}; };
+                    class Attributes
+                    {
+                        name="probeObserver";
+                        description="Test observer";
+                        isPlayer=1;
+                        isPlayable=1;
+                    };
+                };
+            };
+        };
+    };
+};
