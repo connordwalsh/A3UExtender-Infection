@@ -1,0 +1,18 @@
+{
+  "source_commit": "ea8bcf9f05d6b0d4642179db845d7d3425ceab0d",
+  "package": "Antistasi Ultimate core.pbo",
+  "compared_extensions": [
+    ".sqf",
+    ".hpp",
+    ".cpp"
+  ],
+  "identical_count": 1323,
+  "different_files": [
+    "config.cpp"
+  ],
+  "source_only_files": [],
+  "installed_only_files": [
+    "bis_addoninfo.hpp"
+  ],
+  "limitation": "Exact file comparison of core script/config inputs only; does not establish all addon binaries or runtime compatibility."
+}
