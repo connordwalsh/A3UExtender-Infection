@@ -1,0 +1,782 @@
+{
+  "schema_version": 1,
+  "scope": "Dedicated prepared-class spawn, initialization, equipment and immediate deletion smoke test",
+  "collected_at_utc": "2026-11-12T21:59:53.473008+00:00",
+  "source_log": "arma3server_x64_2026-11-12_16-52-13.rpt",
+  "source_sha256_at_collection": "d0a1825a9c64863afb8cc5d74e3977e0db9de3f0af757ecad447d5e706d20f50",
+  "fixture_sha256": {
+    "tests/arma/infection_probe/catalog.VR/candidates.sqf": "552c54bfd4c84a8667578bcdfe0905a17200345b7275af8f14cafd22b775c045",
+    "tests/arma/infection_probe/catalog.VR/description.ext": "6f5820b3707521ae7979308189283c6f68242ed50bb8fa592eb3ccf8de3afbeb",
+    "tests/arma/infection_probe/catalog.VR/initServer.sqf": "3243947d4e346ba343631205b1eb51b3bdaef72883eb2a9cfede6449326d6665",
+    "tests/arma/infection_probe/catalog.VR/mission.sqm": "d4fddb4461c606377e2420df434aa92556d073c350e59f7cecc78a5a376783ae"
+  },
+  "status": "needs_review",
+  "smoke_checks_pass": true,
+  "checks": {
+    "one_start_and_completion": true,
+    "all_records_parse": true,
+    "completion_count_matches_fixture": true,
+    "reported_failure_list_empty": true,
+    "all_class_records_present_once": true,
+    "all_spawn_records_present_once": true,
+    "all_cleanup_records_present_once": true,
+    "no_sqf_error_records": true,
+    "spawn_type_side_alive_local_init": true,
+    "unarmed": true,
+    "no_remaining_entities_at_three_seconds": true
+  },
+  "runtime_record": [
+    [
+      "Arma 3",
+      "Arma3",
+      222,
+      154089,
+      "Stable",
+      true,
+      "Windows",
+      "x64",
+      ""
+    ],
+    "VR",
+    true,
+    2
+  ],
+  "completion_record": [
+    14,
+    []
+  ],
+  "malformed_record_lines": [],
+  "sqf_error_lines": [],
+  "engine_error_summary": [
+    {
+      "candidate": "WBK_Goliaph_1",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 1787,
+      "last_line": 1790
+    },
+    {
+      "candidate": "WBK_Goliaph_1",
+      "category": "invalid_attachment_point",
+      "count": 1,
+      "first_line": 1792,
+      "last_line": 1792
+    },
+    {
+      "candidate": "WBK_Goliaph_1",
+      "category": "missing_bone",
+      "count": 103,
+      "first_line": 1684,
+      "last_line": 1786
+    },
+    {
+      "candidate": "WBK_Goliaph_1",
+      "category": "other",
+      "count": 67,
+      "first_line": 1616,
+      "last_line": 1682
+    },
+    {
+      "candidate": "WBK_SpecialZombie_Corrupted_2",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 1094,
+      "last_line": 1097
+    },
+    {
+      "candidate": "WBK_SpecialZombie_Corrupted_2",
+      "category": "missing_bone",
+      "count": 202,
+      "first_line": 866,
+      "last_line": 1093
+    },
+    {
+      "candidate": "WBK_SpecialZombie_Smasher_2",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 1382,
+      "last_line": 1385
+    },
+    {
+      "candidate": "WBK_SpecialZombie_Smasher_2",
+      "category": "missing_bone",
+      "count": 274,
+      "first_line": 1107,
+      "last_line": 1381
+    },
+    {
+      "candidate": "WBK_SpecialZombie_Smasher_Acid_2",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 1493,
+      "last_line": 1496
+    },
+    {
+      "candidate": "WBK_SpecialZombie_Smasher_Acid_2",
+      "category": "missing_bone",
+      "count": 103,
+      "first_line": 1390,
+      "last_line": 1492
+    },
+    {
+      "candidate": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 1604,
+      "last_line": 1607
+    },
+    {
+      "candidate": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "category": "missing_bone",
+      "count": 103,
+      "first_line": 1501,
+      "last_line": 1603
+    }
+  ],
+  "settings": {
+    "wbk_zombies_bloaterhp": 80,
+    "wbk_zombies_corrupted_playercontrolls": true,
+    "wbk_zombies_corrupted_playercontrolls_music": true,
+    "wbk_zombies_corrupted_playercontrolls_time": 40,
+    "wbk_zombies_corruptedhp": 200,
+    "wbk_zombies_debug": false,
+    "wbk_zombies_goliath_movedistancelimit": 600,
+    "wbk_zombies_goliathhp": 15000,
+    "wbk_zombies_goliathmaxamountaeo": 10,
+    "wbk_zombies_goliathradiusaeo": 50,
+    "wbk_zombies_goliatpickupabil": true,
+    "wbk_zombies_goliatrockabil": true,
+    "wbk_zombies_goliatspearabil": true,
+    "wbk_zombies_goliatundergroundabil": true,
+    "wbk_zombies_headshotmp": 5,
+    "wbk_zombies_leaperhp": 120,
+    "wbk_zombies_meleehp": 60,
+    "wbk_zombies_middlehp": 40,
+    "wbk_zombies_movedistancelimit": 150,
+    "wbk_zombies_runnerhp": 50,
+    "wbk_zombies_screamercooldown": 20,
+    "wbk_zombies_screamerdistance": 100,
+    "wbk_zombies_screamerhp": 160,
+    "wbk_zombies_smasher_acidattackcooldown": 20,
+    "wbk_zombies_smasher_fireattackcooldown": 15,
+    "wbk_zombies_smasher_movedistancelimit": 500,
+    "wbk_zombies_smasher_rockattackcooldown": 45,
+    "wbk_zombies_smasher_teleportattackcooldown": 40,
+    "wbk_zombies_smasherflyabil": true,
+    "wbk_zombies_smasherhp": 3500,
+    "wbk_zombies_smasherhp_acid": 4000,
+    "wbk_zombies_smasherhp_hell": 5000,
+    "wbk_zombies_smasherrockabil": true,
+    "wbk_zombies_specialinfected_movedistancelimit": 300,
+    "wbk_zombies_targetposchanged": 8,
+    "wbk_zombies_triggermanhp": 30,
+    "wbk_zombies_walkerhp": 30,
+    "wbk_zommbiescorruptedhealthparam": "200",
+    "wbk_zommbiescorruptedtakemusicparam": true,
+    "wbk_zommbiescorruptedtakeparam": true,
+    "wbk_zommbiescorruptedtaketimeparam": "40"
+  },
+  "classes": [
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "\\A3\\characters_F\\OPFOR\\o_soldier_01.p3d",
+        "moves": "CfgMovesMaleSdr",
+        "skeleton": "OFP2_ManSkeleton",
+        "ancestors": [
+          "Zombie_O_Crawler_CSAT",
+          "O_Soldier_base_F",
+          "SoldierWB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_ZombieCreatures_Units"
+        ]
+      },
+      "spawn": {
+        "actual_class": "Zombie_B_Crawler_Civ",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_crawler_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "\\A3\\characters_F\\OPFOR\\o_soldier_01.p3d",
+        "moves": "CfgMovesMaleSdr",
+        "skeleton": "OFP2_ManSkeleton",
+        "ancestors": [
+          "Zombie_O_Walker_CSAT",
+          "O_Soldier_base_F",
+          "SoldierWB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_ZombieCreatures_Units"
+        ]
+      },
+      "spawn": {
+        "actual_class": "Zombie_B_Walker_Civ",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_walker_idle_1",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "Zombie_B_Shambler_Civ",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "\\A3\\characters_F\\OPFOR\\o_soldier_01.p3d",
+        "moves": "CfgMovesMaleSdr",
+        "skeleton": "OFP2_ManSkeleton",
+        "ancestors": [
+          "Zombie_O_Shambler_CSAT",
+          "O_Soldier_base_F",
+          "SoldierWB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_ZombieCreatures_Units"
+        ]
+      },
+      "spawn": {
+        "actual_class": "Zombie_B_Shambler_Civ",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_middle_idle_1",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "Zombie_B_RC_Civ",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "\\A3\\characters_F\\OPFOR\\o_soldier_01.p3d",
+        "moves": "CfgMovesMaleSdr",
+        "skeleton": "OFP2_ManSkeleton",
+        "ancestors": [
+          "Zombie_O_RunnerCalm_CSAT",
+          "O_Soldier_base_F",
+          "SoldierWB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_ZombieCreatures_Units"
+        ]
+      },
+      "spawn": {
+        "actual_class": "Zombie_B_RC_Civ",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_runner_calm_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "Zombie_B_RA_Civ",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "\\A3\\characters_F\\OPFOR\\o_soldier_01.p3d",
+        "moves": "CfgMovesMaleSdr",
+        "skeleton": "OFP2_ManSkeleton",
+        "ancestors": [
+          "Zombie_O_RunnerAngry_CSAT",
+          "O_Soldier_base_F",
+          "SoldierWB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_ZombieCreatures_Units"
+        ]
+      },
+      "spawn": {
+        "actual_class": "Zombie_B_RA_Civ",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_runner_angry_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_1",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "\\A3\\characters_F\\OPFOR\\o_soldier_01.p3d",
+        "moves": "CfgMovesMaleSdr",
+        "skeleton": "OFP2_ManSkeleton",
+        "ancestors": [
+          "Zombie_Special_OPFOR_Leaper_1",
+          "O_Soldier_base_F",
+          "SoldierWB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_ZombieCreatures_Units"
+        ]
+      },
+      "spawn": {
+        "actual_class": "Zombie_Special_BLUFOR_Leaper_1",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "star_wars_kaatirs_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_2",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "\\A3\\characters_F\\OPFOR\\o_soldier_01.p3d",
+        "moves": "CfgMovesMaleSdr",
+        "skeleton": "OFP2_ManSkeleton",
+        "ancestors": [
+          "Zombie_Special_OPFOR_Leaper_2",
+          "Zombie_Special_OPFOR_Leaper_1",
+          "O_Soldier_base_F",
+          "SoldierWB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_ZombieCreatures_Units"
+        ]
+      },
+      "spawn": {
+        "actual_class": "Zombie_Special_BLUFOR_Leaper_2",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "star_wars_kaatirs_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Screamer",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "\\A3\\characters_F\\OPFOR\\o_soldier_01.p3d",
+        "moves": "CfgMovesMaleSdr",
+        "skeleton": "OFP2_ManSkeleton",
+        "ancestors": [
+          "Zombie_Special_OPFOR_Screamer",
+          "O_Soldier_base_F",
+          "SoldierWB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_ZombieCreatures_Units"
+        ]
+      },
+      "spawn": {
+        "actual_class": "Zombie_Special_BLUFOR_Screamer",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_runner_calm_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Boomer",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "\\A3\\characters_F\\OPFOR\\o_soldier_01.p3d",
+        "moves": "CfgMovesMaleSdr",
+        "skeleton": "OFP2_ManSkeleton",
+        "ancestors": [
+          "Zombie_Special_OPFOR_Boomer",
+          "O_Soldier_base_F",
+          "SoldierWB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_ZombieCreatures_Units"
+        ]
+      },
+      "spawn": {
+        "actual_class": "Zombie_Special_BLUFOR_Boomer",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_middle_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "WBK_Zombies_Corrupted\\cryingHead.p3d",
+        "moves": "cfgMovesWbkZombieCorrupted",
+        "skeleton": "WBK_ZombieCreatureCorrupted_Skeleton",
+        "ancestors": [
+          "WBK_SpecialZombie_Corrupted_1",
+          "WBK_C_ExportClass",
+          "I_Survivor_F",
+          "I_soldier_F",
+          "I_Soldier_base_F",
+          "SoldierGB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_Zombies_Corrupted"
+        ]
+      },
+      "spawn": {
+        "actual_class": "WBK_SpecialZombie_Corrupted_2",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "corrupted_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "WBK_Zombies_Smasher\\Smasher.p3d",
+        "moves": "cfgMovesWbkZombieSmasher",
+        "skeleton": "WBK_Smasher_Skeleton",
+        "ancestors": [
+          "WBK_SpecialZombie_Smasher_1",
+          "WBK_C_ExportClass",
+          "I_Survivor_F",
+          "I_soldier_F",
+          "I_Soldier_base_F",
+          "SoldierGB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_Zombies_Smasher"
+        ]
+      },
+      "spawn": {
+        "actual_class": "WBK_SpecialZombie_Smasher_2",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": 0,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_smasher_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "WBK_Zombies_Smasher\\Smasher.p3d",
+        "moves": "cfgMovesWbkZombieSmasher",
+        "skeleton": "WBK_Smasher_Skeleton",
+        "ancestors": [
+          "WBK_SpecialZombie_Smasher_Acid_1",
+          "WBK_SpecialZombie_Smasher_1",
+          "WBK_C_ExportClass",
+          "I_Survivor_F",
+          "I_soldier_F",
+          "I_Soldier_base_F",
+          "SoldierGB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_Zombies_Smasher"
+        ]
+      },
+      "spawn": {
+        "actual_class": "WBK_SpecialZombie_Smasher_Acid_2",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": 0,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_smasher_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "WBK_Zombies_Smasher\\Smasher.p3d",
+        "moves": "cfgMovesWbkZombieSmasher",
+        "skeleton": "WBK_Smasher_Skeleton",
+        "ancestors": [
+          "WBK_SpecialZombie_Smasher_Hellbeast_1",
+          "WBK_SpecialZombie_Smasher_1",
+          "WBK_C_ExportClass",
+          "I_Survivor_F",
+          "I_soldier_F",
+          "I_Soldier_base_F",
+          "SoldierGB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_Zombies_Smasher"
+        ]
+      },
+      "spawn": {
+        "actual_class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": 0,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "wbk_smasher_idle",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "config": {
+        "config_side": 1,
+        "scope": 2,
+        "model": "WBK_Zombies_Goliath\\WBK_Zombies_Goliath.p3d",
+        "moves": "CfgMoves_WBK_Goliaph",
+        "skeleton": "WBK_Goliaph_Skeleton",
+        "ancestors": [
+          "WBK_C_ExportClass",
+          "I_Survivor_F",
+          "I_soldier_F",
+          "I_Soldier_base_F",
+          "SoldierGB",
+          "CAManBase",
+          "Man",
+          "Land",
+          "AllVehicles",
+          "All"
+        ],
+        "source_addons": [
+          "WBK_Zombies_Goliaph"
+        ]
+      },
+      "spawn": {
+        "actual_class": "WBK_Goliaph_1",
+        "group_side": "WEST",
+        "local": true,
+        "owner_id": 2,
+        "alive": true,
+        "initialized": true,
+        "initialization_marker": true,
+        "primary_weapon": "",
+        "secondary_weapon": "",
+        "handgun_weapon": "",
+        "animation": "goliaph_idle_1",
+        "per_frame_handler_count": 3
+      },
+      "afterDelete": {
+        "remaining_entities": [],
+        "remaining_group_count": 1
+      }
+    }
+  ],
+  "not_covered": [
+    "combat",
+    "civilian targeting",
+    "vehicle interactions",
+    "waypoint compliance",
+    "Antistasi integration",
+    "JIP",
+    "headless transfer",
+    "delayed cleanup or performance soak"
+  ]
+}

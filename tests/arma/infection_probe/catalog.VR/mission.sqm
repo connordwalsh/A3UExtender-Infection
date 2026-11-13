@@ -1,0 +1,44 @@
+version=12;
+class Mission
+{
+    addOns[]={"A3_Characters_F"};
+    addOnsAuto[]={"A3_Characters_F"};
+    randomSeed=12112026;
+    class Intel
+    {
+        briefingName="Infection development: prepared-class smoke test";
+        year=2026;
+        month=11;
+        day=12;
+        hour=12;
+        minute=0;
+        startWeather=0;
+        forecastWeather=0;
+        resistanceWest=0;
+        resistanceEast=0;
+    };
+    class Groups
+    {
+        items=1;
+        class Item0
+        {
+            side="WEST";
+            class Vehicles
+            {
+                items=1;
+                class Item0
+                {
+                    position[]={1000,0,990};
+                    id=0;
+                    side="WEST";
+                    vehicle="B_Soldier_F";
+                    player="PLAYER COMMANDER";
+                    leader=1;
+                    skill=0.6;
+                    text="probeObserver";
+                    description="Test observer";
+                };
+            };
+        };
+    };
+};

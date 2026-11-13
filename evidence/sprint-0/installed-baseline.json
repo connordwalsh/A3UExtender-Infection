@@ -1,0 +1,1058 @@
+{
+  "schema": 1,
+  "captured_utc": "2026-11-12T19:01:16.129083+00:00",
+  "arma_build_id": "25623484",
+  "arma_updated_unix": "1790787317",
+  "ultimate_source_repository": "Antistasi-Ultimate-Community/A3-Antistasi-Ultimate",
+  "ultimate_source_commit": "ea8bcf9f05d6b0d4642179db845d7d3425ceab0d",
+  "mod_files": [
+    {
+      "workshop_id": "450814997",
+      "name": "CBA_A3",
+      "manifest": "4050740229527872974",
+      "installed_updated_unix": "1786465640",
+      "steam_latest_updated_unix": "1786465640",
+      "archives": [
+        {
+          "path": "addons/cba_accessory.pbo",
+          "bytes": 27418,
+          "sha256": "10d71909c9653874eaec51122679e06ca8585a5c486945ead6d84d57ff66423d"
+        },
+        {
+          "path": "addons/cba_ai.pbo",
+          "bytes": 84777,
+          "sha256": "72e7a7488676a2a8f23c8f5c80250562651d045a093b83f0ae0248c8d7e786f1"
+        },
+        {
+          "path": "addons/cba_arrays.pbo",
+          "bytes": 119915,
+          "sha256": "9cceef04e7ba4077c359a477970aeb0bc8e152285895e4a9bfff894f9fc0bf97"
+        },
+        {
+          "path": "addons/cba_bitwise.pbo",
+          "bytes": 39408,
+          "sha256": "287842fa534b669e79d85de1577ff0dc064e701f83c95ed4eedda04c4e334edd"
+        },
+        {
+          "path": "addons/cba_characters.pbo",
+          "bytes": 18850,
+          "sha256": "28446c6eb1ff10c273c22ee428792d8baa40362f7659286240ca9e88ead9d9ec"
+        },
+        {
+          "path": "addons/cba_common.pbo",
+          "bytes": 606825,
+          "sha256": "5236bd88b00ca3889351a5c9a9f78f2eb06a3aacdc43845cc286c6910c4e2360"
+        },
+        {
+          "path": "addons/cba_diagnostic.pbo",
+          "bytes": 190011,
+          "sha256": "e696fed367c34c7a67cf38544d9c7bdce44265ed68ea52ac27f395d456f83511"
+        },
+        {
+          "path": "addons/cba_disposable.pbo",
+          "bytes": 41194,
+          "sha256": "d5269594717ba0528c6bb725e9d2fce795d94be4d5b4a868d03b25afef64158a"
+        },
+        {
+          "path": "addons/cba_events.pbo",
+          "bytes": 216805,
+          "sha256": "99183630e3c4b07b58cd92261db33f92368f330bb52b7b65f79c290735cce13f"
+        },
+        {
+          "path": "addons/cba_hashes.pbo",
+          "bytes": 130830,
+          "sha256": "b4e28154ed3b5303144e12c05c73dbe6f3e16302f91c27f6cc97b37aeced1ef1"
+        },
+        {
+          "path": "addons/cba_help.pbo",
+          "bytes": 35797,
+          "sha256": "40ab2a63e293144a71a36b50b854b13523c6d1843ea90410bf13ddaa009c3632"
+        },
+        {
+          "path": "addons/cba_jam.pbo",
+          "bytes": 201268,
+          "sha256": "2ca8797a7294b5e90d972066da9425a1c0c08c6b88e43faade38a8406752cd4b"
+        },
+        {
+          "path": "addons/cba_jr.pbo",
+          "bytes": 91722,
+          "sha256": "ecef432530b8a9d7e0b74999306f85c9c7df8e747690dfb88e52081a3be94ecf"
+        },
+        {
+          "path": "addons/cba_keybinding.pbo",
+          "bytes": 117527,
+          "sha256": "7d1e7c10905cdbf4cb0c05a3eeb2a64bf7419b16b4fab41626c9cfcf62d85492"
+        },
+        {
+          "path": "addons/cba_loadout.pbo",
+          "bytes": 6546,
+          "sha256": "c4898ad71d66ad567133ba3a6a10261745af77cc3cf6be2892296349d60d4459"
+        },
+        {
+          "path": "addons/cba_main.pbo",
+          "bytes": 162788,
+          "sha256": "379679329101ec49ccc4d8bfb9fa522871045300d3701e5c57ba2d8d31c007e8"
+        },
+        {
+          "path": "addons/cba_main_a3.pbo",
+          "bytes": 3816,
+          "sha256": "42ab241ba01c86d04c3b646eabd44783ef51a3d798f98e22cac1f0cda5773184"
+        },
+        {
+          "path": "addons/cba_modules.pbo",
+          "bytes": 84636,
+          "sha256": "b92f24eb0993a30d051cae912482e7283cde11483b25a6ce0e008f6bb9bcdd6c"
+        },
+        {
+          "path": "addons/cba_music.pbo",
+          "bytes": 50554,
+          "sha256": "2a12dd51ebd30eaa951cce197886c22778d91f975504973d584a8cafc2be0ba7"
+        },
+        {
+          "path": "addons/cba_network.pbo",
+          "bytes": 59378,
+          "sha256": "fc7b9a5465f518ea228c8918e6b2b0978f2bc713dcedd3c523858a273a13400d"
+        },
+        {
+          "path": "addons/cba_optics.pbo",
+          "bytes": 530452,
+          "sha256": "6cc9a634fa20b8056a5eb15084a6e8637966dced7922f12152ece3ce40b132c5"
+        },
+        {
+          "path": "addons/cba_pid.pbo",
+          "bytes": 45770,
+          "sha256": "00c5b10f6c275128bff86914cb7890e8751858cce92e66c25834e1d97edfd929"
+        },
+        {
+          "path": "addons/cba_pylons.pbo",
+          "bytes": 71112,
+          "sha256": "6d906a2ec79b59dbdf28ef9233fe0de22c7a47223eedbe7d9300fe13ea57402c"
+        },
+        {
+          "path": "addons/cba_quicktime.pbo",
+          "bytes": 23532,
+          "sha256": "19a9ec7f1442c7c9249268d79fb18cce77d61ecd0e42034dd96e4d1524e4fe2a"
+        },
+        {
+          "path": "addons/cba_settings.pbo",
+          "bytes": 479078,
+          "sha256": "5f09865e3616ec8795b13544a7ea1075c3ff495f632f3f27c1669d04a4edd1d3"
+        },
+        {
+          "path": "addons/cba_statemachine.pbo",
+          "bytes": 83633,
+          "sha256": "9411148f1ec87d621547a41bc20e3f610d9eb8f0775f3e18c0c1ef693395bf96"
+        },
+        {
+          "path": "addons/cba_statuseffects.pbo",
+          "bytes": 46208,
+          "sha256": "037699a19c37baa13239a7c3bbfeae06b04d1676124f4e49936a23befa977d70"
+        },
+        {
+          "path": "addons/cba_strings.pbo",
+          "bytes": 107549,
+          "sha256": "d85fba98a2a5d2ee85862a9bb68336645572c5623d5b633eebc5ccf92cd67e25"
+        },
+        {
+          "path": "addons/cba_ui.pbo",
+          "bytes": 928211,
+          "sha256": "792b5a06917fa9798e1a7d489fa20d79ae99f45dd3e323e9af2732e07e5b2f0c"
+        },
+        {
+          "path": "addons/cba_vectors.pbo",
+          "bytes": 87523,
+          "sha256": "feec34978256843325cccb9734cef450e0d9fd248a42d43025b3c65d9391bf67"
+        },
+        {
+          "path": "addons/cba_versioning.pbo",
+          "bytes": 46871,
+          "sha256": "ff7c0c97f4407b469e4a2eb60f334b1c9e162053f1163f8b74e06fc6a4aabc57"
+        },
+        {
+          "path": "addons/cba_xeh.pbo",
+          "bytes": 165991,
+          "sha256": "2091dca9045147602f363aec4aaac984dd10114ef3ab1c0f4102be36248981d0"
+        }
+      ]
+    },
+    {
+      "workshop_id": "2291129343",
+      "name": "Improved Melee System",
+      "manifest": "6747534769092581488",
+      "installed_updated_unix": "1698349039",
+      "steam_latest_updated_unix": "1698349039",
+      "archives": [
+        {
+          "path": "addons/adapterus.pbo",
+          "bytes": 70685022,
+          "sha256": "26aeeee77cf75ae595ded03ddc2890cde53db2534dc6d715c1ce4cd673cb638e"
+        },
+        {
+          "path": "addons/APR_IMS_iconRework.pbo",
+          "bytes": 2377226,
+          "sha256": "87510ae3b99d3d65b91b0d6f0867c679327a8c6f5faa98c92b14c3c671a4f517"
+        },
+        {
+          "path": "addons/Mellee.pbo",
+          "bytes": 16470573,
+          "sha256": "a6f021cf12ec3ed5e2ab91ec5856433a5bbc8c4bbce4ac8d38e6fda4a7149072"
+        },
+        {
+          "path": "addons/Spike.pbo",
+          "bytes": 48761832,
+          "sha256": "d744e2758f4cd60f7f310a5cca761fdcda538602d70a446683fe990e766e3522"
+        },
+        {
+          "path": "addons/Sshields.pbo",
+          "bytes": 8237120,
+          "sha256": "0e4c48286b1c4e30a7ff9ec5d5fc3a3617f350f802d585851310695bfc3b7fcb"
+        },
+        {
+          "path": "addons/WBK_Animations.pbo",
+          "bytes": 134429301,
+          "sha256": "c3e40bc91df709aeb996f8e144dc518283959df3da9f618d475c71e44cb94817"
+        },
+        {
+          "path": "addons/WBK_knifes.pbo",
+          "bytes": 17900499,
+          "sha256": "29f8d57e8e59de95bf8632f77220cadfbe26bc0db138e9150d39539a645e6842"
+        },
+        {
+          "path": "addons/WebKnight_ImprovedMeleeSystem_Animations.pbo",
+          "bytes": 32735676,
+          "sha256": "1b2b0ebc63c7b3059c2a87079599849b569670f125562bdff43df1cdf72cb00a"
+        },
+        {
+          "path": "addons/WebKnight_Melee_New_weapons.pbo",
+          "bytes": 104903716,
+          "sha256": "7c8bd9a1e67140b4a16edb3acf393f1941fd2810154c5314f90dde730a428e3c"
+        },
+        {
+          "path": "addons/WebKnight_Melee_Weapons.pbo",
+          "bytes": 4070672,
+          "sha256": "d182b24a0bdf094c360f6653495fc44499c8f331be07133fabbf269d75c488c6"
+        },
+        {
+          "path": "addons/WebKnight_StarWars_Gestures.pbo",
+          "bytes": 69856399,
+          "sha256": "4cda7ff9ad7a7f8ec07d6c5dc92969f32ced9f70e4d2be550604ac9654cba8ac"
+        },
+        {
+          "path": "addons/WebKnight_StarWars_Mechanic.pbo",
+          "bytes": 1704462,
+          "sha256": "09ce5402c0b23c6926b820fd7597a79ed03f5f00118ac1187c7e82a707eeb655"
+        },
+        {
+          "path": "addons/WebKnight_StarWars_MoveSets.pbo",
+          "bytes": 190160,
+          "sha256": "5922b964f330f91754f96087a0f880f0307d7b05c54bfa08890c8433d900fcfe"
+        },
+        {
+          "path": "addons/WebKnight_StarWars_Sounds.pbo",
+          "bytes": 18192154,
+          "sha256": "af83d6f996226e610eafe3e1451767d6d4f23e1f37f0ac050345d795d2400a14"
+        }
+      ]
+    },
+    {
+      "workshop_id": "2789152015",
+      "name": "WebKnight's Zombies and Creatures",
+      "manifest": "3623432018896775043",
+      "installed_updated_unix": "1734889545",
+      "steam_latest_updated_unix": "1734889545",
+      "archives": [
+        {
+          "path": "addons/WBK_Zombies.pbo",
+          "bytes": 86237714,
+          "sha256": "bcec31467947ba787333fddb69cd0b3019fa469483ae678ac2d185f5e6222167"
+        },
+        {
+          "path": "addons/WBK_Zombies_Corrupted.pbo",
+          "bytes": 12349588,
+          "sha256": "f36a731d0e4f7ad1acda3b1b24e99946e3ad2bfd77e41ed3058eb840192c2c93"
+        },
+        {
+          "path": "addons/WBK_Zombies_Goliath.pbo",
+          "bytes": 35393491,
+          "sha256": "b6883518e09dc6112a2a3f187368296fd70781175f5c267a2b6fdf7fcf3f9e4c"
+        },
+        {
+          "path": "addons/WBK_Zombies_Smasher.pbo",
+          "bytes": 29490636,
+          "sha256": "8f2221cf1c21b054e01902327c385fa8fe2e2bc3cc162b31624dc3c61a041f68"
+        }
+      ]
+    },
+    {
+      "workshop_id": "3020755032",
+      "name": "Antistasi Ultimate",
+      "manifest": "130745593650502497",
+      "installed_updated_unix": "1794340800",
+      "steam_latest_updated_unix": "1794340800",
+      "archives": [
+        {
+          "path": "addons/bazaar.pbo",
+          "bytes": 440418,
+          "sha256": "c4a60fc3975e392c5dfae33f1727e15955cc8545e77c9af6b9b25afbdab3966a"
+        },
+        {
+          "path": "addons/config_fixes.pbo",
+          "bytes": 529920,
+          "sha256": "3c869a18f61284415ca35beb6ac265f2569dce11bea7e39f6dbc6f6459cee3f1"
+        },
+        {
+          "path": "addons/core.pbo",
+          "bytes": 149487800,
+          "sha256": "dae9a37710f6cc07353ce22a6a73bac4db1a2f0cea84bdfa302147bfe44c3f33"
+        },
+        {
+          "path": "addons/events.pbo",
+          "bytes": 8122,
+          "sha256": "c147dc2a5c2640d4d9b165091d41e0909d47d505be430f8cc4e96bc436f88913"
+        },
+        {
+          "path": "addons/garage.pbo",
+          "bytes": 460717,
+          "sha256": "4355532148c6205f04d39486596cec609742db160002b3a924c12d52a13e4003"
+        },
+        {
+          "path": "addons/gui.pbo",
+          "bytes": 2032052,
+          "sha256": "edd2aabc2e5a60482b913eb937398273c0316cbe676aa5c95d5c33a950849b03"
+        },
+        {
+          "path": "addons/hals.pbo",
+          "bytes": 1183834,
+          "sha256": "f902630e5e1fbbd2a17ac243a6380d7ad9d910ce234b431ab7779f573eaeb82f"
+        },
+        {
+          "path": "addons/jeroen_arsenal.pbo",
+          "bytes": 255989,
+          "sha256": "a4c2bcb7440c732fbb1880559a3f5cf1868d0ebd78c5b30848e170e1672f1a6d"
+        },
+        {
+          "path": "addons/logistics.pbo",
+          "bytes": 436300,
+          "sha256": "7f34aa541a99e728464d01bf8bf3757a3cbebd4dbb9acbd887dad9d726d47480"
+        },
+        {
+          "path": "addons/main_menu.pbo",
+          "bytes": 52496960,
+          "sha256": "6db276cb378656fa72403037648ea6786df08f1594959de56d075aebf5156310"
+        },
+        {
+          "path": "addons/maps.pbo",
+          "bytes": 147976895,
+          "sha256": "0c4771b4247bcf86c0c7ad1b1ac218157347f83c53fc5d881776faea5c61eb60"
+        },
+        {
+          "path": "addons/patcom.pbo",
+          "bytes": 22798052,
+          "sha256": "2468e9fab09744ca2c0c0a51b443c9c188c15896154b036c3d9b726a0796ff01"
+        },
+        {
+          "path": "addons/scrt.pbo",
+          "bytes": 2656011,
+          "sha256": "87c2cee2db948ff84caefc1b4b0967ae2a05a42bac6edb8217718bb9b30c1a2e"
+        },
+        {
+          "path": "addons/ultimate.pbo",
+          "bytes": 21983555,
+          "sha256": "5551147d92146f7b0c3bfa29e6aab9aa2bd61a87df41c38fe812fd2dc9de0a2d"
+        },
+        {
+          "path": "addons/zeus.pbo",
+          "bytes": 171532,
+          "sha256": "c6e33a8ef64b986dc889fe9855e79213585f516b8d1af8b9c6463b52def91e32"
+        }
+      ]
+    },
+    {
+      "workshop_id": "583496184",
+      "name": "CUP Terrains - Core (Chernarus Redux dependency)",
+      "manifest": "9020522960101719754",
+      "installed_updated_unix": "1780144967",
+      "steam_latest_updated_unix": "1780144967",
+      "archives": [
+        {
+          "path": "addons/cup_terrains_a1_editorobjects.pbo",
+          "bytes": 172131,
+          "sha256": "e702e6116fb9eb45fe1c997eadb434da9df28d9538c9176e6902b4c582a28587"
+        },
+        {
+          "path": "addons/cup_terrains_a1always_dummy.pbo",
+          "bytes": 32875,
+          "sha256": "1815c10cd807078d2b04f81495a0cbfd99a5426631c13dd26f0e68e74870f405"
+        },
+        {
+          "path": "addons/cup_terrains_a2_editorobjects.pbo",
+          "bytes": 312086,
+          "sha256": "44402dac826f00da0c8c282126f7644c3361e46efa9bd5a146923011279dcd3b"
+        },
+        {
+          "path": "addons/cup_terrains_aia_compat.pbo",
+          "bytes": 15943,
+          "sha256": "ed9200cc949dab02f1baadbdbc2b337288a8cbeb817015c57e8c218f6a359b93"
+        },
+        {
+          "path": "addons/cup_terrains_baseconfig_f.pbo",
+          "bytes": 13937,
+          "sha256": "fb3a68bfcc29016067d9c432de01dae9170040bc5fe7370793e96fd1deb6b7b2"
+        },
+        {
+          "path": "addons/cup_terrains_buildings.pbo",
+          "bytes": 911731529,
+          "sha256": "e14bd818a363afe6ccf548dd511f5af4ae53795d3a29d4fca1b8b8111bdcfd46"
+        },
+        {
+          "path": "addons/cup_terrains_ca_a10_dummy.pbo",
+          "bytes": 6844723,
+          "sha256": "27437e50c05f50907f00a555910f3c8fcea36224c6a3d4f30ad3c39fb09c7b0e"
+        },
+        {
+          "path": "addons/cup_terrains_ca_air2_dummy.pbo",
+          "bytes": 98593574,
+          "sha256": "eace4b932e2ca25df54c09fa7b1674c78f78b7495ce03cc3c4e6221361c34bf0"
+        },
+        {
+          "path": "addons/cup_terrains_ca_air3_dummy.pbo",
+          "bytes": 7281249,
+          "sha256": "b9a0a3aab30a4d4676b10b4068659b2199e67569ccada4460bf76aeeb6a0bf1a"
+        },
+        {
+          "path": "addons/cup_terrains_ca_air_d_baf_dummy.pbo",
+          "bytes": 932884,
+          "sha256": "56b608e926c39d6e0a6cf56ce8c7a30d327afd7e8efa704e07da1983334e2d73"
+        },
+        {
+          "path": "addons/cup_terrains_ca_air_dummy.pbo",
+          "bytes": 45186070,
+          "sha256": "c2c1577a660fe66fb5a02f4cb3eaf3ab1285ed5bfc29a884d89989767a42f341"
+        },
+        {
+          "path": "addons/cup_terrains_ca_air_e_dummy.pbo",
+          "bytes": 93830395,
+          "sha256": "c8aeb45f8f1f4a776d377d1683dcaec6f9c15d10f154cfe02cca40d6d71a71bc"
+        },
+        {
+          "path": "addons/cup_terrains_ca_air_pmc_dummy.pbo",
+          "bytes": 542439,
+          "sha256": "3db815acad978cc0b86b6989af48d913ed22b8f4f9656f22763ed00eca0a66e7"
+        },
+        {
+          "path": "addons/cup_terrains_ca_animals2_dummy.pbo",
+          "bytes": 135363,
+          "sha256": "101f722451e2f95e0db65560370ce0714578ad485e0c8e4b3ee192b163e4208e"
+        },
+        {
+          "path": "addons/cup_terrains_ca_buildings.pbo",
+          "bytes": 686238555,
+          "sha256": "3af4b581fb41718f8a75f116518eb9add88c9052d2013c4075f12f130190b29c"
+        },
+        {
+          "path": "addons/cup_terrains_ca_buildings2.pbo",
+          "bytes": 869218734,
+          "sha256": "07522482db5d3789f04417274f6eb7484665f7a3742d200fd8ec71943667485c"
+        },
+        {
+          "path": "addons/cup_terrains_ca_buildings2_c.pbo",
+          "bytes": 357591,
+          "sha256": "98a36d9e99b35e14fe82ffbc1d1899110a4ad8900de2d1e5743a96907fa36716"
+        },
+        {
+          "path": "addons/cup_terrains_ca_buildings_c.pbo",
+          "bytes": 512054,
+          "sha256": "fc55aa0d5431a950e657d4c2500a24140f20d888e4c43062c2ed76d997b91b57"
+        },
+        {
+          "path": "addons/cup_terrains_ca_ca_acr.pbo",
+          "bytes": 101992,
+          "sha256": "e18c7e3c886480ff8a3b5ef4e6161f03542f5e47e8425deac9fb04243f95b289"
+        },
+        {
+          "path": "addons/cup_terrains_ca_ca_c.pbo",
+          "bytes": 22990,
+          "sha256": "5f73fafb476f1b307d681a83f1e37d8e6992f56631b8eec33a65c178ea7d5b3f"
+        },
+        {
+          "path": "addons/cup_terrains_ca_ca_e.pbo",
+          "bytes": 11587896,
+          "sha256": "cd02a8233597e29543e818333f8142cd05742169289b774067bbc9db4f31aaa1"
+        },
+        {
+          "path": "addons/cup_terrains_ca_ca_pmc.pbo",
+          "bytes": 107307,
+          "sha256": "d026c6ec72f5efed9d4aec1b1d221bcacf088dcad70a089dad3153b0e3fc8033"
+        },
+        {
+          "path": "addons/cup_terrains_ca_characters2_dummy.pbo",
+          "bytes": 57791142,
+          "sha256": "6e98aaf125e2d8d44e9d74af156a1ae2a675256dba9846f60af8a6f419f0ccc8"
+        },
+        {
+          "path": "addons/cup_terrains_ca_cti_buildings.pbo",
+          "bytes": 70512439,
+          "sha256": "e7bb2802ceb51aa0285341aef9247e1548ab8ebb61a1db526e4d2b2fa713b4c3"
+        },
+        {
+          "path": "addons/cup_terrains_ca_data.pbo",
+          "bytes": 137042483,
+          "sha256": "9bb47d68b91800bf5b458a8a1f34d70fae5dc14e932ae8f5a581e0adcad67849"
+        },
+        {
+          "path": "addons/cup_terrains_ca_data_baf.pbo",
+          "bytes": 23461867,
+          "sha256": "cd43584c8c5484288486c1ba557a1e17ff4059f54ecb81eb0bffc8a3c0eeebcb"
+        },
+        {
+          "path": "addons/cup_terrains_ca_data_baf_c.pbo",
+          "bytes": 8989,
+          "sha256": "c04f7b78d1bda4fb0eb545932b3545a6f7ca294ab9ec5c75193c40067faedc25"
+        },
+        {
+          "path": "addons/cup_terrains_ca_hotfix.pbo",
+          "bytes": 4863899,
+          "sha256": "39aa617290fc16ce94ed4404bdfbbbf6c220eaccb395fad843035a5c9bf0e6c7"
+        },
+        {
+          "path": "addons/cup_terrains_ca_hotfix_c.pbo",
+          "bytes": 2692,
+          "sha256": "86cc3b81c00e97abd4f6d48fd2a46a1ad92d13c09dff01ec1c0c7e961f28e41f"
+        },
+        {
+          "path": "addons/cup_terrains_ca_l39_dummy.pbo",
+          "bytes": 9731375,
+          "sha256": "3012773c17014dd184e93531e344aa70e9e46a8aa81de0481b48f94c1f72024d"
+        },
+        {
+          "path": "addons/cup_terrains_ca_language.pbo",
+          "bytes": 3455289,
+          "sha256": "8bab086694ec692539c7ae607ded20e096593ae277e0d71289f96a16411db990"
+        },
+        {
+          "path": "addons/cup_terrains_ca_language_acr.pbo",
+          "bytes": 104004,
+          "sha256": "72dae742b56b205f796c74381921946a51816d847ea49e5943d20c2c4958835d"
+        },
+        {
+          "path": "addons/cup_terrains_ca_language_baf.pbo",
+          "bytes": 194334,
+          "sha256": "31eb4997602e318b04810eecf320e9589c4f4d61be7da9220414622c1afb8cd1"
+        },
+        {
+          "path": "addons/cup_terrains_ca_language_e.pbo",
+          "bytes": 1497465,
+          "sha256": "8ac8113913716ac20590e7d548c73c32f6db6b0ab12f6e4e3dea6f1b874cf213"
+        },
+        {
+          "path": "addons/cup_terrains_ca_language_pmc.pbo",
+          "bytes": 115067,
+          "sha256": "531e48fdf4f6bd56505615e9cf17236221f9c025cdc8523384d90a56ac60dd8d"
+        },
+        {
+          "path": "addons/cup_terrains_ca_languagemissions.pbo",
+          "bytes": 10311355,
+          "sha256": "f004a0bdce5268df9719f6e07480a88716d6bb6840e87b04d70923c288529ef6"
+        },
+        {
+          "path": "addons/cup_terrains_ca_languagemissions_baf.pbo",
+          "bytes": 1384927,
+          "sha256": "af16036fcfa2bb7d6d4100e7d2e3a55020362f4cbbd064640c25a298f2644bdc"
+        },
+        {
+          "path": "addons/cup_terrains_ca_languagemissions_e.pbo",
+          "bytes": 5942365,
+          "sha256": "47a8fe16b87f69014b8dbf0e9f3bd63c08afac357676734209b69f240834b076"
+        },
+        {
+          "path": "addons/cup_terrains_ca_languagemissions_pmc.pbo",
+          "bytes": 1634205,
+          "sha256": "2949f6b2518414ca064e0598b9a09b3bb075d4ea4af81a9e9dcebe8577ccf35b"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc.pbo",
+          "bytes": 309516842,
+          "sha256": "f25b2b86a0210ea2d40ae81e156cea1705aecce10482343528116de52c83a54d"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc2.pbo",
+          "bytes": 49478727,
+          "sha256": "facfecee1326a7f244b346b369f5a3d8a822e4d17b33e4e8b612daaec400f38b"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc3.pbo",
+          "bytes": 158344309,
+          "sha256": "fc1f310aaef2c580153a09d0dcbafc36cdd61c3a43e7bd99212dbeaae86f0635"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc3_c.pbo",
+          "bytes": 126283,
+          "sha256": "7a458a8815b1696dc2861089271b73c23f216879efda919036c04a6436c46f77"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc_acr.pbo",
+          "bytes": 10192109,
+          "sha256": "fdfb58e836786fc276d950921e2d43f33a67d8cb7ba02e3f829c31eb08ee7daf"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc_acr_c.pbo",
+          "bytes": 17732,
+          "sha256": "5f7b14edec78115201e97f0c1d90bbac2033107e3329d535ae341730fb43ddeb"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc_baf.pbo",
+          "bytes": 120678,
+          "sha256": "753c0214b5afad99f94e99d2efcdcbfb3304ed3f95917a3ec54fd298f7343e18"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc_e.pbo",
+          "bytes": 131769119,
+          "sha256": "050e51208d2b7c023e5165ca8a5c8283d45d828dd4a7e9ead60aa8add54eef65"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc_e_c.pbo",
+          "bytes": 89623,
+          "sha256": "f34241bd7d6dd4b3d52342de7db7dd6d86f0157e604a9044d2a5adceba3c2259"
+        },
+        {
+          "path": "addons/cup_terrains_ca_misc_rtm2.pbo",
+          "bytes": 2356,
+          "sha256": "e3ab4fa00d48f354da03f3ce106246697d0734a7d5352cd26216ce37f92abbdd"
+        },
+        {
+          "path": "addons/cup_terrains_ca_mp_armory_dummy.pbo",
+          "bytes": 10958723,
+          "sha256": "05f6bd330ffd67eb7699d43e1adb6777ea2abcb65c72a96c29485d791caddd10"
+        },
+        {
+          "path": "addons/cup_terrains_ca_plants.pbo",
+          "bytes": 430797439,
+          "sha256": "3df27002e11019b9d8106ac020ce2b0e01eb509836c09e9bbe2b241da89b267f"
+        },
+        {
+          "path": "addons/cup_terrains_ca_plants2.pbo",
+          "bytes": 742631870,
+          "sha256": "b5a5a51b4c4471e9070849785b5e6e4d1d26b1cfbe242fcc6cc5c00a9f5ee26b"
+        },
+        {
+          "path": "addons/cup_terrains_ca_plants_e.pbo",
+          "bytes": 209021994,
+          "sha256": "5858ad6f414ea92dfd77a90c0ca689ef4420dd1a005e404a947198fa4dfaee06"
+        },
+        {
+          "path": "addons/cup_terrains_ca_plants_e2.pbo",
+          "bytes": 485933285,
+          "sha256": "c0f20ba3c595ca2e4cb40e21d7531127d2049323322187b55b101b3b04af78fc"
+        },
+        {
+          "path": "addons/cup_terrains_ca_plants_pmc.pbo",
+          "bytes": 82644452,
+          "sha256": "d8da7450d38409192e225c995c2b0c97419ab5f68eb7d492ed359705cbb76fc7"
+        },
+        {
+          "path": "addons/cup_terrains_ca_roads.pbo",
+          "bytes": 80681875,
+          "sha256": "e67e0e82a26cdebe7d5cbf7834c84328118e80561a5f5403f0dd364b957e42fe"
+        },
+        {
+          "path": "addons/cup_terrains_ca_roads2.pbo",
+          "bytes": 264867360,
+          "sha256": "c2636e2abd232deb47531b3d49712d814116256e477ab72ce0e0453228754798"
+        },
+        {
+          "path": "addons/cup_terrains_ca_roads_e.pbo",
+          "bytes": 107383113,
+          "sha256": "1158f6cf174baaf31ff527875cca0a01b2475bc63100eca4ad654039c89ee52c"
+        },
+        {
+          "path": "addons/cup_terrains_ca_roads_pmc.pbo",
+          "bytes": 64981824,
+          "sha256": "edd324645ab1e4c4bfbbfba2614599f8d159a8cf878bf0ba0354589c7a301c7a"
+        },
+        {
+          "path": "addons/cup_terrains_ca_roads_rtm2.pbo",
+          "bytes": 13788,
+          "sha256": "f80cf03c8e1040082c56a5756b73c5b2eb715e52bea654663626af384d478847"
+        },
+        {
+          "path": "addons/cup_terrains_ca_rocks.pbo",
+          "bytes": 45789524,
+          "sha256": "b743fd3998f80de45e58e661e11cfef0fb66b47e36ae47d3bf13f921f6330a96"
+        },
+        {
+          "path": "addons/cup_terrains_ca_rocks2.pbo",
+          "bytes": 58456217,
+          "sha256": "2693fc706951c00c76f90e40c7a14d3deb09102d28ac61431013071b0eaa92c2"
+        },
+        {
+          "path": "addons/cup_terrains_ca_rocks_e.pbo",
+          "bytes": 36751073,
+          "sha256": "ecd33bf9069c9bb3088271b9f18039bec7f2684c72e69cad542021cc51af72c3"
+        },
+        {
+          "path": "addons/cup_terrains_ca_signs.pbo",
+          "bytes": 12252045,
+          "sha256": "b27ddc5f96a93034322c395d87edcafd163b8cbdfe5c88fabdd7875cb155ee98"
+        },
+        {
+          "path": "addons/cup_terrains_ca_signs2.pbo",
+          "bytes": 49154656,
+          "sha256": "02794a4ea490d0755719b765316adbb402d3091ae67e7cce228e15af928d8d54"
+        },
+        {
+          "path": "addons/cup_terrains_ca_signs_e.pbo",
+          "bytes": 18994858,
+          "sha256": "7596cf3e29f4c8a73dd70b31d9d045940d851c3e1c19f5cc5244f8f9f3c2ea68"
+        },
+        {
+          "path": "addons/cup_terrains_ca_sounds_c_dummy.pbo",
+          "bytes": 24659,
+          "sha256": "4db86490288b99d76dcc546b6264722282592cc58eb4c21b43b0bc8ac783f737"
+        },
+        {
+          "path": "addons/cup_terrains_ca_sounds_dummy.pbo",
+          "bytes": 104617055,
+          "sha256": "10299dbb30bc2f692f33d770c23a7aa8a90e8010147d3f2d93dfd509bd833425"
+        },
+        {
+          "path": "addons/cup_terrains_ca_sounds_e_dummy.pbo",
+          "bytes": 3250898,
+          "sha256": "8159069853307f79762ea55cc2232d364177a8232eb0c06655b06a54fdb1d558"
+        },
+        {
+          "path": "addons/cup_terrains_ca_structures.pbo",
+          "bytes": 1360337279,
+          "sha256": "ea56b3f3cfa0d46f317a441b820f17be9044cf7c362e819c5e6e12a5c88830ea"
+        },
+        {
+          "path": "addons/cup_terrains_ca_structures_c.pbo",
+          "bytes": 700561,
+          "sha256": "177a5e53669c3fd204a86ef3ec8a1f21d891d367747deeb7413640620a0eac30"
+        },
+        {
+          "path": "addons/cup_terrains_ca_structures_e.pbo",
+          "bytes": 919244223,
+          "sha256": "694fbd1a76f45ff521b3389e77a211e45daa4cb404d9636e04f9cfd0eb0f96e5"
+        },
+        {
+          "path": "addons/cup_terrains_ca_structures_e_c.pbo",
+          "bytes": 1108169,
+          "sha256": "f0ffc25722e5f97e3b30e2cf55309cfba7e9952168614a5bf725b45f2c569414"
+        },
+        {
+          "path": "addons/cup_terrains_ca_structures_pmc.pbo",
+          "bytes": 81125366,
+          "sha256": "f3a0b3922c66c1446c2e9d2ef4c6d1d548de1ee1889fb045e983bf7f2e3758eb"
+        },
+        {
+          "path": "addons/cup_terrains_ca_structures_pmc_c.pbo",
+          "bytes": 52537,
+          "sha256": "70c4693593c599247d7d6596ccc694fb8edbd149e076f6d536c69fa037a4cb83"
+        },
+        {
+          "path": "addons/cup_terrains_ca_tracked2_dummy.pbo",
+          "bytes": 27786574,
+          "sha256": "1d60fedfffa252574def012330d5f2bad543476c0caf922cfdccb57d448bf618"
+        },
+        {
+          "path": "addons/cup_terrains_ca_tracked_dummy.pbo",
+          "bytes": 78756929,
+          "sha256": "dcb066cddfd7e457df3c7ee9586d6a83c5fb76e5673307e2b0f4a050186a68c5"
+        },
+        {
+          "path": "addons/cup_terrains_ca_tracked_e_dummy.pbo",
+          "bytes": 50535486,
+          "sha256": "64470f69197f286d7b97a9a65e14ec413a26138827dec6484c1b66b292ffe1ba"
+        },
+        {
+          "path": "addons/cup_terrains_ca_ui_dummy.pbo",
+          "bytes": 1419682,
+          "sha256": "6a6d4abdc9cfdf97bd9fc17f281793ea159aae6764052720a6666b4fed622b48"
+        },
+        {
+          "path": "addons/cup_terrains_ca_uifonts.pbo",
+          "bytes": 20461119,
+          "sha256": "ccc501dcda23d4ccbb25d04a110999affed3f6894bb05d8fbf89b862afdb1f06"
+        },
+        {
+          "path": "addons/cup_terrains_ca_water2_dummy.pbo",
+          "bytes": 109737691,
+          "sha256": "1a2afb76fd4607c0fb4a071a789481a28b6d4e2c81f2e92f8b9e76b34644f8c3"
+        },
+        {
+          "path": "addons/cup_terrains_ca_water_dummy.pbo",
+          "bytes": 23350,
+          "sha256": "14d19010444a69db0833223476499b6b64eadb3b3dadc5d173f1e2c9cfca72ff"
+        },
+        {
+          "path": "addons/cup_terrains_ca_weapons2_dummy.pbo",
+          "bytes": 2208703,
+          "sha256": "f13f5931e1dc83e60c5e8de320958aaee565ed35e89262c3fd863a4de267704b"
+        },
+        {
+          "path": "addons/cup_terrains_ca_weapons_dummy.pbo",
+          "bytes": 128803144,
+          "sha256": "14e1dca24f549502e2bf910b5c88ea6b035f41b026be004873daa9131ea796ed"
+        },
+        {
+          "path": "addons/cup_terrains_ca_weapons_e_dummy.pbo",
+          "bytes": 23200050,
+          "sha256": "615ac3ab0c17b499bb27c4a9651c4376b493281da5ba5c59dff12ef100ef1edd"
+        },
+        {
+          "path": "addons/cup_terrains_ca_weapons_pmc_dummy.pbo",
+          "bytes": 318239,
+          "sha256": "270f8d98e0a7fdd820e626d820f9a49a757c34b90980df0bef2da7ed2593f3d2"
+        },
+        {
+          "path": "addons/cup_terrains_ca_wheeled2_dummy.pbo",
+          "bytes": 107682228,
+          "sha256": "2e093ac7f730f662f4908d7c7d5f525e1df79f77e1a23a111a0647a78f0d7db3"
+        },
+        {
+          "path": "addons/cup_terrains_ca_wheeled_dummy.pbo",
+          "bytes": 114764627,
+          "sha256": "52439225288117155806f4fee43eafa72b9a00bfb06c38d20e45374c746b9e41"
+        },
+        {
+          "path": "addons/cup_terrains_ca_wheeled_e_dummy.pbo",
+          "bytes": 74450216,
+          "sha256": "5551569e3956ce21b11622edd95b1f62c15ea5077f9e0cb9085719d1f305f2dc"
+        },
+        {
+          "path": "addons/cup_terrains_compositions.pbo",
+          "bytes": 1814306,
+          "sha256": "eaafd2d20bae1c6158a5c531b0b3fc09f16753cf05e5f0b8bb5c919148e0af64"
+        },
+        {
+          "path": "addons/cup_terrains_core.pbo",
+          "bytes": 721916,
+          "sha256": "0f6f447ff0099a252225e24bc75cbf7cc71c8292afe1e3df4e8257dfd6a23512"
+        },
+        {
+          "path": "addons/cup_terrains_dbe1_dummy.pbo",
+          "bytes": 38330523,
+          "sha256": "e13efd0bbcbee960eff9562936997de8f7721f892238da2dcf8814a71c737eb0"
+        },
+        {
+          "path": "addons/cup_terrains_dbe1_models_dbe1.pbo",
+          "bytes": 348994565,
+          "sha256": "a22b98c9e1cd7adb3a3c234db5752a240c60c8596eb06a71e16fc4228fb1b9b7"
+        },
+        {
+          "path": "addons/cup_terrains_dbe1_models_dbe1_c.pbo",
+          "bytes": 11722,
+          "sha256": "fc4915b24d3809f2e3bdd9d9404da80088328fdc81b836c470268ed329f82971"
+        },
+        {
+          "path": "addons/cup_terrains_dummy.pbo",
+          "bytes": 25804,
+          "sha256": "20647fa730d7eb6e77d09bcee2e38965f242b354991cc5b8b0d77222c282a763"
+        },
+        {
+          "path": "addons/cup_terrains_editor_c.pbo",
+          "bytes": 35859872,
+          "sha256": "cf7d117a8c49f78f410399f0b7786f76dc3756a1c4e2bc57c441cf21cc6943ca"
+        },
+        {
+          "path": "addons/cup_terrains_hsim_data_h_dummy.pbo",
+          "bytes": 19036,
+          "sha256": "01c8458ac08d70491b8469cfbf2f7d385ee877615c23ce327d0c64e8a387059f"
+        },
+        {
+          "path": "addons/cup_terrains_hsim_language_h.pbo",
+          "bytes": 808718,
+          "sha256": "88a4b844104335ad9933d183c4beb750952403294f12b620586ddf425cb04acf"
+        },
+        {
+          "path": "addons/cup_terrains_hsim_languagemissions_h.pbo",
+          "bytes": 4830712,
+          "sha256": "bb02ff8d82fee7dbbe02cfb1b2754d381fd1527ed16d0219687823da857518f9"
+        },
+        {
+          "path": "addons/cup_terrains_ibr_plants.pbo",
+          "bytes": 130832980,
+          "sha256": "b7d586e347ef53299d2f2fe9a298fc3803c4a65633e638fd4286550fa899710d"
+        },
+        {
+          "path": "addons/cup_terrains_music.pbo",
+          "bytes": 236590016,
+          "sha256": "b77d34ac41fe324e29bae8cc320553ab6af26a158f20a13017b5bb42a7dca072"
+        },
+        {
+          "path": "addons/cup_terrains_opx_structures.pbo",
+          "bytes": 1666899495,
+          "sha256": "0a2aaabe8c5742050940259c9d070dc133ddfff2b62b3e9479f784f5c0b5a486"
+        },
+        {
+          "path": "addons/cup_terrains_opx_structures_c.pbo",
+          "bytes": 2268226,
+          "sha256": "131cdf82c9c7722d2b4b0813b71119c8e37f4160b59901220f8fe9f87bbdce72"
+        },
+        {
+          "path": "addons/cup_terrains_opx_structures_complex.pbo",
+          "bytes": 788882262,
+          "sha256": "1fb927054b61caaf5d6d95cdfd05af7531b9f233228fb4f570f4e82c37a13532"
+        },
+        {
+          "path": "addons/cup_terrains_plants.pbo",
+          "bytes": 1424055,
+          "sha256": "f6c0ad99d4e52e4782d0ea853f64a4224dd21e677f4757adaf2c64081801e03d"
+        },
+        {
+          "path": "addons/cup_terrains_roadfix.pbo",
+          "bytes": 6140,
+          "sha256": "5debfb7c6804797064835dd86d531551fde89ed8ee2017e5a55ba1a438d84dab"
+        },
+        {
+          "path": "addons/cup_terrains_structures_e.pbo",
+          "bytes": 98159468,
+          "sha256": "0e8482e0d6661f0c4d14e6abb7c7086bc8de1393048d50274c4666240e537d5c"
+        },
+        {
+          "path": "addons/cup_terrains_structures_e_c.pbo",
+          "bytes": 135303,
+          "sha256": "670ecc3cc1d3c29f9e8fdaa4595579326e3b8f1568b33860c18cd85fc3e6f813"
+        },
+        {
+          "path": "addons/cup_terrains_terrains_core.pbo",
+          "bytes": 27356,
+          "sha256": "bbbd9df081c0c4a2663f59cf1c7abcb487674e3d95f73a1749082485299a693d"
+        },
+        {
+          "path": "addons/cup_terrains_weather.pbo",
+          "bytes": 553796,
+          "sha256": "a101deea4c7535199c54e68f6818778963f12a41cc5761a7876397fa75851eb7"
+        },
+        {
+          "path": "addons/cup_terrains_winter_animals.pbo",
+          "bytes": 160890,
+          "sha256": "ebab220753179469157134f360f194addf2cdd5de6c814679f86f23cb8f2df18"
+        },
+        {
+          "path": "addons/cup_terrains_winter_objects.pbo",
+          "bytes": 99152446,
+          "sha256": "bf58c81658b47091fdfbdafb9b8fd0261e4ca6d7fff6b03cdefbe90d88fe6458"
+        },
+        {
+          "path": "addons/cup_terrains_winter_plants.pbo",
+          "bytes": 519850457,
+          "sha256": "d0a2571653eb86455d7d8f80a4bf0eead6628309a6858e60bfdb8402eff91d8c"
+        },
+        {
+          "path": "addons/cup_terrains_winter_roads.pbo",
+          "bytes": 83771874,
+          "sha256": "e60a7a11f778f8ba35bd3ae59c2f7d2bb1f0cfe48c35ecd49c50b163f8ae54e2"
+        },
+        {
+          "path": "addons/cup_terrains_worlds.pbo",
+          "bytes": 520223345,
+          "sha256": "cca1b776211601f6e0b92015401df9981c1e1776270bfd934b14661dbbb15f40"
+        }
+      ]
+    },
+    {
+      "workshop_id": "1128256978",
+      "name": "Chernarus Redux (acceptance terrain)",
+      "manifest": "2376318411605233630",
+      "installed_updated_unix": "1595268913",
+      "steam_latest_updated_unix": "1595268913",
+      "archives": [
+        {
+          "path": "Addons/chernarusredux.pbo",
+          "bytes": 158330473,
+          "sha256": "8c82ea17a6213651bcb23326ff1b56f3ed1369bdfcea1f9cc78667c9c76af227"
+        },
+        {
+          "path": "Addons/chernarusredux_animals.pbo",
+          "bytes": 847906,
+          "sha256": "143e6c04c640f98792b67ae6c7b632d3dd6ff79743874c3b00da6926ca8d3c3a"
+        },
+        {
+          "path": "Addons/chernarusredux_buildings.pbo",
+          "bytes": 622531538,
+          "sha256": "e14e9032637f7839fd0cff773f305fa15c479f8a78a16549363a3b4c186c67ae"
+        },
+        {
+          "path": "Addons/chernarusredux_c.pbo",
+          "bytes": 5972749,
+          "sha256": "c1dca8d4311d12d9e58eb23df11ddfae0378f722f5f2c6eede36e785a21aaf77"
+        },
+        {
+          "path": "Addons/chernarusredux_chz.pbo",
+          "bytes": 262146144,
+          "sha256": "95d5261024d52483da2459df2d84129826dae6df8561d941c7b9ee9d7ebc7571"
+        },
+        {
+          "path": "Addons/chernarusredux_data.pbo",
+          "bytes": 230752438,
+          "sha256": "996b5524e2e629187f92ad46a596518699677b418403daefcac477ab31c088ba"
+        },
+        {
+          "path": "Addons/chernarusredux_flashlight.pbo",
+          "bytes": 4054121,
+          "sha256": "6c4a7032e8875bb034865a52d7f1c269f963ab495ad116f72079f597fcfead4a"
+        },
+        {
+          "path": "Addons/chernarusredux_functions.pbo",
+          "bytes": 877,
+          "sha256": "b4b3ccb32a8a9483d3b443a9c135241d6c582de16e8813c93347bd8ed73b514e"
+        },
+        {
+          "path": "Addons/chernarusredux_lang.pbo",
+          "bytes": 67409,
+          "sha256": "6ee2659a58497d79244efb48b11b51480833e5dab30a68054545c2cdcb48754c"
+        },
+        {
+          "path": "Addons/chernarusredux_layers.pbo",
+          "bytes": 560078860,
+          "sha256": "5c658243aa98c87a7c7de81b37d2d01f6b6f5310216bcfef650a4672f64c8a8e"
+        },
+        {
+          "path": "Addons/chernarusredux_objects.pbo",
+          "bytes": 666202758,
+          "sha256": "1f0e99ba3dd35454413c4f3913d303560aa403a0b185317c2376ff981e6972a1"
+        },
+        {
+          "path": "Addons/chernarusredux_ponds.pbo",
+          "bytes": 12900241,
+          "sha256": "159fb6900894271bc44e00f7687e54e44540261ab8b3e679c8406a95c0cc4e49"
+        },
+        {
+          "path": "Addons/chernarusredux_scenes.pbo",
+          "bytes": 22909699,
+          "sha256": "cd1351f18fcf409cbaf705b71e07e49939875357cfb026376a57b9dc8ae4bbdd"
+        },
+        {
+          "path": "Addons/chernarusredux_sounds.pbo",
+          "bytes": 198767620,
+          "sha256": "7352a100029afd18691c6599ce84a3463a51c29f11ac2b20bb149dd40ccd09ea"
+        },
+        {
+          "path": "Addons/chernarusredux_soundtrack.pbo",
+          "bytes": 172441136,
+          "sha256": "874436c8d1a4a2427abce11a416d92c47e94ecefc9d04d29ce727ca72db72b30"
+        },
+        {
+          "path": "Addons/chernarusredux_vegetation.pbo",
+          "bytes": 361312719,
+          "sha256": "d073ab7b92e76d4bacafad5b9710bbab96e7fdb9dc0c9bc0d475ce60ffe99d09"
+        },
+        {
+          "path": "Addons/chernarusredux_wrecks.pbo",
+          "bytes": 563123071,
+          "sha256": "3e5dcd77d478a5e41d4ef532aee95470a7b17fbf2d9a85e15837c6f515020339"
+        },
+        {
+          "path": "Optional/chernarusredux_cbacompatible.pbo",
+          "bytes": 1274,
+          "sha256": "e69bd433db562993079c1e82360baa2b515f18a07421bc893d419d567268f642"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "File identity and Steam's local manifest are evidence of installed content, not runtime compatibility.",
+    "Source equivalence is checked separately against the extracted installed addon."
+  ]
+}

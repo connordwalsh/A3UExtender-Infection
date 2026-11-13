@@ -1,5 +1,4 @@
 .vscode/
-.github/
 build
 *.biprivatekey
 *.log
@@ -22,3 +21,11 @@ PreparedMissions/
 
 #Ignore test templates
 Map-Templates/Antistasi-TEST-**
+
+# Local dependency inspection, isolated game profiles, and generated packages.
+.work/
+__pycache__/
+*.pyc
+*.rpt
+*.bidmp
+*.mdmp
