@@ -85,6 +85,14 @@ at 21:48:37 and background/PATCOM initialization at 21:48:43. Its log confirms
 that no extender was loaded. A client still needs to join, create the new
 campaign, and demonstrate save/reload before S0-1 can pass.
 
+The first dedicated client connection did not reach the server while the server
+was bound explicitly to `127.0.0.1`. Restarting with normal interface selection
+while retaining Arma's documented `loopback = 1` local-client restriction made
+the server discoverable in the LAN browser. Joining reached the BattlEye license
+dialog. Acceptance is pending the owner's decision; no license was accepted by
+the developer. A port conflict was considered during diagnosis but was not
+established as the cause.
+
 | Finding | Evidence / current interpretation | Follow-up |
 | --- | --- | --- |
 | Missing population values for several Redux settlements | `fn_getCityData.sqf` reports an error, then explicitly falls back to counting nearby houses. Startup completed. | Compare population names to map data and inspect effects before proposing a separate terrain correction. |

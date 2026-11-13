@@ -31,7 +31,11 @@ class Missions
     };
 };
 '@ | Set-Content -LiteralPath $configuration -Encoding ASCII
-$arguments = @('-autoInit', '-noSound', '-ip=127.0.0.1', '-port=2502',
+('logFile = "{0}";' -f (Join-Path $profile 'console.log')) |
+    Add-Content -LiteralPath $configuration -Encoding ASCII
+# Arma's loopback setting above restricts this test to local clients. Allow the
+# engine to choose its interfaces so Steam networking can initialize normally.
+$arguments = @('-autoInit', '-noSound', '-port=2502',
     '-name=InfectionBaseline', ('"-profiles={0}"' -f $profile),
     ('"-config={0}"' -f $configuration), ('"-mod={0}"' -f ($modPaths -join ';')))
 $process = Start-Process -FilePath $executable -ArgumentList $arguments `
