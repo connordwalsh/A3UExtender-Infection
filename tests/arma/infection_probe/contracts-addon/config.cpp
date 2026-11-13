@@ -55,6 +55,7 @@ class CfgFunctions
             class originalScheduler { file = "\x\a3i\tests\contracts\fn_originalScheduler.sqf"; };
             class originalPatrolReinf { file = "\x\a3i\tests\contracts\fn_originalPatrolReinf.sqf"; };
             class originalReinforcementsAI { file = "\x\a3i\tests\contracts\fn_originalReinforcementsAI.sqf"; };
+            class originalAAFroadPatrol { file = "\x\a3i\tests\contracts\fn_originalAAFroadPatrol.sqf"; };
             class originalCreateAIResources { file = "\x\a3i\tests\contracts\fn_originalCreateAIResources.sqf"; };
             class originalCreateAIOutposts { file = "\x\a3i\tests\contracts\fn_originalCreateAIOutposts.sqf"; };
             class originalCreateAIMilbase { file = "\x\a3i\tests\contracts\fn_originalCreateAIMilbase.sqf"; };

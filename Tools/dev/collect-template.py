@@ -175,6 +175,23 @@ REINFORCEMENT_CHECKS = {
 }
 
 
+ROAMING_CHECKS = {
+    "roam_override_registered", "roam_inactive_routes_delegate", "roam_no_players_no_dispatch",
+    "roam_player_area_selection", "roam_infected_port_uses_land", "roam_invader_port_keeps_boat_rule",
+    "roam_rebel_source_excluded", "roam_active_source_excluded", "roam_forced_source_excluded",
+    "roam_empty_source_excluded", "roam_idle_source_excluded", "roam_combat_source_excluded",
+    "roam_connected_outdoor_route", "roam_unscheduled_search_rejected", "roam_disconnected_route_rejected",
+    "roam_enemy_destination_rejected", "roam_control_destination_excluded", "roam_route_distance_bounded",
+    "roam_unsafe_endpoint_rejected", "roam_native_patrol_limit", "roam_no_route_no_counter",
+    "roam_budgeted_partial_spawn", "roam_duplicate_request_blocked", "roam_cyclic_foot_waypoints",
+    "roam_actual_movement", "roam_later_budgeted_batch", "roam_legacy_death_cost_once",
+    "roam_distance_end_preserves_native_count", "roam_cooldown_survives_cleanup", "roam_source_loss_cancels",
+    "roam_route_loss_cancels", "roam_timeout_cleans", "roam_stopped_controller_recovers",
+    "roam_empty_expiry_releases_count", "roam_recovery_remote_denied", "roam_all_clean",
+    "roam_foot_route_ignores_vehicle_spawn",
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -205,12 +222,13 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements"):
+    if suite in ("administration", "reinforcements", "roaming"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
-        expected_checks = COMMON | {"active_only_for_occupants"} | (ADMIN_CHECKS if suite == "administration" else REINFORCEMENT_CHECKS)
+        focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS}
+        expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
         "one_start_and_completion": complete,
@@ -252,7 +270,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)
