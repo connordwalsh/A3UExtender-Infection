@@ -7,7 +7,8 @@ if (!isServer || {isRemoteExecuted}) exitWith {};
     private _record = A3I_sites get _x;
     if (scriptDone (_record get "script")) then {[_x,_record] call A3I_fnc_cleanupSite};
 } forEach keys A3I_sites;
-if (count A3I_sites == 0) then {
+call A3I_fnc_controlResetTick;
+if (count A3I_sites == 0 && {isNil "A3I_controlResets" || {count A3I_controlResets == 0}}) then {
     [_handle] call CBA_fnc_removePerFrameHandler;
     A3I_siteWatchdogHandle = nil;
 };

@@ -36,3 +36,8 @@ campaign gameplay feature has passed acceptance yet.
 build and non-UI engine testing are authorized. Earlier UI authorization does not
 apply to this resumed work. The owner separately requested the visible client
 for their own manual tests.
+
+Pending owner decisions (13 November): whether Infection town patrol casualties
+should persist until replenishment or retain Ultimate's per-visit regeneration;
+and whether infected military administrations become clear-and-rescue strongholds
+or are disabled. Neither alternative has been selected or implemented.

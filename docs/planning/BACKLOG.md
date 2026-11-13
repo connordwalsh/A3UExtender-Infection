@@ -13,7 +13,7 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
 | S1-3 | Vehicle/template contract | In progress | Foot lines and six persistent site routes avoid vehicle/static pools in the 194-check suite; towns/controls/admin/support/convoy routes remain open. |
 | S2-1 | Occupied-site lifecycle | In progress | Six persistent types pass isolated spawning/cleanup/reentry checks, including full queued rosters and stopped-controller recovery. Towns/admin and Redux campaign acceptance remain open. |
-| S2-2 | Foot patrols and road controls | Backlog | Urban/rural paths and bounded cleanup. |
+| S2-2 | Foot patrols and road controls | In progress | Road/field adapter implemented; isolated engine checks running. Town casualty policy awaits the owner; terrain patrol/navigation acceptance remains open. |
 | S2-3 | Capture and persistence | In progress | Queued defenders block the capture entry points; native roster death/reentry contracts pass. Actual ownership/rewards/save/reload/recapture remain open. |
 | S3-1 | QRF and attack routing | Backlog | Foot responses, costs, timeout and cancellation. |
 | S3-2 | Garrison repair | Backlog | Ownership, cooldown, player proximity and cap. |
