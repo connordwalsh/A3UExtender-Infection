@@ -26,6 +26,12 @@ share a ceiling; a later request cannot raise the ceiling of an existing one.
 Partial grants are returned explicitly. Repeated binding cannot consume another
 slot or transfer an actor to another reservation.
 
+The per-request ceiling is distinct from the current server setting. Raising
+the server's context limit permits new reservations up to the callers' ceilings,
+including when older tickets still have living actors. Reservations retain the
+caller's limit rather than a permanently cached minimum of old settings. Raising
+a setting does not restore previously trimmed slots; callers request new capacity.
+
 Closing releases unused slots and retains live actors. Cancelling closes the
 reservation and deletes its bound live actors. Real Killed and Deleted handlers
 release the binding; arbitrary release of a living unit is rejected. Empty

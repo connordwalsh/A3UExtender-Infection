@@ -42,7 +42,9 @@ class CfgFunctions
             class siteWatchdog {};
             class siteCaptureBlocked {};
             class controlRoster {};
-            class runControl {};
+            class runPatrol {};
+            class cityRoster {};
+            class patrolWaypoints {};
             class tryCaptureControl {};
             class controlResetTick {};
             class elapsedDateMinutes {};
@@ -68,6 +70,7 @@ class CfgFunctions
             class originalCreateAIMilbase { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIMilbase.sqf"; };
             class originalCreateAIAirplane { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIAirplane.sqf"; };
             class originalCreateAIcontrols { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIcontrols.sqf"; };
+            class originalCreateAICities { file = "\x\a3a\addons\core\functions\CREATE\fn_createAICities.sqf"; };
             class originalMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };
             class originalMrkWIN { file = "\x\a3a\addons\core\functions\Base\fn_mrkWIN.sqf"; };
             class originalSurrenderAction { file = "\x\a3a\addons\core\functions\AI\fn_surrenderAction.sqf"; };
@@ -83,6 +86,7 @@ class CfgFunctions
             class createAIMilbase { file = "\x\a3i\addons\core\overrides\fn_createAIMilbase.sqf"; };
             class createAIAirplane { file = "\x\a3i\addons\core\overrides\fn_createAIAirplane.sqf"; };
             class createAIcontrols { file = "\x\a3i\addons\core\overrides\fn_createAIcontrols.sqf"; };
+            class createAICities { file = "\x\a3i\addons\core\overrides\fn_createAICities.sqf"; };
         };
         class Base
         {

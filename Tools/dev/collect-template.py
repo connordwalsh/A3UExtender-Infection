@@ -39,6 +39,7 @@ BUDGET_CHECKS = {
     "budget_settings_registered", "budget_inactive_denied", "budget_invalid_requests",
     "budget_global_and_context_caps", "budget_close_idempotent", "budget_concurrent_reservations",
     "budget_server_remote_call", "budget_pending_limit_reduction", "budget_bind_basic", "budget_duplicate_binding", "budget_live_release_denied",
+    "budget_context_increase_releases_capacity", "budget_context_increase_keeps_caller_ceiling",
     "budget_capacity_reduction_keeps_units", "budget_kill_release", "budget_live_delete_release",
     "budget_close_preserves_bound", "budget_cancel_deletes_bound", "budget_expiry_preserves_bound",
     "budget_expiry_unbound", "budget_unknown_operation", "budget_ticket_preflight", "budget_cleanup",
@@ -104,6 +105,40 @@ CONTROL_CHECKS = {
     'control_all_clean',
 }
 
+CITY_CHECKS = {
+    'city_route_retry_delay',
+    'city_override_registered',
+    'city_inactive_selection',
+    'city_other_factions_delegate',
+    'city_size_support_selection',
+    'city_support_scales_count',
+    'city_minimum_patrol',
+    'city_frontline_doubles',
+    'city_ruined_groups',
+    'city_overlap_rejected',
+    'city_missing_data_rejected',
+    'city_skirmish_skip_events',
+    'city_skirmish_cleanup',
+    'city_capacity_keeps_visit_roster',
+    'city_uses_native_ownership_route',
+    'city_server_local_basics',
+    'city_bounded_patrol_route',
+    'city_route_idempotent',
+    'city_simulation_transition',
+    'city_death_not_persistent',
+    'city_full_visit_arrives',
+    'city_actual_patrol_movement',
+    'city_clear_keeps_support_ownership',
+    'city_reentry_regenerates',
+    'city_ownership_stops_waiting',
+    'city_cleanup_preserves_civilians',
+    'city_ruins_stay_infected_west',
+    'city_interrupted_cleanup',
+    'city_no_unsafe_route_fallback',
+    'city_human_route_untouched',
+    'city_all_clean',
+}
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -134,7 +169,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
     checks = {
         "one_start_and_completion": complete,
@@ -152,7 +187,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     source_files = sorted((repo / "Infection").rglob("*"))
     return {
         "schema_version": 1,
-        "scope": "Isolated dedicated template/unit/garrison/combat/budget/placement/site/control contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
+        "scope": "Isolated dedicated template/unit/garrison/combat/budget/placement/site/control/town contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
         "expected_dependencies_present": expected_dependencies,
         "status": "passed" if all(checks.values()) else ("failed" if complete else "incomplete"),
         "collected_at_utc": datetime.now(timezone.utc).isoformat(),
