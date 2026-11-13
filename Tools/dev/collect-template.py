@@ -139,7 +139,24 @@ CITY_CHECKS = {
     'city_all_clean',
 }
 
-def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
+ADMIN_CHECKS = {
+    "admin_override_registered", "admin_other_routes_delegate", "admin_load_delegate",
+    "admin_unspawned_not_captured", "admin_native_police_count", "admin_native_militia_count",
+    "admin_skirmish_skips", "admin_missing_building_rejected", "admin_positions_validated",
+    "admin_unsafe_indoor_rejected", "admin_empty_layout_no_fallback", "admin_full_queue_retained",
+    "admin_captives_and_loot", "admin_public_rescue_rejects_bot", "admin_rescue_claim_once",
+    "admin_early_rescue_independent", "admin_budgeted_basics", "admin_forged_death_rejected",
+    "admin_delete_requeues_not_kills", "admin_external_capture_guard", "admin_complete_roster_arrives",
+    "admin_clear_captures_with_captive", "admin_capture_once", "admin_rescue_reward_separate",
+    "admin_rescue_cannot_repeat", "admin_interrupted_rescue_no_reward", "admin_dead_rescue_no_reward",
+    "admin_cleanup_keeps_escaped", "admin_completed_reentry_rejected", "admin_destroy_requires_clearing",
+    "admin_destruction_aggression_once", "admin_ownership_cancels_queue", "admin_ruin_reentry",
+    "admin_interrupted_controller_cleanup", "admin_rescue_recovery_remote_denied", "admin_all_clean",
+    "admin_ruin_clear_captures",
+}
+
+
+def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
     for number, line in enumerate(raw.decode("utf-8", errors="replace").splitlines(), 1):
@@ -157,7 +174,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
             payload = payload[:-1].replace('""', '"')
         try:
             record = parse_array(payload)
-            shapes = {"start": 6, "check": 4, "spawn": 4, "complete": 4}
+            shapes = {"start": 7, "check": 4, "spawn": 4, "complete": 4}
             if not record or len(record) != shapes.get(record[0], -1):
                 raise ValueError("Unexpected record shape")
             records.append(record)
@@ -169,12 +186,17 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
+    if suite == "administration":
+        if not expected_dependencies:
+            raise ValueError("Administration suite requires dependencies")
+        expected_checks = COMMON | {"active_only_for_occupants"} | ADMIN_CHECKS
+        expected_roles = []
     checks = {
         "one_start_and_completion": complete,
         "record_schema_valid": not malformed,
-        "dedicated_expected_mode": len(starts) == 1 and starts[0][2:] == ["VR", True, 2, expected_dependencies],
+        "dedicated_expected_mode": len(starts) == 1 and starts[0][2:] == ["VR", True, 2, expected_dependencies, suite],
         "all_expected_checks_once": Counter(r[1] for r in by_kind["check"]) == Counter(expected_checks),
         "all_runtime_checks_pass": bool(by_kind["check"]) and all(r[2] is True for r in by_kind["check"]),
         "completion_matches_checks": complete and finishes[0][1:] == [len(expected_checks), [], len(expected_roles)],
@@ -187,7 +209,8 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     source_files = sorted((repo / "Infection").rglob("*"))
     return {
         "schema_version": 1,
-        "scope": "Isolated dedicated template/unit/garrison/combat/budget/placement/site/control/town contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
+        "scope": "Isolated dedicated contracts, suite=" + suite + "; no full campaign, player credit, client rescue, ACE, HC transfer or JIP acceptance",
+        "suite": suite,
         "expected_dependencies_present": expected_dependencies,
         "status": "passed" if all(checks.values()) else ("failed" if complete else "incomplete"),
         "collected_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -210,8 +233,9 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
+    parser.add_argument("--suite", choices=("full", "administration"), default="full")
     args = parser.parse_args()
-    report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present")
+    report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": report["status"], "checks": report["checks"]}))

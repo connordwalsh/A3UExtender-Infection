@@ -67,6 +67,7 @@ if (isNull _group) then {_reason = "group_limit"} else {
                 deleteVehicle _unit;
                 _unit = objNull;
             };
+            [_unit,_marker,_context] call A3I_fnc_trackAdministrationDefender;
             // Controls use the marker for ownership/activation checks, but their
             // per-visit patrol casualties are not persistent garrison entries.
             [_unit,if (_trackGarrison) then {_marker} else {""},false,_pool] call A3A_fnc_NATOinit;
