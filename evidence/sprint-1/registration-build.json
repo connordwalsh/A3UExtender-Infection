@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "product": "Antistasi Ultimate: Infection",
+  "version": "0.1.0-dev",
+  "scope": "Development registration build; campaign routes are not yet implemented or accepted",
+  "built_at_utc": "2026-11-13T00:39:34.1904834Z",
+  "prefix": "x\\a3i\\addons\\core",
+  "addon_sha256": "c07ebc813be7f2bbb07269b37c2fb6e5ed28cbaf136aa22135db0f1e8c45e9b8",
+  "source": [
+    {
+      "path": "Infection/addons/core/config.cpp",
+      "sha256": "b0bc86b9c1ebc64ecb5b75b038cb0f57ecdd61c826f42703c73a1bb742d6f828"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_bootstrap.sqf",
+      "sha256": "87f9f0f1b866680e383f3434b38f780e926b4b3d675a24c7794206145a9fb9f9"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_dependencies.sqf",
+      "sha256": "76ec7c7991b802b38f90321a3a8c8d26c727287fc534eb74705c94e8a79ff5d5"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_isActive.sqf",
+      "sha256": "0f544f5a1352b3226eba70d365811e0ebfe7b4d84d0a63bc851d7b9ccc111b9e"
+    },
+    {
+      "path": "Infection/addons/core/templates/Infected.sqf",
+      "sha256": "1b532b744e87c4e317643c173eb68b590ee0f595c667950a0510eead800601c2"
+    },
+    {
+      "path": "Infection/mod.cpp",
+      "sha256": "a7305a1abe344a05ae3559666e880ae5d7ecfedba8b367baa5ab290b898e74b3"
+    }
+  ]
+}

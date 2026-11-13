@@ -103,3 +103,19 @@ strengthened at the same time; its original report only counted living leftovers
 References: [entities](https://community.bistudio.com/wiki/entities),
 [deleteVehicle](https://community.bistudio.com/wiki/deleteVehicle),
 [startup parameters](https://community.bistudio.com/wiki/Arma_3:_Startup_Parameters).
+
+# Infection registration checks
+
+Build the addon with `Tools/dev/build-infection.ps1 -ArmaTools <tools>`.
+Build and launch a probe with the existing scripts' `-Mode Template` or
+`-Mode Dependencies` option. Template uses port 2702 and the full required stack;
+Dependencies uses port 2802 and deliberately omits WebKnight/IMS. Both load the
+development addon, use isolated profiles and never start an Antistasi campaign.
+
+The template probe exercises Ultimate's actual faction loader, group compiler,
+version validator and unit creator. It checks all 67 roles, equipment/side/init,
+asset resolution, activation guards and post-deletion cleanup. The dependency
+probe checks the missing-patch case without attempting to spawn missing classes.
+Collect with `collect-template.py <rpt> <json> --dependencies present|absent`.
+The collector requires all expected checks exactly once and preserves startup
+warnings separately. These checks do not establish safe campaign vehicle routing.
