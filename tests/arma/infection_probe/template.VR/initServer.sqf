@@ -51,8 +51,11 @@ if (!isServer) exitWith {};
         call A3A_fnc_compatibilityLoadFaction;
     ["active_only_for_occupants", [west] call A3I_fnc_isActive && {!([east] call A3I_fnc_isActive)}
         && {!([independent] call A3I_fnc_isActive)} && {!([civilian] call A3I_fnc_isActive)}] call _check;
-    if (_suite == "administration") exitWith {
-        call compile preprocessFileLineNumbers "administrationChecks.sqf";
+    if (_suite in ["administration","reinforcements"]) exitWith {
+        private _suitePath = if (_suite == "administration") then {"administrationChecks.sqf"} else {"reinforcementChecks.sqf"};
+        private _suiteSource = preprocessFileLineNumbers _suitePath;
+        diag_log format ["[INFECTION_SUITE] path=%1 characters=%2",_suitePath,count _suiteSource];
+        call compile _suiteSource;
         deleteVehicle A3A_customUnitTypes;
         ["complete",_checks,_failures,0] call _log;
         missionNamespace setVariable ["Infection_probeComplete",true,true];
@@ -130,6 +133,7 @@ if (!isServer) exitWith {};
     call compile preprocessFileLineNumbers "controlChecks.sqf";
     call compile preprocessFileLineNumbers "cityChecks.sqf";
     call compile preprocessFileLineNumbers "administrationChecks.sqf";
+    call compile preprocessFileLineNumbers "reinforcementChecks.sqf";
     deleteVehicle A3A_customUnitTypes;
     ["complete", _checks, _failures, _spawned] call _log;
     missionNamespace setVariable ["Infection_probeComplete", true, true];

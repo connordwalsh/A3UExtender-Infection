@@ -156,6 +156,23 @@ ADMIN_CHECKS = {
 }
 
 
+REINFORCEMENT_CHECKS = {
+    "reinf_overrides_registered", "reinf_other_routes_delegate", "reinf_deficit_uses_native_size",
+    "reinf_enemy_target_rejected", "reinf_forced_target_rejected", "reinf_combat_target_rejected",
+    "reinf_land_source_without_vehicle_places", "reinf_source_ownership", "reinf_active_source_rejected",
+    "reinf_idle_source_rejected", "reinf_disconnected_source_rejected", "reinf_virtual_paid_once",
+    "reinf_cooldown_blocks_repeat", "reinf_unaffordable_rejected", "reinf_cycle_quota_respected",
+    "reinf_original_queue_precedes_replacements", "reinf_server_paid_foot_spawn", "reinf_approach_moves",
+    "reinf_destination_cap_blocks_handoff", "reinf_arrivals_adopt_once", "reinf_duplicate_handoff_rejected",
+    "reinf_completed_job_released", "reinf_adopted_death_updates_roster", "reinf_adopted_despawn_keeps_roster",
+    "reinf_reentry_no_duplicate", "reinf_source_loss_refunds_survivors", "reinf_timeout_only_refunds_living",
+    "reinf_late_resource_shortage_keeps_queue", "reinf_unspawned_expiry_no_refund", "reinf_stopped_controller_recovers",
+    "reinf_recovery_remote_denied", "reinf_open_ticket_transfer_denied", "reinf_unknown_ticket_transfer_denied",
+    "reinf_all_clean",
+    "reinf_cycle_dispatches_with_budget", "reinf_destination_loss_cancels",
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -186,12 +203,12 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite == "administration":
+    if suite in ("administration", "reinforcements"):
         if not expected_dependencies:
-            raise ValueError("Administration suite requires dependencies")
-        expected_checks = COMMON | {"active_only_for_occupants"} | ADMIN_CHECKS
+            raise ValueError("Focused suites require dependencies")
+        expected_checks = COMMON | {"active_only_for_occupants"} | (ADMIN_CHECKS if suite == "administration" else REINFORCEMENT_CHECKS)
         expected_roles = []
     checks = {
         "one_start_and_completion": complete,
@@ -233,7 +250,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)
