@@ -1,6 +1,7 @@
 /* Internal server API. Nothing is persisted or broadcast.
    [operation, arguments] -> [success, payload, reason]
    reserve: [context, requested, localLimit=12] -> [ticket, granted]
+   remaining: [ticket] -> unbound slots after expiry/limit reconciliation
    bind: [ticket, unit] -> 1; close: [ticket] -> unused slots released
    cancel: [ticket] -> living units deleted; release: [unit] -> slots released
    stats: [] -> [cap, living, pending, tickets, [[context, occupied], ...]]
@@ -47,7 +48,7 @@ private _ordered = [];
     _contexts set [_context, (_contexts getOrDefault [_context,0]) + count _units];
     _ordered pushBack [_y # 6, _x];
 } forEach A3I_budgetRecords;
-// A reduced limit trims unfilled slots, oldest reservations first. Existing
+// A reduced limit trims unfilled slots, preserving older reservations first. Existing
 // living units are retained; later binds cannot spend capacity removed here.
 _ordered sort true;
 private _free = (_cap - _active) max 0;
@@ -95,6 +96,14 @@ private _result = switch (_operation) do {
         // context, unbound slots, units, lease deadline, closed, local ceiling, sequence
         A3I_budgetRecords set [_ticket, [_context, _granted, [], diag_tickTime + 30, false, _limit, A3I_budgetSerial]];
         [true, [_ticket, _granted], ""]
+    };
+    case "remaining": {
+        private _ticket = _args param [0, ""];
+        if !(_ticket isEqualType "") exitWith {[false,0,"invalid_ticket"]};
+        private _record = A3I_budgetRecords getOrDefault [_ticket,[]];
+        if (_record isEqualTo []) exitWith {[false,0,"unknown_ticket"]};
+        if (_record # 4 || {_record # 1 < 1}) exitWith {[false,0,"closed_ticket"]};
+        [true,_record # 1,""]
     };
     case "bind": {
         private _ticket = _args param [0, ""];

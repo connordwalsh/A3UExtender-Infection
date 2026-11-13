@@ -6,11 +6,12 @@ Zombies and Creatures as the Occupant faction. This repository is a fork of
 
 **Status: development prototype; campaign integration is incomplete.** The
 `Infection/` addon registers the infected Occupant, supplies basic unit definitions,
-creates foot-only virtual garrison lines, and adapts infected combat bookkeeping.
-The current isolated dedicated suite passes 140 checks on Ultimate 12.4.2,
-including 67 roles, rifle/death/deletion contracts and a server spawn-budget API.
-The budget still needs production callers. Site, reinforcement,
-mission and save integration remain unfinished. Do not use this build for a
+creates foot-only virtual garrison lines, adapts infected combat bookkeeping,
+and spawns full queued garrisons at six persistent site types under shared limits.
+The current isolated dedicated suite passes 194 checks on Ultimate 12.4.2,
+including 67 roles, combat, placement, later arrivals, cleanup and reentry.
+The missing-dependency suite passes 11 checks. Town/road-control/administration,
+reinforcement, mission and save integration remain unfinished. Do not use this build for a
 campaign you intend to keep.
 
 ## Intended campaign
@@ -40,8 +41,11 @@ claim that compatibility testing has passed.
 - [Registration implementation and limits](docs/research/REGISTRATION.md)
 - [Combat implementation and limits](docs/research/COMBAT.md)
 - [Spawn budget component and limits](docs/research/SPAWN_BUDGET.md)
+- [Persistent site spawning and limits](docs/research/SITE_SPAWNING.md)
+- [Controlled behavior observations](docs/research/BEHAVIOR_12.4.2.md)
 - [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)
 - [Sprint 1 contract evidence](evidence/sprint-1/)
+- [Sprint 2 site and placement evidence](evidence/sprint-2/)
 - [Upstream extender instructions](docs/upstream-extender.md)
 
 Runtime reports will distinguish observed behavior from source findings and

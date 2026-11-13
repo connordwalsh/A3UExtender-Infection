@@ -118,6 +118,8 @@ if (!isServer) exitWith {};
         [_leftovers apply {typeOf _x}, count _remainingGroups]] call _check;
     call compile preprocessFileLineNumbers "combatChecks.sqf";
     call compile preprocessFileLineNumbers "budgetChecks.sqf";
+    call compile preprocessFileLineNumbers "spawnChecks.sqf";
+    call compile preprocessFileLineNumbers "siteChecks.sqf";
     deleteVehicle A3A_customUnitTypes;
     ["complete", _checks, _failures, _spawned] call _log;
     missionNamespace setVariable ["Infection_probeComplete", true, true];

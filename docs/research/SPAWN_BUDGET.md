@@ -1,8 +1,9 @@
 # Server spawn budget component
 
 The S5-1 budget component is implemented early as a dependency of S2 site
-spawning. Site/mission/response callers do not yet use it automatically. This
-component is not a claim that the whole campaign obeys a global cap.
+spawning. The persistent-site increment now connects it to six site types; see
+[site spawning](SITE_SPAWNING.md). Mission/response and other spawn callers remain
+unconverted. This is not a claim that the whole campaign obeys a global cap.
 
 The server owns transient reservations, assigned units and allocation sequence
 numbers. Every budget operation runs unscheduled through CBA's direct-call
@@ -47,13 +48,14 @@ Call `[operation, arguments] call A3I_fnc_budget` on the server. Every response 
 | Operation | Arguments | Successful payload |
 | --- | --- | --- |
 | `reserve` | `[context, requested, localLimit]`, local limit defaults to 12 | `[ticket, grantedCount]` |
+| `remaining` | `[ticket]`, reconciles expiry and lowered limits first | Number of still-unbound slots; an expired/closed ticket is rejected |
 | `bind` | `[ticket, unit]` | `1`, or `0` for an already-bound actor |
 | `close` | `[ticket]` | Number of unused slots released |
 | `cancel` | `[ticket]` | Number of bound living actors deleted |
 | `release` | `[unit]`, normally called by the engine event handlers | Number of bindings released |
 | `stats` | `[]` | `[limit, living, pending, ticketCount, [[context, occupied], ...]]` |
 
-Future spawners must reserve before creation, check each bind result, delete a
+Spawners must reserve before creation, check each bind result, delete a
 new actor if binding fails, and close unused slots on every exit. They must
 handle a partial grant, expired ticket, reduced capacity or ownership change.
 These obligations will be checked in the actual site/response/mission callers.
@@ -61,8 +63,8 @@ Reservations are not save data; future save loading must rebuild transient state
 
 ## Evidence and remaining work
 
-The [build manifest](../../evidence/sprint-5/budget-build.json) identifies the
-tested addon. The [140-check report](../../evidence/sprint-5/budget-contract.json)
+The original API [build manifest](../../evidence/sprint-5/budget-build.json) identifies
+that tested addon. Its [140-check report](../../evidence/sprint-5/budget-contract.json)
 includes 20 budget checks plus the 120 template/garrison/combat regressions on
 Ultimate 12.4.2. Twenty scheduled requests competed for eight slots and exactly
 eight succeeded with unique tickets. Real prepared units exercised binding,
@@ -79,8 +81,9 @@ attempt had passing assertions but produced SQF parameter errors because a
 guard inherited the caller's arguments. Its report failed; the guard now receives
 an explicit WEST argument. It is not included as accepted evidence.
 
-Still open: production spawn callers, safe/player/HQ distance rules, per-site
-tracking, cooldowns, specials and their extra entities, debug UI, persistence,
-headless/JIP and the representative performance soak. Only bound actors and
-their reservations are controlled by this component; unrelated or unconverted
-spawn routes are outside this evidence.
+The later site increment adds production callers, bounded placement, HQ/player
+exclusions, per-site tracking and batch pacing for six persistent site types.
+Still open: remaining spawn routes, specials and their extra entities, debug UI,
+persistence acceptance, headless/JIP and the representative performance soak.
+Only bound actors and their reservations are controlled by this component;
+unrelated or unconverted spawn routes are outside this evidence.

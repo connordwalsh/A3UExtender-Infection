@@ -7,21 +7,21 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | Story | Work | Status | Evidence / next check |
 | --- | --- | --- | --- |
 | S0-1 | Versions, dependencies, clean local and dedicated baseline | In progress | Local save and process-restart reload verified with matching ID/resources; dedicated campaign open. |
-| S0-2 | Prepared-class catalog and behavior | In progress | All 14 classes completed dedicated spawn/init/deletion smoke checks; large-creature model errors and combat/locality-transfer matrix open. |
+| S0-2 | Prepared-class catalog and behavior | In progress | All 112 controlled behavior trials completed on 12.4.2; basic movement/targeting observed. Seven special deletion/locality cases and large-creature model errors remain unresolved; see BEHAVIOR_12.4.2.md. |
 | S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
 | S1-1 | Infection scaffold and dependency checks | In progress | Built and loaded; isolated dependency-present/absent checks passed. Campaign setup acceptance remains open. |
 | S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
-| S1-3 | Vehicle/template contract | In progress | Foot garrison-line checks pass in the corrected 120-check suite; site/support/convoy callers still need tested bypasses. |
-| S2-1 | Occupied-site lifecycle | Backlog | All used site types, cleanup and reentry. |
+| S1-3 | Vehicle/template contract | In progress | Foot lines and six persistent site routes avoid vehicle/static pools in the 194-check suite; towns/controls/admin/support/convoy routes remain open. |
+| S2-1 | Occupied-site lifecycle | In progress | Six persistent types pass isolated spawning/cleanup/reentry checks, including full queued rosters and stopped-controller recovery. Towns/admin and Redux campaign acceptance remain open. |
 | S2-2 | Foot patrols and road controls | Backlog | Urban/rural paths and bounded cleanup. |
-| S2-3 | Capture and persistence | Backlog | Capture/reload/recapture at four site types. |
+| S2-3 | Capture and persistence | In progress | Queued defenders block the capture entry points; native roster death/reentry contracts pass. Actual ownership/rewards/save/reload/recapture remain open. |
 | S3-1 | QRF and attack routing | Backlog | Foot responses, costs, timeout and cancellation. |
 | S3-2 | Garrison repair | Backlog | Ownership, cooldown, player proximity and cap. |
 | S3-3 | Conventional force disposition | Backlog | Occupant-only changes; Invader regression. |
 | S4-1 | Complete mission classification | Backlog | Manual and automatic triggers. |
 | S4-2 | Mission eligibility and common objectives | Backlog | Success/failure/timeout/no-spawn outcomes. |
 | S4-3 | Existing outbreak mission adaptations | Backlog | Survivor civilian configuration. |
-| S5-1 | Central spawn budget | In progress | Server reservation/binding core passes 20 budget checks within the 140-check suite; production callers, spatial rules, pacing and performance remain open. |
+| S5-1 | Central spawn budget | In progress | 21 budget, 17 placement/spawn and 36 site checks pass within the 194-check suite. Six persistent site routes are connected; other callers, terrain/player validation and performance remain open. |
 | S5-2 | Special roles and escalation | Backlog | Largest types restricted to declared events. |
 | S5-3 | Two distinct outbreak mission patterns | Backlog | End-to-end solo and group evidence. |
 | S6-1 | Chernarus Redux site sweep | Backlog | Fix reproduced defects only. |
@@ -90,3 +90,12 @@ lease expiry and cleanup; the full regression suite totals 140. Production site
 and mission callers are still unconverted, so global campaign cap enforcement is
 not claimed. Sprint order/gates remain acceptance targets rather than completed
 labels. No Computer Use was performed during this development session.
+
+The owner chose to preserve full site garrisons and bring remaining infected in
+gradually from safe positions. Six persistent site types now use the server
+budget, bounded placement, queued arrivals, capture guards and normal distance
+cleanup. All 194 combined dedicated checks and 11 missing-dependency checks pass.
+Interrupted scripts are reclaimed automatically as well as on reentry. The 112
+raw behavior trials also completed; seven special deletion/locality assertions
+and large-creature model errors prevent blanket catalog acceptance. Towns,
+controls, administrations, responses, missions and campaign/save gates remain open.
