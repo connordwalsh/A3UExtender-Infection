@@ -104,7 +104,11 @@ test restarted before Arma reported the old script done. The final checks use
 observed state at the change/stop boundary. Automatic stopped-controller cleanup
 was added during review and exercised independently of reentry.
 
-Still open: towns/road controls/military administrations, added garrison and
+Road/field controls are implemented separately in [ROAD_CONTROLS.md](ROAD_CONTROLS.md),
+with their own transient roster and capture rules. This six-site report remains
+the evidence for the earlier increment.
+
+Still open: towns/military administrations, added garrison and
 reinforcement routes, response/mission routing, Redux approach/reentry and terrain
 pathing, actual flag interaction and ownership transaction, save/reload, connected
 players, camera visibility, headless/JIP and the performance soak. Native routes

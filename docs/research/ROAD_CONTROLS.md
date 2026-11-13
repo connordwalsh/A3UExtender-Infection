@@ -35,8 +35,8 @@ a saved garrison. Their units use `legacy` resource accounting and an empty
 bookkeeping marker, while the actual location marker still guards ownership and
 activation during spawning. Living cleanup costs nothing; a death debits ten
 legacy resources through the existing infected combat adapter. Reentry creates
-a new patrol. This control policy does not decide the separate, pending product
-question about town casualty persistence.
+a new patrol. The owner separately approved the same per-visit regeneration
+policy for town patrols, which are not implemented by this control increment.
 
 No control creates infected vehicles, static weapons, UAVs, dogs, flags, crates,
 bunkers or minefields. Abandoned drivable vehicles remain a separate backlog item.
@@ -77,10 +77,19 @@ branches receive explicit classification inputs, rather than claiming a terrain
 road was tested. Original-faction calls and support/UI endpoints are recorded by
 the isolated test addon; they are not a full campaign regression.
 
+The [231-check combined report](../../evidence/sprint-2/control-contract.json)
+passed, including all 37 control checks. No engine/SQF Error records were found;
+27 startup/object warning messages are preserved for review. The separate
+[missing-dependency report](../../evidence/sprint-2/control-dependencies-absent.json)
+passed all 11 checks. The [build manifest](../../evidence/sprint-2/control-build.json)
+matches the tested PBO and all 40 addon source files. Both completed servers were
+stopped after collection. No Computer Use was involved.
+
 The initial combined run completed 231 checks with two failed roster-size test
 expectations and no SQF/engine Error records. Source review confirms that Ultimate's
 `groupTierFireteam` contains six roles, despite its preceding four-man comment;
 adding the former crew role produces seven foot actors. The fixture's expected
 count was corrected from five to seven and its deterministic tier mode is now
-explicit. The corrected run is in progress. No passing combined result, road-terrain
-acceptance, multiplayer acceptance or sprint completion is claimed here yet.
+explicit. That failed run is not accepted evidence. Road-terrain navigation,
+client notifications, campaign save/reload, multiplayer and sprint gates remain
+unaccepted.

@@ -125,7 +125,7 @@ all upstream preferences, fixed/weighted tiers, ordinary side delegation and
 Ultimate's initial-roster/ratio functions. The current suite also exercises combat
 initialization, damage observation, real rifle impacts, resource/garrison death
 and deletion accounting, atomic spawn reservations, setting changes and cleanup.
-A passing full run has 194 checks; the
+A passing full run has 231 checks; the
 dependency-absent run has 11. The installed Ultimate header must report 12.4.2.
 The full fixture uses a separate test-only addon that records task/support/
 aggression and original-init dispatch endpoints, and wraps the real vehicle
@@ -156,3 +156,10 @@ original-route dispatch. A remote recovery-call check protects an unrelated
 recurring handler. This is not a live campaign, UI, client-camera, terrain or
 performance acceptance test. See `docs/research/SITE_SPAWNING.md` and
 `evidence/sprint-2/` for the tested build and exact boundary.
+
+The control module adds 37 checks for road/field role selection, actual off-road
+controller routing, queued arrivals, legacy costs, capture eligibility, ownership
+races, interrupted cleanup and the generated-control calendar reset. VR supplies
+no real roads, so road roster branches use explicit classification inputs. The
+fixture does not certify Redux road geometry, broad roaming or client notifications.
+See `docs/research/ROAD_CONTROLS.md` and `evidence/sprint-2/control-contract.json`.

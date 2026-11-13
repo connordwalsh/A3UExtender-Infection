@@ -83,6 +83,7 @@ an explicit WEST argument. It is not included as accepted evidence.
 
 The later site increment adds production callers, bounded placement, HQ/player
 exclusions, per-site tracking and batch pacing for six persistent site types.
+Road/field controls also use this API; see [their evidence](ROAD_CONTROLS.md).
 Still open: remaining spawn routes, specials and their extra entities, debug UI,
 persistence acceptance, headless/JIP and the representative performance soak.
 Only bound actors and their reservations are controlled by this component;
