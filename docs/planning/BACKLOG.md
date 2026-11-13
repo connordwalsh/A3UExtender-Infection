@@ -21,7 +21,7 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | S4-1 | Complete mission classification | Backlog | Manual and automatic triggers. |
 | S4-2 | Mission eligibility and common objectives | Backlog | Success/failure/timeout/no-spawn outcomes. |
 | S4-3 | Existing outbreak mission adaptations | Backlog | Survivor civilian configuration. |
-| S5-1 | Central spawn budget | Backlog | Reservations, cap, cleanup and telemetry. |
+| S5-1 | Central spawn budget | In progress | Server reservation/binding core passes 20 budget checks within the 140-check suite; production callers, spatial rules, pacing and performance remain open. |
 | S5-2 | Special roles and escalation | Backlog | Largest types restricted to declared events. |
 | S5-3 | Two distinct outbreak mission patterns | Backlog | End-to-end solo and group evidence. |
 | S6-1 | Chernarus Redux site sweep | Backlog | Fix reproduced defects only. |
@@ -82,3 +82,11 @@ cases. Player credit, ACE and multiplayer remain open. The earlier zero-vehicle-
 query assertion was invalid because Arma rejected its test replacement; the
 current fixture corrects it and proves the counter works on ordinary controls.
 See `docs/research/VALIDATION_CORRECTIONS.md`. No sprint gate is closed.
+
+The S5-1 reservation component was pulled forward as a technical dependency of
+S2 live sites. It passes 20 dedicated checks covering competing requests, global
+and shared-context limits, setting reductions, binding/death/deletion/cancellation,
+lease expiry and cleanup; the full regression suite totals 140. Production site
+and mission callers are still unconverted, so global campaign cap enforcement is
+not claimed. Sprint order/gates remain acceptance targets rather than completed
+labels. No Computer Use was performed during this development session.

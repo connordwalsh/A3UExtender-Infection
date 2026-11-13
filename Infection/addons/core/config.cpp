@@ -7,7 +7,7 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = 2.22;
-        requiredAddons[] = {"A3A_core", "A3A_ultimate", "cba_main"};
+        requiredAddons[] = {"A3A_core", "A3A_ultimate", "cba_main", "cba_settings"};
         version = 0.1;
         versionStr = "0.1.0-dev";
         A3A_compatibility[] = {12, 4};
@@ -23,6 +23,7 @@ class CfgFunctions
         {
             file = "\x\a3i\addons\core\functions";
             class bootstrap { preInit = 1; };
+            class initSettings { preInit = 1; };
             class dependencies {};
             class isActive {};
             class isManagedUnit {};
@@ -30,6 +31,7 @@ class CfgFunctions
             class infectedDamageObserved {};
             class infectedKilled {};
             class infectedDeleted {};
+            class budget {};
         };
         class Garrison
         {

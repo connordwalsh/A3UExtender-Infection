@@ -124,7 +124,8 @@ The full template fixture also checks the infected garrison-line override using
 all upstream preferences, fixed/weighted tiers, ordinary side delegation and
 Ultimate's initial-roster/ratio functions. The current suite also exercises combat
 initialization, damage observation, real rifle impacts, resource/garrison death
-and deletion accounting, and cleanup. A passing full run has 120 checks; the
+and deletion accounting, atomic spawn reservations, setting changes and cleanup.
+A passing full run has 140 checks; the
 dependency-absent run has 11. The installed Ultimate header must report 12.4.2.
 The full fixture uses a separate test-only addon that records task/support/
 aggression and original-init dispatch endpoints, and wraps the real vehicle
@@ -140,3 +141,9 @@ The template fixture builder likewise rejects its test addon while it is in use.
 The collector rejects missing/duplicate checks, malformed records, script/engine
 errors and rejected attempts to override protected A3A/A3I functions. Run the
 parser regression with `python -m unittest discover -s tests -p test_evidence_parser.py`.
+
+Budget checks use the real CBA server-setting API with persistence disabled and
+restore the prior values. They test twenty competing requests, shared-context
+ceilings, real prepared-unit bindings and Killed/Deleted release, cancellation,
+and a 31-second lease-expiry wait. They do not exercise production site placement
+or performance. See `docs/research/SPAWN_BUDGET.md`.
