@@ -36,6 +36,13 @@ class CfgFunctions
             class positionSafety {};
             class findSpawnPosition {};
             class spawnGroup {};
+            class adoptReinforcement {};
+            class reinforcementEligible {};
+            class reinforcementSources {};
+            class requestReinforcement {};
+            class runReinforcement {};
+            class reinforcementWatchdog {};
+            class reinforcementTick {};
             class startSite {};
             class runSite {};
             class cleanupSite {};
@@ -77,6 +84,8 @@ class CfgFunctions
                 file = "\x\a3a\addons\core\functions\CREATE\fn_NATOinit.sqf";
             };
             class originalScheduler { file = "\x\a3a\addons\core\functions\Base\fn_scheduler.sqf"; };
+            class originalPatrolReinf { file = "\x\a3a\addons\core\functions\CREATE\fn_patrolReinf.sqf"; };
+            class originalReinforcementsAI { file = "\x\a3a\addons\core\functions\CREATE\fn_reinforcementsAI.sqf"; };
             class originalCreateAIResources { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIResources.sqf"; };
             class originalCreateAIOutposts { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIOutposts.sqf"; };
             class originalCreateAIMilbase { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIMilbase.sqf"; };
@@ -95,6 +104,8 @@ class CfgFunctions
         class CREATE
         {
             class NATOinit { file = "\x\a3i\addons\core\overrides\fn_NATOinit.sqf"; };
+            class patrolReinf { file = "\x\a3i\addons\core\overrides\fn_patrolReinf.sqf"; };
+            class reinforcementsAI { file = "\x\a3i\addons\core\overrides\fn_reinforcementsAI.sqf"; };
             class createAIResources { file = "\x\a3i\addons\core\overrides\fn_createAIResources.sqf"; };
             class createAIOutposts { file = "\x\a3i\addons\core\overrides\fn_createAIOutposts.sqf"; };
             class createAIMilbase { file = "\x\a3i\addons\core\overrides\fn_createAIMilbase.sqf"; };

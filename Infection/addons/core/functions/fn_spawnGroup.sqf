@@ -1,16 +1,19 @@
 /* Server scheduled bounded creation for registered basic infected.
-   [context, roles, center, minRadius, maxRadius, marker, pool, localLimit, trackGarrison]
+   [context, roles, center, minRadius, maxRadius, marker, pool, localLimit,
+    trackGarrison, eligibility={}, prepay=false]
    -> [success, [group, created units, budget ticket], reason].
    A partial result consumes only the first count(units) roles. The caller owns
    the remaining queue and must not treat a refused spawn as a killed defender. */
 params ["_context", "_roles", "_center", "_minimum", "_maximum",
-    ["_marker",""], ["_pool","garrison"], ["_localLimit",12], ["_trackGarrison",true,[true]]];
+    ["_marker",""], ["_pool","garrison"], ["_localLimit",12], ["_trackGarrison",true,[true]],
+    ["_eligibility",{true},[{}]], ["_prepay",false,[true]]];
 private _empty = [grpNull,[],""];
 if (!isServer || {isRemoteExecuted && {remoteExecutedOwner != 2}}) exitWith {[false,_empty,"server_origin_only"]};
 if (!canSuspend) exitWith {[false,_empty,"scheduled_required"]};
 if !([west] call A3I_fnc_isActive) exitWith {[false,_empty,"inactive"]};
 if !(_roles isEqualType [] && {_roles isNotEqualTo []} && {count _roles <= 256}
-    && {_marker isEqualType ""} && {_pool in ["garrison","attack","defence","legacy"]})
+    && {_marker isEqualType ""} && {_pool in ["garrison","attack","defence","legacy"]}
+    && {!_prepay || {_pool in ["attack","defence"]}})
     exitWith {[false,_empty,"invalid_request"]};
 private _definitions = A3A_faction_occ get "loadouts";
 private _classes = [];
@@ -28,7 +31,7 @@ private _invalid = false;
 } forEach _roles;
 if (_invalid) exitWith {[false,_empty,"unregistered_role"]};
 private _allowed = {
-    [west] call A3I_fnc_isActive && {_marker == "" || {
+    [west] call A3I_fnc_isActive && {call _eligibility} && {_marker == "" || {
         !isNil "sidesX" && {!isNil "spawner"} && {_marker in allMapMarkers}
         && {sidesX getVariable [_marker,sideUnknown] == west}
         && {spawner getVariable [_marker,2] == 0}
@@ -59,6 +62,10 @@ if (isNull _group) then {_reason = "group_limit"} else {
             if !(_safety # 0) exitWith {_reason = _safety # 1};
             private _remaining = ["remaining",[_ticket]] call A3I_fnc_budget;
             if !(_remaining # 0) exitWith {_reason = _remaining # 2};
+            private _resourceName = ["A3A_resourcesDefenceOcc","A3A_resourcesAttackOcc"] select (_pool == "attack");
+            private _funds = missionNamespace getVariable [_resourceName,0];
+            if (_prepay && {!(_funds isEqualType 0 && {finite _funds} && {_funds >= 10})})
+                exitWith {_reason = "resources"};
             _unit = [_group,_roles # _index,_position,[],0,"NONE"] call A3A_fnc_createUnit;
             if (isNull _unit) exitWith {_reason = "creation_failed"};
             private _binding = ["bind",[_ticket,_unit]] call A3I_fnc_budget;
@@ -67,12 +74,26 @@ if (isNull _group) then {_reason = "group_limit"} else {
                 deleteVehicle _unit;
                 _unit = objNull;
             };
+            if (_prepay) then {
+                // Unit creation may run another addon's synchronous callbacks.
+                // Recheck funds before payment, even inside this atomic section.
+                _funds = missionNamespace getVariable [_resourceName,0];
+                if !(_funds isEqualType 0 && {finite _funds} && {_funds >= 10}) exitWith {
+                    _reason = "resources";
+                    deleteVehicle _unit;
+                    _unit = objNull;
+                };
+                [-10,west,_pool] call A3A_fnc_addEnemyResources;
+                _unit setVariable ["A3I_reinforcementPaid",true];
+            };
+            if (isNull _unit) exitWith {};
             [_unit,_marker,_context] call A3I_fnc_trackAdministrationDefender;
             // Controls use the marker for ownership/activation checks, but their
             // per-visit patrol casualties are not persistent garrison entries.
             [_unit,if (_trackGarrison) then {_marker} else {""},false,_pool] call A3A_fnc_NATOinit;
             if !(_unit getVariable ["A3I_initialized",false]) exitWith {
                 _reason = "initialization_failed";
+                if (_prepay) then {[10,west,_pool] call A3A_fnc_addEnemyResources};
                 deleteVehicle _unit;
                 _unit = objNull;
             };

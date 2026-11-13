@@ -3,6 +3,7 @@
    reserve: [context, requested, localLimit=12] -> [ticket, granted]
    remaining: [ticket] -> unbound slots after expiry/limit reconciliation
    bind: [ticket, unit] -> 1; close: [ticket] -> unused slots released
+   transfer: [closed ticket, context, localLimit=24] -> living units moved
    cancel: [ticket] -> living units deleted; release: [unit] -> slots released
    stats: [] -> [cap, living, pending, tickets, [[context, occupied], ...]]
    Every mutation is unscheduled, including calls from scheduled spawn scripts. */
@@ -129,6 +130,29 @@ private _result = switch (_operation) do {
         _unit addEventHandler ["Killed", {["release", [_this # 0]] call A3I_fnc_budget}];
         _unit addEventHandler ["Deleted", {["release", [_this # 0]] call A3I_fnc_budget}];
         [true, 1, ""]
+    };
+    case "transfer": {
+        private _ticket = _args param [0, ""];
+        private _context = _args param [1, ""];
+        private _localLimit = _args param [2, 24];
+        if !(_ticket isEqualType "" && {_context isEqualType ""} && {_context != ""}
+            && {count _context <= 128} && {_localLimit isEqualType 0} && {finite _localLimit}
+            && {_localLimit >= 1} && {floor _localLimit == _localLimit})
+            exitWith {[false,0,"invalid_request"]};
+        private _record = A3I_budgetRecords getOrDefault [_ticket,[]];
+        if (_record isEqualTo []) exitWith {[false,0,"unknown_ticket"]};
+        if (!(_record # 4) || {_record # 1 != 0}) exitWith {[false,0,"ticket_not_closed"]};
+        if (_record # 0 == _context) exitWith {[true,0,"already_transferred"]};
+        private _limit = _localLimit min _contextCap;
+        {if (_y # 0 == _context) then {_limit = _limit min (_y # 5)}} forEach A3I_budgetRecords;
+        private _count = count (_record # 2);
+        if (_count + (_contexts getOrDefault [_context,0]) > _limit)
+            exitWith {[false,0,"capacity"]};
+        // Moving existing bindings does not create global capacity or replace
+        // their death/deletion handlers. The destination's ceiling still applies.
+        _record set [0,_context];
+        _record set [5,_localLimit min 24];
+        [true,_count,""]
     };
     case "release": {
         private _unit = _args param [0, objNull];

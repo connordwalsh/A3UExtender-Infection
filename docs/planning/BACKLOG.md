@@ -16,7 +16,7 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | S2-2 | Foot patrols and road controls | In progress | Road/field controls pass 37 checks and towns pass 31 within the 264-check suite. Towns preserve approved per-visit regeneration. Terrain navigation and repeated patrol circuits remain open. |
 | S2-3 | Capture and persistence | In progress | Queued defenders block capture; roster death/reentry contracts pass. Administration clearing uses the actual native ownership/support transaction, including after building destruction. Full campaign ownership/rewards/save/reload/recapture remain open. |
 | S3-1 | QRF and attack routing | Backlog | Foot responses, costs, timeout and cancellation. |
-| S3-2 | Garrison repair | In progress | Source review confirms active-queue synchronization and vehicle/carrier routing gaps. Owner permits nearby foot replacements subject to cooldown and combat checks; implementation remains open. |
+| S3-2 | Garrison repair | In progress | Routine paid foot arrivals and virtual repair pass 39 cases in the 340-check suite: original queue priority, cooldown/combat/ownership, active limits, roster handoff and cleanup. Redux travel, nearby players and restart persistence remain open. |
 | S3-3 | Conventional force disposition | Backlog | Occupant-only changes; Invader regression. |
 | S4-1 | Complete mission classification | Backlog | Manual and automatic triggers. |
 | S4-2 | Mission eligibility and common objectives | Backlog | Success/failure/timeout/no-spawn outcomes. |
@@ -133,3 +133,14 @@ open. The tested artifact matches all 57 addon source files. The owner permits
 routine foot reinforcements while players remain nearby, subject to cooldown and
 combat checks; S3 source review is underway. No Computer Use or client launch was
 performed, and no sprint acceptance gate is closed.
+
+Routine reinforcement now uses paid basic infected on foot, native garrison
+deficits and cycle quotas, a 600-second target cooldown, combat checks and safe
+source selection. Arrivals transfer into the active site's saved roster without
+duplicating actors or exceeding its limit. Offscreen repair remains virtual.
+All 340 combined checks and 11 dependency-absent checks pass; the 39 new cases
+exercise actual actor/resource/death behavior and injected arrival races.
+The artifact matches all 66 addon source files. Long-distance Redux travel,
+connected-player cleanup, cooldown persistence and real Invader campaign behavior
+remain unaccepted. Native roaming, QRF/attack and mission routes still need work.
+No Computer Use or client launch was performed, and no sprint gate is closed.
