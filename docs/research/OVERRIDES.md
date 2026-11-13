@@ -62,7 +62,7 @@ The [site implementation](SITE_SPAWNING.md) records the remaining campaign gates
 | `CREATE/fn_createAIMilbase.sqf` | `030fc5683d3eb1e3b685e589270a8eecd3318ba42801c9fdb5dbfa5ea20d084a` |
 | `CREATE/fn_createAIAirplane.sqf` | `4708a51c0b8bf1392fc8aa86d0de6f749cc993401a642bf066a4ed1548d157fe` |
 
-These routes do not yet replace cities, military administrations,
+Together with the control and town increments below, these routes still leave military administrations,
 reinforcement/repair, mission generators or capture-triggered counterattacks.
 The old vehicle-pool assumptions in those paths remain release blockers.
 

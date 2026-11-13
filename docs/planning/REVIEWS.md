@@ -195,3 +195,41 @@ campaign saves or multiplayer. S2/S5 and all campaign gates remain open. The own
 subsequently approved per-visit town regeneration and administration strongholds
 with survivor rescues; both remain future implementation work. No
 Computer Use, client launch or Workshop publication was performed.
+
+## 13 November 2026 — Per-visit infected town patrols
+
+Self-review covers the guarded town creator/scheduler, source-derived selection,
+shared transient patrol controller, bounded outdoor routes, retry deadlines and
+ownership/cleanup boundaries. The owner's per-visit regeneration choice is
+preserved. Normal towns use police pairs, frontline towns use tiered pairs and
+ruined towns use approved basic infected on WEST. Patrols do not mutate the saved
+town garrison or directly capture towns; native support/ownership callbacks remain.
+The route helper preserves WebKnight combat/health behavior and uses checked
+ground destinations, with no unchecked-center fallback.
+
+The first run exposed a real shared-budget defect: an older ticket permanently
+cached the lower server context setting. Tickets now retain their caller's
+ceiling, so raising a server setting permits new capacity while an explicit
+caller limit remains binding. Two budget regressions and the real town queue
+exercise this case. An unsuccessful initial route search also has its own retry
+deadline, avoiding two searches in the same controller pass.
+
+Validation: 264 dedicated checks and 11 dependency-absent checks pass, including
+31 town checks, both new budget regressions and all prior coverage. The strict
+collector found no engine/SQF Error records and retained 32 warnings for review.
+The tested PBO and all 43 source files match the manifest. Python parser tests,
+PowerShell syntax and whitespace checks pass. Completed test servers were stopped
+using verified owned profile IDs.
+
+Two site fixture boundaries were corrected: flags become null on the next engine
+frame, and a group follower may initially regroup away from the marker. The
+revised test observes the living leader's approach before killing a defender;
+the separate full-roster arrival and cleanup assertions remain. An intermediate
+run reported all assertions passing but truncated an oversized diagnostic line;
+the collector rejected it. Neither failed/incomplete-evidence run is accepted.
+
+Integration decision: merge the scoped town increment. Repeated patrol circuits,
+Redux pathfinding, post-casualty group movement, support/UI effects, campaign
+saves, multiplayer and performance remain acceptance work. Administration,
+reinforcement and mission routes remain unconverted. No sprint gate is closed,
+and no Computer Use, client launch or Workshop publication was performed.

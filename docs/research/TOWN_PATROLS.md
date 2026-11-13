@@ -64,16 +64,22 @@ remain acceptance work.
 
 ## Validation boundary
 
-The isolated dedicated suite now defines 31 town checks, for 264 combined checks.
-Validation is in progress. It exercises source-derived counts, source/dependency
+The [dedicated report](../../evidence/sprint-2/town-contract.json) passes all 264
+combined checks, including 31 town cases. It exercises source-derived counts, source/dependency
 delegation, skip events, real budgeted actors, waypoint bounds, actual movement,
 legacy costs, per-visit regeneration, ownership cancellation, civilian preservation,
 ruined-town WEST identity and cleanup. Support/UI and original-route endpoints
 remain recording callbacks; unchanged town data in this fixture does not mean
 the production support callback has no effect.
 
-No passing town result, terrain acceptance, campaign save/reload, connected-client
-or sprint completion claim is made before the required evidence is collected.
+The [dependency-absent report](../../evidence/sprint-2/town-dependencies-absent.json)
+passes 11 checks. The [build manifest](../../evidence/sprint-2/town-build.json)
+matches the tested package and all 43 addon source files. Both runs contain no
+engine/SQF Error records. The main report retains 32 startup/animation/final-function
+and object-not-found warnings. The fixture finishes with no extra actors, groups,
+reservations, site records or watchdog handler. Completed servers were stopped.
+Terrain acceptance, campaign save/reload, connected-client and sprint gates remain
+open; this report does not establish repeated patrol circuits or Redux navigation.
 
 The first run exposed a shared-budget defect: raising the server context limit
 could leave a town constrained by an older ticket's cached limit. Tickets now
@@ -81,7 +87,8 @@ retain their caller's ceiling, with two additional budget regressions. Failed
 route searches also retain their own 30-second retry deadline. The next engine
 run reported all 264 assertions passing, but an oversized diagnostic line was
 truncated by the engine, so the strict collector correctly rejected that run.
-Neither run is accepted evidence.
+Neither run is accepted evidence. A final run with corrected observations and
+short diagnostics passes the strict collector.
 
 Site fixture review also corrected two observation boundaries. Object deletion
 becomes visible on the next engine frame, so cleanup waits for both controller

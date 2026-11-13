@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "product": "Antistasi Ultimate: Infection",
+  "version": "0.1.0-dev",
+  "scope": "Development prototype with registration, combat, bounded spawning and six persistent site routes, transient road/field controls and town patrols; full campaign routes remain incomplete",
+  "built_at_utc": "2026-11-13T22:10:32.2145201Z",
+  "prefix": "x\\a3i\\addons\\core",
+  "addon_sha256": "9fcccb59ff2d226cbf4964a9340506dec0e75dab9ba018ea6375d1502c10ba54",
+  "source": [
+    {
+      "path": "Infection/addons/core/config.cpp",
+      "sha256": "e842d8622a3fcc60c7f125826eacd1d074a747c21c7068907b1c4e19fb2532d1"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_bootstrap.sqf",
+      "sha256": "35f2e15cd7a8a07752a9acc67de6079d7767aa012e6735d3c77857ee45536bbf"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_budget.sqf",
+      "sha256": "fd017d03ccaf421a29aacd1e01fe97061ae52de73df66a57462cfca4b9c298f2"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_cityRoster.sqf",
+      "sha256": "6d8b01b3a98e65a5645e8b0dcf273af897bf100905753ce70e4d6a1988c34843"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_cleanupSite.sqf",
+      "sha256": "08d7ff4a23c293afd5b5aa9be14179fa4ea384bfbfa88f74e38a98b180a41297"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_controlResetTick.sqf",
+      "sha256": "0dff817eca791e0ca73001621218c5cabf705dbe3eb3e1cc3e7d243ad37aab25"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_controlRoster.sqf",
+      "sha256": "dc46f46e611aebe5dc447315014590a05d11224be9785d7ee0deb23afe16415e"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_createFootGarrisonLine.sqf",
+      "sha256": "1a1a33a2d62de2591b8e43c85b0ec480da41fb4c3f47d99009a809f9e021139e"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_dependencies.sqf",
+      "sha256": "f665cc54f9b16496d981f1e7b67c33c0148c5286eddfe8c60881456e792a1335"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_elapsedDateMinutes.sqf",
+      "sha256": "b9dfdb81d7b68abe7d70b451fb4130a9eeb09e37c178ffa68af97f57c8ab51b3"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_findSpawnPosition.sqf",
+      "sha256": "f55906fa852364126e68694ca470377de27219c21ca42f682db1c0e55cf59cd4"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_infectedDamageObserved.sqf",
+      "sha256": "a3de373c0f2d26d8426679813d5f43c3f97bbb760d46c772d3d003634a28a2e1"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_infectedDeleted.sqf",
+      "sha256": "96ec53391eaab6cce1c18fd87177de8f610398cbeac5e0e1c1b6b0106aaf602d"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_infectedKilled.sqf",
+      "sha256": "cc46ea3703a8ee9e45759bd0d357efb72ccf63216fd2e78a49bb71bf01da3e8b"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_initInfected.sqf",
+      "sha256": "41c9e980066287c6be10fc34a034b513945aacb21684f36f1396583d188efee2"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_initSettings.sqf",
+      "sha256": "4f59b02a9807fda103d8bd675d2de0d5664d765ac2ddab824106302acbf8df51"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_isActive.sqf",
+      "sha256": "420dd0220d72e1a37dc28690dfc7168469358e7a45f6f9e31722110b4587e868"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_isManagedUnit.sqf",
+      "sha256": "9ceb2c3f414a290597efb88c2523f02a9b5f97423c5f275930c7c23c719073eb"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_patrolWaypoints.sqf",
+      "sha256": "4eb8f5732a4da3d6bc85eec46111c01274a9f6d6cf2acbb7f247a938083f9168"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_positionSafety.sqf",
+      "sha256": "8c96339a24b6dd063b1a421117646e6f8e6fece29999675b3011fe1b9e7353c0"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_runPatrol.sqf",
+      "sha256": "dae82acd6a8f3fa2ba16ad93d7e6ea1dd03592aef6b94a42e7eea8b4006f2ea9"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_runSite.sqf",
+      "sha256": "b54f31536013f8f09b4d83861187d9efb718c68ec0eeefc3365e6c995f2e4691"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_siteCaptureBlocked.sqf",
+      "sha256": "f0877663121d2cf98c4a40b4a33d164b15651702a418bb7ace4026a5d924b359"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_siteWatchdog.sqf",
+      "sha256": "f3d6caf4fded06c90555c8c1f77a735fb592dc83723865194f2eb592969cbcc0"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_spawnGroup.sqf",
+      "sha256": "9ecccdc68544fc3ba9399180cad5a9ad1c5a2907839eeb90c589f578cdca130e"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_spawnObservers.sqf",
+      "sha256": "addea19dde6e49030ecd3719059530541e669894c82ae22107aafe11a5e5ca7e"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_startSite.sqf",
+      "sha256": "ddd8e5c7c14d242fb0a8ce4aae9aa6f7e5b8e9413fc0d68fed54cc7469efa06e"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_tryCaptureControl.sqf",
+      "sha256": "e2d0c2a8e2bf3f8fb972bb963976c6414c51ee895692794b08cb2649b44bc9ac"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_createAIAirplane.sqf",
+      "sha256": "58cde538884488720e35e88c9782000a171d8a16e0efca951e3708fc78c9ed98"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_createAICities.sqf",
+      "sha256": "50e314bc5483cc342a66d56e3eeb8d41ded2a498e41596d9998b9369907cdd7e"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_createAIcontrols.sqf",
+      "sha256": "19efd3734f27914cee01fdce596c78e1c45a7a6a1959dfcd90fd2cbc4a1b84b7"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_createAIMilbase.sqf",
+      "sha256": "884e32e0753a671ec8019eff60f1ffb67af1c137595237bfa2bb9888662dac45"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_createAIOutposts.sqf",
+      "sha256": "7173175ec1be698107a1949352ab95e7d4ce5d611a0c96bcae78367aea6d72d3"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_createAIResources.sqf",
+      "sha256": "875283cae896e56ca9d1ada7b7192c8185356e7cd236e0727d89619ed86f73a5"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_createGarrisonLine.sqf",
+      "sha256": "2b81a371cff8799ac6c80702657e54499f5a5c13c5929f21ce5f814b7c47e468"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_markerChange.sqf",
+      "sha256": "f749179962bf135b65884e5963b80ab87b8443417e223dad1f22a7f6bb48fcde"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_mrkWIN.sqf",
+      "sha256": "fdb67f784847b22653542afd96e739e11d0db5db394c1113ad5f2e1a1ac87451"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_NATOinit.sqf",
+      "sha256": "38f0f4738485684a8896190eac53b71eedf01aea5065d4f07954201ca0654c20"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_scheduler.sqf",
+      "sha256": "c9b9aee5e8eba4398e0562d542b29107187f5a7eba858ce52ee3aac703a9511c"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_surrenderAction.sqf",
+      "sha256": "399ea1d439c2a62f21379767b8d38fe2dadfe140ec015608592f0c26fda648e8"
+    },
+    {
+      "path": "Infection/addons/core/templates/Infected.sqf",
+      "sha256": "f2ea354ceb32b4d2b0a687642e01a04cf6cde44a7a21bb85fcc35c2d9663bde1"
+    },
+    {
+      "path": "Infection/mod.cpp",
+      "sha256": "ff7564d911bf7c428ad025ffb94dae9782458a10fe925e050398599585dcf2ad"
+    },
+    {
+      "path": "Infection/THIRD_PARTY_LICENSES.txt",
+      "sha256": "6ada5ef3ab9f31704ad0c9a79cabef308f2973ac7e08ba41cfb97368adba49b2"
+    }
+  ]
+}
