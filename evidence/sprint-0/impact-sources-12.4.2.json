@@ -1,0 +1,353 @@
+{
+  "upstream_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "purpose": "Owning sources named in the proposed Occupant impact matrix; not proof of implemented overrides",
+  "files": [
+    {
+      "path": "A3A/addons/core/Templates.hpp",
+      "sha256": "d6695501e0ce145fa1f014d4a0bd6825523edbe99e6b5ca4cf51e0c9a502fe96"
+    },
+    {
+      "path": "A3A/addons/core/Templates/Templates.hpp",
+      "sha256": "d9e4d3744d938d180d80f812cc953e6928affc5f830ec031a83b3509adbd348f"
+    },
+    {
+      "path": "A3A/addons/core/Templates/Templates/FactionDefaults/EnemyDefaults.sqf",
+      "sha256": "977934e044d0a6101d5af6201686e5757a7728ed8cb466511e42def6a4f0e5ce"
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_chooseAttack.sqf",
+      "sha256": "a43a6c893e212363f09c8f2cb84a44a6bf7e3f5c451f82eb6c19f1ae7aed9506"
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_despawnQueueEntity.sqf",
+      "sha256": "6f0749149051edcdc7bec5455cf5cf2582b9e28328909f686baeea8b87218819"
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_despawnQueueProcessor.sqf",
+      "sha256": "24c7a6bfbe785d1f78f47add0438b15ad1f5aa0a733b784014c459db011e65a4"
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_distance.sqf",
+      "sha256": "88f857938eac24e76ab8b404c379f815097b7a6af1d6bfb95e484cb129796475"
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_markerChange.sqf",
+      "sha256": "4b283a4359190453daa5179c07616869a7e161cfd0c56a853278d3bbc2e25f5a"
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_scheduler.sqf",
+      "sha256": "8daab3180fa8a1d6e6cc2c438e8e86f074ed77fd0d10d570da75480cc3c663c5"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_AAFroadPatrol.sqf",
+      "sha256": "7a13758c54070ad1d9689131efb382e5f3397f44a21b18802d83aa115a13b839"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_AIVEHinit.sqf",
+      "sha256": "7d251ad117182d97cafa5f2b93324c5ba55bb0e1b739685df179957483d252f4"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_NATOinit.sqf",
+      "sha256": "43e397a01cffd2b7e547101f7455f2547b529ff4b87f43aa1a4e1c247b87a9dc"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_VEHdespawner.sqf",
+      "sha256": "8a8d609517db50a82e10d9fe65adc13f0379247a1e86822aec6a0ac3ca6f0220"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_attackHQ.sqf",
+      "sha256": "054b5d7b953e9e3bf76e089577c3fe5dd43c1cbb5df2eae08541a436193d9b56"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_civVEHinit.sqf",
+      "sha256": "0d04b1b9b18864dc714be2e6131a922dc870408df7c075d02572458e4d95ffc0"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAIAirplane.sqf",
+      "sha256": "4708a51c0b8bf1392fc8aa86d0de6f749cc993401a642bf066a4ed1548d157fe"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAICities.sqf",
+      "sha256": "146b4d1a7d3db93656739c38409f4bce80235e2141411d76b8978100ad801e2f"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAIMilAdmin.sqf",
+      "sha256": "d6a27ece318f033d44e948a52266698fb4112e59f3a0a6ad0c3d3c893224ebe8"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAIMilbase.sqf",
+      "sha256": "030fc5683d3eb1e3b685e589270a8eecd3318ba42801c9fdb5dbfa5ea20d084a"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAIOutposts.sqf",
+      "sha256": "f3692aea5f9aca3ab207091b2299ad531ba6b7e9737e9da5d127da9adca01a64"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAIResources.sqf",
+      "sha256": "0c3f70883fbc744ed64a832121f5e3d63d9050b9ee540518ae6d820fb91f67f0"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAIcontrols.sqf",
+      "sha256": "584ee253e61f567af3c2bcd154797ecf12a1f7f3fe767518992b38c74482e66a"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAttackForceAir.sqf",
+      "sha256": "84785d46b16c415d1cd81973fcc2b77dad0b5047a20dfef9b5f91537f9bd2a37"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAttackForceLand.sqf",
+      "sha256": "a638cd41feef116cefd86b6ee8f34c66d6b158355502ab1aacf3670695bc772a"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAttackForceLandMilitia.sqf",
+      "sha256": "6b642d2606bb9c4a12f7fbcd60b0bad551602327951446b2761ef2c67b6aa9d5"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAttackForceMixed.sqf",
+      "sha256": "fbea2540e62bc80a44eec99fb081e3b3b10766520d000ae4b8776caee7ecb3ee"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAttackForceOrbital.sqf",
+      "sha256": "d5ebae2faf48e23e8678e40d32759290ebad48fb9520be235b545dd869a123b6"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createAttackForcePolice.sqf",
+      "sha256": "aa2be23402ff563a4a805c07b5b00c559d45036cc83f079eef575c663cec41ae"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_createUnit.sqf",
+      "sha256": "cef93e3420643830aad242b1bca1c655a54ce4125d45851ba89e49c2f76a3c92"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_groupDespawner.sqf",
+      "sha256": "f7c66c9218d0f55c4a0cde84703cb86ffad38341137183f3f747dc0d09af577b"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_patrolReinf.sqf",
+      "sha256": "415927327826fe000a8f4ea0888d6165f3040f4ba01957af0e00c449d2a30627"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_registerUnitType.sqf",
+      "sha256": "cd027cc54fb21cd3ba54746d09e3ad385f1b1796dfa2bba6ef18d0e9c4430fef"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_reinforcementsAI.sqf",
+      "sha256": "44bb023659afd5848cffe57fdec4cecf7fba1b64005716ba3b0285f443c4f91f"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_singleAttack.sqf",
+      "sha256": "4307b88c3385da599c745e8fba23671642f7721fe12554a0745a610fb221beda"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_spawnGroup.sqf",
+      "sha256": "8ccf6c947bae8de73044b6e419d724ecf107228420e5ca840ad2f5455df9e168"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_townBattle.sqf",
+      "sha256": "e1bcf521654eaf7524a260f544ef6403d75404a8c2aac71c5807fc39cb273634"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_vehKilledOrCaptured.sqf",
+      "sha256": "3ed8797602aeb2236dc414373dd5ddb451e87472aa85acb38fc4c978730fd4d3"
+    },
+    {
+      "path": "A3A/addons/core/functions/CREATE/fn_wavedAttack.sqf",
+      "sha256": "f17ab65646d3dbbc3eea46274d3f627fe458d68538da8170132799552d9be687"
+    },
+    {
+      "path": "A3A/addons/core/functions/Convoy/fn_createConvoy.sqf",
+      "sha256": "2772ca623549f4526cab5d8250357aaae9664839de3f4c8cff44c988002db2ac"
+    },
+    {
+      "path": "A3A/addons/core/functions/Convoy/fn_despawnConvoy.sqf",
+      "sha256": "e9222a798d0953f6e65c6f8c3f88a5a1fe7378417a6a44d9bbcf1d53dcec476d"
+    },
+    {
+      "path": "A3A/addons/core/functions/Convoy/fn_onConvoyArrival.sqf",
+      "sha256": "b6591482154bbf5c5383b517af65c03d02112b870d72cc4ad8a2c5e8faef6c6e"
+    },
+    {
+      "path": "A3A/addons/core/functions/Convoy/fn_spawnConvoy.sqf",
+      "sha256": "0479a2c5cf41bd857124c9b9840dcd21067a78ab7fdd9a6d2d6387dd343c8564"
+    },
+    {
+      "path": "A3A/addons/core/functions/Convoy/fn_spawnConvoyLine.sqf",
+      "sha256": "69075b546fcac41fba60bb4630049a51392c4d7005fb43ef3aec6d4d8f268fe2"
+    },
+    {
+      "path": "A3A/addons/core/functions/EventHandler/fn_enemyUnitDeletedEH.sqf",
+      "sha256": "facf82adcda4fbc556316e758070349c1400330fd06225287ab8fbd415f973a3"
+    },
+    {
+      "path": "A3A/addons/core/functions/EventHandler/fn_enemyUnitKilledEH.sqf",
+      "sha256": "4d48158549f4432ed96d6471bc67596a9486e751156c6017443e9b5b5bcf7682"
+    },
+    {
+      "path": "A3A/addons/core/functions/Events/fn_triggerLocalEvent.sqf",
+      "sha256": "2ba24006e549ed449f19d8ea203ffb280ed49f1ad2cd12237e0f02cc665e3b5a"
+    },
+    {
+      "path": "A3A/addons/core/functions/Garrison/fn_createGarrison.sqf",
+      "sha256": "60a43e8b62439ea449114adba9666bc7c3eec3c7fd5bc1222601167dc76e4736"
+    },
+    {
+      "path": "A3A/addons/core/functions/Garrison/fn_createGarrisonLine.sqf",
+      "sha256": "0994fb748a6b43429a782e52e8842aa1333cb6ae5b21c52b8269f2bb13a05017"
+    },
+    {
+      "path": "A3A/addons/core/functions/Garrison/fn_initPreference.sqf",
+      "sha256": "5fa3505c68457d672ad778f75b1a15125cd6ba70882c05ec6058b8036a1282e5"
+    },
+    {
+      "path": "A3A/addons/core/functions/Garrison/fn_replenishGarrison.sqf",
+      "sha256": "cc39efd41d83a5bc4664b248ca5014ef4edd16d8971320894f4c66a9abd99742"
+    },
+    {
+      "path": "A3A/addons/core/functions/Garrison/fn_selectReinfUnits.sqf",
+      "sha256": "4051762ac2d08ee79e26e0c7d0538222ff130247c4cd9c6fa572b92f1da53865"
+    },
+    {
+      "path": "A3A/addons/core/functions/Garrison/fn_updateGarrison.sqf",
+      "sha256": "ded834c668ca68de24eea725c87d461100a2f45f6800a97382b93e2db8fbd2a0"
+    },
+    {
+      "path": "A3A/addons/core/functions/Garrison/fn_updateReinfState.sqf",
+      "sha256": "bb14265ea2750fe73420572e7b2765a53f1bbf1d11f0e71b7e6111ee0eb7555c"
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_AS_Smasher.sqf",
+      "sha256": "1665ea44cfac1b211ea6d993de4094fc2f426a81ed446b43fc2859b60d1aa6ef"
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_AS_Zombies.sqf",
+      "sha256": "f2c616483b4f5803a5ebc1dc58e59d0d6d4fd0cfaa4b98cae84f506d6ce490cf"
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_CON_Outpost_Zombies.sqf",
+      "sha256": "81a6759dcf07d2a1b901a36ec258e8a2aa641ab25f33d9730a6eea4e77f51c3d"
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_LOG_Salvage.sqf",
+      "sha256": "a9d26d1c5e6b77d0d183b86b2eecdaf2c4296011cb9972a8028350ef8e87866c"
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_RES_Shipwreck.sqf",
+      "sha256": "1c8e2ce7f46a159f53a3d62317af6bb3dec6ebedb6eede8ffd41f649bcffe9f1"
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+      "sha256": "a842aef05d69c0b4453f07867c3dcdc58b6d65dbb763a5d24cfbbea797e400f9"
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_taskDelete.sqf",
+      "sha256": "db6ecf1a4e66d54693db0edef62ec05663b59d3811554da4b9f0a39b603a9524"
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_taskSetState.sqf",
+      "sha256": "ab2bf791ed2240ce7fa949fa0839206eb93a5c2147e920f5b173a2e041e2b0e9"
+    },
+    {
+      "path": "A3A/addons/core/functions/REINF/fn_addToGarrison.sqf",
+      "sha256": "1972f329df8a77cc901d3c8af74c124ddfea9b6f877139a2aaa21aba2e3e284c"
+    },
+    {
+      "path": "A3A/addons/core/functions/Revive/fn_handleDamageAAF.sqf",
+      "sha256": "4c82080fd775663d75ff8e67055166c0b314eadab0e2dcc493ed6dc1a19d145a"
+    },
+    {
+      "path": "A3A/addons/core/functions/Save/fn_getObjectSaveData.sqf",
+      "sha256": "488c8f74b7e9b751c8f7032d4b761c12bacc330bf07e2af33e301f3de8b24888"
+    },
+    {
+      "path": "A3A/addons/core/functions/Save/fn_loadServer.sqf",
+      "sha256": "23a2ccaa6002f6adfe6ac7b24c71fa4f6a12f74b168d75a44a6c3ce648d2cb56"
+    },
+    {
+      "path": "A3A/addons/core/functions/Save/fn_loadStat.sqf",
+      "sha256": "2c25ba3c03c5ae6c67472597c9a0de6bda4ac4e384817210c1366fb0e9914f7a"
+    },
+    {
+      "path": "A3A/addons/core/functions/Save/fn_saveLoop.sqf",
+      "sha256": "0942e3e78fb2a1420d3c09aed64262f572eb884a6854ec8a74f19b11a8de0ae4"
+    },
+    {
+      "path": "A3A/addons/core/functions/Save/fn_setStatVariable.sqf",
+      "sha256": "3b8fe104856e84e08c3f4c1b367aa78031ead44420747871d03bb5242a208c50"
+    },
+    {
+      "path": "A3A/addons/core/functions/Supports/fn_createSupport.sqf",
+      "sha256": "552e438a1347bab3659cd2b240e1aa311c8b81c02d5beed742fea5e4439091d0"
+    },
+    {
+      "path": "A3A/addons/core/functions/Supports/fn_initSupports.sqf",
+      "sha256": "67151295d12a4852d373e97cb9ea6fc198d2f8169a40dfe4e26d6dfd848fe0cb"
+    },
+    {
+      "path": "A3A/addons/core/functions/Supports/fn_maxDefenceSpend.sqf",
+      "sha256": "1c20ea5af5b92c7cc704f9b95bfab8042d81a2af41b97ca5691a9c4299418bbc"
+    },
+    {
+      "path": "A3A/addons/core/functions/Supports/fn_requestSupport.sqf",
+      "sha256": "4e4a5a79484fb0c1a9fc20411b9d84a7fdfb198a86ceb5e3333d4e44e14f8aeb"
+    },
+    {
+      "path": "A3A/addons/core/functions/Templates/fn_compatibilityLoadFaction.sqf",
+      "sha256": "435cc58472d402248c4dbe3e6c1e16c6207159338b8648102b8ae71c6b1a58b1"
+    },
+    {
+      "path": "A3A/addons/core/functions/Templates/fn_compileGroups.sqf",
+      "sha256": "a743d7070eaad817b061935e3bc07f8d42d3c738de749ecbab0dee98ded07fcc"
+    },
+    {
+      "path": "A3A/addons/core/functions/Templates/fn_loadFaction.sqf",
+      "sha256": "810a965b10c5e4b1565d308c046b8e320279b8787943e5e90f49163aa0dd24ff"
+    },
+    {
+      "path": "A3A/addons/core/functions/init/fn_initGarrisons.sqf",
+      "sha256": "eb4d50d3226a30e993eb77bbdcbc8cba27991636352ab08ee9f438488704e0f3"
+    },
+    {
+      "path": "A3A/addons/patcom/functions/Civilian/fn_civilianInitEH.sqf",
+      "sha256": "f61613926abfcdae87fc975dd46a74bcea521bfadabb09dbc95006242b9f8870"
+    },
+    {
+      "path": "A3A/addons/patcom/functions/Civilian/fn_createAmbientCiv.sqf",
+      "sha256": "69bcae1c943c4f95ee9153bb619bb19fae42bd9196a609d645931f30f6adbbb1"
+    },
+    {
+      "path": "A3A/addons/patcom/functions/Civilian/fn_createAmbientCivTraffic.sqf",
+      "sha256": "514d24395b15d6732e6c1ea7f7ddfbd4a91a2d2825a4de1bdfd1ca85d2f7836e"
+    },
+    {
+      "path": "A3A/addons/patcom/functions/Civilian/fn_createResourceCiv.sqf",
+      "sha256": "f325bf822013c2953dc15407f75c8947edae6d9ff9ec40dc88ad99a64fcf8b20"
+    },
+    {
+      "path": "A3A/addons/patcom/functions/Patcom/fn_patrolLoop.sqf",
+      "sha256": "5afe2921a4401665b5792067af3e9c8a40fa85cce9abad1c4d704a6911f57239"
+    },
+    {
+      "path": "A3A/addons/scrt/Location/fn_location_createPatrols.sqf",
+      "sha256": "56da1bd7030bada2729b49d8b555b6b8c4f0aa5bc82bc72613ac03177e199990"
+    },
+    {
+      "path": "A3A/addons/scrt/Location/fn_location_removeMilAdmin.sqf",
+      "sha256": "c7ab2cff1019470cee047257d06972127ae13b973142406a0848719c19a415b6"
+    },
+    {
+      "path": "A3A/addons/ultimate/functions/zombie/fn_spawnZombie.sqf",
+      "sha256": "55a459944ab1cb75ddb8e8d25dca0aa092533e47877204fa566ddefec671ae89"
+    },
+    {
+      "path": "A3A/addons/ultimate/functions/zombie/fn_spawnZombieWave.sqf",
+      "sha256": "86892a0816c75b75d37aab03074ff70ff94dca98ee6a583780221fa1bd710cfd"
+    },
+    {
+      "path": "A3A/addons/ultimate/functions/zombie/fn_spawnZombieWaves.sqf",
+      "sha256": "dda5aef92db53fa6eb41bcaee17b858af9ff64a8f73f26ff1eed22dac4d69050"
+    }
+  ],
+  "changed_since_12_4_1": [
+    "A3A/addons/core/functions/Save/fn_setStatVariable.sqf"
+  ]
+}

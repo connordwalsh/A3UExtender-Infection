@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "captured_at_utc": "2026-11-13T19:57:45.036683+00:00",
+  "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "package": "core.pbo",
+  "package_sha256": "9f44fb1dd4992819c580182a8c9aefdb5914b4333c925ebb9468eca156578f3e",
+  "compared_extensions": [
+    ".cpp",
+    ".hpp",
+    ".sqf"
+  ],
+  "normalization": "CRLF to LF only",
+  "identical_count": 1323,
+  "different_files": [
+    "config.cpp"
+  ],
+  "source_only_files": [],
+  "installed_only_files": [
+    "bis_addoninfo.hpp"
+  ],
+  "limitation": "Core script/config inputs only; config.cpp is packaging-dependent and binary/runtime compatibility is separate."
+}
