@@ -17,8 +17,9 @@ original project plan; they are not evidence that the behavior is implemented.
 | Major infected | Largest creatures appear only in designated special missions or military-base capture QRFs at a sufficiently high war level. The developer may choose the threshold after inspecting the current war-level system. |
 | Saves | New campaigns only. Existing campaigns are unsupported and must not be silently modified. |
 | Garrison overflow | Preserve the full saved garrison. If it exceeds the active-unit limit, bring in its remaining infected gradually from safe positions. Explicit owner decision, 13 November 2026. |
+| Routine reinforcement | Replacements for killed infected may approach persistent sites on foot while players remain nearby, subject to cooldown and combat checks. This is separate from the original roster's queued arrivals. Explicit owner decision, 13 November 2026. |
 | Town patrols | Preserve Ultimate's per-visit patrol regeneration. Town casualties do not become a persistent garrison; explicit owner decision, 13 November 2026. |
-| Military administrations | Convert infected administrations into strongholds. Clearing the infected completes capture; survivor rescues give separate benefits and are not required for capture. Destroying the building does not bypass clearing the remaining infected. Explicit owner decisions, 13 November 2026. |
+| Military administrations | Convert infected administrations into strongholds. Clearing the infected completes capture; survivor rescues give separate benefits and are not required for capture. Destroying the building does not bypass clearing the remaining infected. Uncleared strongholds regenerate their defenders each visit, preserving Ultimate's administration default. Explicit owner decisions, 13 November 2026. |
 | Testing | Manual Computer Use testing on the user's computer is explicitly allowed, including clarification after the goal repeated the older restriction. Other testing is also allowed. |
 | Performance | No user-specified hardware or player-count target. Retain bounded spawning, cleanup, and stability checks; do not claim an unmeasured performance guarantee. |
 | Workflow | Developer chooses Scrum organization and may review their own work. Use feature branches, useful frequent commits/pushes, and reviewed merges. |
@@ -31,7 +32,7 @@ The full nine-sprint plan remains the backlog. A successful build or addon load
 does not establish campaign, multiplayer, or save compatibility. Stories remain
 open until their acceptance evidence exists; deferred tests must be labelled.
 
-Current stage: baseline research and isolated registration implementation. No
+Current stage: baseline research and isolated registration, combat and site implementation. No
 campaign gameplay feature has passed acceptance yet.
 
 13 November amendment: development is resumed **without Computer Use**. Source,
@@ -40,4 +41,5 @@ apply to this resumed work. The owner separately requested the visible client
 for their own manual tests.
 
 The town-patrol and military-administration choices above supersede the earlier
-pending questions. Their implementation and acceptance remain open.
+pending questions. Their isolated implementations are recorded in the backlog;
+campaign acceptance remains open.

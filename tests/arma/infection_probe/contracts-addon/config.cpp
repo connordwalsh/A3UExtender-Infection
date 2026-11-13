@@ -18,6 +18,8 @@ class CfgFunctions
             class citySupportChange { file = "\x\a3i\tests\contracts\fn_citySupportChange.sqf"; };
             class addAggression { file = "\x\a3i\tests\contracts\fn_addAggression.sqf"; };
             class zoneCheck { file = "\x\a3i\tests\contracts\fn_zoneCheck.sqf"; };
+            class mrkUpdate { file = "\x\a3i\tests\contracts\fn_mrkUpdate.sqf"; };
+            class commsMP { file = "\x\a3i\tests\contracts\fn_commsMP.sqf"; };
         };
         class Missions
         {
@@ -42,6 +44,7 @@ class CfgFunctions
         class CREATE
         {
             class VEHdespawner { file = "\x\a3i\tests\contracts\fn_VEHdespawner.sqf"; };
+            class groupDespawner { file = "\x\a3i\tests\contracts\fn_groupDespawner.sqf"; };
         };
     };
     class A3I
@@ -56,12 +59,15 @@ class CfgFunctions
             class originalCreateAIAirplane { file = "\x\a3i\tests\contracts\fn_originalCreateAIAirplane.sqf"; };
             class originalCreateAIcontrols { file = "\x\a3i\tests\contracts\fn_originalCreateAIcontrols.sqf"; };
             class originalCreateAICities { file = "\x\a3i\tests\contracts\fn_originalCreateAICities.sqf"; };
+            class originalCreateAIMilAdmin { file = "\x\a3i\tests\contracts\fn_originalCreateAIMilAdmin.sqf"; };
+            class originalRemoveMilAdmin { file = "\x\a3i\tests\contracts\fn_originalRemoveMilAdmin.sqf"; };
             class originalMarkerChange { file = "\x\a3i\tests\contracts\fn_originalMarkerChange.sqf"; };
             class originalMrkWIN { file = "\x\a3i\tests\contracts\fn_originalMrkWIN.sqf"; };
             class originalSurrenderAction { file = "\x\a3i\tests\contracts\fn_originalSurrenderAction.sqf"; };
         };
         class TestOriginals
         {
+            class testNativeRemoveMilAdmin { file = "\x\a3a\addons\scrt\Location\fn_location_removeMilAdmin.sqf"; };
             class testOriginalSelectVehicleType
             {
                 file = "\x\a3a\addons\core\functions\Garrison\fn_selectVehicleType.sqf";

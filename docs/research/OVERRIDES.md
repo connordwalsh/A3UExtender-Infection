@@ -62,8 +62,8 @@ The [site implementation](SITE_SPAWNING.md) records the remaining campaign gates
 | `CREATE/fn_createAIMilbase.sqf` | `030fc5683d3eb1e3b685e589270a8eecd3318ba42801c9fdb5dbfa5ea20d084a` |
 | `CREATE/fn_createAIAirplane.sqf` | `4708a51c0b8bf1392fc8aa86d0de6f749cc993401a642bf066a4ed1548d157fe` |
 
-Together with the control and town increments below, these routes still leave military administrations,
-reinforcement/repair, mission generators or capture-triggered counterattacks.
+Together with the control, town and administration increments below, these routes
+still leave reinforcement/repair, mission generators and capture-triggered counterattacks.
 The old vehicle-pool assumptions in those paths remain release blockers.
 
 ## Road/field control routing increment
@@ -84,3 +84,18 @@ civilian systems are retained. The scheduler's server-only set includes this
 sixth creator. The original source SHA-256 is
 `146b4d1a7d3db93656739c38409f4bce80235e2141411d76b8978100ad801e2f`.
 See [town behavior and validation boundaries](TOWN_PATROLS.md).
+
+## Administration stronghold increment
+
+`CREATE/fn_createAIMilAdmin.sqf` routes infected sites to a server-owned transient
+stronghold with full queued defenders and optional captives. The scheduler's
+server-only set now includes this seventh creator. In the separate `scrt` addon,
+`Location/fn_location_removeMilAdmin.sqf` guards capture/destruction/nearby-change
+entry points and retains server loading of completed sites. `A3A_scrt` is an
+explicit addon dependency so the override loads in order. Both installed-file
+aliases still handle ordinary factions. Successful clearing calls the original
+capture transaction rather than copying the completed-building/save registry.
+
+Source hashes and caller contracts are in [ADMINISTRATION_CONTRACTS.md](ADMINISTRATION_CONTRACTS.md).
+[ADMINISTRATIONS.md](ADMINISTRATIONS.md) records the 301-check validation and
+remaining client, mission, response and save gates.

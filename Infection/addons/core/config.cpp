@@ -7,7 +7,7 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = 2.22;
-        requiredAddons[] = {"A3A_core", "A3A_ultimate", "cba_main", "cba_settings"};
+        requiredAddons[] = {"A3A_core", "A3A_ultimate", "A3A_scrt", "cba_main", "cba_settings"};
         version = 0.1;
         versionStr = "0.1.0-dev";
         A3A_compatibility[] = {12, 4};
@@ -45,6 +45,18 @@ class CfgFunctions
             class runPatrol {};
             class cityRoster {};
             class patrolWaypoints {};
+            class administrationRoster {};
+            class runAdministration {};
+            class trackAdministrationDefender {};
+            class administrationDefenderEvent {};
+            class tryCaptureAdministration {};
+            class administrationPositions {};
+            class indoorPosition {};
+            class administrationAssets {};
+            class survivorAction {};
+            class requestRescue {};
+            class beginRescue {};
+            class rescueTick {};
             class tryCaptureControl {};
             class controlResetTick {};
             class elapsedDateMinutes {};
@@ -71,6 +83,8 @@ class CfgFunctions
             class originalCreateAIAirplane { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIAirplane.sqf"; };
             class originalCreateAIcontrols { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIcontrols.sqf"; };
             class originalCreateAICities { file = "\x\a3a\addons\core\functions\CREATE\fn_createAICities.sqf"; };
+            class originalCreateAIMilAdmin { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIMilAdmin.sqf"; };
+            class originalRemoveMilAdmin { file = "\x\a3a\addons\scrt\Location\fn_location_removeMilAdmin.sqf"; };
             class originalMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };
             class originalMrkWIN { file = "\x\a3a\addons\core\functions\Base\fn_mrkWIN.sqf"; };
             class originalSurrenderAction { file = "\x\a3a\addons\core\functions\AI\fn_surrenderAction.sqf"; };
@@ -87,6 +101,7 @@ class CfgFunctions
             class createAIAirplane { file = "\x\a3i\addons\core\overrides\fn_createAIAirplane.sqf"; };
             class createAIcontrols { file = "\x\a3i\addons\core\overrides\fn_createAIcontrols.sqf"; };
             class createAICities { file = "\x\a3i\addons\core\overrides\fn_createAICities.sqf"; };
+            class createAIMilAdmin { file = "\x\a3i\addons\core\overrides\fn_createAIMilAdmin.sqf"; };
         };
         class Base
         {
@@ -104,6 +119,13 @@ class CfgFunctions
             {
                 file = "\x\a3i\addons\core\overrides\fn_createGarrisonLine.sqf";
             };
+        };
+    };
+    class SCRT
+    {
+        class Location
+        {
+            class location_removeMilAdmin { file = "\x\a3i\addons\core\overrides\fn_location_removeMilAdmin.sqf"; };
         };
     };
 };

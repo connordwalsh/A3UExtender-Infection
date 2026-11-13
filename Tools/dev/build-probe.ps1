@@ -1,8 +1,10 @@
 param(
     [Parameter(Mandatory = $true)][string]$ArmaTools,
-    [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog'
+    [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
+    [ValidateSet('Full', 'Administration')][string]$Suite = 'Full'
 )
 $ErrorActionPreference = 'Stop'
+if ($Mode -ne 'Template' -and $Suite -ne 'Full') { throw 'Focused suites require Template mode.' }
 $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..')).Path
 if ($Mode -eq 'Template') {
     $activeHooks = Join-Path $repoRoot '.work\probe-addons\@Infection_Contract_Probe'
@@ -35,6 +37,8 @@ if ($Mode -in @('Template', 'Dependencies')) {
     # The expected state is part of the packed fixture, not inferred from results.
     ($Mode -eq 'Template').ToString().ToLowerInvariant() |
         Set-Content -LiteralPath (Join-Path $stagedSource 'expectedDependencies.sqf') -Encoding ASCII
+    ('"{0}"' -f $Suite.ToLowerInvariant()) |
+        Set-Content -LiteralPath (Join-Path $stagedSource 'selectedSuite.sqf') -Encoding ASCII
 }
 & $packer -property ('prefix=' + $missionName) -dst $packedOutput $stagedSource
 if ($LASTEXITCODE -ne 0) { throw 'Probe packing failed' }

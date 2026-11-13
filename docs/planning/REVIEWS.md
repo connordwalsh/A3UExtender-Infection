@@ -233,3 +233,34 @@ Redux pathfinding, post-casualty group movement, support/UI effects, campaign
 saves, multiplayer and performance remain acceptance work. Administration,
 reinforcement and mission routes remain unconverted. No sprint gate is closed,
 and no Computer Use, client launch or Workshop publication was performed.
+
+## 13 November 2026 — Administration strongholds and survivor rescues
+
+Self-review covers the guarded administration creator/removal paths, server
+dispatch, full transient roster, queued arrivals, engine-event death accounting,
+ruined-building reentry, validated interior assets and once-only survivor release.
+The owner's per-visit regeneration choice is preserved. Capture requires every
+defender to be defeated even after destruction; optional rescues do not alter
+the clearing predicate. Living deletions requeue instead of counting as kills.
+Server completed-site loading remains available without a client bypass.
+
+Validation: all 301 dedicated checks and 11 dependency-absent checks pass. The
+37 administration cases include actual engine destruction/death, native capture,
+Rebel initialization, escape orders and HR updates. Capture succeeds with an
+unrescued captive and after a ruined stronghold is cleared. Repeated, interrupted
+and dead-survivor releases cannot duplicate rewards. Cleanup and stopped-script
+recovery leave no fixture actors, groups, reservations or recurring handlers.
+
+The strict collector found no engine/SQF Error records and retained 43 warnings:
+dependency animation/final-function notices, object deletion messages and a
+mission dependency warning. The PBO and all 57 addon sources match the manifest.
+Three Python parser tests, PowerShell syntax and staged whitespace checks pass.
+Both completed servers were stopped by verified owned profile IDs. The earlier
+focused 47-check pass is development evidence, not the final full-suite result.
+
+Integration decision: merge this scoped stronghold increment. UI/logistics and
+ordinary-route endpoints are recorded by the fixture; connected-player action
+and JIP behavior, Redux rooms, true distance-despawner completion, mission wording,
+destruction-triggered foot responses and cooldown persistence remain open. No
+campaign or sprint gate is closed. No Computer Use, client launch or Workshop
+publication was performed.

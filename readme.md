@@ -10,10 +10,12 @@ creates foot-only virtual garrison lines, adapts infected combat bookkeeping,
 and spawns full queued garrisons at six persistent site types under shared limits.
 Road/field controls use capped foot groups and guarded local capture.
 Town patrols regenerate per visit and follow bounded outdoor routes.
-The current isolated dedicated suite passes 264 checks on Ultimate 12.4.2,
-including 67 roles, combat, placement, later arrivals, controls, towns and cleanup.
-The missing-dependency suite passes 11 checks. Administration,
-reinforcement, mission and save integration remain unfinished. Do not use this build for a
+Administration strongholds require clearing even after building destruction;
+survivor rescues give separate rewards, and uncleared defenders regenerate each visit.
+The current isolated dedicated suite passes 301 checks on Ultimate 12.4.2,
+including 67 roles, combat, placement, later arrivals, controls, towns, strongholds
+and cleanup. The missing-dependency suite passes 11 checks. Reinforcement,
+mission and save integration remain unfinished. Do not use this build for a
 campaign you intend to keep.
 
 ## Intended campaign
@@ -46,6 +48,7 @@ claim that compatibility testing has passed.
 - [Persistent site spawning and limits](docs/research/SITE_SPAWNING.md)
 - [Road/field controls and limits](docs/research/ROAD_CONTROLS.md)
 - [Town patrols and limits](docs/research/TOWN_PATROLS.md)
+- [Administration strongholds and rescue limits](docs/research/ADMINISTRATIONS.md)
 - [Controlled behavior observations](docs/research/BEHAVIOR_12.4.2.md)
 - [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)
 - [Sprint 1 contract evidence](evidence/sprint-1/)
