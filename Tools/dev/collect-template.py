@@ -35,6 +35,14 @@ COMBAT_CHECKS = {
     "combat_delete_legacy_retains", "combat_delete_unfit_legacy", "combat_delete_duplicate", "combat_ownership_race",
     "combat_rifle_militia", "combat_rifle_military", "combat_rifle_elite", "combat_cleanup",
 }
+BUDGET_CHECKS = {
+    "budget_settings_registered", "budget_inactive_denied", "budget_invalid_requests",
+    "budget_global_and_context_caps", "budget_close_idempotent", "budget_concurrent_reservations",
+    "budget_server_remote_call", "budget_pending_limit_reduction", "budget_bind_basic", "budget_duplicate_binding", "budget_live_release_denied",
+    "budget_capacity_reduction_keeps_units", "budget_kill_release", "budget_live_delete_release",
+    "budget_close_preserves_bound", "budget_cancel_deletes_bound", "budget_expiry_preserves_bound",
+    "budget_expiry_unbound", "budget_unknown_operation", "budget_cleanup",
+}
 
 
 def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
@@ -67,7 +75,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
     checks = {
         "one_start_and_completion": complete,
@@ -85,7 +93,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     source_files = sorted((repo / "Infection").rglob("*"))
     return {
         "schema_version": 1,
-        "scope": "Isolated dedicated template/unit/garrison/combat contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
+        "scope": "Isolated dedicated template/unit/garrison/combat/budget contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
         "expected_dependencies_present": expected_dependencies,
         "status": "passed" if all(checks.values()) else ("failed" if complete else "incomplete"),
         "collected_at_utc": datetime.now(timezone.utc).isoformat(),

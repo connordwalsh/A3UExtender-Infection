@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "product": "Antistasi Ultimate: Infection",
+  "version": "0.1.0-dev",
+  "scope": "Development prototype with registration, foot garrison lines and combat bookkeeping; full campaign routes remain incomplete",
+  "built_at_utc": "2026-11-13T20:23:41.4364783Z",
+  "prefix": "x\\a3i\\addons\\core",
+  "addon_sha256": "13ef597ce40aa54487ab3cb59aeb3808920c4cd0718e7b44e3fa77317b0e424d",
+  "source": [
+    {
+      "path": "Infection/addons/core/config.cpp",
+      "sha256": "230e4a71324c312347ab84cd8ee9f2ba18ff2299a112ccec65e5ac22f8e61256"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_bootstrap.sqf",
+      "sha256": "35f2e15cd7a8a07752a9acc67de6079d7767aa012e6735d3c77857ee45536bbf"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_budget.sqf",
+      "sha256": "2ca3059aca81e81e64e27e8e44abc2ffd1a7a161efc1e6abf64467b0708ae4f9"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_createFootGarrisonLine.sqf",
+      "sha256": "1a1a33a2d62de2591b8e43c85b0ec480da41fb4c3f47d99009a809f9e021139e"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_dependencies.sqf",
+      "sha256": "f665cc54f9b16496d981f1e7b67c33c0148c5286eddfe8c60881456e792a1335"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_infectedDamageObserved.sqf",
+      "sha256": "a3de373c0f2d26d8426679813d5f43c3f97bbb760d46c772d3d003634a28a2e1"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_infectedDeleted.sqf",
+      "sha256": "96ec53391eaab6cce1c18fd87177de8f610398cbeac5e0e1c1b6b0106aaf602d"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_infectedKilled.sqf",
+      "sha256": "cc46ea3703a8ee9e45759bd0d357efb72ccf63216fd2e78a49bb71bf01da3e8b"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_initInfected.sqf",
+      "sha256": "41c9e980066287c6be10fc34a034b513945aacb21684f36f1396583d188efee2"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_initSettings.sqf",
+      "sha256": "189b4da4005635eff4b131f8221dcd932deab7ce5bbad835c9673ba255dfdeaa"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_isActive.sqf",
+      "sha256": "420dd0220d72e1a37dc28690dfc7168469358e7a45f6f9e31722110b4587e868"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_isManagedUnit.sqf",
+      "sha256": "9ceb2c3f414a290597efb88c2523f02a9b5f97423c5f275930c7c23c719073eb"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_createGarrisonLine.sqf",
+      "sha256": "2b81a371cff8799ac6c80702657e54499f5a5c13c5929f21ce5f814b7c47e468"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_NATOinit.sqf",
+      "sha256": "38f0f4738485684a8896190eac53b71eedf01aea5065d4f07954201ca0654c20"
+    },
+    {
+      "path": "Infection/addons/core/templates/Infected.sqf",
+      "sha256": "f2ea354ceb32b4d2b0a687642e01a04cf6cde44a7a21bb85fcc35c2d9663bde1"
+    },
+    {
+      "path": "Infection/mod.cpp",
+      "sha256": "ff7564d911bf7c428ad025ffb94dae9782458a10fe925e050398599585dcf2ad"
+    },
+    {
+      "path": "Infection/THIRD_PARTY_LICENSES.txt",
+      "sha256": "6ada5ef3ab9f31704ad0c9a79cabef308f2973ac7e08ba41cfb97368adba49b2"
+    }
+  ]
+}

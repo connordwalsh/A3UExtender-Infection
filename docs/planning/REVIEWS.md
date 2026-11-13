@@ -99,3 +99,27 @@ owned profiles; the separate behavior observation batch continues.
 
 Integration decision: merge this scoped increment after the recorded checks;
 continue S0/S1 and live site implementation. It is not campaign or release acceptance.
+
+## 13 November 2026 — Server spawn reservation component
+
+Self-review covers allocation before creation, atomic unscheduled mutations,
+server-origin guards, shared context ceilings, partial grants, unique binding,
+once-only release, closing/cancellation and expired leases. CBA settings are
+server-controlled and do not activate the faction. Reducing a limit trims pending
+slots in allocation order and preserves living actors. Internal records are
+transient and are never broadcast or written to a save.
+
+Validation: all 140 dedicated checks passed, including 20 new budget cases and
+the complete combat/template/garrison regressions. Twenty competing requests
+received exactly eight available slots. Deletion/cancellation assertions inspect
+raw records before reconciliation, avoiding a misleading cleanup-only pass.
+The expiry case waited 31 seconds and kept the existing bound actor. Eleven
+dependency-absent checks also passed. No engine/SQF errors were recorded; existing
+startup warnings remain. The first attempt's inherited-argument error correctly
+failed its report and was fixed before acceptance. Python parser regressions
+and Git whitespace checks passed.
+
+Integration decision: merge the API component as a prerequisite for S2 callers.
+S5-1 stays open for actual callers, spatial rules, cooldowns, special-creature
+accounting and performance. No campaign-wide cap or multiplayer acceptance is
+claimed by this isolated server proof.

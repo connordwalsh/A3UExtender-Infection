@@ -117,6 +117,7 @@ if (!isServer) exitWith {};
     ["cleanup", _leftovers isEqualTo [] && {_remainingGroups isEqualTo []},
         [_leftovers apply {typeOf _x}, count _remainingGroups]] call _check;
     call compile preprocessFileLineNumbers "combatChecks.sqf";
+    call compile preprocessFileLineNumbers "budgetChecks.sqf";
     deleteVehicle A3A_customUnitTypes;
     ["complete", _checks, _failures, _spawned] call _log;
     missionNamespace setVariable ["Infection_probeComplete", true, true];

@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "scope": "Isolated dedicated template/unit/garrison/combat/budget contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
+  "expected_dependencies_present": false,
+  "status": "passed",
+  "collected_at_utc": "2026-11-13T20:29:17.600460+00:00",
+  "source_log": "arma3server_x64_2026-11-13_15-23-42.rpt",
+  "source_log_sha256_at_collection": "c5bfb31620213b3a8894a394e4700b9fa9c7aa37f515b0a186e5b2ed3c55054e",
+  "source_sha256_at_collection": {
+    "tests/arma/infection_probe/template.VR/budgetChecks.sqf": "143b7df62958981a832743b4bda61304e177ea3eb2e8337218e0f8dfe62b04d5",
+    "tests/arma/infection_probe/template.VR/combatChecks.sqf": "eea25370ec33ccca48a77e3819bf5170dff55327eff1ba71ee2ff6280c721302",
+    "tests/arma/infection_probe/template.VR/description.ext": "d23d0b6a438414749717f47516247a931adde3dc7114cb6ffac9c89ac3667624",
+    "tests/arma/infection_probe/template.VR/garrisonChecks.sqf": "e97c22843f08c4c6ebc05649a35037a441da615b250c0e0b162b4d6333b34bb8",
+    "tests/arma/infection_probe/template.VR/initServer.sqf": "d1f751d75a3e33f655e4797cbc6eb5a97421ee1beabf3bc4633e9083a1d1455f",
+    "tests/arma/infection_probe/template.VR/mission.sqm": "b0f1a5d920d1e9803e85eca28d178cdaae203586a93536c6e8e41bbc840c7f2f",
+    "Infection/addons/core/config.cpp": "230e4a71324c312347ab84cd8ee9f2ba18ff2299a112ccec65e5ac22f8e61256",
+    "Infection/addons/core/functions/fn_bootstrap.sqf": "35f2e15cd7a8a07752a9acc67de6079d7767aa012e6735d3c77857ee45536bbf",
+    "Infection/addons/core/functions/fn_budget.sqf": "2ca3059aca81e81e64e27e8e44abc2ffd1a7a161efc1e6abf64467b0708ae4f9",
+    "Infection/addons/core/functions/fn_createFootGarrisonLine.sqf": "1a1a33a2d62de2591b8e43c85b0ec480da41fb4c3f47d99009a809f9e021139e",
+    "Infection/addons/core/functions/fn_dependencies.sqf": "f665cc54f9b16496d981f1e7b67c33c0148c5286eddfe8c60881456e792a1335",
+    "Infection/addons/core/functions/fn_infectedDamageObserved.sqf": "a3de373c0f2d26d8426679813d5f43c3f97bbb760d46c772d3d003634a28a2e1",
+    "Infection/addons/core/functions/fn_infectedDeleted.sqf": "96ec53391eaab6cce1c18fd87177de8f610398cbeac5e0e1c1b6b0106aaf602d",
+    "Infection/addons/core/functions/fn_infectedKilled.sqf": "cc46ea3703a8ee9e45759bd0d357efb72ccf63216fd2e78a49bb71bf01da3e8b",
+    "Infection/addons/core/functions/fn_initInfected.sqf": "41c9e980066287c6be10fc34a034b513945aacb21684f36f1396583d188efee2",
+    "Infection/addons/core/functions/fn_initSettings.sqf": "189b4da4005635eff4b131f8221dcd932deab7ce5bbad835c9673ba255dfdeaa",
+    "Infection/addons/core/functions/fn_isActive.sqf": "420dd0220d72e1a37dc28690dfc7168469358e7a45f6f9e31722110b4587e868",
+    "Infection/addons/core/functions/fn_isManagedUnit.sqf": "9ceb2c3f414a290597efb88c2523f02a9b5f97423c5f275930c7c23c719073eb",
+    "Infection/addons/core/overrides/fn_createGarrisonLine.sqf": "2b81a371cff8799ac6c80702657e54499f5a5c13c5929f21ce5f814b7c47e468",
+    "Infection/addons/core/overrides/fn_NATOinit.sqf": "38f0f4738485684a8896190eac53b71eedf01aea5065d4f07954201ca0654c20",
+    "Infection/addons/core/templates/Infected.sqf": "f2ea354ceb32b4d2b0a687642e01a04cf6cde44a7a21bb85fcc35c2d9663bde1",
+    "Infection/mod.cpp": "ff7564d911bf7c428ad025ffb94dae9782458a10fe925e050398599585dcf2ad",
+    "Infection/THIRD_PARTY_LICENSES.txt": "6ada5ef3ab9f31704ad0c9a79cabef308f2973ac7e08ba41cfb97368adba49b2"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "record_schema_valid": true,
+    "dedicated_expected_mode": true,
+    "all_expected_checks_once": true,
+    "all_runtime_checks_pass": true,
+    "completion_matches_checks": true,
+    "all_expected_roles_once": true,
+    "all_role_spawns_pass": true,
+    "no_engine_or_sqf_error_records": true
+  },
+  "malformed_record_lines": [],
+  "error_lines": [],
+  "warnings_for_review": [
+    {
+      "line": 731,
+      "message": "Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
+    },
+    {
+      "line": 756,
+      "message": "Attempt to override final function - abz_fnc_load"
+    },
+    {
+      "line": 757,
+      "message": "Attempt to override final function - abz_fnc_queuesave"
+    },
+    {
+      "line": 758,
+      "message": "Attempt to override final function - abz_fnc_synccommit"
+    },
+    {
+      "line": 759,
+      "message": "Attempt to override final function - abz_fnc_save"
+    },
+    {
+      "line": 766,
+      "message": "Attempt to override final function - bis_fnc_storeparamsvalues_data"
+    },
+    {
+      "line": 767,
+      "message": "Attempt to override final function - hals_store_getnearbyvehicles"
+    }
+  ],
+  "runtime_checks": [
+    {
+      "name": "addon_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "functions_available",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "dependency_state",
+      "passed": true,
+      "detail": [
+        [
+          "WBK_ZombieCreatures",
+          "WebKnight_StarWars_MoveSet"
+        ],
+        [
+          "Zombie_B_Walker_Civ",
+          "Zombie_B_Shambler_Civ",
+          "Zombie_B_RA_Civ"
+        ]
+      ]
+    },
+    {
+      "name": "passive_without_faction",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_side",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "setup_dependency_gate",
+      "passed": true,
+      "detail": [
+        "WBK_ZombieCreatures",
+        "WebKnight_StarWars_MoveSet"
+      ]
+    },
+    {
+      "name": "ultimate_version_contract",
+      "passed": true,
+      "detail": [
+        "compatible"
+      ]
+    },
+    {
+      "name": "ultimate_patch_version",
+      "passed": true,
+      "detail": [
+        12,
+        4,
+        2
+      ]
+    },
+    {
+      "name": "activation_requires_dependencies",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "both_required_patches_absent",
+      "passed": true,
+      "detail": [
+        "WBK_ZombieCreatures",
+        "WebKnight_StarWars_MoveSet"
+      ]
+    }
+  ],
+  "spawn_records": [],
+  "completion": [
+    11,
+    [],
+    0
+  ]
+}

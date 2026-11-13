@@ -7,8 +7,9 @@ Zombies and Creatures as the Occupant faction. This repository is a fork of
 **Status: development prototype; campaign integration is incomplete.** The
 `Infection/` addon registers the infected Occupant, supplies basic unit definitions,
 creates foot-only virtual garrison lines, and adapts infected combat bookkeeping.
-The current isolated dedicated suite passes 120 checks on Ultimate 12.4.2,
-including 67 roles and rifle/death/deletion contracts. Site, reinforcement,
+The current isolated dedicated suite passes 140 checks on Ultimate 12.4.2,
+including 67 roles, rifle/death/deletion contracts and a server spawn-budget API.
+The budget still needs production callers. Site, reinforcement,
 mission and save integration remain unfinished. Do not use this build for a
 campaign you intend to keep.
 
@@ -38,6 +39,7 @@ claim that compatibility testing has passed.
 - [Sprint 0 evidence](evidence/sprint-0/)
 - [Registration implementation and limits](docs/research/REGISTRATION.md)
 - [Combat implementation and limits](docs/research/COMBAT.md)
+- [Spawn budget component and limits](docs/research/SPAWN_BUDGET.md)
 - [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)
 - [Sprint 1 contract evidence](evidence/sprint-1/)
 - [Upstream extender instructions](docs/upstream-extender.md)
