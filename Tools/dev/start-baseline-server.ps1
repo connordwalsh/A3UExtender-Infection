@@ -1,5 +1,9 @@
 param([Parameter(Mandatory = $true)][string]$SteamLibrary)
 $ErrorActionPreference = 'Stop'
+if (Get-CimInstance Win32_Process -Filter "Name='arma3server_x64.exe'" |
+    Where-Object { $_.CommandLine -match '(?:^|\s)-name=InfectionBaseline(?:\s|$)' }) {
+    throw 'The InfectionBaseline test server is already running; use that session or close it first.'
+}
 $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..')).Path
 $gameDirectory = Join-Path $SteamLibrary 'steamapps\common\Arma 3'
 $executable = Join-Path $gameDirectory 'arma3server_x64.exe'

@@ -6,9 +6,9 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 
 | Story | Work | Status | Evidence / next check |
 | --- | --- | --- | --- |
-| S0-1 | Versions, dependencies, clean local and dedicated baseline | In progress | Version/hash inventory and local HQ startup observed; save/reload and dedicated campaign open. |
-| S0-2 | Prepared-class catalog and behavior | In progress | Installed configs inspected; dedicated probe in development; combat/locality matrix open. |
-| S0-3 | Occupant impact map | In progress | Creation, garrison, damage, civilian, support and event contracts being traced. |
+| S0-1 | Versions, dependencies, clean local and dedicated baseline | In progress | Version/hash inventory, local HQ startup and persistent save archived; reload and dedicated campaign open. |
+| S0-2 | Prepared-class catalog and behavior | In progress | All 14 classes completed dedicated spawn/init/deletion smoke checks; large-creature model errors and combat/locality-transfer matrix open. |
+| S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
 | S1-1 | Infection scaffold and dependency checks | Backlog | Gate 0 inputs required. |
 | S1-2 | Basic infected tier/group definitions | Backlog | Tested class catalog required. |
 | S1-3 | Vehicle/template contract | Backlog | Empty pools need tested bypasses. |
@@ -40,15 +40,19 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 Sprint goal: establish a reproducible baseline and verified integration contracts.
 The public fork and planning PR exist. Installed/source versions are pinned.
 A fresh unmodified local campaign reached HQ. The prepared-class diagnostic
-mission builds with the installed Bohemia tools; its dedicated launch is being
-debugged before any pass is claimed.
+mission now completes with the installed Bohemia tools and dedicated server.
+Model/skeleton errors keep the large-creature candidates unaccepted. The
+unmodified Redux dedicated mission also completed background initialization;
+campaign creation and save/reload still require client participation.
 
 Resolved product question: the owner approved vanilla stand-ins by default,
 with optional mod support for authentic modern Russian/NATO equipment.
 
-Manual testing resumed after the owner's explicit authorization. Both earlier
-test processes had closed. The local log ends normally without a completed save,
-so the baseline save/reload check is being repeated in the isolated profile.
-Injected keyboard input still needs verification after the restart.
+Manual testing resumed after the owner's explicit authorization. The first local
+session ended without saving; a fresh campaign has now completed a manual
+persistent save and its files are archived with hashes. Reload is pending.
+Computer Use mouse actions work in menus; game keyboard input requires owner
+assistance, which is recorded rather than treated as a successful automated input.
 
-No sprint review, retrospective, or completed gate is recorded yet.
+The foundation/tooling self-review is in [REVIEWS.md](REVIEWS.md). No completed
+sprint gate or sprint retrospective is recorded yet.

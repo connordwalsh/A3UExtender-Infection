@@ -3,6 +3,10 @@ param(
     [switch]$Visible
 )
 $ErrorActionPreference = 'Stop'
+if (Get-CimInstance Win32_Process -Filter "Name='arma3server_x64.exe'" |
+    Where-Object { $_.CommandLine -match '(?:^|\s)-name=InfectionProbe(?:\s|$)' }) {
+    throw 'The InfectionProbe test server is already running; collect its results before restarting.'
+}
 $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..')).Path
 $gameDirectory = Join-Path $SteamLibrary 'steamapps\common\Arma 3'
 $executable = Join-Path $gameDirectory 'arma3server_x64.exe'

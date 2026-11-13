@@ -31,7 +31,7 @@ The only differing common file, `config.cpp`, adds the packer's
 This comparison covers core source equivalence; it does not certify all other
 addons or runtime compatibility.
 
-## Local-host baseline: startup observed
+## Local-host baseline: startup and persistent save observed
 
 Launched through `Tools/dev/start-local-test.ps1 -SteamLibrary <library>
 -IncludeChernarusRedux`, using the isolated `InfectionDev` profile. Infection was
@@ -50,13 +50,20 @@ at the HQ with Petros and the arsenal visible, war level 1, HR 8, faction money
 1000, and player money 500. See
 [startup screenshot](../../evidence/sprint-0/local-baseline-playable.png).
 
-Manual save, archived baseline save, reload, and dedicated campaign startup
-remain open. A created campaign ID alone is not proof of a persisted save.
-The Computer Use keyboard input did not open the expected menus. The owner
-reported the game ready for inspection, then paused work. After explicit resume,
-both earlier test processes were closed. The client log ends normally at
-19:53:01 UTC without a completed save. The isolated client was restarted to
-repeat the save/reload check; the earlier campaign ID is not a saved fixture.
+The first client log ends normally at 19:53:01 UTC without a completed save;
+that earlier campaign ID is not a saved fixture. After the owner's explicit
+resume, the isolated client created a fresh campaign at 21:40:47 UTC with ID
+`32ca87ca-6170-4b73-b64a-3d7ad2879802`. The owner opened the commander menu because
+Computer Use keyboard input did not activate it. Computer Use then selected
+Game Options → Persistent Save. The log records `Persistent Save Completed`
+at 23:56:35.608 UTC, and the actual `AntistasiUltimate.vars` file was archived
+locally with the test profile files.
+
+The [save manifest](../../evidence/sprint-0/local-baseline-save.json) records
+their hashes and the [post-save screen](../../evidence/sprint-0/local-baseline-saved.png)
+shows war level 1, HR 8, faction money 1019 and player money 506. Raw saves stay
+private because they contain player identifiers. Reload and dedicated campaign
+creation/save/reload remain open; successful saving alone does not pass S0-1.
 
 ## Findings before Infection exists
 
@@ -74,7 +81,9 @@ campaign, and demonstrate save/reload before S0-1 can pass.
 | Sites without vehicle placement markers | `fn_initSpawnPlaces.sqf` reports warnings. Its source explicitly allows locations with no vehicle places. | Sample the actual sites; a warning alone is not a demonstrated placement defect. |
 | Missing Redux description localization keys | Baseline RPT reports missing `STR_antistasi_mission_info_chernarus_*` strings. | Track as upstream/map baseline behavior; avoid attributing it to Infection. |
 | IMS/WebKnight animation warnings on a dedicated process | Logs report missing animation resources before the class probe starts. | Determine which selected creature behaviors are affected in live tests. |
-| Standalone class-probe launch loop | Console repeatedly reports the probe mission read from bank; no tagged start record appears. The unmodified Redux mission starts on the same installed server executable. | Resolve the probe mission/configuration defect before claiming any class result. |
+| Initial class-probe launch loop | The incomplete hand-authored Eden fixture repeatedly loaded without starting. Replacing its mission structure with the documented version-12 format produced a complete run. | Resolved for the diagnostic fixture; no gameplay change required. |
+| Large-creature model errors | Corrupted and Smasher variants report missing bones/head-body skeleton mismatches. Goliath additionally reports an invalid `Spine3` attachment point. | Visual and combat inspection required; these classes are not accepted for gameplay yet. |
+| Baseline save price warning | `fn_vehiclePrice` reports an invalid price for `A3AP_Box_Syndicate_Ammo_F` and falls back to 1000. Persistent saving completes afterward. | Retain as an unmodified Ultimate baseline finding; check restored state before judging its impact. |
 
 Bohemia's [crash-log reference](https://community.bistudio.com/wiki/Crash_Files)
 identifies the isolated `a3_characters_f` missing-content warning as a false
@@ -130,6 +139,22 @@ and complete the controlled civilian tests before documenting player behavior.
 
 ## Current gate status
 
-Gate 0 remains open. Local startup and source matching are evidenced; dedicated
-campaign startup, saved baseline, per-class combat behavior, and the complete
-reviewed Occupant impact matrix are not yet accepted.
+The dedicated prepared-class probe completed at 21:54:22 UTC. All 14 candidates
+existed, spawned as WEST, remained alive and server-local, initialized through
+their prepared-class handlers, and carried no primary/secondary/handgun weapon.
+Each left zero additional entities in the three-second post-deletion snapshot;
+the remaining group count was one throughout. Smasher's initialization marker
+was numeric zero, confirming the source finding. The run had no SQF expression
+errors, but the model errors above prevent an overall clean acceptance.
+
+[prepared-class-smoke.json](../../evidence/sprint-0/prepared-class-smoke.json)
+records the exact runtime settings, class inheritance, skeletons, animations,
+locality, cleanup observations, source-log hash, and fixture hashes. The collector
+returns `needs_review` for this run. It also correctly rejects the earlier
+non-starting RPT as `incomplete`. Neither result establishes combat, civilian
+targeting, waypoint compliance, vehicle interactions, JIP, or delayed cleanup.
+
+Gate 0 remains open. Local startup and saving, dedicated mission initialization,
+source matching and prepared-class smoke checks are evidenced. Baseline reload,
+dedicated campaign creation/save/reload, per-class combat behavior, and the
+complete reviewed Occupant impact matrix are not yet accepted.

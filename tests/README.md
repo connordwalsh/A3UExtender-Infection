@@ -55,9 +55,17 @@ full private RPT, even if the final smoke-failure list is empty.
 The server stays running after the probe for inspection. Stop only the owned
 probe process after collecting evidence; never terminate another Arma session.
 
-Current status: configuration validation and packing succeed, but the server's
-probe mission launch is under investigation. Do not treat a missing completion
-record as a pass or an empty failure list. See the Sprint 0 evidence ledger.
+The working fixture uses Arma's documented version-12 mission format. The earlier
+incomplete hand-authored Eden fixture caused a repeated mission-load loop; it is
+not used for the current evidence.
+
+Collect a completed RPT with `python Tools/dev/collect-probe.py <log> <output.json>`.
+The collector requires one start, one completion, and one config/spawn/deletion
+record per candidate. Missing completion, duplicate/missing records, failed
+checks, or engine errors produce a nonzero exit. `needs_review` distinguishes
+passing smoke assertions accompanied by engine model/animation errors. Raw
+logs and incomplete reports stay under `.work/`; only sanitized reports belong
+in `evidence/`. This collector does not certify the behavior outside its scope.
 
 References: Bohemia's [startup parameters](https://community.bistudio.com/wiki/Arma_3:_Startup_Parameters),
 [server configuration](https://community.bistudio.com/wiki/Arma_3:_Server_Config_File),
