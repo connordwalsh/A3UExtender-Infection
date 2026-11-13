@@ -165,6 +165,16 @@ _result = ["bind",[_ticket,_lateActor]] call A3I_fnc_budget;
 ["cancel",[_ticket]] call A3I_fnc_budget;
 _result = ["unknown"] call A3I_fnc_budget;
 ["budget_unknown_operation", _result isEqualTo [false,[],"unknown_operation"], _result] call _check;
+_result = ["reserve",["preflight",2,2]] call A3I_fnc_budget;
+_ticket = _result # 1 # 0;
+private _beforeClose = ["remaining",[_ticket]] call A3I_fnc_budget;
+["close",[_ticket]] call A3I_fnc_budget;
+private _afterClose = ["remaining",[_ticket]] call A3I_fnc_budget;
+private _invalidTicket = ["remaining",[123]] call A3I_fnc_budget;
+["budget_ticket_preflight",_beforeClose isEqualTo [true,2,""]
+    && {_afterClose isEqualTo [false,0,"unknown_ticket"]}
+    && {_invalidTicket isEqualTo [false,0,"invalid_ticket"]},
+    [_beforeClose,_afterClose,_invalidTicket]] call _check;
 {if (!isNull _x) then {deleteVehicle _x}} forEach _actors;
 sleep 0.5;
 {if (count units _x == 0) then {deleteGroup _x}} forEach (allGroups - _budgetGroupsBefore);

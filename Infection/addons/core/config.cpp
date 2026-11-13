@@ -32,6 +32,15 @@ class CfgFunctions
             class infectedKilled {};
             class infectedDeleted {};
             class budget {};
+            class spawnObservers {};
+            class positionSafety {};
+            class findSpawnPosition {};
+            class spawnGroup {};
+            class startSite {};
+            class runSite {};
+            class cleanupSite {};
+            class siteWatchdog {};
+            class siteCaptureBlocked {};
         };
         class Garrison
         {
@@ -48,6 +57,14 @@ class CfgFunctions
             {
                 file = "\x\a3a\addons\core\functions\CREATE\fn_NATOinit.sqf";
             };
+            class originalScheduler { file = "\x\a3a\addons\core\functions\Base\fn_scheduler.sqf"; };
+            class originalCreateAIResources { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIResources.sqf"; };
+            class originalCreateAIOutposts { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIOutposts.sqf"; };
+            class originalCreateAIMilbase { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIMilbase.sqf"; };
+            class originalCreateAIAirplane { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIAirplane.sqf"; };
+            class originalMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };
+            class originalMrkWIN { file = "\x\a3a\addons\core\functions\Base\fn_mrkWIN.sqf"; };
+            class originalSurrenderAction { file = "\x\a3a\addons\core\functions\AI\fn_surrenderAction.sqf"; };
         };
     };
     class A3A
@@ -55,6 +72,20 @@ class CfgFunctions
         class CREATE
         {
             class NATOinit { file = "\x\a3i\addons\core\overrides\fn_NATOinit.sqf"; };
+            class createAIResources { file = "\x\a3i\addons\core\overrides\fn_createAIResources.sqf"; };
+            class createAIOutposts { file = "\x\a3i\addons\core\overrides\fn_createAIOutposts.sqf"; };
+            class createAIMilbase { file = "\x\a3i\addons\core\overrides\fn_createAIMilbase.sqf"; };
+            class createAIAirplane { file = "\x\a3i\addons\core\overrides\fn_createAIAirplane.sqf"; };
+        };
+        class Base
+        {
+            class scheduler { file = "\x\a3i\addons\core\overrides\fn_scheduler.sqf"; };
+            class markerChange { file = "\x\a3i\addons\core\overrides\fn_markerChange.sqf"; };
+            class mrkWIN { file = "\x\a3i\addons\core\overrides\fn_mrkWIN.sqf"; };
+        };
+        class AI
+        {
+            class surrenderAction { file = "\x\a3i\addons\core\overrides\fn_surrenderAction.sqf"; };
         };
         class Garrison
         {

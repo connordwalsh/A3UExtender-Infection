@@ -1,0 +1,3331 @@
+{
+  "schema_version": 1,
+  "scope": "Isolated dedicated template/unit/garrison/combat/budget/placement/six-site contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
+  "expected_dependencies_present": true,
+  "status": "passed",
+  "collected_at_utc": "2026-11-13T21:15:24.687220+00:00",
+  "source_log": "arma3server_x64_2026-11-13_16-11-07.rpt",
+  "source_log_sha256_at_collection": "8e0b19b9e03e5d2992fb539aab531980165b5eb1a2a112749a335fba51dc524c",
+  "source_sha256_at_collection": {
+    "tests/arma/infection_probe/template.VR/budgetChecks.sqf": "4beea043dd467532bd0a7c95df92f4bbb98c8cf9bf2ca7f386792a630556d3fd",
+    "tests/arma/infection_probe/template.VR/combatChecks.sqf": "eea25370ec33ccca48a77e3819bf5170dff55327eff1ba71ee2ff6280c721302",
+    "tests/arma/infection_probe/template.VR/description.ext": "d23d0b6a438414749717f47516247a931adde3dc7114cb6ffac9c89ac3667624",
+    "tests/arma/infection_probe/template.VR/garrisonChecks.sqf": "e97c22843f08c4c6ebc05649a35037a441da615b250c0e0b162b4d6333b34bb8",
+    "tests/arma/infection_probe/template.VR/initServer.sqf": "16923fb9fb964eb254691697d81e7e206206ac56b8b02eeca66b6d0bbb548548",
+    "tests/arma/infection_probe/template.VR/mission.sqm": "b0f1a5d920d1e9803e85eca28d178cdaae203586a93536c6e8e41bbc840c7f2f",
+    "tests/arma/infection_probe/template.VR/siteChecks.sqf": "673274866f138c68e1a891d383b08d0afd71bd27e451276c9c06b1bfb4f1b0a4",
+    "tests/arma/infection_probe/template.VR/spawnChecks.sqf": "a87e64e3602a5b05d7bb26f8c3050aae16e10e97876d54cfe5349a1828a7aab1",
+    "tests/arma/infection_probe/contracts-addon/config.cpp": "eff28bb4aa368db35cf161181664488ac45bed61d1a42bb984247bd4eff4320c",
+    "tests/arma/infection_probe/contracts-addon/fn_addAggression.sqf": "cc60b8d99c7385981380ce20d2184fdba0efbb29e849db13e4e6cf3f756001e4",
+    "tests/arma/infection_probe/contracts-addon/fn_addLoadAction.sqf": "3bf1dde1e48e7cc4ba9bbb7e238edaacf7eda30bb424a71e0e3622aa96fc3e1c",
+    "tests/arma/infection_probe/contracts-addon/fn_AIreactOnKill.sqf": "17d854b7217cbfafbf702dd37f98e0e845c84fcbe460088fe6a6009e929cb193",
+    "tests/arma/infection_probe/contracts-addon/fn_citySupportChange.sqf": "f6b828a287ae5a1a30e26d30171942696c9b2fa2c64f1f55bff8715b9fc64605",
+    "tests/arma/infection_probe/contracts-addon/fn_createResourceCiv.sqf": "ba72bfa709cc3a284f8382a07437c3a4c96b67afa379ef16f0c66165059116bf",
+    "tests/arma/infection_probe/contracts-addon/fn_fillLootCrate.sqf": "9c46472a01086fc62c0ef201d41345292e464a5f40654522e7c4f191222ccfc0",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIAirplane.sqf": "1904316d3aa8ad7d2c552168465e21d45b3875e71618bb5f7e9e5bb338def7c8",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIMilbase.sqf": "afb89e05561bc77917f5edd2b8fc1e70b218d6e39db72402cf9ec68b90233ac7",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIOutposts.sqf": "e05eaf14119091acdb0e0617ebc7b2c81c4111010e548595351fa244356d97d2",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIResources.sqf": "4d68bd29bf18ed829734b00b48e557f0fd1b963928bc7bc93bf57161c682de91",
+    "tests/arma/infection_probe/contracts-addon/fn_originalMarkerChange.sqf": "d01e21c07f7e8ad476950df35151ab5ccecd2c9686f541c12f88b58e052298e4",
+    "tests/arma/infection_probe/contracts-addon/fn_originalMrkWIN.sqf": "1000c935701f1d5f251e6bb00e6d3f26a52fe8e10adda605f79c5685ed3f65ee",
+    "tests/arma/infection_probe/contracts-addon/fn_originalNATOinit.sqf": "a6e3007862a0e9bf62eee29003d7f5d821a13363d6a061d5c31eb26d37f950c3",
+    "tests/arma/infection_probe/contracts-addon/fn_originalScheduler.sqf": "da40993c9481efdfd8b7ec620d46f5f44a59a6d55131606a53435a595ee2ffcd",
+    "tests/arma/infection_probe/contracts-addon/fn_originalSurrenderAction.sqf": "bff639fb8545462ff21d52f9047846ab6eaacba4950d8bdba5f37e539787c5d1",
+    "tests/arma/infection_probe/contracts-addon/fn_selectVehicleType.sqf": "c3243b968ccb16bc398d3238ab704cca0dc95b8c4b6d6c0ffde5104c0ba8b080",
+    "tests/arma/infection_probe/contracts-addon/fn_underAttack.sqf": "2b67cfd0e6c6bbf7780cd259a5b083a3b7316026ea2f1faa3bba2f0cfda02b7e",
+    "tests/arma/infection_probe/contracts-addon/fn_VEHdespawner.sqf": "4a06598fa1e65deeef679c8c13c564790311d2b840c2fcf605a15ace45aa5c67",
+    "tests/arma/infection_probe/contracts-addon/fn_zoneCheck.sqf": "499b8ef787d7e0e1f005147a9a773f24f48affb3a6064e9886ca9a5b178c8951",
+    "Infection/addons/core/config.cpp": "6828dcfb694cf788a3550e4d3a53aefbd6810ab8d90fc81e351eab272ec87ca8",
+    "Infection/addons/core/functions/fn_bootstrap.sqf": "35f2e15cd7a8a07752a9acc67de6079d7767aa012e6735d3c77857ee45536bbf",
+    "Infection/addons/core/functions/fn_budget.sqf": "a6f78fee08e00db54b069ec5fb6751ec98df3580bcb361c13b9905d64813e88b",
+    "Infection/addons/core/functions/fn_cleanupSite.sqf": "57763f5e7abae98155bdd61649ecfdd70e8eaa7380243cd3d389141e4c5243b8",
+    "Infection/addons/core/functions/fn_createFootGarrisonLine.sqf": "1a1a33a2d62de2591b8e43c85b0ec480da41fb4c3f47d99009a809f9e021139e",
+    "Infection/addons/core/functions/fn_dependencies.sqf": "f665cc54f9b16496d981f1e7b67c33c0148c5286eddfe8c60881456e792a1335",
+    "Infection/addons/core/functions/fn_findSpawnPosition.sqf": "f55906fa852364126e68694ca470377de27219c21ca42f682db1c0e55cf59cd4",
+    "Infection/addons/core/functions/fn_infectedDamageObserved.sqf": "a3de373c0f2d26d8426679813d5f43c3f97bbb760d46c772d3d003634a28a2e1",
+    "Infection/addons/core/functions/fn_infectedDeleted.sqf": "96ec53391eaab6cce1c18fd87177de8f610398cbeac5e0e1c1b6b0106aaf602d",
+    "Infection/addons/core/functions/fn_infectedKilled.sqf": "cc46ea3703a8ee9e45759bd0d357efb72ccf63216fd2e78a49bb71bf01da3e8b",
+    "Infection/addons/core/functions/fn_initInfected.sqf": "41c9e980066287c6be10fc34a034b513945aacb21684f36f1396583d188efee2",
+    "Infection/addons/core/functions/fn_initSettings.sqf": "4f59b02a9807fda103d8bd675d2de0d5664d765ac2ddab824106302acbf8df51",
+    "Infection/addons/core/functions/fn_isActive.sqf": "420dd0220d72e1a37dc28690dfc7168469358e7a45f6f9e31722110b4587e868",
+    "Infection/addons/core/functions/fn_isManagedUnit.sqf": "9ceb2c3f414a290597efb88c2523f02a9b5f97423c5f275930c7c23c719073eb",
+    "Infection/addons/core/functions/fn_positionSafety.sqf": "8c96339a24b6dd063b1a421117646e6f8e6fece29999675b3011fe1b9e7353c0",
+    "Infection/addons/core/functions/fn_runSite.sqf": "b54f31536013f8f09b4d83861187d9efb718c68ec0eeefc3365e6c995f2e4691",
+    "Infection/addons/core/functions/fn_siteCaptureBlocked.sqf": "f0877663121d2cf98c4a40b4a33d164b15651702a418bb7ace4026a5d924b359",
+    "Infection/addons/core/functions/fn_siteWatchdog.sqf": "94bee30a8025e8923f95e6215d8034a74173d37efe8c3687aedef3a5accc8cdc",
+    "Infection/addons/core/functions/fn_spawnGroup.sqf": "a86803976b775c99f51bfbf11f14c1603c197f2089bf279dcc46e97e8aed4428",
+    "Infection/addons/core/functions/fn_spawnObservers.sqf": "addea19dde6e49030ecd3719059530541e669894c82ae22107aafe11a5e5ca7e",
+    "Infection/addons/core/functions/fn_startSite.sqf": "d6528c61b5ff402ae11247c5f03ffe0af18b7064ff056d36ed209fae1ad0c34c",
+    "Infection/addons/core/overrides/fn_createAIAirplane.sqf": "58cde538884488720e35e88c9782000a171d8a16e0efca951e3708fc78c9ed98",
+    "Infection/addons/core/overrides/fn_createAIMilbase.sqf": "884e32e0753a671ec8019eff60f1ffb67af1c137595237bfa2bb9888662dac45",
+    "Infection/addons/core/overrides/fn_createAIOutposts.sqf": "7173175ec1be698107a1949352ab95e7d4ce5d611a0c96bcae78367aea6d72d3",
+    "Infection/addons/core/overrides/fn_createAIResources.sqf": "875283cae896e56ca9d1ada7b7192c8185356e7cd236e0727d89619ed86f73a5",
+    "Infection/addons/core/overrides/fn_createGarrisonLine.sqf": "2b81a371cff8799ac6c80702657e54499f5a5c13c5929f21ce5f814b7c47e468",
+    "Infection/addons/core/overrides/fn_markerChange.sqf": "f749179962bf135b65884e5963b80ab87b8443417e223dad1f22a7f6bb48fcde",
+    "Infection/addons/core/overrides/fn_mrkWIN.sqf": "fdb67f784847b22653542afd96e739e11d0db5db394c1113ad5f2e1a1ac87451",
+    "Infection/addons/core/overrides/fn_NATOinit.sqf": "38f0f4738485684a8896190eac53b71eedf01aea5065d4f07954201ca0654c20",
+    "Infection/addons/core/overrides/fn_scheduler.sqf": "83af53c182062533c631afd5dd96b64df48561ab597d45a0c8887fcc2b269cff",
+    "Infection/addons/core/overrides/fn_surrenderAction.sqf": "399ea1d439c2a62f21379767b8d38fe2dadfe140ec015608592f0c26fda648e8",
+    "Infection/addons/core/templates/Infected.sqf": "f2ea354ceb32b4d2b0a687642e01a04cf6cde44a7a21bb85fcc35c2d9663bde1",
+    "Infection/mod.cpp": "ff7564d911bf7c428ad025ffb94dae9782458a10fe925e050398599585dcf2ad",
+    "Infection/THIRD_PARTY_LICENSES.txt": "6ada5ef3ab9f31704ad0c9a79cabef308f2973ac7e08ba41cfb97368adba49b2"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "record_schema_valid": true,
+    "dedicated_expected_mode": true,
+    "all_expected_checks_once": true,
+    "all_runtime_checks_pass": true,
+    "completion_matches_checks": true,
+    "all_expected_roles_once": true,
+    "all_role_spawns_pass": true,
+    "no_engine_or_sqf_error_records": true
+  },
+  "malformed_record_lines": [],
+  "error_lines": [],
+  "warnings_for_review": [
+    {
+      "line": 753,
+      "message": "Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
+    },
+    {
+      "line": 758,
+      "message": "bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
+    },
+    {
+      "line": 760,
+      "message": "Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
+    },
+    {
+      "line": 761,
+      "message": "Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
+    },
+    {
+      "line": 762,
+      "message": "Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
+    },
+    {
+      "line": 763,
+      "message": "Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
+    },
+    {
+      "line": 764,
+      "message": "Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
+    },
+    {
+      "line": 765,
+      "message": "Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
+    },
+    {
+      "line": 766,
+      "message": "Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
+    },
+    {
+      "line": 767,
+      "message": "Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
+    },
+    {
+      "line": 788,
+      "message": "Attempt to override final function - abz_fnc_load"
+    },
+    {
+      "line": 789,
+      "message": "Attempt to override final function - abz_fnc_queuesave"
+    },
+    {
+      "line": 790,
+      "message": "Attempt to override final function - abz_fnc_synccommit"
+    },
+    {
+      "line": 791,
+      "message": "Attempt to override final function - abz_fnc_save"
+    },
+    {
+      "line": 798,
+      "message": "Attempt to override final function - bis_fnc_storeparamsvalues_data"
+    },
+    {
+      "line": 799,
+      "message": "Attempt to override final function - hals_store_getnearbyvehicles"
+    },
+    {
+      "line": 1327,
+      "message": "Server: Object 2:798 not found (message Type_124)"
+    },
+    {
+      "line": 1328,
+      "message": "Server: Object 2:797 not found (message Type_120)"
+    },
+    {
+      "line": 1337,
+      "message": "Server: Object 2:840 not found (message Type_124)"
+    },
+    {
+      "line": 1350,
+      "message": "Server: Object 2:876 not found (message Type_124)"
+    },
+    {
+      "line": 1354,
+      "message": "Server: Object 2:904 not found (message Type_124)"
+    },
+    {
+      "line": 1364,
+      "message": "Server: Object 2:943 not found (message Type_124)"
+    },
+    {
+      "line": 1377,
+      "message": "Server: Object 2:967 not found (message Type_124)"
+    },
+    {
+      "line": 1391,
+      "message": "Server: Object 2:998 not found (message Type_124)"
+    },
+    {
+      "line": 1418,
+      "message": "Server: Object 2:1068 not found (message Type_124)"
+    },
+    {
+      "line": 1421,
+      "message": "Server: Object 2:1101 not found (message Type_124)"
+    },
+    {
+      "line": 1426,
+      "message": "Server: Object 2:1132 not found (message Type_124)"
+    },
+    {
+      "line": 1427,
+      "message": "Server: Object 2:1137 not found (message Type_124)"
+    },
+    {
+      "line": 1435,
+      "message": "Server: Object 2:1162 not found (message Type_124)"
+    },
+    {
+      "line": 1436,
+      "message": "Server: Object 2:1161 not found (message Type_120)"
+    }
+  ],
+  "runtime_checks": [
+    {
+      "name": "addon_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "functions_available",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "dependency_state",
+      "passed": true,
+      "detail": [
+        [],
+        []
+      ]
+    },
+    {
+      "name": "passive_without_faction",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_side",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "setup_dependency_gate",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ultimate_version_contract",
+      "passed": true,
+      "detail": [
+        "compatible"
+      ]
+    },
+    {
+      "name": "ultimate_patch_version",
+      "passed": true,
+      "detail": [
+        12,
+        4,
+        2
+      ]
+    },
+    {
+      "name": "activation_requires_dependencies",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "active_only_for_occupants",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "role_count",
+      "passed": true,
+      "detail": [
+        67
+      ]
+    },
+    {
+      "name": "generated_groups_resolve",
+      "passed": true,
+      "detail": [
+        61,
+        []
+      ]
+    },
+    {
+      "name": "prepared_basic_classes_only",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "assets_resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "conventional_pools_empty",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garrison_preferences_present",
+      "passed": true,
+      "detail": [
+        25
+      ]
+    },
+    {
+      "name": "garrison_lines_war1",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garrison_lines_war5",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garrison_lines_war8",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garrison_weighted_tiers",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garrison_no_vehicle_queries",
+      "passed": true,
+      "detail": [
+        0
+      ]
+    },
+    {
+      "name": "garrison_invalid_input",
+      "passed": true,
+      "detail": [
+        [
+          "",
+          [],
+          []
+        ],
+        [
+          "",
+          [],
+          []
+        ],
+        [
+          "",
+          [],
+          []
+        ],
+        [
+          "",
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "name": "garrison_invader_passthrough",
+      "passed": true,
+      "detail": [
+        [
+          "C_Offroad_01_F",
+          [],
+          []
+        ],
+        [
+          "C_Offroad_01_F",
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "name": "garrison_normal_occupant_passthrough",
+      "passed": true,
+      "detail": [
+        [
+          "C_Offroad_01_F",
+          [],
+          []
+        ],
+        [
+          "C_Offroad_01_F",
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "name": "garrison_missing_dependency_passthrough",
+      "passed": true,
+      "detail": [
+        [
+          "C_Offroad_01_F",
+          [],
+          []
+        ]
+      ]
+    },
+    {
+      "name": "garrison_selector_observation",
+      "passed": true,
+      "detail": [
+        5
+      ]
+    },
+    {
+      "name": "garrison_initial_rosters",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "spawn_elite_AA",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_AT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Engineer",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_ExplosivesExpert",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_5",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Grenadier",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_5",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_LAT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_MachineGunner",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Marksman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Medic",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_PatrolSniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_PatrolSpotter",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_5",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Radioman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_6",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Rifleman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_5",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Sniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_5",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_AA",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_AT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_Engineer",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_ExplosivesExpert",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_Grenadier",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_LAT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_MachineGunner",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_Marksman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_Medic",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_PatrolSniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_PatrolSpotter",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_Radioman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_Rifleman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_6",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_Sniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_AA",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_AT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_2",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_militia_Engineer",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_ExplosivesExpert",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_1",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_Grenadier",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_LAT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_1",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_MachineGunner",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_Marksman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_3",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_Medic",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_3",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_militia_PatrolSniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_3",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_PatrolSpotter",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_militia_Radioman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_1",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_Rifleman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_2",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_Sniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_3",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_militia_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_other_Crew",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_2",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_other_Official",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_1",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_other_Pilot",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_1",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_other_Traitor",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_other_Unarmed",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_police_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_police_Standard",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_2",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_SF_AA",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_6",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_AT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Engineer",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_ExplosivesExpert",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Grenadier",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_6",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_LAT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_MachineGunner",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Marksman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_5",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Medic",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_PatrolSniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_6",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_PatrolSpotter",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Radioman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Rifleman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Sniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "cleanup",
+      "passed": true,
+      "detail": [
+        [],
+        0
+      ]
+    },
+    {
+      "name": "combat_test_endpoints",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "combat_override_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "combat_guard_scope",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "combat_passthrough",
+      "passed": true,
+      "detail": [
+        3
+      ]
+    },
+    {
+      "name": "combat_init_militia",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        [
+          [
+            "HandleDamage",
+            0
+          ],
+          [
+            "Killed",
+            1
+          ],
+          [
+            "Deleted",
+            2
+          ]
+        ],
+        [
+          205,
+          207,
+          206
+        ],
+        30
+      ]
+    },
+    {
+      "name": "combat_init_military",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        [
+          [
+            "HandleDamage",
+            0
+          ],
+          [
+            "Killed",
+            1
+          ],
+          [
+            "Deleted",
+            2
+          ]
+        ],
+        [
+          208,
+          210,
+          209
+        ],
+        40
+      ]
+    },
+    {
+      "name": "combat_init_elite",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        [
+          [
+            "HandleDamage",
+            0
+          ],
+          [
+            "Killed",
+            1
+          ],
+          [
+            "Deleted",
+            2
+          ]
+        ],
+        [
+          211,
+          213,
+          212
+        ],
+        50
+      ]
+    },
+    {
+      "name": "combat_init_spawn_contract",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "combat_damage_observer",
+      "passed": true,
+      "detail": [
+        [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        [
+          [
+            "a3i_combat_contract",
+            "GUER",
+            "WEST",
+            false,
+            false
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "combat_kill_garrison",
+      "passed": true,
+      "detail": [
+        [
+          1000,
+          1000
+        ],
+        [
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            "WEST",
+            0.5,
+            45
+          ]
+        ],
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "combat_kill_legacy",
+      "passed": true,
+      "detail": [
+        [
+          995,
+          995
+        ],
+        [
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            "WEST",
+            0.5,
+            45
+          ]
+        ],
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "combat_kill_prepaid_attack",
+      "passed": true,
+      "detail": [
+        [
+          1000,
+          1000
+        ],
+        [
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            "WEST",
+            0.5,
+            45
+          ]
+        ],
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "combat_kill_nonrebel",
+      "passed": true,
+      "detail": [
+        [
+          1000,
+          1000
+        ],
+        [
+          [
+            -0.25,
+            0
+          ]
+        ],
+        [],
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "combat_delete_attack_refund",
+      "passed": true,
+      "detail": [
+        [
+          1010,
+          1000
+        ],
+        2
+      ]
+    },
+    {
+      "name": "combat_delete_defence_refund",
+      "passed": true,
+      "detail": [
+        [
+          1000,
+          1010
+        ],
+        2
+      ]
+    },
+    {
+      "name": "combat_delete_garrison_retains",
+      "passed": true,
+      "detail": [
+        [
+          1000,
+          1000
+        ],
+        2
+      ]
+    },
+    {
+      "name": "combat_delete_legacy_retains",
+      "passed": true,
+      "detail": [
+        [
+          1000,
+          1000
+        ],
+        2
+      ]
+    },
+    {
+      "name": "combat_delete_unfit_legacy",
+      "passed": true,
+      "detail": [
+        [
+          995,
+          995
+        ],
+        1
+      ]
+    },
+    {
+      "name": "combat_delete_duplicate",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "combat_ownership_race",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "combat_rifle_militia",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        false,
+        1,
+        30,
+        1,
+        false,
+        1
+      ]
+    },
+    {
+      "name": "combat_rifle_military",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        false,
+        1,
+        31,
+        3,
+        false,
+        1
+      ]
+    },
+    {
+      "name": "combat_rifle_elite",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        false,
+        1,
+        5,
+        5,
+        false,
+        1
+      ]
+    },
+    {
+      "name": "combat_cleanup",
+      "passed": true,
+      "detail": [
+        [],
+        0
+      ]
+    },
+    {
+      "name": "budget_settings_registered",
+      "passed": true,
+      "detail": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "budget_inactive_denied",
+      "passed": true,
+      "detail": [
+        false,
+        [
+          "",
+          0
+        ],
+        "inactive"
+      ]
+    },
+    {
+      "name": "budget_invalid_requests",
+      "passed": true,
+      "detail": [
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "invalid_request"
+        ],
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "invalid_request"
+        ],
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "invalid_request"
+        ],
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "invalid_request"
+        ],
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "invalid_request"
+        ],
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "invalid_request"
+        ],
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "invalid_request"
+        ],
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "invalid_request"
+        ]
+      ]
+    },
+    {
+      "name": "budget_global_and_context_caps",
+      "passed": true,
+      "detail": [
+        [
+          true,
+          [
+            "A3I_1",
+            2
+          ],
+          ""
+        ],
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "capacity"
+        ],
+        [
+          true,
+          [
+            "A3I_2",
+            2
+          ],
+          ""
+        ],
+        [
+          false,
+          [
+            "",
+            0
+          ],
+          "capacity"
+        ],
+        [
+          4,
+          0,
+          4,
+          2,
+          [
+            [
+              "site:A",
+              2
+            ],
+            [
+              "site:B",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_close_idempotent",
+      "passed": true,
+      "detail": [
+        [
+          true,
+          2,
+          ""
+        ],
+        [
+          true,
+          0,
+          "already_closed"
+        ],
+        [
+          4,
+          0,
+          2,
+          1,
+          [
+            [
+              "site:B",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_concurrent_reservations",
+      "passed": true,
+      "detail": [
+        20,
+        8,
+        8,
+        [
+          8,
+          0,
+          8,
+          8,
+          [
+            [
+              "race:0",
+              1
+            ],
+            [
+              "race:11",
+              1
+            ],
+            [
+              "race:15",
+              1
+            ],
+            [
+              "race:17",
+              1
+            ],
+            [
+              "race:19",
+              1
+            ],
+            [
+              "race:3",
+              1
+            ],
+            [
+              "race:7",
+              1
+            ],
+            [
+              "race:9",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_server_remote_call",
+      "passed": true,
+      "detail": [
+        8,
+        0,
+        1,
+        1,
+        [
+          [
+            "remote-server",
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_pending_limit_reduction",
+      "passed": true,
+      "detail": [
+        [
+          2,
+          0,
+          2,
+          1,
+          [
+            [
+              "reduce:A",
+              2
+            ]
+          ]
+        ],
+        [
+          4,
+          0,
+          1,
+          1,
+          [
+            [
+              "reduce:A",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_bind_basic",
+      "passed": true,
+      "detail": [
+        [
+          [
+            true,
+            1,
+            ""
+          ],
+          [
+            true,
+            1,
+            ""
+          ],
+          [
+            true,
+            1,
+            ""
+          ]
+        ],
+        [
+          4,
+          3,
+          0,
+          1,
+          [
+            [
+              "live",
+              3
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_duplicate_binding",
+      "passed": true,
+      "detail": [
+        [
+          true,
+          0,
+          "already_bound"
+        ],
+        [
+          false,
+          0,
+          "already_bound_elsewhere"
+        ],
+        [
+          4,
+          3,
+          1,
+          2,
+          [
+            [
+              "live",
+              3
+            ],
+            [
+              "other",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_live_release_denied",
+      "passed": true,
+      "detail": [
+        false,
+        0,
+        "unit_still_alive"
+      ]
+    },
+    {
+      "name": "budget_capacity_reduction_keeps_units",
+      "passed": true,
+      "detail": [
+        2,
+        3,
+        0,
+        1,
+        [
+          [
+            "live",
+            3
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_kill_release",
+      "passed": true,
+      "detail": [
+        [
+          2,
+          2,
+          0,
+          1,
+          [
+            [
+              "live",
+              2
+            ]
+          ]
+        ],
+        [
+          true,
+          0,
+          "already_released"
+        ]
+      ]
+    },
+    {
+      "name": "budget_live_delete_release",
+      "passed": true,
+      "detail": [
+        1,
+        [
+          2,
+          1,
+          0,
+          1,
+          [
+            [
+              "live",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_close_preserves_bound",
+      "passed": true,
+      "detail": [
+        2,
+        1,
+        0,
+        1,
+        [
+          [
+            "live",
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_cancel_deletes_bound",
+      "passed": true,
+      "detail": [
+        [
+          true,
+          1,
+          ""
+        ],
+        true,
+        [
+          2,
+          0,
+          0,
+          0,
+          []
+        ]
+      ]
+    },
+    {
+      "name": "budget_expiry_preserves_bound",
+      "passed": true,
+      "detail": [
+        [
+          4,
+          1,
+          0,
+          1,
+          [
+            [
+              "lease",
+              1
+            ]
+          ]
+        ],
+        [
+          false,
+          0,
+          "closed_ticket"
+        ]
+      ]
+    },
+    {
+      "name": "budget_expiry_unbound",
+      "passed": true,
+      "detail": [
+        4,
+        1,
+        0,
+        1,
+        [
+          [
+            "lease",
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "budget_unknown_operation",
+      "passed": true,
+      "detail": [
+        false,
+        [],
+        "unknown_operation"
+      ]
+    },
+    {
+      "name": "budget_ticket_preflight",
+      "passed": true,
+      "detail": [
+        [
+          true,
+          2,
+          ""
+        ],
+        [
+          false,
+          0,
+          "unknown_ticket"
+        ],
+        [
+          false,
+          0,
+          "invalid_ticket"
+        ]
+      ]
+    },
+    {
+      "name": "budget_cleanup",
+      "passed": true,
+      "detail": [
+        [],
+        0,
+        [
+          40,
+          0,
+          0,
+          0,
+          []
+        ]
+      ]
+    },
+    {
+      "name": "spawn_invalid_positions",
+      "passed": true,
+      "detail": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "name": "spawn_hq_exclusion",
+      "passed": true,
+      "detail": [
+        false,
+        "hq"
+      ]
+    },
+    {
+      "name": "spawn_observer_distance",
+      "passed": true,
+      "detail": [
+        false,
+        "player_distance"
+      ]
+    },
+    {
+      "name": "spawn_visible_rejected",
+      "passed": true,
+      "detail": [
+        false,
+        "visible"
+      ]
+    },
+    {
+      "name": "spawn_obscured_position",
+      "passed": true,
+      "detail": [
+        true,
+        ""
+      ]
+    },
+    {
+      "name": "spawn_occupied_position",
+      "passed": true,
+      "detail": [
+        false,
+        "occupied_static"
+      ]
+    },
+    {
+      "name": "spawn_bounded_search",
+      "passed": true,
+      "detail": [
+        [
+          4480.5,
+          4485.5,
+          0
+        ],
+        ""
+      ]
+    },
+    {
+      "name": "spawn_no_center_fallback",
+      "passed": true,
+      "detail": [
+        [],
+        "hq"
+      ]
+    },
+    {
+      "name": "spawn_invalid_search",
+      "passed": true,
+      "detail": [
+        [],
+        "invalid_request"
+      ]
+    },
+    {
+      "name": "spawn_budgeted_basics",
+      "passed": true,
+      "detail": [
+        true,
+        3,
+        "partial_capacity",
+        [],
+        [
+          3,
+          3,
+          0,
+          1,
+          [
+            [
+              "spawn_contract",
+              3
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "spawn_full_budget_denied",
+      "passed": true,
+      "detail": [
+        false,
+        "capacity"
+      ]
+    },
+    {
+      "name": "spawn_raw_class_denied",
+      "passed": true,
+      "detail": [
+        false,
+        "unregistered_role"
+      ]
+    },
+    {
+      "name": "spawn_missing_hq_releases",
+      "passed": true,
+      "detail": [
+        false,
+        "hq_unavailable",
+        [
+          3,
+          0,
+          0,
+          0,
+          []
+        ]
+      ]
+    },
+    {
+      "name": "spawn_inactive_site_denied",
+      "passed": true,
+      "detail": [
+        false,
+        "inactive_site"
+      ]
+    },
+    {
+      "name": "spawn_ownership_race",
+      "passed": true,
+      "detail": [
+        true,
+        1,
+        "inactive_site",
+        [
+          6,
+          1,
+          0,
+          1,
+          [
+            [
+              "spawn_race",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "spawn_limit_change_rolls_back",
+      "passed": true,
+      "detail": [
+        true,
+        2,
+        2,
+        "closed_ticket",
+        [
+          1,
+          2,
+          0,
+          1,
+          [
+            [
+              "spawn_reduced",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "spawn_cleanup",
+      "passed": true,
+      "detail": [
+        [],
+        0,
+        [
+          40,
+          0,
+          0,
+          0,
+          []
+        ]
+      ]
+    },
+    {
+      "name": "site_endpoints_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_other_factions_delegate",
+      "passed": true,
+      "detail": [
+        "originalCreateAIResources",
+        "originalCreateAIResources",
+        "originalCreateAIResources",
+        "originalCreateAIOutposts",
+        "originalCreateAIOutposts",
+        "originalCreateAIOutposts",
+        "originalCreateAIMilbase",
+        "originalCreateAIMilbase",
+        "originalCreateAIMilbase",
+        "originalCreateAIAirplane",
+        "originalCreateAIAirplane",
+        "originalCreateAIAirplane"
+      ]
+    },
+    {
+      "name": "site_scheduler_passthrough",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_pending_blocks_capture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_initial_resource",
+      "passed": true,
+      "detail": [
+        2,
+        0,
+        1,
+        1,
+        [
+          2,
+          2,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_resource",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_no_human_surrender",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_simulation_transition",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_full_roster_arrives",
+      "passed": true,
+      "detail": [
+        2,
+        [
+          "loadouts_occ_military_Rifleman",
+          "loadouts_occ_elite_Rifleman"
+        ],
+        [
+          2,
+          2,
+          0,
+          2,
+          [
+            [
+              "site:a3i_site_resource",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_approach_movement",
+      "passed": true,
+      "detail": [
+        273.274,
+        215.489
+      ]
+    },
+    {
+      "name": "site_capture_unblocks",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_cleanup_resource",
+      "passed": true,
+      "detail": [
+        true,
+        0,
+        true,
+        [
+          "loadouts_occ_military_Rifleman",
+          "loadouts_occ_elite_Rifleman"
+        ]
+      ]
+    },
+    {
+      "name": "site_reentry_resource",
+      "passed": true,
+      "detail": [
+        2,
+        [
+          2,
+          2,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_resource",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_initial_factory",
+      "passed": true,
+      "detail": [
+        2,
+        0,
+        0,
+        1,
+        [
+          2,
+          2,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_factory",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_cleanup_factory",
+      "passed": true,
+      "detail": [
+        true,
+        0,
+        true,
+        [
+          "loadouts_occ_military_Rifleman"
+        ]
+      ]
+    },
+    {
+      "name": "site_reentry_factory",
+      "passed": true,
+      "detail": [
+        1,
+        [
+          2,
+          1,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_factory",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_initial_outpost",
+      "passed": true,
+      "detail": [
+        2,
+        1,
+        0,
+        1,
+        [
+          2,
+          2,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_outpost",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_cleanup_outpost",
+      "passed": true,
+      "detail": [
+        true,
+        0,
+        true,
+        [
+          "loadouts_occ_military_Rifleman"
+        ]
+      ]
+    },
+    {
+      "name": "site_claimed_loot_preserved",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_reentry_outpost",
+      "passed": true,
+      "detail": [
+        1,
+        [
+          2,
+          1,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_outpost",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_initial_seaport",
+      "passed": true,
+      "detail": [
+        2,
+        1,
+        0,
+        1,
+        [
+          2,
+          2,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_seaport",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_cleanup_seaport",
+      "passed": true,
+      "detail": [
+        true,
+        0,
+        true,
+        [
+          "loadouts_occ_military_Rifleman"
+        ]
+      ]
+    },
+    {
+      "name": "site_reentry_seaport",
+      "passed": true,
+      "detail": [
+        1,
+        [
+          2,
+          1,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_seaport",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_initial_milbase",
+      "passed": true,
+      "detail": [
+        2,
+        2,
+        0,
+        1,
+        [
+          2,
+          2,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_milbase",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_cleanup_milbase",
+      "passed": true,
+      "detail": [
+        true,
+        0,
+        true,
+        [
+          "loadouts_occ_military_Rifleman"
+        ]
+      ]
+    },
+    {
+      "name": "site_reentry_milbase",
+      "passed": true,
+      "detail": [
+        1,
+        [
+          2,
+          1,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_milbase",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_initial_airport",
+      "passed": true,
+      "detail": [
+        2,
+        1,
+        0,
+        1,
+        [
+          2,
+          2,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_airport",
+              2
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_cleanup_airport",
+      "passed": true,
+      "detail": [
+        true,
+        0,
+        true,
+        [
+          "loadouts_occ_military_Rifleman"
+        ]
+      ]
+    },
+    {
+      "name": "site_reentry_airport",
+      "passed": true,
+      "detail": [
+        1,
+        [
+          2,
+          1,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_airport",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_interrupted_controller_reclaimed",
+      "passed": true,
+      "detail": [
+        false,
+        true,
+        2,
+        [
+          true,
+          true
+        ],
+        [
+          3,
+          3,
+          0,
+          1,
+          [
+            [
+              "site:a3i_site_resource",
+              3
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "site_ownership_change_stops_queue",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_stopped_controller_auto_cleanup",
+      "passed": true,
+      "detail": [
+        true,
+        [
+          3,
+          0,
+          0,
+          0,
+          []
+        ]
+      ]
+    },
+    {
+      "name": "site_no_capacity_retains_roster",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_human_surrender_delegates",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "site_asset_callbacks",
+      "passed": true,
+      "detail": [
+        9,
+        9,
+        8
+      ]
+    },
+    {
+      "name": "site_recovery_remote_denied",
+      "passed": true,
+      "detail": [
+        7
+      ]
+    },
+    {
+      "name": "site_all_clean",
+      "passed": true,
+      "detail": [
+        [],
+        0,
+        [
+          40,
+          0,
+          0,
+          0,
+          []
+        ]
+      ]
+    }
+  ],
+  "spawn_records": [
+    [
+      "spawn",
+      "elite_AA",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_AT",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Engineer",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_ExplosivesExpert",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Grenadier",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_LAT",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_MachineGunner",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Marksman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Medic",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_PatrolSniper",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_PatrolSpotter",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Radioman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Rifleman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Sniper",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_SquadLeader",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_AA",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_AT",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Engineer",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_ExplosivesExpert",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Grenadier",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_LAT",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_MachineGunner",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Marksman",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Medic",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_PatrolSniper",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_PatrolSpotter",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Radioman",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Rifleman",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Sniper",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_SquadLeader",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_AA",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_AT",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Engineer",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_ExplosivesExpert",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Grenadier",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_LAT",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_MachineGunner",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Marksman",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Medic",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_PatrolSniper",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_PatrolSpotter",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Radioman",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Rifleman",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Sniper",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_SquadLeader",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Crew",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Official",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Pilot",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Traitor",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Unarmed",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "police_SquadLeader",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "police_Standard",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_AA",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_AT",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Engineer",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_ExplosivesExpert",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Grenadier",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_LAT",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_MachineGunner",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Marksman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Medic",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_PatrolSniper",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_PatrolSpotter",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Radioman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Rifleman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Sniper",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_SquadLeader",
+      "Zombie_B_RA_Civ",
+      true
+    ]
+  ],
+  "completion": [
+    194,
+    [],
+    67
+  ]
+}

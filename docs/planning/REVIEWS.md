@@ -123,3 +123,39 @@ Integration decision: merge the API component as a prerequisite for S2 callers.
 S5-1 stays open for actual callers, spatial rules, cooldowns, special-creature
 accounting and performance. No campaign-wide cap or multiplayer acceptance is
 claimed by this isolated server proof.
+
+## 13 November 2026 — Full queued garrisons at six persistent sites
+
+Self-review covers the four guarded site entry points, narrow scheduler routing,
+full-roster queues, budget preflight/binding, bounded terrain/geometry placement,
+HQ and observer exclusions, capture guards, surrender bypass, asset handling,
+distance cleanup, and recovery after stopped scripts. The owner explicitly chose
+full garrisons with gradual arrivals. No virtual roster entry is consumed by a
+refused spawn. Native death bookkeeping remains the saved-roster owner.
+
+Validation: 194 dedicated assertions passed on Ultimate 12.4.2, including 36 site
+checks, 17 placement/spawn checks, 21 budget checks and the earlier regression
+suite. Six site types completed initial spawn, partial clear, cleanup and reentry.
+The fixture observed later arrivals, movement, preserved moved loot, released
+spawn places, ownership cancellation, duplicate suppression, automatic recovery
+and empty final actor/group/budget/controller state. The missing-dependency run
+passed 11 checks. No SQF/engine Error records were detected; startup warnings and
+object-not-found messages are preserved. Source and PBO hashes matched the
+recorded build. Python parser regressions, PowerShell syntax and whitespace
+checks passed. Completed test servers were stopped by their exact owned profiles.
+
+The first invalid-role branch exposed a real implementation error and was fixed.
+Two asynchronous test assumptions were corrected to inspect the state at the
+actual setting-change/script-stop boundary. A separate review check confirms
+remote calls cannot remove another system's recurring handler. Earlier failed
+runs are not counted as passing evidence.
+
+The fixture records arsenal/logistics/worker/UI and original-route endpoints;
+it does not certify those campaign effects. The 112 prepared-class observations
+are also recorded with their seven special ownership/deletion failures and
+large-creature model errors, not presented as a blanket behavior pass.
+
+Integration decision: merge this scoped site increment. S2/S5 and all campaign
+gates remain open for other site types, reinforcement/mission routes, actual
+ownership/save cycles, Redux pathing, connected players and performance. No
+Computer Use, client launch, Workshop publication or release claim is included.

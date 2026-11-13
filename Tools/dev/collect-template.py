@@ -41,8 +41,27 @@ BUDGET_CHECKS = {
     "budget_server_remote_call", "budget_pending_limit_reduction", "budget_bind_basic", "budget_duplicate_binding", "budget_live_release_denied",
     "budget_capacity_reduction_keeps_units", "budget_kill_release", "budget_live_delete_release",
     "budget_close_preserves_bound", "budget_cancel_deletes_bound", "budget_expiry_preserves_bound",
-    "budget_expiry_unbound", "budget_unknown_operation", "budget_cleanup",
+    "budget_expiry_unbound", "budget_unknown_operation", "budget_ticket_preflight", "budget_cleanup",
 }
+SPAWN_CHECKS = {
+    "spawn_invalid_positions", "spawn_hq_exclusion", "spawn_observer_distance",
+    "spawn_visible_rejected", "spawn_obscured_position", "spawn_occupied_position",
+    "spawn_bounded_search", "spawn_no_center_fallback", "spawn_invalid_search",
+    "spawn_budgeted_basics", "spawn_full_budget_denied", "spawn_raw_class_denied",
+    "spawn_missing_hq_releases", "spawn_inactive_site_denied", "spawn_ownership_race",
+    "spawn_limit_change_rolls_back", "spawn_cleanup",
+}
+SITE_CHECKS = {
+    "site_endpoints_registered", "site_other_factions_delegate", "site_scheduler_passthrough",
+    "site_pending_blocks_capture", "site_no_human_surrender", "site_simulation_transition",
+    "site_full_roster_arrives", "site_approach_movement", "site_capture_unblocks",
+    "site_claimed_loot_preserved", "site_interrupted_controller_reclaimed",
+    "site_ownership_change_stops_queue", "site_no_capacity_retains_roster",
+    "site_stopped_controller_auto_cleanup",
+    "site_recovery_remote_denied",
+    "site_human_surrender_delegates", "site_asset_callbacks", "site_all_clean",
+} | {f"site_{phase}_{kind}" for phase in ("initial", "cleanup", "reentry")
+     for kind in ("resource", "factory", "outpost", "seaport", "milbase", "airport")}
 
 
 def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
@@ -53,7 +72,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
             r"Attempt to override final function - a3[ai]_", line, re.IGNORECASE
         ):
             errors.append(number)
-        if any(text in line for text in ("Warning Message:", "not found or empty", "item count not multiple", "Attempt to override final function")):
+        if any(text in line for text in ("Warning Message:", "not found or empty", "item count not multiple", "Attempt to override final function", "Server: Object", "Invalid convex component")):
             # Preserve known dependency/engine warnings separately from SQF failures.
             warnings.append({"line": number, "message": line.split(" ", 1)[-1]})
         if "[INFECTION_TEMPLATE] " not in line:
@@ -75,7 +94,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
     checks = {
         "one_start_and_completion": complete,
@@ -93,7 +112,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     source_files = sorted((repo / "Infection").rglob("*"))
     return {
         "schema_version": 1,
-        "scope": "Isolated dedicated template/unit/garrison/combat/budget contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
+        "scope": "Isolated dedicated template/unit/garrison/combat/budget/placement/six-site contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
         "expected_dependencies_present": expected_dependencies,
         "status": "passed" if all(checks.values()) else ("failed" if complete else "incomplete"),
         "collected_at_utc": datetime.now(timezone.utc).isoformat(),
