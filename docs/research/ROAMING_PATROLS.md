@@ -20,8 +20,8 @@ the installed original. No client or headless machine owns infected creation.
 
 ## Infected policy
 
-A source must still be owned, unloaded, have saved defenders, and pass the native
-idle, forced-spawn and recent-combat checks. One patrol per source and a
+A source must still be owned, unloaded, have saved defenders, respect Ultimate's
+source idle lock, and avoid forced spawning or recent combat. One patrol per source and a
 600-second source cooldown prevent repeated calls from creating parallel patrols.
 The shared native patrol ceiling is committed atomically. Infected seaports can
 provide a land patrol; no boat or crew is selected.
@@ -45,7 +45,8 @@ resources that were never prepaid. Patrols do not alter saved garrisons.
 
 ## Validation boundary
 
-Engine validation is pending. The fixture uses real actors, budget and death
+All 377 combined dedicated checks and 11 dependency-absent checks pass, including
+37 roaming cases. The fixture uses real actors, budget and death
 accounting with a synthetic two-node road graph in VR. AI objects exercise the
 read-only player-area selector; this does not certify connected-player behavior.
 Actual movement is checked separately from route and lifecycle predicates.
@@ -60,7 +61,10 @@ caused undefined-variable errors even though the full suite sets that value.
 Neither the failed route checks nor the run's other results are acceptance.
 The corrected 47-check focused run passed. Review then removed the native marker
 helper's vehicle-spawn redirect from infected route planning and added an explicit
-missing-vehicle-spawn case. The final combined run must include that correction.
+missing-vehicle-spawn case. The final combined run includes that correction and
+the complete previous regression suite. It reports no engine/SQF Error records
+and preserves 47 startup/deletion warnings. Its PBO and all 73 addon source files
+match the build manifest in `evidence/sprint-3/`.
 
 ## Pinned originals
 

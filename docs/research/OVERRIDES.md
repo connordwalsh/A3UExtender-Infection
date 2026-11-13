@@ -107,7 +107,21 @@ repair transaction. Its scheduler route stays on the server. The mixed
 `CREATE/fn_reinforcementsAI.sqf` retains the pinned native Invader, kill-zone and
 maintenance logic; only the infected side dispatches the new selector. Installed
 aliases handle inactive dependencies/templates and ordinary patrol requests.
-The remaining native road-patrol call is a separate unconverted integration path.
+The remaining road-patrol call uses the separate adapter described below.
 
 Source hashes, source-selection differences, costs, cooldowns, roster transfer
 and the 340-check evidence are recorded in [REINFORCEMENTS.md](REINFORCEMENTS.md).
+
+## Roaming patrol increment
+
+`CREATE/fn_AAFroadPatrol.sqf` now dispatches selected infected sources to a
+bounded foot controller. The common source selector retains the ordinary
+seaport boat/navigation rules; the remaining ordinary-faction patrol body
+matches the pinned original. Inactive templates/dependencies use its installed
+alias. Infection route nodes use actual outdoor endpoints rather than native
+vehicle spawn-marker redirects. The original SHA-256 is
+`7a13758c54070ad1d9689131efb382e5f3397f44a21b18802d83aa115a13b839`.
+
+[ROAMING_PATROLS.md](ROAMING_PATROLS.md) records policy, the corrected initial
+failure, 377-check validation and remaining terrain/player gates. The response
+caller/payment audit is in [RESPONSE_CONTRACTS.md](RESPONSE_CONTRACTS.md).

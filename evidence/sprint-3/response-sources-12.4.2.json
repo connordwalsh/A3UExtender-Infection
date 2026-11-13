@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "scope": "Pinned response source audit; not implementation or runtime acceptance",
+  "ultimate_version": "12.4.2",
+  "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "sources": [
+    {
+      "path": "core/functions/Base/fn_markerChange.sqf",
+      "sha256": "4b283a4359190453daa5179c07616869a7e161cfd0c56a853278d3bbc2e25f5a"
+    },
+    {
+      "path": "core/functions/Base/fn_chooseAttack.sqf",
+      "sha256": "a43a6c893e212363f09c8f2cb84a44a6bf7e3f5c451f82eb6c19f1ae7aed9506"
+    },
+    {
+      "path": "core/functions/Base/fn_zoneCheck.sqf",
+      "sha256": "bfcbd30ffab1fb8d12d769ab479a98849f2fa5171dac7b0b9e86c797a6ffe7d7"
+    },
+    {
+      "path": "core/functions/CREATE/fn_singleAttack.sqf",
+      "sha256": "4307b88c3385da599c745e8fba23671642f7721fe12554a0745a610fb221beda"
+    },
+    {
+      "path": "core/functions/CREATE/fn_wavedAttack.sqf",
+      "sha256": "f17ab65646d3dbbc3eea46274d3f627fe458d68538da8170132799552d9be687"
+    },
+    {
+      "path": "core/functions/CREATE/fn_attackHQ.sqf",
+      "sha256": "054b5d7b953e9e3bf76e089577c3fe5dd43c1cbb5df2eae08541a436193d9b56"
+    },
+    {
+      "path": "core/functions/CREATE/fn_townBattle.sqf",
+      "sha256": "e1bcf521654eaf7524a260f544ef6403d75404a8c2aac71c5807fc39cb273634"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAttackForceMixed.sqf",
+      "sha256": "fbea2540e62bc80a44eec99fb081e3b3b10766520d000ae4b8776caee7ecb3ee"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAttackForceLand.sqf",
+      "sha256": "a638cd41feef116cefd86b6ee8f34c66d6b158355502ab1aacf3670695bc772a"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAttackForceLandMilitia.sqf",
+      "sha256": "6b642d2606bb9c4a12f7fbcd60b0bad551602327951446b2761ef2c67b6aa9d5"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAttackForcePolice.sqf",
+      "sha256": "aa2be23402ff563a4a805c07b5b00c559d45036cc83f079eef575c663cec41ae"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAttackForceAir.sqf",
+      "sha256": "84785d46b16c415d1cd81973fcc2b77dad0b5047a20dfef9b5f91537f9bd2a37"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAttackForceOrbital.sqf",
+      "sha256": "d5ebae2faf48e23e8678e40d32759290ebad48fb9520be235b545dd869a123b6"
+    },
+    {
+      "path": "core/functions/CREATE/fn_availableBasesLand.sqf",
+      "sha256": "ac5ae8aa4a777997b8084d59f2f41df4e696e666853c4147e6cf0089cccd7686"
+    },
+    {
+      "path": "core/functions/AI/fn_enemyReturnToBase.sqf",
+      "sha256": "6e0b45825d2ef264751a4c54e1e424df9d3d8e9464fc10804067289299d9de6c"
+    },
+    {
+      "path": "core/functions/AI/fn_enemyGarrison.sqf",
+      "sha256": "db8a74b0b1bb95cc0252b00642ae7e25976866014ad686fc900a0e3dbe0da1c4"
+    },
+    {
+      "path": "core/functions/Supports/fn_initSupports.sqf",
+      "sha256": "67151295d12a4852d373e97cb9ea6fc198d2f8169a40dfe4e26d6dfd848fe0cb"
+    },
+    {
+      "path": "core/functions/Supports/fn_requestSupport.sqf",
+      "sha256": "4e4a5a79484fb0c1a9fc20411b9d84a7fdfb198a86ceb5e3333d4e44e14f8aeb"
+    },
+    {
+      "path": "core/functions/Supports/fn_createSupport.sqf",
+      "sha256": "552e438a1347bab3659cd2b240e1aa311c8b81c02d5beed742fea5e4439091d0"
+    },
+    {
+      "path": "core/functions/Supports/fn_requestArtillery.sqf",
+      "sha256": "e5deb6c44518a49ca10fcca0ed5969aa4cd742d3acef45dafb57235ef0b8fd08"
+    },
+    {
+      "path": "core/functions/Supports/fn_maxDefenceSpend.sqf",
+      "sha256": "1c20ea5af5b92c7cc704f9b95bfab8042d81a2af41b97ca5691a9c4299418bbc"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_QRFLand.sqf",
+      "sha256": "e61fbc3a1ea0f8a278cdf5f6030b9c00aa61644041c6f5b74187e68ffebe3aef"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_QRFLandAvailable.sqf",
+      "sha256": "05cb1a6967087e8652d7ecf7c822f275a6bb00623fb8ac4319f379a88826e4f2"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_QRFRoutine.sqf",
+      "sha256": "7490c7c00ee7778497fa8a60eaa589ea9dfe1f18ba0662afd051c577752f0843"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_tankRoutine.sqf",
+      "sha256": "496b44d28a7c4fe683e4df7ee5b62177be6d42754accd3682e6f4812fbf1246d"
+    },
+    {
+      "path": "scrt/Location/fn_location_removeMilAdmin.sqf",
+      "sha256": "c7ab2cff1019470cee047257d06972127ae13b973142406a0848719c19a415b6"
+    },
+    {
+      "path": "ultimate/functions/REINF/fn_simpleAttack.sqf",
+      "sha256": "c5ae566c1296b8cc7cee38ff97cc674dbfecf783672071eaa0612f579e9dca1e"
+    }
+  ]
+}
