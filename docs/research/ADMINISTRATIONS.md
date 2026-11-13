@@ -57,10 +57,15 @@ handler removes itself when no jobs remain.
 
 ## Evidence and remaining work
 
-The focused development run passed 47 checks before the final ruined-building
-capture regression was added. Final combined regression results are recorded in
-the accompanying sprint evidence and self-review; a focused pass alone is not a
-campaign acceptance result.
+The final combined dedicated run passes 301 checks, including 37 administration
+cases and all earlier regression coverage. The missing-dependency run passes 11.
+The strict collector reports no engine/SQF Error records and retains 43 warnings,
+including dependency animation/final-function warnings, object deletion messages
+and the fixture's mission dependency warning. The tested PBO and all 57 addon
+source files match the build manifest. Evidence is in
+`evidence/sprint-2/administration-{contract,dependencies-absent,build}.json`.
+The earlier focused development run passed 47 checks before the final
+ruined-building capture regression was added; it is not the final evidence.
 
 The isolated fixture uses real infected, buildings, engine death/deletion,
 native administration capture, Rebel initialization, escape orders and HR

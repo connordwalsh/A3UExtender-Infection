@@ -11,17 +11,17 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
 | S1-1 | Infection scaffold and dependency checks | In progress | Built and loaded; isolated dependency-present/absent checks passed. Campaign setup acceptance remains open. |
 | S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
-| S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls and town patrols avoid conventional pools in the 264-check suite; admin/support/convoy routes remain open. |
-| S2-1 | Occupied-site lifecycle | In progress | Six persistent types and transient controls/towns pass isolated spawning/cleanup/reentry checks, including full queued rosters and stopped-controller recovery. Admin and Redux campaign acceptance remain open. |
+| S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns and administration strongholds avoid conventional pools in the 301-check suite; support/convoy routes remain open. |
+| S2-1 | Occupied-site lifecycle | In progress | Six persistent types and transient controls/towns/administrations pass isolated spawning/cleanup/reentry checks, including full queued rosters and stopped-controller recovery. Redux campaign acceptance remains open. |
 | S2-2 | Foot patrols and road controls | In progress | Road/field controls pass 37 checks and towns pass 31 within the 264-check suite. Towns preserve approved per-visit regeneration. Terrain navigation and repeated patrol circuits remain open. |
-| S2-3 | Capture and persistence | In progress | Queued defenders block the capture entry points; native roster death/reentry contracts pass. Actual ownership/rewards/save/reload/recapture remain open. |
+| S2-3 | Capture and persistence | In progress | Queued defenders block capture; roster death/reentry contracts pass. Administration clearing uses the actual native ownership/support transaction, including after building destruction. Full campaign ownership/rewards/save/reload/recapture remain open. |
 | S3-1 | QRF and attack routing | Backlog | Foot responses, costs, timeout and cancellation. |
-| S3-2 | Garrison repair | Backlog | Ownership, cooldown, player proximity and cap. |
+| S3-2 | Garrison repair | In progress | Source review confirms active-queue synchronization and vehicle/carrier routing gaps. Owner permits nearby foot replacements subject to cooldown and combat checks; implementation remains open. |
 | S3-3 | Conventional force disposition | Backlog | Occupant-only changes; Invader regression. |
 | S4-1 | Complete mission classification | Backlog | Manual and automatic triggers. |
 | S4-2 | Mission eligibility and common objectives | Backlog | Success/failure/timeout/no-spawn outcomes. |
 | S4-3 | Existing outbreak mission adaptations | Backlog | Survivor civilian configuration. |
-| S5-1 | Central spawn budget | In progress | Six persistent site types and transient controls/towns use the budget in the 264-check suite, including runtime limit increases. Other callers, terrain/player validation and performance remain open. |
+| S5-1 | Central spawn budget | In progress | Six persistent site types and transient controls/towns/administrations use the budget in the 301-check suite, including runtime limit increases. Other callers, terrain/player validation and performance remain open. |
 | S5-2 | Special roles and escalation | Backlog | Largest types restricted to declared events. |
 | S5-3 | Two distinct outbreak mission patterns | Backlog | End-to-end solo and group evidence. |
 | S6-1 | Chernarus Redux site sweep | Backlog | Fix reproduced defects only. |
@@ -121,3 +121,15 @@ record also caused an explicitly rejected intermediate run. The final report is
 complete, source-matched and has no SQF/engine Error records. Administration
 strongholds are next: capture requires clearing even if the building is destroyed,
 while rescues remain separate. No sprint or campaign acceptance gate is closed.
+
+Administration strongholds now preserve native per-visit regeneration with a
+full budgeted infected queue. Death accounting, destruction and nearby territory
+changes cannot bypass clearing. Separate survivor releases validate the rescuer,
+keep escaped actors out of site cleanup and reward only surviving escapes. All
+301 combined dedicated checks and 11 dependency-absent checks pass, including 37
+new administration cases. Actual native capture and HR functions are exercised;
+client interactions, Redux buildings, save persistence and mission wording remain
+open. The tested artifact matches all 57 addon source files. The owner permits
+routine foot reinforcements while players remain nearby, subject to cooldown and
+combat checks; S3 source review is underway. No Computer Use or client launch was
+performed, and no sprint acceptance gate is closed.
