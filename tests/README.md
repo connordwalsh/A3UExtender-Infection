@@ -119,3 +119,11 @@ probe checks the missing-patch case without attempting to spawn missing classes.
 Collect with `collect-template.py <rpt> <json> --dependencies present|absent`.
 The collector requires all expected checks exactly once and preserves startup
 warnings separately. These checks do not establish safe campaign vehicle routing.
+
+The full template fixture also checks the infected garrison-line override using
+all upstream preferences, fixed/weighted tiers, ordinary side delegation and
+Ultimate's initial-roster/ratio functions. A passing current run has 94 checks.
+Use `build-infection.ps1 -BuildName <unique-name>` and
+`start-probe-server.ps1 -InfectionMod <that-build-directory>` to test a new build
+without overwriting one used by an open client. The builder rejects a directory
+referenced by a running Arma client/server.

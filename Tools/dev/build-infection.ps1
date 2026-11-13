@@ -1,11 +1,18 @@
-param([Parameter(Mandatory = $true)][string]$ArmaTools)
+param(
+    [Parameter(Mandatory = $true)][string]$ArmaTools,
+    [ValidatePattern('^[A-Za-z0-9_-]+$')][string]$BuildName = 'Antistasi_Ultimate_Infection'
+)
 $ErrorActionPreference = 'Stop'
 $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..')).Path
 $source = Join-Path $repoRoot 'Infection\addons\core'
 $staging = Join-Path $repoRoot ('.work\infection-build\' + [guid]::NewGuid().ToString('N'))
 $addon = Join-Path $staging 'a3i_core'
 $packed = Join-Path $staging 'packed'
-$output = Join-Path $repoRoot '.work\build\@Antistasi_Ultimate_Infection'
+$output = Join-Path $repoRoot ('.work\build\@' + $BuildName)
+if (Get-CimInstance Win32_Process | Where-Object {
+    $_.Name -in @('arma3_x64.exe', 'arma3server_x64.exe') -and
+    $_.CommandLine -and $_.CommandLine.Contains($output)
+}) { throw 'That build directory is in use by Arma. Choose a different BuildName.' }
 New-Item -ItemType Directory -Path $addon, $packed, (Join-Path $output 'addons') -Force | Out-Null
 $converter = Join-Path $ArmaTools 'CfgConvert\CfgConvert.exe'
 $packer = Join-Path $ArmaTools 'FileBank\FileBank.exe'

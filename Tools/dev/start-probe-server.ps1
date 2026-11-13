@@ -1,6 +1,7 @@
 param(
     [Parameter(Mandatory = $true)][string]$SteamLibrary,
     [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
+    [string]$InfectionMod,
     [switch]$Visible
 )
 $ErrorActionPreference = 'Stop'
@@ -21,11 +22,13 @@ $modIds = if ($Mode -eq 'Dependencies') { @('450814997', '3020755032') } else { 
 $modPaths = @($modIds |
     ForEach-Object { Join-Path $workshop $_ })
 if ($Mode -in @('Template', 'Dependencies')) {
-    $infectionMod = Join-Path $repoRoot '.work\build\@Antistasi_Ultimate_Infection'
-    if (-not (Test-Path -LiteralPath (Join-Path $infectionMod 'addons\a3i_core.pbo'))) {
+    $infectionModPath = if ($InfectionMod) { (Resolve-Path -LiteralPath $InfectionMod).Path } else {
+        Join-Path $repoRoot '.work\build\@Antistasi_Ultimate_Infection'
+    }
+    if (-not (Test-Path -LiteralPath (Join-Path $infectionModPath 'addons\a3i_core.pbo'))) {
         throw 'Build Infection before running its template/dependency checks.'
     }
-    $modPaths += $infectionMod
+    $modPaths += $infectionModPath
 }
 $missionSource = Join-Path $repoRoot ('.work\probe-missions\' + $missionName + '.pbo')
 foreach ($requiredPath in @($executable, $missionSource) + $modPaths) {

@@ -26,6 +26,25 @@ class CfgFunctions
             class dependencies {};
             class isActive {};
         };
+        class Garrison
+        {
+            file = "\x\a3i\addons\core\functions";
+            class createFootGarrisonLine {};
+            class originalCreateGarrisonLine
+            {
+                file = "\x\a3a\addons\core\functions\Garrison\fn_createGarrisonLine.sqf";
+            };
+        };
+    };
+    class A3A
+    {
+        class Garrison
+        {
+            class createGarrisonLine
+            {
+                file = "\x\a3i\addons\core\overrides\fn_createGarrisonLine.sqf";
+            };
+        };
     };
 };
 

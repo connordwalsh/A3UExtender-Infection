@@ -44,3 +44,21 @@ its completion record. Startup warnings are retained rather than hidden.
 
 Integration decision: preserve this as a reviewable development scaffold. It
 does not complete Sprint 1 or authorize a campaign/release claim.
+
+## 13 November 2026 — Foot garrison-line contract
+
+The narrow CfgFunctions override checks both Infection selection and runtime side
+before replacing the virtual line builder. The installed Ultimate implementation
+is retained under an alias for other factions and missing dependencies. It does
+not edit shared preference arrays, create live AI, or invent vehicle placeholders.
+The override ledger records the pinned source and remaining caller boundaries.
+
+Validation: 94 isolated dedicated checks passed, including every inherited
+preference at fixed and weighted tiers, no infected vehicle selector calls,
+normal WEST/EAST delegation, malformed input, original initial-roster/ratio
+consumers, and the 67 unit-spawn regressions. No SQF/engine error records were
+detected; the previously recorded startup warnings remain. The build used a new
+directory so the owner's running client retained its earlier addon unchanged.
+
+Integration decision: this contract change is reviewable independently of the
+remaining site, reinforcement, capture and save work. Those stories stay open.

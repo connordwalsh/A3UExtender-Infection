@@ -80,6 +80,8 @@ if (!isServer) exitWith {};
     };
     ["conventional_pools_empty", _nonEmptyVehicles isEqualTo [], _nonEmptyVehicles] call _check;
 
+    call compile preprocessFileLineNumbers "garrisonChecks.sqf";
+
     private _entitiesBefore = entities [[], [], true, false];
     private _groupsBefore = allGroups;
     private _spawned = 0;

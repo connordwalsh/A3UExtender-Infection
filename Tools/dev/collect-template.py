@@ -21,6 +21,12 @@ ROLES = ["SquadLeader", "Rifleman", "Radioman", "Medic", "Engineer", "Explosives
 EXPECTED_ROLES = [f"{prefix}_{role}" for prefix in ("militia", "military", "elite", "SF") for role in ROLES]
 EXPECTED_ROLES += [f"police_{role}" for role in ("SquadLeader", "Standard")]
 EXPECTED_ROLES += [f"other_{role}" for role in ("Crew", "Official", "Pilot", "Traitor", "Unarmed")]
+GARRISON_CHECKS = {
+    "garrison_preferences_present", "garrison_lines_war1", "garrison_lines_war5", "garrison_lines_war8",
+    "garrison_weighted_tiers", "garrison_no_vehicle_queries", "garrison_invalid_input",
+    "garrison_invader_passthrough", "garrison_normal_occupant_passthrough",
+    "garrison_missing_dependency_passthrough", "garrison_initial_rosters",
+}
 
 
 def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
@@ -51,7 +57,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
     checks = {
         "one_start_and_completion": complete,
@@ -68,7 +74,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     source_files = sorted((repo / "Infection").rglob("*"))
     return {
         "schema_version": 1,
-        "scope": "Isolated dedicated template registration and unit creation; no campaign, NATOinit, HC transfer or JIP acceptance",
+        "scope": "Isolated dedicated template/unit/garrison contracts; no site, NATOinit, HC transfer or JIP acceptance",
         "expected_dependencies_present": expected_dependencies,
         "status": "passed" if all(checks.values()) else ("failed" if complete else "incomplete"),
         "collected_at_utc": datetime.now(timezone.utc).isoformat(),
