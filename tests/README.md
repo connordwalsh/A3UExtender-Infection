@@ -70,3 +70,36 @@ in `evidence/`. This collector does not certify the behavior outside its scope.
 References: Bohemia's [startup parameters](https://community.bistudio.com/wiki/Arma_3:_Startup_Parameters),
 [server configuration](https://community.bistudio.com/wiki/Arma_3:_Server_Config_File),
 and the installed Addon Builder `-help` output.
+# Controlled encounters
+
+Build with `Tools/dev/build-probe.ps1 -ArmaTools <tools> -Mode Behavior`, then
+start with `Tools/dev/start-probe-server.ps1 -SteamLibrary <library> -Mode Behavior`.
+This uses a separate localhost server on port 2602 and the `InfectionBehavior`
+profile. The build copies the verified candidate list from the catalog fixture.
+The eight scenarios cover a movement waypoint, passive INDEP/EAST/CIV targets,
+a CIV-class survivor joined to INDEP, empty/occupied offroads, and an armed INDEP
+rifle opponent. CIV relations and WebKnight settings remain at their defaults;
+WEST/INDEP and WEST/EAST are explicitly hostile. The rifle opponent receives
+target/fire orders; other targets cannot fire or navigate away.
+
+The server runs one encounter at a time, samples state each second, and deletes
+its test actors between trials. Counts include corpses and vehicle crews. A
+24-entity guard or leftover objects/groups aborts the batch to prevent one trial
+from contaminating another. These are short observations, not campaign acceptance.
+Joining clients get an observation camera; visual inspection remains a separate
+manual test. `collect-behavior.py <rpt> <json>` rejects incomplete/aborted batches
+and always marks the observations as requiring review.
+
+`start-local-test.ps1 -ConnectLocalPort 2502` connects the isolated visible client
+to the dedicated baseline; use port 2602 for the encounter observer. The option
+uses Arma's documented `-connect`/`-port` startup parameters and only accepts a
+localhost destination.
+
+Fixture correction: the initial encounter batch stopped after its first combat
+trial because its entity query excluded dead units. The corpse retained a group.
+The corrected query includes dead entities, and occupied crew are removed through
+`deleteVehicleCrew` before deleting the vehicle. The catalog cleanup query was
+strengthened at the same time; its original report only counted living leftovers.
+References: [entities](https://community.bistudio.com/wiki/entities),
+[deleteVehicle](https://community.bistudio.com/wiki/deleteVehicle),
+[startup parameters](https://community.bistudio.com/wiki/Arma_3:_Startup_Parameters).

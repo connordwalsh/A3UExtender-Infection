@@ -2,7 +2,8 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$SteamLibrary,
     [switch]$IncludeChernarusRedux,
-    [string]$InfectionMod
+    [string]$InfectionMod,
+    [ValidateRange(1024, 65535)][Nullable[int]]$ConnectLocalPort
 )
 
 $ErrorActionPreference = 'Stop'
@@ -35,6 +36,9 @@ $arguments = @(
     ('"-profiles={0}"' -f $profileDirectory),
     ('"-mod={0}"' -f ($modPaths -join ';'))
 )
+if ($null -ne $ConnectLocalPort) {
+    $arguments += @('-connect=127.0.0.1', ('-port=' + $ConnectLocalPort))
+}
 # This is the visible client used for manual testing, with an isolated profile.
 $process = Start-Process -FilePath $gameExecutable -ArgumentList $arguments `
     -WorkingDirectory $gameDirectory -PassThru
@@ -43,4 +47,5 @@ $process = Start-Process -FilePath $gameExecutable -ArgumentList $arguments `
     ProfileDirectory = $profileDirectory
     Mods = $modIds -join ','
     InfectionLoaded = [bool]$InfectionMod
+    ConnectLocalPort = $ConnectLocalPort
 }

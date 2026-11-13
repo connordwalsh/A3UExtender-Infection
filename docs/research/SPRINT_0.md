@@ -62,8 +62,18 @@ locally with the test profile files.
 The [save manifest](../../evidence/sprint-0/local-baseline-save.json) records
 their hashes and the [post-save screen](../../evidence/sprint-0/local-baseline-saved.png)
 shows war level 1, HR 8, faction money 1019 and player money 506. Raw saves stay
-private because they contain player identifiers. Reload and dedicated campaign
-creation/save/reload remain open; successful saving alone does not pass S0-1.
+private because they contain player identifiers.
+
+After checking that the current save exactly matched its backup, the owned test
+client was stopped and relaunched. Mouse interaction selected the same campaign
+in Ultimate's load dialog. Persistent load completed at 00:16:57.951 UTC on
+13 November, and client initialization completed at 00:17:14.084 UTC. The player
+returned to HQ with war level 1, HR 8, faction money 1019 and player money 506;
+the player-load log independently confirms the money value. See the
+[reload screenshot](../../evidence/sprint-0/local-baseline-reloaded.png).
+This verifies recovery after a process restart. Normal pause-menu exit was not
+verified because the game intercepted injected keyboard/window-close input.
+Dedicated campaign creation/save/reload still remain open for S0-1.
 
 ## Findings before Infection exists
 
@@ -139,10 +149,11 @@ and complete the controlled civilian tests before documenting player behavior.
 
 ## Current gate status
 
-The dedicated prepared-class probe completed at 21:54:22 UTC. All 14 candidates
+The repeated dedicated prepared-class probe completed at 00:16:09 UTC on
+13 November with the strengthened corpse-inclusive entity query. All 14 candidates
 existed, spawned as WEST, remained alive and server-local, initialized through
 their prepared-class handlers, and carried no primary/secondary/handgun weapon.
-Each left zero additional entities in the three-second post-deletion snapshot;
+Each left zero additional live or dead entities in the three-second post-deletion snapshot;
 the remaining group count was one throughout. Smasher's initialization marker
 was numeric zero, confirming the source finding. The run had no SQF expression
 errors, but the model errors above prevent an overall clean acceptance.
@@ -154,7 +165,7 @@ returns `needs_review` for this run. It also correctly rejects the earlier
 non-starting RPT as `incomplete`. Neither result establishes combat, civilian
 targeting, waypoint compliance, vehicle interactions, JIP, or delayed cleanup.
 
-Gate 0 remains open. Local startup and saving, dedicated mission initialization,
-source matching and prepared-class smoke checks are evidenced. Baseline reload,
-dedicated campaign creation/save/reload, per-class combat behavior, and the
+Gate 0 remains open. Local startup, saving and process-restart reload, dedicated
+mission initialization, source matching and prepared-class smoke checks are
+evidenced. Dedicated campaign creation/save/reload, per-class combat behavior, and the
 complete reviewed Occupant impact matrix are not yet accepted.

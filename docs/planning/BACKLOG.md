@@ -6,7 +6,7 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 
 | Story | Work | Status | Evidence / next check |
 | --- | --- | --- | --- |
-| S0-1 | Versions, dependencies, clean local and dedicated baseline | In progress | Version/hash inventory, local HQ startup and persistent save archived; reload and dedicated campaign open. |
+| S0-1 | Versions, dependencies, clean local and dedicated baseline | In progress | Local save and process-restart reload verified with matching ID/resources; dedicated campaign open. |
 | S0-2 | Prepared-class catalog and behavior | In progress | All 14 classes completed dedicated spawn/init/deletion smoke checks; large-creature model errors and combat/locality-transfer matrix open. |
 | S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
 | S1-1 | Infection scaffold and dependency checks | Backlog | Gate 0 inputs required. |
@@ -50,7 +50,8 @@ with optional mod support for authentic modern Russian/NATO equipment.
 
 Manual testing resumed after the owner's explicit authorization. The first local
 session ended without saving; a fresh campaign has now completed a manual
-persistent save and its files are archived with hashes. Reload is pending.
+persistent save and its files are archived with hashes. Process-restart reload
+restored the same campaign and resources. Dedicated campaign testing is next.
 Computer Use mouse actions work in menus; game keyboard input requires owner
 assistance, which is recorded rather than treated as a successful automated input.
 
