@@ -1,0 +1,1517 @@
+{
+  "schema_version": 1,
+  "scope": "Isolated dedicated template registration and unit creation; no campaign, NATOinit, HC transfer or JIP acceptance",
+  "expected_dependencies_present": true,
+  "status": "passed",
+  "collected_at_utc": "2026-11-13T19:32:10.518005+00:00",
+  "source_log": "arma3server_x64_2026-11-12_19-45-40.rpt",
+  "source_log_sha256_at_collection": "7f531014e303d99edf9eb2f2c17c262e25ed5e48c4222d7d4a07930312ceb314",
+  "source_sha256_at_collection": {
+    "tests/arma/infection_probe/template.VR/description.ext": "089e59558d8d70f1abb5040d4c4a4e8df31567f765783d14a69185af4b5d376a",
+    "tests/arma/infection_probe/template.VR/initServer.sqf": "bc4bb2674ab83a79983d3464286fa9d8c37b1b8d9e34e367493c5f2e55ea9401",
+    "tests/arma/infection_probe/template.VR/mission.sqm": "2aa86bda314d46da0a38ba2d42ce48d1d0713083073654489443e8ff0a748815",
+    "Infection/addons/core/config.cpp": "b0bc86b9c1ebc64ecb5b75b038cb0f57ecdd61c826f42703c73a1bb742d6f828",
+    "Infection/addons/core/functions/fn_bootstrap.sqf": "87f9f0f1b866680e383f3434b38f780e926b4b3d675a24c7794206145a9fb9f9",
+    "Infection/addons/core/functions/fn_dependencies.sqf": "76ec7c7991b802b38f90321a3a8c8d26c727287fc534eb74705c94e8a79ff5d5",
+    "Infection/addons/core/functions/fn_isActive.sqf": "0f544f5a1352b3226eba70d365811e0ebfe7b4d84d0a63bc851d7b9ccc111b9e",
+    "Infection/addons/core/templates/Infected.sqf": "1b532b744e87c4e317643c173eb68b590ee0f595c667950a0510eead800601c2",
+    "Infection/mod.cpp": "a7305a1abe344a05ae3559666e880ae5d7ecfedba8b367baa5ab290b898e74b3"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "record_schema_valid": true,
+    "dedicated_expected_mode": true,
+    "all_expected_checks_once": true,
+    "all_runtime_checks_pass": true,
+    "completion_matches_checks": true,
+    "all_expected_roles_once": true,
+    "all_role_spawns_pass": true,
+    "no_engine_or_sqf_error_records": true
+  },
+  "malformed_record_lines": [],
+  "error_lines": [],
+  "warnings_for_review": [
+    {
+      "line": 751,
+      "message": "Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
+    },
+    {
+      "line": 756,
+      "message": "bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
+    },
+    {
+      "line": 758,
+      "message": "Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
+    },
+    {
+      "line": 759,
+      "message": "Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
+    },
+    {
+      "line": 760,
+      "message": "Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
+    },
+    {
+      "line": 761,
+      "message": "Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
+    },
+    {
+      "line": 762,
+      "message": "Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
+    },
+    {
+      "line": 763,
+      "message": "Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
+    },
+    {
+      "line": 764,
+      "message": "Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
+    },
+    {
+      "line": 765,
+      "message": "Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
+    }
+  ],
+  "runtime_checks": [
+    {
+      "name": "addon_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "functions_available",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "dependency_state",
+      "passed": true,
+      "detail": [
+        [],
+        []
+      ]
+    },
+    {
+      "name": "passive_without_faction",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_side",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "setup_dependency_gate",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ultimate_version_contract",
+      "passed": true,
+      "detail": [
+        "compatible"
+      ]
+    },
+    {
+      "name": "activation_requires_dependencies",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "active_only_for_occupants",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "role_count",
+      "passed": true,
+      "detail": [
+        67
+      ]
+    },
+    {
+      "name": "generated_groups_resolve",
+      "passed": true,
+      "detail": [
+        58,
+        []
+      ]
+    },
+    {
+      "name": "prepared_basic_classes_only",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "assets_resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "conventional_pools_empty",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "spawn_elite_AA",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_AT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Engineer",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_6",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_ExplosivesExpert",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Grenadier",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_LAT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_6",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_MachineGunner",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Marksman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Medic",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_PatrolSniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_PatrolSpotter",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Radioman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Rifleman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_Sniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_elite_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_AA",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_AT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_Engineer",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_ExplosivesExpert",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_5",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_Grenadier",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_LAT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_MachineGunner",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_Marksman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_Medic",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_PatrolSniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_2",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_PatrolSpotter",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_Radioman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_Rifleman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_4",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_military_Sniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_middle_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_military_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Shambler_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_middle_idle"
+      ]
+    },
+    {
+      "name": "spawn_militia_AA",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_2",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_AT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_4",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_militia_Engineer",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_2",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_militia_ExplosivesExpert",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_1",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_militia_Grenadier",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_militia_LAT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_MachineGunner",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_2",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_Marksman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_Medic",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_3",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_PatrolSniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_PatrolSpotter",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_4",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_Radioman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_4",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_militia_Rifleman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_militia_Sniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_3",
+        "novoice",
+        "wbk_walker_idle_3"
+      ]
+    },
+    {
+      "name": "spawn_militia_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_2",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_other_Crew",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_2",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_other_Official",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_other_Pilot",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_1",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_other_Traitor",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_blood_4",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_other_Unarmed",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_3",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_police_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_3",
+        "novoice",
+        "wbk_walker_idle_2"
+      ]
+    },
+    {
+      "name": "spawn_police_Standard",
+      "passed": true,
+      "detail": [
+        "Zombie_B_Walker_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_DosHead_Normal_3",
+        "novoice",
+        "wbk_walker_idle_1"
+      ]
+    },
+    {
+      "name": "spawn_SF_AA",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_AT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Engineer",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_ExplosivesExpert",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Grenadier",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_LAT",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_MachineGunner",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_6",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Marksman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Medic",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_5",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_PatrolSniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_5",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_PatrolSpotter",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_1",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Radioman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_3",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Rifleman",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_Sniper",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_4",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "spawn_SF_SquadLeader",
+      "passed": true,
+      "detail": [
+        "Zombie_B_RA_Civ",
+        "WEST",
+        true,
+        2,
+        "Infected Survivor",
+        "WBK_ZombieFace_2",
+        "novoice",
+        "wbk_runner_angry_idle"
+      ]
+    },
+    {
+      "name": "cleanup",
+      "passed": true,
+      "detail": [
+        [],
+        0
+      ]
+    }
+  ],
+  "spawn_records": [
+    [
+      "spawn",
+      "elite_AA",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_AT",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Engineer",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_ExplosivesExpert",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Grenadier",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_LAT",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_MachineGunner",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Marksman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Medic",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_PatrolSniper",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_PatrolSpotter",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Radioman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Rifleman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_Sniper",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "elite_SquadLeader",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_AA",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_AT",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Engineer",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_ExplosivesExpert",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Grenadier",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_LAT",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_MachineGunner",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Marksman",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Medic",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_PatrolSniper",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_PatrolSpotter",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Radioman",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Rifleman",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_Sniper",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "military_SquadLeader",
+      "Zombie_B_Shambler_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_AA",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_AT",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Engineer",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_ExplosivesExpert",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Grenadier",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_LAT",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_MachineGunner",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Marksman",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Medic",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_PatrolSniper",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_PatrolSpotter",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Radioman",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Rifleman",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_Sniper",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "militia_SquadLeader",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Crew",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Official",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Pilot",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Traitor",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "other_Unarmed",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "police_SquadLeader",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "police_Standard",
+      "Zombie_B_Walker_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_AA",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_AT",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Engineer",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_ExplosivesExpert",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Grenadier",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_LAT",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_MachineGunner",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Marksman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Medic",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_PatrolSniper",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_PatrolSpotter",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Radioman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Rifleman",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_Sniper",
+      "Zombie_B_RA_Civ",
+      true
+    ],
+    [
+      "spawn",
+      "SF_SquadLeader",
+      "Zombie_B_RA_Civ",
+      true
+    ]
+  ],
+  "completion": [
+    83,
+    [],
+    67
+  ]
+}

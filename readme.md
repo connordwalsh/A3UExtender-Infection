@@ -4,9 +4,11 @@ An in-development Antistasi Ultimate extender that integrates WebKnight's
 Zombies and Creatures as the Occupant faction. This repository is a fork of
 [Westalgie/A3UExtender](https://github.com/Westalgie/A3UExtender).
 
-**Status: Sprint 0 — baseline inspection and contract research.** The inherited
-example addons have not yet been replaced by an accepted Infection build. Do not
-install this source tree as a finished campaign extension.
+**Status: development prototype; campaign integration is incomplete.** The
+`Infection/` addon registers the infected Occupant and supplies basic unit
+definitions. Its isolated dedicated template test passes 83 checks, including
+67 unit roles. Vehicle-dependent campaign routes are not yet adapted. Do not
+use this build for a campaign you intend to keep.
 
 ## Intended campaign
 
@@ -32,6 +34,8 @@ claim that compatibility testing has passed.
 - [Product-owner decisions and amendments](docs/planning/PRODUCT_DECISIONS.md)
 - [Scrum and review workflow](docs/planning/WORKFLOW.md)
 - [Sprint 0 evidence](evidence/sprint-0/)
+- [Registration implementation and limits](docs/research/REGISTRATION.md)
+- [Sprint 1 contract evidence](evidence/sprint-1/)
 - [Upstream extender instructions](docs/upstream-extender.md)
 
 Runtime reports will distinguish observed behavior from source findings and

@@ -28,5 +28,10 @@ The full nine-sprint plan remains the backlog. A successful build or addon load
 does not establish campaign, multiplayer, or save compatibility. Stories remain
 open until their acceptance evidence exists; deferred tests must be labelled.
 
-Current stage: Sprint 0, baseline and contract research. No gameplay feature has
-passed acceptance yet.
+Current stage: baseline research and isolated registration implementation. No
+campaign gameplay feature has passed acceptance yet.
+
+13 November amendment: development is resumed **without Computer Use**. Source,
+build and non-UI engine testing are authorized. Earlier UI authorization does not
+apply to this resumed work. The owner separately requested the visible client
+for their own manual tests.

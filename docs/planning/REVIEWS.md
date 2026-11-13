@@ -30,3 +30,17 @@ Developer self-review, as authorized by the product owner:
 Integration decision: the foundation/tooling can merge independently. Keep S0-1,
 S0-2 and S0-3 open for the documented remaining evidence. No user acceptance,
 clean gameplay certification or Workshop release is implied.
+
+## 13 November 2026 — Registration scaffold
+
+Self-review covers the unique addon/template registration, dependency facts,
+67 prepared-class roles, isolated build scripts and contract fixture/collector.
+No upstream function is overridden by this change. The real Ultimate loader and
+creator completed 83 checks; the missing-dependency fixture completed ten checks.
+Vehicle pools remain deliberately empty and their campaign consumers remain an
+open implementation task. README and registration notes identify this limitation.
+The latest full test completed before the previous halt; collection now includes
+its completion record. Startup warnings are retained rather than hidden.
+
+Integration decision: preserve this as a reviewable development scaffold. It
+does not complete Sprint 1 or authorize a campaign/release claim.

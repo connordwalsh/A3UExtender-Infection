@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "scope": "Isolated dedicated template registration and unit creation; no campaign, NATOinit, HC transfer or JIP acceptance",
+  "expected_dependencies_present": false,
+  "status": "passed",
+  "collected_at_utc": "2026-11-13T00:43:11.866919+00:00",
+  "source_log": "arma3server_x64_2026-11-12_19-42-01.rpt",
+  "source_log_sha256_at_collection": "6b8e6006e165fe697b7628004c606a098776b0345fdc80f9436ef0820363deaa",
+  "source_sha256_at_collection": {
+    "tests/arma/infection_probe/template.VR/description.ext": "089e59558d8d70f1abb5040d4c4a4e8df31567f765783d14a69185af4b5d376a",
+    "tests/arma/infection_probe/template.VR/initServer.sqf": "11af83f4a9a1715f251d794a6551eb1d947acf1ba4ef4b500a1b50e60b198602",
+    "tests/arma/infection_probe/template.VR/mission.sqm": "2aa86bda314d46da0a38ba2d42ce48d1d0713083073654489443e8ff0a748815",
+    "Infection/addons/core/config.cpp": "b0bc86b9c1ebc64ecb5b75b038cb0f57ecdd61c826f42703c73a1bb742d6f828",
+    "Infection/addons/core/functions/fn_bootstrap.sqf": "87f9f0f1b866680e383f3434b38f780e926b4b3d675a24c7794206145a9fb9f9",
+    "Infection/addons/core/functions/fn_dependencies.sqf": "76ec7c7991b802b38f90321a3a8c8d26c727287fc534eb74705c94e8a79ff5d5",
+    "Infection/addons/core/functions/fn_isActive.sqf": "0f544f5a1352b3226eba70d365811e0ebfe7b4d84d0a63bc851d7b9ccc111b9e",
+    "Infection/addons/core/templates/Infected.sqf": "1b532b744e87c4e317643c173eb68b590ee0f595c667950a0510eead800601c2",
+    "Infection/mod.cpp": "a7305a1abe344a05ae3559666e880ae5d7ecfedba8b367baa5ab290b898e74b3"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "record_schema_valid": true,
+    "dedicated_expected_mode": true,
+    "all_expected_checks_once": true,
+    "all_runtime_checks_pass": true,
+    "completion_matches_checks": true,
+    "all_expected_roles_once": true,
+    "all_role_spawns_pass": true,
+    "no_engine_or_sqf_error_records": true
+  },
+  "malformed_record_lines": [],
+  "error_lines": [],
+  "runtime_checks": [
+    {
+      "name": "addon_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "functions_available",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "dependency_state",
+      "passed": true,
+      "detail": [
+        [
+          "WBK_ZombieCreatures",
+          "WebKnight_StarWars_MoveSet"
+        ],
+        [
+          "Zombie_B_Walker_Civ",
+          "Zombie_B_Shambler_Civ",
+          "Zombie_B_RA_Civ"
+        ]
+      ]
+    },
+    {
+      "name": "passive_without_faction",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_side",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "setup_dependency_gate",
+      "passed": true,
+      "detail": [
+        "WBK_ZombieCreatures",
+        "WebKnight_StarWars_MoveSet"
+      ]
+    },
+    {
+      "name": "ultimate_version_contract",
+      "passed": true,
+      "detail": [
+        "compatible"
+      ]
+    },
+    {
+      "name": "activation_requires_dependencies",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "both_required_patches_absent",
+      "passed": true,
+      "detail": [
+        "WBK_ZombieCreatures",
+        "WebKnight_StarWars_MoveSet"
+      ]
+    }
+  ],
+  "spawn_records": [],
+  "completion": [
+    10,
+    [],
+    0
+  ]
+}

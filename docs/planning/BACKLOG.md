@@ -9,9 +9,9 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | S0-1 | Versions, dependencies, clean local and dedicated baseline | In progress | Local save and process-restart reload verified with matching ID/resources; dedicated campaign open. |
 | S0-2 | Prepared-class catalog and behavior | In progress | All 14 classes completed dedicated spawn/init/deletion smoke checks; large-creature model errors and combat/locality-transfer matrix open. |
 | S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
-| S1-1 | Infection scaffold and dependency checks | Backlog | Gate 0 inputs required. |
-| S1-2 | Basic infected tier/group definitions | Backlog | Tested class catalog required. |
-| S1-3 | Vehicle/template contract | Backlog | Empty pools need tested bypasses. |
+| S1-1 | Infection scaffold and dependency checks | In progress | Built and loaded; isolated dependency-present/absent checks passed. Campaign setup acceptance remains open. |
+| S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
+| S1-3 | Vehicle/template contract | In progress | Empty pools explicit and loader-tested; campaign callers still need tested bypasses. |
 | S2-1 | Occupied-site lifecycle | Backlog | All used site types, cleanup and reentry. |
 | S2-2 | Foot patrols and road controls | Backlog | Urban/rural paths and bounded cleanup. |
 | S2-3 | Capture and persistence | Backlog | Capture/reload/recapture at four site types. |
@@ -57,3 +57,14 @@ assistance, which is recorded rather than treated as a successful automated inpu
 
 The foundation/tooling self-review is in [REVIEWS.md](REVIEWS.md). No completed
 sprint gate or sprint retrospective is recorded yet.
+
+## Working session: 13 November 2026
+
+The owner resumed development without Computer Use. Continue source inspection,
+builds and isolated engine tests; manual campaign acceptance remains outstanding.
+The latest client was launched for the owner's own testing and is not controlled
+by this work. The 12 November template run completed before the halt with 83
+passing checks, including all 67 roles and cleanup; its report is now collected
+from the completed log. The interrupted behavior batch has 58 of 112 results and
+does not count as a completed test. Registration work overlaps baseline research
+using verified classes and pinned APIs; neither Sprint 0 nor Sprint 1 is accepted.
