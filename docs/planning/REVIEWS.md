@@ -62,3 +62,40 @@ directory so the owner's running client retained its earlier addon unchanged.
 
 Integration decision: this contract change is reviewable independently of the
 remaining site, reinforcement, capture and save work. Those stories stay open.
+
+Amendment: later inspection found the vehicle-query counter was not installed
+in the 94-check run. Its zero-query assertion is withdrawn and superseded by the
+corrected 120-check run, which observes five control calls and zero infected calls.
+See `../research/VALIDATION_CORRECTIONS.md`; the older review is not silently erased.
+
+## 13 November 2026 — Prepared infected combat bookkeeping
+
+Self-review covers the guarded NATOinit override and direct original alias,
+preservation of prepared-class handlers/AI/health/identity, Ultimate event and
+resource contracts, and once-only kill/delete processing. Human revive and
+surrender classification are omitted only for the three registered basic types.
+An explicit spawner parameter preserves the upstream inactive-site exception.
+Adapted source attribution is included in the built mod.
+
+Validation: 120 dedicated checks passed on installed/source-matched Ultimate
+12.4.2, including the 67 roles, corrected vehicle-query instrumentation, actual
+rifle deaths, resource debits/refunds, garrison ownership races, postmortem events,
+duplicate callbacks and complete fixture cleanup. Eleven missing-dependency
+checks passed without the test endpoint addon. Endpoint observations do not prove
+the campaign's actual task/support UI/economy behavior. Connected-player credit,
+ACE, headless transfer, JIP and campaign integration remain unaccepted.
+
+The first combat harness was rejected because it tried to reassign protected
+functions; test-only config overrides now install the endpoints before compilation.
+Three parser regression cases pass and unknown bare tokens remain invalid.
+The collector retains startup warnings and rejects project function-override
+failures. The full report records no engine/SQF error lines.
+
+Python AST parsing, PowerShell syntax and Git whitespace checks passed. The
+collector rejected a truncated run, a duplicate check and a protected-function
+override; the fixture builder rejected rebuilding the addon used by the running
+probe. Completed combat/dependency servers were then stopped by their exact
+owned profiles; the separate behavior observation batch continues.
+
+Integration decision: merge this scoped increment after the recorded checks;
+continue S0/S1 and live site implementation. It is not campaign or release acceptance.

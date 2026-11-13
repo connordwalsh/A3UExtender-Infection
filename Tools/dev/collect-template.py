@@ -14,7 +14,7 @@ parse_array = runpy.run_path(str(Path(__file__).with_name("collect-probe.py")))[
 COMMON = {
     "addon_registered", "functions_available", "dependency_state", "passive_without_faction",
     "template_registered", "template_side", "setup_dependency_gate", "ultimate_version_contract",
-    "activation_requires_dependencies",
+    "activation_requires_dependencies", "ultimate_patch_version",
 }
 ROLES = ["SquadLeader", "Rifleman", "Radioman", "Medic", "Engineer", "ExplosivesExpert",
          "Grenadier", "LAT", "AT", "AA", "MachineGunner", "Marksman", "Sniper", "PatrolSniper", "PatrolSpotter"]
@@ -25,7 +25,15 @@ GARRISON_CHECKS = {
     "garrison_preferences_present", "garrison_lines_war1", "garrison_lines_war5", "garrison_lines_war8",
     "garrison_weighted_tiers", "garrison_no_vehicle_queries", "garrison_invalid_input",
     "garrison_invader_passthrough", "garrison_normal_occupant_passthrough",
-    "garrison_missing_dependency_passthrough", "garrison_initial_rosters",
+    "garrison_missing_dependency_passthrough", "garrison_initial_rosters", "garrison_selector_observation",
+}
+COMBAT_CHECKS = {
+    "combat_override_registered", "combat_test_endpoints", "combat_guard_scope", "combat_passthrough",
+    "combat_init_militia", "combat_init_military", "combat_init_elite", "combat_init_spawn_contract", "combat_damage_observer",
+    "combat_kill_garrison", "combat_kill_legacy", "combat_kill_prepaid_attack", "combat_kill_nonrebel",
+    "combat_delete_attack_refund", "combat_delete_defence_refund", "combat_delete_garrison_retains",
+    "combat_delete_legacy_retains", "combat_delete_unfit_legacy", "combat_delete_duplicate", "combat_ownership_race",
+    "combat_rifle_militia", "combat_rifle_military", "combat_rifle_elite", "combat_cleanup",
 }
 
 
@@ -33,9 +41,11 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
     for number, line in enumerate(raw.decode("utf-8", errors="replace").splitlines(), 1):
-        if re.search(r"Error(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))", line):
+        if re.search(r"Error(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))", line) or re.search(
+            r"Attempt to override final function - a3[ai]_", line, re.IGNORECASE
+        ):
             errors.append(number)
-        if "Warning Message:" in line or "not found or empty" in line or "item count not multiple" in line:
+        if any(text in line for text in ("Warning Message:", "not found or empty", "item count not multiple", "Attempt to override final function")):
             # Preserve known dependency/engine warnings separately from SQF failures.
             warnings.append({"line": number, "message": line.split(" ", 1)[-1]})
         if "[INFECTION_TEMPLATE] " not in line:
@@ -57,7 +67,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
     checks = {
         "one_start_and_completion": complete,
@@ -71,10 +81,11 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
         "no_engine_or_sqf_error_records": not errors,
     }
     fixture_files = sorted((repo / "tests/arma/infection_probe/template.VR").glob("*"))
+    fixture_files += sorted((repo / "tests/arma/infection_probe/contracts-addon").glob("*")) if expected_dependencies else []
     source_files = sorted((repo / "Infection").rglob("*"))
     return {
         "schema_version": 1,
-        "scope": "Isolated dedicated template/unit/garrison contracts; no site, NATOinit, HC transfer or JIP acceptance",
+        "scope": "Isolated dedicated template/unit/garrison/combat contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
         "expected_dependencies_present": expected_dependencies,
         "status": "passed" if all(checks.values()) else ("failed" if complete else "incomplete"),
         "collected_at_utc": datetime.now(timezone.utc).isoformat(),

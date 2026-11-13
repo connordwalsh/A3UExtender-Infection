@@ -5,10 +5,12 @@ Zombies and Creatures as the Occupant faction. This repository is a fork of
 [Westalgie/A3UExtender](https://github.com/Westalgie/A3UExtender).
 
 **Status: development prototype; campaign integration is incomplete.** The
-`Infection/` addon registers the infected Occupant and supplies basic unit
-definitions. Its isolated dedicated template test passes 83 checks, including
-67 unit roles. Vehicle-dependent campaign routes are not yet adapted. Do not
-use this build for a campaign you intend to keep.
+`Infection/` addon registers the infected Occupant, supplies basic unit definitions,
+creates foot-only virtual garrison lines, and adapts infected combat bookkeeping.
+The current isolated dedicated suite passes 120 checks on Ultimate 12.4.2,
+including 67 roles and rifle/death/deletion contracts. Site, reinforcement,
+mission and save integration remain unfinished. Do not use this build for a
+campaign you intend to keep.
 
 ## Intended campaign
 
@@ -35,6 +37,8 @@ claim that compatibility testing has passed.
 - [Scrum and review workflow](docs/planning/WORKFLOW.md)
 - [Sprint 0 evidence](evidence/sprint-0/)
 - [Registration implementation and limits](docs/research/REGISTRATION.md)
+- [Combat implementation and limits](docs/research/COMBAT.md)
+- [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)
 - [Sprint 1 contract evidence](evidence/sprint-1/)
 - [Upstream extender instructions](docs/upstream-extender.md)
 

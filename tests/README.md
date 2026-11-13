@@ -122,8 +122,21 @@ warnings separately. These checks do not establish safe campaign vehicle routing
 
 The full template fixture also checks the infected garrison-line override using
 all upstream preferences, fixed/weighted tiers, ordinary side delegation and
-Ultimate's initial-roster/ratio functions. A passing current run has 94 checks.
+Ultimate's initial-roster/ratio functions. The current suite also exercises combat
+initialization, damage observation, real rifle impacts, resource/garrison death
+and deletion accounting, and cleanup. A passing full run has 120 checks; the
+dependency-absent run has 11. The installed Ultimate header must report 12.4.2.
+The full fixture uses a separate test-only addon that records task/support/
+aggression and original-init dispatch endpoints, and wraps the real vehicle
+selector to count calls. It is never packaged in the gameplay mod or loaded by
+the ordinary client launcher. Read `docs/research/COMBAT.md` for the boundary
+between real engine work and recorded campaign requests.
 Use `build-infection.ps1 -BuildName <unique-name>` and
 `start-probe-server.ps1 -InfectionMod <that-build-directory>` to test a new build
 without overwriting one used by an open client. The builder rejects a directory
 referenced by a running Arma client/server.
+
+The template fixture builder likewise rejects its test addon while it is in use.
+The collector rejects missing/duplicate checks, malformed records, script/engine
+errors and rejected attempts to override protected A3A/A3I functions. Run the
+parser regression with `python -m unittest discover -s tests -p test_evidence_parser.py`.

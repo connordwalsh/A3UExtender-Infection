@@ -4,6 +4,13 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..')).Path
+if ($Mode -eq 'Template') {
+    $activeHooks = Join-Path $repoRoot '.work\probe-addons\@Infection_Contract_Probe'
+    if (Get-CimInstance Win32_Process | Where-Object {
+        $_.Name -in @('arma3_x64.exe', 'arma3server_x64.exe') -and
+        $_.CommandLine -and $_.CommandLine.Contains($activeHooks)
+    }) { throw 'The template contract addon is in use; collect and stop that probe before rebuilding.' }
+}
 $sourceName = @{ Catalog = 'catalog.VR'; Behavior = 'behavior.VR'; Template = 'template.VR'; Dependencies = 'template.VR' }[$Mode]
 $missionName = @{ Catalog = 'Infection_ClassProbe.VR'; Behavior = 'Infection_BehaviorProbe.VR'; Template = 'Infection_TemplateProbe.VR'; Dependencies = 'Infection_DependencyProbe.VR' }[$Mode]
 $source = Join-Path $repoRoot ('tests\arma\infection_probe\' + $sourceName)
@@ -35,4 +42,17 @@ $freshArchive = Join-Path $packedOutput ($missionName + '.pbo')
 if (-not (Test-Path -LiteralPath $freshArchive)) { throw 'FileBank did not produce the probe mission' }
 $archive = Join-Path $output ($missionName + '.pbo')
 Copy-Item -LiteralPath $freshArchive -Destination $archive -Force
+if ($Mode -eq 'Template') {
+    $hookSource = Join-Path $repoRoot 'tests\arma\infection_probe\contracts-addon'
+    $hookStage = Join-Path $temporary 'a3i_contracts'
+    $hookOutput = Join-Path $repoRoot '.work\probe-addons\@Infection_Contract_Probe\addons'
+    New-Item -ItemType Directory -Path $hookStage, $hookOutput -Force | Out-Null
+    Get-ChildItem -LiteralPath $hookSource -File | Where-Object Name -ne 'config.cpp' |
+        Copy-Item -Destination $hookStage
+    & $converter -bin -dst (Join-Path $hookStage 'config.bin') (Join-Path $hookSource 'config.cpp')
+    if ($LASTEXITCODE -ne 0) { throw 'Test endpoint config validation failed' }
+    & $packer -property 'prefix=x\a3i\tests\contracts' -dst $packedOutput $hookStage
+    if ($LASTEXITCODE -ne 0) { throw 'Test endpoint packing failed' }
+    Copy-Item -LiteralPath (Join-Path $packedOutput 'a3i_contracts.pbo') -Destination $hookOutput -Force
+}
 Get-FileHash -LiteralPath $archive -Algorithm SHA256
