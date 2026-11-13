@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "scope": "Dedicated prepared-class spawn, initialization, equipment and immediate deletion smoke test",
-  "collected_at_utc": "2026-11-12T21:59:53.473008+00:00",
-  "source_log": "arma3server_x64_2026-11-12_16-52-13.rpt",
-  "source_sha256_at_collection": "d0a1825a9c64863afb8cc5d74e3977e0db9de3f0af757ecad447d5e706d20f50",
+  "collected_at_utc": "2026-11-13T00:17:13.769938+00:00",
+  "source_log": "arma3server_x64_2026-11-12_19-14-02.rpt",
+  "source_sha256_at_collection": "629ab5c2b07f81cc91d05c47be213e7f5fb2c60252ffa1bdbd1e32fdf1065920",
   "fixture_sha256": {
-    "tests/arma/infection_probe/catalog.VR/candidates.sqf": "552c54bfd4c84a8667578bcdfe0905a17200345b7275af8f14cafd22b775c045",
-    "tests/arma/infection_probe/catalog.VR/description.ext": "6f5820b3707521ae7979308189283c6f68242ed50bb8fa592eb3ccf8de3afbeb",
-    "tests/arma/infection_probe/catalog.VR/initServer.sqf": "3243947d4e346ba343631205b1eb51b3bdaef72883eb2a9cfede6449326d6665",
-    "tests/arma/infection_probe/catalog.VR/mission.sqm": "d4fddb4461c606377e2420df434aa92556d073c350e59f7cecc78a5a376783ae"
+    "tests/arma/infection_probe/catalog.VR/candidates.sqf": "d1c7049e6c5bbc02ab1a10ee907aa51bd69131a321ff544ecd343879a5033f9f",
+    "tests/arma/infection_probe/catalog.VR/description.ext": "a64c2df63dc4a40f0669a874bd5a2a26d589321473f9bac6a7c751ecaef19253",
+    "tests/arma/infection_probe/catalog.VR/initServer.sqf": "565ac01acfb3a0e02569312667ca52549d33dc3ff4d516265506a07ffab3a936",
+    "tests/arma/infection_probe/catalog.VR/mission.sqm": "190dadfda6a06ed39d281dc364cdc4794daf4ca822037436d700998e65735a2e"
   },
   "status": "needs_review",
   "smoke_checks_pass": true,
@@ -52,85 +52,85 @@
       "candidate": "WBK_Goliaph_1",
       "category": "head_body_skeleton_mismatch",
       "count": 4,
-      "first_line": 1787,
-      "last_line": 1790
+      "first_line": 1785,
+      "last_line": 1788
     },
     {
       "candidate": "WBK_Goliaph_1",
       "category": "invalid_attachment_point",
       "count": 1,
-      "first_line": 1792,
-      "last_line": 1792
+      "first_line": 1790,
+      "last_line": 1790
     },
     {
       "candidate": "WBK_Goliaph_1",
       "category": "missing_bone",
       "count": 103,
-      "first_line": 1684,
-      "last_line": 1786
+      "first_line": 1682,
+      "last_line": 1784
     },
     {
       "candidate": "WBK_Goliaph_1",
       "category": "other",
       "count": 67,
-      "first_line": 1616,
-      "last_line": 1682
+      "first_line": 1614,
+      "last_line": 1680
     },
     {
       "candidate": "WBK_SpecialZombie_Corrupted_2",
       "category": "head_body_skeleton_mismatch",
       "count": 4,
-      "first_line": 1094,
-      "last_line": 1097
+      "first_line": 1092,
+      "last_line": 1095
     },
     {
       "candidate": "WBK_SpecialZombie_Corrupted_2",
       "category": "missing_bone",
       "count": 202,
-      "first_line": 866,
-      "last_line": 1093
+      "first_line": 864,
+      "last_line": 1091
     },
     {
       "candidate": "WBK_SpecialZombie_Smasher_2",
       "category": "head_body_skeleton_mismatch",
       "count": 4,
-      "first_line": 1382,
-      "last_line": 1385
+      "first_line": 1380,
+      "last_line": 1383
     },
     {
       "candidate": "WBK_SpecialZombie_Smasher_2",
       "category": "missing_bone",
       "count": 274,
-      "first_line": 1107,
-      "last_line": 1381
+      "first_line": 1105,
+      "last_line": 1379
     },
     {
       "candidate": "WBK_SpecialZombie_Smasher_Acid_2",
       "category": "head_body_skeleton_mismatch",
       "count": 4,
-      "first_line": 1493,
-      "last_line": 1496
+      "first_line": 1491,
+      "last_line": 1494
     },
     {
       "candidate": "WBK_SpecialZombie_Smasher_Acid_2",
       "category": "missing_bone",
       "count": 103,
-      "first_line": 1390,
-      "last_line": 1492
+      "first_line": 1388,
+      "last_line": 1490
     },
     {
       "candidate": "WBK_SpecialZombie_Smasher_Hellbeast_2",
       "category": "head_body_skeleton_mismatch",
       "count": 4,
-      "first_line": 1604,
-      "last_line": 1607
+      "first_line": 1602,
+      "last_line": 1605
     },
     {
       "candidate": "WBK_SpecialZombie_Smasher_Hellbeast_2",
       "category": "missing_bone",
       "count": 103,
-      "first_line": 1501,
-      "last_line": 1603
+      "first_line": 1499,
+      "last_line": 1601
     }
   ],
   "settings": {
@@ -251,7 +251,7 @@
         "primary_weapon": "",
         "secondary_weapon": "",
         "handgun_weapon": "",
-        "animation": "wbk_walker_idle_1",
+        "animation": "wbk_walker_idle_3",
         "per_frame_handler_count": 3
       },
       "afterDelete": {
@@ -292,7 +292,7 @@
         "primary_weapon": "",
         "secondary_weapon": "",
         "handgun_weapon": "",
-        "animation": "wbk_middle_idle_1",
+        "animation": "wbk_middle_idle",
         "per_frame_handler_count": 3
       },
       "afterDelete": {

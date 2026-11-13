@@ -41,7 +41,7 @@ if (!isServer) exitWith {};
             getText (configFile >> _moves >> "skeletonName"),
             _parents, configSourceAddonList _cfg] call _log;
 
-        private _entitiesBefore = entities [[], [], true, true];
+        private _entitiesBefore = entities [[], [], true, false];
         private _group = createGroup [west, true];
         private _unit = _group createUnit [_class, [1000,1000,0], [], 0, "NONE"];
         private _deadline = diag_tickTime + 10;
@@ -64,7 +64,7 @@ if (!isServer) exitWith {};
         deleteVehicle _unit;
         deleteGroup _group;
         sleep 3;
-        private _remaining = (entities [[], [], true, true]) - _entitiesBefore;
+        private _remaining = (entities [[], [], true, false]) - _entitiesBefore;
         ["afterDelete", _class, _remaining apply {typeOf _x}, count allGroups] call _log;
     } forEach _candidates;
 
