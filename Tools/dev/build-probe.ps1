@@ -1,11 +1,11 @@
 param(
     [Parameter(Mandatory = $true)][string]$ArmaTools,
-    [ValidateSet('Catalog', 'Behavior')][string]$Mode = 'Catalog'
+    [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog'
 )
 $ErrorActionPreference = 'Stop'
 $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..')).Path
-$sourceName = if ($Mode -eq 'Catalog') { 'catalog.VR' } else { 'behavior.VR' }
-$missionName = if ($Mode -eq 'Catalog') { 'Infection_ClassProbe.VR' } else { 'Infection_BehaviorProbe.VR' }
+$sourceName = @{ Catalog = 'catalog.VR'; Behavior = 'behavior.VR'; Template = 'template.VR'; Dependencies = 'template.VR' }[$Mode]
+$missionName = @{ Catalog = 'Infection_ClassProbe.VR'; Behavior = 'Infection_BehaviorProbe.VR'; Template = 'Infection_TemplateProbe.VR'; Dependencies = 'Infection_DependencyProbe.VR' }[$Mode]
 $source = Join-Path $repoRoot ('tests\arma\infection_probe\' + $sourceName)
 $output = Join-Path $repoRoot '.work\probe-missions'
 # Every build uses an empty staging directory; an old PBO cannot mask a failure.
@@ -23,6 +23,11 @@ foreach ($relative in @('mission.sqm', 'description.ext')) {
 Get-ChildItem -LiteralPath $source -File | Copy-Item -Destination $stagedSource
 if ($Mode -eq 'Behavior') {
     Copy-Item -LiteralPath (Join-Path $repoRoot 'tests\arma\infection_probe\catalog.VR\candidates.sqf') -Destination $stagedSource
+}
+if ($Mode -in @('Template', 'Dependencies')) {
+    # The expected state is part of the packed fixture, not inferred from results.
+    ($Mode -eq 'Template').ToString().ToLowerInvariant() |
+        Set-Content -LiteralPath (Join-Path $stagedSource 'expectedDependencies.sqf') -Encoding ASCII
 }
 & $packer -property ('prefix=' + $missionName) -dst $packedOutput $stagedSource
 if ($LASTEXITCODE -ne 0) { throw 'Probe packing failed' }

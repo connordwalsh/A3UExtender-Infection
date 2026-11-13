@@ -1,13 +1,14 @@
 param(
     [Parameter(Mandatory = $true)][string]$SteamLibrary,
-    [ValidateSet('Catalog', 'Behavior')][string]$Mode = 'Catalog',
+    [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
+    [string]$InfectionMod,
     [switch]$Visible
 )
 $ErrorActionPreference = 'Stop'
-$profileName = if ($Mode -eq 'Catalog') { 'InfectionProbe' } else { 'InfectionBehavior' }
-$profileFolder = if ($Mode -eq 'Catalog') { 'probe-server' } else { 'behavior-server' }
-$missionName = if ($Mode -eq 'Catalog') { 'Infection_ClassProbe.VR' } else { 'Infection_BehaviorProbe.VR' }
-$port = if ($Mode -eq 'Catalog') { 2402 } else { 2602 }
+$profileName = @{ Catalog = 'InfectionProbe'; Behavior = 'InfectionBehavior'; Template = 'InfectionTemplate'; Dependencies = 'InfectionDependencies' }[$Mode]
+$profileFolder = @{ Catalog = 'probe-server'; Behavior = 'behavior-server'; Template = 'template-server'; Dependencies = 'dependency-server' }[$Mode]
+$missionName = @{ Catalog = 'Infection_ClassProbe.VR'; Behavior = 'Infection_BehaviorProbe.VR'; Template = 'Infection_TemplateProbe.VR'; Dependencies = 'Infection_DependencyProbe.VR' }[$Mode]
+$port = @{ Catalog = 2402; Behavior = 2602; Template = 2702; Dependencies = 2802 }[$Mode]
 $processPattern = '(?:^|\s)-name=' + [regex]::Escape($profileName) + '(?:\s|$)'
 if (Get-CimInstance Win32_Process -Filter "Name='arma3server_x64.exe'" |
     Where-Object { $_.CommandLine -match $processPattern }) {
@@ -17,8 +18,18 @@ $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..')).Path
 $gameDirectory = Join-Path $SteamLibrary 'steamapps\common\Arma 3'
 $executable = Join-Path $gameDirectory 'arma3server_x64.exe'
 $workshop = Join-Path $SteamLibrary 'steamapps\workshop\content\107410'
-$modPaths = @('450814997', '2291129343', '2789152015', '3020755032') |
-    ForEach-Object { Join-Path $workshop $_ }
+$modIds = if ($Mode -eq 'Dependencies') { @('450814997', '3020755032') } else { @('450814997', '2291129343', '2789152015', '3020755032') }
+$modPaths = @($modIds |
+    ForEach-Object { Join-Path $workshop $_ })
+if ($Mode -in @('Template', 'Dependencies')) {
+    $infectionModPath = if ($InfectionMod) { (Resolve-Path -LiteralPath $InfectionMod).Path } else {
+        Join-Path $repoRoot '.work\build\@Antistasi_Ultimate_Infection'
+    }
+    if (-not (Test-Path -LiteralPath (Join-Path $infectionModPath 'addons\a3i_core.pbo'))) {
+        throw 'Build Infection before running its template/dependency checks.'
+    }
+    $modPaths += $infectionModPath
+}
 $missionSource = Join-Path $repoRoot ('.work\probe-missions\' + $missionName + '.pbo')
 foreach ($requiredPath in @($executable, $missionSource) + $modPaths) {
     if (-not (Test-Path -LiteralPath $requiredPath)) {
@@ -30,7 +41,7 @@ foreach ($requiredPath in @($executable, $missionSource) + $modPaths) {
 $missionDirectoryName = 'MPMissions'
 $missionDirectory = Join-Path $gameDirectory $missionDirectoryName
 $missionTarget = Join-Path $missionDirectory ($missionName + '.pbo')
-$receiptName = if ($Mode -eq 'Catalog') { 'probe-install.json' } else { 'behavior-install.json' }
+$receiptName = @{ Catalog = 'probe-install.json'; Behavior = 'behavior-install.json'; Template = 'template-install.json'; Dependencies = 'dependency-install.json' }[$Mode]
 $receiptPath = Join-Path $repoRoot ('.work\' + $receiptName)
 if (Test-Path -LiteralPath $missionTarget) {
     if (-not (Test-Path -LiteralPath $receiptPath)) { throw "Unmanaged mission already exists: $missionTarget" }

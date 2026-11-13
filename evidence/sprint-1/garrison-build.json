@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "product": "Antistasi Ultimate: Infection",
+  "version": "0.1.0-dev",
+  "scope": "Development registration build; campaign routes are not yet implemented or accepted",
+  "built_at_utc": "2026-11-13T19:37:50.1362272Z",
+  "prefix": "x\\a3i\\addons\\core",
+  "addon_sha256": "74a137184c479c41005654713b219a3ca76473716729c58c682a54d0f861bf82",
+  "source": [
+    {
+      "path": "Infection/addons/core/config.cpp",
+      "sha256": "668d87953fb1babbd0116da4904a4d5dfb4f81650c0b0a08b531667da272c858"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_bootstrap.sqf",
+      "sha256": "87f9f0f1b866680e383f3434b38f780e926b4b3d675a24c7794206145a9fb9f9"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_createFootGarrisonLine.sqf",
+      "sha256": "94250826b96b3a8b7ed83460da567501b1b3ed94306c01a3cbd262e112b5d023"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_dependencies.sqf",
+      "sha256": "76ec7c7991b802b38f90321a3a8c8d26c727287fc534eb74705c94e8a79ff5d5"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_isActive.sqf",
+      "sha256": "0f544f5a1352b3226eba70d365811e0ebfe7b4d84d0a63bc851d7b9ccc111b9e"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_createGarrisonLine.sqf",
+      "sha256": "5f20937aae582d6b364fcc5f80d88ec4197ce09340d54c54f1d75dcc7242c934"
+    },
+    {
+      "path": "Infection/addons/core/templates/Infected.sqf",
+      "sha256": "1b532b744e87c4e317643c173eb68b590ee0f595c667950a0510eead800601c2"
+    },
+    {
+      "path": "Infection/mod.cpp",
+      "sha256": "a7305a1abe344a05ae3559666e880ae5d7ecfedba8b367baa5ab290b898e74b3"
+    }
+  ]
+}
