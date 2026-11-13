@@ -1,10 +1,10 @@
 /* Server scheduled bounded creation for registered basic infected.
-   [context, roles, center, minRadius, maxRadius, marker, pool, localLimit]
+   [context, roles, center, minRadius, maxRadius, marker, pool, localLimit, trackGarrison]
    -> [success, [group, created units, budget ticket], reason].
    A partial result consumes only the first count(units) roles. The caller owns
    the remaining queue and must not treat a refused spawn as a killed defender. */
 params ["_context", "_roles", "_center", "_minimum", "_maximum",
-    ["_marker",""], ["_pool","garrison"], ["_localLimit",12]];
+    ["_marker",""], ["_pool","garrison"], ["_localLimit",12], ["_trackGarrison",true,[true]]];
 private _empty = [grpNull,[],""];
 if (!isServer || {isRemoteExecuted && {remoteExecutedOwner != 2}}) exitWith {[false,_empty,"server_origin_only"]};
 if (!canSuspend) exitWith {[false,_empty,"scheduled_required"]};
@@ -67,7 +67,9 @@ if (isNull _group) then {_reason = "group_limit"} else {
                 deleteVehicle _unit;
                 _unit = objNull;
             };
-            [_unit,_marker,false,_pool] call A3A_fnc_NATOinit;
+            // Controls use the marker for ownership/activation checks, but their
+            // per-visit patrol casualties are not persistent garrison entries.
+            [_unit,if (_trackGarrison) then {_marker} else {""},false,_pool] call A3A_fnc_NATOinit;
             if !(_unit getVariable ["A3I_initialized",false]) exitWith {
                 _reason = "initialization_failed";
                 deleteVehicle _unit;

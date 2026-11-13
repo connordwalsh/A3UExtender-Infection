@@ -64,6 +64,46 @@ SITE_CHECKS = {
      for kind in ("resource", "factory", "outpost", "seaport", "milbase", "airport")}
 
 
+CONTROL_CHECKS = {
+    'control_override_registered',
+    'control_inactive_roster',
+    'control_other_factions_delegate',
+    'control_road_skip',
+    'control_road_frontline',
+    'control_road_military',
+    'control_road_weighted_roles',
+    'control_field_skip',
+    'control_field_frontline',
+    'control_field_patrol',
+    'control_template_unchanged',
+    'control_overlap_rejected',
+    'control_capacity_retains_queue',
+    'control_duplicate_rejected',
+    'control_budgeted_legacy_spawn',
+    'control_simulation_transition',
+    'control_death_legacy_accounting',
+    'control_unspawned_blocks_capture',
+    'control_full_queue_arrives',
+    'control_approach_blocks_capture',
+    'control_present_defender_blocks_capture',
+    'control_captive_cannot_capture',
+    'control_distant_unit_cannot_capture',
+    'control_rebel_capture_once',
+    'control_static_cleanup',
+    'control_visit_regenerates',
+    'control_ownership_cancels_queue',
+    'control_interrupted_cleanup',
+    'control_invader_capture',
+    'control_generated_reset_scheduled',
+    'control_reset_waits_120_minutes',
+    'control_reset_waits_for_despawn',
+    'control_reset_nearest_owner',
+    'control_reset_ownership_race',
+    'control_reset_rebel_base_preserved',
+    'control_calendar_boundaries',
+    'control_all_clean',
+}
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -94,7 +134,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
     checks = {
         "one_start_and_completion": complete,
@@ -112,7 +152,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool) -> dict:
     source_files = sorted((repo / "Infection").rglob("*"))
     return {
         "schema_version": 1,
-        "scope": "Isolated dedicated template/unit/garrison/combat/budget/placement/six-site contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
+        "scope": "Isolated dedicated template/unit/garrison/combat/budget/placement/site/control contracts; no full campaign, player credit, ACE, HC transfer or JIP acceptance",
         "expected_dependencies_present": expected_dependencies,
         "status": "passed" if all(checks.values()) else ("failed" if complete else "incomplete"),
         "collected_at_utc": datetime.now(timezone.utc).isoformat(),

@@ -33,6 +33,12 @@ if (_lootTaken) then {
 if (_record get "announced") then {
     [CBA_EVENT_SERVER_SPAWN_LOCATION,[_marker,_record get "kind",false]] call A3A_fnc_triggerLocalEvent;
 };
+if (_record get "kind" == "Control" && {_record get "captured" != sideUnknown}
+    && {controlsX find _marker > defaultControlIndex}
+    && {sidesX getVariable [_marker,sideUnknown] == _record get "captured"}) then {
+    if (isNil "A3I_controlResets") then {A3I_controlResets = createHashMap};
+    A3I_controlResets set [_marker,[+date,_record get "captured"]];
+};
 private _current = A3I_sites getOrDefault [_marker,createHashMap];
 if (_current getOrDefault ["id",-1] == _record get "id") then {
     spawner setVariable [_marker + "_A3I_pending",nil,true];

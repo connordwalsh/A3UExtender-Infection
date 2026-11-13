@@ -17,6 +17,8 @@ original project plan; they are not evidence that the behavior is implemented.
 | Major infected | Largest creatures appear only in designated special missions or military-base capture QRFs at a sufficiently high war level. The developer may choose the threshold after inspecting the current war-level system. |
 | Saves | New campaigns only. Existing campaigns are unsupported and must not be silently modified. |
 | Garrison overflow | Preserve the full saved garrison. If it exceeds the active-unit limit, bring in its remaining infected gradually from safe positions. Explicit owner decision, 13 November 2026. |
+| Town patrols | Preserve Ultimate's per-visit patrol regeneration. Town casualties do not become a persistent garrison; explicit owner decision, 13 November 2026. |
+| Military administrations | Convert infected administrations into strongholds cleared of infected, with survivor rescues; explicit owner decision, 13 November 2026. |
 | Testing | Manual Computer Use testing on the user's computer is explicitly allowed, including clarification after the goal repeated the older restriction. Other testing is also allowed. |
 | Performance | No user-specified hardware or player-count target. Retain bounded spawning, cleanup, and stability checks; do not claim an unmeasured performance guarantee. |
 | Workflow | Developer chooses Scrum organization and may review their own work. Use feature branches, useful frequent commits/pushes, and reviewed merges. |
@@ -36,3 +38,6 @@ campaign gameplay feature has passed acceptance yet.
 build and non-UI engine testing are authorized. Earlier UI authorization does not
 apply to this resumed work. The owner separately requested the visible client
 for their own manual tests.
+
+The town-patrol and military-administration choices above supersede the earlier
+pending questions. Their implementation and acceptance remain open.

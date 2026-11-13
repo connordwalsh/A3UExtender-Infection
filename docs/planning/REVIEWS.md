@@ -159,3 +159,39 @@ Integration decision: merge this scoped site increment. S2/S5 and all campaign
 gates remain open for other site types, reinforcement/mission routes, actual
 ownership/save cycles, Redux pathing, connected players and performance. No
 Computer Use, client launch, Workshop publication or release claim is included.
+
+## 13 November 2026 — Infected road and field controls
+
+Self-review covers the guarded creator/scheduler, source-derived infantry weights,
+transient role queues, safe budgeted creation, independent ownership versus
+garrison-bookkeeping markers, capture predicates, calendar resets and shared
+watchdog cleanup. Ordinary faction/dependency paths retain installed-file aliases.
+No transport, static, UAV or mine pool is queried by the infected control path.
+
+The control capture transaction requires actual spawned defenders, no pending
+roles, no fighting defender still arriving or holding the radius, and a nearby
+eligible Rebel/Invader. This prevents the upstream empty-spawn/remote-winner case.
+Former vehicle crew roles become foot defenders. Generated controls keep the
+120 campaign-minute reset, cancel stale ownership, defer while active, and handle
+year/leap boundaries. Records remain transient, matching upstream's waiting script.
+
+Validation: all 231 dedicated checks passed, including 37 new control cases and
+all earlier regressions; the missing-dependency suite passed 11. No SQF/engine
+Error records were detected. Twenty-seven warning messages are retained in the
+main report. The tested PBO and all 40 addon source files match the build manifest.
+Python parser tests, PowerShell parsing and whitespace checks passed. Completed
+servers were stopped using their verified test-profile process IDs.
+
+The first run failed two fixture expectations that assumed a four-unit fireteam.
+The pinned source actually contains six roles despite its four-man comment;
+with the foot guard the correct total is seven. No production code change was
+needed. The corrected fixture explicitly sets its tier mode and passed the full
+run. The failed run is not accepted evidence.
+
+Integration decision: merge this scoped control increment. The VR fixture checks
+road selection with explicit road/frontline inputs and actual off-road routing;
+it does not prove Redux road geometry, client notifications, wider roaming,
+campaign saves or multiplayer. S2/S5 and all campaign gates remain open. The owner
+subsequently approved per-visit town regeneration and administration strongholds
+with survivor rescues; both remain future implementation work. No
+Computer Use, client launch or Workshop publication was performed.
