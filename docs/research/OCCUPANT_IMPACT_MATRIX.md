@@ -1,7 +1,8 @@
 # Occupant integration impact matrix
 
-Research baseline: Ultimate 12.4.1, commit
-[`ea8bcf9f05d6b0d4642179db845d7d3425ceab0d`](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate/tree/ea8bcf9f05d6b0d4642179db845d7d3425ceab0d/A3A/addons).
+Research baseline: Ultimate 12.4.2, commit
+[`c7c8247672ed5e7d4aa317d47efb371c41de4e7d`](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate/tree/c7c8247672ed5e7d4aa317d47efb371c41de4e7d/A3A/addons).
+The [version refresh](VERSION_REFRESH_12.4.2.md) records the source delta from 12.4.1.
 This is the S0-3 integration map. Treatments below are proposed work, not claims
 that overrides or acceptance tests already exist. The S3 route disposition and
 S4 mission-by-mission catalog must expand the relevant rows before acceptance.
@@ -9,7 +10,7 @@ S4 mission-by-mission catalog must expand the relevant rows before acceptance.
 Paths are relative to that revision's `A3A/addons/` directory. Prefixes: `C:` =
 `core/functions/`, `P:` = `patcom/functions/`, `S:` = `scrt/`, `U:` =
 `ultimate/functions/`, `T:` = `core/Templates/`. The accompanying
-[source manifest](../../evidence/sprint-0/impact-sources.json) verifies each named
+[source manifest](../../evidence/sprint-0/impact-sources-12.4.2.json) verifies each named
 owner file and records its hash. An owner is the entry point to audit; listing it
 does not imply that all of its callees have already been proven safe.
 

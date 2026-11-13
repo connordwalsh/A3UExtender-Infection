@@ -11,7 +11,7 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
 | S1-1 | Infection scaffold and dependency checks | In progress | Built and loaded; isolated dependency-present/absent checks passed. Campaign setup acceptance remains open. |
 | S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
-| S1-3 | Vehicle/template contract | In progress | Foot garrison-line override passes 94 combined contract checks; site/support/convoy callers still need tested bypasses. |
+| S1-3 | Vehicle/template contract | In progress | Foot garrison-line checks pass in the corrected 120-check suite; site/support/convoy callers still need tested bypasses. |
 | S2-1 | Occupied-site lifecycle | Backlog | All used site types, cleanup and reentry. |
 | S2-2 | Foot patrols and road controls | Backlog | Urban/rural paths and bounded cleanup. |
 | S2-3 | Capture and persistence | Backlog | Capture/reload/recapture at four site types. |
@@ -73,3 +73,12 @@ The first protected campaign override replaces infected virtual garrison vehicle
 lines with foot groups. All 25 upstream preference rows, war tiers, ordinary
 WEST/EAST delegation and real initial-roster consumers passed. Combined template,
 unit and garrison checks total 94. This does not establish live site spawning.
+
+Combat bookkeeping now passes 120 combined dedicated checks on the updated
+Ultimate 12.4.2 installation; the missing-dependency case passes 11. Real rifle
+kills avoid human unconsciousness and surrendered-human penalties. Resource,
+garrison and postmortem transactions are once-only in the tested server-local
+cases. Player credit, ACE and multiplayer remain open. The earlier zero-vehicle-
+query assertion was invalid because Arma rejected its test replacement; the
+current fixture corrects it and proves the counter works on ordinary controls.
+See `docs/research/VALIDATION_CORRECTIONS.md`. No sprint gate is closed.

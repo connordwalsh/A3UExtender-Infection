@@ -30,6 +30,13 @@ if ($Mode -in @('Template', 'Dependencies')) {
     }
     $modPaths += $infectionModPath
 }
+if ($Mode -eq 'Template') {
+    $hooks = Join-Path $repoRoot '.work\probe-addons\@Infection_Contract_Probe'
+    if (-not (Test-Path -LiteralPath (Join-Path $hooks 'addons\a3i_contracts.pbo'))) {
+        throw 'Build the Template fixture and its isolated endpoint addon first.'
+    }
+    $modPaths += $hooks
+}
 $missionSource = Join-Path $repoRoot ('.work\probe-missions\' + $missionName + '.pbo')
 foreach ($requiredPath in @($executable, $missionSource) + $modPaths) {
     if (-not (Test-Path -LiteralPath $requiredPath)) {

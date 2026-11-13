@@ -25,6 +25,11 @@ class CfgFunctions
             class bootstrap { preInit = 1; };
             class dependencies {};
             class isActive {};
+            class isManagedUnit {};
+            class initInfected {};
+            class infectedDamageObserved {};
+            class infectedKilled {};
+            class infectedDeleted {};
         };
         class Garrison
         {
@@ -35,9 +40,20 @@ class CfgFunctions
                 file = "\x\a3a\addons\core\functions\Garrison\fn_createGarrisonLine.sqf";
             };
         };
+        class Originals
+        {
+            class originalNATOinit
+            {
+                file = "\x\a3a\addons\core\functions\CREATE\fn_NATOinit.sqf";
+            };
+        };
     };
     class A3A
     {
+        class CREATE
+        {
+            class NATOinit { file = "\x\a3i\addons\core\overrides\fn_NATOinit.sqf"; };
+        };
         class Garrison
         {
             class createGarrisonLine

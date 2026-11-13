@@ -12,9 +12,12 @@ from pathlib import Path
 
 def parse_array(text: str) -> list:
     # SQF strings escape quotes by doubling them; backslashes are literal.
+    # diag_log emits SIDE values as bare enums, even inside nested arrays.
+    # Match strings first so words inside quoted text are never substituted.
     converted = re.sub(
-        r'"(?:[^"\r\n]|"")*"',
-        lambda match: json.dumps(match.group()[1:-1].replace('""', '"')),
+        r'"(?:[^"\r\n]|"")*"|\b(?:WEST|EAST|GUER|CIV|UNKNOWN)\b',
+        lambda match: json.dumps(match.group()[1:-1].replace('""', '"')
+                                 if match.group().startswith('"') else match.group()),
         text,
     )
     result = json.loads(converted)

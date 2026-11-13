@@ -1,7 +1,8 @@
 # Infection registration prototype
 
-Implemented against Ultimate 12.4.1, pinned source
-`ea8bcf9f05d6b0d4642179db845d7d3425ceab0d`. The addon prefix is
+Originally implemented against Ultimate 12.4.1; the current source and installed
+baseline is [12.4.2](VERSION_REFRESH_12.4.2.md), commit
+`c7c8247672ed5e7d4aa317d47efb371c41de4e7d`. The addon prefix is
 `x\a3i\addons\core`; the patch is `A3I_core`. This is a development build, not
 an accepted campaign release.
 
@@ -34,7 +35,8 @@ empty strings; the artillery magazine map is empty. Ultimate's loader derives
 empty armor and armed-transport pools successfully. EnemyDefaults' noncombat
 scenery, medical item and insignia defaults remain inherited.
 
-This is **not** a tested bypass of campaign callers. Sites, garrison preferences,
+The foot garrison-line override now bypasses vehicle selection for virtual
+infected rosters. This is **not** a tested bypass of all campaign callers. Sites,
 supports, convoys and missions can still ask those empty pools for vehicles or
 crew. Their guard/replacement work is tracked in the impact matrix. The current
 build must not be described as a usable Infection campaign.
@@ -59,5 +61,7 @@ build must not be described as a usable Infection campaign.
   `A3_Characters_F` exists and supplies the observer class. The warning's root
   cause is unresolved; passing assertions are not a claim of warning-free startup.
 
-Not covered: setup UI acceptance, campaign sites, damage/kill accounting,
-headless transfer, multiplayer/JIP, progression, persistence, or performance.
+The subsequent [combat increment](COMBAT.md) adds dedicated damage/death/delete
+contract evidence, including the garrison regressions. Setup UI acceptance,
+campaign sites, headless transfer, multiplayer/JIP, progression, persistence and
+performance remain open.

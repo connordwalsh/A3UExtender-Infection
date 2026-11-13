@@ -32,12 +32,13 @@ if (-not (Test-Path -LiteralPath $freshArchive)) { throw 'FileBank produced no a
 $archive = Join-Path $output 'addons\a3i_core.pbo'
 Copy-Item -LiteralPath $freshArchive -Destination $archive -Force
 Copy-Item -LiteralPath (Join-Path $repoRoot 'Infection\mod.cpp') -Destination $output -Force
+Copy-Item -LiteralPath (Join-Path $repoRoot 'Infection\THIRD_PARTY_LICENSES.txt') -Destination $output -Force
 $sourceFiles = @(Get-ChildItem -LiteralPath (Join-Path $repoRoot 'Infection') -Recurse -File)
 $manifest = [ordered]@{
     schema_version = 1
     product = 'Antistasi Ultimate: Infection'
     version = '0.1.0-dev'
-    scope = 'Development registration build; campaign routes are not yet implemented or accepted'
+    scope = 'Development prototype with registration, foot garrison lines and combat bookkeeping; full campaign routes remain incomplete'
     built_at_utc = [DateTime]::UtcNow.ToString('o')
     prefix = 'x\a3i\addons\core'
     addon_sha256 = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()

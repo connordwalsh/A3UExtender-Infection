@@ -1,7 +1,6 @@
 // Called in the template fixture's scope; use its _check logger and loaded faction.
 private _savedFaction = A3A_faction_occ;
 private _savedDependencies = +A3I_dependencies;
-private _originalSelector = A3A_fnc_selectVehicleType;
 private _fixtureGarrison = [true] call A3A_fnc_createNamespace;
 private _fixtureSides = [true] call A3A_fnc_createNamespace;
 garrison = _fixtureGarrison;
@@ -20,7 +19,6 @@ private _isFootLine = {
         && {(_line # 2) findIf {isNil {A3A_customUnitTypes getVariable _x}} == -1}
 };
 A3I_test_vehicleQueries = 0;
-A3A_fnc_selectVehicleType = {A3I_test_vehicleQueries = A3I_test_vehicleQueries + 1; "C_Offroad_01_F"};
 {
     _x params ["_war", "_prefix"];
     tierWar = _war;
@@ -51,7 +49,6 @@ private _badWeighted = [];
 } forEach [1,5,10];
 ["garrison_weighted_tiers", _badWeighted isEqualTo [], _badWeighted] call _check;
 ["garrison_no_vehicle_queries", A3I_test_vehicleQueries == 0, [A3I_test_vehicleQueries]] call _check;
-A3A_fnc_selectVehicleType = _originalSelector;
 
 private _invalidResults = [[], ["LAND_LIGHT",0], ["LAND_LIGHT",0,23], ["LAND_LIGHT",0,"UNKNOWN"]] apply {
     [_x] call A3I_fnc_createFootGarrisonLine
@@ -76,6 +73,7 @@ A3A_faction_occ set ["infectionTemplate", "A3I_Infected"];
 A3I_dependencies set ["available", false];
 _wrapped = _controlArgs call A3A_fnc_createGarrisonLine;
 ["garrison_missing_dependency_passthrough", _wrapped isEqualTo _native, [_wrapped]] call _check;
+["garrison_selector_observation", A3I_test_vehicleQueries == 5, [A3I_test_vehicleQueries]] call _check;
 A3A_faction_occ = _savedFaction;
 A3I_dependencies = _savedDependencies;
 

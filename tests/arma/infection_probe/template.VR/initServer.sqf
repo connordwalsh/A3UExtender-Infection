@@ -1,4 +1,5 @@
 // Exercise Ultimate's real loader/creator without starting a campaign or save.
+#include "\x\a3a\addons\core\Includes\script_version.hpp"
 if (!isServer) exitWith {};
 [] spawn {
     private _log = {diag_log format ["[INFECTION_TEMPLATE] %1", _this]};
@@ -30,6 +31,7 @@ if (!isServer) exitWith {};
     ["setup_dependency_gate", (_missing isEqualTo []) isEqualTo _expectedDependencies, _missing] call _check;
     private _compat = [configFile >> "CfgPatches" >> "A3I_core"] call A3A_fnc_validateExtenderCompat;
     ["ultimate_version_contract", (_compat get "compatStatus") == 0, [_compat get "compatReason"]] call _check;
+    ["ultimate_patch_version", [MAJOR,MINOR,PATCHLVL] isEqualTo [12,4,2], [MAJOR,MINOR,PATCHLVL]] call _check;
     // A forged selection must still be unable to activate when the dependency is absent.
     A3A_faction_occ = createHashMapFromArray [["infectionTemplate", "A3I_Infected"]];
     ["activation_requires_dependencies", (call A3I_fnc_isActive) isEqualTo _expectedDependencies] call _check;
@@ -114,6 +116,7 @@ if (!isServer) exitWith {};
     private _remainingGroups = allGroups - _groupsBefore;
     ["cleanup", _leftovers isEqualTo [] && {_remainingGroups isEqualTo []},
         [_leftovers apply {typeOf _x}, count _remainingGroups]] call _check;
+    call compile preprocessFileLineNumbers "combatChecks.sqf";
     deleteVehicle A3A_customUnitTypes;
     ["complete", _checks, _failures, _spawned] call _log;
     missionNamespace setVariable ["Infection_probeComplete", true, true];

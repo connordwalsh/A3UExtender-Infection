@@ -2,10 +2,14 @@
 
 Date: 12 November 2026. This is an evidence ledger, not a release certification.
 
+Current-version amendment, 13 November: Steam installed Ultimate 12.4.2.
+See the [source and inventory refresh](VERSION_REFRESH_12.4.2.md). The baseline
+and local save observations below remain explicitly tied to 12.4.1.
+
 ## Reproducible dependency baseline
 
 The installed Arma client reports 2.22.154089; Steam's app manifest records build
-25623484. Ultimate reports 12.4.1, matching the current stable source release at
+25623484. On 12 November Ultimate reported 12.4.1, matching the source release at
 `ea8bcf9f05d6b0d4642179db845d7d3425ceab0d`. The extender fork starts at upstream
 `fe425cdbff362d799393559f39292acec7129b5e`.
 
