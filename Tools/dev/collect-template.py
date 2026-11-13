@@ -170,6 +170,8 @@ REINFORCEMENT_CHECKS = {
     "reinf_recovery_remote_denied", "reinf_open_ticket_transfer_denied", "reinf_unknown_ticket_transfer_denied",
     "reinf_all_clean",
     "reinf_cycle_dispatches_with_budget", "reinf_destination_loss_cancels",
+    "reinf_partial_arrival_waits", "reinf_fixture_arrival_established",
+    "reinf_cold_atomic_route_deferred",
 }
 
 

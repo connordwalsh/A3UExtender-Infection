@@ -99,3 +99,15 @@ capture transaction rather than copying the completed-building/save registry.
 Source hashes and caller contracts are in [ADMINISTRATION_CONTRACTS.md](ADMINISTRATION_CONTRACTS.md).
 [ADMINISTRATIONS.md](ADMINISTRATIONS.md) records the 301-check validation and
 remaining client, mission, response and save gates.
+
+## Routine reinforcement increment
+
+`CREATE/fn_patrolReinf.sqf` routes only infected requests to a paid foot/virtual
+repair transaction. Its scheduler route stays on the server. The mixed
+`CREATE/fn_reinforcementsAI.sqf` retains the pinned native Invader, kill-zone and
+maintenance logic; only the infected side dispatches the new selector. Installed
+aliases handle inactive dependencies/templates and ordinary patrol requests.
+The remaining native road-patrol call is a separate unconverted integration path.
+
+Source hashes, source-selection differences, costs, cooldowns, roster transfer
+and the 340-check evidence are recorded in [REINFORCEMENTS.md](REINFORCEMENTS.md).

@@ -3,7 +3,12 @@
 params [["_target","",[""]], ["_source","",[""]], ["_requested",4,[0]]];
 if (!isServer || {isRemoteExecuted && {remoteExecutedOwner != 2}})
     exitWith {[false,0,"server_origin_only"]};
-if (canSuspend) exitWith {[A3I_fnc_requestReinforcement,_this] call CBA_fnc_directCall};
+if (canSuspend) exitWith {
+    // Resolve expensive static routes before entering the atomic transaction.
+    // Mutable source/target eligibility is checked again inside it.
+    [_target] call A3I_fnc_reinforcementSources;
+    [A3I_fnc_requestReinforcement,_this] call CBA_fnc_directCall
+};
 if (!finite _requested || {_requested < 1} || {floor _requested != _requested})
     exitWith {[false,0,"invalid_request"]};
 private _eligible = [_target] call A3I_fnc_reinforcementEligible;

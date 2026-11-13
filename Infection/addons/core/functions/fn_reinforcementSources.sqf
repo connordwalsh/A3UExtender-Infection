@@ -6,6 +6,7 @@ if (!isServer || {!([west] call A3I_fnc_isActive)} || {!(_target in allMapMarker
 private _sources = [];
 private _observers = call A3I_fnc_spawnObservers;
 private _maximum = distanceForLandAttack + 2000;
+if (isNil "A3I_reinforcementRoutes") then {A3I_reinforcementRoutes = createHashMap};
 {
     private _source = _x;
     if (!(_source in allMapMarkers) || {sidesX getVariable [_source,sideUnknown] != west}
@@ -17,7 +18,15 @@ private _maximum = distanceForLandAttack + 2000;
         || {(_observers findIf {_x distance2D _position < 700}) != -1}
         || {[west,_position,300] call A3A_fnc_getRecentDamage > 50}) then {continue};
     private _distance = if (_source == _target) then {0} else {
-        [_source,_target,_maximum + 500] call A3A_fnc_findNavDistance
+        private _key = str [_source,_target,_maximum];
+        private _cached = A3I_reinforcementRoutes getOrDefault [_key,-2];
+        // Road geometry is static. Search only in scheduled planning, never in
+        // the atomic resource/ownership commit; cold unscheduled calls fail closed.
+        if (_cached == -2 && {canSuspend}) then {
+            _cached = [_source,_target,_maximum + 500] call A3A_fnc_findNavDistance;
+            A3I_reinforcementRoutes set [_key,_cached];
+        };
+        _cached
     };
     if (_distance >= 0 && {_distance <= _maximum + 500}) then {_sources pushBack [_source,_distance]};
 } forEach (outposts + milbases + airportsX);

@@ -39,6 +39,7 @@ distanceSPWN = 1000; distanceSPWN1 = 1000; distanceForLandAttack = 1000;
 NavGrid = [[[4000,4500,0],1,0,[[1,0,1000]]],[[5000,4500,0],1,0,[[0,0,1000]]]];
 A3A_navCellHM = createHashMapFromArray [["4/4",[[4000,4500,0]]],["5/4",[[5000,4500,1]]]];
 A3A_markerNavPoints = createHashMap;
+A3I_reinforcementRoutes = createHashMap;
 A3A_recentDamageOcc = []; A3A_recentDamageInv = [];
 A3A_resourcesDefenceOcc = 100; A3A_resourcesAttackOcc = 1000;
 A3A_hasACE = false; A3A_GCThreshold = 600;
@@ -87,6 +88,9 @@ sidesX setVariable [_target,west]; forcedSpawn = [_target];
 forcedSpawn = []; A3A_recentDamageOcc = [[5000,4500,60]];
 ["reinf_combat_target_rejected",([_target] call A3I_fnc_reinforcementEligible) # 2 == "combat"] call _check;
 A3A_recentDamageOcc = [];
+private _coldSources = [];
+isNil {_coldSources = [_target] call A3I_fnc_reinforcementSources};
+["reinf_cold_atomic_route_deferred",_coldSources isEqualTo [] && {count A3I_reinforcementRoutes == 0}] call _check;
 private _sources = [_target] call A3I_fnc_reinforcementSources;
 ["reinf_land_source_without_vehicle_places",_sources isEqualTo [[_source,1000]],_sources] call _check;
 sidesX setVariable [_source,east];
@@ -96,8 +100,10 @@ sidesX setVariable [_source,west]; spawner setVariable [_source,0];
 spawner setVariable [_source,2]; server setVariable [_source,dateToNumber date + 0.01];
 ["reinf_idle_source_rejected",([_target] call A3I_fnc_reinforcementSources) isEqualTo []] call _check;
 server setVariable [_source,0]; NavGrid # 1 set [1,2];
+A3I_reinforcementRoutes = createHashMap;
 ["reinf_disconnected_source_rejected",([_target] call A3I_fnc_reinforcementSources) isEqualTo []] call _check;
 NavGrid # 1 set [1,1];
+A3I_reinforcementRoutes = createHashMap;
 private _result = [_target,_source,4] call A3I_fnc_requestReinforcement;
 ["reinf_virtual_paid_once",_result isEqualTo [true,4,"virtual"] && {count (garrison getVariable _target) == 4}
     && {A3A_resourcesDefenceOcc == 60} && {(call _stats) # 1 == 0},_result] call _check;
@@ -140,8 +146,19 @@ private _ticket = (_units # 0) getVariable "A3I_budgetTicket";
 private _startPosition = getPosATL leader _group;
 private _moved = [{leader _group distance2D _startPosition > 0.5},12] call _wait;
 ["reinf_approach_moves",_moved,[leader _group distance2D _startPosition]] call _check;
-// Inject arrival to isolate atomic handoff from the unaccepted long-route test.
+// A leader alone does not count an unarrived follower as a saved defender.
+leader _group setPosATL [5020,4500,0];
+sleep 1.1;
+["reinf_partial_arrival_waits",garrison getVariable _target isEqualTo []
+    && {(_job getOrDefault ["lastHandoff",[]]) isEqualTo [false,0,"invalid_arrivals"]}] call _check;
+// Freeze only fixture actors while injecting the complete arrival. Observed
+// moving-AI repositioning could leave a follower at the origin; assert the actual
+// resulting positions before testing the capacity gate and atomic handoff.
+{_x enableSimulationGlobal false} forEach _units;
 {_x setPosATL [5020 + _forEachIndex * 5,4500,0]} forEach _units;
+sleep 0.2;
+["reinf_fixture_arrival_established",(_units findIf {_x distance2D getMarkerPos _target > 200}) == -1,
+    _units apply {_x distance2D getMarkerPos _target}] call _check;
 sleep 1.5;
 ["reinf_destination_cap_blocks_handoff",garrison getVariable _target isEqualTo []
     && {(A3I_budgetRecords get _ticket) # 0 == _job get "context"}] call _check;
@@ -156,6 +173,7 @@ private _site = A3I_sites get _target;
         _x getVariable ["A3A_resPool",""],_x getVariable ["markerX",""]]},call _stats]] call _check;
 ["reinf_duplicate_handoff_rejected",([_group,_target] call A3I_fnc_adoptReinforcement) # 2 == "already_adopted"
     && {count (garrison getVariable _target) == 2}] call _check;
+{_x enableSimulationGlobal true} forEach _units;
 call _waitJob;
 ["reinf_completed_job_released",!(_target in A3I_reinforcements) && {isNil "A3I_reinforcementWatchdogHandle"}
     && {(call _stats) select [1,3] isEqualTo [2,0,1]}] call _check;

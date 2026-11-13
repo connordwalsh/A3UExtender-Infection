@@ -37,6 +37,8 @@ source resource cadence. Sources are owned, unspawned outposts, bases or airport
 with at least 16 saved defenders, no native idle lock, no significant recent
 damage, and no observer within 700 meters. Connected routes use the native land
 distance allowance without requiring a vehicle position. No carrier is eligible.
+Static road distances are cached during scheduled planning. Atomic requests use
+that cache and recheck mutable eligibility; they cannot start a cold path search.
 
 An unobserved, unloaded target can receive paid virtual roles. An active target
 receives a job that creates basic infected at checked outdoor positions around
@@ -58,7 +60,8 @@ accounting; dead actors are never refunded.
 
 ## Validation boundaries
 
-Focused and combined engine evidence is required before integration. The fixture
+All 340 combined dedicated checks and 11 dependency-absent checks passed on the
+final candidate. Thirty-nine cases cover routine reinforcement; the fixture
 uses real actors, resource functions and garrison death bookkeeping, with a small
 synthetic road graph in VR. It observes movement separately and injects arrival
 positions to isolate handoff/race behavior; such an injection is not route
@@ -70,9 +73,17 @@ the strict expected-check manifest expose this failure.
 The first executed fixture also sampled refunds before their queued server
 messages arrived. Its corrected checks wait for the resource balance as well as
 job cleanup, and inject a later resource shortage atomically. A subsequent
-47-check focused run passed, but an earlier intermittent handoff failure still
-requires diagnosis with the new per-job handoff result. The feature is not yet
-accepted or merged on the strength of that passing run.
+47-check focused run passed. A repeated run diagnosed the intermittent handoff
+failure: the injected arrival left one actor approximately 999 meters from the
+target while the leader was approximately 20 meters away. The implementation
+correctly refused to save unarrived defenders. The revised fixture explicitly
+tests partial arrival, then freezes its actors while injecting and verifying a
+complete arrival. It re-enables simulation after the handoff checks. This does
+not establish real long-distance walking. The final combined run passes both
+arrival cases, the complete earlier regression suite and the new cold-route
+atomicity check. It reports no engine/SQF Error records and retains 46 startup
+and object-deletion warnings for review. Its PBO and all 66 addon sources match
+the build manifest in `evidence/sprint-3/`.
 
 The unchanged mixed cycle can still request a native road patrol. That route,
 capture/destruction QRFs, major attacks, convoy additions, and other positive

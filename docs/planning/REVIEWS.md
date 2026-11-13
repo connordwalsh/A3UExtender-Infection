@@ -264,3 +264,38 @@ and JIP behavior, Redux rooms, true distance-despawner completion, mission wordi
 destruction-triggered foot responses and cooldown persistence remain open. No
 campaign or sprint gate is closed. No Computer Use, client launch or Workshop
 publication was performed.
+
+## 13 November 2026 — Routine infected foot reinforcement
+
+Self-review covers the guarded patrol and mixed-cycle adapters, native deficit
+and quota selection, cooldown/combat rules, original queue priority, land-only
+source eligibility, bounded paid spawning, atomic arrival and context transfer,
+and observer-aware cleanup/recovery. The non-Infection mixed-cycle lines match
+the pinned source after removing the explicitly documented adapter and include
+changes. Other factions retain their installed patrol alias.
+
+Validation: all 340 dedicated checks and 11 dependency-absent checks pass. The
+39 reinforcement cases cover virtual and live repair, costs, exhausted resources,
+ownership changes, partial arrival, destination-cap pressure, once-only adoption,
+native garrison death/reentry, deadlines and stopped-controller recovery. The
+fixture uses a synthetic connected road graph and observes movement separately
+from injected arrival positions. It does not certify completed long walks.
+
+Rejected development attempts exposed an empty preprocessed test body, sampling
+before asynchronous refunds arrived, and an arrival injection that left a follower
+at its origin. The corrected fixture explicitly verifies complete arrival and
+retains a partial-arrival refusal case. Scheduled route caching also keeps native
+path searches out of the atomic commit. These corrections and the complete
+regression suite pass together on the final candidate.
+
+The strict collector records no engine/SQF Error records and retains 46 dependency
+startup and object-deletion warnings. The PBO and all 66 addon files match the
+recorded manifest. Parser regressions, PowerShell syntax and whitespace checks
+pass. Completed test servers were stopped by verified owned profile IDs.
+
+Integration decision: merge this scoped repair increment. Redux navigation,
+connected-player observation/cleanup, restart persistence and actual Invader
+campaign behavior remain acceptance work. Native roaming, QRF/attack, mission
+and other positive garrison-update paths are still unconverted. No campaign or
+sprint gate is closed; no Computer Use, client launch or Workshop publication
+was performed.
