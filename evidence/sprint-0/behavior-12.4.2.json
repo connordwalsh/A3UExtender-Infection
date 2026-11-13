@@ -1,0 +1,5096 @@
+{
+  "schema_version": 1,
+  "scope": "Automated dedicated controlled encounters; manual visual review and campaign acceptance remain separate",
+  "collected_at_utc": "2026-11-13T20:38:59.187083+00:00",
+  "source_log": "arma3server_x64_2026-11-13_14-34-12.rpt",
+  "source_sha256_at_collection": "68fd60acaa74908361190af15c7370ff6c9742b5f9ff1649023e7ecb0cd51aba",
+  "fixture_sha256": {
+    "tests/arma/infection_probe/behavior.VR/description.ext": "65a3b03f874ae89c8285f3b9e82e409a4cecd4e7cc10f31ca91d0e0bcbae88fa",
+    "tests/arma/infection_probe/behavior.VR/initPlayerLocal.sqf": "b13012fb937ba143c6a6c40bb9245a30a0aca8fb16a7e976199c968ffb8b7afc",
+    "tests/arma/infection_probe/behavior.VR/initServer.sqf": "002536dedeb2a11ac2ff7af75922fcbc79f8c6b87310d11a165654114105fc28",
+    "tests/arma/infection_probe/behavior.VR/mission.sqm": "0f8ca2e821b19d76d565d08a20003f390c471f0ecf052b41f2c7141619fe326e",
+    "tests/arma/infection_probe/behavior.VR/scenarios.sqf": "5c0f4aa4d37455f1adb8d0c10fdd603921d4630f1caaab14b7019a135490ebd3",
+    "tests/arma/infection_probe/catalog.VR/candidates.sqf": "d1c7049e6c5bbc02ab1a10ee907aa51bd69131a321ff544ecd343879a5033f9f"
+  },
+  "status": "failed_or_aborted",
+  "requires_review": true,
+  "checks": {
+    "one_start_and_completion": true,
+    "records_parse_and_match_schema": true,
+    "completed_expected_trials": true,
+    "no_abort": true,
+    "runtime_manifest_matches_fixture": true,
+    "no_sqf_error_records": true,
+    "all_begin_records_present_once": true,
+    "all_setup_records_present_once": true,
+    "all_result_records_present_once": true,
+    "all_cleanup_records_present_once": true,
+    "sample_counts_match_results": true,
+    "all_cleanup_empty": true,
+    "server_local_at_start_and_end": false
+  },
+  "completed_trials": 112,
+  "expected_trials": 112,
+  "runtime_record": [
+    [
+      "Arma 3",
+      "Arma3",
+      222,
+      154089,
+      "Stable",
+      true,
+      "Windows",
+      "x64",
+      ""
+    ],
+    "VR",
+    true,
+    2,
+    [
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      "Zombie_B_Crawler_Civ",
+      "Zombie_B_Walker_Civ",
+      "Zombie_B_Shambler_Civ",
+      "Zombie_B_RC_Civ",
+      "Zombie_B_RA_Civ",
+      "Zombie_Special_BLUFOR_Leaper_1",
+      "Zombie_Special_BLUFOR_Leaper_2",
+      "Zombie_Special_BLUFOR_Screamer",
+      "Zombie_Special_BLUFOR_Boomer",
+      "WBK_SpecialZombie_Corrupted_2",
+      "WBK_SpecialZombie_Smasher_2",
+      "WBK_SpecialZombie_Smasher_Acid_2",
+      "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "WBK_Goliaph_1"
+    ],
+    [
+      [
+        "waypoint",
+        25
+      ],
+      [
+        "independent_unarmed",
+        25
+      ],
+      [
+        "east_unarmed",
+        25
+      ],
+      [
+        "civilian",
+        25
+      ],
+      [
+        "independent_survivor",
+        25
+      ],
+      [
+        "empty_vehicle",
+        25
+      ],
+      [
+        "occupied_vehicle",
+        25
+      ],
+      [
+        "rifle_combat",
+        35
+      ]
+    ]
+  ],
+  "completion_record": [
+    112,
+    112,
+    false
+  ],
+  "malformed_record_lines": [],
+  "invalid_record_shapes": [],
+  "sqf_error_lines": [],
+  "engine_error_summary": [
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "civilian",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 6325,
+      "last_line": 6328
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "civilian",
+      "category": "invalid_attachment_point",
+      "count": 1,
+      "first_line": 6330,
+      "last_line": 6330
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "east_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 6277,
+      "last_line": 6280
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "east_unarmed",
+      "category": "invalid_attachment_point",
+      "count": 1,
+      "first_line": 6282,
+      "last_line": 6282
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "empty_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 6412,
+      "last_line": 6415
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "empty_vehicle",
+      "category": "invalid_attachment_point",
+      "count": 1,
+      "first_line": 6417,
+      "last_line": 6417
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "independent_survivor",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 6367,
+      "last_line": 6370
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "independent_survivor",
+      "category": "invalid_attachment_point",
+      "count": 1,
+      "first_line": 6372,
+      "last_line": 6372
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "independent_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 6228,
+      "last_line": 6231
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "independent_unarmed",
+      "category": "invalid_attachment_point",
+      "count": 1,
+      "first_line": 6233,
+      "last_line": 6233
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "occupied_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 6447,
+      "last_line": 6450
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "occupied_vehicle",
+      "category": "invalid_attachment_point",
+      "count": 1,
+      "first_line": 6452,
+      "last_line": 6452
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "rifle_combat",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 6527,
+      "last_line": 6530
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "rifle_combat",
+      "category": "invalid_attachment_point",
+      "count": 1,
+      "first_line": 6532,
+      "last_line": 6532
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "waypoint",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 6193,
+      "last_line": 6196
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "waypoint",
+      "category": "invalid_attachment_point",
+      "count": 1,
+      "first_line": 6198,
+      "last_line": 6198
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "waypoint",
+      "category": "missing_bone",
+      "count": 103,
+      "first_line": 6090,
+      "last_line": 6192
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "waypoint",
+      "category": "other",
+      "count": 67,
+      "first_line": 6022,
+      "last_line": 6088
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "civilian",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 3395,
+      "last_line": 3398
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "east_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 3331,
+      "last_line": 3334
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "empty_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 3490,
+      "last_line": 3493
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "independent_survivor",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 3429,
+      "last_line": 3432
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "independent_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 3270,
+      "last_line": 3273
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "occupied_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 3524,
+      "last_line": 3527
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "rifle_combat",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 4426,
+      "last_line": 4429
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "waypoint",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 3236,
+      "last_line": 3239
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "waypoint",
+      "category": "missing_bone",
+      "count": 202,
+      "first_line": 3008,
+      "last_line": 3235
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "civilian",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 4868,
+      "last_line": 4871
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "east_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 4828,
+      "last_line": 4831
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "empty_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 4957,
+      "last_line": 4960
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "independent_survivor",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 4911,
+      "last_line": 4914
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "independent_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 4782,
+      "last_line": 4785
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "occupied_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 4990,
+      "last_line": 4993
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "rifle_combat",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5051,
+      "last_line": 5054
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "waypoint",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 4749,
+      "last_line": 4752
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "waypoint",
+      "category": "missing_bone",
+      "count": 274,
+      "first_line": 4474,
+      "last_line": 4748
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "civilian",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5345,
+      "last_line": 5348
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "east_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5295,
+      "last_line": 5298
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "empty_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5423,
+      "last_line": 5426
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "independent_survivor",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5380,
+      "last_line": 5383
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "independent_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5240,
+      "last_line": 5243
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "occupied_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5457,
+      "last_line": 5460
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "rifle_combat",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5515,
+      "last_line": 5518
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "waypoint",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5207,
+      "last_line": 5210
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "waypoint",
+      "category": "missing_bone",
+      "count": 103,
+      "first_line": 5104,
+      "last_line": 5206
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "civilian",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5789,
+      "last_line": 5792
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "east_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5743,
+      "last_line": 5746
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "empty_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5879,
+      "last_line": 5882
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "independent_survivor",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5824,
+      "last_line": 5827
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "independent_unarmed",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5696,
+      "last_line": 5699
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "occupied_vehicle",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5913,
+      "last_line": 5916
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "rifle_combat",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5975,
+      "last_line": 5978
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "waypoint",
+      "category": "head_body_skeleton_mismatch",
+      "count": 4,
+      "first_line": 5662,
+      "last_line": 5665
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "waypoint",
+      "category": "missing_bone",
+      "count": 103,
+      "first_line": 5559,
+      "last_line": 5661
+    }
+  ],
+  "aborts": [],
+  "settings": {
+    "wbk_zombies_bloaterhp": 80,
+    "wbk_zombies_corrupted_playercontrolls": true,
+    "wbk_zombies_corrupted_playercontrolls_music": true,
+    "wbk_zombies_corrupted_playercontrolls_time": 40,
+    "wbk_zombies_corruptedhp": 200,
+    "wbk_zombies_debug": false,
+    "wbk_zombies_goliath_movedistancelimit": 600,
+    "wbk_zombies_goliathhp": 15000,
+    "wbk_zombies_goliathmaxamountaeo": 10,
+    "wbk_zombies_goliathradiusaeo": 50,
+    "wbk_zombies_goliatpickupabil": true,
+    "wbk_zombies_goliatrockabil": true,
+    "wbk_zombies_goliatspearabil": true,
+    "wbk_zombies_goliatundergroundabil": true,
+    "wbk_zombies_headshotmp": 5,
+    "wbk_zombies_leaperhp": 120,
+    "wbk_zombies_meleehp": 60,
+    "wbk_zombies_middlehp": 40,
+    "wbk_zombies_movedistancelimit": 150,
+    "wbk_zombies_runnerhp": 50,
+    "wbk_zombies_screamercooldown": 20,
+    "wbk_zombies_screamerdistance": 100,
+    "wbk_zombies_screamerhp": 160,
+    "wbk_zombies_smasher_acidattackcooldown": 20,
+    "wbk_zombies_smasher_fireattackcooldown": 15,
+    "wbk_zombies_smasher_movedistancelimit": 500,
+    "wbk_zombies_smasher_rockattackcooldown": 45,
+    "wbk_zombies_smasher_teleportattackcooldown": 40,
+    "wbk_zombies_smasherflyabil": true,
+    "wbk_zombies_smasherhp": 3500,
+    "wbk_zombies_smasherhp_acid": 4000,
+    "wbk_zombies_smasherhp_hell": 5000,
+    "wbk_zombies_smasherrockabil": true,
+    "wbk_zombies_specialinfected_movedistancelimit": 300,
+    "wbk_zombies_targetposchanged": 8,
+    "wbk_zombies_triggermanhp": 30,
+    "wbk_zombies_walkerhp": 30,
+    "wbk_zommbiescorruptedhealthparam": "200",
+    "wbk_zommbiescorruptedtakemusicparam": true,
+    "wbk_zommbiescorruptedtakeparam": true,
+    "wbk_zommbiescorruptedtaketimeparam": "40"
+  },
+  "observations": [
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 18.3522,
+      "distance_to_waypoint_m": 1.64837,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_crawler_idle",
+        "wbk_crawler_walk"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.3265,
+        16.8244
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.01267,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.53011,
+      "distance_to_waypoint_m": 14.4702,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_crawler_attack",
+        "wbk_crawler_idle",
+        "wbk_crawler_walk"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16,
+        16.7364
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.96224,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 5.52078,
+      "distance_to_waypoint_m": 14.4793,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_crawler_attack",
+        "wbk_crawler_idle",
+        "wbk_crawler_walk"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.1943,
+        16.5975
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.93953,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_crawler_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.2107,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.897816,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.53837,
+      "distance_to_waypoint_m": 14.4633,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_crawler_attack",
+        "wbk_crawler_idle",
+        "wbk_crawler_walk"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.3934,
+        16.5975
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_crawler_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.178,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.2443,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0.1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 8.84089,
+      "distance_to_waypoint_m": 11.7788,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_crawler_attack",
+        "wbk_crawler_idle",
+        "wbk_crawler_walk"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.7715
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": false,
+      "closest_target_distance_m": 24.9933,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "deadstate",
+        "wbk_crawler_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.3599,
+        16.8244
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 10.5723,
+      "distance_to_waypoint_m": 9.43358,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_walker_idle_3",
+        "wbk_walker_walk_3"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.632
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.75493,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 4.19656,
+      "distance_to_waypoint_m": 15.8039,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_walker_idle_1",
+        "wbk_walker_idle_1_attack",
+        "wbk_walker_walk_1"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.444,
+        16.8067
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.907,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 4.05168,
+      "distance_to_waypoint_m": 15.9488,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_walker_idle_2",
+        "wbk_walker_idle_2_attack",
+        "wbk_walker_walk_2"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.0966,
+        16.8244
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.95301,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_walker_idle_3"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.2767,
+        16.5803
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.79074,
+      "max_target_damage": 0.4,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 4.16075,
+      "distance_to_waypoint_m": 15.8397,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_walker_idle_1",
+        "wbk_walker_idle_1_attack",
+        "wbk_walker_walk_1"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.1616,
+        16.684
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_walker_idle_2"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.444,
+        16.6667
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 2.0289,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0.1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 30,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.72127,
+      "distance_to_waypoint_m": 14.9248,
+      "max_trial_entities": 3,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_walker_idle_1",
+        "wbk_walker_idle_1_attack",
+        "wbk_walker_walk_1"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.2107,
+        16.5803
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 24.6836,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 30,
+      "min_custom_hp": 3,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 0.309692,
+      "distance_to_waypoint_m": 19.6903,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "deadstate",
+        "wbk_walker_idle_1",
+        "wbk_walker_walk_1"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.129,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Shambler_Civ",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 40,
+      "min_custom_hp": 40,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 20.9934,
+      "distance_to_waypoint_m": 0.994974,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle_1",
+        "wbk_middle_run_1"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.3767,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Shambler_Civ",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.656953,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 40,
+      "min_custom_hp": 40,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.30733,
+      "distance_to_waypoint_m": 14.6932,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle",
+        "wbk_middle_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.7189
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Shambler_Civ",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.646279,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 40,
+      "min_custom_hp": 40,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 5.31115,
+      "distance_to_waypoint_m": 14.6889,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle",
+        "wbk_middle_run"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.0321,
+        16.5119
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Shambler_Civ",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.95867,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 40,
+      "min_custom_hp": 40,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle_1"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.3432,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Shambler_Civ",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.598865,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 40,
+      "min_custom_hp": 40,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.29309,
+      "distance_to_waypoint_m": 14.7074,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle_1",
+        "wbk_middle_run_1"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Shambler_Civ",
+      "scenario": "empty_vehicle",
+      "sample_count": 24,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 40,
+      "min_custom_hp": 40,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle_1"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.0804,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Shambler_Civ",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.95884,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 40,
+      "min_custom_hp": 40,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.84206,
+      "distance_to_waypoint_m": 14.9501,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle_1",
+        "wbk_middle_run_1"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0321,
+        16.5803
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Shambler_Civ",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 21.7142,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 40,
+      "min_custom_hp": 4,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 3.27911,
+      "distance_to_waypoint_m": 16.7209,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "deadstate",
+        "wbk_middle_idle",
+        "wbk_middle_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0966,
+        16.7891
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RC_Civ",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 19.2655,
+      "distance_to_waypoint_m": 0.734803,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_walk"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RC_Civ",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.597672,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.4776,
+      "distance_to_waypoint_m": 14.5382,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint",
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_to_angry",
+        "wbk_zombie_evade_l",
+        "wbk_zombie_evade_r"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RC_Civ",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.766289,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 6.41309,
+      "distance_to_waypoint_m": 13.6545,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint",
+        "wbk_runner_angry_turnr",
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_to_angry",
+        "wbk_zombie_evade_b",
+        "wbk_zombie_evade_r"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.3934,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RC_Civ",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.95573,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5803
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RC_Civ",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.657539,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.96416,
+      "distance_to_waypoint_m": 14.1057,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint",
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_to_angry",
+        "wbk_zombie_evade_b",
+        "wbk_zombie_evade_l",
+        "wbk_zombie_evade_r"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RC_Civ",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5803
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RC_Civ",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.35104,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 6.61803,
+      "distance_to_waypoint_m": 14.2081,
+      "max_trial_entities": 3,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint",
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_to_angry",
+        "wbk_zombie_evade_r"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RC_Civ",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 24.8267,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 5,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 0.166565,
+      "distance_to_waypoint_m": 19.8334,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "deadstate",
+        "wbk_runner_angry_sprint",
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_to_angry"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.7891
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RA_Civ",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 21.1437,
+      "distance_to_waypoint_m": 1.23723,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.0966,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RA_Civ",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.729237,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 6.14966,
+      "distance_to_waypoint_m": 13.924,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint",
+        "wbk_runner_angry_turnr",
+        "wbk_zombie_evade_l"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.3432,
+        16.5119
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RA_Civ",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.659868,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 5.43343,
+      "distance_to_waypoint_m": 14.5934,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint",
+        "wbk_zombie_evade_b",
+        "wbk_zombie_evade_l",
+        "wbk_zombie_evade_r"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.7891
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RA_Civ",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.94114,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.0966,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RA_Civ",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.754311,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 7.18245,
+      "distance_to_waypoint_m": 12.8189,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint",
+        "wbk_zombie_evade_b",
+        "wbk_zombie_evade_r"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RA_Civ",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 50,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RA_Civ",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.46723,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 40,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.83869,
+      "distance_to_waypoint_m": 14.9753,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint",
+        "wbk_runner_fall_forward",
+        "wbk_zombie_evade_l"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.7715
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_RA_Civ",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 17.5259,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 50,
+      "min_custom_hp": 5,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 7.46735,
+      "distance_to_waypoint_m": 12.5327,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "deadstate",
+        "wbk_runner_angry_idle",
+        "wbk_runner_angry_sprint"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_1",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 21.1622,
+      "distance_to_waypoint_m": 1.22245,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.3767,
+        16.5119
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_1",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.09998,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.95214,
+      "distance_to_waypoint_m": 19.5011,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_attack_1",
+        "star_wars_kaatirs_attack_2",
+        "star_wars_kaatirs_attack_3",
+        "star_wars_kaatirs_attack_execution_creature",
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.1128,
+        16.7539
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_1",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.899556,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 9.79862,
+      "distance_to_waypoint_m": 16.5733,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_attack_1",
+        "star_wars_kaatirs_attack_2",
+        "star_wars_kaatirs_attack_3",
+        "star_wars_kaatirs_attack_execution_creature",
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.444,
+        16.7189
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_1",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.93953,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.8067
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_1",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.06558,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 10.9232,
+      "distance_to_waypoint_m": 16.3738,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_attack_1",
+        "star_wars_kaatirs_attack_2",
+        "star_wars_kaatirs_attack_3",
+        "star_wars_kaatirs_attack_execution_creature",
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.7539
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_1",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.7189
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_1",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.64585,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 6.31099,
+      "distance_to_waypoint_m": 14.4868,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_attack_1",
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf",
+        "star_wars_kaatirs_scream"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.7539
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_1",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 11.4764,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 3,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 13.6516,
+      "distance_to_waypoint_m": 6.53989,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf",
+        "star_wars_kaatirs_runrf",
+        "star_wars_kaatirs_scream",
+        "wbk_leaper_death_1"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0481,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_2",
+      "scenario": "waypoint",
+      "sample_count": 24,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 20.0848,
+      "distance_to_waypoint_m": 0.470445,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        15.9046,
+        16.2272
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_2",
+      "scenario": "independent_unarmed",
+      "sample_count": 24,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.928972,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 7.64614,
+      "distance_to_waypoint_m": 18.4879,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_attack_1",
+        "star_wars_kaatirs_attack_2",
+        "star_wars_kaatirs_attack_3",
+        "star_wars_kaatirs_attack_execution_creature",
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.016,
+        16.4948
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_2",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.827399,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 9.31238,
+      "distance_to_waypoint_m": 10.9603,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_attack_1",
+        "star_wars_kaatirs_attack_2",
+        "star_wars_kaatirs_dodge",
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf",
+        "star_wars_kaatirs_scream"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.0481,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_2",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.93959,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        15.9681,
+        16.8421
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_2",
+      "scenario": "independent_survivor",
+      "sample_count": 24,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.5702,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.19247,
+      "distance_to_waypoint_m": 14.8079,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_attack_1",
+        "star_wars_kaatirs_idle"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0804,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_2",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        15.9681,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_2",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.709522,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 120,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 7.38191,
+      "distance_to_waypoint_m": 13.7163,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_attack_2",
+        "star_wars_kaatirs_attack_3",
+        "star_wars_kaatirs_attack_execution_creature",
+        "star_wars_kaatirs_dodge",
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf",
+        "star_wars_kaatirs_scream"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.1128,
+        16.8599
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Leaper_2",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.09999,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 120,
+      "min_custom_hp": 12,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 27.539,
+      "distance_to_waypoint_m": 7.85368,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "star_wars_kaatirs_attack_2",
+        "star_wars_kaatirs_attack_3",
+        "star_wars_kaatirs_attack_execution_creature",
+        "star_wars_kaatirs_idle",
+        "star_wars_kaatirs_runf",
+        "star_wars_kaatirs_runlf",
+        "star_wars_kaatirs_runrf",
+        "star_wars_kaatirs_scream"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.016,
+        16.5119
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Screamer",
+      "scenario": "waypoint",
+      "sample_count": 24,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 160,
+      "min_custom_hp": 160,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 19.2575,
+      "distance_to_waypoint_m": 0.742801,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_walk"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        15.9363,
+        16.2602
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Screamer",
+      "scenario": "independent_unarmed",
+      "sample_count": 24,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.902419,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 160,
+      "min_custom_hp": 160,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.04026,
+      "distance_to_waypoint_m": 14.9602,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_walk"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0643,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Screamer",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.962832,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 160,
+      "min_custom_hp": 160,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 5.04031,
+      "distance_to_waypoint_m": 14.9602,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_walk"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        15.9363,
+        16.7364
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Screamer",
+      "scenario": "civilian",
+      "sample_count": 24,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.95867,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 160,
+      "min_custom_hp": 160,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        15.9363,
+        16.5119
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Screamer",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.900939,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 160,
+      "min_custom_hp": 160,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.14909,
+      "distance_to_waypoint_m": 14.8514,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_walk"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.016,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Screamer",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 160,
+      "min_custom_hp": 160,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.1453,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Screamer",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.97552,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 160,
+      "min_custom_hp": 160,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.76643,
+      "distance_to_waypoint_m": 14.9557,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_walk"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.016,
+        16.7891
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Screamer",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 8.29004,
+      "max_target_damage": 0.25,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 160,
+      "min_custom_hp": 7,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 16.7032,
+      "distance_to_waypoint_m": 3.29675,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "deadstate",
+        "wbk_runner_calm_idle",
+        "wbk_runner_calm_walk"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.7715
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Boomer",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 80,
+      "min_custom_hp": 80,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 21.1199,
+      "distance_to_waypoint_m": 1.14909,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle",
+        "wbk_middle_run"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Boomer",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.658754,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 80,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 10000000000.0,
+      "distance_to_waypoint_m": 10000000000.0,
+      "max_trial_entities": 2,
+      "local_at_end": false,
+      "owner_at_end": 0,
+      "observed_animations": [
+        "",
+        "deadstate",
+        "wbk_middle_idle",
+        "wbk_middle_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.1943,
+        16.7364
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Boomer",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.55171,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 80,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 10000000000.0,
+      "distance_to_waypoint_m": 10000000000.0,
+      "max_trial_entities": 2,
+      "local_at_end": false,
+      "owner_at_end": 0,
+      "observed_animations": [
+        "",
+        "deadstate",
+        "unconscious",
+        "wbk_middle_idle",
+        "wbk_middle_run"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.7891
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Boomer",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.95867,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 80,
+      "min_custom_hp": 80,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Boomer",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.14792,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 80,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 10000000000.0,
+      "distance_to_waypoint_m": 10000000000.0,
+      "max_trial_entities": 2,
+      "local_at_end": false,
+      "owner_at_end": 0,
+      "observed_animations": [
+        "",
+        "deadstate",
+        "wbk_middle_idle",
+        "wbk_middle_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.016,
+        16.7364
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Boomer",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 80,
+      "min_custom_hp": 80,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_middle_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.1128,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Boomer",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 2.0085,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 80,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 10000000000.0,
+      "distance_to_waypoint_m": 10000000000.0,
+      "max_trial_entities": 4,
+      "local_at_end": false,
+      "owner_at_end": 0,
+      "observed_animations": [
+        "",
+        "deadstate",
+        "wbk_middle_idle",
+        "wbk_middle_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.1453,
+        16.7715
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_Special_BLUFOR_Boomer",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 7.01251,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": 80,
+      "min_custom_hp": 8,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 17.9808,
+      "distance_to_waypoint_m": 2.01923,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "deadstate",
+        "wbk_middle_idle",
+        "wbk_middle_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.3767,
+        16.7364
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": -1,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 18.881,
+      "distance_to_waypoint_m": 1.11939,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "corrupted_idle",
+        "corrupted_run"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": -1,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "WEST",
+      "infected_displacement_m": 10000000000.0,
+      "distance_to_waypoint_m": 10000000000.0,
+      "max_trial_entities": 2,
+      "local_at_end": false,
+      "owner_at_end": 0,
+      "observed_animations": [
+        "",
+        "corrupted_attack_far",
+        "corrupted_attack_success_back",
+        "corrupted_idle",
+        "corrupted_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER",
+        "WEST"
+      ],
+      "server_fps_range": [
+        16.444,
+        16.5975
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": -1,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "WEST",
+      "infected_displacement_m": 10000000000.0,
+      "distance_to_waypoint_m": 10000000000.0,
+      "max_trial_entities": 2,
+      "local_at_end": false,
+      "owner_at_end": 0,
+      "observed_animations": [
+        "",
+        "corrupted_attack_far",
+        "corrupted_attack_success_back",
+        "corrupted_idle",
+        "corrupted_run"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST",
+        "WEST"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.8599
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.95561,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": -1,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "corrupted_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": -1,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "WEST",
+      "infected_displacement_m": 10000000000.0,
+      "distance_to_waypoint_m": 10000000000.0,
+      "max_trial_entities": 2,
+      "local_at_end": false,
+      "owner_at_end": 0,
+      "observed_animations": [
+        "",
+        "corrupted_attack_far",
+        "corrupted_attack_success_back",
+        "corrupted_idle",
+        "corrupted_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER",
+        "WEST"
+      ],
+      "server_fps_range": [
+        16.4103,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": -1,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "corrupted_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.3934,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.629503,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": -1,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 7.02753,
+      "distance_to_waypoint_m": 13.6566,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "corrupted_attack",
+        "corrupted_attack_success_back",
+        "corrupted_attack_success_failed",
+        "corrupted_idle",
+        "corrupted_in_air",
+        "corrupted_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        15.873,
+        16.8955
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Corrupted_2",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 24.7658,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 1,
+      "initial_custom_hp": -1,
+      "min_custom_hp": -1,
+      "infected_alive_at_end": false,
+      "target_alive_at_end": true,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 0.227478,
+      "distance_to_waypoint_m": 19.7725,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "corrupted_die",
+        "corrupted_idle"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.3767,
+        16.6493
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "waypoint",
+      "sample_count": 24,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 3500,
+      "min_custom_hp": 3500,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 21.8806,
+      "distance_to_waypoint_m": 1.88905,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.016,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 3.51003,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 3500,
+      "min_custom_hp": 3500,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 25.2598,
+      "distance_to_waypoint_m": 5.26029,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "east_unarmed",
+      "sample_count": 24,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.996715,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 3500,
+      "min_custom_hp": 3500,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 21.9147,
+      "distance_to_waypoint_m": 1.91703,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.0643,
+        16.4779
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "civilian",
+      "sample_count": 24,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.94865,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 3500,
+      "min_custom_hp": 3500,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        15.9363,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "independent_survivor",
+      "sample_count": 24,
+      "target_acquired": true,
+      "closest_target_distance_m": 3.51001,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 3500,
+      "min_custom_hp": 3500,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 25.9337,
+      "distance_to_waypoint_m": 5.93649,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.016,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "empty_vehicle",
+      "sample_count": 24,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 3500,
+      "min_custom_hp": 3500,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        15.8888,
+        16.3599
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "occupied_vehicle",
+      "sample_count": 24,
+      "target_acquired": true,
+      "closest_target_distance_m": 3.80375,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 3500,
+      "min_custom_hp": 3500,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 4.3271,
+      "distance_to_waypoint_m": 15.8217,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_attack_vehicle",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        15.9681,
+        16.4948
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_2",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 2.84338,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 3500,
+      "min_custom_hp": 3473,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 41.9226,
+      "distance_to_waypoint_m": 21.9226,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_attack_air",
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0804,
+        16.5803
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "waypoint",
+      "sample_count": 24,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 4000,
+      "min_custom_hp": 4000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 21.8806,
+      "distance_to_waypoint_m": 1.88905,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.0643,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 2.84333,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 4000,
+      "min_custom_hp": 4000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 10.6593,
+      "distance_to_waypoint_m": 9.34172,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0643,
+        16.7539
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.00332,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 4000,
+      "min_custom_hp": 4000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 22.4405,
+      "distance_to_waypoint_m": 2.44441,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.4271,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.95573,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 4000,
+      "min_custom_hp": 4000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.3934,
+        16.4948
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "independent_survivor",
+      "sample_count": 24,
+      "target_acquired": true,
+      "closest_target_distance_m": 2.84335,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 4000,
+      "min_custom_hp": 4000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 23.1794,
+      "distance_to_waypoint_m": 3.18919,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0643,
+        16.7715
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 4000,
+      "min_custom_hp": 4000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.2107,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 5.40011,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 4000,
+      "min_custom_hp": 4000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 4.34949,
+      "distance_to_waypoint_m": 15.7987,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_attack_vehicle",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.3767,
+        16.7891
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Acid_2",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 4.53979,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 4000,
+      "min_custom_hp": 3901,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 29.6931,
+      "distance_to_waypoint_m": 9.69312,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_attack_acid",
+        "wbk_smasher_attack_air",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.3934,
+        16.7715
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 5000,
+      "min_custom_hp": 5000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 23.7972,
+      "distance_to_waypoint_m": 3.81728,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.129,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 3.51002,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 5000,
+      "min_custom_hp": 5000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 27.2597,
+      "distance_to_waypoint_m": 7.2625,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0643,
+        16.7715
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 3.50997,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 5000,
+      "min_custom_hp": 5000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 27.8598,
+      "distance_to_waypoint_m": 7.86021,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        16.2437,
+        16.8067
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "civilian",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.93959,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 5000,
+      "min_custom_hp": 5000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.2272,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 2.84335,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 5000,
+      "min_custom_hp": 5000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 21.0598,
+      "distance_to_waypoint_m": 1.08628,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_execution",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 5000,
+      "min_custom_hp": 5000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_idle"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.0481,
+        16.5289
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 4.74806,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 5000,
+      "min_custom_hp": 5000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 4.19995,
+      "distance_to_waypoint_m": 15.9522,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_attack_vehicle",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.0481,
+        16.7715
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_SpecialZombie_Smasher_Hellbeast_2",
+      "scenario": "rifle_combat",
+      "sample_count": 34,
+      "target_acquired": true,
+      "closest_target_distance_m": 12.0363,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 5000,
+      "min_custom_hp": 4919,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 12.957,
+      "distance_to_waypoint_m": 7.04297,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "wbk_smasher_attack_fire",
+        "wbk_smasher_idle",
+        "wbk_smasher_run"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        15.9521,
+        16.7715
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "waypoint",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 15000,
+      "min_custom_hp": 15000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 23.0171,
+      "distance_to_waypoint_m": 3.01738,
+      "max_trial_entities": 1,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "goliaph_idle_1",
+        "goliaph_run"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        16.3099,
+        16.5631
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "independent_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.148524,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 15000,
+      "min_custom_hp": 15000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.83606,
+      "distance_to_waypoint_m": 14.1639,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "goliaph_idle_1",
+        "goliaph_spikes",
+        "goliaph_walk"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        15.9204,
+        16.5803
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "east_unarmed",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 1.74239,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 15000,
+      "min_custom_hp": 15000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "EAST",
+      "infected_displacement_m": 4.21082,
+      "distance_to_waypoint_m": 15.7892,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "goliaph_idle_1",
+        "goliaph_spikes",
+        "goliaph_walk"
+      ],
+      "observed_enemy_classes": [
+        "O_Soldier_F"
+      ],
+      "observed_target_sides": [
+        "EAST"
+      ],
+      "server_fps_range": [
+        15.9521,
+        16.4779
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "civilian",
+      "sample_count": 24,
+      "target_acquired": false,
+      "closest_target_distance_m": 5.94132,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 15000,
+      "min_custom_hp": 15000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": true,
+      "target_side_at_end": "CIV",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "goliaph_idle_1"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "CIV"
+      ],
+      "server_fps_range": [
+        16.1128,
+        16.546
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "independent_survivor",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 0.120594,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 15000,
+      "min_custom_hp": 15000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 5.83561,
+      "distance_to_waypoint_m": 14.1646,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "goliaph_idle_1",
+        "goliaph_spikes",
+        "goliaph_walk"
+      ],
+      "observed_enemy_classes": [
+        "C_Man_1"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        16.4103,
+        29.0381
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "empty_vehicle",
+      "sample_count": 25,
+      "target_acquired": false,
+      "closest_target_distance_m": 1000000.0,
+      "max_target_damage": 0,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 15000,
+      "min_custom_hp": 15000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 0,
+      "distance_to_waypoint_m": 20,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "goliaph_idle_1"
+      ],
+      "observed_enemy_classes": [],
+      "observed_target_sides": [
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        27.6339,
+        28.9855
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "occupied_vehicle",
+      "sample_count": 25,
+      "target_acquired": true,
+      "closest_target_distance_m": 4.34068,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 1,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 15000,
+      "min_custom_hp": 15000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "GUER",
+      "infected_displacement_m": 11.6592,
+      "distance_to_waypoint_m": 9.39888,
+      "max_trial_entities": 4,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "goliaph_idle_1",
+        "goliaph_rockthrow",
+        "goliaph_run",
+        "goliaph_taunt",
+        "goliaph_vehiclegrab",
+        "goliaph_walk"
+      ],
+      "observed_enemy_classes": [
+        "C_Offroad_01_F"
+      ],
+      "observed_target_sides": [
+        "GUER"
+      ],
+      "server_fps_range": [
+        27.8261,
+        29.1971
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    },
+    {
+      "class": "WBK_Goliaph_1",
+      "scenario": "rifle_combat",
+      "sample_count": 35,
+      "target_acquired": true,
+      "closest_target_distance_m": 20.7825,
+      "max_target_damage": 1,
+      "max_vehicle_damage": 0,
+      "max_infected_damage": 0,
+      "initial_custom_hp": 15000,
+      "min_custom_hp": 15000,
+      "infected_alive_at_end": true,
+      "target_alive_at_end": false,
+      "target_side_at_end": "UNKNOWN",
+      "infected_displacement_m": 4.21082,
+      "distance_to_waypoint_m": 15.7892,
+      "max_trial_entities": 2,
+      "local_at_end": true,
+      "owner_at_end": 2,
+      "observed_animations": [
+        "goliaph_idle_1",
+        "goliaph_spikes",
+        "goliaph_walk"
+      ],
+      "observed_enemy_classes": [
+        "I_soldier_F"
+      ],
+      "observed_target_sides": [
+        "GUER",
+        "UNKNOWN"
+      ],
+      "server_fps_range": [
+        27.7296,
+        29.3578
+      ],
+      "cleanup": [
+        [
+          [],
+          0
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    "No Antistasi damage handlers or campaign state",
+    "No headless transfer",
+    "No manual weapon or vehicle controls",
+    "No long-term infection observation",
+    "Passive targets and stationary vehicles; rifle opponent uses explicit target/fire orders",
+    "Short VR scenarios cannot establish terrain pathing or multiplayer performance"
+  ]
+}
