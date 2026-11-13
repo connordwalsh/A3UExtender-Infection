@@ -93,8 +93,11 @@ private _result = switch (_operation) do {
         if (_granted == 0) exitWith {[false, ["",0], "capacity"]};
         A3I_budgetSerial = A3I_budgetSerial + 1;
         private _ticket = "A3I_" + str A3I_budgetSerial;
+        // Store the caller's ceiling, not the current CBA setting or an older
+        // ticket's effective limit. Those are reconciled on every operation;
+        // retaining their old minimum would prevent later setting increases.
         // context, unbound slots, units, lease deadline, closed, local ceiling, sequence
-        A3I_budgetRecords set [_ticket, [_context, _granted, [], diag_tickTime + 30, false, _limit, A3I_budgetSerial]];
+        A3I_budgetRecords set [_ticket, [_context, _granted, [], diag_tickTime + 30, false, _localLimit min 24, A3I_budgetSerial]];
         [true, [_ticket, _granted], ""]
     };
     case "remaining": {

@@ -15,6 +15,9 @@ The repository backlog is the durable record of story criteria, progress, and
 evidence. GitHub issues track defects and reviewable work. Implementation uses
 `codex/` feature branches and pull requests into this fork's `master` branch.
 Keep upstream history and record the exact source revision behind each override.
+On 13 November, GitHub rejected issue creation because Issues is disabled on the
+fork. Until that feature is enabled, the repository backlog and pull requests
+carry the work and defect records.
 
 ## Review and integration
 

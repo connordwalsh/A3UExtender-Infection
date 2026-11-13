@@ -8,9 +8,11 @@ Zombies and Creatures as the Occupant faction. This repository is a fork of
 `Infection/` addon registers the infected Occupant, supplies basic unit definitions,
 creates foot-only virtual garrison lines, adapts infected combat bookkeeping,
 and spawns full queued garrisons at six persistent site types under shared limits.
-The current isolated dedicated suite passes 194 checks on Ultimate 12.4.2,
-including 67 roles, combat, placement, later arrivals, cleanup and reentry.
-The missing-dependency suite passes 11 checks. Town/road-control/administration,
+Road/field controls use capped foot groups and guarded local capture.
+Town patrols regenerate per visit and follow bounded outdoor routes.
+The current isolated dedicated suite passes 264 checks on Ultimate 12.4.2,
+including 67 roles, combat, placement, later arrivals, controls, towns and cleanup.
+The missing-dependency suite passes 11 checks. Administration,
 reinforcement, mission and save integration remain unfinished. Do not use this build for a
 campaign you intend to keep.
 
@@ -42,6 +44,8 @@ claim that compatibility testing has passed.
 - [Combat implementation and limits](docs/research/COMBAT.md)
 - [Spawn budget component and limits](docs/research/SPAWN_BUDGET.md)
 - [Persistent site spawning and limits](docs/research/SITE_SPAWNING.md)
+- [Road/field controls and limits](docs/research/ROAD_CONTROLS.md)
+- [Town patrols and limits](docs/research/TOWN_PATROLS.md)
 - [Controlled behavior observations](docs/research/BEHAVIOR_12.4.2.md)
 - [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)
 - [Sprint 1 contract evidence](evidence/sprint-1/)

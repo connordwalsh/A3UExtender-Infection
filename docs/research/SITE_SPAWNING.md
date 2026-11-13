@@ -108,7 +108,12 @@ Road/field controls are implemented separately in [ROAD_CONTROLS.md](ROAD_CONTRO
 with their own transient roster and capture rules. This six-site report remains
 the evidence for the earlier increment.
 
-Still open: towns/military administrations, added garrison and
+Town patrols are implemented in [TOWN_PATROLS.md](TOWN_PATROLS.md). The later
+fixture also waits for next-frame object deletion and measures approach on the
+living leader before the casualty test, avoiding follower regrouping as a false
+movement failure. The original report above remains historical evidence.
+
+Still open: military administrations, added garrison and
 reinforcement routes, response/mission routing, Redux approach/reentry and terrain
 pathing, actual flag interaction and ownership transaction, save/reload, connected
 players, camera visibility, headless/JIP and the performance soak. Native routes

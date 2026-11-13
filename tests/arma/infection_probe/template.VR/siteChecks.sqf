@@ -58,8 +58,10 @@ private _prepare = {
 };
 private _stop = {
     params ["_marker"];
+    private _flag = (A3I_sites get _marker) get "flag";
     spawner setVariable [_marker,2];
-    [{!(_marker in A3I_sites)},6] call _wait
+    // Engine object deletion becomes observable on the following frame.
+    [{!(_marker in A3I_sites) && {isNull _flag}},6] call _wait
 };
 private _functions = [A3A_fnc_createAIResources,A3A_fnc_createAIOutposts,A3A_fnc_createAIMilbase,A3A_fnc_createAIAirplane];
 private _fixtureAliases = ["originalScheduler","originalCreateAIResources","originalCreateAIOutposts",
@@ -117,7 +119,6 @@ private _routes = ["A3A_fnc_createAIresources","A3A_fnc_createAIResources","A3A_
     if (_units isEqualTo []) exitWith {};
     private _victim = _units # 0;
     private _survivor = _units # 1;
-    private _startDistance = _survivor distance2D getMarkerPos _marker;
     private _nativeCalls = count A3I_test_originals;
     [_survivor] call A3A_fnc_surrenderAction;
     if (_index == 0) then {
@@ -128,6 +129,16 @@ private _routes = ["A3A_fnc_createAIresources","A3A_fnc_createAIResources","A3A_
         spawner setVariable [_marker,0];
         private _enabled = [{simulationEnabled _survivor},3] call _wait;
         ["site_simulation_transition",_disabled && {_enabled}] call _check;
+        // Observe the living leader before the casualty test. A follower may
+        // first regroup with a distant leader, temporarily moving away from the
+        // site; a leader already inside the completion radius need not move.
+        private _leader = leader group _victim;
+        private _startDistance = _leader distance2D getMarkerPos _marker;
+        private _approached = [{_leader distance2D getMarkerPos _marker <= 25
+            || {_leader distance2D getMarkerPos _marker < _startDistance - 1}},20] call _wait;
+        ["site_approach_movement",_approached && {alive _leader},
+            [_startDistance,_leader distance2D getMarkerPos _marker,currentWaypoint group _leader,
+                expectedDestination _leader,fleeing _leader]] call _check;
     };
     _victim setDamage 1;
     [{count (garrison getVariable [_marker,[]]) == count _roster - 1},4] call _wait;
@@ -139,8 +150,6 @@ private _routes = ["A3A_fnc_createAIresources","A3A_fnc_createAIResources","A3A_
             && {(_active findIf {_x getVariable ["unitType",""] == _roles # 2}) != -1}
             && {(call _stats) select [1,2] isEqualTo [2,0]},
             [count _active,garrison getVariable [_marker,[]],call _stats]] call _check;
-        ["site_approach_movement",_survivor distance2D getMarkerPos _marker < _startDistance - 1,
-            [_startDistance,_survivor distance2D getMarkerPos _marker]] call _check;
         _nativeCalls = count A3I_test_originals;
         [independent,_marker] call A3A_fnc_markerChange;
         ["site_capture_unblocks",!([_marker] call A3I_fnc_siteCaptureBlocked)
@@ -158,7 +167,8 @@ private _routes = ["A3A_fnc_createAIresources","A3A_fnc_createAIResources","A3A_
     ["site_cleanup_" + (_marker select [9]),_stopped && {_left isEqualTo []} && {_freed}
         && {isNull (_record get "flag")} && {count A3I_test_siteEvents == _eventCount + 2}
         && {count (garrison getVariable [_marker,[]]) == count _roster - 1},
-        [_stopped,count _left,_freed,garrison getVariable [_marker,[]]]] call _check;
+        [_stopped,count _left,_freed,garrison getVariable [_marker,[]],
+            isNull (_record get "flag"),count A3I_test_siteEvents - _eventCount]] call _check;
     if (_index == 2) then {
         ["site_claimed_loot_preserved",alive _moved && {garrison getVariable [_marker + "_lootCD",0] > 0}
             && {(A3I_test_vehicleCleanup findIf {_x # 0 == _moved}) != -1}] call _check;

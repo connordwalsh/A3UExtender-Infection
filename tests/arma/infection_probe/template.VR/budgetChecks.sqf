@@ -65,6 +65,22 @@ _state = call _stats;
     && {count _unique == 8} && {_state select [0,4] isEqualTo [8,0,8,8]},
     [count A3I_test_budgetResults,count _accepted,count _unique,_state]] call _check;
 call _closeAll;
+[4,1] call _setLimits;
+private _raisedFirst = ["reserve",["raise",3,3]] call A3I_fnc_budget;
+[4,3] call _setLimits;
+private _raisedNext = ["reserve",["raise",3,3]] call A3I_fnc_budget;
+["budget_context_increase_releases_capacity",_raisedFirst # 1 # 1 == 1
+    && {_raisedNext # 1 # 1 == 2} && {(call _stats) select [1,3] isEqualTo [0,3,2]},
+    [_raisedFirst,_raisedNext,call _stats]] call _check;
+call _closeAll;
+[4,1] call _setLimits;
+private _localFirst = ["reserve",["caller-ceiling",3,1]] call A3I_fnc_budget;
+[4,3] call _setLimits;
+private _localNext = ["reserve",["caller-ceiling",3,3]] call A3I_fnc_budget;
+["budget_context_increase_keeps_caller_ceiling",_localFirst # 1 # 1 == 1
+    && {!(_localNext # 0)} && {(call _stats) select [1,3] isEqualTo [0,1,1]},
+    [_localFirst,_localNext,call _stats]] call _check;
+call _closeAll;
 // This is a server-origin remote call, matching the normal scheduler's server route.
 ["reserve", ["remote-server",1,1]] remoteExecCall ["A3I_fnc_budget",2];
 sleep 0.4;

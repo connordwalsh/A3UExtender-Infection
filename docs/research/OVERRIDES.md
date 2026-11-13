@@ -62,7 +62,7 @@ The [site implementation](SITE_SPAWNING.md) records the remaining campaign gates
 | `CREATE/fn_createAIMilbase.sqf` | `030fc5683d3eb1e3b685e589270a8eecd3318ba42801c9fdb5dbfa5ea20d084a` |
 | `CREATE/fn_createAIAirplane.sqf` | `4708a51c0b8bf1392fc8aa86d0de6f749cc993401a642bf066a4ed1548d157fe` |
 
-These routes do not yet replace cities, military administrations,
+Together with the control and town increments below, these routes still leave military administrations,
 reinforcement/repair, mission generators or capture-triggered counterattacks.
 The old vehicle-pool assumptions in those paths remain release blockers.
 
@@ -74,3 +74,13 @@ The scheduler's server-only set includes this fifth creator. The installed origi
 remains the alias for normal factions and missing dependencies. Its pinned hash is
 `584ee253e61f567af3c2bcd154797ecf12a1f7f3fe767518992b38c74482e66a`.
 See [control behavior and validation boundaries](ROAD_CONTROLS.md).
+
+## Town patrol routing increment
+
+`CREATE/fn_createAICities.sqf` has an Infection-only per-visit adapter. It preserves
+size/support/frontline selection and skip rules, uses the shared bounded patrol
+controller, and keeps ruined-town infected on WEST. Native support/ownership and
+civilian systems are retained. The scheduler's server-only set includes this
+sixth creator. The original source SHA-256 is
+`146b4d1a7d3db93656739c38409f4bce80235e2141411d76b8978100ad801e2f`.
+See [town behavior and validation boundaries](TOWN_PATROLS.md).
