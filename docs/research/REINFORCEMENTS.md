@@ -85,8 +85,9 @@ atomicity check. It reports no engine/SQF Error records and retains 46 startup
 and object-deletion warnings for review. Its PBO and all 66 addon sources match
 the build manifest in `evidence/sprint-3/`.
 
-The unchanged mixed cycle can still request a native road patrol. That route,
-capture/destruction QRFs, major attacks, convoy additions, and other positive
+The mixed cycle's separate patrol request now uses the
+[roaming adapter](ROAMING_PATROLS.md). Capture/destruction QRFs, major attacks,
+convoy additions, and other positive
 native garrison mutations remain separate S3/S4 integration work. This increment
 does not claim all campaign spawns use the budget. Cooldowns currently belong to
 the running mission; restart persistence, Redux travel, connected-player observer

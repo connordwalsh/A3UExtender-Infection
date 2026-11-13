@@ -14,10 +14,11 @@ Administration strongholds require clearing even after building destruction;
 survivor rescues give separate rewards, and uncleared defenders regenerate each visit.
 Routine reinforcements use paid foot groups, cooldowns and combat checks, and
 join persistent garrisons only after arriving within the active limits.
-The current isolated dedicated suite passes 340 checks on Ultimate 12.4.2,
+Roaming patrols use bounded foot routes between nearby owned locations.
+The current isolated dedicated suite passes 377 checks on Ultimate 12.4.2,
 including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
-routine reinforcement and cleanup. The missing-dependency suite passes 11 checks.
-QRF, roaming, mission and save integration remain unfinished. Do not use this build for a
+routine reinforcement, roaming and cleanup. The missing-dependency suite passes 11 checks.
+QRF, mission and save integration remain unfinished. Do not use this build for a
 campaign you intend to keep.
 
 ## Intended campaign
@@ -52,11 +53,13 @@ claim that compatibility testing has passed.
 - [Town patrols and limits](docs/research/TOWN_PATROLS.md)
 - [Administration strongholds and rescue limits](docs/research/ADMINISTRATIONS.md)
 - [Routine foot reinforcement and limits](docs/research/REINFORCEMENTS.md)
+- [Roaming foot patrols and limits](docs/research/ROAMING_PATROLS.md)
+- [Remaining attack and support contracts](docs/research/RESPONSE_CONTRACTS.md)
 - [Controlled behavior observations](docs/research/BEHAVIOR_12.4.2.md)
 - [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)
 - [Sprint 1 contract evidence](evidence/sprint-1/)
 - [Sprint 2 site and placement evidence](evidence/sprint-2/)
-- [Sprint 3 reinforcement evidence](evidence/sprint-3/)
+- [Sprint 3 reinforcement and roaming evidence](evidence/sprint-3/)
 - [Upstream extender instructions](docs/upstream-extender.md)
 
 Runtime reports will distinguish observed behavior from source findings and

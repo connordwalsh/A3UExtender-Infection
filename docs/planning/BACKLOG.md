@@ -11,17 +11,17 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
 | S1-1 | Infection scaffold and dependency checks | In progress | Built and loaded; isolated dependency-present/absent checks passed. Campaign setup acceptance remains open. |
 | S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
-| S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns and administration strongholds avoid conventional pools in the 301-check suite; support/convoy routes remain open. |
+| S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns, strongholds, routine repair and roaming avoid conventional pools in the 377-check suite; support/convoy routes remain open. |
 | S2-1 | Occupied-site lifecycle | In progress | Six persistent types and transient controls/towns/administrations pass isolated spawning/cleanup/reentry checks, including full queued rosters and stopped-controller recovery. Redux campaign acceptance remains open. |
-| S2-2 | Foot patrols and road controls | In progress | Road/field controls pass 37 checks and towns pass 31 within the 264-check suite. Towns preserve approved per-visit regeneration. Terrain navigation and repeated patrol circuits remain open. |
+| S2-2 | Foot patrols and road controls | In progress | Controls, towns and roaming pass 37, 31 and 37 dedicated cases within the 377-check suite. Towns preserve approved per-visit regeneration. Redux navigation, connected players and repeated patrol circuits remain open. |
 | S2-3 | Capture and persistence | In progress | Queued defenders block capture; roster death/reentry contracts pass. Administration clearing uses the actual native ownership/support transaction, including after building destruction. Full campaign ownership/rewards/save/reload/recapture remain open. |
-| S3-1 | QRF and attack routing | Backlog | Foot responses, costs, timeout and cancellation. |
+| S3-1 | QRF and attack routing | In progress | Pinned caller/payment/lifecycle audit in RESPONSE_CONTRACTS.md identifies mixed-force, support, task and return-to-garrison differences. Foot responses, timeout/cancellation and native payment integration remain to implement. |
 | S3-2 | Garrison repair | In progress | Routine paid foot arrivals and virtual repair pass 39 cases in the 340-check suite: original queue priority, cooldown/combat/ownership, active limits, roster handoff and cleanup. Redux travel, nearby players and restart persistence remain open. |
-| S3-3 | Conventional force disposition | Backlog | Occupant-only changes; Invader regression. |
+| S3-3 | Conventional force disposition | In progress | Response source audit records remaining vehicle, support, task and payment contracts. Complete route disposition and Invader campaign regression remain open. |
 | S4-1 | Complete mission classification | Backlog | Manual and automatic triggers. |
 | S4-2 | Mission eligibility and common objectives | Backlog | Success/failure/timeout/no-spawn outcomes. |
 | S4-3 | Existing outbreak mission adaptations | Backlog | Survivor civilian configuration. |
-| S5-1 | Central spawn budget | In progress | Six persistent site types and transient controls/towns/administrations use the budget in the 301-check suite, including runtime limit increases. Other callers, terrain/player validation and performance remain open. |
+| S5-1 | Central spawn budget | In progress | Sites, controls/towns/administrations, routine repair and roaming use the budget in the 377-check suite. Response/mission callers, terrain/player validation and performance remain open. |
 | S5-2 | Special roles and escalation | Backlog | Largest types restricted to declared events. |
 | S5-3 | Two distinct outbreak mission patterns | Backlog | End-to-end solo and group evidence. |
 | S6-1 | Chernarus Redux site sweep | Backlog | Fix reproduced defects only. |
@@ -144,3 +144,13 @@ The artifact matches all 66 addon source files. Long-distance Redux travel,
 connected-player cleanup, cooldown persistence and real Invader campaign behavior
 remain unaccepted. Native roaming, QRF/attack and mission routes still need work.
 No Computer Use or client launch was performed, and no sprint gate is closed.
+
+Roaming requests now select bounded foot routes for infected sources while
+retaining native vehicle behavior for other factions. All 377 combined checks
+and 11 dependency-absent checks pass, including 37 roaming cases. The initial
+test exposed an invalid waypoint-result bug and a missing fixture tier setting;
+both were fixed before acceptance. The final route uses actual outdoor navigation
+points without depending on a vehicle spawn marker. All 73 addon sources match
+the tested artifact. A 27-file response audit records the next capture/support
+work and its differing payment/task contracts. Campaign, Redux, multiplayer and
+save gates remain open; no Computer Use or client launch was performed.

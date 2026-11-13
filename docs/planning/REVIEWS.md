@@ -299,3 +299,39 @@ campaign behavior remain acceptance work. Native roaming, QRF/attack, mission
 and other positive garrison-update paths are still unconverted. No campaign or
 sprint gate is closed; no Computer Use, client launch or Workshop publication
 was performed.
+
+## 13 November 2026 — Bounded infected roaming patrols
+
+Self-review covers mixed-faction selection, the infected source/cooldown policy,
+actual outdoor navigation endpoints, bounded route search, shared native patrol
+count, partial budgeted creation, cyclic foot waypoints and observer-aware
+cleanup/recovery. Infected seaports supply land patrols. Ordinary seaport boat
+eligibility is exercised separately, and the ordinary vehicle-patrol body matches
+the pinned original after the documented include/dispatch/selector changes.
+
+Validation: all 377 combined dedicated checks and 11 dependency-absent checks
+pass, including 37 roaming cases. The fixture observes real movement, delayed
+budgeted arrivals, legacy death cost, saved-roster neutrality, source/route loss,
+timeout, interrupted creation and once-only patrol-count release. Navigation uses
+a synthetic road graph and selection uses AI observation anchors. This does not
+certify actual players, full walking circuits or Redux geometry.
+
+The first run failed on a real position-return bug in the route helper and an
+omitted fixture tier setting. Both were corrected before the focused 47-check
+pass. Review then identified the native navigation helper's vehicle-spawn redirect;
+the final candidate uses the actual outdoor points, and the combined suite proves
+that a missing vehicle spawn marker cannot invalidate that foot route.
+
+The strict collector records no engine/SQF Error records and retains 47 dependency
+startup/object-deletion warnings. All 73 addon sources and the PBO match the
+manifest. Parser regressions and PowerShell syntax pass. Two trailing-space lines
+are intentionally retained inside the otherwise unchanged upstream vehicle-patrol
+body; the whitespace check excludes that known end-of-line condition. Completed
+servers were stopped by their verified profile/process IDs.
+
+Integration decision: merge this scoped roaming increment. Redux travel,
+connected-player cleanup, real Invader vehicle behavior, restart persistence and
+performance remain acceptance work. The next response audit records 27 pinned
+source files and identifies separate mixed-factory/support payment owners and
+no-force task/cleanup gaps. No campaign or sprint gate is closed. No Computer Use,
+client launch or Workshop publication was performed.
