@@ -516,21 +516,6 @@ manual client's immutable build unchanged. Six replacement mission behaviors
 remain open; the complete project goal and all unmet sprint gates remain open.
 
 
-<<<<<<< HEAD
-## 14 November 2026 - Liquidation target selector
-
-Reviewed target family classification and the infected-only filter against
-Ultimate 12.4.2. Native HQ distance/sorting is retained; military aliases cannot
-bypass war level 3. Towns, permanent sites and native road controls are eligible,
-field controls remain excluded, and no competing attack origin is required.
-The selector does not create tasks, capture territory or award resources yet.
-
-The focused dedicated suite passes 22 checks (11 common plus 11 selection cases),
-with 16 startup/dependency warnings and no engine/SQF error records. All 129
-production inputs and the PBO match the recorded Dev1 manifest. The test server
-was stopped by verified identity and its exit confirmed. This branch remains
-draft while task, guarded capture, cancellation, rewards and cleanup are built.
-=======
 ## 14 November 2026 - Catalog guards and clearance ledger review
 
 Reviewed the full production diff against master. The UI patch now preserves
@@ -557,4 +542,18 @@ visual menus, connected-player/HC behavior, terrain, saves and full campaign
 acceptance remain open. The source audit lists native category variants and
 literal callers without claiming complete dynamic reachability. No Computer Use
 or update of the user's immutable manual build was performed.
->>>>>>> origin/master
+
+
+## 14 November 2026 - Liquidation target selector
+
+Reviewed target family classification and the infected-only filter against
+Ultimate 12.4.2. Native HQ distance/sorting is retained; military aliases cannot
+bypass war level 3. Towns, permanent sites and native road controls are eligible,
+field controls remain excluded, and no competing attack origin is required.
+The selector does not create tasks, capture territory or award resources yet.
+
+The focused dedicated suite passes 22 checks (11 common plus 11 selection cases),
+with 16 startup/dependency warnings and no engine/SQF error records. All 129
+production inputs and the PBO match the recorded Dev1 manifest. The test server
+was stopped by verified identity and its exit confirmed. This branch remains
+draft while task, guarded capture, cancellation, rewards and cleanup are built.
