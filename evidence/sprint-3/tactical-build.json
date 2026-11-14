@@ -3,9 +3,9 @@
   "product": "Antistasi Ultimate: Infection",
   "version": "0.1.0-dev",
   "scope": "Development prototype with infected registration/combat, sites, patrols, administration rescues, routine repair and capture counterattacks; tactical/major responses, missions, saves and full campaign acceptance remain incomplete",
-  "built_at_utc": "2026-11-14T06:58:01.8850188Z",
+  "built_at_utc": "2026-11-14T07:17:13.5304957Z",
   "prefix": "x\\a3i\\addons\\core",
-  "addon_sha256": "c3bc15848fccfde78381fe8bfea06fb211d2f4a8c4109710f5c875a67d4e2f4e",
+  "addon_sha256": "215989932d9b10ef8ab481cb4ca41bfaabcc9b796e6a7c946f80a27aaaa69776",
   "source": [
     {
       "path": "Infection/addons/core/config.cpp",
@@ -149,7 +149,7 @@
     },
     {
       "path": "Infection/addons/core/functions/fn_receiveRebuildSupport.sqf",
-      "sha256": "f3841866cb6e27a317f3546bf621eac4d091199e7c2cf0631937afd32a23ed25"
+      "sha256": "ff80978e15cbd5dda50f19e5d88fdbb8f9d66cd392bca5d1dca1b90cf96c40b4"
     },
     {
       "path": "Infection/addons/core/functions/fn_reinforcementEligible.sqf",
@@ -329,7 +329,7 @@
     },
     {
       "path": "Infection/addons/core/overrides/fn_createSupport.sqf",
-      "sha256": "9b37b884317ed12bfec2c8d621584f3ade3d1b73312438acfec973c7e04e20bf"
+      "sha256": "642f3ebe431d42be66a6304e793c502127a11d73cc1e7d3c2f2a4cc82e9f5ab8"
     },
     {
       "path": "Infection/addons/core/overrides/fn_initSupports.sqf",

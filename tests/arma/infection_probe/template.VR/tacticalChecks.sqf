@@ -115,7 +115,7 @@ A3A_supportCallInProgress = true;
 ["CAS",west,[],30,objNull,_position,0.9] call A3A_fnc_createSupport;
 ["tactical_refusal_preserves_foreign_lock",!isNil "A3A_supportCallInProgress"] call _check;
 A3A_supportCallInProgress = nil;
-["tactical_legacy_signature_refused",[west,_position,"QRFLAND",0,0] call A3A_fnc_createSupport == ""] call _check;
+["tactical_legacy_signature_refused",[_position,4,["QRF"],west,0.5] call A3A_fnc_createSupport == ""] call _check;
 private _atomic = []; isNil {_atomic = ["atomic","defence",20,objNull,_position,0] call A3I_fnc_startTacticalSupport};
 ["tactical_scheduled_required",_atomic # 2 == "scheduled_required"] call _check;
 ["tactical_invalid_requests",!((["bad","other",20,objNull,_position,0] call A3I_fnc_startTacticalSupport) # 0)
@@ -294,11 +294,14 @@ private _rebuildName = "REBUILD_QRF_" + _target + "_1";
 A3I_test_rebuildExecution = [];
 A3I_test_rebuildExecutionProbe = {
     A3I_test_rebuildExecution pushBack isRemoteExecuted;
-    [] spawn {A3I_test_rebuildExecution pushBack isRemoteExecuted};
+    [{
+        A3I_test_rebuildExecution pushBack isRemoteExecuted;
+        [] spawn {A3I_test_rebuildExecution pushBack isRemoteExecuted};
+    },[]] call CBA_fnc_execNextFrame;
 };
 [] remoteExec ["A3I_test_rebuildExecutionProbe",2];
-[{count A3I_test_rebuildExecution == 2},3] call _wait;
-["tactical_rebuild_local_server_context",A3I_test_rebuildExecution isEqualTo [true,false],A3I_test_rebuildExecution] call _check;
+[{count A3I_test_rebuildExecution == 3},3] call _wait;
+["tactical_rebuild_local_server_context",A3I_test_rebuildExecution isEqualTo [true,false,false],A3I_test_rebuildExecution] call _check;
 A3I_test_rebuildExecutionProbe = nil; A3I_test_rebuildExecution = nil;
 ["tactical_rebuild_requires_active_mission",([_target,_position] call A3I_fnc_rebuildSupport) # 2 == "inactive_rebuild"
     && {[_rebuildName,west,"attack",9999,false,_position,1,-1] call A3A_fnc_SUP_QRFLand == -1}] call _check;

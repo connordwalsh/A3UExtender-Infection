@@ -4,9 +4,9 @@
   "suite": "tactical",
   "expected_dependencies_present": true,
   "status": "passed",
-  "collected_at_utc": "2026-11-14T07:00:19.866372+00:00",
-  "source_log": "arma3server_x64_2026-11-14_01-58-02.rpt",
-  "source_log_sha256_at_collection": "6fa1f43c2e1ebe6df2da50118eb41efd969c01fa7c686a220a0e855700d61af5",
+  "collected_at_utc": "2026-11-14T07:19:36.172928+00:00",
+  "source_log": "arma3server_x64_2026-11-14_02-17-14.rpt",
+  "source_log_sha256_at_collection": "eb89ca630884585dffb979d0a3483305a9e7dd0e033bb182d16d0788090b6024",
   "source_sha256_at_collection": {
     "tests/arma/infection_probe/template.VR/administrationChecks.sqf": "13bab6774aa13e69ff26a6e98cae431378c7f04b90bbf6cedc3620df0f8cf096",
     "tests/arma/infection_probe/template.VR/budgetChecks.sqf": "3bbc8ab2864ad8be0b19ee002427c7bff9c6a8339ce65f0e6b22fc15d62afbd6",
@@ -23,7 +23,7 @@
     "tests/arma/infection_probe/template.VR/roamingChecks.sqf": "8796d8812181d17e547edaad5919c5985721ec2f4144c2640c18095af20d170b",
     "tests/arma/infection_probe/template.VR/siteChecks.sqf": "9d293149b29696fbfe079a4d7b4d26c4e79887510e1c71ac78bacce095bf997c",
     "tests/arma/infection_probe/template.VR/spawnChecks.sqf": "a258dbfd86433f9a8c2ee13f0bbc79a131b9c139b52e5f8dd03e57b6052fc202",
-    "tests/arma/infection_probe/template.VR/tacticalChecks.sqf": "d08441b2f10928f519daebdc9dad248bb2006199e0450c1fd3bfa849c1ee102a",
+    "tests/arma/infection_probe/template.VR/tacticalChecks.sqf": "e7af00ac00618b01d3bb5ca487e8d0046254905331c57dd0a420437b6d3b7f9b",
     "tests/arma/infection_probe/contracts-addon/config.cpp": "077c334caa19629d5639e1aaccbd483f4a7cb8d06a720cfbb55df167dee60b9d",
     "tests/arma/infection_probe/contracts-addon/fn_addAggression.sqf": "cc60b8d99c7385981380ce20d2184fdba0efbb29e849db13e4e6cf3f756001e4",
     "tests/arma/infection_probe/contracts-addon/fn_addLoadAction.sqf": "3a1c68eaa5794f53c585680240749c5a5a2f37802c4bee16d7d90e1cbce5e98c",
@@ -93,7 +93,7 @@
     "Infection/addons/core/functions/fn_positionSafety.sqf": "dd4935337e33412da11462c9255365f929888d203336ed8d24b2a830fdfaad8a",
     "Infection/addons/core/functions/fn_rebuildSupport.sqf": "1e3e8e679247fe707ced1afc6a02de9fe6932291058bbbd25ba7048c6bd9abe0",
     "Infection/addons/core/functions/fn_rebuildSupportWatchdog.sqf": "487d72bc354b42f2efc7853810403305803c2cdc06ad46622bd0ac224dcad1ce",
-    "Infection/addons/core/functions/fn_receiveRebuildSupport.sqf": "f3841866cb6e27a317f3546bf621eac4d091199e7c2cf0631937afd32a23ed25",
+    "Infection/addons/core/functions/fn_receiveRebuildSupport.sqf": "ff80978e15cbd5dda50f19e5d88fdbb8f9d66cd392bca5d1dca1b90cf96c40b4",
     "Infection/addons/core/functions/fn_reinforcementEligible.sqf": "a98937b909b0618dca083223587fa886dcfcd12dc8ffeaa6e3f36c49e469cee1",
     "Infection/addons/core/functions/fn_reinforcementSources.sqf": "ed665b0bd3c6e162811b511252cc3f4a43110180270f8005887396a875385201",
     "Infection/addons/core/functions/fn_reinforcementTick.sqf": "e88bef754e5be14607ef2bcea710dcdadefa389cb8d18a91bf63d4dfacf55c45",
@@ -138,7 +138,7 @@
     "Infection/addons/core/overrides/fn_createAIOutposts.sqf": "36a03f247b99f70781be4ca5b3b62b9ddd9bf6984bf4faaffae03824705e8568",
     "Infection/addons/core/overrides/fn_createAIResources.sqf": "467b970ab12b44ec75e18febd57ec05eca8c026afc84bd2e073860e4155a87c1",
     "Infection/addons/core/overrides/fn_createGarrisonLine.sqf": "2b81a371cff8799ac6c80702657e54499f5a5c13c5929f21ce5f814b7c47e468",
-    "Infection/addons/core/overrides/fn_createSupport.sqf": "9b37b884317ed12bfec2c8d621584f3ade3d1b73312438acfec973c7e04e20bf",
+    "Infection/addons/core/overrides/fn_createSupport.sqf": "642f3ebe431d42be66a6304e793c502127a11d73cc1e7d3c2f2a4cc82e9f5ab8",
     "Infection/addons/core/overrides/fn_initSupports.sqf": "51b559eeb3f30bc6b7d5f5df8192251b294357879da65de657a1097f9782318c",
     "Infection/addons/core/overrides/fn_location_removeMilAdmin.sqf": "b7119ae543e788dd7e87dc54939bb44eae4de59480b26501550608746e372f31",
     "Infection/addons/core/overrides/fn_markerChange.sqf": "9ec74b6fbba7972dfc674d2c4f1d538caf4a85db2737ef3b67cb104b65fd6ad1",
@@ -171,87 +171,99 @@
   "warnings_for_review": [
     {
       "line": 751,
-      "message": "1:58:10 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
+      "message": "2:17:21 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
     },
     {
       "line": 756,
-      "message": "1:58:10 bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
+      "message": "2:17:21 bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
+    },
+    {
+      "line": 758,
+      "message": "2:17:21 Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
     },
     {
       "line": 759,
-      "message": "1:58:10 Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
+      "message": "2:17:21 Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
     },
     {
       "line": 760,
-      "message": "1:58:10 Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
+      "message": "2:17:21 Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
     },
     {
       "line": 761,
-      "message": "1:58:10 Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
+      "message": "2:17:21 Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
     },
     {
       "line": 762,
-      "message": "1:58:10 Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
+      "message": "2:17:21 Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
     },
     {
       "line": 763,
-      "message": "1:58:10 Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
+      "message": "2:17:21 Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
     },
     {
       "line": 764,
-      "message": "1:58:10 Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
+      "message": "2:17:21 Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
     },
     {
       "line": 765,
-      "message": "1:58:10 Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
-    },
-    {
-      "line": 766,
-      "message": "1:58:10 Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
-    },
-    {
-      "line": 785,
-      "message": "1:58:12 Attempt to override final function - abz_fnc_load"
+      "message": "2:17:21 Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
     },
     {
       "line": 786,
-      "message": "1:58:12 Attempt to override final function - abz_fnc_queuesave"
+      "message": "2:17:23 Attempt to override final function - abz_fnc_load"
     },
     {
       "line": 787,
-      "message": "1:58:12 Attempt to override final function - abz_fnc_synccommit"
+      "message": "2:17:23 Attempt to override final function - abz_fnc_queuesave"
     },
     {
       "line": 788,
-      "message": "1:58:12 Attempt to override final function - abz_fnc_save"
+      "message": "2:17:23 Attempt to override final function - abz_fnc_synccommit"
     },
     {
-      "line": 795,
-      "message": "1:58:12 Attempt to override final function - bis_fnc_storeparamsvalues_data"
+      "line": 789,
+      "message": "2:17:23 Attempt to override final function - abz_fnc_save"
     },
     {
       "line": 796,
-      "message": "1:58:12 Attempt to override final function - hals_store_getnearbyvehicles"
+      "message": "2:17:23 Attempt to override final function - bis_fnc_storeparamsvalues_data"
     },
     {
-      "line": 966,
-      "message": "1:58:59 Server: Object 2:177 not found (message Type_124)"
+      "line": 797,
+      "message": "2:17:23 Attempt to override final function - hals_store_getnearbyvehicles"
     },
     {
-      "line": 985,
-      "message": "1:59:07 Server: Object 2:209 not found (message Type_124)"
+      "line": 973,
+      "message": "2:18:12 Server: Object 2:195 not found (message Type_124)"
     },
     {
-      "line": 1013,
-      "message": "1:59:20 Server: Object 2:274 not found (message Type_124)"
+      "line": 987,
+      "message": "2:18:18 Server: Object 2:216 not found (message Type_124)"
+    },
+    {
+      "line": 995,
+      "message": "2:18:22 Server: Object 2:229 not found (message Type_124)"
+    },
+    {
+      "line": 1022,
+      "message": "2:18:33 Server: Object 2:296 not found (message Type_124)"
     },
     {
       "line": 1034,
-      "message": "1:59:44 Server: Object 2:317 not found (message Type_124)"
+      "message": "2:18:40 Server: Object 2:317 not found (message Type_124)"
     },
     {
-      "line": 1035,
-      "message": "1:59:44 Server: Object 2:316 not found (message Type_120)"
+      "line": 1036,
+      "message": "2:18:55 Server: Object 2:325 not found (message Type_124)"
+    },
+    {
+      "line": 1037,
+      "message": "2:18:55 Server: Object 2:324 not found (message Type_120)"
+    },
+    {
+      "line": 1044,
+      "message": "2:18:58 Server: Object 2:332 not found (message Type_124)"
     }
   ],
   "runtime_checks": [
@@ -458,7 +470,7 @@
       "name": "tactical_approach_moves",
       "passed": true,
       "detail": [
-        0.546778
+        0.520366
       ]
     },
     {
@@ -548,6 +560,15 @@
       "name": "tactical_adopted_cleanup_no_refund",
       "passed": true,
       "detail": []
+    },
+    {
+      "name": "tactical_rebuild_local_server_context",
+      "passed": true,
+      "detail": [
+        true,
+        false,
+        false
+      ]
     },
     {
       "name": "tactical_rebuild_requires_active_mission",
@@ -686,7 +707,7 @@
   ],
   "spawn_records": [],
   "completion": [
-    80,
+    81,
     [],
     0
   ]
