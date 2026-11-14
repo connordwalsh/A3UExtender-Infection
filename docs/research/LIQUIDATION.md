@@ -87,3 +87,28 @@ The combined regression is running. Task claim creation, automatic capture on
 clearance, once-only rewards, timeout/interruption recovery, task removal and
 mission-board/direct dispatch still need implementation. No active gameplay
 flow creates a Liquidation claim yet, so the six-mission redesign is incomplete.
+
+
+## Task controller draft
+
+A separate controller branch adds CON task registration and an exclusive target
+claim, the requested title/briefing, automatic capture after full clearance,
+polled cancellation/timeout handling and once-only settlement. The native
+CON_Outpost baseline supplies 90/45-minute limits and normal/difficult rewards:
+600/800 faction money, 250/450 per-player money, 10/20 player and commander
+score, and 100/200 commander money. Native support and infected resource timing
+effects are retained. Timeout retains native penalties; Russian takeover, missing
+dependencies, broken site actors and interrupted workers cancel without mission
+rewards or penalties. Native consequences of losing territory still apply.
+
+Capture runs in an independent owned worker. Stopping the task loop cannot stop
+its delayed native flag handling; the watchdog waits for both workers before
+retiring the claim. Completion/failure uses native average 20-minute task
+retention, while cancelled tasks retire promptly. Cleanup reads native task
+metadata, including interruption between registration and its local flag.
+
+The 21 controller cases are authored but NOT_RUN. Packaging, 139 production
+hashes and three parser tests pass for Controller Dev2. The parent's combined
+capture regression is still running; this worktree has not started another
+server. Mission board/legacy endpoints remain unconnected, and the six-mission
+redesign, connected-player rewards, saves and campaign acceptance remain open.

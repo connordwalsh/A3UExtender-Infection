@@ -492,6 +492,30 @@ CLEARANCE_CHECKS = {
 }
 
 
+LIQUIDATION_CONTROLLER_CHECKS = {
+    "liq_controller_interrupted_parent_keeps_capture",
+    "liq_controller_auto_city_capture",
+    "liq_controller_auto_admin_capture",
+    'liq_controller_native_task',
+    'liq_controller_duplicate_refused',
+    'liq_controller_remaining_prevents_capture',
+    'liq_controller_despawn_not_success',
+    'liq_controller_timeout_once',
+    'liq_controller_hard_timeout',
+    'liq_controller_russian_cancellation_free',
+    'liq_controller_unverified_owner_not_success',
+    'liq_controller_dependency_loss_cancels',
+    'liq_controller_site_fault_cancels',
+    'liq_controller_stopped_worker_recovers',
+    'liq_controller_registration_gap_recovers',
+    'liq_controller_missing_task_cancels',
+    'liq_controller_remote_start_rejected',
+    'liq_controller_remote_watchdog_rejected',
+    'liq_controller_cleanup',
+    'liq_controller_success_once_false',
+    'liq_controller_success_once_true',
+}
+
 LIQUIDATION_CHECKS = {
     'liquidation_kinds_resolve',
     'liquidation_early_towns_and_sites',
@@ -559,14 +583,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | COMPETITIVE_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | COMPETITIVE_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance", "liquidation"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
                           "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
-                          "competitive": COMPETITIVE_CHECKS, "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS}
+                          "competitive": COMPETITIVE_CHECKS, "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -609,7 +633,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance", "liquidation"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)
