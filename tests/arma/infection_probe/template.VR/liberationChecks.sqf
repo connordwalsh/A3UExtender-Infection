@@ -91,6 +91,8 @@ airportsX = []; outposts = []; milbases = []; seaports = []; factories = [];
 resourcesX = []; citiesX = [_town]; milAdministrationsX = [];
 ["lib_no_external_origin_empty",call _select isEqualTo [] && {sidesX getVariable _town == west}] call _check;
 
+call compile preprocessFileLineNumbers "liberationSurvivorChecks.sqf";
+
 {deleteMarker _x} forEach _markers;
 deleteVehicle sidesX; deleteVehicle spawner; deleteVehicle server;
 sleep 0.2;

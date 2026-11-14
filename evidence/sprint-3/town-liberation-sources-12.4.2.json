@@ -83,6 +83,38 @@
     {
       "path": "scrt/Stringtable.xml",
       "sha256": "1ae93204bbde8d51a50c2034e9609256ba01b8aacf48e26ea6337e15b62d31e2"
+    },
+    {
+      "path": "core/functions/CREATE/fn_spawnVehicle.sqf",
+      "sha256": "65ac07afab3fc6e2bffb81aec4e582ba249c1438ce61f1c4ae0961dc34e18db2"
+    },
+    {
+      "path": "core/functions/CREATE/fn_VEHdespawner.sqf",
+      "sha256": "8a8d609517db50a82e10d9fe65adc13f0379247a1e86822aec6a0ac3ca6f0220"
+    },
+    {
+      "path": "core/functions/AI/fn_canFight.sqf",
+      "sha256": "da6c334d2db695c5d17a27062c36329cd568e075b1456514e26d74f5803d60fb"
+    },
+    {
+      "path": "core/functions/Revive/fn_initRevive.sqf",
+      "sha256": "0a6c975574cc177fbf6deac344ed22b110f692341949c880efeaf80425f5d9f6"
+    },
+    {
+      "path": "core/functions/Templates/fn_compatibilityLoadFaction.sqf",
+      "sha256": "435cc58472d402248c4dbe3e6c1e16c6207159338b8648102b8ae71c6b1a58b1"
+    },
+    {
+      "path": "core/functions/Templates/fn_compileGroups.sqf",
+      "sha256": "a743d7070eaad817b061935e3bc07f8d42d3c738de749ecbab0dee98ded07fcc"
+    },
+    {
+      "path": "core/functions/Templates/Loadouts/fn_loadout_defaultWeaponMag.sqf",
+      "sha256": "3e149f4d496e17bc215a777c09665b9750dd39e29e500145e2ec4cda5a299107"
+    },
+    {
+      "path": "core/Templates/Templates/Vanilla/Vanilla_Civ.sqf",
+      "sha256": "e0a7c5262624198954d47d12ff08bd6c182a497bf2d4fbdd56a2d187e773fe57"
     }
   ]
 }

@@ -216,3 +216,11 @@ All production and collected fixture hashes still match after bringing in the
 reviewed strategic/conquest integration. The connected-player refusal, survivor
 creation/recruitment, defense lifecycle and native entry remain to implement or
 validate. The no-nearby-source political fallback is still awaiting the owner.
+
+Human survivor checkpoint: creation, native recruitment, incapacitation and
+cleanup pass within 56 focused dedicated checks; all 11 missing-dependency
+checks pass. The 120-input candidate preserves the rescuer's group and refuses
+infected/nonhuman survivor roles. No full mission lifecycle or connected-player
+interaction is accepted. The owner selected arrival at town as the start of
+the ten-minute defense countdown. The controller, settlement and native entry
+remain open; the no-nearby-source political fallback is still awaiting a decision.

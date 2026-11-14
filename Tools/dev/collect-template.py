@@ -490,7 +490,30 @@ LIBERATION_CHECKS = {
     'lib_selection_has_no_campaign_effects',
     'lib_no_external_origin_empty',
     'lib_sources_cleanup',
+    'lib_survivor_native_roles_loaded',
+    'lib_survivor_real_human',
+    'lib_survivor_native_equipment_and_revive',
+    'lib_survivor_creation_idempotent',
+    'lib_survivor_remote_cleanup_refused',
+    'lib_survivor_foreign_record_refused',
+    'lib_survivor_cleanup_owned_actor',
+    'lib_survivor_cleanup_idempotent',
+    'lib_survivor_fallback_stays_civilian',
+    'lib_survivor_nonhuman_template_refused',
+    'lib_survivor_infected_role_refused',
+    'lib_survivor_bad_placement_has_no_fallback',
+    'lib_survivor_placement_retry',
+    'lib_survivor_partial_creation_cleanup',
+    'lib_survivor_remote_create_refused',
+    'lib_survivor_changed_owner_refused',
+    'lib_survivor_inactive_refused',
+    'lib_survivor_native_civilian_recruit_refused',
+    'lib_survivor_native_recruit_joins',
+    'lib_survivor_native_incapacitation',
+    'lib_survivor_cleanup_preserves_rescuer_group',
+    'lib_survivor_all_groups_retired',
 }
+
 
 
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:

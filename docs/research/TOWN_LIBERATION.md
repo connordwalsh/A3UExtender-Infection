@@ -2,7 +2,7 @@
 
 The owner selected survivor rescue and defense with a walking infected horde.
 This audit pins Ultimate 12.4.2 at `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`;
-the [20-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
+the [28-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
 records the exact inputs. This is source evidence, not runtime acceptance.
 
 ## Native entry and ownership
@@ -41,6 +41,8 @@ and player scale. The owner-selected replacement is one finite walking horde
 using shared active capacity, with actual paid births and gradual arrivals.
 The full independent town infestation remains active during this mission, per
 the owner's explicit town-population decision.
+The owner selected physical horde arrival as the start of the ten-minute defense
+clock. Marching time must not consume that countdown.
 
 The original defense ends after ten minutes, at 30% remaining attackers, when
 the survivor cannot fight/leaves, or when the overall mission expires. Its final
@@ -111,3 +113,29 @@ histories before the first focused run.
 The completed test server was stopped by its verified process/profile identity.
 Nearby-player refusal with a connected player, survivor and full mission lifecycle,
 native dispatch and the pending political fallback still require work.
+
+## Human survivor development checkpoint
+
+The second candidate adds server-owned human creation and exact-actor cleanup.
+It uses the selected civilian template's registered VIP, Man or Worker role,
+refuses nonhuman templates and infected role fallbacks, and uses native identity,
+loadout, revive, interaction and recruitment functions. A failed placement creates
+nothing; a partially initialized actor remains owned for recovery. Recruitment
+does not make the rescuer's group eligible for mission cleanup. Observed survivors
+defer cleanup, preserving the existing observer policy.
+
+All [56 focused checks](../../evidence/sprint-3/liberation-survivor-focused.json)
+pass: 23 source-selection cases, 22 survivor cases and 11 startup checks. The
+[missing-dependency suite](../../evidence/sprint-3/liberation-survivor-dependencies-absent.json)
+passes 11 checks. The [manifest](../../evidence/sprint-3/liberation-survivor-build.json)
+records 120 production inputs. No engine/SQF Error records occur. Eighteen warnings
+are retained: sixteen startup/dependency warnings and two native friendly-fire
+handler deliveries whose fixture actors had already been deleted. The fixture
+uses real human actors and native recruitment into an AI rescuer's group; it does
+not certify a connected player's interaction, locality or UI. The three parser
+tests and whitespace checks pass. Both completed servers were stopped by their
+verified process/profile identities.
+
+The controller, arrival clock, native entry and settlement remain unimplemented
+at this checkpoint. The combined suite now declares 729 cases but has not been
+run on this candidate; the previously accepted combined result remains 684.
