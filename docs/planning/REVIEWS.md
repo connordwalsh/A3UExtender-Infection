@@ -557,3 +557,24 @@ with 16 startup/dependency warnings and no engine/SQF error records. All 129
 production inputs and the PBO match the recorded Dev1 manifest. The test server
 was stopped by verified identity and its exit confirmed. This branch remains
 draft while task, guarded capture, cancellation, rewards and cleanup are built.
+
+
+## 14 November 2026 - Liquidation capture component
+
+The Dev2 selector/capture increment passes 44 focused and 750 combined engine
+checks, with no engine/SQF error records. All 133 production inputs and the PBO
+match the manifest. The copied native permanent-site body reconstructs exactly
+to pinned 12.4.2 after removing the ownership guard and restoring its include.
+Native town, control and administration ownership paths share the same atomic
+clearance check. Server-origin remote capture is exercised; connected clients
+are not. Russian takeover freezes cancellation before delayed native effects.
+
+The claim/task controller is separately drafted in PR #25. Review there found
+and corrected an administration fault-propagation regression in this component:
+an attempted native write failure must retain capture_failed, while clearance
+rejection must remain retryable. This branch stays draft until the correction
+and task integration are validated. The 750-check report applies to Dev2 and
+does not claim coverage of that later correction or the mission controller.
+
+The complete project, six replacement lifecycles, player rewards, UI, terrain,
+saves and multiplayer acceptance remain open. No Computer Use was performed.

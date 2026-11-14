@@ -551,7 +551,8 @@
     "focused_checks": 44,
     "engine_errors": [],
     "warnings_count": 16,
-    "combined_regression": "RUNNING"
+    "combined_regression": "750 passed",
+    "combined_report": "liquidation-capture-combined.json"
   },
   "native_marker_source_sha256": "4b283a4359190453daa5179c07616869a7e161cfd0c56a853278d3bbc2e25f5a"
 }

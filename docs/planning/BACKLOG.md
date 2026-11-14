@@ -4,7 +4,7 @@ The acceptance criteria and test requirements are in [PROJECT_PLAN.md](PROJECT_P
 
 Liquidation selection and claim-driven capture are tracked in
 [LIQUIDATION.md](../research/LIQUIDATION.md). The focused suite passes 44 checks;
-the combined regression is running. Task creation/dispatch, automatic capture,
+the combined capture regression passes 750 checks. Task creation/dispatch, automatic capture,
 rewards and recovery remain incomplete, and no gameplay route creates a claim yet.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
