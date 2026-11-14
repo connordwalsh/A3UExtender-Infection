@@ -18,11 +18,14 @@ Routine reinforcements use paid foot groups, cooldowns and combat checks, and
 join persistent garrisons only after arriving within the active limits.
 Roaming patrols use bounded foot routes between nearby owned locations.
 Capture-triggered counterattacks use paid foot groups and native ownership checks.
-The completed isolated dedicated regression passes 464 checks on Ultimate 12.4.2,
+Tactical support selects paid foot responses and routes rebuilding requests through
+server validation, with exact refunds, arrival checks and interrupted-job recovery.
+The completed isolated dedicated regression passes 534 checks on Ultimate 12.4.2,
 including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
-routine reinforcement, roaming, counterattacks, town ownership handoffs and cleanup.
+routine reinforcement, roaming, counterattacks, tactical support, town ownership
+handoffs and cleanup.
 The missing-dependency suite passes 11 checks.
-Tactical QRF, strategic attacks, missions and save integration remain unfinished. Do not use this build for a
+Connected-player rebuilding, strategic attacks, missions and save integration remain unfinished. Do not use this build for a
 campaign you intend to keep.
 
 ## Intended campaign
@@ -59,7 +62,8 @@ claim that compatibility testing has passed.
 - [Routine foot reinforcement and limits](docs/research/REINFORCEMENTS.md)
 - [Roaming foot patrols and limits](docs/research/ROAMING_PATROLS.md)
 - [Capture counterattacks and limits](docs/research/CAPTURE_COUNTERATTACKS.md)
-- [Tactical support follow-up audit](docs/research/TACTICAL_SUPPORT_CONTRACTS.md)
+- [Tactical support implementation and limits](docs/research/TACTICAL_SUPPORT_CONTRACTS.md)
+- [Strategic attack source contracts](docs/research/STRATEGIC_ATTACK_CONTRACTS.md)
 - [Remaining attack and support contracts](docs/research/RESPONSE_CONTRACTS.md)
 - [Controlled behavior observations](docs/research/BEHAVIOR_12.4.2.md)
 - [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)
