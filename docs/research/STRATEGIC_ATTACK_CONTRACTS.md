@@ -206,9 +206,23 @@ that native cleanup before reuse and teardown gives the passing checkpoint;
 failed results are not accepted. Source review then moved garrison sizing after
 capture and enlarged test markers to check the new-owner size limit.
 
-The combined 648-check suite is running on that reviewed candidate. The five
-response fixtures now assert controller cleanup without deleting leftover groups
-for the implementation. Direct competitive-mission dispatch, native townBattle,
+The combined 648-check candidate failed ten response retirement checks, with no
+engine/SQF errors. Keeping the whole controller record until its groups disappeared
+also kept patrol counters and source claims alive while corpses remained. That
+candidate is rejected. Cleanup now retains exact group references separately,
+deletes only empty groups, and releases campaign bookkeeping after living actors
+retire. Virtual garrison adoption transfers its empty-group cleanup ownership too.
+Bodies retain their normal lifetime. All five response fixtures assert cleanup
+without deleting leftover groups for the implementation.
+
+The corrected 108-input candidate passes [50 focused patrol checks](../../evidence/sprint-3/major-cleanup-roaming.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/major-cleanup-dependencies-absent.json).
+Its [manifest](../../evidence/sprint-3/major-cleanup-build.json) identifies the
+tested artifact. The two new cases cover corpse-preserving patrol retirement and
+remote rejection of the empty-group callback. The combined 650-check regression
+is running; this branch remains a draft until it passes and is reviewed.
+
+Direct competitive-mission dispatch is a separate prototype in PR #17. Native townBattle,
 simpleAttack, save/restart, actual Redux travel, connected-player task/reward
 presentation and representative performance remain open. No manual-client update,
 Computer Use or sprint acceptance is included.

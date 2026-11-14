@@ -415,11 +415,12 @@ A3I_test_tacticalTicks = 0;
 {deleteMarker _x} forEach [_source,_target,respawnTeamPlayer];
 sidesX = nil; spawner = nil; garrison = nil; server = nil; respawnTeamPlayer = nil;
 // Controllers must finish their own cleanup; the fixture must not hide leaks.
-[{allGroups - _groupsBefore isEqualTo []},8] call _wait;
+[{allGroups - _groupsBefore isEqualTo [] && {isNil "A3I_groupCleanupHandle"}},8] call _wait;
 [_savedCap,_savedContext] call _setLimits;
 GVAR(despawnQueue) = [];
 private _remaining = (entities [[],[],true,false]) - _before;
 ["tactical_all_clean",_remaining isEqualTo [] && {(allGroups - _groupsBefore) isEqualTo []}
+    && {isNil "A3I_groupCleanupHandle"} && {A3I_retiredGroups isEqualTo []}
     && {(call _stats) select [1,3] isEqualTo [0,0,0]} && {count A3I_tacticalSupports == 0}
     && {isNil "A3I_tacticalWatchdogHandle"} && {count A3I_sites == 0}
     && {count A3I_rebuildClaims == 0} && {isNil "A3I_rebuildWatchdogHandle"}

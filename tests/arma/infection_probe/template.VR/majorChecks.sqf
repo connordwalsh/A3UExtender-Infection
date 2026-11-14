@@ -162,6 +162,7 @@ call compile preprocessFileLineNumbers "majorLifecycleChecks.sqf";
 sleep 0.2;
 ["major_all_clean",(entities [[],[],true,false]) - _before isEqualTo []
     && {allGroups - _groupsBefore isEqualTo []}
+    && {isNil "A3I_groupCleanupHandle"} && {A3I_retiredGroups isEqualTo []}
     && {isNil "A3I_majorWatchdogHandle"} && {count A3I_majorAttacks == 0}
     && {A3A_tasksData isEqualTo []} && {!bigAttackInProgress} && {!HQAttackInProgress}
     && {forcedSpawn isEqualTo []},[A3A_tasksData,forcedSpawn,keys A3I_majorAttacks,

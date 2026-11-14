@@ -225,6 +225,7 @@ ROAMING_CHECKS = {
     "roam_route_loss_cancels", "roam_timeout_cleans", "roam_stopped_controller_recovers",
     "roam_empty_expiry_releases_count", "roam_recovery_remote_denied", "roam_all_clean",
     "roam_foot_route_ignores_vehicle_spawn",
+    "roam_retirement_preserves_corpse", "roam_group_cleanup_remote_denied",
 }
 
 
