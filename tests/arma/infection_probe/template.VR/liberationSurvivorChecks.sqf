@@ -72,6 +72,15 @@ _civ set ["unitVIP",_blockedRole]; _civ set ["unitMan",""]; _civ set ["unitWorke
 _result = [_record] call A3I_fnc_createLiberationSurvivor;
 ["lib_survivor_infected_role_refused",!(_result # 0) && {_result # 1 == "human_role"}
     && {!(_record getOrDefault ["survivorAttempted",false])}] call _check;
+// A special creature is not in the three basic-class dependency allowlist.
+// The installed WBK faction must also disqualify a forged civilian role.
+private _specialDefinition = +(A3A_customUnitTypes getVariable [_blockedRole,[]]);
+_specialDefinition set [1,[["baseClass","WBK_SpecialZombie_Smasher_2"]]];
+A3A_customUnitTypes setVariable [_blockedRole,_specialDefinition];
+_result = [_record] call A3I_fnc_createLiberationSurvivor;
+["lib_survivor_special_infected_role_refused",isClass (configFile >> "CfgVehicles" >> "WBK_SpecialZombie_Smasher_2")
+    && {!(_result # 0)} && {_result # 1 == "human_role"}
+    && {!(_record getOrDefault ["survivorAttempted",false])}] call _check;
 A3A_customUnitTypes setVariable [_blockedRole,nil];
 _civ set ["unitVIP",_vipRole]; _civ set ["unitMan",_manRole]; _civ set ["unitWorker",_workerRole];
 private _hqPosition = getMarkerPos respawnTeamPlayer;
@@ -123,7 +132,9 @@ private _cleaned = [_record] call _waitSurvivorCleanup;
 _deadline = diag_tickTime + 8;
 waitUntil {sleep 0.05;(isNull _rescuerGroup && {isNull _civilGroup} && {isNil "A3I_groupCleanupHandle"})
     || {diag_tickTime > _deadline}};
-A3A_faction_civ = _savedCiv; A3A_faction_reb = _savedReb;
 ["lib_survivor_all_groups_retired",isNull _rescuerGroup && {isNull _civilGroup}
     && {isNil "A3I_groupCleanupHandle"}
     && {missionNamespace getVariable ["A3I_retiredGroups",[]] isEqualTo []}] call _check;
+
+call compile preprocessFileLineNumbers "liberationHordeChecks.sqf";
+A3A_faction_civ = _savedCiv; A3A_faction_reb = _savedReb;

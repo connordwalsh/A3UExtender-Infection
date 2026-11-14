@@ -476,3 +476,21 @@ no engine/SQF Error records. Integration decision: merge the reviewed strategic
 and competitive increments in order. This is the tested stacked candidate; a
 separate passing full Dev6 strategic-only run is not claimed. The next isolated
 branch begins the owner-approved survivor-defense liberation adaptation.
+
+## 14 November 2026 - Liberation component review
+
+The draft branch contains nearby source selection, native human survivor
+creation/recruitment/cleanup, a parent-owned walking horde and an arrival-based
+outcome evaluator. Review checked local-only parent authority, atomic child
+linkage, unchanged default capture behavior, actual paid births, temporary debt,
+native living-despawn refunds, queued force accounting, first arrival, survivor
+failure precedence, source loss and stopped/orphaned child cleanup. The survivor
+guard now excludes prepared special creatures as well as basic infected using
+the installed WBK faction declaration. Cleanup retains the rescuer's group.
+
+All 79 focused checks and 11 dependency-absent checks pass on the 122-input
+candidate. Production and collected fixture hashes match. Three parser tests
+pass. Rejected fixture attempts and the evidence limitations are recorded in
+TOWN_LIBERATION.md. The combined 752-case regression is running. The PR stays
+draft: the parent controller, native settlement/dispatch, pending no-origin
+decision, connected-player interaction and full mission acceptance remain open.

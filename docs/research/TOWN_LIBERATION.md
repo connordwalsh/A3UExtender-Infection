@@ -139,3 +139,64 @@ verified process/profile identities.
 The controller, arrival clock, native entry and settlement remain unimplemented
 at this checkpoint. The combined suite now declares 729 cases but has not been
 run on this candidate; the previously accepted combined result remains 684.
+
+## Arrival-clock and horde development checkpoint
+
+The fourth candidate adds a liberation purpose to the existing major-horde
+registration. Only a local, registered parent with a viable recruited survivor,
+matching town/source and horde phase can launch it. Registration saves the parent
+link atomically. Native population/player vehicle allowance becomes a finite
+basic-infected queue, bounded by the existing 192-actor major ceiling. Actual
+births cost ten attack resources and may use scoped temporary debt. Living
+despawns retain Ultimate's refund. Shared capacity, cooldowns, combat checks and
+safe walking origins remain in force; no campaign fixed charge is added.
+
+The liberation worker has no capture, handoff or second-task branch. A fighting
+attacker physically entering the town marker records the first arrival timestamp.
+Later batches and departures never reset it. The outcome evaluator permits
+victory after 600 seconds from that arrival or the native 30-percent remaining
+force threshold, counting queued actors as remaining. Zero births cannot win.
+Survivor incapacitation or departure wins a simultaneous race against timer or
+force completion; the native overall forty-minute mission limit is preserved.
+Source/target loss, missing dependencies, stopped workers and force starvation
+cancel without success or failure rewards. The shared watchdog retires child
+claims and actors independently of the still-unimplemented parent controller.
+
+Source review also found that excluding only basic infected would accept a
+special creature hidden in a civilian role. Installed WBK configuration declares
+or inherits faction `WBK_AI_ZHAMBIES` across its prepared creature families.
+The [configuration manifest](../../evidence/sprint-3/liberation-wbk-role-sources.json)
+records those inputs. Survivor selection now excludes that faction; a Smasher
+role is rejected before any actor is created.
+
+The final candidate passes [79 focused checks](../../evidence/sprint-3/liberation-horde-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-horde-dependencies-absent.json),
+with no engine/SQF Error records. The [build manifest](../../evidence/sprint-3/liberation-horde-build.json)
+matches all 122 production inputs. The focused report contains real births,
+native resource transactions, native human recruitment and cleanup. Arrival
+positions and timer boundaries are injected, so walking travel, ten minutes of
+actual defense pacing and player interaction remain NOT_RUN.
+
+The first horde attempt exposed fixture defects: missing native `plusGarrison`,
+counting a pre-existing human in the infected limit, and expecting spent resources
+to remain spent after deliberately despawning a living attacker. The exact
+floating-point deadline assertion was changed to sample one second before and
+after expiry. These rejected attempts remain separate from accepted evidence.
+The corrected third candidate passed 78 cases before the additional special-role
+guard. The fourth candidate's combined 752-case regression is in progress.
+
+## Remaining controller work
+
+Native dispatch is not connected. The next controller must register exact town
+and administration skirmish claims, create the task/survivor, detect recruitment,
+retain the native three-minute preparation and own its horde/settlement workers.
+The complete parent must validate survivor viability at settlement, deliver
+native ownership/support/HR/fund rewards once, preserve unrelated claims and
+recover interruption at each registration boundary. `cityChangeSide` sleeps
+after changing ownership; it cannot be called as one unscheduled transaction.
+That settlement boundary needs explicit recovery rather than an assumed atomic
+native call. Task delivery and positive client locality remain separate tests.
+
+The political fallback when there is no nearby origin still awaits the owner.
+No fallback is implemented by these helpers. Native decorative wrecks, damage,
+effects and the survivor vehicle also remain part of the full mission audit.

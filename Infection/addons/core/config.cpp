@@ -84,6 +84,8 @@ class CfgFunctions
             class liberationSources {};
             class createLiberationSurvivor {};
             class cleanupLiberationSurvivor {};
+            class liberationOutcome {};
+            class runLiberationHorde {};
             class startSite {};
             class runSite {};
             class cleanupSite {};

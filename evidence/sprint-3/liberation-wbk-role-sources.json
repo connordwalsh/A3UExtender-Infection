@@ -1,0 +1,21 @@
+{
+  "scope": "Inspected installed WBK configuration for survivor role exclusion; all prepared creature families declare or inherit faction WBK_AI_ZHAMBIES. Runtime adversarial fixture rejects a Smasher role without creating it.",
+  "files": [
+    {
+      "path": ".work/unpacked/WBK_Zombies/wbk_zombies_units/config.inspected.cpp",
+      "sha256": "c3cd49a65f09427159563370cef30bc71adfe68691dcc7875763a7fa8e40e3ee"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies_Smasher/config.inspected.cpp",
+      "sha256": "2e3d8ce19ebbb32bd02b48f7281de5b1ff8e8bac273fae28dfbd23e6276881d4"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies_Corrupted/config.inspected.cpp",
+      "sha256": "7bd535618e5c15e8e242b973e5b5c5a39140f9ada54e85548a3f778ba7cb4f7e"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies_Goliath/config.inspected.cpp",
+      "sha256": "371038a182cf7296b9ed70379fdc3e45fb074ad94ffbd33530d08e60af3ba4ee"
+    }
+  ]
+}

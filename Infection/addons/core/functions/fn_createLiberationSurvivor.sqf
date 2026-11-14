@@ -35,6 +35,7 @@ private _role = ""; private _class = "";
     // A template with an unsupported VIP definition may still supply Man/Worker.
     if (_base isEqualType "" && {isClass (configFile >> "CfgVehicles" >> _base)}
         && {_base isKindOf "CAManBase"}
+        && {getText (configFile >> "CfgVehicles" >> _base >> "faction") != "WBK_AI_ZHAMBIES"}
         && {!(_base in (A3I_dependencies get "basicClasses"))}) exitWith {
         _role = _candidate; _class = _base;
     };

@@ -2,18 +2,36 @@
    -> [accepted, planned actors, reason]. Combine native wave allowances into
    one finite horde; actual births use shared capacity and bounded debt credit. */
 params [["_target","",[""]],["_source","",[""]],["_strength",1,[0]],
-    ["_delay",-1,[0]],["_campaignCharge",true,[true]],["_mission","",[""]]];
+    ["_delay",-1,[0]],["_campaignCharge",true,[true]],["_mission","",[""]],
+    ["_purpose","capture",[""]]];
 if (!isServer || {!canSuspend} || {isRemoteExecuted && {remoteExecutedOwner != 2}})
     exitWith {[false,0,"server_scheduled_only"]};
 if (!([west] call A3I_fnc_isActive) || {missionNamespace getVariable ["areOccupantsDefeated",false]})
     exitWith {[false,0,"inactive"]};
+if !(_purpose in ["capture","liberation"]) exitWith {[false,0,"purpose"]};
+private _liberation = _purpose == "liberation";
+private _parent = (missionNamespace getVariable ["A3I_liberations",createHashMap])
+    getOrDefault [_mission,createHashMap];
+private _parentValid = {
+    !isRemoteExecuted && {_mission != ""} && {_parent getOrDefault ["name",""] == _mission}
+    && {_parent getOrDefault ["town",""] == _target}
+    && {_parent getOrDefault ["source",""] == _source}
+    && {_parent getOrDefault ["phase",""] == "horde"}
+    && {side group (_parent getOrDefault ["vip",objNull]) == teamPlayer}
+    && {!(_parent getOrDefault ["settled",false])}
+    && {[_parent] call A3I_fnc_liberationOutcome == "pending"}
+};
+if (_liberation && {_campaignCharge || {_delay != 0} || {_strength != 1} || {!(call _parentValid)}})
+    exitWith {[false,0,"liberation_parent"]};
 if (!finite _strength || {_strength < 1} || {floor _strength != _strength}
     || {!finite _delay} || {_delay < -1} || {_delay > 600}) exitWith {[false,0,"invalid_request"]};
 private _hq = _target == "Synd_HQ";
 private _targets = airportsX + outposts + milbases + seaports + factories + resourcesX + citiesX + ["Synd_HQ"];
 private _owner = sidesX getVariable [_target,sideUnknown];
-if (!(_target in _targets) || {!(_target in allMapMarkers)} || {!(_owner in [teamPlayer,Invaders])}
-    || {_target in citiesX && {_owner != teamPlayer}}) exitWith {[false,0,"target"]};
+if (!(_target in _targets) || {!(_target in allMapMarkers)}
+    || {if (_liberation) then {!(_target in citiesX) || {_owner != west}} else {
+        !(_owner in [teamPlayer,Invaders]) || {_target in citiesX && {_owner != teamPlayer}}
+    }}) exitWith {[false,0,"target"]};
 private _petros = missionNamespace getVariable ["petros",objNull];
 if (_hq && {_owner != teamPlayer || {isNull _petros} || {!alive _petros}})
     exitWith {[false,0,"hq"]};
@@ -29,7 +47,15 @@ private _choices = [A3A_faction_occ,"groupsTierSquads"] call SCRT_fnc_unit_flatt
 _choices = _choices select {_x isEqualType [] && {_x isNotEqualTo []}};
 if (_choices isEqualTo []) exitWith {[false,0,"roles"]};
 private _requested = 0;
-for "_part" from 1 to (if (_hq) then {1} else {_strength min 3}) do {
+if (_liberation) then {
+    // Preserve native townBattle's population/player allowance, translating its
+    // vehicle-cost budget into one bounded horde of ten-resource basic actors.
+    private _population = _parent getOrDefault ["population",-1];
+    if (_population isEqualType 0 && {finite _population} && {_population >= 0}) then {
+        private _slots = round (0.7 + random 1 + 0.13 * sqrt _population + 1.3 * (_scale min 20));
+        _requested = if (_slots >= 1920 / _cost) then {192} else {floor (_slots * _cost / 10)};
+    };
+} else {for "_part" from 1 to (if (_hq) then {1} else {_strength min 3}) do {
     private _slots = if (_hq) then {round (1.5 + random 1 + 2 * (_scale min 20))} else {
         private _n = if (_owner == teamPlayer) then {round (2 + random 1 + 3 * (_scale min 20))}
             else {5 + round random 2};
@@ -38,7 +64,7 @@ for "_part" from 1 to (if (_hq) then {1} else {_strength min 3}) do {
     // Bound before multiplying. Each native allowance contributes at most 64
     // actors; the combined horde never has more than 192 planned births.
     _requested = _requested + (if (_slots >= 640 / _cost) then {64} else {floor (_slots * _cost / 10)});
-};
+}};
 if (_requested < 1) exitWith {[false,0,"allowance"]};
 private _preparation = if (_delay >= 0) then {_delay} else {
     if (_hq) then {(300 / _scale) min 600} else {[0,300] select (_owner == teamPlayer)}
@@ -47,6 +73,7 @@ private _result = [false,0,"race"];
 isNil {
     if (!([west] call A3I_fnc_isActive) || {missionNamespace getVariable ["areOccupantsDefeated",false]}
         || {sidesX getVariable [_target,sideUnknown] != _owner}
+        || {_liberation && {!(call _parentValid)}}
         || {!([_source] call A3I_fnc_majorSourceEligible)}) exitWith {};
     if (missionNamespace getVariable ["bigAttackInProgress",false]
         || {_hq && {missionNamespace getVariable ["HQAttackInProgress",false]}} || {_target in forcedSpawn}
@@ -73,11 +100,14 @@ isNil {
         ["creditRemaining",_requested],["paidActors",0],["units",[]],["groups",[]],
         ["readyAt",_ready],["emptyDeadline",_ready + 600],["endTime",_ready + 2700],
         ["arrived",false],["outcome","pending"],["fixedCost",_fixedCost],
-        ["mission",_mission],
+        ["mission",_mission],["purpose",_purpose],
         ["taskId",_name],["taskType",_taskType],["taskRegistered",false],
         ["settled",false],["released",false],["cleanupOrdered",false]
     ];
     A3I_majorAttacks set [_name,_record];
+    // The link and child registration share one unscheduled transaction. A
+    // stopped parent cannot lose ownership between launch and saving a return.
+    if (_liberation) then {_parent set ["majorRecord",_record]};
     A3I_majorGlobalOwner = _name;
     bigAttackInProgress = true; publicVariable "bigAttackInProgress";
     if (_hq) then {HQAttackInProgress = true; publicVariable "HQAttackInProgress"};

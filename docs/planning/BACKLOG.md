@@ -224,3 +224,13 @@ infected/nonhuman survivor roles. No full mission lifecycle or connected-player
 interaction is accepted. The owner selected arrival at town as the start of
 the ten-minute defense countdown. The controller, settlement and native entry
 remain open; the no-nearby-source political fallback is still awaiting a decision.
+
+Arrival/horde checkpoint: the registered-parent horde mode and outcome evaluator
+pass 79 focused checks and 11 missing-dependency checks on a 122-input candidate.
+The first physical arrival starts the full ten-minute clock, queued attackers
+remain in the force count, and survivor failure precedes a simultaneous win.
+Shared active limits, native debt/refunds, source loss and interrupted-child
+cleanup are exercised. A special-creature civilian-role fallback was rejected
+during source review and is now covered. The combined 752-case regression is
+running. Parent mission registration, preparation, native settlement and campaign
+dispatch remain open. No Computer Use or manual-client update occurred.
