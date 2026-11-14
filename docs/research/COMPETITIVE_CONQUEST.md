@@ -11,7 +11,7 @@ competitive conquest, task metadata and reward accounting. The native competitiv
 constructor chooses an airbase, launches two/four/six waves, and leaves the task
 open after the rival side captures the site. Those are the integration points.
 
-This separate branch contains a prototype under isolated validation. Conquest selection keeps
+The implementation has passed isolated dedicated validation. Conquest selection keeps
 ordinary-faction frontlines and adds nearby infected town origins. An unavailable
 infected frontline is removed from both competitive and fallback ordinary lists.
 Existing ordinary missions outside those frontlines remain available. Unrelated
@@ -71,4 +71,9 @@ The first native remote capture is observed as `lost_race` inside its event,
 before polling; an immediate public retake leaves FAILED and grants no reward.
 Both success reward levels, timeout/cancellation, duplicate/refused requests,
 server dispatch, real bounded births/refunds, partial registration and child
-recovery pass. The full stacked 684-check regression is running before integration.
+recovery pass. The [full stacked 684-check regression](../../evidence/sprint-3/competitive-contract.json)
+also passes on the same candidate, with no engine/SQF Error records. All 117
+production inputs and 176 collected fixture/production hashes match. Its 74
+retained warnings comprise 16 startup/dependency notices, 56 object-deletion
+notifications and two absent-commander notifications. The reviewed integration
+includes the strategic changes and deferred cleanup fixes from PR #16.

@@ -427,3 +427,52 @@ positive relay, complete rebuilding mission, Redux movement, ordinary Invader
 campaign behavior, multiplayer observation/JIP and saves are still unverified.
 Strategic attacks and mission adaptations remain separate work. No sprint gate
 is closed. No Computer Use, manual-client restart or Workshop publication occurred.
+
+## 14 November 2026 - Strategic hordes and competitive conquest review
+
+Source review covers native target weighting, town/permanent source eligibility,
+walking bounds, resource credit scoped to a live horde, actual birth/refund
+transactions, source loss, shared-cap queues, HQ/Petros interruption and
+arrival-gated capture. The offscreen Invader transaction performs native capture,
+new-owner garrison sizing, payment and already-paid roster insertion together.
+Town population arrays are never overwritten with military idle timestamps.
+
+Competitive review covers unavailable-race exclusion without ordinary fallback,
+server/HC dispatch boundaries, inherited remote context, authoritative first
+capture, deadline precedence, once-only native rewards, partial task registration
+and child recovery when a parent stops before saving its launch result. The
+native remote event fixture freezes loss before an immediate public Rebel retake.
+Unrelated mission bodies were compared to the pinned 12.4.2 source; the AS body
+and DES-through-end segment are unchanged after newline normalization.
+
+Cleanup review separates campaign claims from deferred group deletion. Exact
+retired group references preserve bodies and delete only empty local groups;
+ordinary handlers cannot be removed by a remote callback request. Site cleanup
+uses the same mechanism. Final fixtures wait for every handler they assert,
+within their original deadlines, before deleting the campaign namespaces.
+
+The first combined candidate exposed ten retirement failures. The replacement
+was interrupted when the owner shut down the PC; neither is accepted. The final
+reinforcement-focused candidate passes 50 checks, and the stacked conquest
+candidate passes 45 focused checks plus 11 without zombie dependencies. All 117
+production inputs and the PBO match the recorded Dev4 manifest. Three collector
+parser regressions, PowerShell parsing and whitespace checks pass. The final combined
+684-check run passes, including every required cleanup assertion. Its 176
+recorded fixture/production hashes match the collected inputs. The completed
+server was stopped by its verified process/profile identity.
+
+The focused conquest log retains 18 warnings: 16 startup/dependency notices and
+two native income notifications targeting the absent fixture commander. No
+engine/SQF Error records occur in that focused report. These dedicated fixtures
+do not certify player/commander reward delivery, real HC relay, message/UI
+presentation, Redux travel, crowd performance, multiplayer/JIP or save/restart.
+Town-liberation and other mission/convoy callers remain open. No campaign or
+sprint gate is closed, and no Computer Use or manual-client update occurred.
+
+
+The combined report retains 74 warnings: 16 startup/dependency notices, 56
+object-deletion notifications and two absent-commander notifications. There are
+no engine/SQF Error records. Integration decision: merge the reviewed strategic
+and competitive increments in order. This is the tested stacked candidate; a
+separate passing full Dev6 strategic-only run is not claimed. The next isolated
+branch begins the owner-approved survivor-defense liberation adaptation.
