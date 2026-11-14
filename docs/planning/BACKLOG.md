@@ -1,6 +1,11 @@
 # Product backlog
 
 The acceptance criteria and test requirements are in [PROJECT_PLAN.md](PROJECT_PLAN.md).
+
+Liquidation's target-selection draft is tracked in [LIQUIDATION.md](../research/LIQUIDATION.md).
+Its 11 selection cases are authored but NOT_RUN; task dispatch, capture guards,
+ownership settlement and rewards remain incomplete. This branch is separate
+from the parent catalog/clearance regression currently running.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
 

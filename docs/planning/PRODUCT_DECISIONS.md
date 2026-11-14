@@ -57,6 +57,10 @@ includes towns and permanent sites and captures them immediately after clearing
 the mission's infected, overriding ordinary town political capture for that task.
 Military bases and airfields retain Ultimate's war-level 3 capture requirement.
 Recovered supply trucks remain usable by the Rebels after delivery.
+Interception destinations may be infected-held or Rebel-held. A Russian takeover
+of a Liquidation target cancels that assignment without a penalty. The owner
+authorizes developer judgment using Ultimate's existing time limits and rewards
+as a starting point for replacement missions.
 
 The full nine-sprint plan remains the backlog. A successful build or addon load
 does not establish campaign, multiplayer, or save compatibility. Stories remain
