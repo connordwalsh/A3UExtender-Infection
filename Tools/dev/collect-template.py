@@ -476,6 +476,53 @@ CLEARANCE_CHECKS = {
 }
 
 
+INTERCEPTION_CHECKS = {
+    'intercept_initial_sizes_bounded',
+    'intercept_connected_town_factory',
+    'intercept_planning_has_no_campaign_effects',
+    'intercept_rebel_destination_allowed',
+    'intercept_initial_russian_destination_refused',
+    'intercept_russian_source_refused',
+    'intercept_automatic_pair_selection',
+    'intercept_duplicate_location_lists',
+    'intercept_controls_never_endpoints',
+    'intercept_hq_never_endpoint',
+    'intercept_boundary_required',
+    'intercept_overlapping_spawn_area_refused',
+    'intercept_active_source_refused',
+    'intercept_forced_source_refused',
+    'intercept_combat_source_refused',
+    'intercept_cooldown_respected',
+    'intercept_foot_route_ignores_vehicle_marker',
+    'intercept_disconnected_route_refused',
+    'intercept_walking_range_respected',
+    'intercept_hq_range_respected',
+    'intercept_unsafe_source_refused',
+    'intercept_unscheduled_search_refused',
+    'intercept_dependencies_required',
+    'intercept_inactive_template_refused',
+    'intercept_shared_budget_filled',
+    'intercept_full_allowance_with_shared_and_town_full',
+    'intercept_cannot_exceed_job_size',
+    'intercept_cannot_borrow_job_allowance',
+    'intercept_actual_complete_horde_with_shared_full',
+    'intercept_marching_cannot_add_members',
+    'intercept_cannot_transfer_to_shared',
+    'intercept_cannot_import_shared_members',
+    'intercept_death_does_not_refill',
+    'intercept_live_deletion_releases_only_its_slot',
+    'intercept_worker_stop_observed',
+    'intercept_stopped_worker_loses_pending_reservation',
+    'intercept_stopped_worker_cannot_reserve',
+    'intercept_retired_bindings_stay_outside_shared',
+    'intercept_removed_job_cannot_reclassify_context',
+    'intercept_oversized_allowance_refused',
+    'intercept_mismatched_job_context_refused',
+    'intercept_phase_change_retires_unused_slots',
+    'intercept_actual_maximum_horde',
+    'intercept_foundation_cleanup',
+}
+
 LIQUIDATION_DISPATCH_CHECKS = {
     'liq_dispatch_registered',
     'liq_dispatch_race_controller_removed',
@@ -597,14 +644,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | INTERCEPTION_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
                           "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
-                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS}
+                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS, "interception": BUDGET_CHECKS | INTERCEPTION_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -647,7 +694,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

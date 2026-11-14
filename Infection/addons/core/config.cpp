@@ -85,6 +85,9 @@ class CfgFunctions
             class liquidationTransition {};
             class liquidationMarkerChange {};
             class liquidationCityCapture {};
+            class interceptionSize {};
+            class interceptionLocations {};
+            class interceptionRoutes {};
             class startLiquidation {};
             class requestLiquidation {};
             class dispatchLiquidation {};

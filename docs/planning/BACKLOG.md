@@ -247,3 +247,21 @@ separate temporary allowance, developer-tuned size, town/permanent-site endpoint
 arrival reinforcement/attack, and continued travel after Russian takeover.
 The source audit records mission-board, intel and strategic convoy callers.
 Interception implementation and its acceptance tests remain next work.
+
+
+## Working session: 14 November 2026 - Interception foundation
+
+Implemented endpoint/route planning and a separate preparing-horde budget on
+codex/horde-interception. The owner-approved full-horde rule is distinct from
+strategic attack queues. Initial tuning is 40-120 basic infected by war level.
+Config/PBO and parser checks pass; focused engine validation is running. No task,
+formation staging, march, arrival reinforcement/attack, reward or public request
+integration is claimed yet. No Computer Use and no manual-build replacement.
+
+
+Interception Dev1 focused result: 78 checks pass, including the existing budget
+regression, 44 new route/allowance checks and actual 40/120-member creation under
+full shared usage. The stopped-worker fixture now observes engine termination
+before asserting refusal; the initial failed result is retained. All 141
+production inputs match the build. Town regression is running. Task/march/
+arrival settlement and public entry points remain unimplemented.

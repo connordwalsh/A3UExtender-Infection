@@ -51,7 +51,7 @@ if (!isServer) exitWith {};
         call A3A_fnc_compatibilityLoadFaction;
     ["active_only_for_occupants", [west] call A3I_fnc_isActive && {!([east] call A3I_fnc_isActive)}
         && {!([independent] call A3I_fnc_isActive)} && {!([civilian] call A3I_fnc_isActive)}] call _check;
-    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch"]) exitWith {
+    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch","interception"]) exitWith {
         private _suitePath = switch (_suite) do {
             case "administration": {"administrationChecks.sqf"};
             case "reinforcements": {"reinforcementChecks.sqf"};
@@ -60,6 +60,7 @@ if (!isServer) exitWith {};
             case "major": {"majorChecks.sqf"};
             case "catalogpolicy": {"catalogPolicyChecks.sqf"};
             case "clearance": {"clearanceChecks.sqf"};
+            case "interception": {"interceptionChecks.sqf"};
             case "liquidationdispatch": {"liquidationDispatchChecks.sqf"};
             case "liquidationcontroller": {"liquidationControllerChecks.sqf"};
             case "liquidation": {"liquidationChecks.sqf"};
@@ -156,6 +157,7 @@ if (!isServer) exitWith {};
     call compile preprocessFileLineNumbers "liquidationChecks.sqf";
     call compile preprocessFileLineNumbers "liquidationControllerChecks.sqf";
     call compile preprocessFileLineNumbers "liquidationDispatchChecks.sqf";
+    call compile preprocessFileLineNumbers "interceptionFoundationChecks.sqf";
     deleteVehicle A3A_customUnitTypes;
     ["complete", _checks, _failures, _spawned] call _log;
     missionNamespace setVariable ["Infection_probeComplete", true, true];

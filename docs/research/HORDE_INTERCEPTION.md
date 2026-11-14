@@ -1,7 +1,8 @@
 # Horde Interception source audit
 
-Status: approved requirements and source findings only. No interception controller
-or route selector is implemented or runtime-tested in this increment.
+Status: route selection and separate-budget foundation drafted on the feature
+branch. Its focused engine suite passes 78 checks; town regression is running. The task controller, full formation
+staging, march, arrival aftermath, settlement and public dispatch remain incomplete.
 
 ## Approved objective
 
@@ -62,3 +63,45 @@ cancel the assignment. First arrival fails the task, but does not itself grant
 territory: combat capture remains separate. Aftermath ownership, separate-budget
 retirement and reinforcement transfer therefore need their own lifecycle checks. Visual tasks, client visibility, actual terrain travel and performance
 remain separate acceptance work.
+
+
+## Foundation candidate
+
+Interception Dev1 adds a town/permanent-site endpoint list and bounded scheduled
+route planning. Destination ownership is restricted to infected/Rebels at initial
+selection; this selector is not reapplied during the approved continued march
+through a Russian takeover. HQ, controls and malformed/absent boundaries are
+excluded. The existing major-source checks exclude active, forced, cooling-down,
+recently damaged or player-observed origins. Native HQ mission range is retained.
+The route checks up to 64 nearby pairs, a 2 km straight-line limit and a 2.5 km
+road limit, safe outdoor endpoint positions and non-overlapping spawn/destination
+bounds. Pinned Redux mission source uses area markers for its permanent sites;
+actual terrain travel remains untested.
+
+The initial developer-tuned count is 40 + 8 * floor(warLevel), clamped to war
+levels 0-10: 40 to 120 basic infected. This is a tuning choice, not a measured
+performance guarantee. No special creature is added to this ordinary horde.
+
+Preparing server-owned jobs can reserve their complete size separately from
+shared actors and town populations. March/arrival/cleanup retains the allowance
+for living members but cannot reserve replacements; pending slots retire when
+preparation stops. Missing, stopped or retired owners cannot create more members.
+Living bindings retain their dedicated classification even if the owner record
+is removed. Transfers cannot borrow town/horde capacity or import outside actors.
+Arrival reinforcement will therefore need an explicit handoff that preserves
+budget accounting rather than weakening this rule.
+
+The focused suite includes 11 common, 23 existing shared-budget and 44
+interception checks. All 78 pass without engine/SQF errors. It uses native navigation queries with controlled VR graph
+records and creates complete 40- and 120-infected groups while the shared limit
+is full and a town owns its own pending allowance.
+This exercises the spawning primitive, not a complete staged mission. Three
+parser unit tests and config/PBO packaging pass. All 141 production files and
+the PBO match Interception Dev1. The initial 72-case run failed an assertion made
+before Arma reported a terminated worker finished. The corrected fixture records
+scriptDone false immediately and true on a later scheduler step, then verifies
+that pending reservations and new grants are refused. No production change was
+made for that fixture correction. The rejected report is retained separately.
+The passing report is interception-foundation-focused.json. It retains 16
+startup/dependency notices and no engine/SQF errors. Town regression and actual
+missing-dependency checks are next; full campaign acceptance remains open.
