@@ -54,3 +54,36 @@ once-only rewards, stopped-worker recovery, task deletion and ordinary-campaign
 delegation. New mission text must not be attached to a legacy competitive task
 that still launches an attack on Russian targets. End-to-end gameplay, saves,
 connected clients and terrain travel remain unverified.
+
+
+## Claim-driven capture component
+
+Dev2 introduces an atomic ownership transaction shared by permanent-site, town,
+road-control and administration capture. A pending claim requires the full
+clearance ledger immediately before a Rebel ownership write, retaining military
+war-level restrictions and the mission deadline. A real Russian capture freezes
+cancellation before delayed effects; a same-frame Rebel retake cannot change it
+to success. No rewards are issued by this component.
+
+The permanent-site adapter retains the pinned native markerChange body except
+for the include path and ownership transaction; a reconstruction comparison is
+identical to the pinned source. Native QRF/resource/flag/notification handling
+remains scheduled. Town capture preserves the native Rebel effects and schedules
+the five-second maintenance independently of the caller. Existing control and
+administration rules call the same transaction in their unscheduled capture
+paths. Without a pending claim their ordinary capture behavior remains active.
+
+The focused dedicated suite passes 44 checks: 11 common, 11 selection and 22
+capture cases. It exercises actual native site ownership effects, server remote
+calls, political town capture, road controls and the administration completion
+registry using controlled campaign records. No engine/SQF errors occur. The
+fixture fixes its garrison preference tier rather than testing preference
+regeneration; connected players, visual UI and complete missions remain untested.
+Two rejected fixture runs are retained: missing native initialization values and
+premature retirement of the spawner namespace caused errors despite true
+assertions. The corrected result is `liquidation-capture-focused.json`.
+
+The combined regression is running. Task claim creation, automatic capture on
+clearance, once-only rewards, timeout/interruption recovery, task removal and
+mission-board/direct dispatch still need implementation. No active gameplay
+flow creates a Liquidation claim yet, so the six-mission redesign is incomplete.

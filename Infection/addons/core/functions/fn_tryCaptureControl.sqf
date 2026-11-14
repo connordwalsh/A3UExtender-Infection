@@ -18,8 +18,12 @@ private _contenders = allUnits select {side group _x in [teamPlayer,Invaders]
 if (_contenders isEqualTo []) exitWith {sideUnknown};
 private _nearest = [_contenders,getMarkerPos _marker] call BIS_fnc_nearestPosition;
 private _winner = side group _nearest;
-_record set ["captured",_winner];
-sidesX setVariable [_marker,_winner,true];
+if !([_marker,_winner,{
+    params ["_marker","_winner","_record"];
+    _record set ["captured",_winner];
+    sidesX setVariable [_marker,_winner,true];
+    true
+},[_marker,_winner,_record]] call A3I_fnc_liquidationTransition) exitWith {sideUnknown};
 if (_winner == Invaders) then {[-5,0,getMarkerPos _marker] remoteExec ["A3A_fnc_citySupportChange",2]};
 if (_record get "road") then {
     ["TaskSucceeded",["","Roadblock Destroyed"]] remoteExec ["BIS_fnc_showNotification",_winner];

@@ -1,7 +1,7 @@
 // Read-only server predicate: [cleared, reason, remaining obligations]. It
 // neither captures a location nor changes ordinary Ultimate capture rules.
 params [["_marker","",[""]]];
-if (!isServer || {isRemoteExecuted} || {!([west] call A3I_fnc_isActive)})
+if (!isServer || {isRemoteExecuted && {remoteExecutedOwner != 2}} || {!([west] call A3I_fnc_isActive)})
     exitWith {[false,"server_local_active_only",-1]};
 if (canSuspend) exitWith {[A3I_fnc_siteClearance,_this] call CBA_fnc_directCall};
 if (!(_marker in allMapMarkers) || {isNil "sidesX"} || {isNil "spawner"} || {isNil "garrison"})
