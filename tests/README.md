@@ -163,3 +163,9 @@ races, interrupted cleanup and the generated-control calendar reset. VR supplies
 no real roads, so road roster branches use explicit classification inputs. The
 fixture does not certify Redux road geometry, broad roaming or client notifications.
 See `docs/research/ROAD_CONTROLS.md` and `evidence/sprint-2/control-contract.json`.
+
+For focused population and town-lifecycle checks, build the Template fixture with
+`-Suite Towns` and collect its log with `--dependencies present --suite towns`.
+The 46 checks include roster counts derived from terrain populations and a small
+real-actor lifecycle. They do not certify crowded-town activation or performance.
+See `evidence/sprint-2/town-population-selection.json` for the current checkpoint.

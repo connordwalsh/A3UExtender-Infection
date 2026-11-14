@@ -5,8 +5,12 @@ private _before = entities [[],[],true,false];
 private _groupsBefore = +allGroups;
 private _savedCap = A3I_activeLimit;
 private _savedContext = A3I_contextLimit;
-private _savedTierMode = plusGarrison;
+private _savedTierMode = missionNamespace getVariable ["plusGarrison",false];
 plusGarrison = true; tierWar = 1;
+distanceSPWN = 1000;
+A3A_GCThreshold = 600; GVAR(despawnQueue) = []; GVAR(despawnerRunning) = nil;
+A3A_recentDamageOcc = []; A3A_hasACE = false;
+A3I_test_support = []; A3I_test_aggression = [];
 private _setLimits = {
     params ["_global","_context"];
     ["A3I_activeLimit",_global,2,"server",false] call CBA_settings_fnc_set;
@@ -62,22 +66,42 @@ A3I_dependencies set ["available",true];
 ["city_other_factions_delegate",count A3I_test_originals == 3
     && {(A3I_test_originals findIf {_x # 1 isNotEqualTo [_marker,"unchanged"]}) == -1}] call _check;
 private _police = [_marker] call A3I_fnc_cityRoster;
-["city_size_support_selection",count (_police # 0) == 6 && {_police # 1 == "police"} && {_police # 2 == 2}
-    && {(_police # 0) select [0,2] isEqualTo (A3A_faction_occ get "groupPolice")},_police] call _check;
+["city_population_ratio",count (_police # 0) == 33 && {_police # 1 == "police"} && {_police # 2 == 2}
+    && {(_police # 0) select [0,2] isEqualTo (A3A_faction_occ get "groupPolice")},[count (_police # 0),_police # 1]] call _check;
 A3A_townData set [_marker,[100,2,20,30]];
 private _scaled = [_marker] call A3I_fnc_cityRoster;
-["city_support_scales_count",count (_scaled # 0) == 4,_scaled] call _check;
+["city_support_does_not_scale_population",count (_scaled # 0) == 33] call _check;
 A3A_townData set [_marker,[100,2,0,0]];
-["city_minimum_patrol",count (([_marker] call A3I_fnc_cityRoster) # 0) == 2] call _check;
+["city_zero_support_keeps_population",count (([_marker] call A3I_fnc_cityRoster) # 0) == 33] call _check;
+private _populationCases = [[23,8],[166,55],[367,122],[603,201],[1176,392],[0,0]];
+private _populationResults = _populationCases apply {
+    A3A_townData set [_marker,[_x # 0,999,0,0]];
+    [count (([_marker] call A3I_fnc_cityRoster) # 0),_x # 1]
+};
+["city_terrain_population_counts",(_populationResults findIf {_x # 0 != _x # 1}) == -1,_populationResults] call _check;
+private _badPopulationResults = [-1,"100",[],true] apply {
+    A3A_townData set [_marker,[_x,2,60,40]];
+    ([_marker] call A3I_fnc_cityRoster) # 1 == "invalid_town_data"
+};
+["city_invalid_population_rejected",(_badPopulationResults findIf {!_x}) == -1] call _check;
 A3A_townData set [_marker,[100,2,60,40]];
+private _wrongOwners = [east,independent,civilian,sideUnknown] apply {
+    sidesX setVariable [_marker,_x];
+    ([_marker] call A3I_fnc_cityRoster) # 1 == "inactive"
+};
+sidesX setVariable [_marker,west];
+["city_only_infected_ownership",(_wrongOwners findIf {!_x}) == -1] call _check;
+_marker setMarkerSize [900,600];
+["city_size_does_not_scale_population",count (([_marker] call A3I_fnc_cityRoster) # 0) == 33] call _check;
+_marker setMarkerSize [300,300];
 outposts = ["a3i_city_neighbor"]; sidesX setVariable ["a3i_city_neighbor",east];
 tierWar = 8;
 private _front = [_marker] call A3I_fnc_cityRoster;
-["city_frontline_doubles",count (_front # 0) == 12 && {_front # 1 == "frontline"}
-    && {((_front # 0) findIf {_x find "loadouts_occ_elite_" != 0}) == -1},_front] call _check;
+["city_frontline_keeps_population",count (_front # 0) == 33 && {_front # 1 == "frontline"}
+    && {((_front # 0) findIf {_x find "loadouts_occ_elite_" != 0}) == -1}] call _check;
 destroyedSites = [_marker];
 private _ruined = [_marker] call A3I_fnc_cityRoster;
-["city_ruined_groups",count (_ruined # 0) == 24 && {_ruined # 1 == "destroyed"} && {_ruined # 2 == 4}
+["city_ruined_groups",count (_ruined # 0) == 33 && {_ruined # 1 == "destroyed"} && {_ruined # 2 == 4}
     && {((_ruined # 0) findIf {_x find "loadouts_occ_SF_" != 0}) == -1},[_ruined # 1,count (_ruined # 0)]] call _check;
 destroyedSites = []; outposts = []; sidesX setVariable ["a3i_city_neighbor",west]; tierWar = 1;
 "a3i_city_neighbor" setMarkerPos getMarkerPos _marker;
@@ -99,6 +123,8 @@ call _stop;
 ["city_skirmish_cleanup",A3I_test_siteEvents isEqualTo [[_marker,"City",true],[_marker,"City",false]]
     && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;
 townSkirmishes = [];
+// Four actors exercise the real lifecycle without a population-sized stress run.
+A3A_townData set [_marker,[12,2,60,40]];
 
 // A normal civilian remains outside the patrol's ownership/cleanup lists.
 private _civilianGroup = createGroup [civilian,false];
@@ -150,7 +176,7 @@ A3I_test_zones = [];
 sleep 0.5;
 ["city_death_not_persistent",[A3A_resourcesAttackOcc,A3A_resourcesDefenceOcc] isEqualTo [995,995]
     && {garrison getVariable _marker isEqualTo ["unrelated_saved_entry"]}
-    && {A3A_townData get _marker isEqualTo [100,2,60,40]} && {A3I_test_zones isEqualTo []}] call _check;
+    && {A3A_townData get _marker isEqualTo [12,2,60,40]} && {A3I_test_zones isEqualTo []}] call _check;
 [4,4] call _setLimits;
 private _allArrived = [{_record get "queue" isEqualTo []},20] call _wait;
 ["city_full_visit_arrives",_allArrived && {({alive _x} count (_record get "units")) == 3}
@@ -161,7 +187,7 @@ private _dead = +(_record get "units");
 sleep 1.5;
 ["city_clear_keeps_support_ownership",sidesX getVariable _marker == west
     && {_record get "captured" == sideUnknown} && {count (_record get "queue") == 0}
-    && {A3A_townData get _marker isEqualTo [100,2,60,40]}] call _check;
+    && {A3A_townData get _marker isEqualTo [12,2,60,40]}] call _check;
 call _stop;
 {deleteVehicle _x} forEach _dead;
 spawner setVariable [_marker,0];
@@ -190,7 +216,7 @@ destroyedSites = [_marker];
 _record = A3I_sites get _marker;
 _units = _record get "units";
 ["city_ruins_stay_infected_west",(_units findIf {side group _x != west || {typeOf _x != "Zombie_B_RA_Civ"}}) == -1
-    && {count (_record get "queue") == 14},[_units apply {typeOf _x},count (_record get "queue")]] call _check;
+    && {count (_record get "queue") == 2},[_units apply {typeOf _x},count (_record get "queue")]] call _check;
 terminate (_record get "script");
 private _recovered = [{!(_marker in A3I_sites)},4] call _wait;
 ["city_interrupted_cleanup",_recovered && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;

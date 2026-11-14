@@ -335,3 +335,24 @@ performance remain acceptance work. The next response audit records 27 pinned
 source files and identifies separate mixed-factory/support payment owners and
 no-force task/cleanup gaps. No campaign or sprint gate is closed. No Computer Use,
 client launch or Workshop publication was performed.
+
+## 14 November 2026 — Town population selection checkpoint
+
+Self-review confirms that `getCityData` stores population at index 0, distinct
+from vehicle count and both support fields. The approved one-per-three ratio
+replaces size/support/frontline count scaling and produces exact rounded totals,
+including partial final groups. Selection rejects invalid population data and
+non-infected ownership. Basic role selection and per-visit lifecycle remain intact.
+
+All 46 focused checks pass without engine/SQF Error records; 35 are town checks.
+The initial standalone attempt lacked campaign fixture globals and is rejected.
+The corrected fixture tests real casualties, queues, ownership and cleanup with
+four actors, and large-town roster calculations without spawning hundreds. The
+PBO and all 80 addon sources match the archived manifest; Python parser checks,
+PowerShell syntax and whitespace checks pass. The completed server was stopped.
+
+This is not dense-spawn acceptance. Activation policy awaits the owner's answer;
+the original active caps, pacing and routes still apply. Keep this feature branch
+unmerged until the remaining spawning work is implemented and verified. It is
+stacked on the paused counterattack feature, whose full regression is incomplete.
+The user's manual client was not controlled or restarted. No Computer Use occurred.

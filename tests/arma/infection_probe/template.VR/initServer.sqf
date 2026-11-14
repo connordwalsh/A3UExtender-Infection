@@ -51,11 +51,12 @@ if (!isServer) exitWith {};
         call A3A_fnc_compatibilityLoadFaction;
     ["active_only_for_occupants", [west] call A3I_fnc_isActive && {!([east] call A3I_fnc_isActive)}
         && {!([independent] call A3I_fnc_isActive)} && {!([civilian] call A3I_fnc_isActive)}] call _check;
-    if (_suite in ["administration","reinforcements","roaming","counterattacks"]) exitWith {
+    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns"]) exitWith {
         private _suitePath = switch (_suite) do {
             case "administration": {"administrationChecks.sqf"};
             case "reinforcements": {"reinforcementChecks.sqf"};
             case "counterattacks": {"counterattackChecks.sqf"};
+            case "towns": {"cityChecks.sqf"};
             default {"roamingChecks.sqf"};
         };
         private _suiteSource = preprocessFileLineNumbers _suitePath;

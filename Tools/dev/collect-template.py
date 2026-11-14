@@ -110,10 +110,14 @@ CITY_CHECKS = {
     'city_override_registered',
     'city_inactive_selection',
     'city_other_factions_delegate',
-    'city_size_support_selection',
-    'city_support_scales_count',
-    'city_minimum_patrol',
-    'city_frontline_doubles',
+    'city_population_ratio',
+    'city_support_does_not_scale_population',
+    'city_zero_support_keeps_population',
+    'city_terrain_population_counts',
+    'city_invalid_population_rejected',
+    'city_only_infected_ownership',
+    'city_size_does_not_scale_population',
+    'city_frontline_keeps_population',
     'city_ruined_groups',
     'city_overlap_rejected',
     'city_missing_data_rejected',
@@ -248,11 +252,11 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
         "assets_resolve", "conventional_pools_empty", "cleanup",
     } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
-                          "counterattacks": COUNTERATTACK_CHECKS}
+                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -295,7 +299,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)
