@@ -153,7 +153,14 @@ private _tactical = [_position] call A3I_fnc_tacticalSources;
 ["major_explicit_town_route",count ([_position,[_sources # 6],{_this call A3I_fnc_majorSourceEligible}]
     call A3I_fnc_tacticalSources) == 1] call _check;
 
-{deleteMarker _x} forEach _markers;
-{deleteVehicle _x} forEach [sidesX,spawner,garrison,server];
 ["major_selector_no_actors",(entities [[],[],true,false]) - _before isEqualTo []
     && {allGroups - _groupsBefore isEqualTo []}] call _check;
+call compile preprocessFileLineNumbers "majorLifecycleChecks.sqf";
+{deleteMarker _x} forEach _markers;
+{deleteVehicle _x} forEach [sidesX,spawner,garrison,server];
+sleep 0.2;
+["major_all_clean",(entities [[],[],true,false]) - _before isEqualTo []
+    && {allGroups - _groupsBefore isEqualTo []}
+    && {isNil "A3I_majorWatchdogHandle"} && {count A3I_majorAttacks == 0}
+    && {A3A_tasksData isEqualTo []} && {!bigAttackInProgress} && {!HQAttackInProgress}
+    && {forcedSpawn isEqualTo []},[A3A_tasksData,forcedSpawn,keys A3I_majorAttacks]] call _check;

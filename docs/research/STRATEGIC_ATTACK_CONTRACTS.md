@@ -4,7 +4,7 @@ Baseline: Ultimate 12.4.2, commit
 `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`. The
 [source manifest](../../evidence/sprint-3/strategic-sources-12.4.2.json)
 pins the inspected files. This records contracts for the next S3 increment;
-strategic infected attacks are not implemented or accepted by this audit.
+strategic infected attacks are being prototyped and are not campaign-accepted.
 
 ## Owner decisions
 
@@ -17,6 +17,10 @@ therefore needs a walking town-recapture replacement. A subsequent owner answer
 includes towns and permanent sites such as factories and resource sites as horde
 origins, rather than only military locations. Invader routes retain their
 ordinary behavior.
+
+The owner subsequently selected one larger horde instead of successive waves,
+using the shared active limit and bringing in waiting attackers gradually as
+earlier attackers die. Temporary attack-resource debt follows native policy.
 
 ## Target selection and payment
 
@@ -114,5 +118,26 @@ selector fixture covers permanent categories, ownership/readiness, native idle
 and town cooldown isolation, values/threats, route limits, HQ knowledge and
 unchanged tactical default candidates. It has not run yet.
 
-This prototype is unbuilt and untested. Attack launch, resource/debt ownership,
-wave/HQ controllers, tasks, cleanup and native adapters remain to implement.
+The first candidate is packed but runtime checks have not run. A direct
+`startMajorAttack` prototype combines up to three native strength allowances into
+one finite queue (at most 192 basic infected), retaining the shared active cap.
+Town attacks have the native 200 fixed charge; other campaign attacks have 400.
+Each actual actor costs ten attack resources, with finite credit tied to the
+live job, context and global attack owner. Ordinary callers remain subject to
+their original affordability checks. A zero-force cancellation refunds the fixed
+charge and gives no defence victory. Waiting actors count toward remaining
+strength, preventing shared-cap staging from triggering an immediate retreat.
+
+The controller has one preparation phase and a provisional 45-minute assault
+deadline, source/combat/placement retries, arrival-gated capture, paid persistent
+garrison handoff and a recovery watchdog. No aircraft, artillery or minefields
+are created. Native task bookkeeping is retained; cancellations use BIS's
+canceled state and native task deletion because Ultimate's task-update worker
+accepts only success and failure. Completed attacks retain native rewards.
+Walking duration and the chosen population ceiling require campaign tuning.
+
+The focused fixture now has 59 selector, credit and initial lifecycle cases
+(70 including startup checks). Its first run is pending. Native dispatch,
+offscreen simulation, direct mission adapters and expanded HQ/capture/reward
+regressions remain to implement or exercise. This candidate is not installed in
+the manual client, and native campaign attack selection is not wired to it yet.
