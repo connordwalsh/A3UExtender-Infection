@@ -1,28 +1,32 @@
 // Patch only the removed controls. Native labels/actions/layout for every
 // remaining category stay intact until its replacement behavior is ready.
 class A3A_DefaultDialog;
+class A3A_DefaultControlsGroup;
+class A3A_Picture;
+class A3A_Button;
 class A3A_RequestMissionDialog: A3A_DefaultDialog
 {
     class Controls
     {
-        class MainContent
+        class MainContent: A3A_DefaultControlsGroup
         {
             class Controls
             {
-                class DestroyIcon { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
-                class DestroyButton { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
-                class RandomIcon { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
-                class RandomButton { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
+                class DestroyIcon: A3A_Picture { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
+                class DestroyButton: A3A_Button { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
+                class RandomIcon: A3A_Picture { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
+                class RandomButton: A3A_Button { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
             };
         };
     };
 };
 class SimpleMenuBig;
+class SimpleButton;
 class missionMenu: SimpleMenuBig
 {
     class Controls
     {
-        class destroyButton { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
-        class randomButton { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
+        class destroyButton: SimpleButton { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
+        class randomButton: SimpleButton { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
     };
 };

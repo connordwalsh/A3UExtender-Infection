@@ -54,9 +54,15 @@ sleep 1;
 private _modern = configFile >> "A3A_RequestMissionDialog" >> "Controls" >> "MainContent" >> "Controls";
 private _legacy = configFile >> "missionMenu" >> "Controls";
 private _hook = "_this call A3I_fnc_hideRemovedMissionControl";
+["catalog_native_control_bases_preserved",configName (inheritsFrom (configFile >> "A3A_RequestMissionDialog" >> "Controls" >> "MainContent")) == "A3A_DefaultControlsGroup"
+    && {(["DestroyIcon","RandomIcon"] findIf {configName (inheritsFrom (_modern >> _x)) != "A3A_Picture"}) == -1}
+    && {(["DestroyButton","RandomButton"] findIf {configName (inheritsFrom (_modern >> _x)) != "A3A_Button"}) == -1}
+    && {(["destroyButton","randomButton"] findIf {configName (inheritsFrom (_legacy >> _x)) != "SimpleButton"}) == -1}] call _check;
 ["catalog_modern_hooks_preserve_controls",(["DestroyIcon","DestroyButton","RandomIcon","RandomButton"] findIf {
     getText (_modern >> _x >> "onLoad") != _hook || {!(isNumber (_modern >> _x >> "w") || {isText (_modern >> _x >> "w")})}
-        || {getText (_modern >> _x >> "text") == ""}
+        // Native Random references a missing localization key in 12.4.2.
+        // Test property preservation without asserting upstream translations.
+        || {!isText (_modern >> _x >> "text")}
 }) == -1 && {getText (_modern >> "RandomButton" >> "onButtonClick") != ""}] call _check;
 ["catalog_legacy_hooks_preserve_controls",(["destroyButton","randomButton"] findIf {
     getText (_legacy >> _x >> "onLoad") != _hook || {getText (_legacy >> _x >> "action") == ""}

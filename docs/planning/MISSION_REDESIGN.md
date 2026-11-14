@@ -32,6 +32,7 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
 - Supplies Seizure includes ammunition, fuel and repair trucks.
 - Delivered trucks remain usable by the Rebels rather than being consumed.
 - Horde Interception fails when the first infected enters Settlement B.
+- Settlement B may be infected-held or Rebel-held.
 - Liquidation is always a straightforward infected-site clearance. This
   supersedes the earlier requested competitive conquest/race-to-capture variant.
   Existing automatic strategic attacks are not themselves requested missions.
@@ -118,3 +119,14 @@ site record, not a complete mission. See `evidence/sprint-4/site-clearance-focus
 The subsequent combined suite includes strengthened real site/town spawning and
 reinforcement assertions; its result is pending. Actual menu rendering,
 multiplayer/HC execution and complete Liquidation acceptance remain open.
+
+Dev2's combined run was stopped after 223 passing checks because its startup
+log showed that the menu patches dropped native widget base classes. Dev3
+preserves those classes explicitly. Its focused catalog suite now passes 25
+checks (11 shared and 14 catalog cases), with no engine/SQF error records and
+16 retained startup/dependency warnings. The new inheritance assertion passes.
+An intermediate fixture failed on the native Random button's missing translation;
+the corrected assertion checks preservation of the text property rather than
+requiring an upstream translation. Both rejected/interrupted results are retained.
+The corrected Dev3 combined run is pending; no completed broad regression is
+claimed for this increment yet.
