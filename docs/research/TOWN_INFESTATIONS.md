@@ -147,7 +147,12 @@ after the test write and WEST at handoff. The corrected fixture uses the same
 public ownership update as native campaign transactions and observes EAST at
 handoff, with no controller created. Those rejected attempts are not pass evidence.
 
-Final combined regression of the ownership handoffs is in progress.
+The [final combined report](../../evidence/sprint-2/town-infestation-contract.json)
+passes all 464 checks, including capture-to-town activation and the unchanged
+non-town lifecycle. It records no engine/SQF Error records and retains 61
+dependency/deletion warnings. All 83 production inputs and the PBO match the
+ownership build manifest. Python parser regressions, PowerShell syntax and
+repository whitespace checks pass. Completed test servers were stopped.
 A synthetic dedicated fixture cannot certify Redux
 street navigation, connected-player visibility, multiplayer/JIP, saves or
 representative crowded-town performance. The earlier small-patrol evidence in

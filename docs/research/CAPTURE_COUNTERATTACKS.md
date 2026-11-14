@@ -67,6 +67,9 @@ arrived healthy roles and retire their physical copies atomically, without a
 refund. That path requires a closed ticket containing exactly that living group,
 all actors within 200 metres, no active/cleaning site and no nearby observers.
 It does not apply to towns, whose patrols retain per-visit regeneration.
+An active captured town instead starts its separate full-population controller;
+the arriving counterattack actors are not written into its garrison or borrowed
+by its population allowance. Existing town visits are reused.
 Handoff retries last at most 60 seconds.
 
 The response watchdog owns retirement of actors that were not adopted. It
@@ -95,4 +98,10 @@ then found that native distance processing requires the attackers' spawner flag
 and does not recreate an active site's controller on ownership change. The first
 combined run was stopped and rejected as incomplete while those gaps were fixed;
 the corrected fixture no longer supplies a site controller for the response.
-Final combined regression results are recorded in sprint evidence after collection.
+The [combined population regression](../../evidence/sprint-2/town-infestation-contract.json)
+passes all 464 checks, including 51 counterattack cases, native distance
+activation and capture-to-town population startup. The strict collector records
+no engine/SQF Error records and retains 61 dependency/deletion warnings. The
+83-file integrated build and its 11-check dependency-absent result are linked
+from [full-town populations](TOWN_INFESTATIONS.md). The earlier counterattack-only
+build and dependency result remain historical evidence in `evidence/sprint-3/`.

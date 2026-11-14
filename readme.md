@@ -9,16 +9,20 @@ Zombies and Creatures as the Occupant faction. This repository is a fork of
 creates foot-only virtual garrison lines, adapts infected combat bookkeeping,
 and spawns full queued garrisons at six persistent site types under shared limits.
 Road/field controls use capped foot groups and guarded local capture.
-Town patrols regenerate per visit and follow bounded outdoor routes.
+Infected-held towns use a population-based logistic target of 10–200 infected,
+activate the complete population together and spread groups across the town.
+Each town has its own allowance; casualties regenerate on a later visit.
 Administration strongholds require clearing even after building destruction;
 survivor rescues give separate rewards, and uncleared defenders regenerate each visit.
 Routine reinforcements use paid foot groups, cooldowns and combat checks, and
 join persistent garrisons only after arriving within the active limits.
 Roaming patrols use bounded foot routes between nearby owned locations.
-The current isolated dedicated suite passes 377 checks on Ultimate 12.4.2,
+Capture-triggered counterattacks use paid foot groups and native ownership checks.
+The completed isolated dedicated regression passes 464 checks on Ultimate 12.4.2,
 including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
-routine reinforcement, roaming and cleanup. The missing-dependency suite passes 11 checks.
-QRF, mission and save integration remain unfinished. Do not use this build for a
+routine reinforcement, roaming, counterattacks, town ownership handoffs and cleanup.
+The missing-dependency suite passes 11 checks.
+Tactical QRF, strategic attacks, missions and save integration remain unfinished. Do not use this build for a
 campaign you intend to keep.
 
 ## Intended campaign
@@ -50,10 +54,12 @@ claim that compatibility testing has passed.
 - [Spawn budget component and limits](docs/research/SPAWN_BUDGET.md)
 - [Persistent site spawning and limits](docs/research/SITE_SPAWNING.md)
 - [Road/field controls and limits](docs/research/ROAD_CONTROLS.md)
-- [Town patrols and limits](docs/research/TOWN_PATROLS.md)
+- [Full-town populations and limits](docs/research/TOWN_INFESTATIONS.md)
 - [Administration strongholds and rescue limits](docs/research/ADMINISTRATIONS.md)
 - [Routine foot reinforcement and limits](docs/research/REINFORCEMENTS.md)
 - [Roaming foot patrols and limits](docs/research/ROAMING_PATROLS.md)
+- [Capture counterattacks and limits](docs/research/CAPTURE_COUNTERATTACKS.md)
+- [Tactical support follow-up audit](docs/research/TACTICAL_SUPPORT_CONTRACTS.md)
 - [Remaining attack and support contracts](docs/research/RESPONSE_CONTRACTS.md)
 - [Controlled behavior observations](docs/research/BEHAVIOR_12.4.2.md)
 - [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)
