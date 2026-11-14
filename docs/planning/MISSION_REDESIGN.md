@@ -116,8 +116,8 @@ The isolated clearance suite passes 30 checks (11 shared checks and 19 new
 contract cases), with no engine/SQF error records. Its 16 retained warnings are
 startup/dependency notices. It uses real death/deletion events on a controlled
 site record, not a complete mission. See `evidence/sprint-4/site-clearance-focused.json`.
-The subsequent combined suite includes strengthened real site/town spawning and
-reinforcement assertions; its result is pending. Actual menu rendering,
+The subsequent combined suite passes 717 checks, including strengthened real
+site/town spawning and reinforcement assertions. Actual menu rendering,
 multiplayer/HC execution and complete Liquidation acceptance remain open.
 
 Dev2's combined run was stopped after 223 passing checks because its startup
@@ -128,5 +128,17 @@ checks (11 shared and 14 catalog cases), with no engine/SQF error records and
 An intermediate fixture failed on the native Random button's missing translation;
 the corrected assertion checks preservation of the text property rather than
 requiring an upstream translation. Both rejected/interrupted results are retained.
-The corrected Dev3 combined run is pending; no completed broad regression is
-claimed for this increment yet.
+The corrected Dev3 combined run passes all 717 checks, with no engine/SQF error
+records. The actual missing-dependency run passes all 11 checks. All 127
+production files and the loaded PBO match the recorded manifest. Reports are
+`mission-catalog-combined.json` and `mission-catalog-dependencies.json`.
+The 71 combined warnings comprise 16 startup/dependency notices, 53 object
+deletion notices and two absent-fixture-commander notifications. The dependency
+run retains seven startup notices. These checks do not certify visual menus,
+connected multiplayer, saves or full mission gameplay.
+
+A separate source audit (`requested-mission-variants-12.4.2.json`) records 30
+native requested-category variants and 44 literal caller references with source
+hashes. It includes potential comments/examples and is not a complete dynamic
+call graph. Replacement dispatch must cover civilian dialogue, intel and direct
+entry points as well as the mission board.

@@ -1,0 +1,484 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "scope": "Requested-category variant inventory; maps owner-approved replacements to native source functions. Literal references can include examples/comments and are leads for caller inspection, not a complete dynamic call graph. Strategic convoy calls need separate treatment.",
+  "runtime_status": "This inventory is not implementation or acceptance evidence.",
+  "count": 30,
+  "variants": [
+    {
+      "function": "A3A_fnc_AS_Ambush",
+      "family": "AS",
+      "path": "A3A/addons/core/functions/Missions/fn_AS_Ambush.sqf",
+      "sha256": "6b94229c7a7272f9bf1dcae96fe9d0cf4e8234d695340da8aef53d2aa28c3335",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Elimination Task",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 59
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_AS_Official",
+      "family": "AS",
+      "path": "A3A/addons/core/functions/Missions/fn_AS_Official.sqf",
+      "sha256": "0ba2a1a15b3becf7182f1e5d789001000048823d8ee2656aeec0331f1565c5cd",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Elimination Task",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 63
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_AS_Smasher",
+      "family": "AS",
+      "path": "A3A/addons/core/functions/Missions/fn_AS_Smasher.sqf",
+      "sha256": "1665ea44cfac1b211ea6d993de4094fc2f426a81ed446b43fc2859b60d1aa6ef",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Elimination Task",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_AS_specOP",
+      "family": "AS",
+      "path": "A3A/addons/core/functions/Missions/fn_AS_specOP.sqf",
+      "sha256": "9efe4a66c5b22a38e6d431afc14d5fc5d40ee10b62fb0416454eb0db92961ae8",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Elimination Task",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 77
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_AS_Traitor",
+      "family": "AS",
+      "path": "A3A/addons/core/functions/Missions/fn_AS_Traitor.sqf",
+      "sha256": "aa738850c6815d1ee2fd2a0c9efbdd20376461cae33108f8ad11fa73283b47f1",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Elimination Task",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_AS_Zombies",
+      "family": "AS",
+      "path": "A3A/addons/core/functions/Missions/fn_AS_Zombies.sqf",
+      "sha256": "f2c616483b4f5803a5ebc1dc58e59d0d6d4fd0cfaa4b98cae84f506d6ce490cf",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Elimination Task",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_CON_MilAdmin",
+      "family": "CON",
+      "path": "A3A/addons/core/functions/Missions/fn_CON_MilAdmin.sqf",
+      "sha256": "6c1dfe0f0229c21d580f0ab219c5739bb470732c928eb34bea3dc5446b5ba2a2",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Liquidation Assignment",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_CON_Outpost",
+      "family": "CON",
+      "path": "A3A/addons/core/functions/Missions/fn_CON_Outpost.sqf",
+      "sha256": "bc376db578d4ecb06eeb895b0325367941af8e6251c3d12b69ed4a1ac7bea03d",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Liquidation Assignment",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_CON_Outpost_Compet.sqf",
+          "line": 23
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_CON_Outpost_Compet",
+      "family": "CON",
+      "path": "A3A/addons/core/functions/Missions/fn_CON_Outpost_Compet.sqf",
+      "sha256": "3462783873656773e51ff56ce090dfb9291f1524a723316d04aeeb469ae77d3b",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Liquidation Assignment",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_CON_Outpost.sqf",
+          "line": 9
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_CON_Outpost_Zombies",
+      "family": "CON",
+      "path": "A3A/addons/core/functions/Missions/fn_CON_Outpost_Zombies.sqf",
+      "sha256": "81a6759dcf07d2a1b901a36ec258e8a2aa641ab25f33d9730a6eea4e77f51c3d",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Liquidation Assignment",
+      "literal_callers": []
+    },
+    {
+      "function": "A3A_fnc_convoy",
+      "family": "CONVOY",
+      "path": "A3A/addons/core/functions/Missions/fn_convoy.sqf",
+      "sha256": "ddb8e0df1ae8705ebbf775eb81062cc0e53a8d2a4faab4259cc7d1161faaa73e",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Horde Interception",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Base/fn_chooseAttack.sqf",
+          "line": 116
+        },
+        {
+          "path": "A3A/addons/core/functions/Intel/fn_selectIntel.sqf",
+          "line": 287
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 329
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_DES_Antenna",
+      "family": "DES",
+      "path": "A3A/addons/core/functions/Missions/fn_DES_Antenna.sqf",
+      "sha256": "70d2590712f32f1a1cf793967be7b0b21195bef13bffe6eec46e7ce00fed1c6d",
+      "requested_catalog_disposition": "disable",
+      "replacement": null,
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 153
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_DES_Artillery",
+      "family": "DES",
+      "path": "A3A/addons/core/functions/Missions/fn_DES_Artillery.sqf",
+      "sha256": "0b7fc8b9d85a8848e5c9e977479472dedb6bee7af18657a7aaef26d568cc36ee",
+      "requested_catalog_disposition": "disable",
+      "replacement": null,
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 156
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_DES_Heli",
+      "family": "DES",
+      "path": "A3A/addons/core/functions/Missions/fn_DES_Heli.sqf",
+      "sha256": "fb0ef30edaf63d5997cefbbaa0df985e46f303cfe3c5884728667d893479fe58",
+      "requested_catalog_disposition": "disable",
+      "replacement": null,
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_DES_Heli.sqf",
+          "line": 10
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 149
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_DES_Vehicle",
+      "family": "DES",
+      "path": "A3A/addons/core/functions/Missions/fn_DES_Vehicle.sqf",
+      "sha256": "b951dcd498200818030021fa71d15c14013d19adf05c0205b98a76811d0abc7b",
+      "requested_catalog_disposition": "disable",
+      "replacement": null,
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_LOG_Airdrop",
+      "family": "LOG",
+      "path": "A3A/addons/core/functions/Missions/fn_LOG_Airdrop.sqf",
+      "sha256": "d8f6d31cb09e2a6b0b4f3b23252e2bf04e050dadfb3b6aab2ee53109e4c0600a",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Supplies Seizure",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 199
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_LOG_Ammo",
+      "family": "LOG",
+      "path": "A3A/addons/core/functions/Missions/fn_LOG_Ammo.sqf",
+      "sha256": "7d60907e200486937ac1f9f4b590b6780bc29f7c623236de13e446471602ea76",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Supplies Seizure",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 190
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_LOG_Bank",
+      "family": "LOG",
+      "path": "A3A/addons/core/functions/Missions/fn_LOG_Bank.sqf",
+      "sha256": "53ec86b17a9eeac43577f78294a3d92191bd663e6bf2194a48dd3301343ec53b",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Supplies Seizure",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 193
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_LOG_Crashsite",
+      "family": "LOG",
+      "path": "A3A/addons/core/functions/Missions/fn_LOG_Crashsite.sqf",
+      "sha256": "d7cbb7a1a65cd93ab0afac5a3675ccfb8865bb03e7db38636e6c9fc91d477acc",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Supplies Seizure",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 199
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_LOG_Helicrash",
+      "family": "LOG",
+      "path": "A3A/addons/core/functions/Missions/fn_LOG_Helicrash.sqf",
+      "sha256": "54e13b2d73ebc7536423f50553f344135c2f5d7e1008ccb21dd0d63383a8abf4",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Supplies Seizure",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 199
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_LOG_Salvage",
+      "family": "LOG",
+      "path": "A3A/addons/core/functions/Missions/fn_LOG_Salvage.sqf",
+      "sha256": "a9d26d1c5e6b77d0d183b86b2eecdaf2c4296011cb9972a8028350ef8e87866c",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Supplies Seizure",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 196
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_RES_Deserters",
+      "family": "RES",
+      "path": "A3A/addons/core/functions/Missions/fn_RES_Deserters.sqf",
+      "sha256": "8216a7eb57a9b7f6dd5004acef350b190fb5ae1eb38697b607b62050ff5e4250",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Extraction Mission",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf",
+          "line": 60
+        },
+        {
+          "path": "A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf",
+          "line": 91
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 285
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_RES_Informer",
+      "family": "RES",
+      "path": "A3A/addons/core/functions/Missions/fn_RES_Informer.sqf",
+      "sha256": "81ae6af02c5975afa7a8aedc6574c85ca1876f74b9fd46fd8bf31c5032dbab7f",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Extraction Mission",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf",
+          "line": 59
+        },
+        {
+          "path": "A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf",
+          "line": 75
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 273
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_RES_Prisoners",
+      "family": "RES",
+      "path": "A3A/addons/core/functions/Missions/fn_RES_Prisoners.sqf",
+      "sha256": "f6c689f7c62517d2f3147ab194a820802436da8fe07291bd508268521eee06b2",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Extraction Mission",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf",
+          "line": 59
+        },
+        {
+          "path": "A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf",
+          "line": 83
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 287
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 290
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_RES_Refugees",
+      "family": "RES",
+      "path": "A3A/addons/core/functions/Missions/fn_RES_Refugees.sqf",
+      "sha256": "247c76283b7467b20d6f73c6c9e847f60b3a1627566e88fe374e5fdca5db6c53",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Extraction Mission",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf",
+          "line": 59
+        },
+        {
+          "path": "A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf",
+          "line": 67
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 276
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_RES_Shipwreck",
+      "family": "RES",
+      "path": "A3A/addons/core/functions/Missions/fn_RES_Shipwreck.sqf",
+      "sha256": "1c8e2ce7f46a159f53a3d62317af6bb3dec6ebedb6eede8ffd41f649bcffe9f1",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Extraction Mission",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 270
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_RIV_AS_Traitor",
+      "family": "AS",
+      "path": "A3A/addons/core/functions/Missions/fn_RIV_AS_Traitor.sqf",
+      "sha256": "e0ae1c2e266d26fc24bc918b361380b1575cae758f8c7f126204dcdf6715a545",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Elimination Task",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 68
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_RIV_RES_Prisoners",
+      "family": "RES",
+      "path": "A3A/addons/core/functions/Missions/fn_RIV_RES_Prisoners.sqf",
+      "sha256": "e7ca9850835517d2081d0985869aa222f63c67951d0270cedd8a740103e7acd5",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Extraction Mission",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 280
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_RIV_SUPP_Salvage",
+      "family": "SUPP",
+      "path": "A3A/addons/core/functions/Missions/fn_RIV_SUPP_Salvage.sqf",
+      "sha256": "f838c4964b0b24f3f65c3fb835f538c83e27fe960589f0ce878240ac0c8dd0d1",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Humanitarian Aid",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 231
+        }
+      ]
+    },
+    {
+      "function": "A3A_fnc_SUPP_Supplies",
+      "family": "SUPP",
+      "path": "A3A/addons/core/functions/Missions/fn_SUPP_Supplies.sqf",
+      "sha256": "9537d314a8fe38eefee25131d55153020673aa67b126e239dd5e1ff72d185c9d",
+      "requested_catalog_disposition": "replace",
+      "replacement": "Humanitarian Aid",
+      "literal_callers": [
+        {
+          "path": "A3A/addons/ultimate/plugins/dynamic_hover_menu/CfgMapContextMenu.hpp",
+          "line": 57
+        },
+        {
+          "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+          "line": 233
+        }
+      ]
+    }
+  ]
+}

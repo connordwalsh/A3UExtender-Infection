@@ -516,6 +516,7 @@ manual client's immutable build unchanged. Six replacement mission behaviors
 remain open; the complete project goal and all unmet sprint gates remain open.
 
 
+<<<<<<< HEAD
 ## 14 November 2026 - Liquidation target selector
 
 Reviewed target family classification and the infected-only filter against
@@ -529,3 +530,31 @@ with 16 startup/dependency warnings and no engine/SQF error records. All 129
 production inputs and the PBO match the recorded Dev1 manifest. The test server
 was stopped by verified identity and its exit confirmed. This branch remains
 draft while task, guarded capture, cancellation, rewards and cleanup are built.
+=======
+## 14 November 2026 - Catalog guards and clearance ledger review
+
+Reviewed the full production diff against master. The UI patch now preserves
+native dialog/control bases and declares the native GUI load dependency. Guards
+run before request locking and random expansion, and direct Destroy endpoints
+remain inactive only for a selected, dependency-ready Infection campaign.
+
+Clearance tracking attaches after successful actor initialization, adds adopted
+reinforcement obligations, counts real death once, and distinguishes live deletion
+from defeat. Visit identity rejects stale callbacks. The predicate requires a
+healthy active site, no pending roster or living actors, and settled native
+garrison updates. It is read-only and does not yet implement Liquidation capture.
+
+Dev3 passes 25 focused catalog checks and 717 combined checks; the unchanged
+clearance implementation also passed 30 focused checks in Dev2. The actual Dev3
+missing-dependency run passes 11 checks. No engine/SQF error records occur.
+All 127 production files and the PBO match the build manifest. Reviewed retained
+warnings: 16 startup notices, 53 object-deletion notices and two absent-commander
+notifications in the combined run; seven startup notices without dependencies.
+Rejected Dev2 and intermediate fixture evidence stays in the repository.
+
+Integration scope is this reviewed foundation only. Six replacement lifecycles,
+visual menus, connected-player/HC behavior, terrain, saves and full campaign
+acceptance remain open. The source audit lists native category variants and
+literal callers without claiming complete dynamic reachability. No Computer Use
+or update of the user's immutable manual build was performed.
+>>>>>>> origin/master

@@ -9,7 +9,7 @@ Zombies and Creatures as the Occupant faction. This repository is a fork of
 creates foot-only virtual garrison lines, adapts infected combat bookkeeping,
 and spawns full queued garrisons at six persistent site types under shared limits.
 Road/field controls use capped foot groups and guarded local capture.
-Infected-held towns use a population-based logistic target of 10–200 infected,
+Infected-held towns use a population-based logistic target of 10â€“200 infected,
 activate the complete population together and spread groups across the town.
 Each town has its own allowance; casualties regenerate on a later visit.
 Administration strongholds require clearing even after building destruction;
@@ -23,10 +23,15 @@ server validation, with exact refunds, arrival checks and interrupted-job recove
 Strategic attacks use nearby infected-held towns and permanent sites, one finite
 horde under shared limits, and native temporary resource debt. Competitive conquest
 requires a reachable horde and fails immediately if infected capture first.
-The completed isolated dedicated regression passes 684 checks on Ultimate 12.4.2,
+Destroy and Random requests are disabled in Infection campaigns. Site visits
+track defeated defenders separately from queued or deleted actors, preparing
+full-clear objectives without changing native capture rules yet.
+The completed isolated dedicated regression passes 717 checks on Ultimate 12.4.2,
 including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
 routine reinforcement, roaming, counterattacks, tactical support, town ownership
-handoffs, strategic attacks, competitive conquest and cleanup.
+handoffs, strategic attacks, competitive conquest, catalog guards, clearance
+tracking and cleanup. The new six-mission catalog is still being implemented;
+Liquidation will replace the existing requested competitive conquest route.
 The missing-dependency suite passes 11 checks.
 Connected-player rebuilding, town-liberation and other mission adapters, special
 creatures, abandoned vehicles and save integration remain unfinished. Do not use this build for a
@@ -75,6 +80,8 @@ claim that compatibility testing has passed.
 - [Sprint 1 contract evidence](evidence/sprint-1/)
 - [Sprint 2 site and placement evidence](evidence/sprint-2/)
 - [Sprint 3 reinforcement and roaming evidence](evidence/sprint-3/)
+- [Mission redesign and current limits](docs/planning/MISSION_REDESIGN.md)
+- [Sprint 4 mission evidence](evidence/sprint-4/)
 - [Upstream extender instructions](docs/upstream-extender.md)
 
 Runtime reports will distinguish observed behavior from source findings and
