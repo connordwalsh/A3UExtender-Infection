@@ -518,6 +518,9 @@ All 104 focused checks and 11 missing-dependency checks pass, with no engine/SQF
 Error records. The PBO and all 127 production/190 collected focused inputs match.
 Nineteen focused warnings and seven dependency-absent startup notices are retained
 and classified in TOWN_LIBERATION.md. Three parser tests, PowerShell parsing and
-whitespace checks pass. Combined regression is underway. This draft remains
-unmerged: scene construction, campaign entry, the pending no-source decision and
-connected-player/full-mission acceptance are still open.
+whitespace checks pass. The combined 777-case regression passes, including all
+67 role spawns and the actual native HR-cap correction. All 190 collected inputs
+still match. Its 77 warnings are classified in the research record; no engine/SQF
+Error records occur. The completed server was stopped by verified identity.
+This draft remains unmerged: scene construction, campaign entry with the now
+approved peaceful fallback, and connected-player/full-mission acceptance remain open.

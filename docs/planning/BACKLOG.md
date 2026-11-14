@@ -241,7 +241,10 @@ preparation, linked horde, capture/reward/failure transactions and interruption
 cleanup pass within 104 focused checks; the missing-dependency suite passes 11.
 Source review corrected rewards to follow the native five-second tier update,
 including its effect on the HR cap. The 127-input candidate and all 190 focused
-report inputs match. The combined 777-case regression is running, not accepted.
+report inputs match. The combined 777-case regression passes with no engine/SQF
+Error records, including all 67 role spawns. Its 77 retained warnings are reviewed
+in TOWN_LIBERATION.md; the completed server was stopped by verified identity.
 The owner chose to retain the native mission scene and survivor vehicle; that
-work and campaign dispatch remain open. The no-nearby-origin policy still awaits
-the owner. No Computer Use or manual-client update occurred.
+work and campaign dispatch remain open. The owner subsequently selected peaceful
+joining when no nearby eligible horde origin exists; the isolated dispatch branch
+is implementing that decision. No Computer Use or manual-client update occurred.

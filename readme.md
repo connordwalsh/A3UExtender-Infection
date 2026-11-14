@@ -28,10 +28,10 @@ shared-limit horde whose ten-minute defense clock begins on physical arrival.
 The parent survivor mission passes 104 focused checks, including native capture,
 rewards and interrupted-worker recovery. Mission scenery and native campaign
 entry remain in development.
-The completed isolated dedicated regression passes 752 checks on Ultimate 12.4.2,
+The completed isolated dedicated regression passes 777 checks on Ultimate 12.4.2,
 including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
 routine reinforcement, roaming, counterattacks, tactical support, town ownership
-handoffs, strategic attacks, competitive conquest, liberation components and cleanup.
+handoffs, strategic attacks, competitive conquest, the survivor controller and cleanup.
 The missing-dependency suite passes 11 checks.
 Connected-player rebuilding, town-liberation and other mission adapters, special
 creatures, abandoned vehicles and save integration remain unfinished. Do not use this build for a
