@@ -34,10 +34,11 @@ Native task metadata also owns cleanup if startup stops between registration and
 the controller's local registration flag. The separate retired-group fix from
 PR #16 is included.
 
-Configuration conversion and packing passed for the initial prototype and Dev2;
-the subsequent partial-registration fix still needs rebuilding. All runtime cases
-are **NOT_RUN**. The new focused fixture declares 33 mission cases plus 11 common
-checks. Required
+Configuration conversion, packing and three collector parser regressions pass
+for Dev3, which also passes [11 missing-dependency checks](../../evidence/sprint-3/competitive-dependencies-absent.json).
+Its [manifest](../../evidence/sprint-3/competitive-build.json) pins the artifact.
+Dependency-present mission runtime cases are **NOT_RUN**. The new focused fixture
+declares 33 mission cases plus 11 common checks. Required
 checks include no-origin/no-route/cooldown rejection, no ordinary downgrade,
 request/scheduler delegation, remote-context handoff, real births/costs,
 immediate first-capture failure, same-frame retake, success/timeout rewards,

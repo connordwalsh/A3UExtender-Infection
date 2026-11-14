@@ -43,6 +43,22 @@
     {
       "path": "core/functions/Base/fn_timingCA.sqf",
       "sha256": "bbf5fa4bd48129500979b81405442bb6d773c6fb5dd8a0311f11bcd7429ec817"
+    },
+    {
+      "path": "core/functions/Events/fn_triggerLocalEvent.sqf",
+      "sha256": "2ba24006e549ed449f19d8ea203ffb280ed49f1ad2cd12237e0f02cc665e3b5a"
+    },
+    {
+      "path": "core/functions/Base/fn_mrkWIN.sqf",
+      "sha256": "47c08fea41f09a21f3e6fcb0050983b4fc579715877ed6e1b3e7bff62995c7c3"
+    },
+    {
+      "path": "core/functions/Base/fn_zoneCheck.sqf",
+      "sha256": "bfcbd30ffab1fb8d12d769ab479a98849f2fa5171dac7b0b9e86c797a6ffe7d7"
+    },
+    {
+      "path": "scrt/Misc/fn_misc_getTimeLimit.sqf",
+      "sha256": "f923eca8aa2cc0af722ff7b7dfb22a262b70cd4f2071f8aa9b4da5c8e4b0bc3e"
     }
   ]
 }
