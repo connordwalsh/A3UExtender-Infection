@@ -281,8 +281,13 @@ startup/dependency notices, two friendly-fire deliveries to deleted fixture
 actors and one income message to the absent commander. The dependency-absent
 report retains seven startup notices. Three parser tests, PowerShell parsing
 and whitespace checks pass. Both focused servers were stopped by verified
-process/profile identities. The combined 777-case regression is now running;
-it is not yet accepted.
+process/profile identities. The [combined 777-case regression](../../evidence/sprint-3/liberation-controller-contract.json)
+passes, including all 67 role spawns. All 127 production inputs, the PBO and all
+190 collected inputs match. No engine/SQF Error records occur. Its 77 retained
+warnings comprise sixteen startup/dependency notices, fifty-six object-deletion
+notifications, three income messages to the absent commander and two friendly-fire
+deliveries to deleted fixture actors. The completed server was stopped by its
+verified process/profile identity.
 
 The owner selected retention of the native wrecks, bodies, fire/building damage
 and survivor vehicle. That scene is a separate implementation increment. Native
