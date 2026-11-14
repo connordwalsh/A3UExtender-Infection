@@ -476,3 +476,15 @@ no engine/SQF Error records. Integration decision: merge the reviewed strategic
 and competitive increments in order. This is the tested stacked candidate; a
 separate passing full Dev6 strategic-only run is not claimed. The next isolated
 branch begins the owner-approved survivor-defense liberation adaptation.
+
+
+## 14 November 2026 - Optional Zeus Enhanced manual launch
+
+The manual launcher now accepts IncludeZeusEnhanced, adding the installed
+Workshop mod 1779063631 to the existing dependency stack. This changes only the
+optional launch list. PowerShell parsing and whitespace checks pass. The actual
+visible client launch records Zeus Enhanced 1.15.1 (zen_main 1.15.1.36), Infection
+and Chernarus Redux in its startup log. The sanitized receipt identifies the
+immutable Dev9 artifact from the separate scene branch and its 208/11 isolated
+checks. No Computer Use, gameplay, Zeus UI, compatibility or scene integration
+acceptance is claimed. The user is testing this client manually.
