@@ -32,7 +32,7 @@ private _observers = call A3I_fnc_spawnObservers;
         (_observers findIf {_x distance2D _unit < (distanceSPWN max 150)}) != -1
     }) != -1) then {continue};
     {["cancel",[_x]] call A3I_fnc_budget} forEach _tickets;
-    {if (count units _x == 0) then {deleteGroup _x}} forEach _groups;
+    [_groups] call A3I_fnc_cleanupGroups;
     A3I_counterattacks deleteAt _target;
 } forEach keys A3I_counterattacks;
 if (count A3I_counterattacks == 0) then {

@@ -1,20 +1,33 @@
 /* Server scheduled bounded creation for registered basic infected.
    [context, roles, center, minRadius, maxRadius, marker, pool, localLimit,
-    trackGarrison, eligibility={}, prepay=false]
+    trackGarrison, eligibility={}, prepay=false, majorDebtToken=""]
    -> [success, [group, created units, budget ticket], reason].
    A partial result consumes only the first count(units) roles. The caller owns
    the remaining queue and must not treat a refused spawn as a killed defender. */
 params ["_context", "_roles", "_center", "_minimum", "_maximum",
     ["_marker",""], ["_pool","garrison"], ["_localLimit",12], ["_trackGarrison",true,[true]],
-    ["_eligibility",{true},[{}]], ["_prepay",false,[true]]];
+    ["_eligibility",{true},[{}]], ["_prepay",false,[true]], ["_majorDebtToken","",[""]]];
 private _empty = [grpNull,[],""];
 if (!isServer || {isRemoteExecuted && {remoteExecutedOwner != 2}}) exitWith {[false,_empty,"server_origin_only"]};
 if (!canSuspend) exitWith {[false,_empty,"scheduled_required"]};
 if !([west] call A3I_fnc_isActive) exitWith {[false,_empty,"inactive"]};
 if !(_roles isEqualType [] && {_roles isNotEqualTo []} && {count _roles <= 256}
     && {_marker isEqualType ""} && {_pool in ["garrison","attack","defence","legacy"]}
-    && {!_prepay || {_pool in ["attack","defence"]}})
+    && {!_prepay || {_pool in ["attack","defence"]}}
+    && {_majorDebtToken == "" || {_prepay && {_pool == "attack"}}})
     exitWith {[false,_empty,"invalid_request"]};
+// Only a live server-owned major job grants bounded actor credit. Ordinary
+// support and reinforcement callers retain the existing affordability checks.
+private _debtRecord = (missionNamespace getVariable ["A3I_majorAttacks",createHashMap])
+    getOrDefault [_majorDebtToken,createHashMap];
+private _mayBorrow = {
+    _majorDebtToken != "" && {_debtRecord getOrDefault ["context",""] == _context}
+    && {missionNamespace getVariable ["A3I_majorGlobalOwner",""] == _majorDebtToken}
+    && {_debtRecord getOrDefault ["outcome",""] == "pending"}
+    && {_debtRecord getOrDefault ["creditRemaining",0] >= 1}
+    && {!scriptDone (_debtRecord getOrDefault ["script",scriptNull])}
+};
+if (_majorDebtToken != "" && {!(call _mayBorrow)}) exitWith {[false,_empty,"credit"]};
 private _definitions = A3A_faction_occ get "loadouts";
 private _classes = [];
 private _invalid = false;
@@ -70,7 +83,8 @@ if (isNull _group) then {_reason = "group_limit"} else {
             if !(_remaining # 0) exitWith {_reason = _remaining # 2};
             private _resourceName = ["A3A_resourcesDefenceOcc","A3A_resourcesAttackOcc"] select (_pool == "attack");
             private _funds = missionNamespace getVariable [_resourceName,0];
-            if (_prepay && {!(_funds isEqualType 0 && {finite _funds} && {_funds >= 10})})
+            if (_prepay && {!(_funds isEqualType 0 && {finite _funds}
+                && {if (_majorDebtToken == "") then {_funds >= 10} else {call _mayBorrow}})})
                 exitWith {_reason = "resources"};
             _unit = [_group,_roles # _index,_position,[],0,"NONE"] call A3A_fnc_createUnit;
             if (isNull _unit) exitWith {_reason = "creation_failed"};
@@ -84,13 +98,18 @@ if (isNull _group) then {_reason = "group_limit"} else {
                 // Unit creation may run another addon's synchronous callbacks.
                 // Recheck funds before payment, even inside this atomic section.
                 _funds = missionNamespace getVariable [_resourceName,0];
-                if !(_funds isEqualType 0 && {finite _funds} && {_funds >= 10}) exitWith {
+                if !(_funds isEqualType 0 && {finite _funds}
+                    && {if (_majorDebtToken == "") then {_funds >= 10} else {call _mayBorrow}}) exitWith {
                     _reason = "resources";
                     deleteVehicle _unit;
                     _unit = objNull;
                 };
                 [-10,west,_pool] call A3A_fnc_addEnemyResources;
                 _unit setVariable ["A3I_reinforcementPaid",true];
+                if (_majorDebtToken != "") then {
+                    _debtRecord set ["creditRemaining",(_debtRecord get "creditRemaining") - 1];
+                    _debtRecord set ["paidActors",(_debtRecord getOrDefault ["paidActors",0]) + 1];
+                };
             };
             if (isNull _unit) exitWith {};
             [_unit,_marker,_context] call A3I_fnc_trackAdministrationDefender;
@@ -100,6 +119,10 @@ if (isNull _group) then {_reason = "group_limit"} else {
             if !(_unit getVariable ["A3I_initialized",false]) exitWith {
                 _reason = "initialization_failed";
                 if (_prepay) then {[10,west,_pool] call A3A_fnc_addEnemyResources};
+                if (_majorDebtToken != "") then {
+                    _debtRecord set ["creditRemaining",(_debtRecord get "creditRemaining") + 1];
+                    _debtRecord set ["paidActors",(_debtRecord get "paidActors") - 1];
+                };
                 deleteVehicle _unit;
                 _unit = objNull;
             };

@@ -1,4 +1,5 @@
-// Internal recovery. Hold the shared native patrol slot until cleanup finishes.
+// Internal recovery. Release the patrol slot after living actors are retired;
+// corpse-associated groups retain separate cleanup ownership.
 params ["_arguments","_handle"];
 if (!isServer || {isRemoteExecuted}) exitWith {};
 private _observers = call A3I_fnc_spawnObservers;
@@ -29,7 +30,7 @@ private _observers = call A3I_fnc_spawnObservers;
         (_observers findIf {_x distance2D _unit < (distanceSPWN max 150)}) != -1
     }) != -1) then {continue};
     {["cancel",[_x]] call A3I_fnc_budget} forEach _tickets;
-    {if (count units _x == 0) then {deleteGroup _x}} forEach _groups;
+    [_groups] call A3I_fnc_cleanupGroups;
     if (_record get "counted") then {
         _record set ["counted",false];
         AAFpatrols = 0 max (AAFpatrols - 1);

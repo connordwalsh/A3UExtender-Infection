@@ -60,6 +60,7 @@ if (_virtual) exitWith {
     _group setVariable ["A3I_garrisoned",_marker];
     _group setVariable ["A3I_context",""];
     ["cancel",[_ticket]] call A3I_fnc_budget;
+    [[_group]] call A3I_fnc_cleanupGroups;
     [true,count _units,"virtual"]
 };
 private _moved = ["transfer",[_ticket,_site get "context",24]] call A3I_fnc_budget;
