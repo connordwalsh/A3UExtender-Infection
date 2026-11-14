@@ -38,7 +38,10 @@ refusal; filtering the support registry alone cannot protect them.
 
 Two mission callers retain an older five-argument `createSupport` form:
 `RES_Deserters` and `RES_Refugees`. The current worker expects eight arguments
-with the support type first and side second. The deserter condition also compares
+with the support type first and side second; the old form is
+`[position, count, types, side, reveal]`. Infection rejects that old form without
+guessing a replacement, while ordinary sides retain the original dispatch.
+The deserter condition also compares
 the same troop count with half itself, rather than counting casualties. These
 are mission-audit defects, not a reason to infer an undocumented old signature
 or silently change ordinary Invader behavior in the support adapter.
@@ -114,13 +117,12 @@ passes 70 checks on the [92-input candidate](../../evidence/sprint-3/tactical-se
 Its [missing-dependency check](../../evidence/sprint-3/tactical-server-dependencies-absent.json)
 passes all 11 checks. These precede the rebuilding relay below.
 
-The expanded [80-check focused result](../../evidence/sprint-3/tactical-focused.json)
+The final [81-check focused result](../../evidence/sprint-3/tactical-focused.json)
 and [11-check dependency-absent result](../../evidence/sprint-3/tactical-dependencies-absent.json)
-pass on the [96-input rebuilding candidate](../../evidence/sprint-3/tactical-build.json).
-No engine/SQF Error records were found; the focused run retains 21 dependency and
-object-deletion warnings. Combined regression is in progress and adds one engine
-check for entry into a new local server script from a remote call. The gameplay
-sources are unchanged from the expanded focused candidate.
+pass on the [96-input candidate](../../evidence/sprint-3/tactical-build.json).
+No engine/SQF Error records were found. Combined regression is in progress.
+The final candidate corrects the rebuilding execution context and the legacy
+argument guard, both covered by the focused run.
 
 Rejected attempts exposed two distinct destination issues: the synthetic road
 lookup initially omitted neighboring cells, and a precise target could make the
@@ -129,6 +131,14 @@ first nearby point fail occupied-entity clearance. The fixture now uses native
 An erroneous expected-check entry and missing hostile-side setup were also
 corrected in the fixture. The search test now verifies enemy knowledge before
 asserting that fighting continues. Rejected runs are not acceptance evidence.
+
+The first combined run exposed that `spawn` preserves remote execution context:
+a valid rebuilding relay would therefore fail the internal local-server guard.
+The relay now enters CBA's next-frame queue before spawning its scheduled worker.
+The engine check verifies remote ingress followed by local frame and local worker
+contexts. A subsequent combined run was deliberately interrupted after source
+review found the old five-argument guard at the wrong index. Its partial results
+are not acceptance evidence; the final fixture uses the exact installed call form.
 
 ## Rebuilding client-to-server handoff
 

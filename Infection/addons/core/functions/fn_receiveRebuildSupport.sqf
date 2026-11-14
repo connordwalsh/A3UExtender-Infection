@@ -10,15 +10,18 @@ if (!isServer || {!canSuspend} || {!isRemoteExecuted} || {isNull _requester}
     || {!(_site in allMapMarkers)} || {!(count _position in [2,3])}
     || {(_position findIf {!(_x isEqualType 0) || {!finite _x}}) != -1}
     || {getMarkerPos _site distance2D _position > 50}) exitWith {};
-// Allow the native public rebuilding flag to arrive, then enter a local server
-// script. Spawning remains independent of the remote caller's execution context.
-[_site,+_position] spawn {
-    params ["_site","_position"];
-    private _deadline = diag_tickTime + 5;
-    waitUntil {
-        sleep 0.05;
-        missionNamespace getVariable ["A3U_rebuilding_" + _site,false]
-            || {diag_tickTime >= _deadline}
+// spawn preserves remote execution context. Enter the local server frame queue
+// first, then allow the native public rebuilding flag to arrive in a scheduled
+// script. The internal worker still refuses direct remote calls.
+[{
+    _this spawn {
+        params ["_site","_position"];
+        private _deadline = diag_tickTime + 5;
+        waitUntil {
+            sleep 0.05;
+            missionNamespace getVariable ["A3U_rebuilding_" + _site,false]
+                || {diag_tickTime >= _deadline}
+        };
+        [_site,_position] call A3I_fnc_rebuildSupport;
     };
-    [_site,_position] call A3I_fnc_rebuildSupport;
-};
+},[_site,+_position]] call CBA_fnc_execNextFrame;
