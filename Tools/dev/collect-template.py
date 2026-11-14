@@ -447,23 +447,7 @@ MAJOR_CHECKS = {
 }
 
 
-COMPETITIVE_CHECKS = {
-    "comp_endpoints_registered", "comp_town_origin_available", "comp_town_frontline_added",
-    "comp_factory_origin_available", "comp_unavailable_not_ordinary_fallback",
-    "comp_combat_source_unavailable", "comp_distant_source_unavailable", "comp_disconnected_source_unavailable",
-    "comp_defeated_unavailable", "comp_foreign_attack_preserved", "comp_scheduled_entry_required",
-    "comp_unrelated_routes_delegate", "comp_request_unavailable_has_no_fallback",
-    "comp_native_task_and_link", "comp_duplicate_refused", "comp_unverified_remote_capture_rejected",
-    "comp_first_infected_capture_freezes_failure", "comp_failure_immediate_and_once",
-    "comp_success_once_false", "comp_success_once_true", "comp_late_capture_times_out",
-    "comp_poll_deadline_precedes_late_owner", "comp_zero_force_cancels_without_reward",
-    "comp_real_horde_shares_budget", "comp_stopped_parent_cancels_refunds_horde",
-    "comp_partial_registration_recovers", "comp_unreturned_child_recovered_by_token",
-    "comp_direct_remote_start_rejected", "comp_scheduler_keeps_server_worker",
-    "comp_remote_request_local_worker", "comp_native_remote_capture_fails",
-    "comp_native_remote_retake_keeps_first_result",
-    "comp_remote_watchdog_rejected", "comp_all_clean",
-}
+
 
 
 CATALOG_POLICY_CHECKS = {"catalog_native_control_bases_preserved", 'catalog_ordinary_delegates', 'catalog_remote_removed_blocks', 'catalog_other_controls_preserved', 'catalog_client_blocks_random_before_selection', 'catalog_destroy_direct_blocks', 'catalog_missing_dependencies_delegate', 'catalog_endpoints_registered', 'catalog_modern_hooks_preserve_controls', 'catalog_client_allowed_delegates', 'catalog_legacy_hooks_preserve_controls', 'catalog_server_blocks_removed', 'catalog_missing_type_blocks_random', 'catalog_busy_lock_untouched'}
@@ -491,6 +475,35 @@ CLEARANCE_CHECKS = {
     'clearance_stopped_controller_rejected',
 }
 
+
+LIQUIDATION_DISPATCH_CHECKS = {
+    'liq_dispatch_registered',
+    'liq_dispatch_race_controller_removed',
+    'liq_dispatch_ordinary_delegation',
+    'liq_dispatch_missing_dependencies_delegation',
+    'liq_dispatch_other_categories_preserved',
+    'liq_dispatch_russian_targets_refused',
+    'liq_dispatch_request_creates_task',
+    'liq_dispatch_duplicate_request_refused',
+    'liq_dispatch_remote_call_detaches_context',
+    'liq_dispatch_foreign_request_lock_waits',
+    'liq_dispatch_stopped_request_keeps_foreign_lock',
+    'liq_dispatch_foreign_lock_release_resumes',
+    'liq_dispatch_unavailable_no_legacy_fallback',
+    'liq_dispatch_direct_military_tier_respected',
+    'liq_dispatch_military_available_tier_three',
+    'liq_dispatch_native_hq_leader_gate',
+    'liq_dispatch_menu_hooks_preserve_native_actions',
+    'liq_dispatch_cleanup',
+    'liq_dispatch_direct_CON_Outpost',
+    'liq_dispatch_direct_CON_Outpost_Compet',
+    'liq_dispatch_direct_CON_Outpost_Zombies',
+    'liq_dispatch_direct_CON_MilAdmin',
+    'liq_dispatch_scheduler_CON_Outpost',
+    'liq_dispatch_scheduler_CON_Outpost_Compet',
+    'liq_dispatch_scheduler_CON_Outpost_Zombies',
+    'liq_dispatch_scheduler_CON_MilAdmin',
+}
 
 LIQUIDATION_CONTROLLER_CHECKS = {
     "liq_controller_native_capture_failure_cancels",
@@ -584,14 +597,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | COMPETITIVE_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
                           "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
-                          "competitive": COMPETITIVE_CHECKS, "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS}
+                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -634,7 +647,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

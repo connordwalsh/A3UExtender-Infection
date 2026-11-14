@@ -21,28 +21,22 @@ Capture-triggered counterattacks use paid foot groups and native ownership check
 Tactical support selects paid foot responses and routes rebuilding requests through
 server validation, with exact refunds, arrival checks and interrupted-job recovery.
 Strategic attacks use nearby infected-held towns and permanent sites, one finite
-horde under shared limits, and native temporary resource debt. Competitive conquest
-requires a reachable horde and fails immediately if infected capture first.
-Destroy and Random requests are disabled in Infection campaigns. Site visits
-track defeated defenders separately from queued or deleted actors, preparing
-full-clear objectives without changing native capture rules yet.
-The completed isolated dedicated regression passes 717 checks on Ultimate 12.4.2,
-including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
-routine reinforcement, roaming, counterattacks, tactical support, town ownership
-handoffs, strategic attacks, competitive conquest, catalog guards, clearance
-tracking and cleanup. The new six-mission catalog is still being implemented;
-Liquidation will replace the existing requested competitive conquest route.
-The missing-dependency suite passes 11 checks.
-Connected-player rebuilding, town-liberation and other mission adapters, special
-creatures, abandoned vehicles and save integration remain unfinished. Do not use this build for a
-campaign you intend to keep.
+horde under shared limits, and native temporary resource debt.
+Destroy and Random requests are disabled in Infection campaigns. Liquidation
+Assignment replaces requested conquest races: clear every assigned infected to
+capture the town or site, with military bases and airfields restricted to war
+level 3. Russian takeover cancels without a mission penalty. Queue/death ledgers
+prevent missing actors, queued defenders or premature native capture from
+bypassing the objective. Other five replacement mission families remain pending.
 
-This feature branch additionally implements Liquidation target selection,
-guarded full-clear capture, native task settlement and interrupted-worker
-recovery. The capture-only candidate passed 750 combined checks; the current
-controller passes 33 focused and 11 missing-dependency checks. Public mission
-dispatch and combined controller validation remain pending. See
-[Liquidation implementation and limits](docs/research/LIQUIDATION.md).
+The integrated Liquidation candidate passes 764 combined dedicated checks,
+37 focused dispatch checks and 11 actual missing-dependency checks. All 138
+production inputs and the PBO match its recorded build manifest. These isolated checks do not establish visual
+menu behavior, connected-player rewards, multiplayer, saves or campaign acceptance.
+See [Liquidation implementation and limits](docs/research/LIQUIDATION.md).
+Connected-player rebuilding, town-liberation integration, other mission adapters,
+special creatures, abandoned vehicles and save integration remain unfinished.
+Do not use this build for a campaign you intend to keep.
 
 ## Intended campaign
 
@@ -80,7 +74,7 @@ claim that compatibility testing has passed.
 - [Capture counterattacks and limits](docs/research/CAPTURE_COUNTERATTACKS.md)
 - [Tactical support implementation and limits](docs/research/TACTICAL_SUPPORT_CONTRACTS.md)
 - [Strategic attack implementation and limits](docs/research/STRATEGIC_ATTACK_CONTRACTS.md)
-- [Competitive conquest implementation and limits](docs/research/COMPETITIVE_CONQUEST.md)
+- [Retired competitive conquest prototype](docs/research/COMPETITIVE_CONQUEST.md)
 - [Remaining attack and support contracts](docs/research/RESPONSE_CONTRACTS.md)
 - [Controlled behavior observations](docs/research/BEHAVIOR_12.4.2.md)
 - [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)

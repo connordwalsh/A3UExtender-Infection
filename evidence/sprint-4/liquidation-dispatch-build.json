@@ -1,0 +1,593 @@
+{
+  "schema_version": 1,
+  "candidate": "Infection_Liquidation_Dispatch_Dev1",
+  "scope": "Integrated Liquidation build identity and isolated dedicated contracts; campaign acceptance remains open.",
+  "production_input_count": 138,
+  "all_production_inputs_match": true,
+  "addon_sha256": "c1fc2038f75de98ef269d91523c668959ee36ab19bb12030da69f46f6bc232b4",
+  "manifest": {
+    "schema_version": 1,
+    "product": "Antistasi Ultimate: Infection",
+    "version": "0.1.0-dev",
+    "scope": "Development prototype; isolated contracts cover infected sites, responses, strategic hordes and Liquidation assignments. Remaining mission adapters, connected players, terrain, special creatures, vehicles, saves and full campaign acceptance remain incomplete.",
+    "built_at_utc": "2026-11-14T22:53:47.1285634Z",
+    "prefix": "x\\a3i\\addons\\core",
+    "addon_sha256": "c1fc2038f75de98ef269d91523c668959ee36ab19bb12030da69f46f6bc232b4",
+    "source": [
+      {
+        "path": "Infection/addons/core/config.cpp",
+        "sha256": "7aa1b471245546405ea378f9c30b9d34fd18cdd59ddfd5d212248d046c055b6a"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_administrationAssets.sqf",
+        "sha256": "6932fce62c01a33360eda48c7d70a573f8bb44b8dfd179fa2c2c5d66cd90f9a7"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_administrationDefenderEvent.sqf",
+        "sha256": "ca14c9b90332b32cf768508cbfc8c17828b2592b501abd59c29e89deb57a46a9"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_administrationPositions.sqf",
+        "sha256": "1bb6e1a27fcecff5b4f23c2a05ea23c111b87d977228d7245789aaaa9bdc7e8a"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_administrationRoster.sqf",
+        "sha256": "4c1870f6edcdf29b08fa12b02748553fd12d31520f8561cee61baf0c39955eac"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_adoptReinforcement.sqf",
+        "sha256": "2533ff5bbe0e01b313423f57aa1fc45a2f612d12a933ea2a1c62806dcb5cf140"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_beginRescue.sqf",
+        "sha256": "a04db60ca2969810ab59982fbc217e237227f3ddb7341943d5d5c6970bcb6cab"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_bootstrap.sqf",
+        "sha256": "35f2e15cd7a8a07752a9acc67de6079d7767aa012e6735d3c77857ee45536bbf"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_budget.sqf",
+        "sha256": "b8ebeff784df93e3a52a13e43e2f5ffab4b9c957ba0d0b8539801403992a6d98"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_captureLiquidation.sqf",
+        "sha256": "8d9b40f8b51ce6f1007710e7288fed5c5d0fafcf0a3d9fc97e1f6132e445ea4d"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_chooseMajorAttack.sqf",
+        "sha256": "08a2d0d724e07c37ded09da2d5e1d66927d39d157e5bfb61516987281e3a9ddb"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_cityPopulationTarget.sqf",
+        "sha256": "62af21e351a81dd12272ebcd968a2ad6ea0191c96240d62f2be4b4ddcefbcffd"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_cityRoster.sqf",
+        "sha256": "b2b21aaaabd308a816161d959d635de96ae19de11c2a6717ae486b0a290cf37f"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_cleanupGroups.sqf",
+        "sha256": "d93ab16fd0db3b4f2ab4cfcf505e60b1807e7741c2778a69094acd17def3a839"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_cleanupGroupTick.sqf",
+        "sha256": "0faea36f7af7b742b63bba6a24974c76bf3ddc6a73915f5712fd5109d1e12963"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_cleanupSite.sqf",
+        "sha256": "9afd78c5a0ef2e4ac574262eb85c7ba273532aff5fb83ded423272163bdf8784"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_controlResetTick.sqf",
+        "sha256": "49e696d08d33dc4cdffcbf9c9e99aa9bb6eb594a5354c16e857f5b91de07da02"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_controlRoster.sqf",
+        "sha256": "11eb70e241961f67043ad96e9fd05d64b2cf35d4240e27ab50d23fbb6f2bd484"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_counterattackEligible.sqf",
+        "sha256": "ef7f978c17be75b9b1ad87facaac9b64256880fb683dcbe58e7f017e2ecff952"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_counterattackSourceEligible.sqf",
+        "sha256": "ffb98917b233434c409446c4fa5eb963287d1a223de8e90f033a65c571a93d18"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_counterattackSources.sqf",
+        "sha256": "de98a6b6fdf5131f1525c7ff4166e6d7753b1494f61b61bf973756adcac2f113"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_counterattackWatchdog.sqf",
+        "sha256": "411e067a807a00217391cff5f902e85750bdcff8f3a704be00cd688bf7feed61"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_createFootGarrisonLine.sqf",
+        "sha256": "1a1a33a2d62de2591b8e43c85b0ec480da41fb4c3f47d99009a809f9e021139e"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_dependencies.sqf",
+        "sha256": "f665cc54f9b16496d981f1e7b67c33c0148c5286eddfe8c60881456e792a1335"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_dispatchLiquidation.sqf",
+        "sha256": "ad882c697010d8f72ff4138441f14a5e5813ad34be93011f4923165bccc3ca63"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_elapsedDateMinutes.sqf",
+        "sha256": "351ab7b36e33510b96076352638ec4cae70f23dd7770bce02efc7c3ca6ee366e"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_findCitySpawnPosition.sqf",
+        "sha256": "e581e64d2605ca3a8a87387857c1f8b1f9e209119f9d577ef11d4b24f7ff2f2c"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_findSpawnPosition.sqf",
+        "sha256": "cd65fcc4123ac2b5f5b37755dfd7c986d425db38f0df1baf513c846bda466548"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_finishLiquidation.sqf",
+        "sha256": "be13a58aed5ac46bca2433ea1cd01e4003ba7bc64211fb8c23e75df3852e9ae7"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_finishMajorAttack.sqf",
+        "sha256": "718762cb9147621d7a18e19251ade6f2d9c13d945e3a0d2743229389f304d006"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_hideRemovedMissionControl.sqf",
+        "sha256": "ebbf8204959c8642fcbda3e4721c5d5e1a394dd0d42a89f389b589a9c5775fad"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_indoorPosition.sqf",
+        "sha256": "2a4f2b146892ff8508e40cbba529932db9d519e018ebe5c96ac58a7f29e28fa9"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_infectedDamageObserved.sqf",
+        "sha256": "a3de373c0f2d26d8426679813d5f43c3f97bbb760d46c772d3d003634a28a2e1"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_infectedDeleted.sqf",
+        "sha256": "96ec53391eaab6cce1c18fd87177de8f610398cbeac5e0e1c1b6b0106aaf602d"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_infectedKilled.sqf",
+        "sha256": "cc46ea3703a8ee9e45759bd0d357efb72ccf63216fd2e78a49bb71bf01da3e8b"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_initInfected.sqf",
+        "sha256": "41c9e980066287c6be10fc34a034b513945aacb21684f36f1396583d188efee2"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_initSettings.sqf",
+        "sha256": "c750885131cb547639f232df9bc03c592b63b318e484b0c4a03128e0874c53c4"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_isActive.sqf",
+        "sha256": "420dd0220d72e1a37dc28690dfc7168469358e7a45f6f9e31722110b4587e868"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_isManagedUnit.sqf",
+        "sha256": "9ceb2c3f414a290597efb88c2523f02a9b5f97423c5f275930c7c23c719073eb"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_labelLiquidationControl.sqf",
+        "sha256": "5323c37f291dc749eebf738a312cd651c83b3ec7684a578198514d597b3b17d6"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_liquidationCityCapture.sqf",
+        "sha256": "c275f1664ee3cc09300c8f5f88b587debf8dcc2e974b6dd9bac5e2a10453c023"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_liquidationClaim.sqf",
+        "sha256": "1ea926578f973d11fc0a848f3efcc4aea102ecc1165f5a04ea446d21a6803e21"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_liquidationMarkerChange.sqf",
+        "sha256": "67ed4a1e665a947c906f6bc5550553181bda25c90627d5f818fc4fd919958b0d"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_liquidationOutcome.sqf",
+        "sha256": "2cd7cced4d5da94131725d7cd0546c1596462d8f75b6e243fe56c82f764da953"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_liquidationTargetKind.sqf",
+        "sha256": "9500a5550c798fa153e34077ad4e1268667356342c4691f1ecda864dbaa08f2c"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_liquidationTargets.sqf",
+        "sha256": "72915984ce3136813c23de2e2ffcf04e3eab5f2fd49500869a8ea2400ce654bb"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_liquidationTransition.sqf",
+        "sha256": "88849574ac5ed420f80ded9916915f8e2ced32000d6390014b4768463878fd26"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_liquidationWatchdog.sqf",
+        "sha256": "8dc1333862db1c85a2b5e64bd06e77d0acb21bf842f6e84556bd66830a2ce5fc"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_majorAttackTargets.sqf",
+        "sha256": "14edc403788ce5ffce5d5d864dd3d92ce0b537774281c1e813b19e2b2aed260a"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_majorSourceEligible.sqf",
+        "sha256": "4647893d20103b39ba5d5ac73df577cf0e1ada7a940ef83547c4d3e5e95bb1ab"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_majorWatchdog.sqf",
+        "sha256": "9c2158124eee53c15fb1649b68bbf539110e3b5d13d0f9a74e6d33595ddea640"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_patrolWaypoints.sqf",
+        "sha256": "2220b71e837afdaa9f4d2d4076c6e16994f270b7dffe35347ecb0f3bbbe520e6"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_positionSafety.sqf",
+        "sha256": "dd4935337e33412da11462c9255365f929888d203336ed8d24b2a830fdfaad8a"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_rebuildSupport.sqf",
+        "sha256": "496dcaf4eca472d2b1a41c66e6cb1c8e380d8bb2d8789ecfc833c4a9df072f2e"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_rebuildSupportWatchdog.sqf",
+        "sha256": "2000ac2b0bc5f93b83c0568feb6f7c4f8e4e8aa7f7a71ae5ba0cbd56fe532745"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_receiveRebuildSupport.sqf",
+        "sha256": "3ec9296db9ffa5a99e26fa56b34154ba4efdf74561c689fa6f5b8dbe403040a1"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_reinforcementEligible.sqf",
+        "sha256": "a98937b909b0618dca083223587fa886dcfcd12dc8ffeaa6e3f36c49e469cee1"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_reinforcementSources.sqf",
+        "sha256": "ed665b0bd3c6e162811b511252cc3f4a43110180270f8005887396a875385201"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_reinforcementTick.sqf",
+        "sha256": "e88bef754e5be14607ef2bcea710dcdadefa389cb8d18a91bf63d4dfacf55c45"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_reinforcementWatchdog.sqf",
+        "sha256": "55d03deab54566a149fb389035892f86ee6811d313053d2786f62a725336943d"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_requestLiquidation.sqf",
+        "sha256": "9003b22f3402483236690da0ed60f3d29b480b62f1dcc37f8ef9774452e3952c"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_requestReinforcement.sqf",
+        "sha256": "237995868506b65f35324ddec279dc17b5aaed885aaaa5689c0c2138b1b1301c"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_requestRescue.sqf",
+        "sha256": "d19d8c200ab5de28e04872b4542117966717da2c6a4bc7776a6c692abe9bad61"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_requestTacticalSupport.sqf",
+        "sha256": "8162d9553d312794bc54a6135540ef41db42db680884e773e9b2fc859f8d6a64"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_rescueTick.sqf",
+        "sha256": "6761c9edb106114cae599102cd19e28cd4adf38abd4899bcf66059fd933d92fa"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_roamingBases.sqf",
+        "sha256": "133b6d5d9c9d4f6ec1566784c6fcf19392b12904ae71069339e55416e706778f"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_roamingEligible.sqf",
+        "sha256": "58a019b15274f9ec89d6b0df8f180cbd479d0a77b50ecf8395ffebe2de5672b4"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_roamingRoute.sqf",
+        "sha256": "bf18a8d02c97fedf812bb575ac5458dfaa466a766e416d2a7ea58d892229b2ad"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_roamingWatchdog.sqf",
+        "sha256": "a4b5c32b4084c044dcd45be5da3abe1e35ffa1d903fd958c9c0745fe2a02baed"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_routeRebuildSupport.sqf",
+        "sha256": "d9a752cfd7b7de3eabb994e9c372b97e2b1739a5ef56392ae666bd252d4cae5f"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_runAdministration.sqf",
+        "sha256": "adb05d7450a4bde3a504eebb8ca8082bed14d9e7e922425483d8d511aa6b55d0"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_runCounterattack.sqf",
+        "sha256": "7a3d916149cb21b8ab9596c0487aaa23eafc1415fa6bd35ef7b36005fdc2a423"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_runLiquidation.sqf",
+        "sha256": "5c02d4f269a247d9000f3730e8ce795b80240645255494e5dc0f54a2a750a9da"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_runMajorAttack.sqf",
+        "sha256": "1689fd7abc150eff7018b9a8157a6cdf19d6d97e026daa837dde2b3d989aad91"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_runPatrol.sqf",
+        "sha256": "cc35a892b5af21202480f37474c251318cc7f93797ec5c316fe7e234db50cc66"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_runReinforcement.sqf",
+        "sha256": "947e4dbac60196bf1c64f21d88e910ca5649c2f83d92239cc83726864cee1c12"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_runRoaming.sqf",
+        "sha256": "77c81b7e82b49ab2ec09eb751b42ecb1c8c439288ee400da1b2e9b2076f17417"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_runSite.sqf",
+        "sha256": "b517de9ca4e20ecfabc4a83d26c581f2a158569ce621b3ac5d859de497f34620"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_runTacticalSupport.sqf",
+        "sha256": "d651a61a0ee16978c32b51def56e4934a2c760e05f8e24d2b293901e858773c9"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_simulateMajorAttack.sqf",
+        "sha256": "b780288ca2b187ac39c38d4a92a45c6e65708bbf1332fd9f3fcaf83af09e49dc"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_siteCaptureBlocked.sqf",
+        "sha256": "b66bc3f16eff0979471c898c5ada7ddce6031bae68ff9df4b20db903d1ac29e6"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_siteClearance.sqf",
+        "sha256": "1e01146417c8f2780c1a372520b79f33cb6ca191bc889db0fe98fdf0b82e0379"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_siteDefenderEvent.sqf",
+        "sha256": "5a5392c6f891477ea461536589770c189fc171a0c4988a05cd56f6efb7a371c8"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_siteWatchdog.sqf",
+        "sha256": "f84c730b5f2567b9f86b033ac41b72524ba56243eb57e1649ffa57b599fc22bd"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_spawnGroup.sqf",
+        "sha256": "e817e43f4b67d97d393fea6c6170852e813332e96be2a5237c29a30bc53ea34c"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_spawnObservers.sqf",
+        "sha256": "f504aca6ea44705b60506bd0946cadfa262be0646d868696e253f42d13658c11"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_startCounterattack.sqf",
+        "sha256": "b40e214915e4f7e23d6a6717457cc81c3d72d695a26fe3d0acd76cf23f5ca20c"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_startLiquidation.sqf",
+        "sha256": "65333a0a04ee06ba4c6400c87e991a73fad92203a7e7390ebf4590e973fdbfa2"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_startMajorAttack.sqf",
+        "sha256": "7bb0449cdbbcc74807e05c36d12122922933d47b29f6592e549506a0f13b2766"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_startRoaming.sqf",
+        "sha256": "d4e9a25b761a8a8e7546f93096faea25a4d6a9b11aa30b8c600fa7686e653bda"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_startSite.sqf",
+        "sha256": "8d22a732317855750247826c0ea6e64636e80ce6584fde3b337ac30d3f83c29a"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_startTacticalSupport.sqf",
+        "sha256": "167875cab464155e98f00deb12900dd5ed1fb0ba3042962056977a110572c0a0"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_survivorAction.sqf",
+        "sha256": "2b5caed831487588e2856c8c0f9bbdfe0ac30c90ef81a5bb7366ca2cc6c86b67"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_tacticalSources.sqf",
+        "sha256": "450ef48b3c73bfe04f995c2bd4ed29f566b2d48b3693ee75c1a3f1ead64c262b"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_tacticalWatchdog.sqf",
+        "sha256": "905d3334545d1599181642f0a9a0990d47385d664598039d1ee3a6d251bb68b9"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_trackAdministrationDefender.sqf",
+        "sha256": "8b3af79171e56b8e7f0ea421af6a5a30718a1d463971f5e918f96afb75c8e165"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_trackSiteDefender.sqf",
+        "sha256": "eb828f6e3a037fb23e04fbd7cf55a72366d775220a74b1c8015f264f6edd9d51"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_tryCaptureAdministration.sqf",
+        "sha256": "69f97f7a70e4aa85644ec8d8d039fc15eabc3a2d26a4d5c71ce4cd298b11566b"
+      },
+      {
+        "path": "Infection/addons/core/functions/fn_tryCaptureControl.sqf",
+        "sha256": "fdaa1a4180528550611c1e13ac632a5f753ff53968739a5f81e617da75ab514e"
+      },
+      {
+        "path": "Infection/addons/core/missionMenus.hpp",
+        "sha256": "ab3b7ea900acb8a3d13aa5589758c84c1a6c2bda6c5cbc7558821d0a1f7af536"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_AAFroadPatrol.sqf",
+        "sha256": "eaf6eeb12f8458b8a29d082e624fe7c4cf4046b100b13a8960262810a598a3ad"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_chooseAttack.sqf",
+        "sha256": "e516d32422de8853826febfbf1ca58f8b9acd74598a5d3d5470b0edac548ec54"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_cityChangeSide.sqf",
+        "sha256": "cd0f174879f560ea1a94552dfac06553c7812bb997a0478cd27be385df8f1348"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_CON_MilAdmin.sqf",
+        "sha256": "f73f94d2f1ee8c98f78e3c4f6dbe06388f748b841ec9f4e370b3e2b8b02cee74"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_CON_Outpost_Compet.sqf",
+        "sha256": "36f6c26c66b5f2832c295b66cfcc75096a408ee6ecb09498f27bbe20a2102b24"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_CON_Outpost_Zombies.sqf",
+        "sha256": "3d236774160f4da161dffd5764b2949522ac4e9feddb8970711b2912f1d428ee"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_CON_Outpost.sqf",
+        "sha256": "162e646ea522c63f8ebaccc4590ad5debc2382093a04845c32ae1527027261ec"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_createAIAirplane.sqf",
+        "sha256": "f9a86479d093e9161769d0978df5f2f1a43d708426992b294d95dc1009227215"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_createAICities.sqf",
+        "sha256": "f78d6a877389ddf9cc04d5ac5d8ed062cfae4f92e027fd4bc5a0dd2016d3e888"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_createAIcontrols.sqf",
+        "sha256": "bcb92b5cab94a0c8ed154e0cabc454c0e18f89686c5a031f20addd8aa9d8a3c6"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_createAIMilAdmin.sqf",
+        "sha256": "902d139b449c4823867f4a6890fdef9ad6f18ab0f00ffae4550bd860f1f4db41"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_createAIMilbase.sqf",
+        "sha256": "3ef50c3b1dea6173b354beac42e9acf16e28ce959e7fdee1c75aa5049dc3cca9"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_createAIOutposts.sqf",
+        "sha256": "36a03f247b99f70781be4ca5b3b62b9ddd9bf6984bf4faaffae03824705e8568"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_createAIResources.sqf",
+        "sha256": "467b970ab12b44ec75e18febd57ec05eca8c026afc84bd2e073860e4155a87c1"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_createGarrisonLine.sqf",
+        "sha256": "2b81a371cff8799ac6c80702657e54499f5a5c13c5929f21ce5f814b7c47e468"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_createSupport.sqf",
+        "sha256": "635cdff15cebe5afcbaf07d311b152d99624154c091038e488df46df81ce600b"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_DES_Antenna.sqf",
+        "sha256": "20deaf332b138ef7baf14f9d660a045060c7346448ae679ecc0c4ecdcf8b6a24"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_DES_Artillery.sqf",
+        "sha256": "ce9ffedd8019f031c5ac2b25cf7594c0ced893140b7ac18e0b85eea5497af64e"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_DES_Heli.sqf",
+        "sha256": "3617013b57255c7fd41e24212c90665fb7e05ddeb2da970b379e5c838e577265"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_DES_Vehicle.sqf",
+        "sha256": "f50e4698da92d8411ac0709327d74936b579b56fde2f8e3da8e6f6afb38ac131"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_findAttackTargets.sqf",
+        "sha256": "2101a9c4f98d35f0d953fc7bb0ac2f4933887c26829dfb186bf67f20ce173fc5"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_initSupports.sqf",
+        "sha256": "b9cabd1bbd0b9b99cc5e49c9103e50e172c9567418ab1a0f49296494194599b6"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_location_removeMilAdmin.sqf",
+        "sha256": "b7119ae543e788dd7e87dc54939bb44eae4de59480b26501550608746e372f31"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_markerChange.sqf",
+        "sha256": "af681819d84483ef849ae270413ea6533955d92b3ab3f148c50248aedc6b0a16"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_missionRequest.sqf",
+        "sha256": "1d221ab88662740c51d0256a7c62cce53c9367ec2c8acbecb817e647d11d247b"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_mrkWIN.sqf",
+        "sha256": "d9c6372441b22400ea7033e4517aa2af08cc761b887b8b132c47efb1373c2891"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_NATOinit.sqf",
+        "sha256": "38f0f4738485684a8896190eac53b71eedf01aea5065d4f07954201ca0654c20"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_patrolReinf.sqf",
+        "sha256": "8ce0f43e751038d524973e39296cc2bbaa6f74b8395dfa270f0b03d390df5313"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_reinforcementsAI.sqf",
+        "sha256": "627de38dbd72accda78dd800c026a770e21bcbdec96bc7fc1184d66de7ecc50c"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_requestMissionDialog.sqf",
+        "sha256": "780a71503e9e8a10c71ca822343e61884bd041db086da8952a46bb0eea8848ee"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_scheduler.sqf",
+        "sha256": "57da47f21060ed4ce3fdfb1d8c6cf0c56614110e15a9e439a0bccb2935644040"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_singleAttack.sqf",
+        "sha256": "ecfa8b97e2e885716fff800e894d7241d9f7a887db95c48dae078992637049db"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_SUP_QRFAir.sqf",
+        "sha256": "f939c00b4ef16d31cb23934c66995c99a3ceda47f7a2246e12c1e9ce3c5cb161"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_SUP_QRFLand.sqf",
+        "sha256": "36b4af1aa54f6fc16e78d417b14017caf570c2c293cb4ea68df324152401b065"
+      },
+      {
+        "path": "Infection/addons/core/overrides/fn_surrenderAction.sqf",
+        "sha256": "a514bb80bf497f6125527ad9ec2ae013c73a01375c586ce679397399da0e6de5"
+      },
+      {
+        "path": "Infection/addons/core/templates/Infected.sqf",
+        "sha256": "f2ea354ceb32b4d2b0a687642e01a04cf6cde44a7a21bb85fcc35c2d9663bde1"
+      },
+      {
+        "path": "Infection/mod.cpp",
+        "sha256": "ff7564d911bf7c428ad025ffb94dae9782458a10fe925e050398599585dcf2ad"
+      },
+      {
+        "path": "Infection/THIRD_PARTY_LICENSES.txt",
+        "sha256": "6ada5ef3ab9f31704ad0c9a79cabef308f2973ac7e08ba41cfb97368adba49b2"
+      }
+    ]
+  },
+  "focused_report": "liquidation-dispatch-focused.json",
+  "combined_status": "PASSED",
+  "computer_use": "NOT_RUN",
+  "combined_report": "liquidation-dispatch-combined.json",
+  "combined_checks": 764,
+  "dependencies_report": "liquidation-dispatch-dependencies.json",
+  "dependencies_checks": 11,
+  "warnings_review": {
+    "combined": {
+      "startup_dependency": 16,
+      "object_deletion": 50,
+      "absent_fixture_commander": 5
+    },
+    "focused": {
+      "startup_dependency": 16
+    },
+    "dependencies": {
+      "startup_dependency": 7
+    }
+  },
+  "all_production_inputs_match_after_testing": true,
+  "test_servers": "Stopped by verified identity; exit verified"
+}

@@ -601,3 +601,41 @@ remaining campaign acceptance are completed. No Computer Use was performed.
 The actual Controller Dev3 missing-dependency run also passes 11 checks, with
 seven startup notices and no engine/SQF errors. All test servers were stopped
 by verified process/profile identity, with exit confirmed.
+
+
+## 14 November 2026 - Liquidation dispatch focused review
+
+Reviewed all four native conquest entry points and their scheduler path. Active
+Infection routes only to eligible infected targets, with no Russian legacy
+fallback. Inactive/dependency-absent routes preserve native arguments. CON
+requests retain HQ eligibility and busy-lock waiting while the exclusive claim
+prevents duplicates. They never own or clear another request's shared lock.
+Menu overrides preserve explicit widget bases and native actions. Seven retired
+competitive helpers and 34 obsolete cases are removed; strategic hordes remain.
+
+Dispatch Dev1 passes 37 focused checks with no engine/SQF errors and 16 retained
+startup/dependency notices. All 138 production inputs and the PBO match the
+manifest. Combined regression is in progress. Keep the stack draft pending its
+result and actual dependency-absent validation. Connected reward receipt, visual
+menus, multiplayer, saves and complete campaign acceptance remain open.
+
+
+### Integrated Liquidation review result
+
+Dispatch Dev1 passes all 764 combined checks, 37 focused dispatch checks and
+11 actual missing-dependency checks. No engine/SQF error records occur. Reviewed
+combined warnings: 16 startup/dependency, 50 object-deletion and five absent
+fixture-commander notices; the dependency run retains seven startup notices.
+The 138 production inputs and PBO still match the frozen candidate after testing.
+Both isolated test servers exited. The user's manual build/profile remain intact.
+
+Reviewed the full stack against master, including native capture transactions,
+site-ledger guards, controller/cleanup settlement, four direct dispatch endpoints,
+CON requests, menu inheritance, and obsolete competitive removal. The corrected
+administration write fault is included in this integrated result. Integrate
+PRs 24, 25 and 26 in order; their historical component evidence stays scoped to
+its recorded candidates. No further production change was made during the run.
+
+Connected-player reward delivery, visual tasks, multiplayer, save/restart,
+Redux traversal and full campaign acceptance remain open. The other five mission
+replacements are not represented as finished by this merge. No Computer Use.

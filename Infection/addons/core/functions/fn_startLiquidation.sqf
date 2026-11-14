@@ -9,7 +9,6 @@ private _accepted = false;
 isNil {
     if ("CON" in (missionNamespace getVariable ["A3A_activeTasks",[]])
         || {count (missionNamespace getVariable ["A3I_liquidationClaims",createHashMap]) > 0}
-        || {count (missionNamespace getVariable ["A3I_competitiveMissions",createHashMap]) > 0}
         || {!([west] call A3I_fnc_isActive)}
         || {tierWar < 3 && {_target in (airportsX + milbases)}}
         || {sidesX getVariable [_target,sideUnknown] != west}) exitWith {};

@@ -2,11 +2,10 @@
 
 The acceptance criteria and test requirements are in [PROJECT_PLAN.md](PROJECT_PLAN.md).
 
-Liquidation selection and claim-driven capture are tracked in
-[LIQUIDATION.md](../research/LIQUIDATION.md). The focused suite passes 44 checks;
-the parent capture-only combined regression passes 750 checks. The controller
-adds task creation, automatic capture, rewards and recovery with 33 focused
-checks passing. Mission-board/direct dispatch and complete acceptance remain open.
+Liquidation selection, guarded capture, task settlement and public dispatch are
+tracked in [LIQUIDATION.md](../research/LIQUIDATION.md). Dispatch Dev1 passes 37
+focused checks, 764 combined checks and 11 actual missing-dependency checks. Earlier capture
+and controller results remain recorded separately. Campaign acceptance is open.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
 
@@ -16,7 +15,7 @@ targets infected exclusively; Destroy/Random are removed and Liquidation
 supersedes requested competitive conquest. Delivery accepts HQ/permanent sites.
 The removal and clearance-ledger increment passes 717 combined dedicated checks
 and 11 checks without zombie dependencies. Clearance is now connected to the
-Liquidation controller on this branch; public mission dispatch remains pending.
+Liquidation controller on this branch; public mission dispatch passes its focused checks.
 The six-mission redesign and visual/connected-player acceptance remain open;
 none of these stories is complete.
 
@@ -32,11 +31,11 @@ none of these stories is complete.
 | S2-2 | Foot patrols and road controls | In progress | Controls, towns and roaming pass 37, 67 and 39 dedicated cases within the 684-check suite. Towns preserve approved per-visit regeneration. Redux navigation, connected players and repeated patrol circuits remain open. |
 | S2-2a | Population-based town infestations | In progress | The approved 10â€“200 logistic, complete activation, all infected-held towns and ownership handoffs pass 67 town cases within the 684-check regression; 78 focused and 11 missing-dependency checks also pass. See TOWN_INFESTATIONS.md. Redux navigation, connected players and performance remain open. |
 | S2-3 | Capture and persistence | In progress | Queued defenders block capture; roster death/reentry contracts pass. Administration clearing uses the actual native ownership/support transaction, including after building destruction. Full campaign ownership/rewards/save/reload/recapture remain open. |
-| S3-1 | QRF and attack routing | In progress | Capture-triggered foot counterattacks pass 51 cases in the 684-check regression, including native distance activation, paid arrival handoff, town population startup and cleanup. Tactical support passes 70 additional cases, including rebuilding policy and remote context. Strategic walking hordes pass 114 cases and competitive conquest 34. Connected-player rebuilding, remaining missions and special creatures remain open; see CAPTURE_COUNTERATTACKS.md and TACTICAL_SUPPORT_CONTRACTS.md. |
+| S3-1 | QRF and attack routing | In progress | Capture-triggered foot counterattacks pass 51 cases in the 684-check regression, including native distance activation, paid arrival handoff, town population startup and cleanup. Tactical support passes 70 additional cases, including rebuilding policy and remote context. Strategic walking hordes pass 114 cases; the superseded competitive prototype is retired. Connected-player rebuilding, remaining missions and special creatures remain open; see CAPTURE_COUNTERATTACKS.md and TACTICAL_SUPPORT_CONTRACTS.md. |
 | S3-2 | Garrison repair | In progress | Routine paid foot arrivals and virtual repair pass 39 cases in the 340-check suite: original queue priority, cooldown/combat/ownership, active limits, roster handoff and cleanup. Redux travel, nearby players and restart persistence remain open. |
 | S3-3 | Conventional force disposition | In progress | Response source audit records remaining vehicle, support, task and payment contracts. Complete route disposition and Invader campaign regression remain open. |
-| S4-1 | Complete mission classification | In progress | Competitive conquest request/direct/HC paths audited; full mission and automatic-trigger classification remains open. |
-| S4-2 | Mission eligibility and common objectives | In progress | Conquest races require a nearby horde and fail on first infected capture; 34 cases pass within the 684-check suite. Town liberation and other mission families remain open. |
+| S4-1 | Complete mission classification | In progress | Liquidation covers all four native conquest entry points. Other replacement families and automatic-trigger classification remain open. |
+| S4-2 | Mission eligibility and common objectives | In progress | Liquidation target, capture, controller and dispatch integration passes 764 combined checks, 37 dispatch-focused checks and 11 dependency-absent checks. Town liberation and the five other replacement families remain open. |
 | S4-3 | Existing outbreak mission adaptations | Backlog | Survivor civilian configuration. |
 | S5-1 | Central spawn budget | In progress | Sites, controls/towns/administrations, routine repair, roaming, capture responses, tactical support, strategic hordes and competitive conquest use the budget in the 684-check suite. Towns have separate non-transferable full-population allowances. Remaining response/mission callers, terrain/player validation and performance remain open. |
 | S5-2 | Special roles and escalation | Backlog | Largest types restricted to declared events. |
@@ -222,3 +221,29 @@ origin selector; the no-nearby-origin political fallback is awaiting a decision.
 Connected-player rewards/UI, real HC relay, Redux travel/performance, remaining
 missions, special creatures, abandoned vehicles, multiplayer and saves remain
 open. No sprint gate is closed and no Computer Use or manual-client update occurred.
+
+
+## Working session: 14 November 2026 - Liquidation dispatch
+
+The board and four conquest endpoints now route to infected-only Liquidation.
+Russian takeover cancels without mission penalty. Native timer/reward judgment
+is authorized. The 37-case focused run passes without engine/SQF errors; all
+138 production inputs match Dispatch Dev1. Superseded competitive helpers and
+34 old race cases are removed; strategic attacks remain unchanged. The combined
+suite is running. Next: collect and review integrated evidence, validate actual
+missing dependencies, then integrate the reviewed stack. No Computer Use or
+manual-client update occurred; no sprint gate is closed.
+
+
+Liquidation dispatch integration result: all 764 combined checks passed, with
+no engine/SQF errors. The actual dependency-absent run passes 11 checks. Retained
+combined warnings are 16 startup notices, 50 object-deletion notices and five
+absent-fixture-commander notifications. All 138 production inputs and the addon
+match Dispatch Dev1. Review supports merging the selector/capture, controller
+and dispatch stack together; it does not close a gameplay or sprint gate.
+
+The owner clarified Horde Interception's next increment: full horde activation,
+separate temporary allowance, developer-tuned size, town/permanent-site endpoints,
+arrival reinforcement/attack, and continued travel after Russian takeover.
+The source audit records mission-board, intel and strategic convoy callers.
+Interception implementation and its acceptance tests remain next work.

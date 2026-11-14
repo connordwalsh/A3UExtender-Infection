@@ -77,3 +77,16 @@ for their own manual tests.
 The town-patrol and military-administration choices above supersede the earlier
 pending questions. Their isolated implementations are recorded in the backlog;
 campaign acceptance remains open.
+
+
+14 November interception clarification: routes include towns and permanent sites.
+Spawn the entire interception horde together. The developer may choose and tune
+its size and use a separate temporary allowance even when the shared infected
+limit is full. This differs from the gradual arrivals approved for strategic
+major attacks; neither policy changes the other.
+
+Interception arrival clarification: first arrival still fails the task, and
+surviving infected reinforce an infected-held destination or attack its defenders.
+A Russian takeover during the march does not cancel the assignment; the horde
+continues toward the destination. Territory does not transfer merely on first
+entry: reinforcement/combat aftermath must remain distinct from task failure.
