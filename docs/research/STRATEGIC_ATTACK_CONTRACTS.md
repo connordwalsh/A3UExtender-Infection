@@ -91,7 +91,8 @@ a supply truck, aircraft, artillery or minefield.
 
 Redux routes, completed long walks, connected-player task presentation,
 rebuilding/competitive missions and saved-campaign transitions remain separate
-acceptance work. All strategic runtime checks in this document are NOT_RUN.
+acceptance work. Only the initial selector/credit/lifecycle checkpoint below has
+runtime evidence; the complete route matrix and campaign scenarios are NOT_RUN.
 
 ## Selector development checkpoint
 
@@ -116,9 +117,9 @@ native `getCityData` initializes all towns and must not be called as a getter;
 source review corrected that mistake before the first build. The new 41-case
 selector fixture covers permanent categories, ownership/readiness, native idle
 and town cooldown isolation, values/threats, route limits, HQ knowledge and
-unchanged tactical default candidates. It has not run yet.
+unchanged tactical default candidates. These cases pass in the checkpoint below.
 
-The first candidate is packed but runtime checks have not run. A direct
+The first candidate is packed and has an initial isolated engine checkpoint. A direct
 `startMajorAttack` prototype combines up to three native strength allowances into
 one finite queue (at most 192 basic infected), retaining the shared active cap.
 Town attacks have the native 200 fixed charge; other campaign attacks have 400.
@@ -137,7 +138,13 @@ accepts only success and failure. Completed attacks retain native rewards.
 Walking duration and the chosen population ceiling require campaign tuning.
 
 The focused fixture now has 59 selector, credit and initial lifecycle cases
-(70 including startup checks). Its first run is pending. Native dispatch,
+(70 including startup checks). The [initial focused report](../../evidence/sprint-3/major-initial-focused.json)
+passes all 70 checks on the [102-input candidate](../../evidence/sprint-3/major-initial-build.json)
+without engine/SQF Error records. Two earlier runs are rejected: one omitted
+native fixture globals and observed script termination before it completed;
+the second observed payment before the worker appended its new actor. Corrected
+observations now wait for the relevant engine/worker state without weakening
+the expected resource or actor counts. Native dispatch,
 offscreen simulation, direct mission adapters and expanded HQ/capture/reward
 regressions remain to implement or exercise. This candidate is not installed in
 the manual client, and native campaign attack selection is not wired to it yet.

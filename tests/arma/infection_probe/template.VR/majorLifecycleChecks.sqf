@@ -51,6 +51,7 @@ _wrong = ["major:credit",[_role],[4000,4500,0],0,100,"","attack",4,false,{true},
 ["major_credit_owner_bound",!(_wrong # 0) && {_wrong # 2 == "credit"}] call _check;
 A3I_majorGlobalOwner = "credit_test";
 terminate _creditScript;
+[{scriptDone _creditScript}] call _wait;
 _wrong = ["major:credit",[_role],[4000,4500,0],0,100,"","attack",4,false,{true},true,"credit_test"]
     call A3I_fnc_spawnGroup;
 ["major_stopped_worker_credit_refused",!(_wrong # 0) && {_wrong # 2 == "credit"}] call _check;
@@ -71,6 +72,9 @@ private _waitJob = {
     [{_job get "settled"}] call _wait;
     _job set ["releaseAt",time - 1];
     [{!((_job get "name") in A3I_majorAttacks)}] call _wait;
+    if (!(_job getOrDefault ["rewarded",false])) then {
+        [{!((_job get "taskType") in A3A_activeTasks)},3] call _wait;
+    };
     if (!isNil {_job get "taskDeleteScript"}) then {
         terminate (_job get "taskDeleteScript");
         if ((A3A_tasksData findIf {_x # 0 == _job get "taskId"}) != -1) then {
@@ -99,7 +103,8 @@ _job set ["emptyDeadline",time - 1];
 [_job] call _waitJob;
 ["major_no_force_cancels_without_reward",_job get "outcome" == "no_force"
     && {A3A_resourcesAttackOcc == 1} && {!(_job getOrDefault ["rewarded",false])}
-    && {A3A_tasksData isEqualTo []} && {!bigAttackInProgress} && {forcedSpawn isEqualTo []}] call _check;
+    && {A3A_tasksData isEqualTo []} && {!bigAttackInProgress} && {forcedSpawn isEqualTo []},
+    [_job get "outcome",A3A_resourcesAttackOcc,A3A_tasksData,A3A_activeTasks,bigAttackInProgress,forcedSpawn]] call _check;
 call _reset; [4,2] call _setLimits;
 _accepted = [_town,_source,3,0] call A3I_fnc_startMajorAttack;
 if !(_accepted # 0) exitWith {["major_live_accept",false,_accepted] call _check; [_savedCap,_savedContext] call _setLimits};
@@ -109,9 +114,10 @@ _job = A3I_majorAttacks get A3I_majorGlobalOwner;
     && {count (_job get "queue") == (_job get "planned") - 2}
     && {A3A_resourcesAttackOcc == -219}] call _check;
 private _first = (_job get "units") # 0; _first setDamage 1;
-[{_job get "paidActors" == 3},20] call _wait;
+[{_job get "paidActors" == 3 && {{alive _x} count (_job get "units") == 2}},20] call _wait;
 ["major_later_attackers_paid_in_debt",_job get "paidActors" == 3 && {A3A_resourcesAttackOcc == -229}
-    && {{alive _x} count (_job get "units") == 2}] call _check;
+    && {{alive _x} count (_job get "units") == 2},
+    [_job get "paidActors",A3A_resourcesAttackOcc,{alive _x} count (_job get "units")]] call _check;
 _job set ["endTime",time - 1]; [_job] call _waitJob;
 ["major_unreached_horde_no_free_victory",_job get "outcome" == "unreached"
     && {!(_job getOrDefault ["rewarded",false])} && {A3A_resourcesAttackOcc == -209}
