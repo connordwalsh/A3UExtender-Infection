@@ -14,7 +14,13 @@ bound. Headless transfer and client-origin behavior still require live tests.
 
 ## Settings and behavior
 
-CBA registers three server-controlled settings. The active limit defaults to
+The full-town increment adds a separate population allowance for every
+registered infected town, up to 200 each. The CBA settings below now apply only
+outside towns; no town can lend its allowance to another context. Aggregate
+statistics include town and non-town actors. See
+[TOWN_INFESTATIONS.md](TOWN_INFESTATIONS.md) for the current scope and validation.
+
+CBA registers three server-controlled settings. The outside-town active limit defaults to
 40, configurable from 1 to 48. The limit shared by groups from one location or
 event defaults to 12, configurable from 1 to 24. Diagnostic logging defaults off.
 These values are conservative development limits, not a completed performance
@@ -57,6 +63,7 @@ Call `[operation, arguments] call A3I_fnc_budget` on the server. Every response 
 | `remaining` | `[ticket]`, reconciles expiry and lowered limits first | Number of still-unbound slots; an expired/closed ticket is rejected |
 | `bind` | `[ticket, unit]` | `1`, or `0` for an already-bound actor |
 | `close` | `[ticket]` | Number of unused slots released |
+| `transfer` | `[closedTicket, destinationContext, localLimit]` | Living bindings moved; a transfer into or out of a town population is rejected |
 | `cancel` | `[ticket]` | Number of bound living actors deleted |
 | `release` | `[unit]`, normally called by the engine event handlers | Number of bindings released |
 | `stats` | `[]` | `[limit, living, pending, ticketCount, [[context, occupied], ...]]` |

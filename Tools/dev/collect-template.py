@@ -106,36 +106,72 @@ CONTROL_CHECKS = {
 }
 
 CITY_CHECKS = {
-    'city_route_retry_delay',
     'city_override_registered',
     'city_inactive_selection',
     'city_other_factions_delegate',
-    'city_size_support_selection',
-    'city_support_scales_count',
-    'city_minimum_patrol',
-    'city_frontline_doubles',
-    'city_ruined_groups',
-    'city_overlap_rejected',
+    'city_logistic_selection',
+    'city_logistic_floor_growth_cap',
+    'city_all_terrain_population_counts',
+    'city_support_does_not_scale_population',
+    'city_size_does_not_scale_population',
+    'city_invalid_population_rejected',
     'city_missing_data_rejected',
-    'city_skirmish_skip_events',
-    'city_skirmish_cleanup',
-    'city_capacity_keeps_visit_roster',
-    'city_uses_native_ownership_route',
+    'city_only_infected_ownership',
+    'city_frontline_keeps_population',
+    'city_ruined_groups',
+    'city_enemy_site_does_not_suppress',
+    'city_skirmish_does_not_suppress',
+    'city_nonhuman_civilians_do_not_suppress',
+    'city_pressure_fixture',
+    'city_unsafe_placement_retains_population',
+    'city_full_reserved_allowance',
+    'city_no_unregistered_allowance',
+    'city_full_population_without_casualties',
     'city_server_local_basics',
+    'city_shared_limit_still_enforced',
+    'city_town_transfer_refused',
+    'city_incoming_transfer_refused',
+    'city_uses_native_ownership_route',
     'city_bounded_patrol_route',
     'city_route_idempotent',
     'city_simulation_transition',
     'city_death_not_persistent',
-    'city_full_visit_arrives',
+    'city_no_within_visit_regeneration',
     'city_actual_patrol_movement',
     'city_clear_keeps_support_ownership',
+    'city_paired_events',
     'city_reentry_regenerates',
-    'city_ownership_stops_waiting',
+    'city_owner_change_preserves_existing',
     'city_cleanup_preserves_civilians',
+    'city_ownership_stops_waiting',
     'city_ruins_stay_infected_west',
-    'city_interrupted_cleanup',
+    'city_entire_large_population',
+    'city_simultaneous_towns',
+    'city_rotated_marker_spawn_bounds',
+    'city_spread_beyond_center',
+    'city_groups_stay_local',
+    'city_population_cannot_overfill',
+    'city_no_cross_town_transfer',
+    'city_simulation_independent',
+    'city_large_cleanup_releases_allowances',
+    'city_interrupted_creation_cleanup',
+    'city_retired_allowance_not_reusable',
+    'city_road_anchor_outside_center',
+    'city_rotated_ellipse_search',
+    'city_invalid_spawn_search',
     'city_no_unsafe_route_fallback',
+    'city_route_retry_delay',
     'city_human_route_untouched',
+    'city_ownership_hooks_registered',
+    'city_rejected_native_change_does_not_spawn',
+    'city_active_capture_starts_population',
+    'city_capture_handoff_retains_visit',
+    'city_native_support_change_starts_population',
+    'city_suspended_capture_waits_for_activation',
+    'city_suspended_capture_resumes_population',
+    'city_offscreen_capture_waits_for_visit',
+    'city_inactive_ownership_hooks_delegate',
+    'city_capture_handoff_rechecks_current_owner',
     'city_all_clean',
 }
 
@@ -208,6 +244,7 @@ COUNTERATTACK_CHECKS = {
     "counter_no_force_ends_without_charge", "counter_late_shortage_preserves_unpaid_queue",
     "counter_late_shortage_refunds_actual_births", "counter_recovery_remote_denied", "counter_all_clean",
     "counter_town_capture_no_saved_garrison", "counter_faction_defeat_cancels",
+    "counter_town_capture_starts_population",
     "counter_quarter_strength_retreat", "counter_hard_limit_64",
     "counter_approach_activates_garrisons", "counter_unspawned_defenders_block_capture",
     "counter_pending_native_roster_blocks_capture", "counter_active_handoff_reuses_existing_assets",
@@ -248,11 +285,11 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
         "assets_resolve", "conventional_pools_empty", "cleanup",
     } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
-                          "counterattacks": COUNTERATTACK_CHECKS}
+                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -295,7 +332,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -4,9 +4,22 @@ params ["_marker","_record"];
 if (!isServer || {!canSuspend} || {isRemoteExecuted && {remoteExecutedOwner != 2}}) exitWith {};
 private _center = getMarkerPos _marker;
 private _kind = _record get "kind";
+private _town = _kind == "City";
 private _outerRadius = ((([_marker] call A3A_fnc_sizeMarker) max 50) + 250) min 1000;
-_record set ["announced",true];
-[CBA_EVENT_SERVER_SPAWN_LOCATION,[_marker,_kind,true]] call A3A_fnc_triggerLocalEvent;
+private _began = diag_tickTime;
+private _populationReady = false;
+private _nextReport = diag_tickTime + 30;
+if (_town) then {
+    private _size = markerSize _marker;
+    private _roads = (_center nearRoads sqrt ((_size # 0)^2 + (_size # 1)^2)) apply {getPosATL _x};
+    _record set ["townRoads",_roads select {_x inArea _marker}];
+    diag_log format ["[INFECTION_TOWN] marker=%1 target=%2 phase=activate",_marker,_record get "populationTarget"];
+};
+// During a capture handoff the previous creator still owns location events.
+if (_record get "assets") then {
+    _record set ["announced",true];
+    [CBA_EVENT_SERVER_SPAWN_LOCATION,[_marker,_kind,true]] call A3A_fnc_triggerLocalEvent;
+};
 private _nextBatch = 0;
 private _previousSimulation = -1;
 while {spawner getVariable [_marker,2] != 2} do {
@@ -24,7 +37,7 @@ while {spawner getVariable [_marker,2] != 2} do {
     if (_owned && {_state == 0} && {_queue isNotEqualTo []} && {diag_tickTime >= _nextBatch}
         && {_record get "fault" == ""}) then {
         private _result = [_record get "context",_queue select [0,_record get "batchSize"],_center,0,_outerRadius,
-            _marker,"legacy",24,false] call A3I_fnc_spawnGroup;
+            _marker,"legacy",if (_town) then {200} else {24},false] call A3I_fnc_spawnGroup;
         private _count = 0;
         if (_result # 0) then {
             (_result # 1) params ["_group","_units"];
@@ -32,6 +45,7 @@ while {spawner getVariable [_marker,2] != 2} do {
             (_record get "groups") pushBack _group;
             _record set ["spawnedAny",true];
             _count = count _units;
+            _record set ["spawnedCount",(_record get "spawnedCount") + _count];
             _queue deleteRange [0,_count];
             spawner setVariable [_marker + "_A3I_pending",count _queue,true];
             if (_kind == "City") then {[_group,_marker] call A3I_fnc_patrolWaypoints} else {
@@ -47,7 +61,19 @@ while {spawner getVariable [_marker,2] != 2} do {
         if (A3I_budgetDiagnostics) then {
             diag_log format ["[INFECTION_PATROL] marker=%1 created=%2 pending=%3 reason=%4",_marker,_count,count _queue,_result # 2];
         };
-        _nextBatch = diag_tickTime + (if (_count > 0) then {15} else {5});
+        if (_town && {diag_tickTime >= _nextReport} && {_queue isNotEqualTo []}) then {
+            diag_log format ["[INFECTION_TOWN] marker=%1 target=%2 created=%3 pending=%4 reason=%5",
+                _marker,_record get "populationTarget",_record get "spawnedCount",count _queue,_result # 2];
+            _nextReport = diag_tickTime + 30;
+        };
+        // Towns fill immediately; only blocked placement/ownership/capacity retries
+        // wait. Controls preserve their existing 15-second arrival pacing.
+        _nextBatch = diag_tickTime + (if (_count > 0) then {if (_town) then {0} else {15}} else {5});
+    };
+    if (_town && {_owned} && {!_populationReady} && {_queue isEqualTo []}) then {
+        _populationReady = true;
+        diag_log format ["[INFECTION_TOWN] marker=%1 target=%2 created=%3 living=%4 phase=ready seconds=%5",
+            _marker,_record get "populationTarget",_record get "spawnedCount",{alive _x} count (_record get "units"),diag_tickTime - _began];
     };
     // Remember arrival before testing capture. A safely spawned approaching
     // defender outside the capture radius must not look like an empty control.
@@ -69,6 +95,7 @@ while {spawner getVariable [_marker,2] != 2} do {
     };
     _record set ["units",(_record get "units") select {!isNull _x}];
     _record set ["groups",(_record get "groups") select {!isNull _x}];
-    sleep 1;
+    sleep (if (_town && {_owned} && {_state == 0} && {_queue isNotEqualTo []} && {_record get "fault" == ""}
+        && {diag_tickTime >= _nextBatch}) then {0.05} else {1});
 };
 [_marker,_record] call A3I_fnc_cleanupSite;

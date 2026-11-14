@@ -45,11 +45,16 @@ private _group = createGroup [west,false];
 _group setVariable ["A3I_context",_context];
 private _units = [];
 private _reason = "";
+private _site = (missionNamespace getVariable ["A3I_sites",createHashMap]) getOrDefault [_marker,createHashMap];
+private _town = _site getOrDefault ["kind",""] == "City" && {_site getOrDefault ["context",""] == _context};
+private _townAnchor = [];
 if (isNull _group) then {_reason = "group_limit"} else {
     for "_index" from 0 to (_granted - 1) do {
         if !(call _allowed) exitWith {_reason = "inactive_site"};
         private _class = _classes # _index;
-        private _search = [_center,_minimum,_maximum,_class] call A3I_fnc_findSpawnPosition;
+        private _search = if (_town) then {
+            [_marker,_class,_townAnchor,_site get "townRoads"] call A3I_fnc_findCitySpawnPosition
+        } else {[_center,_minimum,_maximum,_class] call A3I_fnc_findSpawnPosition};
         if (_search # 0 isEqualTo []) exitWith {_reason = _search # 1};
         private _position = _search # 0;
         private _unit = objNull;
@@ -58,6 +63,7 @@ if (isNull _group) then {_reason = "group_limit"} else {
         isNil {
             private _hqMarker = missionNamespace getVariable ["respawnTeamPlayer", ""];
             if (!(call _allowed) || {!(_hqMarker in allMapMarkers)}) exitWith {_reason = "inactive_site"};
+            if (_town && {!(_position inArea _marker)}) exitWith {_reason = "town_bounds"};
             private _safety = [_position,_class,call A3I_fnc_spawnObservers,getMarkerPos _hqMarker] call A3I_fnc_positionSafety;
             if !(_safety # 0) exitWith {_reason = _safety # 1};
             private _remaining = ["remaining",[_ticket]] call A3I_fnc_budget;
@@ -98,6 +104,13 @@ if (isNull _group) then {_reason = "group_limit"} else {
                 _unit = objNull;
             };
             _units pushBack _unit;
+            if (_town) then {
+                _unit setVariable ["A3I_spawnPosition",+_position];
+                if (_townAnchor isEqualTo []) then {
+                    _townAnchor = +_position;
+                    _group setVariable ["A3I_patrolCenter",+_position];
+                };
+            };
         };
         if (isNull _unit) exitWith {};
         sleep 0.05;

@@ -1,0 +1,13 @@
+{
+  "status": "owner_approved_and_implemented",
+  "decision_date": "2026-11-14",
+  "minimum": 10,
+  "ceiling": 200,
+  "numerator": 400,
+  "subtracted_term": 200,
+  "growth_constant": 0.009039702474861144,
+  "growth_rule": "ln(11/7)/50, unchanged from the selected 180-cap proposal",
+  "integer_rounding": "nearest whole actor, positive halves upward",
+  "population_records": 49,
+  "matplotlib_version": "3.11.2"
+}

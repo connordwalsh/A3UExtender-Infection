@@ -19,8 +19,9 @@ while {time < _record get "endTime"} do {
         if (_record get "handoffDeadline" < 0) then {_record set ["handoffDeadline",time + 60]};
         // Native distance processing does not recreate a controller merely
         // because ownership changed while the marker remained spawned.
-        if (spawner getVariable [_target,2] == 0 && {!(_target in citiesX)}) then {
+        if (spawner getVariable [_target,2] == 0) then {
             private _kind = switch (true) do {
+                case (_target in citiesX): {"City"};
                 case (_target in airportsX): {"Airport"};
                 case (_target in milbases): {"Milbase"};
                 case (_target in (outposts + seaports)): {"Outpost"};

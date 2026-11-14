@@ -335,3 +335,64 @@ performance remain acceptance work. The next response audit records 27 pinned
 source files and identifies separate mixed-factory/support payment owners and
 no-force task/cleanup gaps. No campaign or sprint gate is closed. No Computer Use,
 client launch or Workshop publication was performed.
+
+## 14 November 2026 — Town population selection checkpoint
+
+Self-review confirms that `getCityData` stores population at index 0, distinct
+from vehicle count and both support fields. The approved one-per-three ratio
+replaces size/support/frontline count scaling and produces exact rounded totals,
+including partial final groups. Selection rejects invalid population data and
+non-infected ownership. Basic role selection and per-visit lifecycle remain intact.
+
+All 46 focused checks pass without engine/SQF Error records; 35 are town checks.
+The initial standalone attempt lacked campaign fixture globals and is rejected.
+The corrected fixture tests real casualties, queues, ownership and cleanup with
+four actors, and large-town roster calculations without spawning hundreds. The
+PBO and all 80 addon sources match the archived manifest; Python parser checks,
+PowerShell syntax and whitespace checks pass. The completed server was stopped.
+
+This is not dense-spawn acceptance. Activation policy awaits the owner's answer;
+the original active caps, pacing and routes still apply. Keep this feature branch
+unmerged until the remaining spawning work is implemented and verified. It is
+stacked on the paused counterattack feature, whose full regression is incomplete.
+The user's manual client was not controlled or restarted. No Computer Use occurred.
+
+## 14 November 2026 — Capture counterattacks and full town populations
+
+Self-review covers paid foot response selection, source ownership/combat checks,
+bounded staging, native distance activation and capture, partial/virtual garrison
+adoption, once-only accounting, cancellation and stopped-controller recovery.
+The town review covers the approved 400/200 shifted logistic with its unchanged
+coefficient, independent population allowances, complete activation, bounded
+outdoor placement/routes, ownership handoffs and native per-visit regeneration.
+The owner's final clarification retains native conventions for interrupted
+ownership changes; no special recapture refill or casualty reset is introduced.
+
+Validation: all 464 combined dedicated checks pass, including 51 counterattack
+and 67 town cases. The final focused town suite passes 78 checks and the final
+dependency-absent suite passes 11. A 200-actor town and 21-actor neighbor coexist
+with shared-budget actors; removal leaves no fixture actors, reservations or
+controllers. All 49 pinned Redux populations agree with the selected curve and
+the plotted artifacts. The native political ownership transaction and captured
+town activation are exercised separately.
+
+Two ownership-timing attempts were rejected because the fixture's local write
+was superseded by the native public ownership transaction. The corrected fixture
+uses native public writes, observes the current owner at handoff and passes in
+both focused and combined runs. The earlier interrupted counterattack regression
+remains incomplete evidence; the 453-check pre-handoff town regression is retained
+as a separate earlier candidate, not substituted for the final 464-check result.
+
+The strict collector records no engine/SQF Error records. Its 61 retained warnings
+include dependency animations/final-function notices, a mission dependency notice
+and 45 object-deletion messages. These are reviewed and preserved, not asserted
+to prove animation quality. The final PBO and all 83 addon inputs match the build
+manifest. Parser regressions, PowerShell syntax and whitespace checks pass.
+Completed dedicated servers were stopped by verified owned profile/process IDs.
+
+Integration decision: merge the counterattack and town increments. Synthetic
+navigation and injected arrivals do not certify Redux travel, connected-player
+visibility/JIP, saved campaigns, intercepted-message presentation or representative
+crowded-town performance. Tactical support, strategic attacks, missions and
+special creatures remain open. No campaign or sprint gate is closed. No Computer
+Use, manual-client restart or Workshop publication was performed.

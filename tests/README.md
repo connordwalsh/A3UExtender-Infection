@@ -125,7 +125,7 @@ all upstream preferences, fixed/weighted tiers, ordinary side delegation and
 Ultimate's initial-roster/ratio functions. The current suite also exercises combat
 initialization, damage observation, real rifle impacts, resource/garrison death
 and deletion accounting, atomic spawn reservations, setting changes and cleanup.
-A passing full run has 231 checks; the
+A passing current full run requires 464 checks; the
 dependency-absent run has 11. The installed Ultimate header must report 12.4.2.
 The full fixture uses a separate test-only addon that records task/support/
 aggression and original-init dispatch endpoints, and wraps the real vehicle
@@ -163,3 +163,11 @@ races, interrupted cleanup and the generated-control calendar reset. VR supplies
 no real roads, so road roster branches use explicit classification inputs. The
 fixture does not certify Redux road geometry, broad roaming or client notifications.
 See `docs/research/ROAD_CONTROLS.md` and `evidence/sprint-2/control-contract.json`.
+
+For focused population and town-lifecycle checks, build the Template fixture with
+`-Suite Towns` and collect its log with `--dependencies present --suite towns`.
+The 78 checks include all 49 terrain population inputs, a simultaneous 200-actor
+town and 21-actor neighbor, independent town allowances, geometry, simulation,
+cleanup, ownership handoffs and the installed political ownership transaction.
+They do not certify Redux navigation, connected-player observation or representative
+performance. See `evidence/sprint-2/town-infestation-ownership-focused.json`.

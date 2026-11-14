@@ -63,6 +63,8 @@ class CfgFunctions
             class controlRoster {};
             class runPatrol {};
             class cityRoster {};
+            class cityPopulationTarget {};
+            class findCitySpawnPosition {};
             class patrolWaypoints {};
             class administrationRoster {};
             class runAdministration {};
@@ -109,6 +111,7 @@ class CfgFunctions
             class originalCreateAIMilAdmin { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIMilAdmin.sqf"; };
             class originalRemoveMilAdmin { file = "\x\a3a\addons\scrt\Location\fn_location_removeMilAdmin.sqf"; };
             class originalMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };
+            class originalCityChangeSide { file = "\x\a3a\addons\core\functions\Base\fn_cityChangeSide.sqf"; };
             class originalMrkWIN { file = "\x\a3a\addons\core\functions\Base\fn_mrkWIN.sqf"; };
             class originalSurrenderAction { file = "\x\a3a\addons\core\functions\AI\fn_surrenderAction.sqf"; };
         };
@@ -134,6 +137,7 @@ class CfgFunctions
         {
             class scheduler { file = "\x\a3i\addons\core\overrides\fn_scheduler.sqf"; };
             class markerChange { file = "\x\a3i\addons\core\overrides\fn_markerChange.sqf"; };
+            class cityChangeSide { file = "\x\a3i\addons\core\overrides\fn_cityChangeSide.sqf"; };
             class mrkWIN { file = "\x\a3i\addons\core\overrides\fn_mrkWIN.sqf"; };
         };
         class AI

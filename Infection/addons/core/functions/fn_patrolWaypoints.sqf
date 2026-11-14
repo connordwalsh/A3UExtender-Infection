@@ -12,7 +12,9 @@ if (diag_tickTime < _group getVariable ["A3I_routeRetry",0]) exitWith {[]};
 _group setVariable ["A3I_routeRetry",diag_tickTime + 30];
 private _hq = missionNamespace getVariable ["respawnTeamPlayer",""];
 if !(_hq in allMapMarkers) exitWith {[]};
-private _center = getMarkerPos _marker;
+// Each town group patrols near its own spawn area instead of all groups
+// converging on the central 150m. The complete marker still bounds every point.
+private _center = _group getVariable ["A3I_patrolCenter",getMarkerPos _marker];
 private _radius = (([_marker] call A3A_fnc_sizeMarker) max 25) min 150;
 private _roads = _center nearRoads _radius;
 private _class = typeOf leader _group;

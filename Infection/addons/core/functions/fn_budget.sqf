@@ -6,6 +6,8 @@
    transfer: [closed ticket, context, localLimit=24] -> living units moved
    cancel: [ticket] -> living units deleted; release: [unit] -> slots released
    stats: [] -> [cap, living, pending, tickets, [[context, occupied], ...]]
+   Registered towns own their full population allowance, separate from the
+   shared non-town cap. Town allowances cannot be borrowed by another context.
    Every mutation is unscheduled, including calls from scheduled spawn scripts. */
 params [["_operation", "stats", [""]], ["_args", [], [[]]]];
 if (!isServer) exitWith {[false, [], "server_only"]};
@@ -18,6 +20,19 @@ _cap = (floor _cap) max 0 min 48;
 private _contextCap = missionNamespace getVariable ["A3I_contextLimit", 12];
 if !(_contextCap isEqualType 0 && {finite _contextCap}) then {_contextCap = 12};
 _contextCap = (floor _contextCap) max 0 min 24;
+private _townCaps = createHashMap;
+private _townAllowance = 0;
+{
+    private _site = _y;
+    if (_site getOrDefault ["kind",""] == "City" && {!(_site getOrDefault ["cleaned",false])}
+        && {_site getOrDefault ["context",""] == "site:" + _x}) then {
+        private _target = _site getOrDefault ["populationTarget",0];
+        if (_target isEqualType 0 && {finite _target} && {_target > 0} && {_target <= 200}) then {
+            _townCaps set [_site get "context",floor _target];
+            _townAllowance = _townAllowance + floor _target;
+        };
+    };
+} forEach (missionNamespace getVariable ["A3I_sites",createHashMap]);
 
 // Retire dead/null bindings and expired unfilled reservations before granting.
 // A stopped spawn script cannot retain capacity indefinitely. Bound live units
@@ -41,29 +56,35 @@ if (_operation != "release") then {
 };
 private _active = 0;
 private _pending = 0;
+private _sharedActive = 0;
+private _sharedPending = 0;
 private _contexts = createHashMap;
 private _ordered = [];
 {
     _y params ["_context", "_reserved", "_units"];
     _active = _active + count _units;
+    if !(_y param [7,false]) then {_sharedActive = _sharedActive + count _units};
     _contexts set [_context, (_contexts getOrDefault [_context,0]) + count _units];
     _ordered pushBack [_y # 6, _x];
 } forEach A3I_budgetRecords;
 // A reduced limit trims unfilled slots, preserving older reservations first. Existing
 // living units are retained; later binds cannot spend capacity removed here.
 _ordered sort true;
-private _free = (_cap - _active) max 0;
+private _free = (_cap - _sharedActive) max 0;
 {
     private _ticket = _x # 1;
     private _record = A3I_budgetRecords get _ticket;
     private _context = _record # 0;
-    private _contextFree = (((_record # 5) min _contextCap) - (_contexts getOrDefault [_context,0])) max 0;
-    private _remaining = (_record # 1) min _free min _contextFree;
+    private _town = _record param [7,false];
+    private _ceiling = if (_town) then {_townCaps getOrDefault [_context,0]} else {_contextCap};
+    private _contextFree = (((_record # 5) min _ceiling) - (_contexts getOrDefault [_context,0])) max 0;
+    private _remaining = (_record # 1) min _contextFree;
+    if (!_town) then {_remaining = _remaining min _free};
     if (_remaining < _record # 1) then {
         _record set [1,_remaining];
         if (_remaining == 0) then {_record set [4,true]};
     };
-    _free = _free - _remaining;
+    if (!_town) then {_free = _free - _remaining; _sharedPending = _sharedPending + _remaining};
     _pending = _pending + _remaining;
     _contexts set [_context, (_contexts getOrDefault [_context,0]) + _remaining];
     if (_remaining == 0 && {_record # 2 isEqualTo []}) then {A3I_budgetRecords deleteAt _ticket};
@@ -73,7 +94,7 @@ private _result = switch (_operation) do {
     case "stats": {
         private _names = (keys _contexts) select {_contexts get _x > 0};
         _names sort true;
-        [true, [_cap, _active, _pending, count A3I_budgetRecords, _names apply {[_x, _contexts get _x]}], ""]
+        [true, [_cap + _townAllowance, _active, _pending, count A3I_budgetRecords, _names apply {[_x, _contexts get _x]}], ""]
     };
     case "reserve": {
         if !([west] call A3I_fnc_isActive) exitWith {[false, ["",0], "inactive"]};
@@ -85,11 +106,19 @@ private _result = switch (_operation) do {
             && {floor _requested == _requested} && {_localLimit isEqualType 0}
             && {finite _localLimit} && {_localLimit >= 1} && {floor _localLimit == _localLimit})
             exitWith {[false, ["",0], "invalid_request"]};
-        private _limit = _localLimit min _contextCap;
+        private _town = _context in _townCaps;
+        private _ceiling = if (_town) then {_townCaps get _context} else {_contextCap};
+        private _limit = _localLimit min _ceiling;
+        private _domainMismatch = false;
         {
-            if (_y # 0 == _context) then {_limit = _limit min (_y # 5)};
+            if (_y # 0 == _context) then {
+                _limit = _limit min (_y # 5);
+                if ((_y param [7,false]) != _town) then {_domainMismatch = true};
+            };
         } forEach A3I_budgetRecords;
-        private _available = (_cap - _active - _pending) min (_limit - (_contexts getOrDefault [_context,0]));
+        if (_domainMismatch) exitWith {[false,["",0],"context_closed"]};
+        private _available = _limit - (_contexts getOrDefault [_context,0]);
+        if (!_town) then {_available = _available min (_cap - _sharedActive - _sharedPending)};
         private _granted = _requested min (_available max 0);
         if (_granted == 0) exitWith {[false, ["",0], "capacity"]};
         A3I_budgetSerial = A3I_budgetSerial + 1;
@@ -97,8 +126,9 @@ private _result = switch (_operation) do {
         // Store the caller's ceiling, not the current CBA setting or an older
         // ticket's effective limit. Those are reconciled on every operation;
         // retaining their old minimum would prevent later setting increases.
-        // context, unbound slots, units, lease deadline, closed, local ceiling, sequence
-        A3I_budgetRecords set [_ticket, [_context, _granted, [], diag_tickTime + 30, false, _localLimit min 24, A3I_budgetSerial]];
+        // context, unbound slots, units, lease deadline, closed, local ceiling, sequence, town domain
+        A3I_budgetRecords set [_ticket, [_context, _granted, [], diag_tickTime + 30, false,
+            _localLimit min (if (_town) then {200} else {24}), A3I_budgetSerial, _town]];
         [true, [_ticket, _granted], ""]
     };
     case "remaining": {
@@ -143,6 +173,10 @@ private _result = switch (_operation) do {
         if (_record isEqualTo []) exitWith {[false,0,"unknown_ticket"]};
         if (!(_record # 4) || {_record # 1 != 0}) exitWith {[false,0,"ticket_not_closed"]};
         if (_record # 0 == _context) exitWith {[true,0,"already_transferred"]};
+        // Town populations are finite per-visit rosters. No transfer may turn
+        // their dedicated allowance into shared capacity or add outside actors.
+        if ((_record param [7,false]) || {_context in _townCaps})
+            exitWith {[false,0,"town_population_fixed"]};
         private _limit = _localLimit min _contextCap;
         {if (_y # 0 == _context) then {_limit = _limit min (_y # 5)}} forEach A3I_budgetRecords;
         private _count = count (_record # 2);
@@ -191,7 +225,7 @@ private _result = switch (_operation) do {
     default {[false,[],"unknown_operation"]};
 };
 if (missionNamespace getVariable ["A3I_budgetDiagnostics", false] && {_operation != "stats"}) then {
-    diag_log format ["[INFECTION_BUDGET] operation=%1 result=%2 activeBefore=%3 pendingBefore=%4 cap=%5",
-        _operation, _result, _active, _pending, _cap];
+    diag_log format ["[INFECTION_BUDGET] operation=%1 result=%2 activeBefore=%3 pendingBefore=%4 sharedCap=%5 townAllowance=%6",
+        _operation, _result, _active, _pending, _cap, _townAllowance];
 };
 _result

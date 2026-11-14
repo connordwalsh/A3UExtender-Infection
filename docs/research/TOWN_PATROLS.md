@@ -4,6 +4,12 @@ Baseline: Ultimate 12.4.2, source
 `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`. The owner explicitly chose to preserve
 Ultimate's per-visit town patrol regeneration on 13 November 2026.
 
+Historical implementation and evidence: the owner has now selected a shifted
+logistic with minimum 10 and cap 200, full-town activation and no town skip
+exceptions. See [TOWN_INFESTATIONS.md](TOWN_INFESTATIONS.md) for the current
+implementation and verification boundary. The description below records the
+earlier fixed-ratio and small-patrol checkpoints.
+
 ## Selection and lifecycle
 
 The guarded `createAICities` adapter and scheduler route infected WEST towns to
@@ -11,10 +17,17 @@ the server. Ordinary factions and missing dependencies use an alias of the
 installed original. Towns share the transient patrol controller with road/field
 controls, but retain their own selection and ownership rules.
 
-Selection follows the native marker-size and town-support scaling, with at least
-one patrol. Normal towns use police pairs; frontline towns double the patrol
-count and select the existing tiered small groups. Ruined towns keep their
-unscaled special-forces role groups. These roles resolve to approved basic
+The owner replaced the original count policy on 14 November 2026: infected-held
+towns receive approximately one infected per three citizens. Selection reads
+population at index 0 of `A3A_townData` (`getCityData` builds population, vehicle
+count, government support, rebel support). It rounds population / 3 to the nearest
+whole actor. Missing, negative or nonnumeric population data rejects selection;
+zero population yields zero actors. Marker size and support do not change this
+total. The ratio is centralized for a later configurable setting.
+
+Normal towns use police roles; frontline towns select the existing tiered small
+groups, and ruined towns use special-forces roles, without changing the total.
+These roles resolve to approved basic
 infected. Unlike the native ruined-town branch, their runtime side stays WEST,
 as required for the infected Occupant faction.
 
@@ -63,6 +76,25 @@ bridge, ruin or courtyard. Terrain pathing and actual repeated patrol circuits
 remain acceptance work.
 
 ## Validation boundary
+
+The [population-selection report](../../evidence/sprint-2/town-population-selection.json)
+passes 46 focused checks (35 town cases and 11 startup/activation checks), with no
+engine/SQF Error records. It covers population-derived counts, invalid data,
+infected-only ownership, support/size neutrality, frontline/ruined role selection
+and the existing real-actor lifecycle. The real spawn fixture uses four actors;
+the 392-actor Chernogorsk case tests roster selection, not simultaneous spawning
+or performance. All 80 addon sources match its
+[build manifest](../../evidence/sprint-2/town-population-selection-build.json).
+
+This is a partial density checkpoint. The existing 40-global/12-location defaults,
+48/24 ceilings, pair/four arrival batches and center-biased patrol routes still
+apply. The owner is choosing between nearby-neighborhood activation and activating
+the entire town population. That decision must precede the dense-spawning change.
+The first standalone test omitted campaign fixture globals and was rejected;
+the corrected focused run passes with 19 retained startup/deletion warnings.
+
+The reports below validate the earlier small-patrol implementation, not the new
+density or its performance.
 
 The [dedicated report](../../evidence/sprint-2/town-contract.json) passes all 264
 combined checks, including 31 town cases. It exercises source-derived counts, source/dependency

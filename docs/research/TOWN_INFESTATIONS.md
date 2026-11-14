@@ -1,0 +1,159 @@
+# Full-town infected populations
+
+Owner decisions, 14 November 2026: use the proposed shifted logistic, activate
+the entire town population, raise the cap from 180 to 200 with numerator 400
+and subtracted term 200, and populate every infected-held town even during a
+skirmish or when an enemy-owned base lies inside its boundary. Continue without
+Computer Use. These decisions supersede the earlier fixed one-in-three target
+and the native town-patrol skip rules.
+
+## Population and lifecycle
+
+The model reads population from index 0 of Ultimate's `A3A_townData` and computes:
+
+```math
+Z(P)=\operatorname{round}\!\left(\max\!\left(10,
+\frac{400}{1+e^{-kP}}-200\right)\right),\qquad
+k=\frac{\ln(11/7)}{50}\approx0.009039702475.
+```
+
+The growth constant is unchanged from the selected proposal. Consequently the
+old comparison's calibration becomes approximately 44 infected at 50 citizens,
+not 40. The continuous ceiling is 200; the implementation also clamps to 200
+before rounding. Zero is a valid model input with the minimum of 10. Negative,
+missing, nonnumeric and nonfinite population values reject the town selection.
+The model is centralized for later customization; no new mandatory mod is added.
+
+| Town | Ultimate population | Infected target |
+| --- | ---: | ---: |
+| Olsha | 23 | 21 |
+| Tulga | 46 | 41 |
+| Dubrovka | 100 | 85 |
+| Pavlovo | 166 | 127 |
+| Zelenogorsk | 367 | 186 |
+| Elektrozavodsk | 603 | 198 |
+| Chernogorsk | 1,176 | 200 |
+
+![Approved logistic population curve](town-density/selected-logistic.png)
+
+The [vector plot](town-density/selected-logistic.svg),
+[all 49 town counts](town-density/selected-town-counts.csv), and
+[selected parameters](town-density/selected-model-parameters.json) are reproduced
+by `Tools/dev/plot-selected-town-density.py`. The counts match the engine fixture's
+49 pinned inputs. The earlier 180-cap two-model comparison remains historical.
+
+Only infected WEST ownership uses this controller. Other factions and missing
+dependencies retain the installed native creator. Support, marker size, frontline
+status and destruction do not scale the target. Frontline and ruined status
+continue to select the appropriate approved basic infected roles; no special
+or giant creature is in this generic population. Native skirmish, conflicting
+base ownership and nonhuman-civilian random skips no longer suppress infestation.
+
+On activation the controller creates the complete population in one continuous
+pass, in groups of at most 12. It yields briefly between actors and groups so
+the server can schedule other work; it does not wait for casualties, a
+neighborhood trigger or the old 15-second patrol interval. This is full-town
+activation, not a requirement to execute 200 creation calls in one engine frame.
+
+Unsafe or temporarily unavailable placements stay queued and retry after five
+seconds. Faulty role definitions stop the controller with a diagnostic. Counts
+are never discarded because a search failed. The normal native simulation
+states still apply: state 0 is active, state 1 suspends existing actors, and
+state 2 ends the visit and cleans up. Ownership loss cancels waiting births;
+existing actors remain until normal cleanup. Killed infected do not regenerate
+within the visit. A later visit starts with the complete population again.
+
+Both native ownership paths, `markerChange` and the support-driven
+`cityChangeSide`, start a missing town controller after the native transaction
+returns. The capture-response controller also handles this transition. The
+current owner, dependency state and distance state are checked again at handoff;
+an offscreen town waits for normal activation, and state 1 retains the queue
+until simulation resumes. An existing visit is reused without refilling its
+casualties. The previous creator retains its assets and location events.
+The owner explicitly directed default Ultimate conventions for ownership changing
+away and back during a visit; there is no additional recapture reset or refill.
+
+Town casualties use native legacy resource/support bookkeeping and never write
+a persistent garrison. Town ownership stays with Ultimate's support and ownership
+system. Town actors are explicitly non-spawners, so they do not activate or keep
+other locations alive by themselves. Civilians, traffic, vehicles and nearby
+base assets are outside this controller's cleanup ownership.
+
+## Capacity and placement
+
+Each registered town receives its own population allowance, up to 200. Multiple
+active towns each receive their full allowance. These slots cannot be borrowed
+by events, persistent sites or another town. Outside-town settings keep the
+existing shared 40-active/12-per-context defaults and 48/24 setting ceilings;
+their labels now explicitly state that they govern actors outside towns.
+This avoids retaining the old 12-unit town ceiling through a saved CBA setting.
+
+All actors still use the same atomic reservation, binding, death/deletion,
+expiry and cleanup machinery. Town tickets carry their budget domain. Transfers
+into or out of town populations are rejected. Removing a town controller removes
+its allowance and cancels every owned ticket, including partially created groups
+not yet returned to the controller. Aggregate statistics report total allowance,
+living actors, pending slots, tickets and per-context occupancy. The total
+allowance is the outside-town cap plus all registered town populations.
+
+Leader placement samples the complete marker, supporting rotated rectangles and
+ellipses. It prefers cached in-town road positions, then samples the marker area.
+Followers spawn within 50 metres of their group's anchor. Every search has at
+most 16 attempts and retains ground, water, slope, geometry, entity separation,
+HQ distance and observer distance/visibility checks. Placement is checked again
+atomically before creation. There is no unchecked fallback position.
+
+Each group patrols within the town near its own anchor, rather than every group
+converging on the central 150 metres. Route points remain at most 150 metres
+from that anchor, inside the town and validated against terrain/HQ constraints.
+Failed route searches retain the existing 30-second retry deadline.
+
+The server logs each town's target, completed activation count and elapsed time.
+Blocked activation logs pending counts and reasons at most every 30 seconds.
+These records are available even when detailed reservation logging is disabled.
+
+## Verification boundary
+
+The new focused fixture covers all 49 configured Redux population inputs, the
+200-actor town, simultaneous independent towns, shared-budget isolation, actual
+birth locations, movement, deaths, per-visit regeneration, ownership changes,
+simulation, route retries and interruption during creation. The full regression
+also exercises the unchanged non-town budget, sites, reinforcement and responses.
+
+The [first full regression](../../evidence/sprint-2/town-infestation-initial-regression.json)
+passes 453 checks on the 82-file population build, with no engine/SQF Error
+records and 56 retained dependency/deletion warnings. Its source and fixture
+bytes were snapshotted before the follow-up ownership edits; its hashes match
+the [initial build manifest](../../evidence/sprint-2/town-infestation-build.json).
+
+The [ownership-focused report](../../evidence/sprint-2/town-infestation-ownership-focused.json)
+passes 78 checks (67 town checks plus 11 startup/activation checks), with no
+engine/SQF Error records and 20 retained warnings. The 200-actor town and 21-actor
+neighbor completed activation in 23.434 seconds while two additional actors
+occupied the non-town budget. The large town used 17 groups. These timings are
+fixture observations, not a representative performance benchmark. The final
+state had no extra actors, groups, tickets or site records. All 83 addon source
+files and the PBO match the
+[ownership build manifest](../../evidence/sprint-2/town-infestation-ownership-build.json).
+The [updated dependency-absent report](../../evidence/sprint-2/town-infestation-ownership-dependencies-absent.json)
+passes all 11 checks.
+
+The ownership checks exercise active, suspended and offscreen handoffs,
+duplicate requests, native refusal, missing dependencies, and loss of ownership
+during the installed `cityChangeSide` transaction's five-second wait. The first
+two attempts at the latter check used a local-only owner change that was later
+overwritten by the native WEST broadcast. Diagnostics observed EAST immediately
+after the test write and WEST at handoff. The corrected fixture uses the same
+public ownership update as native campaign transactions and observes EAST at
+handoff, with no controller created. Those rejected attempts are not pass evidence.
+
+The [final combined report](../../evidence/sprint-2/town-infestation-contract.json)
+passes all 464 checks, including capture-to-town activation and the unchanged
+non-town lifecycle. It records no engine/SQF Error records and retains 61
+dependency/deletion warnings. All 83 production inputs and the PBO match the
+ownership build manifest. Python parser regressions, PowerShell syntax and
+repository whitespace checks pass. Completed test servers were stopped.
+A synthetic dedicated fixture cannot certify Redux
+street navigation, connected-player visibility, multiplayer/JIP, saves or
+representative crowded-town performance. The earlier small-patrol evidence in
+[TOWN_PATROLS.md](TOWN_PATROLS.md) does not establish this new behavior.

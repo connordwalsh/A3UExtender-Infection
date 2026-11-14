@@ -55,7 +55,7 @@ isNil {
     if !(_roster isEqualType []) exitWith {};
     if (_kind == "Control" && {_roster isEqualTo []}) exitWith {};
     if (_kind == "MilAdmin" && {_roster isEqualTo []}) exitWith {};
-    if (_kind == "City" && {_branch in ["inactive","invalid_town","invalid_town_data","overlap"]}) exitWith {};
+    if (_kind == "City" && {_branch in ["inactive","invalid_town","invalid_town_data"]}) exitWith {};
     A3I_siteSerial = A3I_siteSerial + 1;
     private _record = createHashMapFromArray [
         ["id",A3I_siteSerial], ["kind",_kind], ["context","site:" + _marker],
@@ -64,7 +64,9 @@ isNil {
         ["assets",_assets],
         ["announced",false], ["cleaned",false], ["fault",""],
         ["road",_road], ["branch",_branch], ["spawnedAny",false], ["captured",sideUnknown], ["batchSize",_batchSize],
-        ["building",_building], ["remainingDefenders",count _roster]
+        ["building",_building], ["remainingDefenders",count _roster],
+        ["populationTarget",if (_kind == "City") then {count _roster} else {0}],
+        ["spawnedCount",0], ["townRoads",[]]
     ];
     A3I_sites set [_marker,_record];
     spawner setVariable [_marker + "_A3I_pending",count _roster,true];
