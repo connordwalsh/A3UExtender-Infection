@@ -1,7 +1,8 @@
 # Horde Interception source audit
 
 Status: route selection and separate-budget foundation drafted on the feature
-branch. Its focused engine suite passes 78 checks; town regression is running. The task controller, full formation
+branch. It passes 78 focused, 78 town-regression and 11 actual missing-dependency
+checks. Full mission behavior is still incomplete. The task controller, full formation
 staging, march, arrival aftermath, settlement and public dispatch remain incomplete.
 
 ## Approved objective
@@ -103,5 +104,33 @@ scriptDone false immediately and true on a later scheduler step, then verifies
 that pending reservations and new grants are refused. No production change was
 made for that fixture correction. The rejected report is retained separately.
 The passing report is interception-foundation-focused.json. It retains 16
-startup/dependency notices and no engine/SQF errors. Town regression and actual
-missing-dependency checks are next; full campaign acceptance remains open.
+startup/dependency notices and no engine/SQF errors. The same artifact passes all 78 town-regression checks, preserving full town
+populations and independent shared limits. That run retains 20 warnings: 16
+startup notices and four object-deletion notices. The actual missing-dependency
+run passes 11 checks with seven startup notices. Neither reports engine/SQF
+errors. The reports are interception-town-regression.json and
+interception-dependencies.json. Full campaign acceptance remains open.
+
+
+## Next integration work
+
+Track members within the spawn transaction and hold the full formation before
+starting its march. A killed/deleted distinction is needed before the task can
+claim elimination; interrupted partial construction must be recoverable by exact
+context/ticket ownership. Request success must not silently accept a smaller
+horde after placement failure. The full formation must remain finite, with no
+casualty-driven replacement during marching or arrival aftermath.
+
+Native garrisonUpdate appends arriving classnames without a hard capacity clamp.
+The existing Infection adoptReinforcement helper deliberately requires paid
+shared-budget groups and available site capacity, so it cannot be reused blindly
+for this separately budgeted horde. Preserve ownership, real arrival, once-only
+roster/clearance updates and eventual cleanup when designing that handoff. Town
+visits retain the owner's default per-visit regeneration policy.
+
+The owner confirmed Russian automatic supply convoys must remain background
+military activity without player-facing convoy assignments. Native CONVOY currently
+combines task creation, rewards and vehicle/campaign behavior, so its strategic
+Russia path needs explicit separation. Do not simply refuse the constructor or
+redirect that activity into an infected task. This behavior is not implemented
+by the foundation branch.

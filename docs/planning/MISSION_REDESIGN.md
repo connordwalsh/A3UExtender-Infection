@@ -27,6 +27,9 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
 - The new catalog replaces all requested mission categories in Infection campaigns.
 - Requested combat missions target infected exclusively; Russian/gang target
   variants are not retained in this catalog.
+- Russian automatic supply convoys continue as background military activity,
+  without offering a player-facing convoy assignment. Explicit owner decision;
+  convoy dispatch must preserve their campaign behavior separately from tasks.
 - Supplies Seizure and Extraction deliveries accept Rebel HQ or Rebel-held
   permanent sites, not Rebel-held towns alone.
 - Supplies Seizure includes ammunition, fuel and repair trucks.

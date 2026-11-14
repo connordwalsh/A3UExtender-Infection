@@ -580,9 +580,26 @@
       }
     ]
   },
-  "runtime_status": "FOCUSED_PASSED_TOWN_RUNNING",
+  "runtime_status": "FOCUSED_AND_TOWN_AND_DEPENDENCIES_PASSED",
   "computer_use": "NOT_RUN",
   "focused_checks": 78,
   "focused_report": "interception-foundation-focused.json",
-  "rejected_fixture_report": "interception-dev1-worker-stop-rejected.json"
+  "rejected_fixture_report": "interception-dev1-worker-stop-rejected.json",
+  "town_report": "interception-town-regression.json",
+  "town_checks": 78,
+  "dependencies_report": "interception-dependencies.json",
+  "dependencies_checks": 11,
+  "warnings_review": {
+    "focused": {
+      "startup_dependency": 16
+    },
+    "town": {
+      "startup_dependency": 16,
+      "object_deletion": 4
+    },
+    "dependencies": {
+      "startup_dependency": 7
+    }
+  },
+  "production_changed_for_fixture_correction": false
 }

@@ -265,3 +265,11 @@ full shared usage. The stopped-worker fixture now observes engine termination
 before asserting refusal; the initial failed result is retained. All 141
 production inputs match the build. Town regression is running. Task/march/
 arrival settlement and public entry points remain unimplemented.
+
+
+Foundation follow-up: the same Interception Dev1 artifact passes 78 town
+regression checks and 11 actual dependency-absent checks, without engine/SQF
+errors. All 141 production inputs remain unchanged. The user also confirmed
+Russian supply convoys should remain background military activity without
+player-facing assignments. PR 27 remains draft while formation, task lifecycle,
+arrival handoff and complete dispatch are implemented and integrated.

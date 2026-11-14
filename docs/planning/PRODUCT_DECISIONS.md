@@ -90,3 +90,9 @@ surviving infected reinforce an infected-held destination or attack its defender
 A Russian takeover during the march does not cancel the assignment; the horde
 continues toward the destination. Territory does not transfer merely on first
 entry: reinforcement/combat aftermath must remain distinct from task failure.
+
+
+14 November Russian convoy clarification: keep Russia's automatic supply convoys
+as background military activity, without offering missions against Russian
+forces. The requested catalog remains infected-only; do not disable the Russian
+convoy activity to achieve that UI policy.

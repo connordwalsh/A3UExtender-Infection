@@ -639,3 +639,31 @@ its recorded candidates. No further production change was made during the run.
 Connected-player reward delivery, visual tasks, multiplayer, save/restart,
 Redux traversal and full campaign acceptance remain open. The other five mission
 replacements are not represented as finished by this merge. No Computer Use.
+
+
+## 14 November 2026 - Horde Interception foundation
+
+Reviewed bounded route planning, initial faction/endpoint restrictions, source
+safety and cooldowns, native HQ distance, land connectivity and exclusion of
+spawn/destination overlap. Source search is independent of vehicle spawn aliases.
+The 40-120 tuning follows the owner's authorization; it is not a performance
+acceptance claim. Full formation staging and march remain unimplemented.
+
+The budget retains existing shared/town behavior and adds a finite dedicated
+interception domain. Only a live preparing owner reserves new slots; later phases
+retire unused reservations, and living bindings cannot turn into shared capacity
+if the owner disappears. Population domains cannot transfer into each other.
+
+Interception Dev1 passes 78 focused checks (11 common, 23 shared-budget and 44
+interception), 78 town-regression checks and 11 actual missing-dependency checks.
+No engine/SQF errors. Focused warnings: 16 startup/dependency notices. Town
+warnings: the same 16 plus four object-deletion notices. Missing dependencies:
+seven startup notices. All 141 production inputs and the PBO match the manifest.
+The first fixture failed before engine script termination became observable;
+the corrected check records that timing and tests refusal after actual exit.
+The failed report remains separate. No production fix was needed for that issue.
+
+Keep PR 27 draft until formation, controller and dispatch integration are reviewed.
+No public mission flow yet creates an interception job. Connected clients,
+Redux travel, performance, saves and full campaign acceptance remain open.
+No Computer Use or manual-build replacement occurred.
