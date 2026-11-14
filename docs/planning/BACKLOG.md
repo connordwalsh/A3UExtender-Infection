@@ -11,18 +11,18 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
 | S1-1 | Infection scaffold and dependency checks | In progress | Built and loaded; isolated dependency-present/absent checks passed. Campaign setup acceptance remains open. |
 | S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
-| S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns, strongholds, routine repair, roaming and capture responses avoid conventional pools in the 464-check suite; tactical support/strategic/convoy routes remain open. |
+| S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns, strongholds, routine repair, roaming and capture responses and tactical support avoid conventional pools in the 534-check suite; strategic/convoy routes remain open. |
 | S2-1 | Occupied-site lifecycle | In progress | Six persistent types and transient controls/towns/administrations pass isolated spawning/cleanup/reentry checks, including full queued rosters and stopped-controller recovery. Redux campaign acceptance remains open. |
-| S2-2 | Foot patrols and road controls | In progress | Controls, towns and roaming pass 37, 67 and 37 dedicated cases within the 464-check suite. Towns preserve approved per-visit regeneration. Redux navigation, connected players and repeated patrol circuits remain open. |
-| S2-2a | Population-based town infestations | In progress | The approved 10–200 logistic, complete activation, all infected-held towns and ownership handoffs pass 67 town cases within the 464-check regression; 78 focused and 11 missing-dependency checks also pass. See TOWN_INFESTATIONS.md. Redux navigation, connected players and performance remain open. |
+| S2-2 | Foot patrols and road controls | In progress | Controls, towns and roaming pass 37, 67 and 37 dedicated cases within the 534-check suite. Towns preserve approved per-visit regeneration. Redux navigation, connected players and repeated patrol circuits remain open. |
+| S2-2a | Population-based town infestations | In progress | The approved 10–200 logistic, complete activation, all infected-held towns and ownership handoffs pass 67 town cases within the 534-check regression; 78 focused and 11 missing-dependency checks also pass. See TOWN_INFESTATIONS.md. Redux navigation, connected players and performance remain open. |
 | S2-3 | Capture and persistence | In progress | Queued defenders block capture; roster death/reentry contracts pass. Administration clearing uses the actual native ownership/support transaction, including after building destruction. Full campaign ownership/rewards/save/reload/recapture remain open. |
-| S3-1 | QRF and attack routing | In progress | Capture-triggered foot counterattacks pass 51 cases in the 464-check regression, including native distance activation, paid arrival handoff, town population startup and cleanup. Tactical QRF, strategic attacks and special creatures remain open; see CAPTURE_COUNTERATTACKS.md and TACTICAL_SUPPORT_CONTRACTS.md. |
+| S3-1 | QRF and attack routing | In progress | Capture-triggered foot counterattacks pass 51 cases in the 534-check regression, including native distance activation, paid arrival handoff, town population startup and cleanup. Tactical support passes 70 additional cases, including rebuilding policy and remote context. Connected-player rebuilding, strategic attacks and special creatures remain open; see CAPTURE_COUNTERATTACKS.md and TACTICAL_SUPPORT_CONTRACTS.md. |
 | S3-2 | Garrison repair | In progress | Routine paid foot arrivals and virtual repair pass 39 cases in the 340-check suite: original queue priority, cooldown/combat/ownership, active limits, roster handoff and cleanup. Redux travel, nearby players and restart persistence remain open. |
 | S3-3 | Conventional force disposition | In progress | Response source audit records remaining vehicle, support, task and payment contracts. Complete route disposition and Invader campaign regression remain open. |
 | S4-1 | Complete mission classification | Backlog | Manual and automatic triggers. |
 | S4-2 | Mission eligibility and common objectives | Backlog | Success/failure/timeout/no-spawn outcomes. |
 | S4-3 | Existing outbreak mission adaptations | Backlog | Survivor civilian configuration. |
-| S5-1 | Central spawn budget | In progress | Sites, controls/towns/administrations, routine repair, roaming and capture responses use the budget in the 464-check suite. Towns have separate non-transferable full-population allowances. Remaining response/mission callers, terrain/player validation and performance remain open. |
+| S5-1 | Central spawn budget | In progress | Sites, controls/towns/administrations, routine repair, roaming, capture responses and tactical support use the budget in the 534-check suite. Towns have separate non-transferable full-population allowances. Remaining response/mission callers, terrain/player validation and performance remain open. |
 | S5-2 | Special roles and escalation | Backlog | Largest types restricted to declared events. |
 | S5-3 | Two distinct outbreak mission patterns | Backlog | End-to-end solo and group evidence. |
 | S6-1 | Chernarus Redux site sweep | Backlog | Fix reproduced defects only. |
@@ -155,3 +155,25 @@ points without depending on a vehicle spawn marker. All 73 addon sources match
 the tested artifact. A 27-file response audit records the next capture/support
 work and its differing payment/task contracts. Campaign, Redux, multiplayer and
 save gates remain open; no Computer Use or client launch was performed.
+
+
+## Working session: 14 November 2026 - Tactical support integration
+
+Tactical foot support now retains native selection/locks and telemetry while
+paying for actual infected births. Direct rebuilding constructors use validated
+server policy, once-per-rebuild claims and a local execution handoff. Both pools,
+arrival/garrison transfer, search/retreat, refunds and stopped workers pass in
+the final 534-check dedicated regression. The focused suite passes 81 checks and
+the dependency-absent suite 11; all 96 addon sources match the tested PBO.
+
+The combined run exposed inherited remote execution context in spawned scripts;
+the handoff now enters CBA's local frame queue first. Source review also corrected
+the exact legacy mission argument guard. Failed/interrupted candidates remain
+separate from final acceptance evidence. The owner chose nearby walking origins,
+later town recapture, towns and permanent sites as origins, and native temporary
+resource debt for the next major-horde increment. That feature is on its own
+branch and does not enter this tactical integration.
+
+Connected-player rebuilding, Redux travel, ordinary Invader campaign behavior,
+multiplayer, performance and saves remain open. No sprint gate is closed and no
+Computer Use, manual-client restart or Workshop publication occurred.

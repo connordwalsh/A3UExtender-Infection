@@ -3,8 +3,8 @@
 Baseline: Ultimate 12.4.2 at
 `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`. The
 [source manifest](../../evidence/sprint-3/support-sources-12.4.2.json) pins this
-inspection. A foot-support prototype is now implemented on the tactical-support
-feature branch; engine validation is in progress. This is not the complete Gate 3
+inspection. A foot-support prototype is implemented and passes focused and combined
+dedicated engine checks. This is not the complete Gate 3
 route matrix or campaign acceptance.
 
 ## Selection and direct entry points
@@ -120,7 +120,9 @@ passes all 11 checks. These precede the rebuilding relay below.
 The final [81-check focused result](../../evidence/sprint-3/tactical-focused.json)
 and [11-check dependency-absent result](../../evidence/sprint-3/tactical-dependencies-absent.json)
 pass on the [96-input candidate](../../evidence/sprint-3/tactical-build.json).
-No engine/SQF Error records were found. Combined regression is in progress.
+The [combined regression](../../evidence/sprint-3/tactical-contract.json) passes all
+534 checks. No engine/SQF Error records were found; 66 retained warnings comprise
+16 startup/dependency notices and 50 object-deletion messages.
 The final candidate corrects the rebuilding execution context and the legacy
 argument guard, both covered by the focused run.
 
