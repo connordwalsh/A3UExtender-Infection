@@ -23,10 +23,13 @@ server validation, with exact refunds, arrival checks and interrupted-job recove
 Strategic attacks use nearby infected-held towns and permanent sites, one finite
 horde under shared limits, and native temporary resource debt. Competitive conquest
 requires a reachable horde and fails immediately if infected capture first.
-The completed isolated dedicated regression passes 684 checks on Ultimate 12.4.2,
+Town-liberation components add human survivors, nearby origin selection and a
+shared-limit horde whose ten-minute defense clock begins on physical arrival.
+The parent mission and native campaign entry remain in development.
+The completed isolated dedicated regression passes 752 checks on Ultimate 12.4.2,
 including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
 routine reinforcement, roaming, counterattacks, tactical support, town ownership
-handoffs, strategic attacks, competitive conquest and cleanup.
+handoffs, strategic attacks, competitive conquest, liberation components and cleanup.
 The missing-dependency suite passes 11 checks.
 Connected-player rebuilding, town-liberation and other mission adapters, special
 creatures, abandoned vehicles and save integration remain unfinished. Do not use this build for a
