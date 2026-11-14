@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "scope": "Strategic attack source contracts and owner decisions; no implementation or runtime acceptance",
+  "ultimate_version": "12.4.2",
+  "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "sources": [
+    {
+      "path": "core/functions/Base/fn_findAttackTargets.sqf",
+      "sha256": "4db7c4215c3673e754edef5b3448010497fa5c917fd2509d5402d55e19fa7be8"
+    },
+    {
+      "path": "core/functions/Base/fn_chooseAttack.sqf",
+      "sha256": "a43a6c893e212363f09c8f2cb84a44a6bf7e3f5c451f82eb6c19f1ae7aed9506"
+    },
+    {
+      "path": "core/functions/Base/fn_aggressionUpdateLoop.sqf",
+      "sha256": "6be297b523e6d1282c95754e3eb23fe23b8fe4b3928bf7cf0875240c04bfba2e"
+    },
+    {
+      "path": "core/functions/CREATE/fn_wavedAttack.sqf",
+      "sha256": "f17ab65646d3dbbc3eea46274d3f627fe458d68538da8170132799552d9be687"
+    },
+    {
+      "path": "core/functions/CREATE/fn_attackHQ.sqf",
+      "sha256": "054b5d7b953e9e3bf76e089577c3fe5dd43c1cbb5df2eae08541a436193d9b56"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAttackForceMixed.sqf",
+      "sha256": "fbea2540e62bc80a44eec99fb081e3b3b10766520d000ae4b8776caee7ecb3ee"
+    },
+    {
+      "path": "core/functions/CREATE/fn_townBattle.sqf",
+      "sha256": "e1bcf521654eaf7524a260f544ef6403d75404a8c2aac71c5807fc39cb273634"
+    },
+    {
+      "path": "core/functions/Missions/fn_CON_Outpost_Compet.sqf",
+      "sha256": "3462783873656773e51ff56ce090dfb9291f1524a723316d04aeeb469ae77d3b"
+    },
+    {
+      "path": "core/functions/Missions/fn_convoy.sqf",
+      "sha256": "ddb8e0df1ae8705ebbf775eb81062cc0e53a8d2a4faab4259cc7d1161faaa73e"
+    },
+    {
+      "path": "core/functions/init/fn_resourcecheck.sqf",
+      "sha256": "c306affdeb61926ad1ee58112b4d542dfecfeb66ce60dc482c8a55a1bd4d1def"
+    },
+    {
+      "path": "core/functions/Base/fn_zoneCheck.sqf",
+      "sha256": "bfcbd30ffab1fb8d12d769ab479a98849f2fa5171dac7b0b9e86c797a6ffe7d7"
+    },
+    {
+      "path": "core/functions/Base/fn_markerChange.sqf",
+      "sha256": "4b283a4359190453daa5179c07616869a7e161cfd0c56a853278d3bbc2e25f5a"
+    },
+    {
+      "path": "core/functions/Base/fn_cityChangeSide.sqf",
+      "sha256": "8c9db1effcafb60c655880663c63bd2216cee90b63e486d65330b6c31c0a9a46"
+    },
+    {
+      "path": "core/functions/Base/fn_scheduler.sqf",
+      "sha256": "8daab3180fa8a1d6e6cc2c438e8e86f074ed77fd0d10d570da75480cc3c663c5"
+    },
+    {
+      "path": "ultimate/functions/REINF/fn_simpleAttack.sqf",
+      "sha256": "c5ae566c1296b8cc7cee38ff97cc674dbfecf783672071eaa0612f579e9dca1e"
+    }
+  ]
+}

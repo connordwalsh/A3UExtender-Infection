@@ -1,0 +1,87 @@
+# Strategic infected attack follow-up
+
+Baseline: Ultimate 12.4.2, commit
+`c7c8247672ed5e7d4aa317d47efb371c41de4e7d`. The
+[source manifest](../../evidence/sprint-3/strategic-sources-12.4.2.json)
+pins the inspected files. This records contracts for the next S3 increment;
+strategic infected attacks are not implemented or accepted by this audit.
+
+## Owner decisions
+
+On 14 November the owner selected attacks launched only from infected-held
+locations within walking range. Aircraft, detached staging spawns and distant
+long marches must not make an otherwise unreachable target eligible. The owner
+also explicitly allowed later attacks to retake secured towns, separate from
+immediate capture counterattacks. The infected side's strategic supply convoy
+therefore needs a walking town-recapture replacement. Invader routes retain
+their ordinary behavior.
+
+## Target selection and payment
+
+`findAttackTargets` starts from airports and a carrier, filters using air range,
+accounts for flyover threat and separately counts land-capable bases. Its city
+shortcut selects supply-convoy bases. Simply filtering its final result cannot
+fully implement a foot campaign: valid nearby ground origins can be absent from
+the original list. Preserve target value/threat rules where applicable while
+replacing the origin/range/route rules and removing carrier/flyover assumptions.
+HQ eligibility still depends on the attacking side's accumulated HQ knowledge.
+
+`aggressionUpdateLoop` calls `chooseAttack` when attack resources are positive and
+no major attack is active. A false result applies a pacing penalty. Positive is
+not the same as enough resources to fund a whole attack: native `chooseAttack`
+debits 400 before a real HQ or waved attack and 200 before a supply convoy, then
+the mixed factory debits actual forces separately. Native strategic resources
+can enter debt. The foot adapter must resolve that payment contract explicitly;
+combining native upfront charges with the current affordable-birth checks could
+produce an empty attack. A refused or zero-force attack must not award a free
+defence victory, leave a task open or strand global attack flags.
+
+Unobserved enemy-vs-enemy attacks use an alternate simulation branch. It debits
+defence and attack resources, flips ownership, then adds already-paid saved
+roles. Apply the owner's walking-source restriction before either real or
+simulated launch. Keep virtual roster payment distinct from paid live arrivals.
+
+## Lifecycle owners
+
+| Entry | Native responsibilities that need explicit treatment |
+| --- | --- |
+| `chooseAttack` | Target/ownership checks; town, HQ, real-wave and simulated dispatch; fixed charges; global attack flags; Boolean result consumed by the aggression loop. |
+| `wavedAttack` | Forced target activation; task or enemy-vs-enemy notification; up to three waves from the normal selector; separate aircraft and artillery; capture, below-25-percent defeat and 900-second wave deadlines; minefield on failure; rewards, return-to-base and flag cleanup. |
+| `attackHQ` | Forced HQ activation; defence task; UAV and artillery calls; player-scale preparation delay; original Petros object; below-33-percent defeat and 900-second deadline; rewards, both attack flags and cleanup. |
+| `CON_Outpost_Compet` | May run through the HC scheduler; chooses an air origin and starts `wavedAttack` directly, passing two/four/six as the wave count. Its own conquest task is independent. The normal three-wave cap does not protect this caller. |
+| `resourcecheck` -> `townBattle` | A separate town-liberation skirmish triggered by civilian support. Uses a nearby outpost, survivor/VIP, vehicle/scenery effects, a preparation phase, a mixed force, support changes, rescue/reward conditions and eventual cleanup. It is not the newly approved later town-recapture attack. |
+| `ultimate/REINF/simpleAttack` | Passes through the mixed factory's four-field return, defaults to Invaders and accepts an explicit side. Caller ownership of returned groups must remain clear. |
+
+Replacing only `createAttackForceMixed` is insufficient: waves independently
+create attack helicopters and later minefields. The native mixed land branch
+also treats an empty vehicle array as failure despite any returned infantry.
+Foot spawning needs one payment/cleanup owner and explicit terminal outcomes.
+
+Major attacks must claim and release only their own forced-spawn/task/global
+state. Source loss, third-party capture, moved HQ, Petros replacement/death,
+insufficient force, timeout and stopped-script recovery need separate cases.
+Travel time for foot forces must be included in bounded deadlines; the native
+airborne/vehicle timing is not evidence of an achievable walking journey.
+
+## Town ownership boundary
+
+Native `zoneCheck` can request an enemy capture when attackers outnumber local
+defenders by more than three to one. `markerChange` handles the transaction;
+the existing Infection handoff then starts the appropriate town population.
+Town political ownership is also processed by `resourcecheck`/`cityChangeSide`.
+Exercise those paths together; do not silently add a new support reset or lock
+town ownership. The owner's existing instruction retains Ultimate conventions
+for town ownership changes and per-visit population regeneration.
+
+## Required evidence
+
+Test eligible and unreachable targets, source ownership and readiness changes,
+both real and simulated dispatch, task/flag ownership, every no-force outcome,
+exact costs/refunds, wave caps, physical arrival and native capture, paid garrison
+handoff, HQ/Petros changes and interrupted cleanup. Include normal Invader and
+inactive-template delegation. Confirm the town-recapture adapter cannot produce
+a supply truck, aircraft, artillery or minefield.
+
+Redux routes, completed long walks, connected-player task presentation,
+rebuilding/competitive missions and saved-campaign transitions remain separate
+acceptance work. All strategic runtime checks in this document are NOT_RUN.

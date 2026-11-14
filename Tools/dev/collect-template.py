@@ -253,6 +253,80 @@ COUNTERATTACK_CHECKS = {
 }
 
 
+TACTICAL_CHECKS = {
+    'tactical_rebuild_local_server_context',
+    'tactical_overrides_registered',
+    'tactical_registry_only_foot',
+    'tactical_invader_registry_preserved',
+    'tactical_ordinary_registry_preserved',
+    'tactical_absent_registry_preserved',
+    'tactical_native_neighbor_cells',
+    'tactical_other_routes_delegate',
+    'tactical_conventional_requests_refused',
+    'tactical_refusal_preserves_foreign_lock',
+    'tactical_legacy_signature_refused',
+    'tactical_scheduled_required',
+    'tactical_invalid_requests',
+    'tactical_defeated_rejected',
+    'tactical_actual_foot_navigation',
+    'tactical_disconnected_rejected',
+    'tactical_distance_bounded',
+    'tactical_no_funds_no_charge',
+    'tactical_occupied_target_finds_nearby_ground',
+    'tactical_native_selection_foot',
+    'tactical_native_spend_and_strike',
+    'tactical_air_target_not_selected',
+    'tactical_native_artillery_no_force',
+    'tactical_request_waits_for_lock',
+    'tactical_delayed_request_no_prepayment',
+    'tactical_source_claim_blocks_second',
+    'tactical_budgeted_paid_basics',
+    'tactical_approach_moves',
+    'tactical_no_remote_capture',
+    'tactical_later_birth_paid_once',
+    'tactical_pending_defenders_block_capture',
+    'tactical_arrival_requests_native_capture',
+    'tactical_arrival_starts_search',
+    'tactical_known_enemy_keeps_search',
+    'tactical_search_ends_and_refunds',
+    'tactical_direct_air_foot_estimate',
+    'tactical_direct_attack_pool_once',
+    'tactical_attack_refunds_living_only',
+    'tactical_direct_land_foot_once',
+    'tactical_mixed_paid_pool_refused',
+    'tactical_attack_virtual_adoption',
+    'tactical_adoption_not_repeated',
+    'tactical_attack_live_adoption',
+    'tactical_adopted_death_updates_roster',
+    'tactical_adopted_cleanup_no_refund',
+    'tactical_rebuild_requires_active_mission',
+    'tactical_rebuild_rechecks_owner',
+    'tactical_rebuild_position_bounded',
+    'tactical_rebuild_internal_remote_denied',
+    'tactical_rebuild_forged_player_denied',
+    'tactical_rebuild_nearest_side_rechecked',
+    'tactical_rebuild_server_sizes_and_pays',
+    'tactical_rebuild_single_attempt',
+    'tactical_rebuild_claim_release_keeps_qrf',
+    'tactical_rebuild_new_cycle',
+    'tactical_source_loss_cancels',
+    'tactical_faction_loss_cancels',
+    'tactical_dependency_loss_cancels',
+    'tactical_stopped_controller_recovers',
+    'tactical_exact_quarter_retreat',
+    'tactical_hard_limit_64',
+    'tactical_no_force_no_charge',
+    'tactical_budget_rounds_down',
+    'tactical_three_allowance_ceiling',
+    'tactical_late_shortage_unpaid',
+    'tactical_late_shortage_actual_refund',
+    'tactical_combat_pauses_births',
+    'tactical_combat_clear_resumes',
+    'tactical_recovery_remote_denied',
+    'tactical_all_clean',
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -283,13 +357,13 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
-                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS}
+                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -332,7 +406,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

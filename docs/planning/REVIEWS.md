@@ -396,3 +396,34 @@ visibility/JIP, saved campaigns, intercepted-message presentation or representat
 crowded-town performance. Tactical support, strategic attacks, missions and
 special creatures remain open. No campaign or sprint gate is closed. No Computer
 Use, manual-client restart or Workshop publication was performed.
+
+## 14 November 2026 - Tactical foot support
+
+Self-review covers native selection and shared lock ownership, infected-only
+registry filtering, direct constructor routing, bounded source/destination search,
+both resource pools, exact birth/refund transactions, search and retreat rules,
+arrival-gated capture, mixed-pool rejection and active/virtual garrison handoff.
+Rebuilding review follows both installed client callbacks through sender validation,
+server-computed cost, active-mission ownership and once-per-rebuild claims.
+
+Final validation: 534 combined dedicated checks, 81 focused checks and 11 checks
+without zombie dependencies pass. The combined result has no engine/SQF Error
+records. Its 66 retained warnings comprise 16 startup/dependency notices and 50
+object-deletion messages. All 96 addon sources and the candidate PBO match the
+archived manifest. The three parser regressions, PowerShell parsing and whitespace
+checks pass. Completed tactical servers were stopped by verified owned process
+and profile identifiers.
+
+The initial combined candidate failed the remote-context check: `spawn` preserves
+the remote caller. CBA's local next-frame queue fixes the internal worker entry;
+the final engine check observes remote ingress then local callback and worker.
+A subsequent run was deliberately interrupted to correct a source-review defect
+in the five-argument mission guard. The final fixture uses the installed
+position-first signature. Earlier destination/search fixture corrections and
+rejected evidence are documented in TACTICAL_SUPPORT_CONTRACTS.md.
+
+Integration decision: merge the scoped tactical increment. The connected-player
+positive relay, complete rebuilding mission, Redux movement, ordinary Invader
+campaign behavior, multiplayer observation/JIP and saves are still unverified.
+Strategic attacks and mission adaptations remain separate work. No sprint gate
+is closed. No Computer Use, manual-client restart or Workshop publication occurred.

@@ -3,8 +3,9 @@
 Baseline: Ultimate 12.4.2 at
 `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`. The
 [source manifest](../../evidence/sprint-3/support-sources-12.4.2.json) pins this
-inspection. This is preparation for the next S3 increment, not an implemented
-support policy or the complete Gate 3 route matrix.
+inspection. A foot-support prototype is implemented and passes focused and combined
+dedicated engine checks. This is not the complete Gate 3
+route matrix or campaign acceptance.
 
 ## Selection and direct entry points
 
@@ -37,7 +38,10 @@ refusal; filtering the support registry alone cannot protect them.
 
 Two mission callers retain an older five-argument `createSupport` form:
 `RES_Deserters` and `RES_Refugees`. The current worker expects eight arguments
-with the support type first and side second. The deserter condition also compares
+with the support type first and side second; the old form is
+`[position, count, types, side, reveal]`. Infection rejects that old form without
+guessing a replacement, while ordinary sides retain the original dispatch.
+The deserter condition also compares
 the same troop count with half itself, rather than counting casualties. These
 are mission-audit defects, not a reason to infer an undocumented old signature
 or silently change ordinary Invader behavior in the support adapter.
@@ -81,3 +85,80 @@ support telemetry, duplicate suppression and empty final controller state.
 Keep actual native selection/lock behavior in the fixture where possible.
 Redux travel, connected-player observation, full rebuilding missions and warning
 wording remain separate campaign acceptance scenarios.
+
+## Prototype implementation
+
+The adapter keeps native initialization, target weighting, threat budgets and
+shared call-lock selection. Infection's registry contains only QRFLAND; direct
+conventional createSupport requests return no support. The two direct rebuilding
+constructors both dispatch to the same foot worker. Ordinary factions and missing
+dependency cases delegate to installed originals.
+
+Each job selects a safe land source within 2 km, claims its native one-minute
+idle period, and plans basic infected at 10 resources each. Planning respects
+the caller's exact allowance, three native vehicle allowances, current funds
+and a 64-actor ceiling. Actual births debit the selected pool; estimates populate
+native spend/strike history without prepayment. Four-actor batches share the
+non-town budget and stage at 15-second intervals for at most 600 seconds.
+
+The worker uses native QRF search/retreat thresholds and an 1800-second lifetime
+after its requested delay. Arrival and outstanding defenders guard native capture
+requests. A final 60-second handoff window admits only arrived, paid groups into
+eligible persistent garrisons. The shared adoption contract now accepts uniformly
+paid attack or defence groups; mixed pools are refused. Cleanup owns only actors
+still in the response context, waits for observers and refunds healthy births
+once. Stopped workers use the same recovery path.
+
+The dedicated fixture exercises real native initialization, support selection,
+budget calculation and artillery exclusion. Ordinary constructor endpoints are
+recorded, navigation is synthetic, and arrival/deadline changes are injected.
+The [server-side focused checkpoint](../../evidence/sprint-3/tactical-server-focused.json)
+passes 70 checks on the [92-input candidate](../../evidence/sprint-3/tactical-server-build.json).
+Its [missing-dependency check](../../evidence/sprint-3/tactical-server-dependencies-absent.json)
+passes all 11 checks. These precede the rebuilding relay below.
+
+The final [81-check focused result](../../evidence/sprint-3/tactical-focused.json)
+and [11-check dependency-absent result](../../evidence/sprint-3/tactical-dependencies-absent.json)
+pass on the [96-input candidate](../../evidence/sprint-3/tactical-build.json).
+The [combined regression](../../evidence/sprint-3/tactical-contract.json) passes all
+534 checks. No engine/SQF Error records were found; 66 retained warnings comprise
+16 startup/dependency notices and 50 object-deletion messages.
+The final candidate corrects the rebuilding execution context and the legacy
+argument guard, both covered by the focused run.
+
+Rejected attempts exposed two distinct destination issues: the synthetic road
+lookup initially omitted neighboring cells, and a precise target could make the
+first nearby point fail occupied-entity clearance. The fixture now uses native
+`addToNavCells`; production tries at most 16 outdoor points within 50 metres.
+An erroneous expected-check entry and missing hostile-side setup were also
+corrected in the fixture. The search test now verifies enemy knowledge before
+asserting that fighting continues. Rejected runs are not acceptance evidence.
+
+The first combined run exposed that `spawn` preserves remote execution context:
+a valid rebuilding relay would therefore fail the internal local-server guard.
+The relay now enters CBA's next-frame queue before spawning its scheduled worker.
+The engine check verifies remote ingress followed by local frame and local worker
+contexts. A subsequent combined run was deliberately interrupted after source
+review found the old five-argument guard at the wrong index. Its partial results
+are not acceptance evidence; the final fixture uses the exact installed call form.
+
+## Rebuilding client-to-server handoff
+
+The HQ map callback and hover-menu callback run rebuilding on the requesting
+client. A server-only constructor would silently refuse these calls. Named
+`REBUILD_QRF_` constructor requests now identify the matching rebuild site and
+relay only that site, position and requesting player to the server. The server
+validates the sender's ownership of a connected Rebel player, known site and
+50-metre position limit, then allows up to five seconds for the native public
+rebuild flag to arrive. A local server worker rechecks ownership, active mission
+and the nearest enemy faction, and recomputes the native allowance from server
+war level and costs. Client amounts and support names are not trusted.
+
+Each active rebuild permits one response attempt. A shared watchdog releases
+the claim when the native rebuild flag clears; an already launched response
+keeps its normal tactical lifecycle. Hosted callers use the same policy locally.
+Other faction constructors retain their originals. Dedicated tests cover policy,
+costs, duplicate attempts and rejected ingress; a connected-player relay and the
+complete delivery mission remain unverified without that multiplayer scenario.
+
+The next policy/lifecycle audit is [strategic attacks](STRATEGIC_ATTACK_CONTRACTS.md).

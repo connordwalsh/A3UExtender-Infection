@@ -56,6 +56,9 @@ class CfgFunctions
             class originalPatrolReinf { file = "\x\a3i\tests\contracts\fn_originalPatrolReinf.sqf"; };
             class originalReinforcementsAI { file = "\x\a3i\tests\contracts\fn_originalReinforcementsAI.sqf"; };
             class originalAAFroadPatrol { file = "\x\a3i\tests\contracts\fn_originalAAFroadPatrol.sqf"; };
+            class originalCreateSupport { file = "\x\a3i\tests\contracts\fn_originalCreateSupport.sqf"; };
+            class originalSUPQRFLand { file = "\x\a3i\tests\contracts\fn_originalSUPQRFLand.sqf"; };
+            class originalSUPQRFAir { file = "\x\a3i\tests\contracts\fn_originalSUPQRFAir.sqf"; };
             class originalSingleAttack { file = "\x\a3i\tests\contracts\fn_originalSingleAttack.sqf"; };
             class originalCreateAIResources { file = "\x\a3i\tests\contracts\fn_originalCreateAIResources.sqf"; };
             class originalCreateAIOutposts { file = "\x\a3i\tests\contracts\fn_originalCreateAIOutposts.sqf"; };

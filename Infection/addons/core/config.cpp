@@ -55,6 +55,15 @@ class CfgFunctions
             class startCounterattack {};
             class runCounterattack {};
             class counterattackWatchdog {};
+            class tacticalSources {};
+            class startTacticalSupport {};
+            class requestTacticalSupport {};
+            class runTacticalSupport {};
+            class tacticalWatchdog {};
+            class routeRebuildSupport {};
+            class receiveRebuildSupport {};
+            class rebuildSupport {};
+            class rebuildSupportWatchdog {};
             class startSite {};
             class runSite {};
             class cleanupSite {};
@@ -102,6 +111,10 @@ class CfgFunctions
             class originalReinforcementsAI { file = "\x\a3a\addons\core\functions\CREATE\fn_reinforcementsAI.sqf"; };
             class originalAAFroadPatrol { file = "\x\a3a\addons\core\functions\CREATE\fn_AAFroadPatrol.sqf"; };
             class originalSingleAttack { file = "\x\a3a\addons\core\functions\CREATE\fn_singleAttack.sqf"; };
+            class originalInitSupports { file = "\x\a3a\addons\core\functions\Supports\fn_initSupports.sqf"; };
+            class originalCreateSupport { file = "\x\a3a\addons\core\functions\Supports\fn_createSupport.sqf"; };
+            class originalSUPQRFLand { file = "\x\a3a\addons\core\functions\Supports\fn_SUP_QRFLand.sqf"; };
+            class originalSUPQRFAir { file = "\x\a3a\addons\core\functions\Supports\fn_SUP_QRFAir.sqf"; };
             class originalCreateAIResources { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIResources.sqf"; };
             class originalCreateAIOutposts { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIOutposts.sqf"; };
             class originalCreateAIMilbase { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIMilbase.sqf"; };
@@ -143,6 +156,13 @@ class CfgFunctions
         class AI
         {
             class surrenderAction { file = "\x\a3i\addons\core\overrides\fn_surrenderAction.sqf"; };
+        };
+        class Supports
+        {
+            class initSupports { file = "\x\a3i\addons\core\overrides\fn_initSupports.sqf"; };
+            class createSupport { file = "\x\a3i\addons\core\overrides\fn_createSupport.sqf"; };
+            class SUP_QRFLand { file = "\x\a3i\addons\core\overrides\fn_SUP_QRFLand.sqf"; };
+            class SUP_QRFAir { file = "\x\a3i\addons\core\overrides\fn_SUP_QRFAir.sqf"; };
         };
         class Garrison
         {
