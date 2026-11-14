@@ -491,6 +491,10 @@ the installed WBK faction declaration. Cleanup retains the rescuer's group.
 All 79 focused checks and 11 dependency-absent checks pass on the 122-input
 candidate. Production and collected fixture hashes match. Three parser tests
 pass. Rejected fixture attempts and the evidence limitations are recorded in
-TOWN_LIBERATION.md. The combined 752-case regression is running. The PR stays
+TOWN_LIBERATION.md. The combined 752-case regression passes with no engine/SQF
+Error records; all 122 production and 184 collected input hashes match. Its 86
+startup/dependency, object-deletion and absent-target warnings are retained and
+reviewed in the research record. The completed server was stopped by verified
+process/profile identity. The PR stays
 draft: the parent controller, native settlement/dispatch, pending no-origin
 decision, connected-player interaction and full mission acceptance remain open.
