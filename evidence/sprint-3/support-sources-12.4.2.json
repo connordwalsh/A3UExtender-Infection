@@ -63,6 +63,22 @@
     {
       "path": "core/functions/Missions/fn_RES_Refugees.sqf",
       "sha256": "247c76283b7467b20d6f73c6c9e847f60b3a1627566e88fe374e5fdca5db6c53"
+    },
+    {
+      "path": "core/functions/Pathfinding/fn_addToNavCells.sqf",
+      "sha256": "1bb8cba8683752a83f6989eb9cc14219208585e219b98e3863866e63f6294533"
+    },
+    {
+      "path": "core/functions/Pathfinding/fn_getNearestNavPoint.sqf",
+      "sha256": "d056ad5527b9a2b3d726c2fea77f84ff1a92fe15c92c3eb9981173d860985174"
+    },
+    {
+      "path": "scrt/UI/fn_ui_hqTabEventHandler.sqf",
+      "sha256": "1ce8a0c4b5a6775e600220090a3a9a1e91b09bd4600699648b8240a057ba7751"
+    },
+    {
+      "path": "ultimate/plugins/dynamic_hover_menu/functions/fnc_doRebuildAssets.sqf",
+      "sha256": "8559346df16fb3607913e85c30a5c08deaacb923ef69fe335b4fe078383f6c7e"
     }
   ]
 }

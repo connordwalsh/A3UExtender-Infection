@@ -109,4 +109,35 @@ once. Stopped workers use the same recovery path.
 The dedicated fixture exercises real native initialization, support selection,
 budget calculation and artillery exclusion. Ordinary constructor endpoints are
 recorded, navigation is synthetic, and arrival/deadline changes are injected.
-Focused and combined validation results will be recorded after completed runs.
+The [server-side focused checkpoint](../../evidence/sprint-3/tactical-server-focused.json)
+passes 70 checks on the [92-input candidate](../../evidence/sprint-3/tactical-server-build.json).
+Its [missing-dependency check](../../evidence/sprint-3/tactical-server-dependencies-absent.json)
+passes all 11 checks. These precede the rebuilding relay below; final focused
+and combined results remain pending.
+
+Rejected attempts exposed two distinct destination issues: the synthetic road
+lookup initially omitted neighboring cells, and a precise target could make the
+first nearby point fail occupied-entity clearance. The fixture now uses native
+`addToNavCells`; production tries at most 16 outdoor points within 50 metres.
+An erroneous expected-check entry and missing hostile-side setup were also
+corrected in the fixture. The search test now verifies enemy knowledge before
+asserting that fighting continues. Rejected runs are not acceptance evidence.
+
+## Rebuilding client-to-server handoff
+
+The HQ map callback and hover-menu callback run rebuilding on the requesting
+client. A server-only constructor would silently refuse these calls. Named
+`REBUILD_QRF_` constructor requests now identify the matching rebuild site and
+relay only that site, position and requesting player to the server. The server
+validates the sender's ownership of a connected Rebel player, known site and
+50-metre position limit, then allows up to five seconds for the native public
+rebuild flag to arrive. A local server worker rechecks ownership, active mission
+and the nearest enemy faction, and recomputes the native allowance from server
+war level and costs. Client amounts and support names are not trusted.
+
+Each active rebuild permits one response attempt. A shared watchdog releases
+the claim when the native rebuild flag clears; an already launched response
+keeps its normal tactical lifecycle. Hosted callers use the same policy locally.
+Other faction constructors retain their originals. Dedicated tests cover policy,
+costs, duplicate attempts and rejected ingress; a connected-player relay and the
+complete delivery mission remain unverified without that multiplayer scenario.

@@ -60,6 +60,10 @@ class CfgFunctions
             class requestTacticalSupport {};
             class runTacticalSupport {};
             class tacticalWatchdog {};
+            class routeRebuildSupport {};
+            class receiveRebuildSupport {};
+            class rebuildSupport {};
+            class rebuildSupportWatchdog {};
             class startSite {};
             class runSite {};
             class cleanupSite {};

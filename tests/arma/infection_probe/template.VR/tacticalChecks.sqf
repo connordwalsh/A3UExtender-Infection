@@ -37,7 +37,8 @@ markersX = [_source,_target]; controlsX = []; citiesX = []; milAdministrationsX 
 forcedSpawn = []; antennas = []; antennasDead = []; A3A_milBuildingWhitelist = [];
 distanceSPWN = 1000; distanceSPWN1 = 1000; distanceForLandAttack = 2000; distanceMission = 3000;
 NavGrid = [[[4000,4500,0],1,0,[[1,0,1000]]],[[5000,4500,0],1,0,[[0,0,1000]]]];
-A3A_navCellHM = createHashMapFromArray [["4/4",[[4000,4500,0]]],["5/4",[[5000,4500,1]]]];
+A3A_navCellHM = createHashMap;
+{_forEachIndex call A3A_fnc_addToNavCells} forEach NavGrid;
 A3A_markerNavPoints = createHashMap;
 A3A_recentDamageOcc = []; A3A_recentDamageInv = [];
 A3A_resourcesDefenceOcc = 100; A3A_resourcesAttackOcc = 100; A3A_resourcesDefenceInv = 100;
@@ -92,6 +93,9 @@ A3A_faction_occ set ["infectionTemplate","A3I_Infected"];
 A3I_dependencies set ["available",false]; [] call A3A_fnc_initSupports;
 ["tactical_absent_registry_preserved",A3A_supportTypesOcc isEqualTo _nativeOcc] call _check;
 A3I_dependencies set ["available",true]; [] call A3A_fnc_initSupports;
+["tactical_native_neighbor_cells",count (A3A_navCellHM get "4/4") == 2
+    && {[[4990,4500,0]] call A3A_fnc_getNearestNavPoint == 1}
+    && {[[5010,4500,0]] call A3A_fnc_getNearestNavPoint == 1}] call _check;
 {["x",east,"attack",30,objNull,_position,0.9] call _x} forEach [A3A_fnc_SUP_QRFLand,A3A_fnc_SUP_QRFAir];
 ["QRFLAND",east,[],30,objNull,_position,0.9] call A3A_fnc_createSupport;
 A3A_faction_occ set ["infectionTemplate",""];
@@ -107,6 +111,10 @@ private _refused = true;
 } forEach ["QRFAIR","QRFVEHAIRDROP","QRFORBITAL","TANK","CAS","ARTILLERY","MORTAR","HOWITZER","AIRSTRIKE","CRUISEMISSILE","SAM","ORBITALSTRIKE","UAVAttack","CARPETBOMBS","GUNSHIP","ASF","CASDIVE"];
 ["tactical_conventional_requests_refused",_refused && {count A3I_test_originals == 5}
     && {isNil "A3I_tacticalSupports" || {count A3I_tacticalSupports == 0}}] call _check;
+A3A_supportCallInProgress = true;
+["CAS",west,[],30,objNull,_position,0.9] call A3A_fnc_createSupport;
+["tactical_refusal_preserves_foreign_lock",!isNil "A3A_supportCallInProgress"] call _check;
+A3A_supportCallInProgress = nil;
 ["tactical_legacy_signature_refused",[west,_position,"QRFLAND",0,0] call A3A_fnc_createSupport == ""] call _check;
 private _atomic = []; isNil {_atomic = ["atomic","defence",20,objNull,_position,0] call A3I_fnc_startTacticalSupport};
 ["tactical_scheduled_required",_atomic # 2 == "scheduled_required"] call _check;
@@ -137,11 +145,20 @@ A3A_resourcesDefenceOcc = 100;
 private _enemyGroup = createGroup teamPlayer;
 private _enemy = _enemyGroup createUnit ["I_Soldier_F",[5000,4520,0],[],0,"NONE"];
 _enemy enableSimulationGlobal false; _enemy allowDamage false;
+private _occupiedRoute = [getPosATL _enemy] call A3I_fnc_tacticalSources;
+["tactical_occupied_target_finds_nearby_ground",count _occupiedRoute == 1
+    && {(_occupiedRoute # 0 # 2) distance2D _enemy >= 3}
+    && {(_occupiedRoute # 0 # 2) distance2D _enemy <= 50}
+    && {([_occupiedRoute # 0 # 2,"Zombie_B_Walker_Civ",[],getMarkerPos respawnTeamPlayer,150,false]
+        call A3I_fnc_positionSafety) # 0}] call _check;
 [west,_enemy,_position,4,0.9] call A3A_fnc_requestSupport;
 private _nativeName = "QRFLAND" + str A3A_supportCount;
 private _job = A3I_tacticalSupports getOrDefault [_nativeName,createHashMap];
 ["tactical_native_selection_foot",count _job > 0 && {count A3I_test_originals == 5}
-    && {isNil "A3A_supportCallInProgress"}] call _check;
+    && {isNil "A3A_supportCallInProgress"},[_nativeName,keys A3I_tacticalSupports]] call _check;
+if (count _job == 0) exitWith {
+    diag_log format ["[INFECTION_SUPPORT_TEST] source eligibility=%1 routes=%2",[_source] call A3I_fnc_counterattackSourceEligible,[_position] call A3I_fnc_tacticalSources];
+};
 [{count (_job get "units") > 0}] call _wait;
 ["tactical_native_spend_and_strike",count A3A_supportSpends == 1 && {count A3A_supportStrikes == 1}
     && {A3A_supportSpends # 0 # 3 == 90} && {A3A_supportStrikes # 0 # 1 == "TROOPS"}
@@ -150,14 +167,29 @@ private _job = A3I_tacticalSupports getOrDefault [_nativeName,createHashMap];
 deleteVehicle _enemy; deleteGroup _enemyGroup;
 private _air = createVehicle ["B_Heli_Light_01_F",[5100,4500,0],[],0,"NONE"];
 _air enableSimulationGlobal false;
+_air setVariable ["A3A_airKills",1000];
 private _priorCount = A3A_supportCount;
 [west,_air,_position,4,0.9] call A3A_fnc_requestSupport;
 ["tactical_air_target_not_selected",A3A_supportCount == _priorCount && {count A3I_tacticalSupports == 0}
+    && {[west,_air,_position] call A3A_fnc_maxDefenceSpend > 0}
     && {(["air","defence",30,_air,_position,0] call A3I_fnc_startTacticalSupport) # 2 == "air_target"}] call _check;
 deleteVehicle _air;
 [west,_position,"attack",4,0.9,0] call A3A_fnc_requestArtillery;
 ["tactical_native_artillery_no_force",count A3I_tacticalSupports == 0 && {A3A_supportCount == _priorCount}
     && {A3A_resourcesAttackOcc == 100} && {isNil "A3A_supportCallInProgress"}] call _check;
+
+call _reset; A3A_supportCallInProgress = true; A3I_test_tacticalName = nil;
+private _requestThread = ["QRFLAND",west,_position,20,objNull,_position,0.9,2] spawn {
+    A3I_test_tacticalName = _this call A3A_fnc_createSupport;
+};
+sleep 0.5;
+private _held = !scriptDone _requestThread && {isNil "A3I_test_tacticalName"} && {count A3I_tacticalSupports == 0};
+A3A_supportCallInProgress = nil;
+[{scriptDone _requestThread},3] call _wait;
+["tactical_request_waits_for_lock",_held && {A3I_test_tacticalName != ""}
+    && {isNil "A3A_supportCallInProgress"}] call _check;
+_job = A3I_tacticalSupports get A3I_test_tacticalName;
+[_job] call _finish;
 
 call _reset;
 private _name = ["QRFLAND",west,_position,30,objNull,_position,0.9,2] call A3A_fnc_createSupport;
@@ -191,7 +223,20 @@ private _capture = [{count A3I_test_zones > 0},12] call _wait;
 ["tactical_arrival_requests_native_capture",_capture && {A3I_test_zones # 0 isEqualTo [_target,teamPlayer]}] call _check;
 [{_job get "searchDeadline" > time},3] call _wait;
 ["tactical_arrival_starts_search",_job get "searchDeadline" > time] call _check;
+_enemyGroup = createGroup teamPlayer;
+_enemy = _enemyGroup createUnit ["I_Soldier_F",[5050,4500,0],[],0,"NONE"];
+_enemy enableSimulationGlobal false; _enemy allowDamage false;
+private _friendship = west getFriend teamPlayer;
+west setFriend [teamPlayer,0];
+{_x enableSimulationGlobal true} forEach _units;
+{leader _x reveal [_enemy,4]} forEach (_job get "groups");
+private _known = [{((_job get "groups") findIf {leader _x findNearestEnemy _position == _enemy}) != -1},3] call _wait;
 _job set ["searchDeadline",time - 1];
+sleep 1.5;
+["tactical_known_enemy_keeps_search",_known && {(_job get "name") in A3I_tacticalSupports}
+    && {_job get "outcome" == "pending"},[_known,_job get "outcome"]] call _check;
+deleteVehicle _enemy; deleteGroup _enemyGroup;
+west setFriend [teamPlayer,_friendship];
 private _finished = [_job] call _waitJob;
 private _refund = [{A3A_resourcesDefenceOcc == 100},3] call _wait;
 ["tactical_search_ends_and_refunds",_finished && {_refund} && {_job get "outcome" == "searched"}] call _check;
@@ -242,6 +287,51 @@ spawner setVariable [_target,2]; [{!(_target in A3I_sites)},6] call _wait;
 ["tactical_adopted_cleanup_no_refund",A3A_resourcesAttackOcc == 80 && {(call _stats) # 1 == 0}] call _check;
 garrison setVariable [_target,[]]; sidesX setVariable [_target,teamPlayer];
 
+// Rebuilding constructors may originate on clients. Exercise the local server
+// policy and rejection boundary here; a real connected-player relay is separate.
+private _rebuildFlag = "A3U_rebuilding_" + _target;
+private _rebuildName = "REBUILD_QRF_" + _target + "_1";
+["tactical_rebuild_requires_active_mission",([_target,_position] call A3I_fnc_rebuildSupport) # 2 == "inactive_rebuild"
+    && {[_rebuildName,west,"attack",9999,false,_position,1,-1] call A3A_fnc_SUP_QRFLand == -1}] call _check;
+missionNamespace setVariable [_rebuildFlag,true]; sidesX setVariable [_target,east];
+["tactical_rebuild_rechecks_owner",([_target,_position] call A3I_fnc_rebuildSupport) # 2 == "inactive_rebuild"] call _check;
+sidesX setVariable [_target,teamPlayer];
+["tactical_rebuild_position_bounded",([_target,[5100,4500,0]] call A3I_fnc_rebuildSupport) # 2 == "inactive_rebuild"] call _check;
+[_target,_position] remoteExec ["A3I_fnc_rebuildSupport",2]; sleep 0.5;
+["tactical_rebuild_internal_remote_denied",count A3I_tacticalSupports == 0] call _check;
+_enemyGroup = createGroup teamPlayer;
+_enemy = _enemyGroup createUnit ["I_Soldier_F",[5000,4520,0],[],0,"NONE"];
+[_target,_position,_enemy] remoteExec ["A3I_fnc_receiveRebuildSupport",2]; sleep 0.5;
+["tactical_rebuild_forged_player_denied",count A3I_tacticalSupports == 0] call _check;
+deleteVehicle _enemy; deleteGroup _enemyGroup;
+sidesX setVariable [_source,east];
+["tactical_rebuild_nearest_side_rechecked",([_target,_position] call A3I_fnc_rebuildSupport) # 2 == "source_changed"] call _check;
+sidesX setVariable [_source,west]; call _reset;
+A3A_resourcesAttackOcc = 100; A3A_balanceVehicleCost = 10;
+_cost = [_rebuildName,west,"attack",9999,false,_position,1,-1] call A3A_fnc_SUP_QRFLand;
+private _rebuildJobName = A3I_rebuildClaims get _target;
+_job = A3I_tacticalSupports get _rebuildJobName;
+[{count (_job get "units") == 2}] call _wait;
+["tactical_rebuild_server_sizes_and_pays",_cost == 20 && {_job get "planned" == 2}
+    && {_job get "pool" == "attack"} && {A3A_resourcesAttackOcc == 80}] call _check;
+_cost = [_rebuildName + "extra",west,"attack",9999,false,_position,1,-1] call A3A_fnc_SUP_QRFAir;
+["tactical_rebuild_single_attempt",_cost == -1 && {count A3I_tacticalSupports == 1}
+    && {count A3I_rebuildClaims == 1} && {A3A_resourcesAttackOcc == 80}] call _check;
+missionNamespace setVariable [_rebuildFlag,false];
+private _released = [{count A3I_rebuildClaims == 0},4] call _wait;
+["tactical_rebuild_claim_release_keeps_qrf",_released && {isNil "A3I_rebuildWatchdogHandle"}
+    && {_job get "outcome" == "pending"}] call _check;
+[_job] call _finish; [{A3A_resourcesAttackOcc == 100},3] call _wait;
+call _reset; missionNamespace setVariable [_rebuildFlag,true];
+_cost = [_rebuildName,west,"attack",9999,false,_position,1,-1] call A3A_fnc_SUP_QRFAir;
+_job = A3I_tacticalSupports get (A3I_rebuildClaims get _target);
+[{count (_job get "units") == 2}] call _wait;
+["tactical_rebuild_new_cycle",_cost == 20 && {_job get "name" != _rebuildJobName}
+    && {A3A_resourcesAttackOcc == 80}] call _check;
+missionNamespace setVariable [_rebuildFlag,false];
+[_job] call _finish; [{A3A_resourcesAttackOcc == 100 && {count A3I_rebuildClaims == 0}},4] call _wait;
+missionNamespace setVariable [_rebuildFlag,nil]; A3A_balanceVehicleCost = 30;
+
 _job = ["sourceLost"] call _pair; sidesX setVariable [_source,east]; _finished = [_job] call _waitJob;
 _refund = [{A3A_resourcesDefenceOcc == 100},3] call _wait;
 ["tactical_source_loss_cancels",_finished && {_refund} && {_job get "outcome" == "cancelled"}] call _check;
@@ -250,6 +340,11 @@ areOccupantsDefeated = true; _finished = [_job] call _waitJob;
 _refund = [{A3A_resourcesDefenceOcc == 100},3] call _wait;
 ["tactical_faction_loss_cancels",_finished && {_refund} && {_job get "outcome" == "cancelled"}] call _check;
 areOccupantsDefeated = false;
+_job = ["dependencyLost"] call _pair;
+A3I_dependencies set ["available",false]; _finished = [_job] call _waitJob;
+_refund = [{A3A_resourcesDefenceOcc == 100},3] call _wait;
+["tactical_dependency_loss_cancels",_finished && {_refund} && {_job get "outcome" == "cancelled"}] call _check;
+A3I_dependencies set ["available",true];
 _job = ["interrupted"] call _pair; terminate (_job get "script"); _finished = [_job] call _waitJob;
 _refund = [{A3A_resourcesDefenceOcc == 100},3] call _wait;
 ["tactical_stopped_controller_recovers",_finished && {_refund} && {_job get "outcome" == "interrupted"}] call _check;
@@ -287,6 +382,18 @@ A3A_resourcesDefenceOcc = 5; [4,4] call _setLimits; sleep 16;
     && {A3A_resourcesDefenceOcc == 5}] call _check;
 [_job] call _finish; _refund = [{A3A_resourcesDefenceOcc == 25},3] call _wait;
 ["tactical_late_shortage_actual_refund",_refund] call _check;
+call _reset; A3A_resourcesDefenceOcc = 100;
+[2,4] call _setLimits;
+["combatPause","defence",30,objNull,_position,0,0] call A3I_fnc_startTacticalSupport;
+_job = A3I_tacticalSupports get "combatPause";
+[{count (_job get "units") == 2}] call _wait;
+A3A_recentDamageOcc = [[4000,4500,60]]; [4,4] call _setLimits; sleep 16;
+["tactical_combat_pauses_births",count (_job get "units") == 2 && {count (_job get "queue") == 1}
+    && {A3A_resourcesDefenceOcc == 80}] call _check;
+A3A_recentDamageOcc = [];
+private _resumed = [{count (_job get "units") == 3},7] call _wait;
+["tactical_combat_clear_resumes",_resumed && {A3A_resourcesDefenceOcc == 70}] call _check;
+[_job] call _finish; [{A3A_resourcesDefenceOcc == 100},3] call _wait;
 private _foreign = [{A3I_test_tacticalTicks = A3I_test_tacticalTicks + 1},0.1] call CBA_fnc_addPerFrameHandler;
 A3I_test_tacticalTicks = 0;
 [[],_foreign] remoteExecCall ["A3I_fnc_tacticalWatchdog",2]; sleep 0.6;
@@ -303,4 +410,5 @@ private _remaining = (entities [[],[],true,false]) - _before;
 ["tactical_all_clean",_remaining isEqualTo [] && {(allGroups - _groupsBefore) isEqualTo []}
     && {(call _stats) select [1,3] isEqualTo [0,0,0]} && {count A3I_tacticalSupports == 0}
     && {isNil "A3I_tacticalWatchdogHandle"} && {count A3I_sites == 0}
+    && {count A3I_rebuildClaims == 0} && {isNil "A3I_rebuildWatchdogHandle"}
     && {isNil "A3I_siteWatchdogHandle"},[_remaining apply {typeOf _x},call _stats]] call _check;

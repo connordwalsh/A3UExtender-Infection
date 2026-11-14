@@ -19,7 +19,9 @@ try {
     private _disclosure = [west,_position,_reveal] call A3A_fnc_useRadioKey;
     private _result = [_candidate,_pool,_allowance,_target,_position,_disclosure,_delay,_callPosition]
         call A3I_fnc_startTacticalSupport;
-    if (_result # 0) then {_name = _candidate};
+    if (_result # 0) then {_name = _candidate} else {
+        diag_log format ["[INFECTION_SUPPORT] %1 refused: %2",_candidate,_result # 2];
+    };
 } catch {
     diag_log format ["[INFECTION_SUPPORT] request refused: %1",_exception];
 };

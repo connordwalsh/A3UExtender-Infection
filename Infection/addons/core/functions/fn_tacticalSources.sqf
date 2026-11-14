@@ -8,9 +8,22 @@ if !(_position isEqualType [] && {count _position in [2,3]}
 private _hq = missionNamespace getVariable ["respawnTeamPlayer",""];
 if !(_hq in allMapMarkers) exitWith {[]};
 private _ground = +_position; _ground set [2,0];
-private _destination = _ground findEmptyPosition [0,50,"Zombie_B_Walker_Civ"];
-if (_destination isEqualTo [] || {!(([_destination,"Zombie_B_Walker_Civ",[],getMarkerPos _hq,150,false]
-    call A3I_fnc_positionSafety) # 0)}) exitWith {[]};
+// Accurate calls can point at the enemy itself or an occupied doorway. Search
+// bounded nearby outdoor ground; an occupied first result is not a route failure.
+private _destination = [];
+for "_attempt" from 1 to 16 do {
+    private _candidate = if (_attempt == 1) then {
+        _ground findEmptyPosition [4,50,"Zombie_B_Walker_Civ"]
+    } else {
+        private _point = _ground getPos [4 + random 46,random 360];
+        _point set [2,0];
+        _point findEmptyPosition [0,0,"Zombie_B_Walker_Civ"]
+    };
+    if (_candidate isEqualTo [] || {_candidate distance2D _ground > 50}) then {continue};
+    if (([_candidate,"Zombie_B_Walker_Civ",[],getMarkerPos _hq,150,false]
+        call A3I_fnc_positionSafety) # 0) exitWith {_destination = _candidate};
+};
+if (_destination isEqualTo []) exitWith {[]};
 private _endIndex = [_destination] call A3A_fnc_getNearestNavPoint;
 if (_endIndex < 0) exitWith {[]};
 private _maximum = distanceForLandAttack min 2000;
