@@ -83,8 +83,9 @@ cleanup ownership rather than fallback infected crew or empty random selections.
   survivor/player groups and unrelated attacks remain intact.
 
 Connected-player interaction, Redux travel/placement, longer defense pacing,
-multiplayer/JIP and save/restart require separate evidence. No town-liberation
-runtime checks have run and no campaign/sprint gate is closed.
+multiplayer/JIP and save/restart require separate evidence. The source selector
+has the isolated results below; no full liberation mission or campaign/sprint
+gate is accepted.
 
 ## Selector development checkpoint
 
@@ -99,6 +100,14 @@ fallback and is not connected to native mission dispatch.
 The first selector candidate builds successfully and passes
 [11 missing-dependency checks](../../evidence/sprint-3/liberation-selector-dependencies-absent.json).
 Its [manifest](../../evidence/sprint-3/liberation-selector-build.json) records
-118 production inputs. The dedicated selector fixture contains 23 cases
-(34 with startup checks); that focused run has not started while the previous
-strategic/conquest combined regression owns the test profile.
+118 production inputs. All [34 focused selector checks](../../evidence/sprint-3/liberation-selector-focused.json)
+pass, including 23 selector cases and 11 startup checks, with no engine/SQF
+Error records. All 118 source hashes match the candidate. The fixture exercises
+all approved permanent origin types, duplicates/self-origin exclusion, source
+ownership, combat/cooldown/activation, distant/disconnected routes, unrelated
+attack claims, inactive/missing dependencies and selection without ownership or
+resource side effects. Source review initialized both native recent-damage
+histories before the first focused run.
+The completed test server was stopped by its verified process/profile identity.
+Nearby-player refusal with a connected player, survivor and full mission lifecycle,
+native dispatch and the pending political fallback still require work.
