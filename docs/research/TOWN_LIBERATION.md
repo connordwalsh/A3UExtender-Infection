@@ -483,3 +483,55 @@ remain NOT_RUN. Accounting checks stabilize simulation after checking initial
 vehicle state. These components remain unconnected until the full scene owns
 its creation and cleanup. The owner selected native temporary building damage
 restoration; the building component is next.
+
+
+## Retained scene: temporary building damage and restoration
+
+The owner selected Ultimate's temporary cleanup behavior. The component owns
+only pristine, enterable houses that it changes. Existing damage, ruins, hidden
+objects, antenna/administration objects, permanent-site areas, HQ proximity and
+occupied houses are excluded. Exact record/entry references prevent a copied
+record from claiming another scene's building.
+
+A server BuildingChanged handler retains the exact original/ruin pair after
+Ultimate's native event and excludes temporary scene ruins from the permanent
+destroyedBuildings save list. Unrelated destruction stays in that list. Cleanup
+waits for model transitions and for nearby observers/actors to leave. It invokes
+native repair for an actual ruin and explicitly clears ordinary partial damage,
+which the native helper does not repair. Original world position, direction,
+up vector and the native scene door animation phases are restored. The next
+tick verifies the model and deletion before retiring ownership and the handler.
+If another system deletes the original house, cleanup does not create a replacement.
+
+The [engine investigation](../../evidence/sprint-3/liberation-building-investigation.json)
+confirmed native partial-repair refusal and asynchronous collapse/repair on two
+vanilla houses. The accompanying mission run failed one preparation-state check;
+its old fixture did not capture the values. Code review identified publication
+of the prepare phase before its clock was written. That transition is now an
+unscheduled transaction, and the check records the actual phase and timestamps.
+The corrected run observes the full 180-second preparation interval.
+
+The [141-input Dev8 candidate](../../evidence/sprint-3/liberation-buildings-build.json)
+passes [195 focused checks](../../evidence/sprint-3/liberation-buildings-focused.json)
+and [11 dependency-absent checks](../../evidence/sprint-3/liberation-buildings-dependencies-absent.json).
+The 25 building checks exercise real partial damage, collapse/ruin events,
+position/door restoration, protected/occupied refusal, exact ownership, native
+save-list separation, unrelated damage preservation and external deletion.
+All production/PBO and 210/172 collected input hashes match. No engine/SQF Error
+records occur. The 31 focused warnings comprise sixteen startup/dependency
+notices, twelve object-deletion notifications, two friendly-fire deliveries to
+deleted fixture actors and one message to the absent commander. Seven startup
+notices remain in the dependency report. Parser, PowerShell and whitespace
+checks pass. Both completed server exits are verified.
+
+The first Dev8 fixture was rejected because the preceding selector test had
+emptied the factory-marker list. Moving a marker without restoring its factory
+membership did not represent a protected site; the resulting early damage also
+invalidated later refusal/door checks. The fixture now sets and restores the
+actual factory list. Production code and addon did not change between Dev8 runs.
+
+These are dynamic vanilla-house contracts in VR. Terrain-placed Redux houses,
+connected observers, client appearance, saving/loading an active scene and the
+combined regression remain NOT_RUN. Roof effects, the complete scene builder
+and parent lifecycle integration remain open. Native smoke source/config cleanup
+has been inspected separately; it is not yet a tested scene feature.

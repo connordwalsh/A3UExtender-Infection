@@ -273,3 +273,11 @@ candidate passes 170 focused and 11 dependency-absent checks; all collected hash
 match. Claimed vehicles survive scene cleanup. Building damage/restoration and
 parent integration remain open; the owner selected Ultimate's temporary building
 restoration behavior. No campaign acceptance gate is closed.
+
+
+Temporary-building checkpoint: the owner's default restoration choice is now
+implemented as an isolated component. Original positions/doors return after
+partial or full destruction; pre-existing damage and unrelated ruins remain.
+Dev8 passes 195 focused and 11 dependency-absent checks with matching hashes.
+Roof effects, complete scene construction/parent cleanup, terrain/client/save
+acceptance and the combined regression remain open. No sprint gate is closed.

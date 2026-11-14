@@ -101,6 +101,9 @@ class CfgFunctions
             class liberationWreckClasses {};
             class createLiberationWreck {};
             class cleanupLiberationWrecks {};
+            class damageLiberationBuilding {};
+            class liberationBuildingChanged {};
+            class cleanupLiberationBuildings {};
             class liberationWatchdog {};
             class startSite {};
             class runSite {};

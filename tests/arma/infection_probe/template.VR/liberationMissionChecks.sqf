@@ -88,7 +88,8 @@ private _mission = call _launchMission;
 private _recruited = [_mission] call _recruit;
 ["lib_mission_native_recruit_starts_preparation",_recruited && {_mission get "recruited"}
     && {(_mission get "readyAt") - time > 178} && {(_mission get "readyAt") - time <= 180}
-    && {isNil {_mission get "majorRecord"}}] call _check;
+    && {isNil {_mission get "majorRecord"}},[_recruited,_mission get "recruited",
+        _mission getOrDefault ["readyAt",-1],time,_mission get "phase"]] call _check;
 private _reservation = ["reserve",["liberation:mission-pressure",1,1]] call A3I_fnc_budget;
 _pressure = _reservation # 1 # 0; (A3I_budgetRecords get _pressure) set [3,diag_tickTime + 600];
 _mission set ["readyAt",time - 1];

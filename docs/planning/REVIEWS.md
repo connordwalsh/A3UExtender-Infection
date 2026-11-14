@@ -594,3 +594,20 @@ Error records. All 138 production/PBO and 205/167 collected inputs match. The
 checks pass; completed server exits are verified. Building restoration follows
 the owner's new native-cleanup decision. Parent integration, combined regression,
 player vehicle interactions and full mission acceptance remain open.
+
+
+## 14 November 2026 - Temporary scene building review
+
+The component excludes pre-existing damage and protected/occupied buildings,
+records original transforms/doors before damage, tracks the exact native ruin,
+and restores partial damage as well as collapsed houses. Only owned temporary
+ruins leave the native persistence list. Interrupted cleanup retains ownership
+until restoration is observed; deleted originals are not replaced.
+
+Dev8 passes 195 focused and 11 missing-dependency checks. All 141 production/PBO
+and 210/172 collected inputs match. No engine/SQF Error records; 31/7 retained
+warnings and rejected investigation/fixture runs are documented. Preparation
+state and its clock are now published atomically after a diagnostic run exposed
+an intermittent preparation check failure. Parser, PowerShell and whitespace
+checks pass. Completed server exits are verified. Terrain, connected observers,
+save/load, full scene construction and combined regression remain open.
