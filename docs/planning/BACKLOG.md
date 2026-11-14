@@ -8,9 +8,11 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 owner's six replacement categories for S4-1, S4-2, S4-3 and S5-3. The catalog now
 targets infected exclusively; Destroy/Random are removed and Liquidation
 supersedes requested competitive conquest. Delivery accepts HQ/permanent sites.
-The first removal increment is packaged but its 13 new runtime checks are NOT_RUN
-while the owner plays. Existing conquest test results do not establish acceptance
-of the new clearance requirement. None of these stories is complete.
+The removal and clearance-ledger increment passes 717 combined dedicated checks
+and 11 checks without zombie dependencies. The read-only clearance predicate is
+not yet connected to Liquidation capture/rewards. Six replacement mission
+lifecycles and visual/connected-player acceptance remain open; none of these
+stories is complete.
 
 | Story | Work | Status | Evidence / next check |
 | --- | --- | --- | --- |
@@ -22,7 +24,7 @@ of the new clearance requirement. None of these stories is complete.
 | S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns, strongholds, routine repair, roaming and capture responses and tactical support avoid conventional pools in the 684-check suite; remaining mission/convoy routes remain open. |
 | S2-1 | Occupied-site lifecycle | In progress | Six persistent types and transient controls/towns/administrations pass isolated spawning/cleanup/reentry checks, including full queued rosters and stopped-controller recovery. Redux campaign acceptance remains open. |
 | S2-2 | Foot patrols and road controls | In progress | Controls, towns and roaming pass 37, 67 and 39 dedicated cases within the 684-check suite. Towns preserve approved per-visit regeneration. Redux navigation, connected players and repeated patrol circuits remain open. |
-| S2-2a | Population-based town infestations | In progress | The approved 10–200 logistic, complete activation, all infected-held towns and ownership handoffs pass 67 town cases within the 684-check regression; 78 focused and 11 missing-dependency checks also pass. See TOWN_INFESTATIONS.md. Redux navigation, connected players and performance remain open. |
+| S2-2a | Population-based town infestations | In progress | The approved 10â€“200 logistic, complete activation, all infected-held towns and ownership handoffs pass 67 town cases within the 684-check regression; 78 focused and 11 missing-dependency checks also pass. See TOWN_INFESTATIONS.md. Redux navigation, connected players and performance remain open. |
 | S2-3 | Capture and persistence | In progress | Queued defenders block capture; roster death/reentry contracts pass. Administration clearing uses the actual native ownership/support transaction, including after building destruction. Full campaign ownership/rewards/save/reload/recapture remain open. |
 | S3-1 | QRF and attack routing | In progress | Capture-triggered foot counterattacks pass 51 cases in the 684-check regression, including native distance activation, paid arrival handoff, town population startup and cleanup. Tactical support passes 70 additional cases, including rebuilding policy and remote context. Strategic walking hordes pass 114 cases and competitive conquest 34. Connected-player rebuilding, remaining missions and special creatures remain open; see CAPTURE_COUNTERATTACKS.md and TACTICAL_SUPPORT_CONTRACTS.md. |
 | S3-2 | Garrison repair | In progress | Routine paid foot arrivals and virtual repair pass 39 cases in the 340-check suite: original queue priority, cooldown/combat/ownership, active limits, roster handoff and cleanup. Redux travel, nearby players and restart persistence remain open. |
