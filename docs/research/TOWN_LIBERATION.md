@@ -439,3 +439,47 @@ parser tests and whitespace checks pass. Completed servers were stopped by
 verified identity. Bodies remain separate from the parent until scene lifecycle
 integration; combined regression, observer/client behavior, looting and long
 duration play remain NOT_RUN.
+
+
+## Retained scene: abandoned wreck accounting
+
+The owner selected abandoned vehicles with no infected resource effects. Scene
+wrecks retain native class weighting, repairable damage, empty fuel, capture,
+logistics, and the scene's lock/overturn chances. No crew is created. Civilian
+initialization installs the native handlers, then ownership becomes neutral
+within the same unscheduled call. The native skin initializer cannot accept
+an unknown faction directly. Neutral ownership also avoids the civilian-theft
+support penalty. A readiness guard requires compiled civilian skin maps before
+creating any vehicle.
+
+Cleanup deletes only exact, unclaimed scene vehicles away from observers. Rebel
+capture transfers the vehicle out of scene cleanup; living occupants, attachments
+and attached ropes defer deletion. This component does not implement general
+abandoned vehicles throughout the campaign.
+
+The [138-input Dev7 candidate](../../evidence/sprint-3/liberation-wrecks-build.json)
+passes [170 focused checks](../../evidence/sprint-3/liberation-wrecks-focused.json)
+and [11 dependency-absent checks](../../evidence/sprint-3/liberation-wrecks-dependencies-absent.json).
+All production/PBO and 205/167 collected input hashes match. The 23 new cases
+exercise actual empty vehicle creation, repair/refueling, native AI GetIn capture,
+neutral destruction accounting, exact deletion, capture retention, occupied and
+attached cleanup refusal, and no infected-resource or town-support changes.
+No engine/SQF Error records occur. The 21 focused warnings comprise sixteen
+startup notices, two friendly-fire deliveries to deleted actors, two object
+deletion notices and one message to the absent commander. The dependency report
+retains seven startup notices. Three parser tests and whitespace checks pass.
+Both completed test servers were stopped and their exits verified.
+
+Dev6 was rejected because the fixture used uncompiled civilian animation/variant
+arrays. Native vehicle initialization stopped before neutralization, exposing
+the normal civilian capture penalty. The corrected fixture applies the pinned
+compileMissionAssets map conversion; production refuses that incomplete startup
+state before creating anything. Its EntityCreated monitor was also corrected
+to accept the engine's object event argument.
+
+Full native EntityKilled wiring, player driving, rollover physics, random lock
+UI, towing, garage/save behavior, connected observers and combined regression
+remain NOT_RUN. Accounting checks stabilize simulation after checking initial
+vehicle state. These components remain unconnected until the full scene owns
+its creation and cleanup. The owner selected native temporary building damage
+restoration; the building component is next.

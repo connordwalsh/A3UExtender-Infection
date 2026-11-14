@@ -98,6 +98,9 @@ class CfgFunctions
             class liberationBodyRoles {};
             class createLiberationBody {};
             class cleanupLiberationBodies {};
+            class liberationWreckClasses {};
+            class createLiberationWreck {};
+            class cleanupLiberationWrecks {};
             class liberationWatchdog {};
             class startSite {};
             class runSite {};

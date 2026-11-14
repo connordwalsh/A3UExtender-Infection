@@ -211,6 +211,18 @@
     {
       "path": "core/functions/Events/fn_triggerServerEvent.sqf",
       "sha256": "2afbbcc31583f1f47b25ec8ac23afd326d53ba0bf39ca3aa35073302ba7ae02c"
+    },
+    {
+      "path": "core/functions/Templates/fn_compileMissionAssets.sqf",
+      "sha256": "57022775c945785e3e349754f99b10505dbf2de2013d7eed6d1669e43021185b"
+    },
+    {
+      "path": "core/functions/Base/fn_despawnQueueEntity.sqf",
+      "sha256": "6f0749149051edcdc7bec5455cf5cf2582b9e28328909f686baeea8b87218819"
+    },
+    {
+      "path": "core/functions/REINF/fn_postmortem.sqf",
+      "sha256": "3d5eb22f34b2d4c40d3143ec2dd174b44cd22277a7544d97f5ac8f0498743f7e"
     }
   ]
 }

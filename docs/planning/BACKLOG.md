@@ -265,3 +265,11 @@ dependencies. The 135-input candidate and all collected hashes match. Rejected
 test-setup assumptions and warning details are recorded in TOWN_LIBERATION.md.
 The usable vehicle, fire and body helpers remain unconnected pending the wreck,
 building and complete-scene lifecycle work. No acceptance gate is closed.
+
+
+Abandoned scene wreck checkpoint: repairable, empty vehicles retain native capture
+and cleanup without infected army-resource or town-support effects. The 138-input
+candidate passes 170 focused and 11 dependency-absent checks; all collected hashes
+match. Claimed vehicles survive scene cleanup. Building damage/restoration and
+parent integration remain open; the owner selected Ultimate's temporary building
+restoration behavior. No campaign acceptance gate is closed.

@@ -578,3 +578,19 @@ Parent integration, combined regression, observers, client presentation and long
 duration body behavior are still open. The owner explicitly selected abandoned
 wrecks with no infected resource effects; that policy is recorded for the next
 component and is not claimed implemented by the corpse checks.
+
+
+## 14 November 2026 - Abandoned scene wreck review
+
+Neutral ownership is established before capture handlers can run. The adapter
+requires compiled skin maps, creates no crew, owns the object at birth and
+preserves claimed or in-use vehicles. Real native capture/destruction/deletion
+checks show no infected resource effects or civilian-theft support penalty.
+The rejected uncompiled fixture and corrected map preparation are documented.
+
+Dev7 passes 170 focused and 11 missing-dependency checks, with no engine/SQF
+Error records. All 138 production/PBO and 205/167 collected inputs match. The
+21/7 warnings are classified in TOWN_LIBERATION.md. Parser tests and whitespace
+checks pass; completed server exits are verified. Building restoration follows
+the owner's new native-cleanup decision. Parent integration, combined regression,
+player vehicle interactions and full mission acceptance remain open.
