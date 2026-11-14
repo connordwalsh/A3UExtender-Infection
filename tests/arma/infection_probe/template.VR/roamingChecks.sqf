@@ -143,6 +143,9 @@ sleep 0.3;
 ["roam_distance_end_preserves_native_count",_cleaned && {AAFpatrols == 1}
     && {A3A_resourcesDefenceOcc == 95} && {A3A_resourcesAttackOcc == 95}
     && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;
+["roam_retirement_preserves_corpse",_cleaned && {!isNull (_units # 0)} && {!alive (_units # 0)}
+    && {(_record get "groups" findIf {!isNull _x && {!(_x in A3I_retiredGroups)}}) == -1}
+    && {AAFpatrols == 1}] call _check;
 {deleteVehicle _x} forEach _units;
 ["roam_cooldown_survives_cleanup",!([_base] call A3I_fnc_startRoaming) && {AAFpatrols == 1}] call _check;
 call _reset; [_base] call A3I_fnc_startRoaming; _record = A3I_roamers get _base;
@@ -177,15 +180,19 @@ A3I_test_roamTicks = 0;
 private _foreign = [{A3I_test_roamTicks = A3I_test_roamTicks + 1},0.1] call CBA_fnc_addPerFrameHandler;
 [[],_foreign] remoteExecCall ["A3I_fnc_roamingWatchdog",2]; sleep 0.6;
 ["roam_recovery_remote_denied",A3I_test_roamTicks >= 2] call _check;
+A3I_test_roamTicks = 0;
+[[],_foreign] remoteExecCall ["A3I_fnc_cleanupGroupTick",2]; sleep 0.6;
+["roam_group_cleanup_remote_denied",A3I_test_roamTicks >= 2] call _check;
 [_foreign] call CBA_fnc_removePerFrameHandler;
 {deleteVehicle _x} forEach [sidesX,spawner,garrison,server];
 {deleteMarker _x} forEach [_base,_dest,respawnTeamPlayer];
 sidesX = nil; spawner = nil; garrison = nil; server = nil; respawnTeamPlayer = nil;
-sleep 3;
-{if (count units _x == 0) then {deleteGroup _x}} forEach (allGroups - _groupsBefore);
+// Controllers must finish their own cleanup; the fixture must not hide leaks.
+[{allGroups - _groupsBefore isEqualTo [] && {isNil "A3I_groupCleanupHandle"}},8] call _wait;
 [_savedCap,_savedContext] call _setLimits;
 GVAR(despawnQueue) = [];
 private _remaining = (entities [[],[],true,false]) - _before;
 ["roam_all_clean",_remaining isEqualTo [] && {(allGroups - _groupsBefore) isEqualTo []}
+    && {isNil "A3I_groupCleanupHandle"} && {A3I_retiredGroups isEqualTo []}
     && {(call _stats) select [1,3] isEqualTo [0,0,0]} && {count A3I_roamers == 0}
     && {isNil "A3I_roamingWatchdogHandle"} && {AAFpatrols == 1},[_remaining apply {typeOf _x},call _stats]] call _check;

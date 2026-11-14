@@ -225,6 +225,7 @@ ROAMING_CHECKS = {
     "roam_route_loss_cancels", "roam_timeout_cleans", "roam_stopped_controller_recovers",
     "roam_empty_expiry_releases_count", "roam_recovery_remote_denied", "roam_all_clean",
     "roam_foot_route_ignores_vehicle_spawn",
+    "roam_retirement_preserves_corpse", "roam_group_cleanup_remote_denied",
 }
 
 
@@ -327,6 +328,125 @@ TACTICAL_CHECKS = {
 }
 
 
+MAJOR_CHECKS = {
+    'major_sim_no_funds_refused',
+    'major_sim_negative_defence_preserved',
+    'major_choose_invader_delegates',
+    'major_find_invader_delegates',
+    'major_choose_inactive_delegates',
+    'major_find_inactive_delegates',
+    'major_choose_missing_dependencies_delegates',
+    'major_find_missing_dependencies_delegates',
+    'major_find_native_entry_routes_to_walking',
+    'major_choose_unscheduled_refused',
+    'major_choose_no_funds_refused',
+    'major_choose_foreign_attack_refused',
+    'major_choose_no_walking_origin',
+    'major_choose_town_is_horde',
+    'major_choose_town_one_fixed_charge',
+    'major_choose_known_hq_horde',
+    'major_choose_active_invader_horde',
+    'major_sim_malformed_refused',
+    'major_sim_active_target_refused',
+    'major_sim_rebel_target_refused',
+    'major_sim_busy_garrison_refused',
+    'major_sim_busy_capture_refused',
+    'major_sim_foreign_attack_refused',
+    'major_sim_distant_origin_refused',
+    'major_sim_observed_target_refused',
+    'major_sim_refused_capture_not_charged',
+    'major_sim_capture_cannot_repeat',
+    'major_sim_town_source_data_preserved',
+    'major_choose_offscreen_invader_simulated',
+    'major_sim_no_live_force',
+    'major_sim_native_airportsX',
+    'major_sim_native_outposts',
+    'major_sim_native_milbases',
+    'major_sim_native_factories',
+    'major_sim_native_resourcesX',
+    'major_sim_native_seaports',
+
+    'major_functions_registered',
+    'major_all_permanent_origins',
+    'major_transient_origin_refused',
+    'major_source_owner_checked',
+    'major_active_source_refused',
+    'major_forced_source_refused',
+    'major_town_cooldown_separate',
+    'major_military_idle_honored',
+    'major_malformed_idle_refused',
+    'major_source_combat_refused',
+    'major_town_target_all_origins',
+    'major_native_town_value',
+    'major_ground_record_contract',
+    'major_finite_positive_weights',
+    'major_population_arrays_unchanged',
+    'major_normalized_origin_weights',
+    'major_duplicate_origins_removed',
+    'major_invalid_population_refused',
+    'major_native_garrison_threat',
+    'major_owned_target_excluded',
+    'major_hq_unknown_excluded',
+    'major_hq_known_included',
+    'major_invader_sites_targeted',
+    'major_empty_enemy_threat_finite',
+    'major_native_site_value',
+    'major_ready_airport_priority',
+    'major_no_airport_priority',
+    'major_distant_town_refused',
+    'major_disconnected_route_refused',
+    'major_missing_navigation_refused',
+    'major_native_range_respected',
+    'major_no_ready_source',
+    'major_defeated_refused',
+    'major_inactive_refused',
+    'major_missing_dependencies_refused',
+    'major_invalid_target_side',
+    'major_scheduled_required',
+    'major_tactical_roster_guard_retained',
+    'major_tactical_candidates_unchanged',
+    'major_explicit_town_route',
+    'major_selector_no_actors',
+    'major_all_clean',
+    'major_credit_allows_debt',
+    'major_credit_cannot_exceed_authority',
+    'major_debt_not_available_to_ordinary_jobs',
+    'major_credit_context_bound',
+    'major_credit_owner_bound',
+    'major_stopped_worker_credit_refused',
+    'major_credit_actual_refund_once',
+    'major_launch_rejects_invalid_strength',
+    'major_launch_preserves_foreign_attack',
+    'major_launch_combines_strength',
+    'major_launch_native_town_charge',
+    'major_launch_preserves_town_data',
+    'major_no_force_cancels_without_reward',
+    'major_shared_limit_and_waiting_strength',
+    'major_later_attackers_paid_in_debt',
+    'major_unreached_horde_no_free_victory',
+    'major_stopped_controller_recovers',
+    'major_source_loss_cancels',
+    'major_third_party_target_cancels',
+    'major_faction_loss_cancels',
+    'major_dependency_loss_cancels',
+    'major_foreign_global_claim_preserved',
+    'major_foreign_forced_entry_preserved',
+    'major_combat_source_refused_at_launch',
+    'major_exact_quarter_keeps_fighting',
+    'major_real_defeat_task_succeeds',
+    'major_settlement_once',
+    'major_hq_charge_and_flags',
+    'major_moved_hq_cancels',
+    'major_petros_death_fails_task',
+    'major_hq_cleanup_keeps_fixed_cost',
+    'major_capture_requires_arrival',
+    'major_unspawned_defenders_block_capture',
+    'major_native_capture_decision',
+    'major_town_loss_fails_defence_task',
+    'major_town_capture_preserves_politics',
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -357,13 +477,13 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
-                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS}
+                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -406,7 +526,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

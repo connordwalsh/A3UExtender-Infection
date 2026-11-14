@@ -51,6 +51,8 @@ class CfgFunctions
     {
         class Originals
         {
+            class originalChooseAttack { file = "\x\a3i\tests\contracts\fn_originalChooseAttack.sqf"; };
+            class originalFindAttackTargets { file = "\x\a3i\tests\contracts\fn_originalFindAttackTargets.sqf"; };
             class originalNATOinit { file = "\x\a3i\tests\contracts\fn_originalNATOinit.sqf"; };
             class originalScheduler { file = "\x\a3i\tests\contracts\fn_originalScheduler.sqf"; };
             class originalPatrolReinf { file = "\x\a3i\tests\contracts\fn_originalPatrolReinf.sqf"; };
@@ -74,6 +76,8 @@ class CfgFunctions
         };
         class TestOriginals
         {
+            class testNativeMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };
+            class testNativeZoneCheck { file = "\x\a3a\addons\core\functions\Base\fn_zoneCheck.sqf"; };
             class testNativeRemoveMilAdmin { file = "\x\a3a\addons\scrt\Location\fn_location_removeMilAdmin.sqf"; };
             class testOriginalSelectVehicleType
             {
