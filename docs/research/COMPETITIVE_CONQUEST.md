@@ -26,8 +26,18 @@ neither. The horde owns its actors and cleanup, while the CON controller owns
 the task and reward transaction. An explicit parent token links them for recovery
 if the CON worker stops before receiving the horde launch result.
 
-Configuration conversion and packing passed for the initial prototype; subsequent
-review edits still need rebuilding. All runtime cases are **NOT_RUN**. Required
+Source review preserves native remote capture events: the server verifies actual
+ownership and records the first result atomically, then settles on a local frame.
+A caller cannot manufacture a capture by submitting an unverified winner. The
+polling recovery checks the deadline before ownership, matching the event path.
+Native task metadata also owns cleanup if startup stops between registration and
+the controller's local registration flag. The separate retired-group fix from
+PR #16 is included.
+
+Configuration conversion and packing passed for the initial prototype and Dev2;
+the subsequent partial-registration fix still needs rebuilding. All runtime cases
+are **NOT_RUN**. The new focused fixture declares 33 mission cases plus 11 common
+checks. Required
 checks include no-origin/no-route/cooldown rejection, no ordinary downgrade,
 request/scheduler delegation, remote-context handoff, real births/costs,
 immediate first-capture failure, same-frame retake, success/timeout rewards,

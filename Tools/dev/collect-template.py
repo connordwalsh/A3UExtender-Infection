@@ -447,6 +447,24 @@ MAJOR_CHECKS = {
 }
 
 
+COMPETITIVE_CHECKS = {
+    "comp_endpoints_registered", "comp_town_origin_available", "comp_town_frontline_added",
+    "comp_factory_origin_available", "comp_unavailable_not_ordinary_fallback",
+    "comp_combat_source_unavailable", "comp_distant_source_unavailable", "comp_disconnected_source_unavailable",
+    "comp_defeated_unavailable", "comp_foreign_attack_preserved", "comp_scheduled_entry_required",
+    "comp_unrelated_routes_delegate", "comp_request_unavailable_has_no_fallback",
+    "comp_native_task_and_link", "comp_duplicate_refused", "comp_unverified_remote_capture_rejected",
+    "comp_first_infected_capture_freezes_failure", "comp_failure_immediate_and_once",
+    "comp_success_once_false", "comp_success_once_true", "comp_late_capture_times_out",
+    "comp_poll_deadline_precedes_late_owner", "comp_zero_force_cancels_without_reward",
+    "comp_real_horde_shares_budget", "comp_stopped_parent_cancels_refunds_horde",
+    "comp_partial_registration_recovers", "comp_unreturned_child_recovered_by_token",
+    "comp_direct_remote_start_rejected", "comp_scheduler_keeps_server_worker",
+    "comp_remote_request_local_worker", "comp_native_remote_capture_fails",
+    "comp_remote_watchdog_rejected", "comp_all_clean",
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -477,13 +495,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | COMPETITIVE_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
-                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS}
+                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
+                          "competitive": COMPETITIVE_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -526,7 +545,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

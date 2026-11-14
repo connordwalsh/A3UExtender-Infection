@@ -18,7 +18,9 @@ if (_outcome in ["cancelled","interrupted"]) then {
     } forEach (missionNamespace getVariable ["A3I_majorAttacks",createHashMap]);
 };
 private _exists = (missionNamespace getVariable ["A3A_tasksData",[]]) findIf {_x # 0 == _name};
-if (!(_record get "taskRegistered") || {_exists == -1}) exitWith {[_name] call BIS_fnc_deleteTask};
+// Native task metadata is authoritative if startup stopped between taskUpdate
+// and setting taskRegistered on this record.
+if (_exists == -1) exitWith {[_name] call BIS_fnc_deleteTask};
 if !(_outcome in ["won","lost_race","timeout"]) exitWith {
     [_name,"CANCELED"] call BIS_fnc_taskSetState;
     [_name,"CON",0] call A3A_fnc_taskDelete;

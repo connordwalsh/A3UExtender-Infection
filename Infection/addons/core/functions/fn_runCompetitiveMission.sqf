@@ -19,11 +19,11 @@ while {_record get "outcome" == "pending"} do {
         exitWith {_record set ["outcome","cancelled"]};
     // The native marker-change event records the first capture immediately.
     // Poll as recovery for a state change that did not publish that event.
+    if (dateToNumber date > _record get "deadline") exitWith {_record set ["outcome","timeout"]};
     private _owner = sidesX getVariable [_target,sideUnknown];
     if (_owner == west) exitWith {_record set ["outcome","lost_race"]};
     if (_owner == teamPlayer) exitWith {_record set ["outcome","won"]};
     if (_owner != Invaders) exitWith {_record set ["outcome","cancelled"]};
-    if (dateToNumber date > _record get "deadline") exitWith {_record set ["outcome","timeout"]};
     if (_horde get "outcome" in ["cancelled","interrupted","no_force"] && {_horde get "paidActors" == 0})
         exitWith {_record set ["outcome","cancelled"]};
     sleep 1;
