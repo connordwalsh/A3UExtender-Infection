@@ -216,9 +216,9 @@ sidesX setVariable [_target,teamPlayer];
 _record = [] call _launch;
 _record set ["deadline",dateToNumber date - 0.001];
 sidesX setVariable [_target,teamPlayer];
-[{_record get "settled"}] call _wait;
+[{_record get "settled" && {[_record] call _state == "FAILED"}}] call _wait;
 ["comp_poll_deadline_precedes_late_owner",_record get "outcome" == "timeout"
-    && {[_record] call _state == "FAILED"}] call _check;
+    && {[_record] call _state == "FAILED"},[_record get "outcome",[_record] call _state]] call _check;
 [_record] call _retire;
 
 _record = [] call _launch;
@@ -232,10 +232,13 @@ _horde = _record get "majorRecord"; _horde set ["emptyDeadline",time - 1];
 _record = [] call _launch;
 _horde = _record get "majorRecord";
 ["close",[_pressure]] call A3I_fnc_budget; _pressure = ""; [2,2] call _setLimits;
-[{_horde get "paidActors" == 2},7] call _wait;
+[{_horde get "paidActors" == 2 && {count (_horde get "units") == 2}
+    && {count (_horde get "queue") == (_horde get "planned") - 2}},7] call _wait;
 ["comp_real_horde_shares_budget",_horde get "paidActors" == 2
     && {count (_horde get "queue") == (_horde get "planned") - 2}
-    && {A3A_resourcesAttackOcc == 80} && {(["stats"] call A3I_fnc_budget) # 1 # 1 == 2}] call _check;
+    && {A3A_resourcesAttackOcc == 80} && {(["stats"] call A3I_fnc_budget) # 1 # 1 == 2},
+    [_horde get "paidActors",count (_horde get "units"),count (_horde get "queue"),
+    _horde get "planned",A3A_resourcesAttackOcc,(["stats"] call A3I_fnc_budget) # 1]] call _check;
 terminate (_record get "script"); [_record] call _retire;
 [{A3A_resourcesAttackOcc == 100}] call _wait;
 ["comp_stopped_parent_cancels_refunds_horde",_record get "outcome" == "interrupted"
@@ -284,11 +287,25 @@ _record = [] call _launch;
 reinforceMarkerOccupants = []; reinforceMarkerInvaders = [[0,_target]];
 canReinforceOccupants = []; canReinforceInvaders = [_target];
 A3I_test_nativeMarkerChange = true;
+A3I_test_compNativeCapture = [];
+private _captureObserver = [CBA_EVENT_SERVER_MARKER_CHANGE,{
+    params ["_marker","_winner"];
+    if (_marker != "a3i_comp_factory" || {_winner != west}) exitWith {};
+    private _job = A3I_competitiveMissions get ((keys A3I_competitiveMissions) # 0);
+    A3I_test_compNativeCapture pushBack [+_this,isRemoteExecuted,remoteExecutedOwner,_job get "outcome"];
+    // Inject a same-frame retake after the native event reaches the controller.
+    sidesX setVariable [_marker,teamPlayer,true];
+    [CBA_EVENT_SERVER_MARKER_CHANGE,[_marker,teamPlayer,west]] call A3A_fnc_triggerLocalEvent;
+}] call CBA_fnc_addEventHandler;
 [west,_target] remoteExec ["A3A_fnc_markerChange",2];
 [{_record get "outcome" == "lost_race" && {[_record] call _state == "FAILED"}}] call _wait;
-["comp_native_remote_capture_fails",sidesX getVariable _target == west
+["comp_native_remote_capture_fails",A3I_test_compNativeCapture isEqualTo [[[_target,west,Invaders],true,2,"lost_race"]]
     && {_record get "outcome" == "lost_race"} && {[_record] call _state == "FAILED"}
-    && {markersChanging isEqualTo []}] call _check;
+    && {markersChanging isEqualTo []},A3I_test_compNativeCapture] call _check;
+["comp_native_remote_retake_keeps_first_result",sidesX getVariable _target == teamPlayer
+    && {_record get "outcome" == "lost_race"} && {server getVariable "resourcesFIA" == 0},
+    [sidesX getVariable _target,teamPlayer,_record get "outcome",server getVariable "resourcesFIA"]] call _check;
+[CBA_EVENT_SERVER_MARKER_CHANGE,_captureObserver] call CBA_fnc_removeEventHandler;
 sleep 1.5; A3I_test_nativeMarkerChange = false;
 [_record] call _retire;
 

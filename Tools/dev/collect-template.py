@@ -461,6 +461,7 @@ COMPETITIVE_CHECKS = {
     "comp_partial_registration_recovers", "comp_unreturned_child_recovered_by_token",
     "comp_direct_remote_start_rejected", "comp_scheduler_keeps_server_worker",
     "comp_remote_request_local_worker", "comp_native_remote_capture_fails",
+    "comp_native_remote_retake_keeps_first_result",
     "comp_remote_watchdog_rejected", "comp_all_clean",
 }
 
@@ -473,7 +474,7 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
             r"Attempt to override final function - a3[ai]_", line, re.IGNORECASE
         ):
             errors.append(number)
-        if any(text in line for text in ("Warning Message:", "not found or empty", "item count not multiple", "Attempt to override final function", "Server: Object", "Invalid convex component")):
+        if any(text in line for text in ("Warning Message:", "not found or empty", "item count not multiple", "Attempt to override final function", "Server: Object", "Invalid convex component", "A null object passed as a target")):
             # Preserve known dependency/engine warnings separately from SQF failures.
             warnings.append({"line": number, "message": line.split(" ", 1)[-1]})
         if "[INFECTION_TEMPLATE] " not in line:

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Competitive conquest caller and settlement audit; prototype runtime is NOT_RUN",
+  "scope": "Competitive conquest caller and settlement source audit; runtime evidence is recorded separately",
   "ultimate_version": "12.4.2",
   "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
   "sources": [
