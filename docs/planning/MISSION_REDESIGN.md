@@ -29,17 +29,20 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
   variants are not retained in this catalog.
 - Supplies Seizure and Extraction deliveries accept Rebel HQ or Rebel-held
   permanent sites, not Rebel-held towns alone.
-- Horde Interception fails when the horde reaches Settlement B.
+- Supplies Seizure includes ammunition, fuel and repair trucks.
+- Horde Interception fails when the first infected enters Settlement B.
 - Liquidation is always a straightforward infected-site clearance. This
   supersedes the earlier requested competitive conquest/race-to-capture variant.
   Existing automatic strategic attacks are not themselves requested missions.
+- Liquidation includes towns and permanent sites. Clearing the mission's infected
+  immediately transfers the location to the Rebels, including towns that would
+  otherwise require political support to change ownership.
 
 ## Pending decisions
 
-Before implementing the relevant behaviors, clarify eligible resource trucks
-and their distribution, the precise horde arrival threshold, and Liquidation
-target types/capture rules where town political ownership differs from physical
-clearance. Do not infer answers from briefings.
+Truck resource types, horde arrival threshold and Liquidation target/capture
+rules are now resolved. The precise distribution/reward behavior for recovered
+resource trucks still needs a decision before implementing that transaction.
 
 ## Source audit
 

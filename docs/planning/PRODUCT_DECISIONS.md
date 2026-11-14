@@ -51,6 +51,11 @@ Rebel-held permanent sites. Interception fails when the horde reaches its
 destination. Liquidation is always infected-site clearance, superseding the
 earlier competitive conquest requirement for requested missions.
 
+Further owner clarification: seizure includes ammunition, fuel and repair trucks;
+interception fails on the first infected entering the destination; Liquidation
+includes towns and permanent sites and captures them immediately after clearing
+the mission's infected, overriding ordinary town political capture for that task.
+
 The full nine-sprint plan remains the backlog. A successful build or addon load
 does not establish campaign, multiplayer, or save compatibility. Stories remain
 open until their acceptance evidence exists; deferred tests must be labelled.
