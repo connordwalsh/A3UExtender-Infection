@@ -1,7 +1,7 @@
 # Mission redesign
 
-Product-owner request: 14 November 2026. Requirements amendment only; these
-replacements are not implemented in the running manual-test build. Existing
+Product-owner request: 14 November 2026. These replacements are being
+implemented in feature builds and are absent from the earlier manual-test build. Existing
 survivor-defense development remains separate.
 
 ## Requested catalog
@@ -42,11 +42,17 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
 - Military bases and airfields remain unavailable before war level 3, preserving
   Ultimate's capture restriction.
 
-## Pending decisions
+- A Russian takeover cancels Liquidation without a mission penalty.
+- Use Ultimate's existing timers and rewards as a starting point, adapting them
+  with developer judgment. Recovered trucks remain usable.
 
-Truck resource types, horde arrival threshold and Liquidation target/capture
-rules are now resolved. The precise distribution/reward behavior for recovered
-resource trucks still needs a decision before implementing that transaction.
+## Current increment
+
+Liquidation is connected to mission-board requests and all four conquest entry
+points on the dispatch branch. Its 37 focused checks pass; the integrated
+combined run is in progress. The other five replacement families remain pending.
+See [current Liquidation behavior and limits](../research/LIQUIDATION.md).
+The implementation notes below retain earlier evidence checkpoints.
 
 ## Source audit
 
@@ -56,7 +62,7 @@ Inspected Ultimate commit `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`
 | Entry point | Finding and required adaptation |
 | --- | --- |
 | `A3A/addons/core/functions/Missions/fn_missionRequest.sqf` | Dispatches multiple human-target, guarded-prisoner, bank, salvage and vehicle-convoy variants. Each infected route needs an achievable replacement, including automatic callers. |
-| `Infection/addons/core/overrides/fn_missionRequest.sqf` | Current routing adapts conquest/random; explicit other categories delegate to Ultimate. Extend behavior as well as wording. |
+| `Infection/addons/core/overrides/fn_missionRequest.sqf` | Liquidation handles conquest; DES/RAN are blocked; other categories still delegate to Ultimate. Complete their replacement behavior as well as wording. |
 | `A3A/addons/gui/functions/GUI/fn_requestMissionDialog.sqf` | Converts Random into a concrete category on the client before requesting it. Removing only the server RAN branch would miss this path. |
 | `A3A/addons/scrt/UILayouts/menu.hpp` | Legacy menu also submits individual categories and RAN. Keep both interfaces consistent with server policy. |
 | `A3A/addons/core/functions/Missions/fn_LOG_Ammo.sqf` | Uses faction ammunition trucks, conventional guards and HQ delivery; destroying the truck can also succeed. Supplies Seizure must require the approved delivery behavior. |

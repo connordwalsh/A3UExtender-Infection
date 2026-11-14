@@ -601,3 +601,20 @@ remaining campaign acceptance are completed. No Computer Use was performed.
 The actual Controller Dev3 missing-dependency run also passes 11 checks, with
 seven startup notices and no engine/SQF errors. All test servers were stopped
 by verified process/profile identity, with exit confirmed.
+
+
+## 14 November 2026 - Liquidation dispatch focused review
+
+Reviewed all four native conquest entry points and their scheduler path. Active
+Infection routes only to eligible infected targets, with no Russian legacy
+fallback. Inactive/dependency-absent routes preserve native arguments. CON
+requests retain HQ eligibility and busy-lock waiting while the exclusive claim
+prevents duplicates. They never own or clear another request's shared lock.
+Menu overrides preserve explicit widget bases and native actions. Seven retired
+competitive helpers and 34 obsolete cases are removed; strategic hordes remain.
+
+Dispatch Dev1 passes 37 focused checks with no engine/SQF errors and 16 retained
+startup/dependency notices. All 138 production inputs and the PBO match the
+manifest. Combined regression is in progress. Keep the stack draft pending its
+result and actual dependency-absent validation. Connected reward receipt, visual
+menus, multiplayer, saves and complete campaign acceptance remain open.

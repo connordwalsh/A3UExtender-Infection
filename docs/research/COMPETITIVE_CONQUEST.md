@@ -1,4 +1,10 @@
-# Competitive conquest prototype
+# Competitive conquest prototype (retired)
+
+The later six-mission catalog supersedes this requested race objective with
+[Liquidation Assignment](LIQUIDATION.md). The dispatch branch removes its seven
+private helpers and 34 obsolete contract checks. This document and its recorded
+evidence describe the earlier prototype, not the current requested mission flow.
+Automatic strategic hordes remain active.
 
 The owner chose two rules on 14 November 2026: an infected conquest race is
 unavailable if no nearby infected town or permanent site can send a walking

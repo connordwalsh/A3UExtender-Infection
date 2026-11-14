@@ -75,13 +75,6 @@ class CfgFunctions
             class runMajorAttack {};
             class finishMajorAttack {};
             class majorWatchdog {};
-            class competitiveSources {};
-            class competitiveTargets {};
-            class startCompetitiveMission {};
-            class runCompetitiveMission {};
-            class finishCompetitiveMission {};
-            class competitiveCapture {};
-            class competitiveWatchdog {};
             class startSite {};
             class trackSiteDefender {};
             class siteDefenderEvent {};
@@ -93,6 +86,9 @@ class CfgFunctions
             class liquidationMarkerChange {};
             class liquidationCityCapture {};
             class startLiquidation {};
+            class requestLiquidation {};
+            class dispatchLiquidation {};
+            class labelLiquidationControl {};
             class liquidationOutcome {};
             class captureLiquidation {};
             class runLiquidation {};
@@ -143,6 +139,9 @@ class CfgFunctions
             class originalDestroyHeli { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Heli.sqf"; };
             class originalDestroyAntenna { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Antenna.sqf"; };
             class originalDestroyArtillery { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Artillery.sqf"; };
+            class originalConquestMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_Outpost.sqf"; };
+            class originalAdministrationMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_MilAdmin.sqf"; };
+            class originalZombieConquestMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_Outpost_Zombies.sqf"; };
             class originalCompetitiveMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_Outpost_Compet.sqf"; };
             class originalNATOinit
             {
@@ -184,6 +183,9 @@ class CfgFunctions
             class DES_Antenna { file = "\x\a3i\addons\core\overrides\fn_DES_Antenna.sqf"; };
             class DES_Artillery { file = "\x\a3i\addons\core\overrides\fn_DES_Artillery.sqf"; };
             class missionRequest { file = "\x\a3i\addons\core\overrides\fn_missionRequest.sqf"; };
+            class CON_Outpost { file = "\x\a3i\addons\core\overrides\fn_CON_Outpost.sqf"; };
+            class CON_MilAdmin { file = "\x\a3i\addons\core\overrides\fn_CON_MilAdmin.sqf"; };
+            class CON_Outpost_Zombies { file = "\x\a3i\addons\core\overrides\fn_CON_Outpost_Zombies.sqf"; };
             class CON_Outpost_Compet { file = "\x\a3i\addons\core\overrides\fn_CON_Outpost_Compet.sqf"; };
         };
         class CREATE
