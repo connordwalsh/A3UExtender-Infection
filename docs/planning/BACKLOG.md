@@ -4,6 +4,10 @@ The acceptance criteria and test requirements are in [PROJECT_PLAN.md](PROJECT_P
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
 
+14 November amendment: [Mission redesign](MISSION_REDESIGN.md) records the
+owner's six replacement categories for S4-1, S4-2, S4-3 and S5-3. Scope and delivery
+questions are pending; requirements/source audit does not complete these stories.
+
 | Story | Work | Status | Evidence / next check |
 | --- | --- | --- | --- |
 | S0-1 | Versions, dependencies, clean local and dedicated baseline | In progress | Local save and process-restart reload verified with matching ID/resources; dedicated campaign open. |

@@ -38,6 +38,12 @@ original project plan; they are not evidence that the behavior is implemented.
 
 ## Scope and evidence
 
+14 November mission-catalog amendment: the owner supplied six replacement names
+and objectives: Horde Interception, Elimination Task, Liquidation Assignment,
+Supplies Seizure, Extraction Mission and Humanitarian Aid. Exact briefings,
+source findings and pending decisions appear in [Mission redesign](MISSION_REDESIGN.md).
+This records requested behavior; the active manual-test build does not contain it.
+
 The full nine-sprint plan remains the backlog. A successful build or addon load
 does not establish campaign, multiplayer, or save compatibility. Stories remain
 open until their acceptance evidence exists; deferred tests must be labelled.
