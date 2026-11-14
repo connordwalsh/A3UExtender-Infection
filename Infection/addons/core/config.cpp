@@ -83,6 +83,9 @@ class CfgFunctions
             class competitiveCapture {};
             class competitiveWatchdog {};
             class startSite {};
+            class trackSiteDefender {};
+            class siteDefenderEvent {};
+            class siteClearance {};
             class runSite {};
             class cleanupSite {};
             class siteWatchdog {};

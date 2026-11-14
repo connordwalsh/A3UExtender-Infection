@@ -67,10 +67,16 @@ private _moved = ["transfer",[_ticket,_site get "context",24]] call A3I_fnc_budg
 if !(_moved # 0) exitWith {[false,0,_moved # 2]};
 _roster append (_units apply {_x getVariable "unitType"});
 garrison setVariable [_marker,_roster,true];
+// Newly adopted defenders become part of the site's clearance obligation.
+// The virtual branch above creates no live site and never enters this path.
+if (!isNil {_site get "clearanceRemaining"}) then {
+    _site set ["clearanceRemaining",(_site get "clearanceRemaining") + count _units];
+};
 {
     _x setVariable ["A3A_resPool","garrison",true];
     _x setVariable ["markerX",_marker,true];
     _x setVariable ["spawner",nil,true];
+    [_x,_marker,_site get "context"] call A3I_fnc_trackSiteDefender;
 } forEach _units;
 (_site get "units") append _units;
 (_site get "groups") pushBackUnique _group;

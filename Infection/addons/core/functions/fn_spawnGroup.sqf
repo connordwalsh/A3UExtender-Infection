@@ -126,6 +126,9 @@ if (isNull _group) then {_reason = "group_limit"} else {
                 deleteVehicle _unit;
                 _unit = objNull;
             };
+            // Track only successfully initialized actors, before leaving this
+            // unscheduled creation transaction or yielding to the controller.
+            [_unit,_marker,_context] call A3I_fnc_trackSiteDefender;
             _units pushBack _unit;
             if (_town) then {
                 _unit setVariable ["A3I_spawnPosition",+_position];

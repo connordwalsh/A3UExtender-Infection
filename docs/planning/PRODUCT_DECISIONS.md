@@ -55,6 +55,8 @@ Further owner clarification: seizure includes ammunition, fuel and repair trucks
 interception fails on the first infected entering the destination; Liquidation
 includes towns and permanent sites and captures them immediately after clearing
 the mission's infected, overriding ordinary town political capture for that task.
+Military bases and airfields retain Ultimate's war-level 3 capture requirement.
+Recovered supply trucks remain usable by the Rebels after delivery.
 
 The full nine-sprint plan remains the backlog. A successful build or addon load
 does not establish campaign, multiplayer, or save compatibility. Stories remain

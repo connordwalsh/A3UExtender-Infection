@@ -30,6 +30,7 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
 - Supplies Seizure and Extraction deliveries accept Rebel HQ or Rebel-held
   permanent sites, not Rebel-held towns alone.
 - Supplies Seizure includes ammunition, fuel and repair trucks.
+- Delivered trucks remain usable by the Rebels rather than being consumed.
 - Horde Interception fails when the first infected enters Settlement B.
 - Liquidation is always a straightforward infected-site clearance. This
   supersedes the earlier requested competitive conquest/race-to-capture variant.
@@ -37,6 +38,8 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
 - Liquidation includes towns and permanent sites. Clearing the mission's infected
   immediately transfers the location to the Rebels, including towns that would
   otherwise require political support to change ownership.
+- Military bases and airfields remain unavailable before war level 3, preserving
+  Ultimate's capture restriction.
 
 ## Pending decisions
 
@@ -92,3 +95,26 @@ The Dev1 addon and fixture package successfully; three evidence-parser unit
 tests pass. Runtime validation is **NOT_RUN**: the protected launch check found
 the user's active Dev9 client (PID 52480), and no test server started. The active
 game, profile, mission installation and immutable Dev9 artifact remain unchanged.
+
+## Clearance tracking increment
+
+Dev2 adds a death ledger to each site visit, attaching real Killed/Deleted event
+handlers before successfully initialized defenders leave their creation
+transaction. Adopted reinforcements add obligations to that same ledger.
+Live deletion is not kill credit; administrative replacements retain their
+existing replacement obligation. Cleanup and old-visit events cannot change the
+current visit's ledger.
+
+`siteClearance` requires an active, healthy controller, an empty spawn queue,
+zero remaining obligations, no living recorded defenders and, for persistent
+sites, an empty native garrison. Missing ledgers/actors and inactive or stopped
+controllers do not count as clear. The predicate does not yet capture territory
+or change ordinary capture rules; the Liquidation controller still needs wiring.
+
+The isolated clearance suite passes 30 checks (11 shared checks and 19 new
+contract cases), with no engine/SQF error records. Its 16 retained warnings are
+startup/dependency notices. It uses real death/deletion events on a controlled
+site record, not a complete mission. See `evidence/sprint-4/site-clearance-focused.json`.
+The subsequent combined suite includes strengthened real site/town spawning and
+reinforcement assertions; its result is pending. Actual menu rendering,
+multiplayer/HC execution and complete Liquidation acceptance remain open.
