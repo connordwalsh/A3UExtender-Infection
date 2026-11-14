@@ -467,6 +467,19 @@ COMPETITIVE_CHECKS = {
 
 
 LIBERATION_CHECKS = {
+    'lib_effect_invalid_position_refused',
+    'lib_effect_unknown_type_refused',
+    'lib_effect_remote_creation_refused',
+    'lib_effect_real_pair_owned',
+    'lib_effect_network_objects',
+    'lib_effect_local_presentation_refused',
+    'lib_effect_remote_cleanup_refused',
+    'lib_effect_foreign_cleanup_refused',
+    'lib_effect_same_name_copy_refused',
+    'lib_effect_multiple_pairs_tracked',
+    'lib_effect_exact_cleanup',
+    'lib_effect_retirement_idempotent',
+    'lib_effect_partial_creation_cleanup',
     'lib_vehicle_valid_native_categories',
     'lib_vehicle_empty_and_malformed_pools',
     'lib_vehicle_nonmap_template_refused',

@@ -248,3 +248,12 @@ The owner chose to retain the native mission scene and survivor vehicle; that
 work and campaign dispatch remain open. The owner subsequently selected peaceful
 joining when no nearby eligible horde origin exists; the isolated dispatch branch
 is implementing that decision. No Computer Use or manual-client update occurred.
+
+Retained-scene checkpoint: the usable empty survivor vehicle and owned fire
+components pass within 129 focused checks and 11 missing-dependency checks.
+The effect implementation fixes ownership for special engine objects and keeps
+all light settings in one persistent callback. Production and report hashes
+match; the rejected first fire attempt and retained warnings are documented.
+The components remain unconnected until the full scene lifecycle owns them.
+Bodies, wrecks, building damage/restoration, observer/client/JIP presentation and
+full mission acceptance remain open. Wreck resource policy awaits the owner.

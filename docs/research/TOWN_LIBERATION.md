@@ -353,3 +353,44 @@ the candidate's production code did not change. Three parser tests and whitespac
 checks pass. Both completed servers were stopped by verified identity. The scene
 component is still unconnected, its combined regression is NOT_RUN, and no
 bodies, wrecks, fires or building-damage implementation is claimed yet.
+
+## Retained scene: fire ownership and cleanup
+
+The next component owns every particle source and light immediately after
+creation, refuses unsafe placement and defers retirement while an observer is
+nearby. It is still separate from the parent mission's scene lifecycle.
+
+The first candidate failed three effect checks. Arma's special effect objects
+cannot store ownership variables, as confirmed by the engine test and the
+[setVariable reference](https://community.bistudio.com/wiki/setVariable?useskin=vector).
+Dev4 instead keeps the exact parent record and effect-array references in a
+server registry. Foreign records, including a different record with the same
+name and copied object references, cannot create or remove its effects.
+
+The native light helper also sends three persistent calls with the same object
+as JIP identity. Later calls replace earlier ones according to the
+[remoteExec contract](https://community.bistudio.com/wiki/remoteExec).
+`applyLiberationFire` now applies the particle class and all three light settings
+in one server-issued, object-bound call. Its callback rejects ordinary local
+calls and calls originating from nonserver clients. Connected-client rendering,
+hosted play and actual joining-client delivery remain NOT_RUN.
+
+The [132-input Dev4 candidate](../../evidence/sprint-3/liberation-effects-build.json)
+passes [129 focused checks](../../evidence/sprint-3/liberation-effects-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-effects-dependencies-absent.json).
+The thirteen new effect cases exercise real networked particle/light creation,
+exact ownership, remote mutation refusal, same-name foreign-record refusal,
+multiple pairs, deletion, idempotence and a partial-creation cleanup state.
+All 132 production inputs, the PBO, 197 focused-report inputs and 159
+dependency-report inputs match their recorded hashes. No engine/SQF Error
+records occur. The focused log retains 21 warnings: sixteen startup/dependency
+notices, two object-deletion notifications, two friendly-fire deliveries to
+deleted fixture actors and one message to the absent commander. The dependency
+report retains seven startup notices. Three parser regressions, PowerShell
+parsing and whitespace checks pass. Both completed servers were stopped by
+verified process/profile identity. The rejected first attempt is not counted.
+
+The combined scene regression and observer-positive/client presentation tests
+are NOT_RUN. Bodies, wrecks, building changes and parent integration remain open.
+The owner has been asked whether scene wrecks should retain native infected-army
+resource effects or behave only as abandoned vehicles; no policy is assumed.

@@ -540,3 +540,21 @@ fixture and retained warnings are explained in TOWN_LIBERATION.md. Three parser
 tests and whitespace checks pass. Completed servers were stopped by verified
 identity. The scene remains unconnected and unaccepted as a full mission feature;
 Redux placement, collection/garage/save behavior and its remaining assets need work.
+
+## 14 November 2026 - Scene fire component review
+
+The first engine attempt exposed that particle sources and lights cannot hold
+ownership tags. The corrected server registry retains the original record and
+array references. Same-name copies cannot claim them. Creation records each
+object before setup, and cleanup handles a partial pair without leaking the
+remaining emitter. One persistent presentation callback retains all native
+particle/light settings for later-joining clients, correcting the native
+same-JIP-identity replacement pattern. The callback accepts only server origin.
+
+All 129 focused checks and 11 missing-dependency checks pass on Dev4. All 132
+production inputs, PBO and 197/159 collected input hashes match. No engine/SQF
+Error records occur; the retained 21/7 warnings and the rejected first attempt
+are documented in TOWN_LIBERATION.md. Three parser tests, PowerShell parsing
+and whitespace checks pass. Completed servers were stopped by verified identity.
+The component remains unconnected; client/JIP visuals, observer-positive tests,
+the remaining scene assets and full mission acceptance are still open.
