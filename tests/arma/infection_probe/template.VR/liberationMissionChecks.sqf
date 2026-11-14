@@ -227,6 +227,8 @@ _mission set ["outcome","cancelled"];
     && {count A3I_liberationSkirmishClaims == 0}] call _check;
 townSkirmishes = []; milAdministrationsX = [];
 
+call compile preprocessFileLineNumbers "liberationDispatchChecks.sqf";
+
 deleteVehicle _rescuer; [[_rescuerGroup]] call A3I_fnc_cleanupGroups;
 [{isNull _rescuerGroup && {isNil "A3I_groupCleanupHandle"}}] call _wait;
 deleteVehicle garrison; [_savedCap,_savedContext] call _setLimits;

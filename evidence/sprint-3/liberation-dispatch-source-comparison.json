@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "scope": "Pinned native source comparison, not runtime campaign acceptance",
+  "upstream_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "upstream_path": "core/functions/init/fn_resourcecheck.sqf",
+  "upstream_sha256": "c306affdeb61926ad1ee58112b4d542dfecfeb66ce60dc482c8a55a1bd4d1def",
+  "adapted_path": "Infection/addons/core/overrides/fn_resourcecheck.sqf",
+  "adapted_sha256": "03e89e93764d437ec2841974a8d479baa2de869d193ba054029e49a9df14d505",
+  "checks": {
+    "single_infected_dispatch_branch": true,
+    "remaining_native_body_identical_after_newline_normalization": true
+  },
+  "declared_changes": [
+    "Inactive-Infection delegation before native body",
+    "Absolute upstream include path",
+    "Infected-only exit branch dispatching qualified town requests"
+  ]
+}

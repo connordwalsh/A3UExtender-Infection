@@ -87,6 +87,7 @@ class CfgFunctions
             class liberationOutcome {};
             class runLiberationHorde {};
             class startLiberation {};
+            class requestLiberation {};
             class runLiberation {};
             class finishLiberation {};
             class rewardLiberation {};
@@ -129,6 +130,8 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalTownBattle { file = "\x\a3a\addons\core\functions\CREATE\fn_townBattle.sqf"; };
+            class originalResourceCheck { file = "\x\a3a\addons\core\functions\init\fn_resourcecheck.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
             class originalMissionRequest { file = "\x\a3a\addons\core\functions\Missions\fn_missionRequest.sqf"; };
@@ -162,6 +165,10 @@ class CfgFunctions
     };
     class A3A
     {
+        class init
+        {
+            class resourcecheck { file = "\x\a3i\addons\core\overrides\fn_resourcecheck.sqf"; };
+        };
         class Missions
         {
             class missionRequest { file = "\x\a3i\addons\core\overrides\fn_missionRequest.sqf"; };
@@ -169,6 +176,7 @@ class CfgFunctions
         };
         class CREATE
         {
+            class townBattle { file = "\x\a3i\addons\core\overrides\fn_townBattle.sqf"; };
             class NATOinit { file = "\x\a3i\addons\core\overrides\fn_NATOinit.sqf"; };
             class patrolReinf { file = "\x\a3i\addons\core\overrides\fn_patrolReinf.sqf"; };
             class reinforcementsAI { file = "\x\a3i\addons\core\overrides\fn_reinforcementsAI.sqf"; };
