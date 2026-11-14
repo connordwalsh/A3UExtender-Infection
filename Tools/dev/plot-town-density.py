@@ -63,6 +63,15 @@ def validate() -> dict:
     return checks
 
 
+def save_plot(figure, name: str) -> None:
+    figure.savefig(OUTPUT / f"{name}.png", dpi=180)
+    vector = OUTPUT / f"{name}.svg"
+    figure.savefig(vector, metadata={"Date": None})
+    # Matplotlib emits trailing spaces in path data. Newlines preserve the SVG
+    # separators, so normalize the export for clean repository whitespace checks.
+    vector.write_text("\n".join(line.rstrip() for line in vector.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
+
+
 def draw_curves(towns: list[dict]) -> None:
     plt.rcParams.update({
         "font.family": "DejaVu Sans", "font.size": 16,
@@ -111,8 +120,7 @@ def draw_curves(towns: list[dict]) -> None:
     handles, labels = axes[0].get_legend_handles_labels()
     figure.legend(handles, labels, loc="upper left", bbox_to_anchor=(0.075, 0.86), ncol=2, frameon=False, fontsize=15)
     figure.text(0.075, 0.035, "Lines show continuous targets; displayed town counts round to whole infected.", fontsize=13)
-    figure.savefig(OUTPUT / "town-density-curves.png", dpi=180)
-    figure.savefig(OUTPUT / "town-density-curves.svg", metadata={"Date": None})
+    save_plot(figure, "town-density-curves")
     plt.close(figure)
 
     # Companion plot makes the user's declining per-citizen requirement visible.
@@ -131,8 +139,7 @@ def draw_curves(towns: list[dict]) -> None:
     axis.legend(loc="upper right", bbox_to_anchor=(0.72, 1.01), frameon=False, fontsize=13)
     figure.suptitle("Density falls as town population grows", x=0.10, y=0.96, ha="left", fontsize=20)
     figure.text(0.10, 0.03, "The minimum of 10 exceeds one infected per citizen only below P = 10; Redux's smallest listed town has P = 23.", fontsize=11)
-    figure.savefig(OUTPUT / "town-density-ratios.png", dpi=180)
-    figure.savefig(OUTPUT / "town-density-ratios.svg", metadata={"Date": None})
+    save_plot(figure, "town-density-ratios")
     plt.close(figure)
 
 
