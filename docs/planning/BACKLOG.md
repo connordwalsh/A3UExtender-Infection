@@ -288,3 +288,10 @@ ownership pass within 208 focused checks; the dependency-absent suite passes 11.
 All 143 production and collected hashes match. Complete scene construction and
 parent integration are next; client/JIP, terrain and combined regression remain
 open. No campaign or save acceptance is claimed.
+
+
+Complete scene assembly/cleanup is drafted and packages successfully (Dev10,
+145 production inputs), with 18 new engine checks authored but NOT_RUN. Parent
+mission integration remains open. The owner requested a manual session with
+Zeus Enhanced; that client uses verified Dev9 (208 focused/11 dependency-absent
+checks), not the untested assembly draft. Background probe servers are stopped.

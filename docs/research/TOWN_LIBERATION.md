@@ -570,3 +570,22 @@ checks pass; completed server exits are verified.
 
 Client/JIP rendering, additional terrain models, complete scene construction,
 parent lifecycle integration and combined regression remain NOT_RUN.
+
+
+## Complete scene assembly draft - engine checks NOT_RUN
+
+The next draft assembles the retained native scene budgets through the verified
+component helpers: first 100 enterable houses with a 20-percent damage selection,
+5-7 wreck clusters, randomized corpse groups and nearby fires, plus the usable
+survivor vehicle. It records every component during creation, skips unsafe
+placements, and supports retryable cleanup after construction is interrupted.
+The combined cleanup preserves the native survivor vehicle and claimed wrecks,
+restores owned buildings, and refuses an active town or unsettled registered
+mission. Eighteen focused construction/interruption checks have been authored.
+
+Dev10 packages successfully with 145 production inputs, but its engine checks
+are NOT_RUN. Neither helper is connected to the parent mission yet. On the
+owner's manual-test request, the visible client was launched with the verified
+Dev9 artifact, Chernarus Redux and installed Zeus Enhanced 1.15.1. Its PBO was
+hash-checked. The new draft is not part of that running client. Background
+probe servers are stopped while the owner tests. No Computer Use was performed.
