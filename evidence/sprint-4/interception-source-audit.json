@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "scope": "Horde Interception source audit and accepted scope; no implementation/runtime acceptance.",
+  "files": [
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_CONVOY.sqf",
+      "sha256": "ddb8e0df1ae8705ebbf775eb81062cc0e53a8d2a4faab4259cc7d1161faaa73e"
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+      "sha256": "a842aef05d69c0b4453f07867c3dcdc58b6d65dbb763a5d24cfbbea797e400f9"
+    },
+    {
+      "path": "A3A/addons/core/functions/Intel/fn_selectIntel.sqf",
+      "sha256": "181959672196b97b5b4d100b2d9720bb31ff57b27f905a32144d3dfc531ccdf7"
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_chooseAttack.sqf",
+      "sha256": "a43a6c893e212363f09c8f2cb84a44a6bf7e3f5c451f82eb6c19f1ae7aed9506"
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_sizeMarker.sqf",
+      "sha256": "f854d2e3dd4c7753c200ccf59c0e1172b7af02f1a44c4506cd5135d18853f8f5"
+    }
+  ],
+  "report": "docs/research/HORDE_INTERCEPTION.md"
+}

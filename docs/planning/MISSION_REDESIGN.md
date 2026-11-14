@@ -33,6 +33,13 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
 - Delivered trucks remain usable by the Rebels rather than being consumed.
 - Horde Interception fails when the first infected enters Settlement B.
 - Settlement B may be infected-held or Rebel-held.
+- Interception routes may connect towns and permanent sites, including bases and
+  factories. Spawn the whole interception horde together. The owner authorizes
+  developer-chosen sizes and a separate temporary allowance, so existing shared
+  usage does not force this mission into queued waves.
+- After first arrival fails Interception, survivors reinforce an infected-held
+  destination or attack a hostile destination. Russian capture during the march
+  does not cancel the assignment; the horde continues to the destination.
 - Liquidation is always a straightforward infected-site clearance. This
   supersedes the earlier requested competitive conquest/race-to-capture variant.
   Existing automatic strategic attacks are not themselves requested missions.
