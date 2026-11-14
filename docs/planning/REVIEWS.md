@@ -521,3 +521,19 @@ and classified in TOWN_LIBERATION.md. Three parser tests, PowerShell parsing and
 whitespace checks pass. Combined regression is underway. This draft remains
 unmerged: scene construction, campaign entry, the pending no-source decision and
 connected-player/full-mission acceptance are still open.
+
+## 14 November 2026 - Survivor vehicle component review
+
+The owner's retained-scene requirement is recorded. Its first component filters
+native Rebel-template categories to usable public ground vehicles, creates no
+crew, owns the exact object at birth and refuses unsafe/changed placement. Source
+review records the separate native wreck, corpse/blood, fire and building-repair
+contracts still needed for the full scene.
+
+All 116 focused and 11 missing-dependency checks pass on the 129-input candidate.
+The PBO and all 193 focused inputs match; no engine/SQF Error records occur.
+The actual EntityCreated monitor observed no transient crew. The rejected first
+fixture and retained warnings are explained in TOWN_LIBERATION.md. Three parser
+tests and whitespace checks pass. Completed servers were stopped by verified
+identity. The scene remains unconnected and unaccepted as a full mission feature;
+Redux placement, collection/garage/save behavior and its remaining assets need work.

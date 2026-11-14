@@ -15,7 +15,10 @@ A3A_faction_reb = createHashMapFromArray [["vehiclesBasic",[]],["vehiclesLightAr
 A3A_faction_reb = [];
 ["lib_vehicle_nonmap_template_refused",call A3I_fnc_liberationVehicleClasses isEqualTo []] call _check;
 A3A_faction_reb = createHashMap;
-{A3A_faction_reb set [_x,_y]} forEach _savedVehicleReb;
+{
+    private _value = _savedVehicleReb get _x;
+    if (!isNil "_value") then {A3A_faction_reb set [_x,_value]};
+} forEach keys _savedVehicleReb;
 A3A_faction_reb set ["vehiclesBasic",["C_Offroad_01_F"]];
 private _record = call _newSurvivor;
 [_record] call A3I_fnc_createLiberationSurvivor;

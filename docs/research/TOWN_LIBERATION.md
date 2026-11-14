@@ -329,9 +329,21 @@ Source findings for the remaining scene work:
   These are distinct lifecycle and economy contracts to preserve or explicitly
   adapt. The direct vehicle component does not certify collection or saving.
 
-The 129-input Dev2 candidate builds. Twelve vehicle cases are authored, bringing
-the focused suite to 116: category filtering, malformed inputs, remote/foreign
+The [129-input Dev2 candidate](../../evidence/sprint-3/liberation-vehicle-build.json)
+passes [116 focused checks](../../evidence/sprint-3/liberation-vehicle-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-vehicle-dependencies-absent.json).
+The twelve vehicle cases cover category filtering, malformed inputs, remote/foreign
 creation refusal, unavailable placement, real usable empty creation, an actual
 EntityCreated audit for temporary crew, placement/ownership, idempotence and
-deletion. These cases are NOT_RUN while the controller regression uses the test
-port. No bodies, wrecks, fires or building-damage implementation is claimed yet.
+deletion. All production/PBO and 193 focused-report input hashes match. No
+engine/SQF Error records occur. The 23 focused warnings comprise sixteen startup
+notices, four object-deletion messages, two friendly-fire deliveries to deleted
+fixture actors and one absent-commander income message. Seven startup notices
+remain in the dependency-absent report.
+
+The first focused attempt was rejected after a test setup tried to copy an
+undefined optional template value. The fixture now copies only defined fields;
+the candidate's production code did not change. Three parser tests and whitespace
+checks pass. Both completed servers were stopped by verified identity. The scene
+component is still unconnected, its combined regression is NOT_RUN, and no
+bodies, wrecks, fires or building-damage implementation is claimed yet.
