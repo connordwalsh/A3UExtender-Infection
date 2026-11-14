@@ -524,3 +524,115 @@ still match. Its 77 warnings are classified in the research record; no engine/SQ
 Error records occur. The completed server was stopped by verified identity.
 This draft remains unmerged: scene construction, campaign entry with the now
 approved peaceful fallback, and connected-player/full-mission acceptance remain open.
+
+## 14 November 2026 - Survivor vehicle component review
+
+The owner's retained-scene requirement is recorded. Its first component filters
+native Rebel-template categories to usable public ground vehicles, creates no
+crew, owns the exact object at birth and refuses unsafe/changed placement. Source
+review records the separate native wreck, corpse/blood, fire and building-repair
+contracts still needed for the full scene.
+
+All 116 focused and 11 missing-dependency checks pass on the 129-input candidate.
+The PBO and all 193 focused inputs match; no engine/SQF Error records occur.
+The actual EntityCreated monitor observed no transient crew. The rejected first
+fixture and retained warnings are explained in TOWN_LIBERATION.md. Three parser
+tests and whitespace checks pass. Completed servers were stopped by verified
+identity. The scene remains unconnected and unaccepted as a full mission feature;
+Redux placement, collection/garage/save behavior and its remaining assets need work.
+
+## 14 November 2026 - Scene fire component review
+
+The first engine attempt exposed that particle sources and lights cannot hold
+ownership tags. The corrected server registry retains the original record and
+array references. Same-name copies cannot claim them. Creation records each
+object before setup, and cleanup handles a partial pair without leaking the
+remaining emitter. One persistent presentation callback retains all native
+particle/light settings for later-joining clients, correcting the native
+same-JIP-identity replacement pattern. The callback accepts only server origin.
+
+All 129 focused checks and 11 missing-dependency checks pass on Dev4. All 132
+production inputs, PBO and 197/159 collected input hashes match. No engine/SQF
+Error records occur; the retained 21/7 warnings and the rejected first attempt
+are documented in TOWN_LIBERATION.md. Three parser tests, PowerShell parsing
+and whitespace checks pass. Completed servers were stopped by verified identity.
+The component remains unconnected; client/JIP visuals, observer-positive tests,
+the remaining scene assets and full mission acceptance are still open.
+
+## 14 November 2026 - Scene corpse component review
+
+The component uses validated native scene roles, with only basic WBK types.
+Exact bodies, blood objects and original civilian groups are retained before
+later setup. Creation/killing is unscheduled; the installed basic WBK scripts
+refuse already-dead actors. Cleanup checks ownership, defers near observers and
+retires original groups without targeting unrelated corpses or live members.
+
+The 135-input Dev5 candidate passes 147 focused and 11 dependency-absent checks.
+All production/PBO and 201/163 collected input hashes match. Actual human and
+basic-infected bodies, blood and groups are created/deleted; the body case does
+not alter infected resources or active budget. No engine/SQF Error records occur.
+The rejected fixture assumptions, corrected native detection/loadout checks and
+23/7 retained warnings are documented in TOWN_LIBERATION.md. Three parser tests
+and whitespace checks pass; completed servers were stopped by verified identity.
+Parent integration, combined regression, observers, client presentation and long
+duration body behavior are still open. The owner explicitly selected abandoned
+wrecks with no infected resource effects; that policy is recorded for the next
+component and is not claimed implemented by the corpse checks.
+
+
+## 14 November 2026 - Abandoned scene wreck review
+
+Neutral ownership is established before capture handlers can run. The adapter
+requires compiled skin maps, creates no crew, owns the object at birth and
+preserves claimed or in-use vehicles. Real native capture/destruction/deletion
+checks show no infected resource effects or civilian-theft support penalty.
+The rejected uncompiled fixture and corrected map preparation are documented.
+
+Dev7 passes 170 focused and 11 missing-dependency checks, with no engine/SQF
+Error records. All 138 production/PBO and 205/167 collected inputs match. The
+21/7 warnings are classified in TOWN_LIBERATION.md. Parser tests and whitespace
+checks pass; completed server exits are verified. Building restoration follows
+the owner's new native-cleanup decision. Parent integration, combined regression,
+player vehicle interactions and full mission acceptance remain open.
+
+
+## 14 November 2026 - Temporary scene building review
+
+The component excludes pre-existing damage and protected/occupied buildings,
+records original transforms/doors before damage, tracks the exact native ruin,
+and restores partial damage as well as collapsed houses. Only owned temporary
+ruins leave the native persistence list. Interrupted cleanup retains ownership
+until restoration is observed; deleted originals are not replaced.
+
+Dev8 passes 195 focused and 11 missing-dependency checks. All 141 production/PBO
+and 210/172 collected inputs match. No engine/SQF Error records; 31/7 retained
+warnings and rejected investigation/fixture runs are documented. Preparation
+state and its clock are now published atomically after a diagnostic run exposed
+an intermittent preparation check failure. Parser, PowerShell and whitespace
+checks pass. Completed server exits are verified. Terrain, connected observers,
+save/load, full scene construction and combined regression remain open.
+
+
+## 14 November 2026 - Roof effects and native smoke review
+
+The exact native smoke anchor owns its three local effects; actual deletion
+retires all three even after a partial child deletion. Roof effects use a
+checked geometry hit, and repeated decoration cannot multiply owned effects.
+Native damage and smoke/fire/collapse distributions remain in the helper.
+
+Dev9 passes 208 focused and 11 missing-dependency checks. All 143 production/PBO
+and 213/175 collected inputs match. No engine/SQF Error records; 31/7 warnings
+are classified in the research record. Parser and whitespace checks pass;
+completed server exits are verified. Full scene construction/parent integration,
+client/JIP/terrain behavior and combined regression remain open.
+
+
+## 14 November 2026 - Draft scene integration source review
+
+Reviewed task reservation before scheduled construction, survivor/source/expiry
+cancellation, interrupted-parent cleanup and claim release ordering. The complete
+cleanup preserves native survivor-vehicle retention. The fixtures now wait for
+real construction and cleanup, including a parent stopped during construction.
+Dev11 packages with 145 matching production inputs and a matching PBO. Three
+parser tests and whitespace checks pass. Engine validation is NOT_RUN while the
+owner tests Dev9; no current combined-regression or campaign acceptance is claimed.

@@ -1,5 +1,5 @@
 {
-  "scope": "Inspected installed WBK configuration for survivor role exclusion; all prepared creature families declare or inherit faction WBK_AI_ZHAMBIES. Runtime adversarial fixture rejects a Smasher role without creating it.",
+  "scope": "Installed WBK sources for prepared-creature exclusion and scene-body lifecycle: all prepared families declare or inherit WBK_AI_ZHAMBIES; basic walker/middle/runner AI refuses already-dead units. Runtime cases remain separate evidence.",
   "files": [
     {
       "path": ".work/unpacked/WBK_Zombies/wbk_zombies_units/config.inspected.cpp",
@@ -16,6 +16,22 @@
     {
       "path": ".work/unpacked/WBK_Zombies_Goliath/config.inspected.cpp",
       "sha256": "371038a182cf7296b9ed70379fdc3e45fb074ad94ffbd33530d08e60af3ba4ee"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies/ai/wbk_ai_walker.sqf",
+      "sha256": "a5ef5c131375e52bff8306ca953e69b0a72f8f13f1308d8c26409a60f7531bec"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies/ai/wbk_ai_middle.sqf",
+      "sha256": "a7acb97fe1c60c26ef2af02478f9738a1e9dc082dc6b50e59e1278f90cbbaf59"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies/ai/wbk_ai_runner.sqf",
+      "sha256": "cd4107bb2aadf11ed82f0c19fcc6524b87461b8e325f8dc57a531767d0639495"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies/bootstrap/xeh_preinit.sqf",
+      "sha256": "5f882de25cf07390833a5d487855d127efb4acc59a08fb63d66006e9b24eca08"
     }
   ]
 }

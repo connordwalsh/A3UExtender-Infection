@@ -248,3 +248,58 @@ The owner chose to retain the native mission scene and survivor vehicle; that
 work and campaign dispatch remain open. The owner subsequently selected peaceful
 joining when no nearby eligible horde origin exists; the isolated dispatch branch
 is implementing that decision. No Computer Use or manual-client update occurred.
+
+Retained-scene checkpoint: the usable empty survivor vehicle and owned fire
+components pass within 129 focused checks and 11 missing-dependency checks.
+The effect implementation fixes ownership for special engine objects and keeps
+all light settings in one persistent callback. Production and report hashes
+match; the rejected first fire attempt and retained warnings are documented.
+The components remain unconnected until the full scene lifecycle owns them.
+Bodies, wrecks, building damage/restoration, observer/client/JIP presentation and
+full mission acceptance remain open. Wreck resource policy was subsequently
+resolved: abandoned vehicles must have no infected-army resource effects.
+
+Corpse checkpoint: native civilian/Rebel/basic-infected bodies, owned blood and
+original-group cleanup pass within 147 focused checks and 11 without zombie
+dependencies. The 135-input candidate and all collected hashes match. Rejected
+test-setup assumptions and warning details are recorded in TOWN_LIBERATION.md.
+The usable vehicle, fire and body helpers remain unconnected pending the wreck,
+building and complete-scene lifecycle work. No acceptance gate is closed.
+
+
+Abandoned scene wreck checkpoint: repairable, empty vehicles retain native capture
+and cleanup without infected army-resource or town-support effects. The 138-input
+candidate passes 170 focused and 11 dependency-absent checks; all collected hashes
+match. Claimed vehicles survive scene cleanup. Building damage/restoration and
+parent integration remain open; the owner selected Ultimate's temporary building
+restoration behavior. No campaign acceptance gate is closed.
+
+
+Temporary-building checkpoint: the owner's default restoration choice is now
+implemented as an isolated component. Original positions/doors return after
+partial or full destruction; pre-existing damage and unrelated ruins remain.
+Dev8 passes 195 focused and 11 dependency-absent checks with matching hashes.
+Roof effects, complete scene construction/parent cleanup, terrain/client/save
+acceptance and the combined regression remain open. No sprint gate is closed.
+
+
+Roof-effect checkpoint: native smoke children and guarded roof fire/smoke/damage
+ownership pass within 208 focused checks; the dependency-absent suite passes 11.
+All 143 production and collected hashes match. Complete scene construction and
+parent integration are next; client/JIP, terrain and combined regression remain
+open. No campaign or save acceptance is claimed.
+
+
+Complete scene assembly/cleanup is drafted and packages successfully (Dev10,
+145 production inputs), with 18 new engine checks authored but NOT_RUN. Parent
+mission integration remains open. The owner requested a manual session with
+Zeus Enhanced; that client uses verified Dev9 (208 focused/11 dependency-absent
+checks), not the untested assembly draft. Background probe servers are stopped.
+
+
+Parent scene integration draft: Dev11 calls construction before the rescue phase
+and complete cleanup before releasing skirmish claims. Parent fixtures cover
+construction interruption and retained survivor vehicles. Packaging, recorded
+hashes, parser regressions and whitespace checks pass; ENGINE_TESTS_NOT_RUN.
+Native campaign dispatch integration and all campaign acceptance remain open.
+The owner's manual Dev9 client is unchanged, with no background probe servers.

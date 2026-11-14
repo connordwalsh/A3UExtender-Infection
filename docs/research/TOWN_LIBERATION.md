@@ -2,7 +2,7 @@
 
 The owner selected survivor rescue and defense with a walking infected horde.
 This audit pins Ultimate 12.4.2 at `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`;
-the [32-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
+the [44-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
 records the exact inputs. This is source evidence, not runtime acceptance.
 
 ## Native entry and ownership
@@ -293,3 +293,322 @@ The owner selected retention of the native wrecks, bodies, fire/building damage
 and survivor vehicle. That scene is a separate implementation increment. Native
 campaign entry with the approved peaceful fallback, connected-player rewards/UI, real
 walking travel, defense pacing and full mission acceptance remain open.
+
+## Retained scene: source audit and vehicle component
+
+The owner approved retaining the native scene on 14 November. The next branch
+adds a direct survivor-vehicle component; it is not connected to the parent
+mission until the complete scene lifecycle owns its cleanup.
+
+`liberationVehicleClasses` retains native category-then-class selection from the
+Rebel template and its configured `vehiclesBasic` fallback for missing fields.
+It excludes empty/malformed categories, missing classes, nonpublic classes,
+aircraft, boats, static weapons and UAVs. `createLiberationVehicle` requires the
+local, owned, live survivor. It prefers a safe nearby road, otherwise uses the
+bounded outdoor search, and never substitutes a center or origin position when
+that search fails. The parent records the vehicle immediately after creation.
+No crew is requested. Native postmortem preparation, unlocked access and the
+original survivor-group vehicle association are retained. Deletion does not
+permit a repeated call to create a replacement vehicle.
+
+Source findings for the remaining scene work:
+
+- Native `spawnVehicle` creates a driver and turret crew even when its caller
+  immediately deletes them. The empty survivor vehicle avoids that transient
+  crew path and its potential infected-role fallback.
+- Native `createDeadSoldier` creates a civilian group and a blood object but
+  returns only the corpse. The caller also stores body arrays inside another
+  array. The new scene must retain exact corpses, original groups and blood
+  objects so interrupted setup and ordinary cleanup can retire all three.
+- `createFire` returns a particle source and a light, with object-bound JIP
+  setup. `damageBuilding` may return a nested fire array, a smoke object or a
+  null object and assumes a nonempty roof-intersection result. Scene ownership
+  must flatten/validate those effects and handle buildings without a roof hit.
+- Building destruction is linked through the native `BuildingChanged` event.
+  `repairRuinedBuilding` requires both the original building and its linked
+  ruin; it returns false for ordinary partial damage. Cleanup cannot assume
+  that calling it restores every building. Record initial damage and the exact
+  changed buildings, preserving pre-existing damage and protected site objects.
+- The native survivor vehicle has no `ownerSide` initialization; `VEHdespawner`
+  treats that as Rebel ownership and leaves it. Wrecks instead pass through
+  `AIVEHinit` with the attacking side, including capture/damage/resource events.
+  These are distinct lifecycle and economy contracts to preserve or explicitly
+  adapt. The direct vehicle component does not certify collection or saving.
+
+The [129-input Dev2 candidate](../../evidence/sprint-3/liberation-vehicle-build.json)
+passes [116 focused checks](../../evidence/sprint-3/liberation-vehicle-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-vehicle-dependencies-absent.json).
+The twelve vehicle cases cover category filtering, malformed inputs, remote/foreign
+creation refusal, unavailable placement, real usable empty creation, an actual
+EntityCreated audit for temporary crew, placement/ownership, idempotence and
+deletion. All production/PBO and 193 focused-report input hashes match. No
+engine/SQF Error records occur. The 23 focused warnings comprise sixteen startup
+notices, four object-deletion messages, two friendly-fire deliveries to deleted
+fixture actors and one absent-commander income message. Seven startup notices
+remain in the dependency-absent report.
+
+The first focused attempt was rejected after a test setup tried to copy an
+undefined optional template value. The fixture now copies only defined fields;
+the candidate's production code did not change. Three parser tests and whitespace
+checks pass. Both completed servers were stopped by verified identity. The scene
+component is still unconnected, its combined regression is NOT_RUN, and no
+bodies, wrecks, fires or building-damage implementation is claimed yet.
+
+## Retained scene: fire ownership and cleanup
+
+The next component owns every particle source and light immediately after
+creation, refuses unsafe placement and defers retirement while an observer is
+nearby. It is still separate from the parent mission's scene lifecycle.
+
+The first candidate failed three effect checks. Arma's special effect objects
+cannot store ownership variables, as confirmed by the engine test and the
+[setVariable reference](https://community.bistudio.com/wiki/setVariable?useskin=vector).
+Dev4 instead keeps the exact parent record and effect-array references in a
+server registry. Foreign records, including a different record with the same
+name and copied object references, cannot create or remove its effects.
+
+The native light helper also sends three persistent calls with the same object
+as JIP identity. Later calls replace earlier ones according to the
+[remoteExec contract](https://community.bistudio.com/wiki/remoteExec).
+`applyLiberationFire` now applies the particle class and all three light settings
+in one server-issued, object-bound call. Its callback rejects ordinary local
+calls and calls originating from nonserver clients. Connected-client rendering,
+hosted play and actual joining-client delivery remain NOT_RUN.
+
+The [132-input Dev4 candidate](../../evidence/sprint-3/liberation-effects-build.json)
+passes [129 focused checks](../../evidence/sprint-3/liberation-effects-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-effects-dependencies-absent.json).
+The thirteen new effect cases exercise real networked particle/light creation,
+exact ownership, remote mutation refusal, same-name foreign-record refusal,
+multiple pairs, deletion, idempotence and a partial-creation cleanup state.
+All 132 production inputs, the PBO, 197 focused-report inputs and 159
+dependency-report inputs match their recorded hashes. No engine/SQF Error
+records occur. The focused log retains 21 warnings: sixteen startup/dependency
+notices, two object-deletion notifications, two friendly-fire deliveries to
+deleted fixture actors and one message to the absent commander. The dependency
+report retains seven startup notices. Three parser regressions, PowerShell
+parsing and whitespace checks pass. Both completed servers were stopped by
+verified process/profile identity. The rejected first attempt is not counted.
+
+The combined scene regression and observer-positive/client presentation tests
+are NOT_RUN. Bodies, wrecks, building changes and parent integration remain open.
+The owner subsequently selected abandoned wrecks with no infected-army resource
+effects. The wreck adapter must preserve that rule through capture, destruction
+and cleanup.
+
+## Retained scene: corpses, blood and original groups
+
+The body component preserves native faction-then-role selection from civilian,
+Rebel and Occupant scene categories. It validates prepared scalar-base roles,
+rejects missing/malformed definitions and excludes WBK special-creature classes.
+Array/weighted base-class definitions are skipped because the safe-position
+check and native creation must use the same body. The baseline civilian, FIA
+Rebel and Infection categories resolve to 2, 7 and 6 roles respectively.
+
+Creation records the original civilian group, corpse and blood object before
+later initialization can fail. The body is killed in the same unscheduled call
+as creation. The installed basic walker/middle/runner AI exits for an already
+dead unit; the runtime case observes a basic infected corpse remaining dead
+without a WBK AI marker or active-infected budget ticket after three seconds.
+This is not long-duration reanimation or client-behavior acceptance.
+
+Cleanup retires only those exact objects and original groups, defers near an
+observer, rejects remote/foreign cleanup and recovers a partially registered
+group. It does not collect unrelated nearby bodies. No conventional infected
+combat initialization or resource charge is attached to these scene corpses.
+
+The [135-input Dev5 candidate](../../evidence/sprint-3/liberation-bodies-build.json)
+passes [147 focused checks](../../evidence/sprint-3/liberation-bodies-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-bodies-dependencies-absent.json).
+Its eighteen body cases use actual native civilian/FIA definitions and a basic
+WBK corpse. They exercise role filtering, blocked placement, ownership, blood,
+unchanged supplied equipment, unchanged resource/budget totals, cleanup and
+partial registration. All production/PBO and 201/163 report-input hashes match.
+No engine/SQF Error records occur. Twenty-three focused warnings are retained:
+sixteen startup/dependency notices, four object-deletion notifications, two
+friendly-fire deliveries to deleted fixture actors and one absent-commander
+message. Seven startup notices remain in the dependency-absent report.
+
+The first body fixture was rejected: it omitted native optional-mod detection
+variables required by the FIA loader and incorrectly expected FIA scene bodies
+to carry rifles. Native FIA loadouts receive weapons later through living-unit
+initialization; the native scene does not do that. The corrected fixture uses
+the pinned detection expressions and verifies the supplied uniform, weapon
+slot and map. Production code did not change between these attempts. Three
+parser tests and whitespace checks pass. Completed servers were stopped by
+verified identity. Bodies remain separate from the parent until scene lifecycle
+integration; combined regression, observer/client behavior, looting and long
+duration play remain NOT_RUN.
+
+
+## Retained scene: abandoned wreck accounting
+
+The owner selected abandoned vehicles with no infected resource effects. Scene
+wrecks retain native class weighting, repairable damage, empty fuel, capture,
+logistics, and the scene's lock/overturn chances. No crew is created. Civilian
+initialization installs the native handlers, then ownership becomes neutral
+within the same unscheduled call. The native skin initializer cannot accept
+an unknown faction directly. Neutral ownership also avoids the civilian-theft
+support penalty. A readiness guard requires compiled civilian skin maps before
+creating any vehicle.
+
+Cleanup deletes only exact, unclaimed scene vehicles away from observers. Rebel
+capture transfers the vehicle out of scene cleanup; living occupants, attachments
+and attached ropes defer deletion. This component does not implement general
+abandoned vehicles throughout the campaign.
+
+The [138-input Dev7 candidate](../../evidence/sprint-3/liberation-wrecks-build.json)
+passes [170 focused checks](../../evidence/sprint-3/liberation-wrecks-focused.json)
+and [11 dependency-absent checks](../../evidence/sprint-3/liberation-wrecks-dependencies-absent.json).
+All production/PBO and 205/167 collected input hashes match. The 23 new cases
+exercise actual empty vehicle creation, repair/refueling, native AI GetIn capture,
+neutral destruction accounting, exact deletion, capture retention, occupied and
+attached cleanup refusal, and no infected-resource or town-support changes.
+No engine/SQF Error records occur. The 21 focused warnings comprise sixteen
+startup notices, two friendly-fire deliveries to deleted actors, two object
+deletion notices and one message to the absent commander. The dependency report
+retains seven startup notices. Three parser tests and whitespace checks pass.
+Both completed test servers were stopped and their exits verified.
+
+Dev6 was rejected because the fixture used uncompiled civilian animation/variant
+arrays. Native vehicle initialization stopped before neutralization, exposing
+the normal civilian capture penalty. The corrected fixture applies the pinned
+compileMissionAssets map conversion; production refuses that incomplete startup
+state before creating anything. Its EntityCreated monitor was also corrected
+to accept the engine's object event argument.
+
+Full native EntityKilled wiring, player driving, rollover physics, random lock
+UI, towing, garage/save behavior, connected observers and combined regression
+remain NOT_RUN. Accounting checks stabilize simulation after checking initial
+vehicle state. These components remain unconnected until the full scene owns
+its creation and cleanup. The owner selected native temporary building damage
+restoration; the building component is next.
+
+
+## Retained scene: temporary building damage and restoration
+
+The owner selected Ultimate's temporary cleanup behavior. The component owns
+only pristine, enterable houses that it changes. Existing damage, ruins, hidden
+objects, antenna/administration objects, permanent-site areas, HQ proximity and
+occupied houses are excluded. Exact record/entry references prevent a copied
+record from claiming another scene's building.
+
+A server BuildingChanged handler retains the exact original/ruin pair after
+Ultimate's native event and excludes temporary scene ruins from the permanent
+destroyedBuildings save list. Unrelated destruction stays in that list. Cleanup
+waits for model transitions and for nearby observers/actors to leave. It invokes
+native repair for an actual ruin and explicitly clears ordinary partial damage,
+which the native helper does not repair. Original world position, direction,
+up vector and the native scene door animation phases are restored. The next
+tick verifies the model and deletion before retiring ownership and the handler.
+If another system deletes the original house, cleanup does not create a replacement.
+
+The [engine investigation](../../evidence/sprint-3/liberation-building-investigation.json)
+confirmed native partial-repair refusal and asynchronous collapse/repair on two
+vanilla houses. The accompanying mission run failed one preparation-state check;
+its old fixture did not capture the values. Code review identified publication
+of the prepare phase before its clock was written. That transition is now an
+unscheduled transaction, and the check records the actual phase and timestamps.
+The corrected run observes the full 180-second preparation interval.
+
+The [141-input Dev8 candidate](../../evidence/sprint-3/liberation-buildings-build.json)
+passes [195 focused checks](../../evidence/sprint-3/liberation-buildings-focused.json)
+and [11 dependency-absent checks](../../evidence/sprint-3/liberation-buildings-dependencies-absent.json).
+The 25 building checks exercise real partial damage, collapse/ruin events,
+position/door restoration, protected/occupied refusal, exact ownership, native
+save-list separation, unrelated damage preservation and external deletion.
+All production/PBO and 210/172 collected input hashes match. No engine/SQF Error
+records occur. The 31 focused warnings comprise sixteen startup/dependency
+notices, twelve object-deletion notifications, two friendly-fire deliveries to
+deleted fixture actors and one message to the absent commander. Seven startup
+notices remain in the dependency report. Parser, PowerShell and whitespace
+checks pass. Both completed server exits are verified.
+
+The first Dev8 fixture was rejected because the preceding selector test had
+emptied the factory-marker list. Moving a marker without restoring its factory
+membership did not represent a protected site; the resulting early damage also
+invalidated later refusal/door checks. The fixture now sets and restores the
+actual factory list. Production code and addon did not change between Dev8 runs.
+
+These are dynamic vanilla-house contracts in VR. Terrain-placed Redux houses,
+connected observers, client appearance, saving/loading an active scene and the
+combined regression remain NOT_RUN. Roof effects, the complete scene builder
+and parent lifecycle integration remain open. Native smoke source/config cleanup
+has been inspected separately; it is not yet a tested scene feature.
+
+
+## Retained scene: native smoke and guarded roof effects
+
+The effect owner also accepts Ultimate's native smoke anchor. Its installed
+class creates two local particle sources and a local light on each machine,
+retains them in its effects variable, and deletes them through its Deleted
+handler. The server owns the exact networked anchor. The
+[source/config inspection](../../evidence/sprint-3/liberation-native-smoke-source.json)
+records the installed script hash without redistributing the game script.
+
+Roof placement uses a guarded geometry ray in world coordinates from the actual
+model bounds. Missing, hidden and nonbuilding inputs return no position instead
+of indexing an empty ray result or substituting an origin. Coordinates follow
+[modelToWorldWorld](https://community.bistudio.com/wiki/modelToWorldWorld) and
+[getPosWorld](https://community.bistudio.com/wiki?title=getPosWorld). Building
+decoration retains native partial-damage and roof smoke/fire/collapse choices;
+damage ownership exists before the optional effect is attempted. Repeating the
+call does not add effects or damage again.
+
+The [143-input Dev9 candidate](../../evidence/sprint-3/liberation-roof-effects-build.json)
+passes [208 focused checks](../../evidence/sprint-3/liberation-roof-effects-focused.json)
+and [11 dependency-absent checks](../../evidence/sprint-3/liberation-roof-effects-dependencies-absent.json).
+The thirteen added cases exercise real smoke anchors and all three local children,
+mixed fire/smoke ownership, native child deletion, partial-child recovery, roof
+geometry, remote mutation refusal, random native decoration and restoration.
+This run selected a real roof fire. All 143 production/PBO and 213/175 collected
+input hashes match. No engine/SQF Error records occur. The 31 focused warnings
+comprise sixteen startup notices, twelve object-deletion messages, two friendly-fire
+deliveries to removed actors and one absent-commander message. Seven startup
+notices remain without zombie dependencies. Three parser tests and whitespace
+checks pass; completed server exits are verified.
+
+Client/JIP rendering, additional terrain models, complete scene construction,
+parent lifecycle integration and combined regression remain NOT_RUN.
+
+
+## Complete scene assembly draft - engine checks NOT_RUN
+
+The next draft assembles the retained native scene budgets through the verified
+component helpers: first 100 enterable houses with a 20-percent damage selection,
+5-7 wreck clusters, randomized corpse groups and nearby fires, plus the usable
+survivor vehicle. It records every component during creation, skips unsafe
+placements, and supports retryable cleanup after construction is interrupted.
+The combined cleanup preserves the native survivor vehicle and claimed wrecks,
+restores owned buildings, and refuses an active town or unsettled registered
+mission. Eighteen focused construction/interruption checks have been authored.
+
+Dev10 packages successfully with 145 production inputs, but its engine checks
+are NOT_RUN. Neither helper is connected to the parent mission yet. On the
+owner's manual-test request, the visible client was launched with the verified
+Dev9 artifact, Chernarus Redux and installed Zeus Enhanced 1.15.1. Its PBO was
+hash-checked. The new draft is not part of that running client. Background
+probe servers are stopped while the owner tests. No Computer Use was performed.
+
+
+## Parent scene integration draft - engine checks NOT_RUN
+
+Dev11 connects the assembled scene to the existing parent controller. The native
+townBattle task is registered before scheduled construction to reserve its task
+type. The rescue phase follows successful construction. A scene failure uses
+the existing outcome evaluator, retaining survivor-loss/expiry precedence rather
+than silently cancelling those outcomes. Construction stops when its survivor
+cannot fight, its source is lost, its scene is retired or the mission ends.
+
+The parent watchdog now calls complete-scene cleanup after settlement, task
+retirement and town despawn. Its skirmish claims remain owned until cleanup
+completes. Parent fixtures now use real scene dependencies and construction
+waits, observe actual scene objects/groups retiring, and check survivor-vehicle
+retention before fixture deletion. New cases interrupt the actual parent during
+scene construction and verify ownership/cleanup. Engine checks are NOT_RUN.
+
+The 145-input Dev11 artifact packages and its source/PBO hashes match; three
+parser regressions and whitespace checks pass. These checks do not execute SQF
+or certify the integration. The manual Dev9 client remains running unchanged;
+no probe server or Computer Use was started. Native campaign entry remains on
+the separate dispatch branch, and combined/terrain/client/save acceptance is open.

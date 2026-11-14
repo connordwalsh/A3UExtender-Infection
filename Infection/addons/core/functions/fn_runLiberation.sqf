@@ -11,7 +11,15 @@ private _description = format ["Find and recruit the survivor in %1, then keep t
 [[teamPlayer,civilian],_record get "name",[_description,"Rescue and defend the survivor",_town],
     _record get "position",false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 [_record get "name","townBattle","CREATED"] call A3A_fnc_taskUpdate;
-_record set ["taskRegistered",true]; _record set ["phase","rescue"];
+isNil {_record set ["phase","scene"]; _record set ["taskRegistered",true]};
+private _scene = [_record] call A3I_fnc_createLiberationScene;
+if !(_scene # 0) exitWith {
+    _record set ["cancelReason",_scene # 1];
+    private _outcome = [_record] call A3I_fnc_liberationOutcome;
+    _record set ["outcome",if (_outcome == "pending") then {"cancelled"} else {_outcome}];
+    [_record] call A3I_fnc_finishLiberation;
+};
+_record set ["phase","rescue"];
 private _nextAttempt = 0;
 while {_record get "outcome" == "pending"} do {
     private _outcome = [_record] call A3I_fnc_liberationOutcome;
@@ -19,8 +27,12 @@ while {_record get "outcome" == "pending"} do {
     private _vip = _record get "vip";
     if (_record get "phase" == "rescue" && {side group _vip == teamPlayer}
         && {group _vip != _record get "vipGroup"}) then {
-        _record set ["recruited",true]; _record set ["phase","prepare"];
-        _record set ["readyAt",time + 180];
+        // Publish the prepared state only with its clock. Scheduled code may
+        // yield between statements; other workers must not see a partial state.
+        isNil {
+            _record set ["readyAt",time + 180];
+            _record set ["recruited",true]; _record set ["phase","prepare"];
+        };
     };
     if (_record get "phase" == "prepare" && {time >= _record get "readyAt"} && {time >= _nextAttempt}) then {
         _record set ["phase","horde"];

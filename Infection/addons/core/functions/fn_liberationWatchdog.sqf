@@ -23,7 +23,7 @@ if (!isServer || {isRemoteExecuted}) exitWith {};
     };
     if (!(_record get "taskDeleted") || {spawner getVariable [_record get "town",2] != 2}) then {continue};
     if (!isNil {_record get "cityMaintenanceAt"} && {!(_record getOrDefault ["cityMaintenanceDone",false])}) then {continue};
-    if !(([_record] call A3I_fnc_cleanupLiberationSurvivor) # 0) then {continue};
+    if !(([_record] call A3I_fnc_cleanupLiberationScene) # 0) then {continue};
     if (!(_record get "claimsReleased")) then {
         _record set ["claimsReleased",true];
         {

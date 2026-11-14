@@ -27,7 +27,9 @@ Town-liberation components add human survivors, nearby origin selection and a
 shared-limit horde whose ten-minute defense clock begins on physical arrival.
 The parent survivor mission passes 104 focused checks, including native capture,
 rewards and interrupted-worker recovery. Mission scenery and native campaign
-entry remain in development.
+entry remain in development. The separate survivor-vehicle, fire, body, abandoned-wreck and temporary-building
+components pass within 208 focused checks. The newer scene/controller integration
+is drafted and packaged, but its engine checks have not run.
 The completed isolated dedicated regression passes 777 checks on Ultimate 12.4.2,
 including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
 routine reinforcement, roaming, counterattacks, tactical support, town ownership
