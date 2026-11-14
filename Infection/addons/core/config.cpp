@@ -86,6 +86,12 @@ class CfgFunctions
             class trackSiteDefender {};
             class siteDefenderEvent {};
             class siteClearance {};
+            class liquidationTargetKind {};
+            class liquidationTargets {};
+            class liquidationClaim {};
+            class liquidationTransition {};
+            class liquidationMarkerChange {};
+            class liquidationCityCapture {};
             class runSite {};
             class cleanupSite {};
             class siteWatchdog {};

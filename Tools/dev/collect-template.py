@@ -492,6 +492,43 @@ CLEARANCE_CHECKS = {
 }
 
 
+LIQUIDATION_CHECKS = {
+    'liquidation_kinds_resolve',
+    'liquidation_early_towns_and_sites',
+    'liquidation_military_alias_cannot_bypass_tier',
+    'liquidation_tier_three_all_sites',
+    'liquidation_duplicate_lists_unique',
+    'liquidation_infected_only',
+    'liquidation_native_distance_restriction',
+    'liquidation_field_controls_excluded',
+    'liquidation_unselected_inactive',
+    'liquidation_dependencies_required',
+    'liquidation_missing_hq_refused',
+    'liq_capture_claim_resolves',
+    'liq_capture_remaining_blocks',
+    'liq_capture_queue_blocks',
+    'liq_capture_missing_blocks',
+    'liq_capture_despawn_blocks',
+    'liq_capture_military_tier_blocks',
+    'liq_capture_expiry_blocks',
+    'liq_capture_failed_write_no_result',
+    'liq_capture_clear_freezes_success',
+    'liq_capture_russian_then_rebel_stays_cancelled',
+    'liq_capture_unassigned_native_write',
+    'liq_capture_native_site_blocks_before_clear',
+    'liq_capture_native_site_commits',
+    'liq_capture_native_remote_russian_cancels',
+    'liq_capture_native_remote_rebel_clearance',
+    'liq_capture_native_city_blocks_before_clear',
+    'liq_capture_native_city_commits',
+    'liq_capture_control_blocks_before_clear',
+    'liq_capture_control_commits',
+    'liq_capture_admin_blocks_before_clear',
+    'liq_capture_admin_commits',
+    'liq_capture_cleanup',
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -522,14 +559,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | COMPETITIVE_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | COMPETITIVE_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance", "liquidation"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
                           "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
-                          "competitive": COMPETITIVE_CHECKS, "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS}
+                          "competitive": COMPETITIVE_CHECKS, "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -572,7 +609,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "catalogpolicy", "clearance", "liquidation"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)
