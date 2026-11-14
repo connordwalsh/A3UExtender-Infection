@@ -1,5 +1,10 @@
 # Liquidation Assignment
 
+Current candidate: Controller Dev3 passes 33 focused and 11 missing-dependency
+checks. The parent capture-only candidate passed 750 combined checks. Public
+mission dispatch and a combined controller run remain pending. The sections
+below retain the progression from selector draft to validated controller.
+
 Owner-approved replacement for requested conquest missions. Targets are infected
 towns and sites; clearing the assigned infected captures the location for the
 Rebels. The former race-to-capture objective is superseded. Bases and airfields
@@ -83,10 +88,19 @@ Two rejected fixture runs are retained: missing native initialization values and
 premature retirement of the spawner namespace caused errors despite true
 assertions. The corrected result is `liquidation-capture-focused.json`.
 
-The combined regression is running. Task claim creation, automatic capture on
+The combined Dev2 regression passes all 750 checks with no engine/SQF errors.
+All 133 production inputs still match its manifest. Task claim creation, automatic capture on
 clearance, once-only rewards, timeout/interruption recovery, task removal and
 mission-board/direct dispatch still need implementation. No active gameplay
 flow creates a Liquidation claim yet, so the six-mission redesign is incomplete.
+
+
+A later controller review found that the new administration wrapper returned
+false before preserving the older `capture_failed` fault when the native
+transaction attempted but did not change ownership. PR #25 restores that fault
+only after a real attempted write; blocked clearance does not create a fault.
+Its dedicated controller case checks cancellation without penalty. Keep this
+component draft until that correction and task integration are validated.
 
 
 ## Task controller draft

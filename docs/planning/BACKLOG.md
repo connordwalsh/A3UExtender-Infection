@@ -15,10 +15,10 @@ owner's six replacement categories for S4-1, S4-2, S4-3 and S5-3. The catalog no
 targets infected exclusively; Destroy/Random are removed and Liquidation
 supersedes requested competitive conquest. Delivery accepts HQ/permanent sites.
 The removal and clearance-ledger increment passes 717 combined dedicated checks
-and 11 checks without zombie dependencies. The read-only clearance predicate is
-not yet connected to Liquidation capture/rewards. Six replacement mission
-lifecycles and visual/connected-player acceptance remain open; none of these
-stories is complete.
+and 11 checks without zombie dependencies. Clearance is now connected to the
+Liquidation controller on this branch; public mission dispatch remains pending.
+The six-mission redesign and visual/connected-player acceptance remain open;
+none of these stories is complete.
 
 | Story | Work | Status | Evidence / next check |
 | --- | --- | --- | --- |
