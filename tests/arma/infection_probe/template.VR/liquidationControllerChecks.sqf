@@ -88,7 +88,7 @@ server setVariable ["hr",100]; server setVariable ["resourcesFIA",0];
 private _reset = {
     sidesX setVariable [_target,west]; spawner setVariable [_target,0]; garrison setVariable [_target,[]];
     tierWar = 0; _site set ["kind","Resource"]; _site set ["clearanceRemaining",1];
-    _site set ["queue",[]]; _site set ["fault",""];
+    _site set ["queue",[]]; _site set ["fault",""]; _site set ["captured",sideUnknown];
     A3A_resourcesAttackOcc = 0; A3A_resourcesDefenceOcc = 0;
     A3A_resourcesAttackInv = 1000; A3A_resourcesDefenceInv = 1000;
     server setVariable ["resourcesFIA",0]; A3I_test_support = [];
@@ -115,7 +115,10 @@ private _retire = {
 };
 private _record = [] call _launch;
 if (count _record == 0) exitWith {["liq_controller_launch_refused",false] call _check};
-private _description = [_record get "name"] call BIS_fnc_taskDescription;
+// Installed setTask stores each literal text as a one-item array.
+private _description = ([_record get "name"] call BIS_fnc_taskDescription) apply {
+    if (_x isEqualType []) then {_x # 0} else {_x}
+};
 ["liq_controller_native_task",[_record] call _state == "CREATED" && {"CON" in A3A_activeTasks}
     && {_description # 1 == "Liquidation Assignment"}
     && {(_description # 0) find "Cleanse the site of infected" != -1}
@@ -177,6 +180,19 @@ _site set ["building",_building]; _site set ["clearanceRemaining",0]; A3I_test_r
     && {_building in A3A_destroyedMilAdministrations} && {sidesX getVariable _target == teamPlayer}] call _check;
 [_record] call _retire; A3I_test_realAdminCapture = false;
 deleteVehicle _building; milAdministrationsX = []; A3A_milAdministrations = []; A3A_destroyedMilAdministrations = [];
+
+// A native administration write refusal must preserve the existing fault
+// contract, so the controller cancels instead of retrying until timeout.
+_building = createVehicle ["Land_i_Barracks_V1_F",_position,[],0,"CAN_COLLIDE"];
+milAdministrationsX = [_target]; A3A_milAdministrations = [_building];
+_record = [] call _launch; _site set ["kind","MilAdmin"]; _site set ["remainingDefenders",0];
+_site set ["building",_building]; _site set ["clearanceRemaining",0]; A3I_test_realAdminCapture = false;
+[{_record get "settled"}] call _wait;
+["liq_controller_native_capture_failure_cancels",_site get "fault" == "capture_failed"
+    && {_record get "outcome" == "cancelled"} && {sidesX getVariable _target == west}
+    && {server getVariable "resourcesFIA" == 0}] call _check;
+[_record] call _retire;
+deleteVehicle _building; milAdministrationsX = []; A3A_milAdministrations = [];
 
 _record = [] call _launch; _record set ["deadline",dateToNumber date - 0.001];
 [{_record get "settled" && {A3A_resourcesAttackOcc == 60}}] call _wait;

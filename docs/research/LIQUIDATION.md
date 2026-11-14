@@ -112,3 +112,36 @@ hashes and three parser tests pass for Controller Dev2. The parent's combined
 capture regression is still running; this worktree has not started another
 server. Mission board/legacy endpoints remain unconnected, and the six-mission
 redesign, connected-player rewards, saves and campaign acceptance remain open.
+
+
+## Controller focused validation
+
+Controller Dev3 passes 33 dedicated checks: 11 common and 22 controller cases.
+They cover the native registered task and requested text, exclusive claims,
+blocked clearance/despawn, automatic permanent-site/town/administration capture,
+normal and difficult rewards applied once, normal/difficult timeouts, Russian
+cancellation without mission penalty, dependency/site failure cancellation,
+stopped-worker recovery, partial registration, missing task metadata, remote
+internal-call rejection and complete fixture cleanup. An actual flag capture
+remains alive after terminating its parent task loop, finishes its native
+markersChanging lock, and settles once.
+
+This candidate restores the older administration capture_failed fault only if
+the native write was attempted and failed; ordinary clearance refusal remains
+retryable. Its targeted controller case passes and cancels without penalty.
+The initial controller fixture halted on a wrong task-description type
+assumption. Installed Arma source shows literal texts stored as arrays; the
+corrected assertion and source hashes are recorded in native-task-text-api.json.
+The production build was unchanged during that fixture correction.
+
+All 139 production inputs and the PBO match Controller Dev3. The focused report
+contains no engine/SQF errors and retains 21 warnings: 16 startup notices and
+five native income notifications targeting the absent fixture commander.
+The earlier capture-only Dev2 passed 750 combined checks; a combined run of
+the complete controller candidate has not been run. Actual player/commander
+reward receipt, visual tasks, terrain, save/restart and multiplayer remain open.
+Mission-board and direct legacy dispatch are the next integration work.
+
+The actual Controller Dev3 missing-dependency run also passes 11 checks, with
+seven startup notices and no engine/SQF errors. All test servers were stopped
+by verified process/profile identity, with exit confirmed.

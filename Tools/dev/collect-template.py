@@ -493,6 +493,7 @@ CLEARANCE_CHECKS = {
 
 
 LIQUIDATION_CONTROLLER_CHECKS = {
+    "liq_controller_native_capture_failure_cancels",
     "liq_controller_interrupted_parent_keeps_capture",
     "liq_controller_auto_city_capture",
     "liq_controller_auto_admin_capture",
