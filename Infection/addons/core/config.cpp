@@ -72,6 +72,13 @@ class CfgFunctions
             class runMajorAttack {};
             class finishMajorAttack {};
             class majorWatchdog {};
+            class competitiveSources {};
+            class competitiveTargets {};
+            class startCompetitiveMission {};
+            class runCompetitiveMission {};
+            class finishCompetitiveMission {};
+            class competitiveCapture {};
+            class competitiveWatchdog {};
             class startSite {};
             class runSite {};
             class cleanupSite {};
@@ -112,6 +119,8 @@ class CfgFunctions
         {
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
+            class originalMissionRequest { file = "\x\a3a\addons\core\functions\Missions\fn_missionRequest.sqf"; };
+            class originalCompetitiveMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_Outpost_Compet.sqf"; };
             class originalNATOinit
             {
                 file = "\x\a3a\addons\core\functions\CREATE\fn_NATOinit.sqf";
@@ -141,6 +150,11 @@ class CfgFunctions
     };
     class A3A
     {
+        class Missions
+        {
+            class missionRequest { file = "\x\a3i\addons\core\overrides\fn_missionRequest.sqf"; };
+            class CON_Outpost_Compet { file = "\x\a3i\addons\core\overrides\fn_CON_Outpost_Compet.sqf"; };
+        };
         class CREATE
         {
             class NATOinit { file = "\x\a3i\addons\core\overrides\fn_NATOinit.sqf"; };

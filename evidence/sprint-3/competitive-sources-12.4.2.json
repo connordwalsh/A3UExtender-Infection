@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "Competitive conquest caller and settlement audit; prototype runtime is NOT_RUN",
+  "ultimate_version": "12.4.2",
+  "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "sources": [
+    {
+      "path": "core/functions/Missions/fn_missionRequest.sqf",
+      "sha256": "a842aef05d69c0b4453f07867c3dcdc58b6d65dbb763a5d24cfbbea797e400f9"
+    },
+    {
+      "path": "core/functions/Missions/fn_CON_Outpost.sqf",
+      "sha256": "bc376db578d4ecb06eeb895b0325367941af8e6251c3d12b69ed4a1ac7bea03d"
+    },
+    {
+      "path": "core/functions/Missions/fn_CON_Outpost_Compet.sqf",
+      "sha256": "3462783873656773e51ff56ce090dfb9291f1524a723316d04aeeb469ae77d3b"
+    },
+    {
+      "path": "core/functions/Missions/fn_findIfNearAndHostile.sqf",
+      "sha256": "4d43e2d8a511c06ccb2925aac8679f3669db848f29c9e7e3dfb0115d4f5e1386"
+    },
+    {
+      "path": "core/functions/Base/fn_isFrontlineNoFIA.sqf",
+      "sha256": "3e15051afea9b73d74a261bdfda1a2cde957d817014957cbc8cb137da9ff69d8"
+    },
+    {
+      "path": "core/functions/Base/fn_scheduler.sqf",
+      "sha256": "8daab3180fa8a1d6e6cc2c438e8e86f074ed77fd0d10d570da75480cc3c663c5"
+    },
+    {
+      "path": "core/functions/Missions/fn_taskUpdate.sqf",
+      "sha256": "80ef623454f5236d26b3769b5c0f5f5fa7f01deb6ba8d3368890bcfdd2e5f66a"
+    },
+    {
+      "path": "core/functions/Missions/fn_taskDelete.sqf",
+      "sha256": "db6ecf1a4e66d54693db0edef62ec05663b59d3811554da4b9f0a39b603a9524"
+    },
+    {
+      "path": "core/functions/Base/fn_resourcesFIA.sqf",
+      "sha256": "4d4e716f7960b58a9d1ea3858b9065f8c5a40c5aa6a9f203123eecb77a516596"
+    },
+    {
+      "path": "core/functions/Base/fn_timingCA.sqf",
+      "sha256": "bbf5fa4bd48129500979b81405442bb6d773c6fb5dd8a0311f11bcd7429ec817"
+    }
+  ]
+}
