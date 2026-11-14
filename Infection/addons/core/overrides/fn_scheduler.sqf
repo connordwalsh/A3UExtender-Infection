@@ -1,5 +1,9 @@
 params ["_arguments","_function"];
 if (!isServer) exitWith {};
+if (_function isEqualType "" && {toLower _function == "a3a_fnc_con_outpost_compet"}
+    && {_arguments isEqualType []} && {[west] call A3I_fnc_isActive}
+    && {!isNil "sidesX"} && {sidesX getVariable [_arguments param [0,""],sideUnknown] == Invaders})
+    exitWith {_arguments remoteExec ["A3A_fnc_CON_Outpost_Compet",2]};
 if (_function isEqualType "" && {toLower _function == "a3a_fnc_singleattack"}
     && {_arguments isEqualType []} && {[_arguments param [1,sideUnknown]] call A3I_fnc_isActive})
     exitWith {_arguments remoteExec ["A3A_fnc_singleAttack",2]};
