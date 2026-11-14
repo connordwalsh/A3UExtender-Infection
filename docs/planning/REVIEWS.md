@@ -558,3 +558,23 @@ are documented in TOWN_LIBERATION.md. Three parser tests, PowerShell parsing
 and whitespace checks pass. Completed servers were stopped by verified identity.
 The component remains unconnected; client/JIP visuals, observer-positive tests,
 the remaining scene assets and full mission acceptance are still open.
+
+## 14 November 2026 - Scene corpse component review
+
+The component uses validated native scene roles, with only basic WBK types.
+Exact bodies, blood objects and original civilian groups are retained before
+later setup. Creation/killing is unscheduled; the installed basic WBK scripts
+refuse already-dead actors. Cleanup checks ownership, defers near observers and
+retires original groups without targeting unrelated corpses or live members.
+
+The 135-input Dev5 candidate passes 147 focused and 11 dependency-absent checks.
+All production/PBO and 201/163 collected input hashes match. Actual human and
+basic-infected bodies, blood and groups are created/deleted; the body case does
+not alter infected resources or active budget. No engine/SQF Error records occur.
+The rejected fixture assumptions, corrected native detection/loadout checks and
+23/7 retained warnings are documented in TOWN_LIBERATION.md. Three parser tests
+and whitespace checks pass; completed servers were stopped by verified identity.
+Parent integration, combined regression, observers, client presentation and long
+duration body behavior are still open. The owner explicitly selected abandoned
+wrecks with no infected resource effects; that policy is recorded for the next
+component and is not claimed implemented by the corpse checks.

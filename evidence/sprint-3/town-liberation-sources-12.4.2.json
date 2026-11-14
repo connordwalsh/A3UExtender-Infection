@@ -179,6 +179,38 @@
     {
       "path": "ultimate/functions/vehicles/fn_setLock.sqf",
       "sha256": "a3301d467f853fd00c77e3e1f49f839dee9b25749c87ffb6379617c99a2a0159"
+    },
+    {
+      "path": "core/functions/init/fn_initVarCommon.sqf",
+      "sha256": "9f3a09d47c4dd2c2c3c0d9ae0d107b9dd8e64f17e6e02694032d8796c978bf26"
+    },
+    {
+      "path": "core/Templates/Templates/Vanilla/Vanilla_Reb_FIA.sqf",
+      "sha256": "0eacbb1d9581b04fbd4a276a82d2e22617eed7be2129ee708d02887a5d3bd8d1"
+    },
+    {
+      "path": "core/functions/Templates/Itemsets/fn_itemset_medicalSupplies.sqf",
+      "sha256": "c3867ca0db1bef02f6f202e389133c465ddf5729ad074ed1e015bf95005ef791"
+    },
+    {
+      "path": "core/functions/Templates/Itemsets/fn_itemset_miscEssentials.sqf",
+      "sha256": "85ae5598fb12a5c25537710c242afa0a3b6a39857ba7d876653c48db89a81534"
+    },
+    {
+      "path": "scrt/Misc/fn_misc_tryInitVehicle.sqf",
+      "sha256": "fa693955f4233bdc27364fbc49b407126bce0df5fa8fdbe7a42b412993f7bb31"
+    },
+    {
+      "path": "core/functions/Utility/fn_isWithinNearestFriendlyMarker.sqf",
+      "sha256": "a42e3908a845b06a6355781b56ba8e2c559698c464f4e7c7a1b76684ed729424"
+    },
+    {
+      "path": "core/functions/Utility/fn_vehicleTextureSync.sqf",
+      "sha256": "537d4ca3f12d957cfa1dceb904acf124988caa2410684edb31720525d7fd62f5"
+    },
+    {
+      "path": "core/functions/Events/fn_triggerServerEvent.sqf",
+      "sha256": "2afbbcc31583f1f47b25ec8ac23afd326d53ba0bf39ca3aa35073302ba7ae02c"
     }
   ]
 }

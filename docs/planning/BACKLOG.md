@@ -256,4 +256,12 @@ all light settings in one persistent callback. Production and report hashes
 match; the rejected first fire attempt and retained warnings are documented.
 The components remain unconnected until the full scene lifecycle owns them.
 Bodies, wrecks, building damage/restoration, observer/client/JIP presentation and
-full mission acceptance remain open. Wreck resource policy awaits the owner.
+full mission acceptance remain open. Wreck resource policy was subsequently
+resolved: abandoned vehicles must have no infected-army resource effects.
+
+Corpse checkpoint: native civilian/Rebel/basic-infected bodies, owned blood and
+original-group cleanup pass within 147 focused checks and 11 without zombie
+dependencies. The 135-input candidate and all collected hashes match. Rejected
+test-setup assumptions and warning details are recorded in TOWN_LIBERATION.md.
+The usable vehicle, fire and body helpers remain unconnected pending the wreck,
+building and complete-scene lifecycle work. No acceptance gate is closed.

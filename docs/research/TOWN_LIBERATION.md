@@ -392,5 +392,50 @@ verified process/profile identity. The rejected first attempt is not counted.
 
 The combined scene regression and observer-positive/client presentation tests
 are NOT_RUN. Bodies, wrecks, building changes and parent integration remain open.
-The owner has been asked whether scene wrecks should retain native infected-army
-resource effects or behave only as abandoned vehicles; no policy is assumed.
+The owner subsequently selected abandoned wrecks with no infected-army resource
+effects. The wreck adapter must preserve that rule through capture, destruction
+and cleanup.
+
+## Retained scene: corpses, blood and original groups
+
+The body component preserves native faction-then-role selection from civilian,
+Rebel and Occupant scene categories. It validates prepared scalar-base roles,
+rejects missing/malformed definitions and excludes WBK special-creature classes.
+Array/weighted base-class definitions are skipped because the safe-position
+check and native creation must use the same body. The baseline civilian, FIA
+Rebel and Infection categories resolve to 2, 7 and 6 roles respectively.
+
+Creation records the original civilian group, corpse and blood object before
+later initialization can fail. The body is killed in the same unscheduled call
+as creation. The installed basic walker/middle/runner AI exits for an already
+dead unit; the runtime case observes a basic infected corpse remaining dead
+without a WBK AI marker or active-infected budget ticket after three seconds.
+This is not long-duration reanimation or client-behavior acceptance.
+
+Cleanup retires only those exact objects and original groups, defers near an
+observer, rejects remote/foreign cleanup and recovers a partially registered
+group. It does not collect unrelated nearby bodies. No conventional infected
+combat initialization or resource charge is attached to these scene corpses.
+
+The [135-input Dev5 candidate](../../evidence/sprint-3/liberation-bodies-build.json)
+passes [147 focused checks](../../evidence/sprint-3/liberation-bodies-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-bodies-dependencies-absent.json).
+Its eighteen body cases use actual native civilian/FIA definitions and a basic
+WBK corpse. They exercise role filtering, blocked placement, ownership, blood,
+unchanged supplied equipment, unchanged resource/budget totals, cleanup and
+partial registration. All production/PBO and 201/163 report-input hashes match.
+No engine/SQF Error records occur. Twenty-three focused warnings are retained:
+sixteen startup/dependency notices, four object-deletion notifications, two
+friendly-fire deliveries to deleted fixture actors and one absent-commander
+message. Seven startup notices remain in the dependency-absent report.
+
+The first body fixture was rejected: it omitted native optional-mod detection
+variables required by the FIA loader and incorrectly expected FIA scene bodies
+to carry rifles. Native FIA loadouts receive weapons later through living-unit
+initialization; the native scene does not do that. The corrected fixture uses
+the pinned detection expressions and verifies the supplied uniform, weapon
+slot and map. Production code did not change between these attempts. Three
+parser tests and whitespace checks pass. Completed servers were stopped by
+verified identity. Bodies remain separate from the parent until scene lifecycle
+integration; combined regression, observer/client behavior, looting and long
+duration play remain NOT_RUN.

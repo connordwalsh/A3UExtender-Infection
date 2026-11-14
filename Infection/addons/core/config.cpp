@@ -95,6 +95,9 @@ class CfgFunctions
             class createLiberationFire {};
             class applyLiberationFire {};
             class cleanupLiberationEffects {};
+            class liberationBodyRoles {};
+            class createLiberationBody {};
+            class cleanupLiberationBodies {};
             class liberationWatchdog {};
             class startSite {};
             class runSite {};
