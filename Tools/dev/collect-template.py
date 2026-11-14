@@ -209,6 +209,10 @@ COUNTERATTACK_CHECKS = {
     "counter_late_shortage_refunds_actual_births", "counter_recovery_remote_denied", "counter_all_clean",
     "counter_town_capture_no_saved_garrison", "counter_faction_defeat_cancels",
     "counter_quarter_strength_retreat", "counter_hard_limit_64",
+    "counter_approach_activates_garrisons", "counter_unspawned_defenders_block_capture",
+    "counter_pending_native_roster_blocks_capture", "counter_active_handoff_reuses_existing_assets",
+    "counter_handoff_cleanup_preserves_existing_assets",
+    "counter_native_distance_activates_defenders",
 }
 
 

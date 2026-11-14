@@ -125,3 +125,17 @@ vehicle spawn-marker redirects. The original SHA-256 is
 [ROAMING_PATROLS.md](ROAMING_PATROLS.md) records policy, the corrected initial
 failure, 377-check validation and remaining terrain/player gates. The response
 caller/payment audit is in [RESPONSE_CONTRACTS.md](RESPONSE_CONTRACTS.md).
+
+## Capture counterattack increment
+
+`CREATE/fn_singleAttack.sqf` routes the active infected side to paid, bounded
+foot forces. Its scheduler route stays on the server; ordinary or inactive
+requests retain the installed alias. The original SHA-256 is
+`4307b88c3385da599c745e8fba23671642f7721fe12554a0745a610fb221beda`.
+
+The adapter activates defending garrisons through the native spawner flag and
+waits for their saved roster before requesting capture. Successful active-site
+handoff can start an actor-only Infection controller without duplicating assets
+owned by the previous creator. Offscreen arrivals use an atomic roster handoff.
+[CAPTURE_COUNTERATTACKS.md](CAPTURE_COUNTERATTACKS.md) records costs, limits,
+source contracts and validation boundaries; tactical/major responses remain open.

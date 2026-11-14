@@ -1,5 +1,7 @@
 // Start one server controller per occupied location. Duplicate requests share it.
-params [["_marker","",[""]], ["_kind","",[""]]];
+// A capture handoff may need only an actor controller: the previous faction's
+// creator still owns the existing flag, crates and civilians until despawn.
+params [["_marker","",[""]], ["_kind","",[""]], ["_assets",true,[true]]];
 if (!isServer || {isRemoteExecuted && {remoteExecutedOwner != 2}}) exitWith {false};
 if !(_kind in ["Resource","Outpost","Milbase","Airport","Control","City","MilAdmin"] && {_marker in allMapMarkers}
     && {!isNil "sidesX"} && {!isNil "spawner"} && {!isNil "garrison"}
@@ -59,6 +61,7 @@ isNil {
         ["id",A3I_siteSerial], ["kind",_kind], ["context","site:" + _marker],
         ["queue",+_roster], ["units",[]], ["groups",[]], ["civilians",[]],
         ["flag",objNull], ["crates",[]], ["positions",[]],
+        ["assets",_assets],
         ["announced",false], ["cleaned",false], ["fault",""],
         ["road",_road], ["branch",_branch], ["spawnedAny",false], ["captured",sideUnknown], ["batchSize",_batchSize],
         ["building",_building], ["remainingDefenders",count _roster]

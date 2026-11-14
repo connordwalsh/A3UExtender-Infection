@@ -7,6 +7,8 @@ commit `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`; the original
 `CREATE/fn_singleAttack.sqf` SHA-256 is
 `4307b88c3385da599c745e8fba23671642f7721fe12554a0745a610fb221beda`.
 The [response audit](RESPONSE_CONTRACTS.md) records the caller and payment owners.
+The [capture source manifest](../../evidence/sprint-3/counterattack-sources-12.4.2.json)
+also pins native distance activation and Rebel garrison initialization.
 
 ## Request, movement and cost
 
@@ -36,13 +38,18 @@ vehicle, aircraft or indirect-fire pool is used by this adapter.
 
 Groups receive foot movement orders to the destination. Walking toward a site
 near HQ is allowed; the default exclusion around HQ still applies to every
-birth. The native intercepted-communications call runs after the first birth.
+birth. Approaching actors carry the native spawner flag so their presence can
+activate defending garrisons without a connected player. The native
+intercepted-communications call runs after the first birth.
 Its reveal level is capped below the native ETA threshold because Infection has
 no verified walking ETA. A client-visible warning remains an acceptance check.
 
 ## Capture, failure and cleanup
 
 Only a living response actor within 200 metres triggers the native `zoneCheck`.
+The target must be active and its living, marker-bound defenders must account
+for the remaining saved roster. This prevents an early ownership check from
+skipping native defenders that are still waiting to spawn.
 That existing transaction still decides ownership from the forces present.
 After staging ends, fewer than 25 percent of created actors able to fight causes
 retreat, matching Ultimate's threshold. Empty forces terminate explicitly.
@@ -51,7 +58,11 @@ or an interrupted controller also terminates the response.
 
 After infected capture, complete arrived groups can transfer once into a live
 persistent site's roster and budget context. The normal site capacity and
-active limits still apply. An offscreen persistent site can instead store the
+active limits still apply. If the active site has no Infection controller yet,
+the handoff starts an actor-only controller. It does not duplicate or take over
+the previous faction creator's flags, crates, civilians or activation events.
+Normal site activation still creates those assets by default.
+An offscreen persistent site can instead store the
 arrived healthy roles and retire their physical copies atomically, without a
 refund. That path requires a closed ticket containing exactly that living group,
 all actors within 200 metres, no active/cleaning site and no nearby observers.
@@ -69,8 +80,9 @@ only the controller's last recorded actor array.
 ## Validation boundaries
 
 The focused fixture uses real engine actors, resource transactions and movement
-with synthetic road geometry. Arrival positions and ownership changes are
-injected; `zoneCheck` calls and ordinary-function delegation are recorded by an
+with synthetic road geometry. The combined fixture also runs native distance
+activation while recording the eventual defender-creator endpoint. Arrival
+positions and ownership changes are injected; `zoneCheck` calls and ordinary-function delegation are recorded by an
 isolated test addon. This does not certify actual campaign recapture, Redux
 journeys, connected-player cleanup, client warnings, headless transfer, saves or
 performance. Cooldown persistence and high-war special-creature events remain
@@ -78,5 +90,9 @@ open.
 
 The first development run is rejected as incomplete: an incorrectly parenthesized
 test-array index stopped the offscreen-arrival fixture after earlier checks
-passed. The fixture was corrected before rerunning. Final combined regression
-results are recorded in the sprint evidence and review after collection.
+passed. The fixture was corrected before a 55-check focused pass. Source review
+then found that native distance processing requires the attackers' spawner flag
+and does not recreate an active site's controller on ownership change. The first
+combined run was stopped and rejected as incomplete while those gaps were fixed;
+the corrected fixture no longer supplies a site controller for the response.
+Final combined regression results are recorded in sprint evidence after collection.

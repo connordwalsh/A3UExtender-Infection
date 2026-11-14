@@ -17,6 +17,17 @@ while {time < _record get "endTime"} do {
         _record set ["queue",[]];
         _record set ["outcome","captured"];
         if (_record get "handoffDeadline" < 0) then {_record set ["handoffDeadline",time + 60]};
+        // Native distance processing does not recreate a controller merely
+        // because ownership changed while the marker remained spawned.
+        if (spawner getVariable [_target,2] == 0 && {!(_target in citiesX)}) then {
+            private _kind = switch (true) do {
+                case (_target in airportsX): {"Airport"};
+                case (_target in milbases): {"Milbase"};
+                case (_target in (outposts + seaports)): {"Outpost"};
+                default {"Resource"};
+            };
+            [_target,_kind,false] call A3I_fnc_startSite;
+        };
         private _waiting = [];
         {
             if (isNull _x || {{alive _x} count units _x == 0}) then {continue};
@@ -43,6 +54,9 @@ while {time < _record get "endTime"} do {
                 (_record get "groups") pushBack _group;
                 _record set ["created",(_record get "created") + _created];
                 _queue deleteRange [0,_created];
+                // Native distance processing must activate the defending site
+                // as these troops approach, even without a connected player.
+                {_x setVariable ["spawner",true,true]} forEach _units;
                 private _waypoint = _group addWaypoint [_record get "position",0];
                 _waypoint setWaypointType "MOVE";
                 _waypoint setWaypointCompletionRadius 20;
@@ -66,7 +80,14 @@ while {time < _record get "endTime"} do {
         }) exitWith {
             _record set ["outcome",if (_record get "created" == 0) then {"no_force"} else {"defeated"}];
         };
-        if (time >= _nextCapture && {(_living findIf {_x distance2D getMarkerPos _target <= 200}) != -1}) then {
+        private _defendersReady = spawner getVariable [_target,2] == 0 && {
+            // A newly activated native creator may still be materializing its
+            // saved roster. Do not capture past defenders still waiting to spawn.
+            {alive _x && {_x getVariable ["markerX",""] == _target}} count units _owner
+                >= count (garrison getVariable [_target,[]])
+        };
+        if (time >= _nextCapture && {_defendersReady}
+            && {(_living findIf {_x distance2D getMarkerPos _target <= 200}) != -1}) then {
             // The native transaction still decides ownership using all factions.
             [_target,_owner] spawn A3A_fnc_zoneCheck;
             _nextCapture = time + 10;

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "scope": "Capture response and native activation source contracts; runtime acceptance is separate",
+  "ultimate_version": "12.4.2",
+  "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "sources": [
+    {
+      "path": "core/functions/Base/fn_markerChange.sqf",
+      "sha256": "4b283a4359190453daa5179c07616869a7e161cfd0c56a853278d3bbc2e25f5a"
+    },
+    {
+      "path": "core/functions/Base/fn_zoneCheck.sqf",
+      "sha256": "bfcbd30ffab1fb8d12d769ab479a98849f2fa5171dac7b0b9e86c797a6ffe7d7"
+    },
+    {
+      "path": "core/functions/Base/fn_distance.sqf",
+      "sha256": "88f857938eac24e76ab8b404c379f815097b7a6af1d6bfb95e484cb129796475"
+    },
+    {
+      "path": "core/functions/CREATE/fn_singleAttack.sqf",
+      "sha256": "4307b88c3385da599c745e8fba23671642f7721fe12554a0745a610fb221beda"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createSDKGarrisons.sqf",
+      "sha256": "a1ca4c177330bb6ec7eed0535d8edfe684b6bfb1a63e633546abd58e017e9e67"
+    },
+    {
+      "path": "core/functions/CREATE/fn_FIAinitBases.sqf",
+      "sha256": "3d18a2c21ea9bab647c53c80291e53a856c1f211d23fc95505c2da1063bc9623"
+    }
+  ]
+}

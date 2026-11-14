@@ -126,6 +126,9 @@ private _units = +(_record get "units");
     && {(_units findIf {!local _x || {owner _x != 2} || {side group _x != west}
         || {!([_x] call A3I_fnc_isManagedUnit)} || {_x getVariable ["A3A_resPool",""] != "defence"}
         || {vehicle _x != _x} || {_x getVariable ["markerX",""] != ""}}) == -1}] call _check;
+["counter_approach_activates_garrisons",_units - (units west select {
+    _x getVariable ["spawner",false] && {_x == effectiveCommander vehicle _x}
+}) isEqualTo []] call _check;
 ["counter_cooldown_blocks_duplicate",([_target,1,0.9] call A3I_fnc_startCounterattack) # 2 == "cooldown"
     && {count A3I_counterattacks == 1}] call _check;
 ["counter_no_remote_capture",A3I_test_zones isEqualTo [] && {_record get "announced"}] call _check;
@@ -140,15 +143,43 @@ private _batch = [{count (_record get "units") == 3},18] call _wait;
 _units = +(_record get "units");
 {_x enableSimulationGlobal false; _x setPosATL [5020 + 5*_forEachIndex,4500,0]} forEach _units;
 private _atTarget = (_units findIf {_x distance2D getMarkerPos _target > 200}) == -1;
+spawner setVariable [_target,2]; garrison setVariable [_target,["pending_rebel_role"]];
+sleep 1.5;
+["counter_unspawned_defenders_block_capture",A3I_test_zones isEqualTo []] call _check;
+// Run Ultimate's actual distance controller. Only its eventual defender-creator
+// endpoint is recorded by the ordinary scheduler alias in the probe addon.
+theBoss = objNull; distanceSPWN2 = 1000;
+watchpostsFIA = []; roadblocksFIA = []; aapostsFIA = []; atpostsFIA = []; hmgpostsFIA = [];
+private _distanceController = [] spawn A3A_fnc_distance;
+private _activated = [{spawner getVariable [_target,2] == 0 && {
+    ["originalScheduler",[[_target],"A3A_fnc_createSDKGarrisons"]] in A3I_test_originals
+}},9] call _wait;
+terminate _distanceController; theBoss = nil;
+["counter_native_distance_activates_defenders",_activated && {
+    ["originalScheduler",[[_target],"A3A_fnc_createSDKGarrisons"]] in A3I_test_originals
+}] call _check;
+sleep 1.5;
+["counter_pending_native_roster_blocks_capture",A3I_test_zones isEqualTo []] call _check;
+private _guardGroup = createGroup teamPlayer;
+private _guard = _guardGroup createUnit ["I_Soldier_F",[5150,4500,0],[],0,"NONE"];
+_guard allowDamage false; _guard enableSimulationGlobal false;
+_guard setVariable ["markerX",_target,true];
 private _captureRequested = [{count A3I_test_zones > 0},3] call _wait;
 ["counter_arrival_requests_native_capture",_atTarget && {_captureRequested}
     && {A3I_test_zones # 0 isEqualTo [_target,teamPlayer]}] call _check;
-sidesX setVariable [_target,west]; [_target,"Resource"] call A3I_fnc_startSite;
+deleteVehicle _guard; deleteGroup _guardGroup; garrison setVariable [_target,[]];
+private _existingFlag = "Flag_NATO_F" createVehicle [5070,4500,0];
+private _existingCrate = "Box_NATO_Ammo_F" createVehicle [5075,4500,0];
+sidesX setVariable [_target,west];
 private _adopted = [{count (garrison getVariable _target) == 3},6] call _wait;
 private _finished = call _waitJob;
 ["counter_captured_active_site_adopts_once",_adopted && {_finished} && {_record get "outcome" == "captured"}
     && {A3A_resourcesDefenceOcc == 70} && {(call _stats) # 1 == 3}
     && {((_units select {alive _x}) findIf {_x getVariable ["A3A_resPool",""] != "garrison"}) == -1}] call _check;
+["counter_active_handoff_reuses_existing_assets",isNull ((A3I_sites get _target) get "flag")
+    && {(A3I_sites get _target) get "crates" isEqualTo []}
+    && {!((A3I_sites get _target) get "announced")} && {alive _existingFlag} && {alive _existingCrate}
+    && {(_units findIf {_x getVariable ["spawner",false]}) == -1}] call _check;
 {_x enableSimulationGlobal true} forEach _units;
 (_units # 0) setDamage 1;
 [{count (garrison getVariable _target) == 2}] call _wait;
@@ -156,6 +187,8 @@ private _finished = call _waitJob;
 call _stopSite;
 ["counter_adopted_cleanup_no_refund",count (garrison getVariable _target) == 2
     && {A3A_resourcesDefenceOcc == 70} && {(call _stats) # 1 == 0}] call _check;
+["counter_handoff_cleanup_preserves_existing_assets",alive _existingFlag && {alive _existingCrate}] call _check;
+deleteVehicle _existingFlag; deleteVehicle _existingCrate;
 {deleteVehicle _x} forEach _units;
 
 // Offscreen victory: save only complete, genuinely arrived groups and retire
