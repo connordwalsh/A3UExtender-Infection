@@ -467,6 +467,23 @@ COMPETITIVE_CHECKS = {
 
 
 LIBERATION_CHECKS = {
+    'lib_dispatch_endpoints_registered',
+    'lib_dispatch_other_side_delegates',
+    'lib_dispatch_inactive_delegates',
+    'lib_dispatch_remote_campaign_refused',
+    'lib_dispatch_unscheduled_campaign_refused',
+    'lib_dispatch_low_support_no_flip',
+    'lib_dispatch_invalid_data_no_flip',
+    'lib_dispatch_destroyed_town_no_flip',
+    'lib_dispatch_busy_attack_no_flip',
+    'lib_dispatch_existing_task_no_flip',
+    'lib_dispatch_missing_source_peaceful',
+    'lib_dispatch_peaceful_no_mission_rewards',
+    'lib_dispatch_repeat_peaceful_refused',
+    'lib_dispatch_direct_no_source_no_flip',
+    'lib_dispatch_direct_nearby_parent',
+    'lib_dispatch_reachable_campaign_parent',
+    'lib_dispatch_pending_no_flip',
     'lib_sources_registered',
     'lib_all_permanent_sources',
     'lib_target_excluded_duplicates_collapsed',

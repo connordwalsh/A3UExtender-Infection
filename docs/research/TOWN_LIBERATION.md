@@ -288,3 +288,28 @@ The owner selected retention of the native wrecks, bodies, fire/building damage
 and survivor vehicle. That scene is a separate implementation increment. Native
 campaign entry with the approved peaceful fallback, connected-player rewards/UI, real
 walking travel, defense pacing and full mission acceptance remain open.
+
+## Campaign dispatch draft
+
+The owner approved peaceful political joining when no nearby eligible source
+can send the walking horde. The isolated dispatch branch adds a narrow infected
+branch in the pinned `resourcecheck` routine and a direct `townBattle` adapter.
+Ordinary factions use the original functions. The
+[source comparison](../../evidence/sprint-3/liberation-dispatch-source-comparison.json)
+confirms that the remaining native resourcecheck body is identical after newline
+normalization and the declared include-path/dispatch changes; original outpost
+fallback control flow, income, traders and victory handling remain in place.
+
+The campaign request rechecks population/support, ownership, destruction, task
+and attack claims, and nearby players. Those refusal cases never count as an
+absent source. A reachable source launches the parent mission; a failed launch
+does not turn into a free town capture. No eligible source invokes the native
+political transaction without a rescue task or mission reward. A direct
+`townBattle` call chooses an approved nearby source and has no political fallback.
+
+The 130-input Dev1 candidate builds and passes eleven missing-dependency checks.
+Three parser tests and whitespace checks pass. Seventeen direct-entry/political
+cases are authored (121 focused total), but remain NOT_RUN while the parent
+controller regression and vehicle component use the test port. These tests are
+separate from a real ten-minute campaign economy cycle, connected-player
+proximity, other-faction campaign behavior and the full retained scene.
