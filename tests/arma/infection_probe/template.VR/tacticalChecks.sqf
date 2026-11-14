@@ -291,6 +291,15 @@ garrison setVariable [_target,[]]; sidesX setVariable [_target,teamPlayer];
 // policy and rejection boundary here; a real connected-player relay is separate.
 private _rebuildFlag = "A3U_rebuilding_" + _target;
 private _rebuildName = "REBUILD_QRF_" + _target + "_1";
+A3I_test_rebuildExecution = [];
+A3I_test_rebuildExecutionProbe = {
+    A3I_test_rebuildExecution pushBack isRemoteExecuted;
+    [] spawn {A3I_test_rebuildExecution pushBack isRemoteExecuted};
+};
+[] remoteExec ["A3I_test_rebuildExecutionProbe",2];
+[{count A3I_test_rebuildExecution == 2},3] call _wait;
+["tactical_rebuild_local_server_context",A3I_test_rebuildExecution isEqualTo [true,false],A3I_test_rebuildExecution] call _check;
+A3I_test_rebuildExecutionProbe = nil; A3I_test_rebuildExecution = nil;
 ["tactical_rebuild_requires_active_mission",([_target,_position] call A3I_fnc_rebuildSupport) # 2 == "inactive_rebuild"
     && {[_rebuildName,west,"attack",9999,false,_position,1,-1] call A3A_fnc_SUP_QRFLand == -1}] call _check;
 missionNamespace setVariable [_rebuildFlag,true]; sidesX setVariable [_target,east];

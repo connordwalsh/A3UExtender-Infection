@@ -254,6 +254,7 @@ COUNTERATTACK_CHECKS = {
 
 
 TACTICAL_CHECKS = {
+    'tactical_rebuild_local_server_context',
     'tactical_overrides_registered',
     'tactical_registry_only_foot',
     'tactical_invader_registry_preserved',

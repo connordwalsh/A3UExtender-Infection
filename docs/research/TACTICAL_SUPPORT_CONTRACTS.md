@@ -112,8 +112,15 @@ recorded, navigation is synthetic, and arrival/deadline changes are injected.
 The [server-side focused checkpoint](../../evidence/sprint-3/tactical-server-focused.json)
 passes 70 checks on the [92-input candidate](../../evidence/sprint-3/tactical-server-build.json).
 Its [missing-dependency check](../../evidence/sprint-3/tactical-server-dependencies-absent.json)
-passes all 11 checks. These precede the rebuilding relay below; final focused
-and combined results remain pending.
+passes all 11 checks. These precede the rebuilding relay below.
+
+The expanded [80-check focused result](../../evidence/sprint-3/tactical-focused.json)
+and [11-check dependency-absent result](../../evidence/sprint-3/tactical-dependencies-absent.json)
+pass on the [96-input rebuilding candidate](../../evidence/sprint-3/tactical-build.json).
+No engine/SQF Error records were found; the focused run retains 21 dependency and
+object-deletion warnings. Combined regression is in progress and adds one engine
+check for entry into a new local server script from a remote call. The gameplay
+sources are unchanged from the expanded focused candidate.
 
 Rejected attempts exposed two distinct destination issues: the synthetic road
 lookup initially omitted neighboring cells, and a precise target could make the
@@ -141,3 +148,5 @@ keeps its normal tactical lifecycle. Hosted callers use the same policy locally.
 Other faction constructors retain their originals. Dedicated tests cover policy,
 costs, duplicate attempts and rejected ingress; a connected-player relay and the
 complete delivery mission remain unverified without that multiplayer scenario.
+
+The next policy/lifecycle audit is [strategic attacks](STRATEGIC_ATTACK_CONTRACTS.md).

@@ -1,0 +1,693 @@
+{
+  "schema_version": 1,
+  "scope": "Isolated dedicated contracts, suite=tactical; no full campaign, player credit, client rescue, ACE, HC transfer or JIP acceptance",
+  "suite": "tactical",
+  "expected_dependencies_present": true,
+  "status": "passed",
+  "collected_at_utc": "2026-11-14T07:00:19.866372+00:00",
+  "source_log": "arma3server_x64_2026-11-14_01-58-02.rpt",
+  "source_log_sha256_at_collection": "6fa1f43c2e1ebe6df2da50118eb41efd969c01fa7c686a220a0e855700d61af5",
+  "source_sha256_at_collection": {
+    "tests/arma/infection_probe/template.VR/administrationChecks.sqf": "13bab6774aa13e69ff26a6e98cae431378c7f04b90bbf6cedc3620df0f8cf096",
+    "tests/arma/infection_probe/template.VR/budgetChecks.sqf": "3bbc8ab2864ad8be0b19ee002427c7bff9c6a8339ce65f0e6b22fc15d62afbd6",
+    "tests/arma/infection_probe/template.VR/cityChecks.sqf": "a97180eb17cae4c590c1fd86d55384503c9e89cbef1f23df9696391765230ee0",
+    "tests/arma/infection_probe/template.VR/cityPopulationCases.sqf": "423dd938ff68be6595a30338063be2d1ef253685f11e0a7353ec403c9fcd0047",
+    "tests/arma/infection_probe/template.VR/combatChecks.sqf": "eea25370ec33ccca48a77e3819bf5170dff55327eff1ba71ee2ff6280c721302",
+    "tests/arma/infection_probe/template.VR/controlChecks.sqf": "b3859242a1d36601708284f6c501e8da28e1abef92ee2f9e74d0968cd1add9d6",
+    "tests/arma/infection_probe/template.VR/counterattackChecks.sqf": "0c0567280c7bb984bef8ede72ad4248659ac0d8a42721aec018d9fa17d9a1c04",
+    "tests/arma/infection_probe/template.VR/description.ext": "d23d0b6a438414749717f47516247a931adde3dc7114cb6ffac9c89ac3667624",
+    "tests/arma/infection_probe/template.VR/garrisonChecks.sqf": "e97c22843f08c4c6ebc05649a35037a441da615b250c0e0b162b4d6333b34bb8",
+    "tests/arma/infection_probe/template.VR/initServer.sqf": "b40984a4558b5f7575951cbbb0ea7412e97ece7fbd006b02ad91194ce5b52e7f",
+    "tests/arma/infection_probe/template.VR/mission.sqm": "b0f1a5d920d1e9803e85eca28d178cdaae203586a93536c6e8e41bbc840c7f2f",
+    "tests/arma/infection_probe/template.VR/reinforcementChecks.sqf": "11c54b648e4c9b813950b6416b4f5d42b24f65d3d1e8c60365317a166bccf6ab",
+    "tests/arma/infection_probe/template.VR/roamingChecks.sqf": "8796d8812181d17e547edaad5919c5985721ec2f4144c2640c18095af20d170b",
+    "tests/arma/infection_probe/template.VR/siteChecks.sqf": "9d293149b29696fbfe079a4d7b4d26c4e79887510e1c71ac78bacce095bf997c",
+    "tests/arma/infection_probe/template.VR/spawnChecks.sqf": "a258dbfd86433f9a8c2ee13f0bbc79a131b9c139b52e5f8dd03e57b6052fc202",
+    "tests/arma/infection_probe/template.VR/tacticalChecks.sqf": "d08441b2f10928f519daebdc9dad248bb2006199e0450c1fd3bfa849c1ee102a",
+    "tests/arma/infection_probe/contracts-addon/config.cpp": "077c334caa19629d5639e1aaccbd483f4a7cb8d06a720cfbb55df167dee60b9d",
+    "tests/arma/infection_probe/contracts-addon/fn_addAggression.sqf": "cc60b8d99c7385981380ce20d2184fdba0efbb29e849db13e4e6cf3f756001e4",
+    "tests/arma/infection_probe/contracts-addon/fn_addLoadAction.sqf": "3a1c68eaa5794f53c585680240749c5a5a2f37802c4bee16d7d90e1cbce5e98c",
+    "tests/arma/infection_probe/contracts-addon/fn_AIreactOnKill.sqf": "17d854b7217cbfafbf702dd37f98e0e845c84fcbe460088fe6a6009e929cb193",
+    "tests/arma/infection_probe/contracts-addon/fn_citySupportChange.sqf": "f6b828a287ae5a1a30e26d30171942696c9b2fa2c64f1f55bff8715b9fc64605",
+    "tests/arma/infection_probe/contracts-addon/fn_commsMP.sqf": "85431787fd078c759276a4884233dd5318aa6a739ef8e3a9b406e25892876bb2",
+    "tests/arma/infection_probe/contracts-addon/fn_createResourceCiv.sqf": "861759a1f61494c9aa2641155dd409decf03312ff0ddb9f399ae20149961cb31",
+    "tests/arma/infection_probe/contracts-addon/fn_fillLootCrate.sqf": "bd4c516a6c8c56ea9354a771c81d148e65a8ff37e5d032efa5375277b11ecf8b",
+    "tests/arma/infection_probe/contracts-addon/fn_groupDespawner.sqf": "954707983c9a10c638e119a42abe0823bc32ffe1e99aba36818cc0e36667061e",
+    "tests/arma/infection_probe/contracts-addon/fn_mrkUpdate.sqf": "aec9cac5e8d32837fae147587608d25d01dcf58a7cb86c8d4d5b1fc4e361d322",
+    "tests/arma/infection_probe/contracts-addon/fn_originalAAFroadPatrol.sqf": "3a3d5b307aca549fc17de5311ef3c7ca485ca37cbe1fa0db3fe7251880b331f2",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIAirplane.sqf": "158f5d926fbd8c8fe1b198b1912c14a070d05ea705022a0eff2503b46066353c",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAICities.sqf": "f5d08cb92b77d738d7434e982c3bab12b552e2b4cc3cf67416d0aa22680cbcb6",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIcontrols.sqf": "a1cc1042393c88f669cdf1df65c65ceea146f343db438d37d1fbf87484b75ad8",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIMilAdmin.sqf": "0c34a0e3c43aade677be6d8f3ad4f54bb8726440055c460e68348bc43090d9c2",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIMilbase.sqf": "db219e5d5dd565ad0f1215b1fb95e90be718541555d5c60b5c1c020715a287e8",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIOutposts.sqf": "796d22a8d1de1f22927469541dd2e2eb70bbe9aecac5587e13f93dd4b216a733",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateAIResources.sqf": "b126742b74dfffcff5eed23d982760fe9301fc0595ffab0d1bcac0af4ba015db",
+    "tests/arma/infection_probe/contracts-addon/fn_originalCreateSupport.sqf": "dab49660143f703d605cb29e02c701f0db816469ab88a7964b092b6fbcf2eff4",
+    "tests/arma/infection_probe/contracts-addon/fn_originalMarkerChange.sqf": "32b20344a75ad8f3be04933f79f1a0dfd3b6ea7ee20283f870b46d30a2c14e94",
+    "tests/arma/infection_probe/contracts-addon/fn_originalMrkWIN.sqf": "45ef2f9ab1b4ddc3995b9fc3434347bb8cf0ca4c2a32e00121dd7a3c3e0a9458",
+    "tests/arma/infection_probe/contracts-addon/fn_originalNATOinit.sqf": "a6e3007862a0e9bf62eee29003d7f5d821a13363d6a061d5c31eb26d37f950c3",
+    "tests/arma/infection_probe/contracts-addon/fn_originalPatrolReinf.sqf": "53fe677d01424cefa42c1e94aeae8675295a012dc673023d4fea7064dfbf55d3",
+    "tests/arma/infection_probe/contracts-addon/fn_originalReinforcementsAI.sqf": "add4d949050469e932fd11a59bb793ea9dcbcd35a6050fb607dd2347568d1269",
+    "tests/arma/infection_probe/contracts-addon/fn_originalRemoveMilAdmin.sqf": "59fd1d4e9044c5c5fcea75160eb533f336449b610f994bb046f2a7228895e62c",
+    "tests/arma/infection_probe/contracts-addon/fn_originalScheduler.sqf": "e18249abe701e27af13a8100049e7225ec15a75f2ff1b098848a152a95444dc5",
+    "tests/arma/infection_probe/contracts-addon/fn_originalSingleAttack.sqf": "156132db54b8adf822ec28bee9cb5f8bd60f7e5d8a83d7a16bd5083cf3473fd2",
+    "tests/arma/infection_probe/contracts-addon/fn_originalSUPQRFAir.sqf": "6e852a3ecce8bd652eab9ebafdbdd605c1afb7271e33f374885cd7d27dd43cc3",
+    "tests/arma/infection_probe/contracts-addon/fn_originalSUPQRFLand.sqf": "b7f1b613343fbcdd49acd2c129580ca9dc99491ac59d6331cdb337afe7a93305",
+    "tests/arma/infection_probe/contracts-addon/fn_originalSurrenderAction.sqf": "b40618b2b92671037bd38e066bfa457a59a4fd1648718f568abe5aee3c8673d1",
+    "tests/arma/infection_probe/contracts-addon/fn_selectVehicleType.sqf": "c3243b968ccb16bc398d3238ab704cca0dc95b8c4b6d6c0ffde5104c0ba8b080",
+    "tests/arma/infection_probe/contracts-addon/fn_underAttack.sqf": "2b67cfd0e6c6bbf7780cd259a5b083a3b7316026ea2f1faa3bba2f0cfda02b7e",
+    "tests/arma/infection_probe/contracts-addon/fn_VEHdespawner.sqf": "d45b47f0c4ac780088b927b7cb4b13b5763401aadf1b3663881d3ccf07503a81",
+    "tests/arma/infection_probe/contracts-addon/fn_zoneCheck.sqf": "499b8ef787d7e0e1f005147a9a773f24f48affb3a6064e9886ca9a5b178c8951",
+    "Infection/addons/core/config.cpp": "e16c7c2c39f320a92342b75511ce7102167e6682374b1bea3f1881652a3aaedb",
+    "Infection/addons/core/functions/fn_administrationAssets.sqf": "6932fce62c01a33360eda48c7d70a573f8bb44b8dfd179fa2c2c5d66cd90f9a7",
+    "Infection/addons/core/functions/fn_administrationDefenderEvent.sqf": "ca14c9b90332b32cf768508cbfc8c17828b2592b501abd59c29e89deb57a46a9",
+    "Infection/addons/core/functions/fn_administrationPositions.sqf": "1bb6e1a27fcecff5b4f23c2a05ea23c111b87d977228d7245789aaaa9bdc7e8a",
+    "Infection/addons/core/functions/fn_administrationRoster.sqf": "4c1870f6edcdf29b08fa12b02748553fd12d31520f8561cee61baf0c39955eac",
+    "Infection/addons/core/functions/fn_adoptReinforcement.sqf": "a8b096138f33334ed5aa88b1a09894d2e45cc7beda077584476cf6575d6316b6",
+    "Infection/addons/core/functions/fn_beginRescue.sqf": "a04db60ca2969810ab59982fbc217e237227f3ddb7341943d5d5c6970bcb6cab",
+    "Infection/addons/core/functions/fn_bootstrap.sqf": "35f2e15cd7a8a07752a9acc67de6079d7767aa012e6735d3c77857ee45536bbf",
+    "Infection/addons/core/functions/fn_budget.sqf": "b8ebeff784df93e3a52a13e43e2f5ffab4b9c957ba0d0b8539801403992a6d98",
+    "Infection/addons/core/functions/fn_cityPopulationTarget.sqf": "62af21e351a81dd12272ebcd968a2ad6ea0191c96240d62f2be4b4ddcefbcffd",
+    "Infection/addons/core/functions/fn_cityRoster.sqf": "b2b21aaaabd308a816161d959d635de96ae19de11c2a6717ae486b0a290cf37f",
+    "Infection/addons/core/functions/fn_cleanupSite.sqf": "38668ea7967efa1aae74904fbfc3b49d1e51fb8a10b05cf138d2d5a378480bb3",
+    "Infection/addons/core/functions/fn_controlResetTick.sqf": "49e696d08d33dc4cdffcbf9c9e99aa9bb6eb594a5354c16e857f5b91de07da02",
+    "Infection/addons/core/functions/fn_controlRoster.sqf": "11eb70e241961f67043ad96e9fd05d64b2cf35d4240e27ab50d23fbb6f2bd484",
+    "Infection/addons/core/functions/fn_counterattackEligible.sqf": "ef7f978c17be75b9b1ad87facaac9b64256880fb683dcbe58e7f017e2ecff952",
+    "Infection/addons/core/functions/fn_counterattackSourceEligible.sqf": "ffb98917b233434c409446c4fa5eb963287d1a223de8e90f033a65c571a93d18",
+    "Infection/addons/core/functions/fn_counterattackSources.sqf": "de98a6b6fdf5131f1525c7ff4166e6d7753b1494f61b61bf973756adcac2f113",
+    "Infection/addons/core/functions/fn_counterattackWatchdog.sqf": "bc0105d279f3c828a57b407bfd597898cf033ad5374650bc9949378523c72519",
+    "Infection/addons/core/functions/fn_createFootGarrisonLine.sqf": "1a1a33a2d62de2591b8e43c85b0ec480da41fb4c3f47d99009a809f9e021139e",
+    "Infection/addons/core/functions/fn_dependencies.sqf": "f665cc54f9b16496d981f1e7b67c33c0148c5286eddfe8c60881456e792a1335",
+    "Infection/addons/core/functions/fn_elapsedDateMinutes.sqf": "351ab7b36e33510b96076352638ec4cae70f23dd7770bce02efc7c3ca6ee366e",
+    "Infection/addons/core/functions/fn_findCitySpawnPosition.sqf": "e581e64d2605ca3a8a87387857c1f8b1f9e209119f9d577ef11d4b24f7ff2f2c",
+    "Infection/addons/core/functions/fn_findSpawnPosition.sqf": "cd65fcc4123ac2b5f5b37755dfd7c986d425db38f0df1baf513c846bda466548",
+    "Infection/addons/core/functions/fn_indoorPosition.sqf": "2a4f2b146892ff8508e40cbba529932db9d519e018ebe5c96ac58a7f29e28fa9",
+    "Infection/addons/core/functions/fn_infectedDamageObserved.sqf": "a3de373c0f2d26d8426679813d5f43c3f97bbb760d46c772d3d003634a28a2e1",
+    "Infection/addons/core/functions/fn_infectedDeleted.sqf": "96ec53391eaab6cce1c18fd87177de8f610398cbeac5e0e1c1b6b0106aaf602d",
+    "Infection/addons/core/functions/fn_infectedKilled.sqf": "cc46ea3703a8ee9e45759bd0d357efb72ccf63216fd2e78a49bb71bf01da3e8b",
+    "Infection/addons/core/functions/fn_initInfected.sqf": "41c9e980066287c6be10fc34a034b513945aacb21684f36f1396583d188efee2",
+    "Infection/addons/core/functions/fn_initSettings.sqf": "c750885131cb547639f232df9bc03c592b63b318e484b0c4a03128e0874c53c4",
+    "Infection/addons/core/functions/fn_isActive.sqf": "420dd0220d72e1a37dc28690dfc7168469358e7a45f6f9e31722110b4587e868",
+    "Infection/addons/core/functions/fn_isManagedUnit.sqf": "9ceb2c3f414a290597efb88c2523f02a9b5f97423c5f275930c7c23c719073eb",
+    "Infection/addons/core/functions/fn_patrolWaypoints.sqf": "2220b71e837afdaa9f4d2d4076c6e16994f270b7dffe35347ecb0f3bbbe520e6",
+    "Infection/addons/core/functions/fn_positionSafety.sqf": "dd4935337e33412da11462c9255365f929888d203336ed8d24b2a830fdfaad8a",
+    "Infection/addons/core/functions/fn_rebuildSupport.sqf": "1e3e8e679247fe707ced1afc6a02de9fe6932291058bbbd25ba7048c6bd9abe0",
+    "Infection/addons/core/functions/fn_rebuildSupportWatchdog.sqf": "487d72bc354b42f2efc7853810403305803c2cdc06ad46622bd0ac224dcad1ce",
+    "Infection/addons/core/functions/fn_receiveRebuildSupport.sqf": "f3841866cb6e27a317f3546bf621eac4d091199e7c2cf0631937afd32a23ed25",
+    "Infection/addons/core/functions/fn_reinforcementEligible.sqf": "a98937b909b0618dca083223587fa886dcfcd12dc8ffeaa6e3f36c49e469cee1",
+    "Infection/addons/core/functions/fn_reinforcementSources.sqf": "ed665b0bd3c6e162811b511252cc3f4a43110180270f8005887396a875385201",
+    "Infection/addons/core/functions/fn_reinforcementTick.sqf": "e88bef754e5be14607ef2bcea710dcdadefa389cb8d18a91bf63d4dfacf55c45",
+    "Infection/addons/core/functions/fn_reinforcementWatchdog.sqf": "97f45a20098eab13f0508eab452ba8d11d978f47544a9e7da92eacc3fda1bacb",
+    "Infection/addons/core/functions/fn_requestReinforcement.sqf": "237995868506b65f35324ddec279dc17b5aaed885aaaa5689c0c2138b1b1301c",
+    "Infection/addons/core/functions/fn_requestRescue.sqf": "d19d8c200ab5de28e04872b4542117966717da2c6a4bc7776a6c692abe9bad61",
+    "Infection/addons/core/functions/fn_requestTacticalSupport.sqf": "dd5b966fa94e8b3d9da9cc0bb2cca061d13ef5515d37586d1dfecbe038a97521",
+    "Infection/addons/core/functions/fn_rescueTick.sqf": "6761c9edb106114cae599102cd19e28cd4adf38abd4899bcf66059fd933d92fa",
+    "Infection/addons/core/functions/fn_roamingBases.sqf": "133b6d5d9c9d4f6ec1566784c6fcf19392b12904ae71069339e55416e706778f",
+    "Infection/addons/core/functions/fn_roamingEligible.sqf": "58a019b15274f9ec89d6b0df8f180cbd479d0a77b50ecf8395ffebe2de5672b4",
+    "Infection/addons/core/functions/fn_roamingRoute.sqf": "bf18a8d02c97fedf812bb575ac5458dfaa466a766e416d2a7ea58d892229b2ad",
+    "Infection/addons/core/functions/fn_roamingWatchdog.sqf": "6018875e5c995144c48983b61cef42af45b7d242ec8c3ea3981ef8b15c2ef7d4",
+    "Infection/addons/core/functions/fn_routeRebuildSupport.sqf": "0d60251712b0dbec7ecad97e046b6b85a1bd493930bf16a854aa57653bf7151c",
+    "Infection/addons/core/functions/fn_runAdministration.sqf": "adb05d7450a4bde3a504eebb8ca8082bed14d9e7e922425483d8d511aa6b55d0",
+    "Infection/addons/core/functions/fn_runCounterattack.sqf": "7a3d916149cb21b8ab9596c0487aaa23eafc1415fa6bd35ef7b36005fdc2a423",
+    "Infection/addons/core/functions/fn_runPatrol.sqf": "cc35a892b5af21202480f37474c251318cc7f93797ec5c316fe7e234db50cc66",
+    "Infection/addons/core/functions/fn_runReinforcement.sqf": "947e4dbac60196bf1c64f21d88e910ca5649c2f83d92239cc83726864cee1c12",
+    "Infection/addons/core/functions/fn_runRoaming.sqf": "77c81b7e82b49ab2ec09eb751b42ecb1c8c439288ee400da1b2e9b2076f17417",
+    "Infection/addons/core/functions/fn_runSite.sqf": "b517de9ca4e20ecfabc4a83d26c581f2a158569ce621b3ac5d859de497f34620",
+    "Infection/addons/core/functions/fn_runTacticalSupport.sqf": "88cc0407f37147deafa11c754f20f192516969097fd18453172c9ea12acfcfa0",
+    "Infection/addons/core/functions/fn_siteCaptureBlocked.sqf": "b66bc3f16eff0979471c898c5ada7ddce6031bae68ff9df4b20db903d1ac29e6",
+    "Infection/addons/core/functions/fn_siteWatchdog.sqf": "f84c730b5f2567b9f86b033ac41b72524ba56243eb57e1649ffa57b599fc22bd",
+    "Infection/addons/core/functions/fn_spawnGroup.sqf": "c25f0561549a25d036a7be318adade8368c03fa7ecf0a26b9bba849dc86a7bc6",
+    "Infection/addons/core/functions/fn_spawnObservers.sqf": "f504aca6ea44705b60506bd0946cadfa262be0646d868696e253f42d13658c11",
+    "Infection/addons/core/functions/fn_startCounterattack.sqf": "b40e214915e4f7e23d6a6717457cc81c3d72d695a26fe3d0acd76cf23f5ca20c",
+    "Infection/addons/core/functions/fn_startRoaming.sqf": "d4e9a25b761a8a8e7546f93096faea25a4d6a9b11aa30b8c600fa7686e653bda",
+    "Infection/addons/core/functions/fn_startSite.sqf": "24096e2c4ab972927d13a0cafab88f6adaef057e2d3686d698cefa57ef6258ad",
+    "Infection/addons/core/functions/fn_startTacticalSupport.sqf": "19c737302f26b6cb4ef3d27fa7ea889a8a995796f4c7e11e297838f63d66c7bb",
+    "Infection/addons/core/functions/fn_survivorAction.sqf": "2b5caed831487588e2856c8c0f9bbdfe0ac30c90ef81a5bb7366ca2cc6c86b67",
+    "Infection/addons/core/functions/fn_tacticalSources.sqf": "5f85914fbd2f6cd23f54cafacb9af77f28402d0f62244705c6e67195ea471742",
+    "Infection/addons/core/functions/fn_tacticalWatchdog.sqf": "ee7bbaeb1373e64bafda47023d3cdb348f362e7742504315a511c488e4106e1e",
+    "Infection/addons/core/functions/fn_trackAdministrationDefender.sqf": "8b3af79171e56b8e7f0ea421af6a5a30718a1d463971f5e918f96afb75c8e165",
+    "Infection/addons/core/functions/fn_tryCaptureAdministration.sqf": "7e0fa2c61eb54dc0500bf14f6a727301dba969d9a2830f1b952b30567433cbbb",
+    "Infection/addons/core/functions/fn_tryCaptureControl.sqf": "1683c2ba7d74d99cd5b6c063f5df6bccdadfbce695b99e861c2e43e5e96672c0",
+    "Infection/addons/core/overrides/fn_AAFroadPatrol.sqf": "eaf6eeb12f8458b8a29d082e624fe7c4cf4046b100b13a8960262810a598a3ad",
+    "Infection/addons/core/overrides/fn_cityChangeSide.sqf": "bd0c96b3ce1232cc742ab853fa7ff279c28ca5ae800040eddf2bb2e3e0248e75",
+    "Infection/addons/core/overrides/fn_createAIAirplane.sqf": "f9a86479d093e9161769d0978df5f2f1a43d708426992b294d95dc1009227215",
+    "Infection/addons/core/overrides/fn_createAICities.sqf": "f78d6a877389ddf9cc04d5ac5d8ed062cfae4f92e027fd4bc5a0dd2016d3e888",
+    "Infection/addons/core/overrides/fn_createAIcontrols.sqf": "bcb92b5cab94a0c8ed154e0cabc454c0e18f89686c5a031f20addd8aa9d8a3c6",
+    "Infection/addons/core/overrides/fn_createAIMilAdmin.sqf": "902d139b449c4823867f4a6890fdef9ad6f18ab0f00ffae4550bd860f1f4db41",
+    "Infection/addons/core/overrides/fn_createAIMilbase.sqf": "3ef50c3b1dea6173b354beac42e9acf16e28ce959e7fdee1c75aa5049dc3cca9",
+    "Infection/addons/core/overrides/fn_createAIOutposts.sqf": "36a03f247b99f70781be4ca5b3b62b9ddd9bf6984bf4faaffae03824705e8568",
+    "Infection/addons/core/overrides/fn_createAIResources.sqf": "467b970ab12b44ec75e18febd57ec05eca8c026afc84bd2e073860e4155a87c1",
+    "Infection/addons/core/overrides/fn_createGarrisonLine.sqf": "2b81a371cff8799ac6c80702657e54499f5a5c13c5929f21ce5f814b7c47e468",
+    "Infection/addons/core/overrides/fn_createSupport.sqf": "9b37b884317ed12bfec2c8d621584f3ade3d1b73312438acfec973c7e04e20bf",
+    "Infection/addons/core/overrides/fn_initSupports.sqf": "51b559eeb3f30bc6b7d5f5df8192251b294357879da65de657a1097f9782318c",
+    "Infection/addons/core/overrides/fn_location_removeMilAdmin.sqf": "b7119ae543e788dd7e87dc54939bb44eae4de59480b26501550608746e372f31",
+    "Infection/addons/core/overrides/fn_markerChange.sqf": "9ec74b6fbba7972dfc674d2c4f1d538caf4a85db2737ef3b67cb104b65fd6ad1",
+    "Infection/addons/core/overrides/fn_mrkWIN.sqf": "d9c6372441b22400ea7033e4517aa2af08cc761b887b8b132c47efb1373c2891",
+    "Infection/addons/core/overrides/fn_NATOinit.sqf": "38f0f4738485684a8896190eac53b71eedf01aea5065d4f07954201ca0654c20",
+    "Infection/addons/core/overrides/fn_patrolReinf.sqf": "8ce0f43e751038d524973e39296cc2bbaa6f74b8395dfa270f0b03d390df5313",
+    "Infection/addons/core/overrides/fn_reinforcementsAI.sqf": "627de38dbd72accda78dd800c026a770e21bcbdec96bc7fc1184d66de7ecc50c",
+    "Infection/addons/core/overrides/fn_scheduler.sqf": "be15bc17cd5e57d67b1e25959195f7bd82f2f8e5e8f5b51417f87403fee26ff9",
+    "Infection/addons/core/overrides/fn_singleAttack.sqf": "ecfa8b97e2e885716fff800e894d7241d9f7a887db95c48dae078992637049db",
+    "Infection/addons/core/overrides/fn_SUP_QRFAir.sqf": "f106be6e54104528899d63a7b76588db671e0707e0456f4ea9569247e97c13b2",
+    "Infection/addons/core/overrides/fn_SUP_QRFLand.sqf": "fc0e5ecf15b2d08f6a2735367c066d106a3d231acd3f91bce52582280f99cb25",
+    "Infection/addons/core/overrides/fn_surrenderAction.sqf": "a514bb80bf497f6125527ad9ec2ae013c73a01375c586ce679397399da0e6de5",
+    "Infection/addons/core/templates/Infected.sqf": "f2ea354ceb32b4d2b0a687642e01a04cf6cde44a7a21bb85fcc35c2d9663bde1",
+    "Infection/mod.cpp": "ff7564d911bf7c428ad025ffb94dae9782458a10fe925e050398599585dcf2ad",
+    "Infection/THIRD_PARTY_LICENSES.txt": "6ada5ef3ab9f31704ad0c9a79cabef308f2973ac7e08ba41cfb97368adba49b2"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "record_schema_valid": true,
+    "dedicated_expected_mode": true,
+    "all_expected_checks_once": true,
+    "all_runtime_checks_pass": true,
+    "completion_matches_checks": true,
+    "all_expected_roles_once": true,
+    "all_role_spawns_pass": true,
+    "no_engine_or_sqf_error_records": true
+  },
+  "malformed_record_lines": [],
+  "error_lines": [],
+  "warnings_for_review": [
+    {
+      "line": 751,
+      "message": "1:58:10 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
+    },
+    {
+      "line": 756,
+      "message": "1:58:10 bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
+    },
+    {
+      "line": 759,
+      "message": "1:58:10 Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
+    },
+    {
+      "line": 760,
+      "message": "1:58:10 Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
+    },
+    {
+      "line": 761,
+      "message": "1:58:10 Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
+    },
+    {
+      "line": 762,
+      "message": "1:58:10 Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
+    },
+    {
+      "line": 763,
+      "message": "1:58:10 Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
+    },
+    {
+      "line": 764,
+      "message": "1:58:10 Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
+    },
+    {
+      "line": 765,
+      "message": "1:58:10 Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
+    },
+    {
+      "line": 766,
+      "message": "1:58:10 Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
+    },
+    {
+      "line": 785,
+      "message": "1:58:12 Attempt to override final function - abz_fnc_load"
+    },
+    {
+      "line": 786,
+      "message": "1:58:12 Attempt to override final function - abz_fnc_queuesave"
+    },
+    {
+      "line": 787,
+      "message": "1:58:12 Attempt to override final function - abz_fnc_synccommit"
+    },
+    {
+      "line": 788,
+      "message": "1:58:12 Attempt to override final function - abz_fnc_save"
+    },
+    {
+      "line": 795,
+      "message": "1:58:12 Attempt to override final function - bis_fnc_storeparamsvalues_data"
+    },
+    {
+      "line": 796,
+      "message": "1:58:12 Attempt to override final function - hals_store_getnearbyvehicles"
+    },
+    {
+      "line": 966,
+      "message": "1:58:59 Server: Object 2:177 not found (message Type_124)"
+    },
+    {
+      "line": 985,
+      "message": "1:59:07 Server: Object 2:209 not found (message Type_124)"
+    },
+    {
+      "line": 1013,
+      "message": "1:59:20 Server: Object 2:274 not found (message Type_124)"
+    },
+    {
+      "line": 1034,
+      "message": "1:59:44 Server: Object 2:317 not found (message Type_124)"
+    },
+    {
+      "line": 1035,
+      "message": "1:59:44 Server: Object 2:316 not found (message Type_120)"
+    }
+  ],
+  "runtime_checks": [
+    {
+      "name": "addon_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "functions_available",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "dependency_state",
+      "passed": true,
+      "detail": [
+        [],
+        []
+      ]
+    },
+    {
+      "name": "passive_without_faction",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "template_side",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "setup_dependency_gate",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ultimate_version_contract",
+      "passed": true,
+      "detail": [
+        "compatible"
+      ]
+    },
+    {
+      "name": "ultimate_patch_version",
+      "passed": true,
+      "detail": [
+        12,
+        4,
+        2
+      ]
+    },
+    {
+      "name": "activation_requires_dependencies",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "active_only_for_occupants",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_overrides_registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_registry_only_foot",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_invader_registry_preserved",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_ordinary_registry_preserved",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_absent_registry_preserved",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_native_neighbor_cells",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_other_routes_delegate",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_conventional_requests_refused",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_refusal_preserves_foreign_lock",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_legacy_signature_refused",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_scheduled_required",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_invalid_requests",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_defeated_rejected",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_actual_foot_navigation",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_disconnected_rejected",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_distance_bounded",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_no_funds_no_charge",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_occupied_target_finds_nearby_ground",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_native_selection_foot",
+      "passed": true,
+      "detail": [
+        "QRFLAND1",
+        [
+          "QRFLAND1"
+        ]
+      ]
+    },
+    {
+      "name": "tactical_native_spend_and_strike",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_air_target_not_selected",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_native_artillery_no_force",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_request_waits_for_lock",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_delayed_request_no_prepayment",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_source_claim_blocks_second",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_budgeted_paid_basics",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_approach_moves",
+      "passed": true,
+      "detail": [
+        0.546778
+      ]
+    },
+    {
+      "name": "tactical_no_remote_capture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_later_birth_paid_once",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_pending_defenders_block_capture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_arrival_requests_native_capture",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_arrival_starts_search",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_known_enemy_keeps_search",
+      "passed": true,
+      "detail": [
+        true,
+        "pending"
+      ]
+    },
+    {
+      "name": "tactical_search_ends_and_refunds",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_direct_air_foot_estimate",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_direct_attack_pool_once",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_attack_refunds_living_only",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_direct_land_foot_once",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_mixed_paid_pool_refused",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_attack_virtual_adoption",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_adoption_not_repeated",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_attack_live_adoption",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_adopted_death_updates_roster",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_adopted_cleanup_no_refund",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_requires_active_mission",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_rechecks_owner",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_position_bounded",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_internal_remote_denied",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_forged_player_denied",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_nearest_side_rechecked",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_server_sizes_and_pays",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_single_attempt",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_claim_release_keeps_qrf",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_rebuild_new_cycle",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_source_loss_cancels",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_faction_loss_cancels",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_dependency_loss_cancels",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_stopped_controller_recovers",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_exact_quarter_retreat",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_hard_limit_64",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_no_force_no_charge",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_budget_rounds_down",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_three_allowance_ceiling",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_late_shortage_unpaid",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_late_shortage_actual_refund",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_combat_pauses_births",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_combat_clear_resumes",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_recovery_remote_denied",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "tactical_all_clean",
+      "passed": true,
+      "detail": [
+        [],
+        [
+          40,
+          0,
+          0,
+          0,
+          []
+        ]
+      ]
+    }
+  ],
+  "spawn_records": [],
+  "completion": [
+    80,
+    [],
+    0
+  ]
+}
