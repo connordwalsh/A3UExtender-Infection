@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "scope": "User-requested visible client launch. Loaded-mod evidence only; no manual gameplay, Zeus UI or compatibility acceptance.",
+  "launched_at_local": "2026-11-14 16:25:49 America/New_York",
+  "infection_build": "Infection_Liberation_Scene_Dev9",
+  "source_branch": "codex/liberation-scene",
+  "source_commit": "7aa0686",
+  "addon_sha256": "27b2c75530a6a763c0ca22e77dd863b67fb622389f922159b4cd3a6145c9c286",
+  "verified_build_checks": {
+    "focused": 208,
+    "dependencies_absent": 11
+  },
+  "workshop_mod_ids": {
+    "CBA_A3": "450814997",
+    "Improved Melee System": "2291129343",
+    "Zombies and Creatures": "2789152015",
+    "Antistasi Ultimate": "3020755032",
+    "CUP Terrains Core": "583496184",
+    "Chernarus Redux": "1128256978",
+    "Zeus Enhanced": "1779063631"
+  },
+  "zeus_enhanced_installed_version": "1.15.1",
+  "zeus_enhanced_runtime_pbo_version": "1.15.1.36",
+  "source_log": "arma3_x64_2026-11-14_16-25-49.rpt",
+  "source_log_sha256_at_collection": "06409acf5632108e3291c0a084d5359c5e88b021576b91f70fff80b25c1df4ad",
+  "loaded_mods_confirmed": [
+    "Antistasi Ultimate: Infection",
+    "Zeus Enhanced 1.15.1",
+    "Chernarus Redux"
+  ],
+  "limitations": [
+    "Survivor scene helpers are not yet connected to the campaign mission.",
+    "The newer Dev10 scene-assembly candidate is untested and was not launched.",
+    "The client was started for user testing without Computer Use."
+  ]
+}

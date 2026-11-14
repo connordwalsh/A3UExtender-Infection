@@ -2,6 +2,7 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$SteamLibrary,
     [switch]$IncludeChernarusRedux,
+    [switch]$IncludeZeusEnhanced,
     [string]$InfectionMod,
     [ValidateRange(1024, 65535)][Nullable[int]]$ConnectLocalPort
 )
@@ -18,6 +19,9 @@ $workshopDirectory = Join-Path $SteamLibrary 'steamapps\workshop\content\107410'
 $modIds = @('450814997', '2291129343', '2789152015', '3020755032')
 if ($IncludeChernarusRedux) {
     $modIds += @('583496184', '1128256978')
+}
+if ($IncludeZeusEnhanced) {
+    $modIds += '1779063631'
 }
 $modPaths = @($modIds | ForEach-Object { Join-Path $workshopDirectory $_ })
 if ($InfectionMod) {
