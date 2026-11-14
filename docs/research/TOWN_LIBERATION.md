@@ -2,7 +2,7 @@
 
 The owner selected survivor rescue and defense with a walking infected horde.
 This audit pins Ultimate 12.4.2 at `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`;
-the [28-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
+the [32-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
 records the exact inputs. This is source evidence, not runtime acceptance.
 
 ## Native entry and ownership
@@ -14,8 +14,9 @@ skirmish roll may replace that political flip with `townBattle`. The normal
 caller searches same-side outposts within 3 km, then any same-side outpost;
 without any outpost it calls `cityChangeSide` directly. Infection must replace
 that source search with the approved nearby town/permanent-site walking policy.
-The owner has been asked whether the no-nearby-source case should retain the
-political flip or leave the town infected; that decision remains pending.
+The owner selected the peaceful political flip when no nearby eligible origin
+can send a horde. Existing task claims or a player already in the town are not
+an absent-origin result; those native refusal conditions remain distinct.
 
 `townBattle` is server-only and scheduled. It rejects already defeated factions
 and a Rebel player inside `max(200, town radius)` before creating anything. It
@@ -221,6 +222,74 @@ Further native-source review confirms these controller boundaries:
   trader and victory processing. Any replacement must isolate the infected-town
   branch and preserve the rest of that pinned routine.
 
-The political fallback when there is no nearby origin still awaits the owner.
-No fallback is implemented by these helpers. Native decorative wrecks, damage,
+The owner subsequently approved the peaceful no-origin fallback. It is not yet
+implemented by these helpers. Native decorative wrecks, damage,
 effects and the survivor vehicle also remain part of the full mission audit.
+
+## Parent controller development checkpoint
+
+An isolated follow-on checkout adds direct local `startLiberation`, `runLiberation`,
+`finishLiberation` and watchdog functions. They claim the native task type and
+exact skirmish markers, create the human survivor/task, detect native recruitment,
+retain three minutes of preparation and launch the linked horde. An ineligible
+or busy source waits within the forty-minute overall deadline without stealing
+another attack's slot. This draft is not connected to campaign dispatch.
+
+Settlement separates success, early rescue failure, defense failure and technical
+cancellation. The immediate Rebel branch of the pinned `cityChangeSide` is adapted
+inside the atomic settlement, with its control/tier maintenance dispatched after
+five seconds. It preserves native task/ownership/garrison/support/aggression and
+HR/fund transactions, guards the native resource lock, and rechecks the survivor
+before success. Existing stronghold capture guards remain in the path. Completed
+paid liberation hordes retain the native sixty-second attack-release interval.
+
+The 126-input Dev2 candidate passes 102 focused checks, including 23 parent
+mission cases, and 11 missing-dependency checks. These exercise real task
+metadata, humans/infected, resources and tier calculation; support/aggression
+delivery uses the existing observed fixture endpoints. Preparation, arrival and
+timer positions are injected. All production and focused-report input hashes
+match, with no engine/SQF Error records. Three parser tests pass. Rejected
+attempts exposed observation races: the fixture now waits for exact survivor
+and original-group deletion and the queued native living-despawn refund before
+asserting cleanup or resetting the next case. Assertions remain in place.
+
+Source review after this checkpoint found that player rewards and the native HR
+cap must use the war level after the town's delayed tier update. Dev2 pays before
+that update. The passing Dev2 report did not cover that case; commit `42ccc0b`
+retains the historical candidate and evidence.
+
+## Reward-order correction
+
+Dev3 completes the native tier check five seconds after capture, then performs
+the once-only rewards. The pinned tier/preference/vehicle-update chain has no
+suspending operations and runs in the watchdog's local transaction. Native
+control cleanup remains scheduled because it waits for distant controls to
+despawn. A busy faction-resource lock retains the mission until payment can
+complete; task/actor retirement cannot discard an unpaid reward.
+
+All [104 focused checks](../../evidence/sprint-3/liberation-controller-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-controller-dependencies-absent.json)
+pass on the [127-input candidate](../../evidence/sprint-3/liberation-controller-build.json).
+All production, PBO and 190 focused-report input hashes match. The added case
+starts with 250 HR, a tier-one cap of 200 and a capture that raises the native
+tier to eight. Final HR is 251; paying under the old tier would have reduced it
+to 200. The case also holds the native resource lock across the tier update,
+then proves payment and repeated-settlement protection after release.
+
+No engine/SQF Error records occur. Nineteen focused warnings are retained: sixteen
+startup/dependency notices, two friendly-fire deliveries to deleted fixture
+actors and one income message to the absent commander. The dependency-absent
+report retains seven startup notices. Three parser tests, PowerShell parsing
+and whitespace checks pass. Both focused servers were stopped by verified
+process/profile identities. The [combined 777-case regression](../../evidence/sprint-3/liberation-controller-contract.json)
+passes, including all 67 role spawns. All 127 production inputs, the PBO and all
+190 collected inputs match. No engine/SQF Error records occur. Its 77 retained
+warnings comprise sixteen startup/dependency notices, fifty-six object-deletion
+notifications, three income messages to the absent commander and two friendly-fire
+deliveries to deleted fixture actors. The completed server was stopped by its
+verified process/profile identity.
+
+The owner selected retention of the native wrecks, bodies, fire/building damage
+and survivor vehicle. That scene is a separate implementation increment. Native
+campaign entry with the approved peaceful fallback, connected-player rewards/UI, real
+walking travel, defense pacing and full mission acceptance remain open.

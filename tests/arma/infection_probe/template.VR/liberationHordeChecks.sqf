@@ -51,6 +51,11 @@ private _retireHorde = {
         _retired = [{_horde get "settled"}] call _wait;
         _horde set ["releaseAt",time - 1];
         _retired = _retired && {[{!((_horde get "name") in A3I_majorAttacks)}] call _wait};
+        // These cases despawn living actors. Native refunds are queued after
+        // deletion, so registry removal alone cannot authorize the next reset.
+        _retired = _retired && {[{A3A_resourcesAttackOcc == 0
+            && {(_horde get "units") findIf {!isNull _x} == -1}
+            && {(_horde get "groups") findIf {!isNull _x} == -1}}] call _wait};
     };
     A3I_liberations deleteAt (_parent get "name");
     _retired = ([_parent] call _waitSurvivorCleanup) && {_retired};
