@@ -295,3 +295,11 @@ Complete scene assembly/cleanup is drafted and packages successfully (Dev10,
 mission integration remains open. The owner requested a manual session with
 Zeus Enhanced; that client uses verified Dev9 (208 focused/11 dependency-absent
 checks), not the untested assembly draft. Background probe servers are stopped.
+
+
+Parent scene integration draft: Dev11 calls construction before the rescue phase
+and complete cleanup before releasing skirmish claims. Parent fixtures cover
+construction interruption and retained survivor vehicles. Packaging, recorded
+hashes, parser regressions and whitespace checks pass; ENGINE_TESTS_NOT_RUN.
+Native campaign dispatch integration and all campaign acceptance remain open.
+The owner's manual Dev9 client is unchanged, with no background probe servers.

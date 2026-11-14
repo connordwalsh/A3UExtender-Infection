@@ -589,3 +589,26 @@ owner's manual-test request, the visible client was launched with the verified
 Dev9 artifact, Chernarus Redux and installed Zeus Enhanced 1.15.1. Its PBO was
 hash-checked. The new draft is not part of that running client. Background
 probe servers are stopped while the owner tests. No Computer Use was performed.
+
+
+## Parent scene integration draft - engine checks NOT_RUN
+
+Dev11 connects the assembled scene to the existing parent controller. The native
+townBattle task is registered before scheduled construction to reserve its task
+type. The rescue phase follows successful construction. A scene failure uses
+the existing outcome evaluator, retaining survivor-loss/expiry precedence rather
+than silently cancelling those outcomes. Construction stops when its survivor
+cannot fight, its source is lost, its scene is retired or the mission ends.
+
+The parent watchdog now calls complete-scene cleanup after settlement, task
+retirement and town despawn. Its skirmish claims remain owned until cleanup
+completes. Parent fixtures now use real scene dependencies and construction
+waits, observe actual scene objects/groups retiring, and check survivor-vehicle
+retention before fixture deletion. New cases interrupt the actual parent during
+scene construction and verify ownership/cleanup. Engine checks are NOT_RUN.
+
+The 145-input Dev11 artifact packages and its source/PBO hashes match; three
+parser regressions and whitespace checks pass. These checks do not execute SQF
+or certify the integration. The manual Dev9 client remains running unchanged;
+no probe server or Computer Use was started. Native campaign entry remains on
+the separate dispatch branch, and combined/terrain/client/save acceptance is open.

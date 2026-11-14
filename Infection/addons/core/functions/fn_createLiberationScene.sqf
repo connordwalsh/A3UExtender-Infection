@@ -37,9 +37,12 @@ if (!_entered) exitWith {[false,"existing"]};
 private _vehicleResult = [_record] call A3I_fnc_createLiberationVehicle;
 if !(_vehicleResult # 0) exitWith {[false,"survivor_vehicle_" + (_vehicleResult # 1)]};
 private _stillActive = {
-    [west] call A3I_fnc_isActive && {alive _vip}
+    [west] call A3I_fnc_isActive && {_vip call A3A_fnc_canFight}
+        && {!(_record getOrDefault ["sceneRetired",false])}
         && {_record getOrDefault ["outcome","pending"] == "pending"}
         && {sidesX getVariable [_town,sideUnknown] == west}
+        && {private _source = _record getOrDefault ["source",""];
+            _source == "" || {sidesX getVariable [_source,sideUnknown] == west}}
         && {time < _record getOrDefault ["expiresAt",1e10]}
 };
 private _size = [_town] call A3A_fnc_sizeMarker;
@@ -93,6 +96,7 @@ for "_cluster" from 0 to _lastCluster do {
     if (_fireCenters isNotEqualTo [] && {call _stillActive}) then {
         private _fireCenter = selectRandom _fireCenters;
         for "_fire" from 0 to (random [1,2,3]) do {
+            if !(call _stillActive) exitWith {};
             private _position = ([_fireCenter,2,50,"Land_HelipadEmpty_F"] call A3I_fnc_findSpawnPosition) # 0;
             if (_position isEqualTo []) then {(_record get "sceneFailures") pushBackUnique "fire_placement"; continue};
             private _result = [_record,_position,"BigDestructionFire"] call A3I_fnc_createLiberationFire;

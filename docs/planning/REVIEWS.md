@@ -625,3 +625,14 @@ and 213/175 collected inputs match. No engine/SQF Error records; 31/7 warnings
 are classified in the research record. Parser and whitespace checks pass;
 completed server exits are verified. Full scene construction/parent integration,
 client/JIP/terrain behavior and combined regression remain open.
+
+
+## 14 November 2026 - Draft scene integration source review
+
+Reviewed task reservation before scheduled construction, survivor/source/expiry
+cancellation, interrupted-parent cleanup and claim release ordering. The complete
+cleanup preserves native survivor-vehicle retention. The fixtures now wait for
+real construction and cleanup, including a parent stopped during construction.
+Dev11 packages with 145 matching production inputs and a matching PBO. Three
+parser tests and whitespace checks pass. Engine validation is NOT_RUN while the
+owner tests Dev9; no current combined-regression or campaign acceptance is claimed.

@@ -1,5 +1,27 @@
 // Real mission/task/resource transactions; artificial preparation, arrival and
 // expiry timestamps. No connected-player, campaign entry or pacing acceptance.
+// Supply native scene dependencies for every real parent mission below.
+#include "\x\a3a\addons\core\script_component.hpp"
+private _missionSavedReb = A3A_faction_reb;
+private _missionSavedAnims = A3A_faction_civ get "animations";
+private _missionSavedVariants = A3A_faction_civ get "variants";
+private _missionGlobals = ["A3A_faction_all","A3A_vehicleResourceCosts","A3A_GCThreshold",
+    QGVAR(despawnQueue),"enableVehicleAutoLock","enableVehicleAutoLockCiv","destroyedBuildings"];
+private _missionSavedGlobals = _missionGlobals apply {[_x,!(isNil _x),missionNamespace getVariable [_x,[]]]};
+A3A_faction_reb = ["\x\a3a\addons\core\Templates\Templates\Vanilla\Vanilla_Reb_FIA.sqf",teamPlayer]
+    call A3A_fnc_compatibilityLoadFaction;
+{
+    private _key = _x; private _map = createHashMap;
+    {_map set [_x # 0,_x # 1]} forEach (A3A_faction_civ get _key);
+    A3A_faction_civ set [_key,_map];
+} forEach ["animations","variants"];
+A3A_faction_all = createHashMapFromArray [["vehiclesArmor",[]],["vehiclesAPCs",[]],
+    ["vehiclesIFVs",[]],["vehiclesLightAPCs",[]],["vehiclesRivals",[]]];
+A3A_vehicleResourceCosts = createHashMap;
+{A3A_vehicleResourceCosts set [_x,300]} forEach (call A3I_fnc_liberationWreckClasses);
+A3A_GCThreshold = 600; GVAR(despawnQueue) = [];
+enableVehicleAutoLock = false; enableVehicleAutoLockCiv = false; destroyedBuildings = [];
+private _retentionResults = [];
 private _savedCap = A3I_activeLimit; private _savedContext = A3I_contextLimit;
 private _setLimits = {
     params ["_global","_context"];
@@ -41,7 +63,7 @@ private _launchMission = {
     private _launch = [_town,_source] call A3I_fnc_startLiberation;
     if !(_launch # 0) exitWith {createHashMap};
     private _mission = A3I_liberations get (_launch # 1);
-    [{_mission get "taskRegistered"}] call _wait;
+    [{_mission get "taskRegistered" && {_mission get "phase" == "rescue"}},45] call _wait;
     private _vip = _mission getOrDefault ["vip",objNull];
     _vip enableSimulationGlobal false;
     _mission
@@ -58,6 +80,10 @@ private _recruit = {
 };
 private _retireMission = {
     params ["_mission"];
+    private _ownedScene = (_mission getOrDefault ["sceneBodies",[]]) + (_mission getOrDefault ["sceneBlood",[]])
+        + (_mission getOrDefault ["sceneWrecks",[]]) + (_mission getOrDefault ["sceneEffects",[]]);
+    private _bodyGroups = +(_mission getOrDefault ["sceneBodyGroups",[]]);
+    private _survivorVehicle = _mission getOrDefault ["vipVehicle",objNull];
     private _settled = [{_mission get "settled"}] call _wait;
     _mission set ["taskDeleteAt",time - 1];
     private _horde = _mission getOrDefault ["majorRecord",createHashMap];
@@ -68,7 +94,13 @@ private _retireMission = {
     private _removed = [{!((_mission get "name") in A3I_liberations)
         && {[_mission] call _taskState == "MISSING"}
         && {isNull (_mission getOrDefault ["vip",objNull])}
-        && {isNull (_mission getOrDefault ["vipGroup",grpNull])}}] call _wait;
+        && {isNull (_mission getOrDefault ["vipGroup",grpNull])}
+        && {(_ownedScene findIf {!isNull _x}) == -1}
+        && {(_bodyGroups findIf {!isNull _x}) == -1}},35] call _wait;
+    _retentionResults pushBack (alive _survivorVehicle && {_mission getOrDefault ["vehicleReleased",false]});
+    // Native retention is asserted before the fixture removes its remaining car.
+    deleteVehicle _survivorVehicle;
+    [{isNull _survivorVehicle}] call _wait;
     if (_pressure != "") then {["close",[_pressure]] call A3I_fnc_budget; _pressure = ""};
     _settled && {_removed}
 };
@@ -82,7 +114,8 @@ private _result = [_town,_source] call A3I_fnc_startLiberation;
 private _mission = call _launchMission;
 ["lib_mission_native_task_and_claim",count _mission > 0 && {[_mission] call _taskState == "CREATED"}
     && {_town in townSkirmishes} && {_mission get "phase" == "rescue"}
-    && {alive (_mission get "vip")} && {!bigAttackInProgress} && {forcedSpawn isEqualTo []}] call _check;
+    && {alive (_mission get "vip")} && {_mission getOrDefault ["sceneReady",false]}
+    && {alive (_mission getOrDefault ["vipVehicle",objNull])} && {!bigAttackInProgress} && {forcedSpawn isEqualTo []}] call _check;
 ["lib_mission_duplicate_refused",!(([_town,_source] call A3I_fnc_startLiberation) # 0)
     && {count A3I_liberations == 1} && {count A3A_tasksData == 1}] call _check;
 private _recruited = [_mission] call _recruit;
@@ -216,6 +249,19 @@ _mission set ["outcome","cancelled"];
     && {A3I_majorGlobalOwner == "fixture_foreign_attack"} && {A3I_test_support isEqualTo []}] call _check;
 bigAttackInProgress = false; A3I_majorGlobalOwner = nil;
 
+// Stop the actual parent while its scheduled scene is only partly built.
+call _resetMission;
+private _duringScene = [_town,_source] call A3I_fnc_startLiberation;
+_mission = A3I_liberations get (_duringScene # 1);
+[{_mission getOrDefault ["sceneClustersBuilt",0] >= 1},15] call _wait;
+terminate (_mission get "script");
+["lib_mission_scene_interruption_owned",_mission get "phase" == "scene"
+    && {!(_mission getOrDefault ["sceneReady",false])}
+    && {_mission getOrDefault ["sceneClustersBuilt",0] >= 1}] call _check;
+["lib_mission_scene_interruption_cleanup",[_mission] call _retireMission
+    && {townSkirmishes isEqualTo []} && {count A3I_liberationEffects == 0}
+    && {count A3I_liberationBuildings == 0}] call _check;
+
 // A pre-existing administration skirmish marker belongs to another caller.
 private _foreignAdmin = _sources # 7;
 milAdministrationsX = [_foreignAdmin]; townSkirmishes = [_foreignAdmin];
@@ -236,3 +282,9 @@ deleteVehicle garrison; [_savedCap,_savedContext] call _setLimits;
     && {isNil "A3I_majorGlobalOwner"} && {!bigAttackInProgress} && {forcedSpawn isEqualTo []}
     && {townSkirmishes isEqualTo []} && {A3A_tasksData isEqualTo []}
     && {isNil "A3I_groupCleanupHandle"}] call _check;
+
+["lib_mission_all_survivor_vehicles_retained",count _retentionResults > 0
+    && {(_retentionResults findIf {!_x}) == -1},_retentionResults] call _check;
+A3A_faction_reb = _missionSavedReb;
+A3A_faction_civ set ["animations",_missionSavedAnims]; A3A_faction_civ set ["variants",_missionSavedVariants];
+{missionNamespace setVariable [_x # 0,if (_x # 1) then {_x # 2} else {nil}]} forEach _missionSavedGlobals;
