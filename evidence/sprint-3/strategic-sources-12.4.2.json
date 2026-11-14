@@ -63,6 +63,22 @@
     {
       "path": "ultimate/functions/REINF/fn_simpleAttack.sqf",
       "sha256": "c5ae566c1296b8cc7cee38ff97cc674dbfecf783672071eaa0612f579e9dca1e"
+    },
+    {
+      "path": "core/functions/init/fn_getCityData.sqf",
+      "sha256": "f4c476fb002c760a86cbd2ca270b50ec1098a6c3edbd13d4609fbd670c921aee"
+    },
+    {
+      "path": "core/functions/CREATE/fn_garrisonSize.sqf",
+      "sha256": "8b3ec79733b26733545f5e694eaab2de3f795c632cc44c56f892ae4668afa67e"
+    },
+    {
+      "path": "core/functions/Base/fn_sizeMarker.sqf",
+      "sha256": "f854d2e3dd4c7753c200ccf59c0e1172b7af02f1a44c4506cd5135d18853f8f5"
+    },
+    {
+      "path": "core/functions/Base/fn_getRecentDamage.sqf",
+      "sha256": "833cb989772e118c1e93a00524341621c76154057891dae6f5028c2fd0f214fd"
     }
   ]
 }

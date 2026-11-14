@@ -6,8 +6,10 @@ params [["_targetSide",sideUnknown,[sideUnknown]]];
 if (!isServer || {!canSuspend} || {isRemoteExecuted && {remoteExecutedOwner != 2}}
     || {!([west] call A3I_fnc_isActive)} || {!(_targetSide in [teamPlayer,Invaders])}
     || {missionNamespace getVariable ["areOccupantsDefeated",false]}) exitWith {[[],[]]};
-private _origins = (airportsX + outposts + milbases) arrayIntersect (airportsX + outposts + milbases);
-_origins = _origins select {[_x] call A3I_fnc_counterattackSourceEligible};
+private _origins = airportsX + outposts + milbases + resourcesX + factories + seaports + citiesX
+    + (missionNamespace getVariable ["milAdministrationsX",[]]);
+_origins = _origins arrayIntersect _origins;
+_origins = _origins select {[_x] call A3I_fnc_majorSourceEligible};
 if (_origins isEqualTo []) exitWith {[[],[]]};
 private _targets = airportsX + outposts + seaports + factories + resourcesX + milbases;
 if (_targetSide == teamPlayer) then {_targets append citiesX};
@@ -46,7 +48,7 @@ private _resultWeights = [];
 {
     private _target = _x;
     private _position = getMarkerPos _target;
-    private _routes = [_position] call A3I_fnc_tacticalSources;
+    private _routes = [_position,_origins,{_this call A3I_fnc_majorSourceEligible}] call A3I_fnc_tacticalSources;
     _routes = _routes select {_x # 0 in _origins};
     _routes = _routes arrayIntersect _routes;
     if (_routes isEqualTo []) then {continue};
@@ -54,7 +56,9 @@ private _resultWeights = [];
     // the airport priority when no ready airport remains. No supply convoy route.
     private _value = 0;
     if (_target in citiesX) then {
-        private _data = [_target] call A3A_fnc_getCityData;
+        // getCityData initializes every town; the persistent array lives here.
+        private _data = server getVariable [_target,[]];
+        if !(_data isEqualType []) then {_data = []};
         private _population = _data param [0,-1];
         if (_population isEqualType 0 && {finite _population} && {_population >= 0}) then {
             _value = sqrt _population * (1.5 - tierWar / 10);

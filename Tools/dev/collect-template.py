@@ -327,6 +327,51 @@ TACTICAL_CHECKS = {
 }
 
 
+MAJOR_CHECKS = {
+    'major_functions_registered',
+    'major_all_permanent_origins',
+    'major_transient_origin_refused',
+    'major_source_owner_checked',
+    'major_active_source_refused',
+    'major_forced_source_refused',
+    'major_town_cooldown_separate',
+    'major_military_idle_honored',
+    'major_malformed_idle_refused',
+    'major_source_combat_refused',
+    'major_town_target_all_origins',
+    'major_native_town_value',
+    'major_ground_record_contract',
+    'major_finite_positive_weights',
+    'major_population_arrays_unchanged',
+    'major_normalized_origin_weights',
+    'major_duplicate_origins_removed',
+    'major_invalid_population_refused',
+    'major_native_garrison_threat',
+    'major_owned_target_excluded',
+    'major_hq_unknown_excluded',
+    'major_hq_known_included',
+    'major_invader_sites_targeted',
+    'major_empty_enemy_threat_finite',
+    'major_native_site_value',
+    'major_ready_airport_priority',
+    'major_no_airport_priority',
+    'major_distant_town_refused',
+    'major_disconnected_route_refused',
+    'major_missing_navigation_refused',
+    'major_native_range_respected',
+    'major_no_ready_source',
+    'major_defeated_refused',
+    'major_inactive_refused',
+    'major_missing_dependencies_refused',
+    'major_invalid_target_side',
+    'major_scheduled_required',
+    'major_tactical_roster_guard_retained',
+    'major_tactical_candidates_unchanged',
+    'major_explicit_town_route',
+    'major_selector_no_actors',
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -357,13 +402,13 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
-                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS}
+                          "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -406,7 +451,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

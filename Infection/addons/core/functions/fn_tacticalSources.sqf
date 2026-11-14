@@ -1,10 +1,13 @@
 // [ground position] -> [[source, road distance, safe outdoor destination], ...].
 // Unlike capture responses, supports may defend owned sites or arbitrary ground.
-params [["_position",[]]];
+params [["_position",[]],["_candidates",[],[[]]],
+    ["_sourceCheck",{_this call A3I_fnc_counterattackSourceEligible},[{}]]];
 if (!isServer || {!canSuspend} || {!([west] call A3I_fnc_isActive)}
     || {isNil "NavGrid"} || {isNil "A3A_navCellHM"}) exitWith {[]};
 if !(_position isEqualType [] && {count _position in [2,3]}
     && {(_position findIf {!(_x isEqualType 0) || {!finite _x}}) == -1}) exitWith {[]};
+if ((_candidates findIf {!(_x isEqualType "")}) != -1) exitWith {[]};
+if (_candidates isEqualTo []) then {_candidates = outposts + airportsX + milbases};
 private _hq = missionNamespace getVariable ["respawnTeamPlayer",""];
 if !(_hq in allMapMarkers) exitWith {[]};
 private _ground = +_position; _ground set [2,0];
@@ -29,7 +32,7 @@ if (_endIndex < 0) exitWith {[]};
 private _maximum = distanceForLandAttack min 2000;
 private _sources = [];
 {
-    if !([_x] call A3I_fnc_counterattackSourceEligible) then {continue};
+    if !([_x] call _sourceCheck) then {continue};
     private _origin = getMarkerPos _x;
     if (_origin distance2D _destination > _maximum) then {continue};
     private _index = [_origin] call A3A_fnc_getNearestNavPoint;
@@ -39,5 +42,5 @@ private _sources = [];
     };
     if (_distance < 0 || {_distance > _maximum + 500}) then {continue};
     _sources pushBack [_x,_distance,_destination];
-} forEach (outposts + airportsX + milbases);
+} forEach _candidates;
 _sources

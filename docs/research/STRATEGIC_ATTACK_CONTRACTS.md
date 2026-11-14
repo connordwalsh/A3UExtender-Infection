@@ -13,8 +13,10 @@ locations within walking range. Aircraft, detached staging spawns and distant
 long marches must not make an otherwise unreachable target eligible. The owner
 also explicitly allowed later attacks to retake secured towns, separate from
 immediate capture counterattacks. The infected side's strategic supply convoy
-therefore needs a walking town-recapture replacement. Invader routes retain
-their ordinary behavior.
+therefore needs a walking town-recapture replacement. A subsequent owner answer
+includes towns and permanent sites such as factories and resource sites as horde
+origins, rather than only military locations. Invader routes retain their
+ordinary behavior.
 
 ## Target selection and payment
 
@@ -31,9 +33,10 @@ no major attack is active. A false result applies a pacing penalty. Positive is
 not the same as enough resources to fund a whole attack: native `chooseAttack`
 debits 400 before a real HQ or waved attack and 200 before a supply convoy, then
 the mixed factory debits actual forces separately. Native strategic resources
-can enter debt. The foot adapter must resolve that payment contract explicitly;
-combining native upfront charges with the current affordable-birth checks could
-produce an empty attack. A refused or zero-force attack must not award a free
+can enter debt. The owner explicitly selected that same temporary-debt rule.
+The foot adapter must scope debt to approved major attacks; simply combining
+native upfront charges with current affordable-birth checks could produce an
+empty attack. A refused or zero-force attack must not award a free
 defence victory, leave a task open or strand global attack flags.
 
 Unobserved enemy-vs-enemy attacks use an alternate simulation branch. It debits
@@ -90,12 +93,26 @@ acceptance work. All strategic runtime checks in this document are NOT_RUN.
 
 `majorAttackTargets` is a prototype on the strategic-attacks branch. It is
 registered for direct validation but is not wired into native campaign dispatch.
-It uses the established nearby military foot sources and bounded outdoor road
+It uses nearby towns and permanent infected sites with bounded outdoor road
 routes, preserves native population/site values and local threat components,
 requires native HQ knowledge, removes air/carrier/convoy assumptions and retains
 per-target source normalization. Empty enemy economic sites receive a finite
 difficulty floor to avoid dividing by zero. Towns are eligible targets for the
 owner-approved later recapture route.
+
+The broader source predicate retains ownership, activation, combat and observer
+checks without the military counterattack's sixteen-role minimum. Source cooldowns
+need a separate namespace: town population arrays occupy the same native server
+keys used for military idle timestamps. Military origins also honor their native
+idle timestamps. Tactical support keeps its original military candidate list and
+eligibility predicate; the route helper accepts explicit candidates for majors.
+
+Town selection reads the existing `server` population array. The similarly named
+native `getCityData` initializes all towns and must not be called as a getter;
+source review corrected that mistake before the first build. The new 41-case
+selector fixture covers permanent categories, ownership/readiness, native idle
+and town cooldown isolation, values/threats, route limits, HQ knowledge and
+unchanged tactical default candidates. It has not run yet.
 
 This prototype is unbuilt and untested. Attack launch, resource/debt ownership,
 wave/HQ controllers, tasks, cleanup and native adapters remain to implement.
