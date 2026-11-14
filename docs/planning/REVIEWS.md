@@ -498,3 +498,26 @@ reviewed in the research record. The completed server was stopped by verified
 process/profile identity. The PR stays
 draft: the parent controller, native settlement/dispatch, pending no-origin
 decision, connected-player interaction and full mission acceptance remain open.
+
+## 14 November 2026 - Liberation parent controller review
+
+Review covers task-type exclusion, exact skirmish claims, native recruitment,
+preparation, parent/child interruption, unrelated attack preservation, survivor
+failure precedence and once-only territory/reward settlement. Cleanup retains
+the rescuer's group and pre-existing administration claims. Rejected fixture
+attempts now await the actual owned actor/group deletion and native despawn
+refund, instead of treating registry removal as completion of queued work.
+
+Source review found that native city capture updates the war tier before paying
+the townBattle reward. The first controller paid too early. The correction keeps
+the five-second delay, completes native tier calculation before payment, and
+defers payment safely when the resource lock is busy. A real native HR-cap case
+proves 251 final HR instead of the incorrect old-tier cap of 200.
+
+All 104 focused checks and 11 missing-dependency checks pass, with no engine/SQF
+Error records. The PBO and all 127 production/190 collected focused inputs match.
+Nineteen focused warnings and seven dependency-absent startup notices are retained
+and classified in TOWN_LIBERATION.md. Three parser tests, PowerShell parsing and
+whitespace checks pass. Combined regression is underway. This draft remains
+unmerged: scene construction, campaign entry, the pending no-source decision and
+connected-player/full-mission acceptance are still open.

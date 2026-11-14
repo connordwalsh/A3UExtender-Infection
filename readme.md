@@ -25,7 +25,9 @@ horde under shared limits, and native temporary resource debt. Competitive conqu
 requires a reachable horde and fails immediately if infected capture first.
 Town-liberation components add human survivors, nearby origin selection and a
 shared-limit horde whose ten-minute defense clock begins on physical arrival.
-The parent mission and native campaign entry remain in development.
+The parent survivor mission passes 104 focused checks, including native capture,
+rewards and interrupted-worker recovery. Mission scenery and native campaign
+entry remain in development.
 The completed isolated dedicated regression passes 752 checks on Ultimate 12.4.2,
 including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
 routine reinforcement, roaming, counterattacks, tactical support, town ownership

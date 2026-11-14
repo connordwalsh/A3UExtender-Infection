@@ -3,13 +3,13 @@
   "product": "Antistasi Ultimate: Infection",
   "version": "0.1.0-dev",
   "scope": "Development prototype; isolated contracts cover infected sites, responses, strategic hordes and competitive conquest. Remaining mission adapters, connected players, terrain, special creatures, vehicles, saves and full campaign acceptance remain incomplete.",
-  "built_at_utc": "2026-11-14T19:50:11.0019469Z",
+  "built_at_utc": "2026-11-14T20:03:51.4022345Z",
   "prefix": "x\\a3i\\addons\\core",
-  "addon_sha256": "9bd294e97961922a96a68a17142a1e486a6c7ececdec52a68636dea7ceb12330",
+  "addon_sha256": "e07d0bc861dc6a1fcee446a171daf630153193508210a3374191218c27ed00df",
   "source": [
     {
       "path": "Infection/addons/core/config.cpp",
-      "sha256": "369d5847f9d65fd21660771af7c5f63023dd38a9a71bbf07538378000f056b4e"
+      "sha256": "4916471ebd5fc4e0e263911263690b9f783db82320ef34d893c9331dded081cd"
     },
     {
       "path": "Infection/addons/core/functions/fn_administrationAssets.sqf",
@@ -141,7 +141,7 @@
     },
     {
       "path": "Infection/addons/core/functions/fn_finishLiberation.sqf",
-      "sha256": "307c85f152db52bd3f5061051c15f040a1c03d05d8ef32a5c3f00bb93e911522"
+      "sha256": "302c3c7b0032dd4a065d08c8a169acc8685d6557e32f4adb97707cf603ff0db3"
     },
     {
       "path": "Infection/addons/core/functions/fn_finishMajorAttack.sqf",
@@ -189,7 +189,7 @@
     },
     {
       "path": "Infection/addons/core/functions/fn_liberationWatchdog.sqf",
-      "sha256": "66f9e4905676fcb298b6ce519565bcd7966efc9368b95029c35b030c43f364f7"
+      "sha256": "ad96099cbe8d1ce98fa43576db7b06a91914fa9ea7f325124c4c977be2e4c744"
     },
     {
       "path": "Infection/addons/core/functions/fn_majorAttackTargets.sqf",
@@ -254,6 +254,10 @@
     {
       "path": "Infection/addons/core/functions/fn_rescueTick.sqf",
       "sha256": "6761c9edb106114cae599102cd19e28cd4adf38abd4899bcf66059fd933d92fa"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_rewardLiberation.sqf",
+      "sha256": "06468fced3be08220f065250691e3bdca3ac658039fd4d841f6296ad15910bb9"
     },
     {
       "path": "Infection/addons/core/functions/fn_roamingBases.sqf",

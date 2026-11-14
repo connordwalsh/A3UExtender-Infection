@@ -2,7 +2,7 @@
 
 The owner selected survivor rescue and defense with a walking infected horde.
 This audit pins Ultimate 12.4.2 at `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`;
-the [31-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
+the [32-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
 records the exact inputs. This is source evidence, not runtime acceptance.
 
 ## Native entry and ownership
@@ -254,6 +254,36 @@ asserting cleanup or resetting the next case. Assertions remain in place.
 
 Source review after this checkpoint found that player rewards and the native HR
 cap must use the war level after the town's delayed tier update. Dev2 pays before
-that update. The ordering correction is still required; the passing focused
-report does not certify that untested case, native campaign dispatch or full
-mission acceptance. The combined controller regression remains NOT_RUN.
+that update. The passing Dev2 report did not cover that case; commit `42ccc0b`
+retains the historical candidate and evidence.
+
+## Reward-order correction
+
+Dev3 completes the native tier check five seconds after capture, then performs
+the once-only rewards. The pinned tier/preference/vehicle-update chain has no
+suspending operations and runs in the watchdog's local transaction. Native
+control cleanup remains scheduled because it waits for distant controls to
+despawn. A busy faction-resource lock retains the mission until payment can
+complete; task/actor retirement cannot discard an unpaid reward.
+
+All [104 focused checks](../../evidence/sprint-3/liberation-controller-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-controller-dependencies-absent.json)
+pass on the [127-input candidate](../../evidence/sprint-3/liberation-controller-build.json).
+All production, PBO and 190 focused-report input hashes match. The added case
+starts with 250 HR, a tier-one cap of 200 and a capture that raises the native
+tier to eight. Final HR is 251; paying under the old tier would have reduced it
+to 200. The case also holds the native resource lock across the tier update,
+then proves payment and repeated-settlement protection after release.
+
+No engine/SQF Error records occur. Nineteen focused warnings are retained: sixteen
+startup/dependency notices, two friendly-fire deliveries to deleted fixture
+actors and one income message to the absent commander. The dependency-absent
+report retains seven startup notices. Three parser tests, PowerShell parsing
+and whitespace checks pass. Both focused servers were stopped by verified
+process/profile identities. The combined 777-case regression is now running;
+it is not yet accepted.
+
+The owner selected retention of the native wrecks, bodies, fire/building damage
+and survivor vehicle. That scene is a separate implementation increment. Native
+campaign entry, the no-nearby-origin policy, connected-player rewards/UI, real
+walking travel, defense pacing and full mission acceptance remain open.

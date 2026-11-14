@@ -89,6 +89,7 @@ class CfgFunctions
             class startLiberation {};
             class runLiberation {};
             class finishLiberation {};
+            class rewardLiberation {};
             class liberationWatchdog {};
             class startSite {};
             class runSite {};

@@ -518,6 +518,8 @@ LIBERATION_CHECKS = {
     'lib_mission_native_recruit_starts_preparation',
     'lib_mission_preparation_launches_owned_horde',
     'lib_mission_busy_native_resource_lock_defers',
+    'lib_mission_rewards_wait_for_tier',
+    'lib_mission_rewards_wait_for_native_lock',
     'lib_mission_native_capture_and_rewards',
     'lib_mission_settlement_once',
     'lib_mission_native_support_changes',

@@ -235,3 +235,13 @@ during source review and is now covered. The combined 752-case regression passes
 with no engine/SQF Error records. All 122 production and 184 collected hashes
 match the candidate. Parent mission registration, preparation, native settlement and campaign
 dispatch remain open. No Computer Use or manual-client update occurred.
+
+Parent-controller checkpoint: real native task registration, human rescue,
+preparation, linked horde, capture/reward/failure transactions and interruption
+cleanup pass within 104 focused checks; the missing-dependency suite passes 11.
+Source review corrected rewards to follow the native five-second tier update,
+including its effect on the HR cap. The 127-input candidate and all 190 focused
+report inputs match. The combined 777-case regression is running, not accepted.
+The owner chose to retain the native mission scene and survivor vehicle; that
+work and campaign dispatch remain open. The no-nearby-origin policy still awaits
+the owner. No Computer Use or manual-client update occurred.

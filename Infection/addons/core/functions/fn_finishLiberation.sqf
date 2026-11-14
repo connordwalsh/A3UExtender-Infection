@@ -74,17 +74,6 @@ if (milAdministrationsX isNotEqualTo [] && {A3A_milAdministrations isNotEqualTo 
     };
 };
 _record set ["cityMaintenanceAt",time + 5];
-[west,-10,90] call A3A_fnc_addAggression;
-{
-    [round (7 * tierWar),_x] call A3A_fnc_addScorePlayer;
-    [round (75 * tierWar),_x] call A3A_fnc_addMoneyPlayer;
-} forEach (call SCRT_fnc_misc_getRebelPlayers);
-private _commander = missionNamespace getVariable ["theBoss",objNull];
-if (!isNull _commander) then {
-    [10,_commander] call A3A_fnc_addScorePlayer;
-    [round (100 * ((tierWar / 3) max 1)),_commander,true] call A3A_fnc_addMoneyPlayer;
-};
-private _baseReward = (_population / 100) * (2 - overallHRGain / 100);
-[round _baseReward,round (100 * _baseReward)] call A3A_fnc_resourcesFIA;
-_record set ["rewarded",true];
+// Native townBattle pays after cityChangeSide's delayed tier check. The watchdog
+// completes that phase even when this scheduled worker has already stopped.
 true

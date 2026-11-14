@@ -30,6 +30,7 @@ private _resetMission = {
     sidesX setVariable [_source,west]; sidesX setVariable [_town,west];
     spawner setVariable [_source,2]; spawner setVariable [_town,2];
     server setVariable ["hr",100]; server setVariable ["resourcesFIA",0];
+    limitHR = 0;
     garrison setVariable [_town,[]];
     A3A_resourcesAttackOcc = 0; tierWar = 1;
     A3I_test_markerUpdates = []; A3I_test_support = []; A3I_test_comms = []; A3I_test_aggression = [];
@@ -102,21 +103,37 @@ private _infected = (_horde get "units") param [0,objNull];
 _infected enableSimulationGlobal false;
 _infected setPosATL (getMarkerPos _town vectorAdd [190,0,0]);
 [{_horde get "arrived"}] call _wait;
+// The old-tier HR cap is 200; capture raises the real native tier to eight and
+// its cap to 900. Paying before that update would incorrectly discard 51 HR.
+limitHR = 100; server setVariable ["hr",250];
 resourcesIsChanging = true; _horde set ["arrivedAt",time - 601];
 [{scriptDone (_mission get "script")}] call _wait;
 ["lib_mission_busy_native_resource_lock_defers",!(_mission get "settled")
-    && {sidesX getVariable _town == west} && {server getVariable "hr" == 100}
+    && {sidesX getVariable _town == west} && {server getVariable "hr" == 250}
     && {server getVariable "resourcesFIA" == 0}] call _check;
 resourcesIsChanging = false;
 [{_mission get "settled" && {[_mission] call _taskState == "SUCCEEDED"}}] call _wait;
+["lib_mission_rewards_wait_for_tier",sidesX getVariable _town == teamPlayer
+    && {tierWar == 1} && {!(_mission getOrDefault ["rewarded",false])}
+    && {server getVariable "hr" == 250} && {server getVariable "resourcesFIA" == 0}] call _check;
+// The watchdog must retain the completed mission until its delayed payment can
+// acquire the native lock, even if task deletion would otherwise be due.
+resourcesIsChanging = true; _mission set ["taskDeleteAt",time - 1];
+[{_mission getOrDefault ["cityMaintenanceDone",false]}] call _wait;
+["lib_mission_rewards_wait_for_native_lock",tierWar == 8 && {_mission get "rewardTier" == 8}
+    && {!(_mission getOrDefault ["rewarded",false])}
+    && {(_mission get "name") in A3I_liberations}
+    && {server getVariable "hr" == 250} && {server getVariable "resourcesFIA" == 0}] call _check;
+_mission set ["taskDeleteAt",time + 60]; resourcesIsChanging = false;
+[{_mission getOrDefault ["rewarded",false]}] call _wait;
 ["lib_mission_native_capture_and_rewards",_mission get "outcome" == "won"
     && {sidesX getVariable _town == teamPlayer} && {garrison getVariable _town isEqualTo []}
-    && {server getVariable "hr" == 101} && {server getVariable "resourcesFIA" == 100}
+    && {server getVariable "hr" == 251} && {server getVariable "resourcesFIA" == 100}
     && {_mission get "rewarded"}] call _check;
 sleep 0.3;
 private _supportCalls = +A3I_test_support; private _aggressionCalls = +A3I_test_aggression;
-[_mission] call A3I_fnc_finishLiberation; sleep 0.3;
-["lib_mission_settlement_once",server getVariable "hr" == 101 && {server getVariable "resourcesFIA" == 100}
+[_mission] call A3I_fnc_finishLiberation; [_mission] call A3I_fnc_rewardLiberation; sleep 0.3;
+["lib_mission_settlement_once",server getVariable "hr" == 251 && {server getVariable "resourcesFIA" == 100}
     && {A3I_test_support isEqualTo _supportCalls} && {A3I_test_aggression isEqualTo _aggressionCalls}] call _check;
 ["lib_mission_native_support_changes",[0,10,_town,false] in A3I_test_support
     && {[-10,10,_town,false] in A3I_test_support}

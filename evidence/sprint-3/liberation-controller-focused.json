@@ -4,9 +4,9 @@
   "suite": "liberation",
   "expected_dependencies_present": true,
   "status": "passed",
-  "collected_at_utc": "2026-11-14T20:02:29.983186+00:00",
-  "source_log": "arma3server_x64_2026-11-14_15-00-54.rpt",
-  "source_log_sha256_at_collection": "7ffa0d636003199b993b4bfdf1b995d79191f51515e17a9c181aeb280223402c",
+  "collected_at_utc": "2026-11-14T20:05:57.678451+00:00",
+  "source_log": "arma3server_x64_2026-11-14_15-04-08.rpt",
+  "source_log_sha256_at_collection": "8f39e473596a6a6b21cc8e31120e3790c86fb6d323e9c67be7a48f1f1a8ba1f5",
   "source_sha256_at_collection": {
     "tests/arma/infection_probe/template.VR/administrationChecks.sqf": "13bab6774aa13e69ff26a6e98cae431378c7f04b90bbf6cedc3620df0f8cf096",
     "tests/arma/infection_probe/template.VR/budgetChecks.sqf": "3bbc8ab2864ad8be0b19ee002427c7bff9c6a8339ce65f0e6b22fc15d62afbd6",
@@ -21,7 +21,7 @@
     "tests/arma/infection_probe/template.VR/initServer.sqf": "5dc3aaf6203a0db63ea786f90fbda4ce8ce02f1cbaca3fc86fd6aea87a2e2a8b",
     "tests/arma/infection_probe/template.VR/liberationChecks.sqf": "6004196804f5ea8e99d509c1c5c58af21cfe9dbf06e02a21969c85365d366868",
     "tests/arma/infection_probe/template.VR/liberationHordeChecks.sqf": "8888ffadf4db225a7906394e20fccc2151592c8d91fb62fa939358e647a4d6f0",
-    "tests/arma/infection_probe/template.VR/liberationMissionChecks.sqf": "4e99f95d8ddb08f02f16bef9254b16a53b5b1f0d35add27138c008d6cccdd632",
+    "tests/arma/infection_probe/template.VR/liberationMissionChecks.sqf": "3766a8d541637034cded4b839ee2cebb99201f205a0d45275f30f730cde0a8e9",
     "tests/arma/infection_probe/template.VR/liberationSurvivorChecks.sqf": "211311657fd1314afff41a3d71c9b1b143eaf0e839bc813d510916623e51d467",
     "tests/arma/infection_probe/template.VR/majorChecks.sqf": "1fd16ae18b1611a599df8902b05ceaa9f2800dcfab60852be47522bd65bd43da",
     "tests/arma/infection_probe/template.VR/majorDispatchChecks.sqf": "c8c45e08915b2a791bbb8e8bcbedc70f2bf38ed3291aa875855741ef29b652aa",
@@ -71,7 +71,7 @@
     "tests/arma/infection_probe/contracts-addon/fn_underAttack.sqf": "2b67cfd0e6c6bbf7780cd259a5b083a3b7316026ea2f1faa3bba2f0cfda02b7e",
     "tests/arma/infection_probe/contracts-addon/fn_VEHdespawner.sqf": "d45b47f0c4ac780088b927b7cb4b13b5763401aadf1b3663881d3ccf07503a81",
     "tests/arma/infection_probe/contracts-addon/fn_zoneCheck.sqf": "60a82bb31c3c4d07d946f3776b5d7a34fe7396e8b00e5f67582a5cc4943a5a14",
-    "Infection/addons/core/config.cpp": "369d5847f9d65fd21660771af7c5f63023dd38a9a71bbf07538378000f056b4e",
+    "Infection/addons/core/config.cpp": "4916471ebd5fc4e0e263911263690b9f783db82320ef34d893c9331dded081cd",
     "Infection/addons/core/functions/fn_administrationAssets.sqf": "6932fce62c01a33360eda48c7d70a573f8bb44b8dfd179fa2c2c5d66cd90f9a7",
     "Infection/addons/core/functions/fn_administrationDefenderEvent.sqf": "ca14c9b90332b32cf768508cbfc8c17828b2592b501abd59c29e89deb57a46a9",
     "Infection/addons/core/functions/fn_administrationPositions.sqf": "1bb6e1a27fcecff5b4f23c2a05ea23c111b87d977228d7245789aaaa9bdc7e8a",
@@ -104,7 +104,7 @@
     "Infection/addons/core/functions/fn_findCitySpawnPosition.sqf": "e581e64d2605ca3a8a87387857c1f8b1f9e209119f9d577ef11d4b24f7ff2f2c",
     "Infection/addons/core/functions/fn_findSpawnPosition.sqf": "cd65fcc4123ac2b5f5b37755dfd7c986d425db38f0df1baf513c846bda466548",
     "Infection/addons/core/functions/fn_finishCompetitiveMission.sqf": "09120835125d28a3801c3a614b39046eafe81085ecae764d6d8cfc1e070c4818",
-    "Infection/addons/core/functions/fn_finishLiberation.sqf": "307c85f152db52bd3f5061051c15f040a1c03d05d8ef32a5c3f00bb93e911522",
+    "Infection/addons/core/functions/fn_finishLiberation.sqf": "302c3c7b0032dd4a065d08c8a169acc8685d6557e32f4adb97707cf603ff0db3",
     "Infection/addons/core/functions/fn_finishMajorAttack.sqf": "6b69f58ad8b3f9e78741b93e40f58cb4a220a7a8c16d8624293cb55e92afe442",
     "Infection/addons/core/functions/fn_indoorPosition.sqf": "2a4f2b146892ff8508e40cbba529932db9d519e018ebe5c96ac58a7f29e28fa9",
     "Infection/addons/core/functions/fn_infectedDamageObserved.sqf": "a3de373c0f2d26d8426679813d5f43c3f97bbb760d46c772d3d003634a28a2e1",
@@ -116,7 +116,7 @@
     "Infection/addons/core/functions/fn_isManagedUnit.sqf": "9ceb2c3f414a290597efb88c2523f02a9b5f97423c5f275930c7c23c719073eb",
     "Infection/addons/core/functions/fn_liberationOutcome.sqf": "1f447d6427538bb589a57376b699742f7654ce07481c9524f6d46456125029e0",
     "Infection/addons/core/functions/fn_liberationSources.sqf": "4bbb7d94e7cccc470d9d67cb4edf9e18207aaecead4f229d4d5b26d6b83f5b1c",
-    "Infection/addons/core/functions/fn_liberationWatchdog.sqf": "66f9e4905676fcb298b6ce519565bcd7966efc9368b95029c35b030c43f364f7",
+    "Infection/addons/core/functions/fn_liberationWatchdog.sqf": "ad96099cbe8d1ce98fa43576db7b06a91914fa9ea7f325124c4c977be2e4c744",
     "Infection/addons/core/functions/fn_majorAttackTargets.sqf": "14edc403788ce5ffce5d5d864dd3d92ce0b537774281c1e813b19e2b2aed260a",
     "Infection/addons/core/functions/fn_majorSourceEligible.sqf": "4647893d20103b39ba5d5ac73df577cf0e1ada7a940ef83547c4d3e5e95bb1ab",
     "Infection/addons/core/functions/fn_majorWatchdog.sqf": "9c2158124eee53c15fb1649b68bbf539110e3b5d13d0f9a74e6d33595ddea640",
@@ -133,6 +133,7 @@
     "Infection/addons/core/functions/fn_requestRescue.sqf": "d19d8c200ab5de28e04872b4542117966717da2c6a4bc7776a6c692abe9bad61",
     "Infection/addons/core/functions/fn_requestTacticalSupport.sqf": "8162d9553d312794bc54a6135540ef41db42db680884e773e9b2fc859f8d6a64",
     "Infection/addons/core/functions/fn_rescueTick.sqf": "6761c9edb106114cae599102cd19e28cd4adf38abd4899bcf66059fd933d92fa",
+    "Infection/addons/core/functions/fn_rewardLiberation.sqf": "06468fced3be08220f065250691e3bdca3ac658039fd4d841f6296ad15910bb9",
     "Infection/addons/core/functions/fn_roamingBases.sqf": "133b6d5d9c9d4f6ec1566784c6fcf19392b12904ae71069339e55416e706778f",
     "Infection/addons/core/functions/fn_roamingEligible.sqf": "58a019b15274f9ec89d6b0df8f180cbd479d0a77b50ecf8395ffebe2de5672b4",
     "Infection/addons/core/functions/fn_roamingRoute.sqf": "bf18a8d02c97fedf812bb575ac5458dfaa466a766e416d2a7ea58d892229b2ad",
@@ -285,16 +286,8 @@
       "message": "A null object passed as a target to RemoteExec(Call) 'a3a_fnc_punishment_ff_addeh'"
     },
     {
-      "line": 990,
+      "line": 993,
       "message": "A null object passed as a target to RemoteExec(Call) 'a3a_fnc_commsmp'"
-    },
-    {
-      "line": 1007,
-      "message": "Server: Object 2:263 not found (message Type_124)"
-    },
-    {
-      "line": 1008,
-      "message": "Server: Object 2:262 not found (message Type_120)"
     }
   ],
   "runtime_checks": [
@@ -845,6 +838,16 @@
       "detail": []
     },
     {
+      "name": "lib_mission_rewards_wait_for_tier",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lib_mission_rewards_wait_for_native_lock",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "lib_mission_native_capture_and_rewards",
       "passed": true,
       "detail": []
@@ -946,7 +949,7 @@
   ],
   "spawn_records": [],
   "completion": [
-    102,
+    104,
     [],
     0
   ]

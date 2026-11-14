@@ -7,10 +7,14 @@ if (!isServer || {isRemoteExecuted}) exitWith {};
     if !([_record] call A3I_fnc_finishLiberation) then {continue};
     if (!isNil {_record get "cityMaintenanceAt"} && {!(_record getOrDefault ["cityMaintenanceDone",false])}
         && {time >= _record get "cityMaintenanceAt"}) then {
-        _record set ["cityMaintenanceDone",true];
         {[_record get "town",_x] spawn A3A_fnc_deleteControls} forEach controlsX;
-        [] spawn A3A_fnc_tierCheck;
+        // The pinned tierCheck/updatePreference/updateVehicles chain does not
+        // suspend. Finish it here before publishing the reward tier or cleanup.
+        [] call A3A_fnc_tierCheck;
+        _record set ["rewardTier",tierWar];
+        _record set ["cityMaintenanceDone",true];
     };
+    if (_record get "outcome" == "won" && {!([_record] call A3I_fnc_rewardLiberation)}) then {continue};
     if (!(_record get "taskDeleted") && {time >= _record get "taskDeleteAt"}) then {
         _record set ["taskDeleted",true];
         if (((missionNamespace getVariable ["A3A_tasksData",[]]) findIf {_x # 0 == _name}) != -1) then {

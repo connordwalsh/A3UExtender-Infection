@@ -4,9 +4,9 @@
   "suite": "full",
   "expected_dependencies_present": false,
   "status": "passed",
-  "collected_at_utc": "2026-11-14T19:51:52.576245+00:00",
-  "source_log": "arma3server_x64_2026-11-14_14-51-03.rpt",
-  "source_log_sha256_at_collection": "6416f45abc21886fd36944703396920419c21de99e2e0d69348d81e9d4f31363",
+  "collected_at_utc": "2026-11-14T20:04:45.457455+00:00",
+  "source_log": "arma3server_x64_2026-11-14_15-04-16.rpt",
+  "source_log_sha256_at_collection": "f43eaf4ffd243b84bccd67b4588932e086fd0ecde9636c1c8f7bb1ce98b69977",
   "source_sha256_at_collection": {
     "tests/arma/infection_probe/template.VR/administrationChecks.sqf": "13bab6774aa13e69ff26a6e98cae431378c7f04b90bbf6cedc3620df0f8cf096",
     "tests/arma/infection_probe/template.VR/budgetChecks.sqf": "3bbc8ab2864ad8be0b19ee002427c7bff9c6a8339ce65f0e6b22fc15d62afbd6",
@@ -20,8 +20,8 @@
     "tests/arma/infection_probe/template.VR/garrisonChecks.sqf": "e97c22843f08c4c6ebc05649a35037a441da615b250c0e0b162b4d6333b34bb8",
     "tests/arma/infection_probe/template.VR/initServer.sqf": "5dc3aaf6203a0db63ea786f90fbda4ce8ce02f1cbaca3fc86fd6aea87a2e2a8b",
     "tests/arma/infection_probe/template.VR/liberationChecks.sqf": "6004196804f5ea8e99d509c1c5c58af21cfe9dbf06e02a21969c85365d366868",
-    "tests/arma/infection_probe/template.VR/liberationHordeChecks.sqf": "a821a9ebc6bd8860f5d7fde4f0f7e27839956cf32e8947c468a32b11d8c464b3",
-    "tests/arma/infection_probe/template.VR/liberationMissionChecks.sqf": "be4671a8c725c37f0f91c746328275ce7569092fd26fa9d9ffcc79706677fdb3",
+    "tests/arma/infection_probe/template.VR/liberationHordeChecks.sqf": "8888ffadf4db225a7906394e20fccc2151592c8d91fb62fa939358e647a4d6f0",
+    "tests/arma/infection_probe/template.VR/liberationMissionChecks.sqf": "3766a8d541637034cded4b839ee2cebb99201f205a0d45275f30f730cde0a8e9",
     "tests/arma/infection_probe/template.VR/liberationSurvivorChecks.sqf": "211311657fd1314afff41a3d71c9b1b143eaf0e839bc813d510916623e51d467",
     "tests/arma/infection_probe/template.VR/majorChecks.sqf": "1fd16ae18b1611a599df8902b05ceaa9f2800dcfab60852be47522bd65bd43da",
     "tests/arma/infection_probe/template.VR/majorDispatchChecks.sqf": "c8c45e08915b2a791bbb8e8bcbedc70f2bf38ed3291aa875855741ef29b652aa",
@@ -33,7 +33,7 @@
     "tests/arma/infection_probe/template.VR/siteChecks.sqf": "9d293149b29696fbfe079a4d7b4d26c4e79887510e1c71ac78bacce095bf997c",
     "tests/arma/infection_probe/template.VR/spawnChecks.sqf": "a258dbfd86433f9a8c2ee13f0bbc79a131b9c139b52e5f8dd03e57b6052fc202",
     "tests/arma/infection_probe/template.VR/tacticalChecks.sqf": "8749de08fd41ac877ba6b1a48cb8bf26e4688e050a4d451c92f3ab9148fc50be",
-    "Infection/addons/core/config.cpp": "369d5847f9d65fd21660771af7c5f63023dd38a9a71bbf07538378000f056b4e",
+    "Infection/addons/core/config.cpp": "4916471ebd5fc4e0e263911263690b9f783db82320ef34d893c9331dded081cd",
     "Infection/addons/core/functions/fn_administrationAssets.sqf": "6932fce62c01a33360eda48c7d70a573f8bb44b8dfd179fa2c2c5d66cd90f9a7",
     "Infection/addons/core/functions/fn_administrationDefenderEvent.sqf": "ca14c9b90332b32cf768508cbfc8c17828b2592b501abd59c29e89deb57a46a9",
     "Infection/addons/core/functions/fn_administrationPositions.sqf": "1bb6e1a27fcecff5b4f23c2a05ea23c111b87d977228d7245789aaaa9bdc7e8a",
@@ -66,7 +66,7 @@
     "Infection/addons/core/functions/fn_findCitySpawnPosition.sqf": "e581e64d2605ca3a8a87387857c1f8b1f9e209119f9d577ef11d4b24f7ff2f2c",
     "Infection/addons/core/functions/fn_findSpawnPosition.sqf": "cd65fcc4123ac2b5f5b37755dfd7c986d425db38f0df1baf513c846bda466548",
     "Infection/addons/core/functions/fn_finishCompetitiveMission.sqf": "09120835125d28a3801c3a614b39046eafe81085ecae764d6d8cfc1e070c4818",
-    "Infection/addons/core/functions/fn_finishLiberation.sqf": "307c85f152db52bd3f5061051c15f040a1c03d05d8ef32a5c3f00bb93e911522",
+    "Infection/addons/core/functions/fn_finishLiberation.sqf": "302c3c7b0032dd4a065d08c8a169acc8685d6557e32f4adb97707cf603ff0db3",
     "Infection/addons/core/functions/fn_finishMajorAttack.sqf": "6b69f58ad8b3f9e78741b93e40f58cb4a220a7a8c16d8624293cb55e92afe442",
     "Infection/addons/core/functions/fn_indoorPosition.sqf": "2a4f2b146892ff8508e40cbba529932db9d519e018ebe5c96ac58a7f29e28fa9",
     "Infection/addons/core/functions/fn_infectedDamageObserved.sqf": "a3de373c0f2d26d8426679813d5f43c3f97bbb760d46c772d3d003634a28a2e1",
@@ -78,7 +78,7 @@
     "Infection/addons/core/functions/fn_isManagedUnit.sqf": "9ceb2c3f414a290597efb88c2523f02a9b5f97423c5f275930c7c23c719073eb",
     "Infection/addons/core/functions/fn_liberationOutcome.sqf": "1f447d6427538bb589a57376b699742f7654ce07481c9524f6d46456125029e0",
     "Infection/addons/core/functions/fn_liberationSources.sqf": "4bbb7d94e7cccc470d9d67cb4edf9e18207aaecead4f229d4d5b26d6b83f5b1c",
-    "Infection/addons/core/functions/fn_liberationWatchdog.sqf": "66f9e4905676fcb298b6ce519565bcd7966efc9368b95029c35b030c43f364f7",
+    "Infection/addons/core/functions/fn_liberationWatchdog.sqf": "ad96099cbe8d1ce98fa43576db7b06a91914fa9ea7f325124c4c977be2e4c744",
     "Infection/addons/core/functions/fn_majorAttackTargets.sqf": "14edc403788ce5ffce5d5d864dd3d92ce0b537774281c1e813b19e2b2aed260a",
     "Infection/addons/core/functions/fn_majorSourceEligible.sqf": "4647893d20103b39ba5d5ac73df577cf0e1ada7a940ef83547c4d3e5e95bb1ab",
     "Infection/addons/core/functions/fn_majorWatchdog.sqf": "9c2158124eee53c15fb1649b68bbf539110e3b5d13d0f9a74e6d33595ddea640",
@@ -95,6 +95,7 @@
     "Infection/addons/core/functions/fn_requestRescue.sqf": "d19d8c200ab5de28e04872b4542117966717da2c6a4bc7776a6c692abe9bad61",
     "Infection/addons/core/functions/fn_requestTacticalSupport.sqf": "8162d9553d312794bc54a6135540ef41db42db680884e773e9b2fc859f8d6a64",
     "Infection/addons/core/functions/fn_rescueTick.sqf": "6761c9edb106114cae599102cd19e28cd4adf38abd4899bcf66059fd933d92fa",
+    "Infection/addons/core/functions/fn_rewardLiberation.sqf": "06468fced3be08220f065250691e3bdca3ac658039fd4d841f6296ad15910bb9",
     "Infection/addons/core/functions/fn_roamingBases.sqf": "133b6d5d9c9d4f6ec1566784c6fcf19392b12904ae71069339e55416e706778f",
     "Infection/addons/core/functions/fn_roamingEligible.sqf": "58a019b15274f9ec89d6b0df8f180cbd479d0a77b50ecf8395ffebe2de5672b4",
     "Infection/addons/core/functions/fn_roamingRoute.sqf": "bf18a8d02c97fedf812bb575ac5458dfaa466a766e416d2a7ea58d892229b2ad",
@@ -179,27 +180,27 @@
       "message": "Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
     },
     {
-      "line": 754,
+      "line": 753,
       "message": "Attempt to override final function - abz_fnc_load"
     },
     {
-      "line": 755,
+      "line": 754,
       "message": "Attempt to override final function - abz_fnc_queuesave"
     },
     {
-      "line": 756,
+      "line": 755,
       "message": "Attempt to override final function - abz_fnc_synccommit"
     },
     {
-      "line": 757,
+      "line": 756,
       "message": "Attempt to override final function - abz_fnc_save"
     },
     {
-      "line": 764,
+      "line": 763,
       "message": "Attempt to override final function - bis_fnc_storeparamsvalues_data"
     },
     {
-      "line": 765,
+      "line": 764,
       "message": "Attempt to override final function - hals_store_getnearbyvehicles"
     }
   ],

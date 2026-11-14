@@ -127,6 +127,10 @@
     {
       "path": "scrt/Location/fn_location_removeMilAdmin.sqf",
       "sha256": "c7ab2cff1019470cee047257d06972127ae13b973142406a0848719c19a415b6"
+    },
+    {
+      "path": "core/functions/Garrison/fn_updateVehicles.sqf",
+      "sha256": "a1d4e5cfe0801116483b7a156a15b958fbcac775d443a68ffee9e2e8a7d16829"
     }
   ]
 }
