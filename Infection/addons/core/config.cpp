@@ -104,6 +104,8 @@ class CfgFunctions
             class damageLiberationBuilding {};
             class liberationBuildingChanged {};
             class cleanupLiberationBuildings {};
+            class liberationRoofPosition {};
+            class decorateLiberationBuilding {};
             class liberationWatchdog {};
             class startSite {};
             class runSite {};

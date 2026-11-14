@@ -535,3 +535,38 @@ connected observers, client appearance, saving/loading an active scene and the
 combined regression remain NOT_RUN. Roof effects, the complete scene builder
 and parent lifecycle integration remain open. Native smoke source/config cleanup
 has been inspected separately; it is not yet a tested scene feature.
+
+
+## Retained scene: native smoke and guarded roof effects
+
+The effect owner also accepts Ultimate's native smoke anchor. Its installed
+class creates two local particle sources and a local light on each machine,
+retains them in its effects variable, and deletes them through its Deleted
+handler. The server owns the exact networked anchor. The
+[source/config inspection](../../evidence/sprint-3/liberation-native-smoke-source.json)
+records the installed script hash without redistributing the game script.
+
+Roof placement uses a guarded geometry ray in world coordinates from the actual
+model bounds. Missing, hidden and nonbuilding inputs return no position instead
+of indexing an empty ray result or substituting an origin. Coordinates follow
+[modelToWorldWorld](https://community.bistudio.com/wiki/modelToWorldWorld) and
+[getPosWorld](https://community.bistudio.com/wiki?title=getPosWorld). Building
+decoration retains native partial-damage and roof smoke/fire/collapse choices;
+damage ownership exists before the optional effect is attempted. Repeating the
+call does not add effects or damage again.
+
+The [143-input Dev9 candidate](../../evidence/sprint-3/liberation-roof-effects-build.json)
+passes [208 focused checks](../../evidence/sprint-3/liberation-roof-effects-focused.json)
+and [11 dependency-absent checks](../../evidence/sprint-3/liberation-roof-effects-dependencies-absent.json).
+The thirteen added cases exercise real smoke anchors and all three local children,
+mixed fire/smoke ownership, native child deletion, partial-child recovery, roof
+geometry, remote mutation refusal, random native decoration and restoration.
+This run selected a real roof fire. All 143 production/PBO and 213/175 collected
+input hashes match. No engine/SQF Error records occur. The 31 focused warnings
+comprise sixteen startup notices, twelve object-deletion messages, two friendly-fire
+deliveries to removed actors and one absent-commander message. Seven startup
+notices remain without zombie dependencies. Three parser tests and whitespace
+checks pass; completed server exits are verified.
+
+Client/JIP rendering, additional terrain models, complete scene construction,
+parent lifecycle integration and combined regression remain NOT_RUN.

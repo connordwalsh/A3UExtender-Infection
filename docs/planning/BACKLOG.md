@@ -281,3 +281,10 @@ partial or full destruction; pre-existing damage and unrelated ruins remain.
 Dev8 passes 195 focused and 11 dependency-absent checks with matching hashes.
 Roof effects, complete scene construction/parent cleanup, terrain/client/save
 acceptance and the combined regression remain open. No sprint gate is closed.
+
+
+Roof-effect checkpoint: native smoke children and guarded roof fire/smoke/damage
+ownership pass within 208 focused checks; the dependency-absent suite passes 11.
+All 143 production and collected hashes match. Complete scene construction and
+parent integration are next; client/JIP, terrain and combined regression remain
+open. No campaign or save acceptance is claimed.

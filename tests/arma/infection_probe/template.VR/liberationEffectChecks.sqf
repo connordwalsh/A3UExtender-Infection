@@ -63,3 +63,33 @@ waitUntil {sleep 0.05;(_partial findIf {!isNull _x}) == -1 || {diag_tickTime > _
 ["lib_effect_partial_creation_cleanup",count _partial == 2 && {_result # 0}
     && {(_partial findIf {!isNull _x}) == -1}
     && {isNil {A3I_liberationEffects get (_record get "name")}}] call _check;
+
+// Native smoke owns two local particles and a light through its config script.
+_record = call _newSurvivor;
+_result = [_record,_position,"Smoke"] call A3I_fnc_createLiberationFire;
+private _anchor = (_record getOrDefault ["sceneEffects",[]]) param [0,objNull];
+sleep 0.2;
+private _localEffects = +(_anchor getVariable ["effects",[]]);
+["lib_effect_native_smoke_owned",_result # 0 && {!isNull _anchor}
+    && {typeOf _anchor == "test_EmptyObjectForSmoke"} && {netId _anchor != "0:0"}
+    && {count _localEffects == 3} && {(_localEffects findIf {isNull _x || {!local _x}}) == -1},
+    [_result,typeOf _anchor,_localEffects apply {typeOf _x}]] call _check;
+_result = [_record,_position vectorAdd [10,0,0],"BigDestructionFire"] call A3I_fnc_createLiberationFire;
+_effects = +(_record get "sceneEffects");
+["lib_effect_mixed_smoke_fire_registry",_result # 0 && {count _effects == 3}
+    && {((A3I_liberationEffects get (_record get "name")) # 1) isEqualRef (_record get "sceneEffects")}] call _check;
+_result = [_record] call A3I_fnc_cleanupLiberationEffects;
+_deadline = diag_tickTime + 8;
+waitUntil {sleep 0.05;((_effects + _localEffects) findIf {!isNull _x}) == -1 || {diag_tickTime > _deadline}};
+["lib_effect_smoke_children_deleted_by_native_handler",_result # 0
+    && {((_effects + _localEffects) findIf {!isNull _x}) == -1}] call _check;
+_record = call _newSurvivor;
+[_record,_position,"Smoke"] call A3I_fnc_createLiberationFire;
+_anchor = (_record get "sceneEffects") # 0;
+_localEffects = +(_anchor getVariable ["effects",[]]);
+if (_localEffects isNotEqualTo []) then {deleteVehicle (_localEffects # 0)};
+_result = [_record] call A3I_fnc_cleanupLiberationEffects;
+_deadline = diag_tickTime + 8;
+waitUntil {sleep 0.05;((_localEffects + [_anchor]) findIf {!isNull _x}) == -1 || {diag_tickTime > _deadline}};
+["lib_effect_partial_native_smoke_cleanup",_result # 0 && {count _localEffects == 3}
+    && {((_localEffects + [_anchor]) findIf {!isNull _x}) == -1}] call _check;

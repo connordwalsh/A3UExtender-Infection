@@ -141,6 +141,7 @@ call compile preprocessFileLineNumbers "liberationEffectChecks.sqf";
 call compile preprocessFileLineNumbers "liberationBodyChecks.sqf";
 call compile preprocessFileLineNumbers "liberationWreckChecks.sqf";
 call compile preprocessFileLineNumbers "liberationBuildingChecks.sqf";
+call compile preprocessFileLineNumbers "liberationRoofChecks.sqf";
 call compile preprocessFileLineNumbers "liberationHordeChecks.sqf";
 call compile preprocessFileLineNumbers "liberationMissionChecks.sqf";
 A3A_faction_civ = _savedCiv; A3A_faction_reb = _savedReb;

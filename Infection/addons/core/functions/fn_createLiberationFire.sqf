@@ -10,7 +10,7 @@ private _name = _record getOrDefault ["name",""];
 private _town = _record getOrDefault ["town",""];
 if (_name == "" || {!(_town in allMapMarkers)} || {sidesX getVariable [_town,sideUnknown] != west})
     exitWith {[false,"town"]};
-if !(_type in ["BigDestructionFire","SmallDestructionFire"]) exitWith {[false,"effect_type"]};
+if !(_type in ["BigDestructionFire","SmallDestructionFire","Smoke"]) exitWith {[false,"effect_type"]};
 if (count _position != 3 || {(_position findIf {!(_x isEqualType 0) || {!finite _x}}) != -1}
     || {_position # 2 < 0} || {!(_position inArea _town)} || {surfaceIsWater _position})
     exitWith {[false,"position"]};
@@ -33,6 +33,16 @@ if ((_owned isNotEqualTo [] && {!((_owned # 0) isEqualRef _record)
 if (_owned isEqualTo []) then {_owners set [_name,[_record,_effects]]};
 missionNamespace setVariable ["A3I_liberationEffects",_owners];
 _record set ["sceneEffects",_effects];
+if (_type == "Smoke") exitWith {
+    // The native class owns three local effects on each machine and deletes
+    // them through its Deleted handler. Own its networked anchor, not copies of
+    // those local objects. Config initialization also applies to joining clients.
+    private _anchor = createVehicle ["test_EmptyObjectForSmoke",_position,[],0,"CAN_COLLIDE"];
+    if (isNull _anchor) exitWith {[false,"smoke_creation"]};
+    _effects pushBack _anchor;
+    _anchor setPosATL _position;
+    [true,""]
+};
 private _emitter = "#particlesource" createVehicle _position;
 if (isNull _emitter) exitWith {[false,"particle_creation"]};
 _effects pushBack _emitter;

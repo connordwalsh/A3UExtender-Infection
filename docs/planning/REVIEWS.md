@@ -611,3 +611,17 @@ state and its clock are now published atomically after a diagnostic run exposed
 an intermittent preparation check failure. Parser, PowerShell and whitespace
 checks pass. Completed server exits are verified. Terrain, connected observers,
 save/load, full scene construction and combined regression remain open.
+
+
+## 14 November 2026 - Roof effects and native smoke review
+
+The exact native smoke anchor owns its three local effects; actual deletion
+retires all three even after a partial child deletion. Roof effects use a
+checked geometry hit, and repeated decoration cannot multiply owned effects.
+Native damage and smoke/fire/collapse distributions remain in the helper.
+
+Dev9 passes 208 focused and 11 missing-dependency checks. All 143 production/PBO
+and 213/175 collected inputs match. No engine/SQF Error records; 31/7 warnings
+are classified in the research record. Parser and whitespace checks pass;
+completed server exits are verified. Full scene construction/parent integration,
+client/JIP/terrain behavior and combined regression remain open.
