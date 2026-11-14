@@ -197,6 +197,24 @@ after changing ownership; it cannot be called as one unscheduled transaction.
 That settlement boundary needs explicit recovery rather than an assumed atomic
 native call. Task delivery and positive client locality remain separate tests.
 
+Further native-source review confirms these controller boundaries:
+
+- `taskUpdate` rejects a second active task of the same type. The controller must
+  claim the `townBattle` type before asynchronous creation, including the native
+  completed-task display interval, instead of allowing multiple same-type parents.
+- `cityChangeSide` performs ownership, garrison reset, marker update, support,
+  aggression and nearby-administration processing before its five-second pause;
+  control deletion and tier checking follow the pause. A stopped worker must not
+  repeat the earlier rewards simply to recover those later maintenance steps.
+- Nearby administration capture must still use Infection's existing clear-first
+  guard. Liberating a town is not permission to clear an uncleared stronghold.
+- `resourcesFIA` and `citySupportChange` own native serialization flags. Their
+  queued calls and native caps/currency notifications belong in the settlement
+  audit; a report of final task state alone is insufficient reward evidence.
+- `resourcecheck` combines the skirmish decision with unrelated income, radio,
+  trader and victory processing. Any replacement must isolate the infected-town
+  branch and preserve the rest of that pinned routine.
+
 The political fallback when there is no nearby origin still awaits the owner.
 No fallback is implemented by these helpers. Native decorative wrecks, damage,
 effects and the survivor vehicle also remain part of the full mission audit.
