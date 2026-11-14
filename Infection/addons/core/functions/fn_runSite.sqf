@@ -9,28 +9,30 @@ private _radius = ([_marker] call A3A_fnc_sizeMarker) max 50;
 // Initial defenders can appear inside the site while it is still out of view.
 // Later batches may approach from its surroundings, always through the same checks.
 private _outerRadius = (_radius + 250) min 1000;
-private _flagData = [_marker] call A3A_fnc_createZoneFlag;
-if (!isNil "_flagData" && {_flagData isEqualType []} && {count _flagData > 0}) then {
-    _record set ["flag",_flagData # 0];
-    if (!isNil {_flagData # 1}) then {(_record get "positions") pushBack (_flagData # 1)};
-};
-private _crateCount = switch (_kind) do {case "Resource": {0}; case "Milbase": {2}; default {1}};
-for "_i" from 1 to _crateCount do {
-    private _crateData = [_marker] call A3A_fnc_createZoneAmmoBox;
-    if (!isNil "_crateData" && {_crateData isEqualType []} && {count _crateData > 0}) then {
-        if (!isNull (_crateData # 0)) then {(_record get "crates") pushBack (_crateData # 0)};
-        if (!isNil {_crateData # 1}) then {(_record get "positions") pushBack (_crateData # 1)};
+if (_record getOrDefault ["assets",true]) then {
+    private _flagData = [_marker] call A3A_fnc_createZoneFlag;
+    if (!isNil "_flagData" && {_flagData isEqualType []} && {count _flagData > 0}) then {
+        _record set ["flag",_flagData # 0];
+        if (!isNil {_flagData # 1}) then {(_record get "positions") pushBack (_flagData # 1)};
     };
-};
-if (_kind == "Resource" && {!(A3A_faction_civ getOrDefault ["attributeLowCiv",false])}) then {
-    private _civData = [_marker,4] call A3A_fnc_createResourceCiv;
-    if (!isNil "_civData" && {_civData isEqualType []} && {count _civData == 2}) then {
-        (_record get "groups") pushBack (_civData # 0);
-        (_record get "civilians") append (_civData # 1);
+    private _crateCount = switch (_kind) do {case "Resource": {0}; case "Milbase": {2}; default {1}};
+    for "_i" from 1 to _crateCount do {
+        private _crateData = [_marker] call A3A_fnc_createZoneAmmoBox;
+        if (!isNil "_crateData" && {_crateData isEqualType []} && {count _crateData > 0}) then {
+            if (!isNull (_crateData # 0)) then {(_record get "crates") pushBack (_crateData # 0)};
+            if (!isNil {_crateData # 1}) then {(_record get "positions") pushBack (_crateData # 1)};
+        };
     };
+    if (_kind == "Resource" && {!(A3A_faction_civ getOrDefault ["attributeLowCiv",false])}) then {
+        private _civData = [_marker,4] call A3A_fnc_createResourceCiv;
+        if (!isNil "_civData" && {_civData isEqualType []} && {count _civData == 2}) then {
+            (_record get "groups") pushBack (_civData # 0);
+            (_record get "civilians") append (_civData # 1);
+        };
+    };
+    _record set ["announced",true];
+    [CBA_EVENT_SERVER_SPAWN_LOCATION,[_marker,_kind,true]] call A3A_fnc_triggerLocalEvent;
 };
-_record set ["announced",true];
-[CBA_EVENT_SERVER_SPAWN_LOCATION,[_marker,_kind,true]] call A3A_fnc_triggerLocalEvent;
 private _nextBatch = 0;
 private _previousSimulation = -1;
 while {spawner getVariable [_marker,2] != 2} do {

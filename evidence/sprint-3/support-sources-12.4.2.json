@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "scope": "Pinned tactical support source audit; not implementation or runtime acceptance",
+  "ultimate_version": "12.4.2",
+  "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "sources": [
+    {
+      "path": "core/functions/Supports/fn_initSupports.sqf",
+      "sha256": "67151295d12a4852d373e97cb9ea6fc198d2f8169a40dfe4e26d6dfd848fe0cb"
+    },
+    {
+      "path": "core/functions/Supports/fn_requestSupport.sqf",
+      "sha256": "4e4a5a79484fb0c1a9fc20411b9d84a7fdfb198a86ceb5e3333d4e44e14f8aeb"
+    },
+    {
+      "path": "core/functions/Supports/fn_createSupport.sqf",
+      "sha256": "552e438a1347bab3659cd2b240e1aa311c8b81c02d5beed742fea5e4439091d0"
+    },
+    {
+      "path": "core/functions/Supports/fn_requestArtillery.sqf",
+      "sha256": "e5deb6c44518a49ca10fcca0ed5969aa4cd742d3acef45dafb57235ef0b8fd08"
+    },
+    {
+      "path": "core/functions/Supports/fn_maxDefenceSpend.sqf",
+      "sha256": "1c20ea5af5b92c7cc704f9b95bfab8042d81a2af41b97ca5691a9c4299418bbc"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_QRFLand.sqf",
+      "sha256": "e61fbc3a1ea0f8a278cdf5f6030b9c00aa61644041c6f5b74187e68ffebe3aef"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_QRFLandAvailable.sqf",
+      "sha256": "05cb1a6967087e8652d7ecf7c822f275a6bb00623fb8ac4319f379a88826e4f2"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_QRFAir.sqf",
+      "sha256": "6acd5b638135363d9ec63790d79dd313ae0fe503843283b655b18ef5e952b6d7"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_QRFVehAirdrop.sqf",
+      "sha256": "c9cb678733c0d9bd998c552403f58c90c45bb624e2e87b594b267c5239b5c90e"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_QRFOrbital.sqf",
+      "sha256": "c9e2cd3c583c25cc7675e9e4f668f5fcbac96b31b4063894391db8257c1cbffe"
+    },
+    {
+      "path": "core/functions/Supports/fn_SUP_QRFRoutine.sqf",
+      "sha256": "7490c7c00ee7778497fa8a60eaa589ea9dfe1f18ba0662afd051c577752f0843"
+    },
+    {
+      "path": "core/functions/Supports/fn_addSupportTarget.sqf",
+      "sha256": "4564e603da6a17319c0fa88d0b49ecad8fa9919c3b8903666194b0cf8a2c79cf"
+    },
+    {
+      "path": "core/functions/Base/fn_rebuildAssets.sqf",
+      "sha256": "fa704add8738e86ad62cec651e773e143d14ec1b9c2ef1300b0353fcf44c8709"
+    },
+    {
+      "path": "core/functions/Missions/fn_RES_Deserters.sqf",
+      "sha256": "8216a7eb57a9b7f6dd5004acef350b190fb5ae1eb38697b607b62050ff5e4250"
+    },
+    {
+      "path": "core/functions/Missions/fn_RES_Refugees.sqf",
+      "sha256": "247c76283b7467b20d6f73c6c9e847f60b3a1627566e88fe374e5fdca5db6c53"
+    }
+  ]
+}

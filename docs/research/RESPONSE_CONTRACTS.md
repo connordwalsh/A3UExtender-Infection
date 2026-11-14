@@ -3,8 +3,11 @@
 Research baseline: Ultimate 12.4.2, commit
 `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`. The
 [27-file source manifest](../../evidence/sprint-3/response-sources-12.4.2.json)
-records the files behind this audit. This is source evidence for S3-1/S3-3;
-the response adapters below are not yet implemented or runtime accepted.
+records the files behind this audit. This is source evidence for S3-1/S3-3.
+The [capture-response increment](CAPTURE_COUNTERATTACKS.md) implements the
+`singleAttack` route; other adapters below remain open. The
+[tactical support follow-up](TACTICAL_SUPPORT_CONTRACTS.md) adds direct rebuilding
+constructor and legacy mission-caller findings.
 
 ## Entry points and lifecycle owners
 
@@ -67,9 +70,7 @@ and Infection garrison controllers or duplicate its surviving actors.
 
 ## Implementation and acceptance sequence
 
-Implement the capture-triggered foot response first, using the existing paid
-creation and shared budget with explicit arrival, failure, cancellation and
-cleanup outcomes. Then adapt tactical support selection/creation and the
+After validating the capture-triggered foot response, adapt tactical support selection/creation and the
 remaining strategic callers with their task/flag contracts. Record each air,
 naval, convoy and indirect-fire route as replaced or excluded before Gate 3.
 
