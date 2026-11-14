@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "scope": "Targeted source audit for new catalog; not a complete classification of all automatic/random-event missions.",
+  "entries": [
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_missionRequest.sqf",
+      "sha256": "a842aef05d69c0b4453f07867c3dcdc58b6d65dbb763a5d24cfbbea797e400f9",
+      "finding": "Primary category selection, including DES/RAN and multiple subvariants."
+    },
+    {
+      "path": "A3A/addons/gui/functions/GUI/fn_requestMissionDialog.sqf",
+      "sha256": "752f9af15b7b32b1126f629f8fdf18ed234e4b98d73cfc6c69d31ca805cdf803",
+      "finding": "Modern menu expands RAN on client before server request."
+    },
+    {
+      "path": "A3A/addons/scrt/UILayouts/menu.hpp",
+      "sha256": "6a50ce375c890ed464bf30e45e4cc9c1d72de00118f1b16a381da37bb92bf4e3",
+      "finding": "Legacy menu category requests."
+    },
+    {
+      "path": "A3A/addons/core/functions/init/fn_resourcecheck.sqf",
+      "sha256": "c306affdeb61926ad1ee58112b4d542dfecfeb66ce60dc482c8a55a1bd4d1def",
+      "finding": "Periodic empty-argument mission request is a native random mission request; new guard rejects it."
+    },
+    {
+      "path": "A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf",
+      "sha256": "e786ff360ddd995c233670fbcb38418bcbcf8449ce2ed385bda80a371da5bb2c",
+      "finding": "Conversation directly schedules refugee/informer/prisoner/deserter variants and owns a dialog-mission flag; must adapt flag lifecycle and response text."
+    },
+    {
+      "path": "A3A/addons/ultimate/plugins/dynamic_hover_menu/CfgMapContextMenu.hpp",
+      "sha256": "6423d2e34ac84528f5efa334c7922ae3d9e93b72972b9b7072cd64c0b1c6c419",
+      "finding": "Map action directly schedules SUPP_Supplies, bypassing category selection."
+    },
+    {
+      "path": "A3A/addons/core/functions/Intel/fn_selectIntel.sqf",
+      "sha256": "181959672196b97b5b4d100b2d9720bb31ff57b27f905a32144d3dfc531ccdf7",
+      "finding": "Convoy-route intelligence directly schedules convoy with destination, origin and legacy arguments; update reported route and task together."
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_chooseAttack.sqf",
+      "sha256": "a43a6c893e212363f09c8f2cb84a44a6bf7e3f5c451f82eb6c19f1ae7aed9506",
+      "finding": "Strategic town attacks also call convoy; distinguish already-adapted infected strategic attacks from requested interception objectives."
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_CON_Outpost.sqf",
+      "sha256": "bc376db578d4ecb06eeb895b0325367941af8e6251c3d12b69ed4a1ac7bea03d",
+      "finding": "Direct conquest can forward to competitive conquest; cannot retain this route for new Liquidation."
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_CON_Outpost_Compet.sqf",
+      "sha256": "3462783873656773e51ff56ce090dfb9291f1524a723316d04aeeb469ae77d3b",
+      "finding": "Native competitive route can forward back to ordinary conquest."
+    },
+    {
+      "path": "A3A/addons/core/functions/Missions/fn_AS_Smasher.sqf",
+      "sha256": "1665ea44cfac1b211ea6d993de4094fc2f426a81ed446b43fc2859b60d1aa6ef",
+      "finding": "Requires nonhuman civilians, uses Invader-side special, adds SF troops or attack helicopter; unsuitable as a simple renamed infected-only target task."
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_markerChange.sqf",
+      "sha256": "4b283a4359190453daa5179c07616869a7e161cfd0c56a853278d3bbc2e25f5a",
+      "finding": "Native permanent-site ownership transaction restricts Rebel bases/airfields to war level 3; preserve restriction."
+    },
+    {
+      "path": "A3A/addons/core/functions/Base/fn_cityChangeSide.sqf",
+      "sha256": "8c9db1effcafb60c655880663c63bd2216cee90b63e486d65330b6c31c0a9a46",
+      "finding": "Native town transaction includes ownership/support changes, nearby administration capture and delayed tier maintenance; account for these effects when wiring clearance."
+    }
+  ]
+}

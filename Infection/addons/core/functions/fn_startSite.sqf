@@ -65,6 +65,7 @@ isNil {
         ["announced",false], ["cleaned",false], ["fault",""],
         ["road",_road], ["branch",_branch], ["spawnedAny",false], ["captured",sideUnknown], ["batchSize",_batchSize],
         ["building",_building], ["remainingDefenders",count _roster],
+        ["clearanceRemaining",count _roster], ["clearanceMissing",0],
         ["populationTarget",if (_kind == "City") then {count _roster} else {0}],
         ["spawnedCount",0], ["townRoads",[]]
     ];

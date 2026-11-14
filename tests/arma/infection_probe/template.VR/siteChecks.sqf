@@ -114,6 +114,8 @@ private _routes = ["A3A_fnc_createAIresources","A3A_fnc_createAIResources","A3A_
         && {(_units findIf {owner _x != 2 || {side group _x != west} || {vehicle _x != _x}}) == -1}
         && {!isNull (_record getOrDefault ["flag",objNull])} && {count _crates == _crateCounts # _index}
         && {_pending == count _roster - 2} && {garrison getVariable [_marker,[]] isEqualTo _roster}
+        && {_record get "clearanceRemaining" == count _roster}
+        && {(_units findIf {!(_x getVariable ["A3I_clearanceTracked",false])}) == -1}
         && {count A3I_test_siteEvents == _eventCount + 1},
         [count _units,count _crates,_pending,count A3I_test_siteEvents - _eventCount,call _stats]] call _check;
     if (_units isEqualTo []) exitWith {};
@@ -146,6 +148,8 @@ private _routes = ["A3A_fnc_createAIresources","A3A_fnc_createAIResources","A3A_
         private _arrived = [{spawner getVariable [_marker + "_A3I_pending",-1] == 0},20] call _wait;
         private _active = (_record get "units") select {alive _x};
         ["site_full_roster_arrives",_arrived && {count _active == 2}
+            && {_record get "clearanceRemaining" == 2}
+            && {(_active findIf {!(_x getVariable ["A3I_clearanceTracked",false])}) == -1}
             && {count (garrison getVariable [_marker,[]]) == 2}
             && {(_active findIf {_x getVariable ["unitType",""] == _roles # 2}) != -1}
             && {(call _stats) select [1,2] isEqualTo [2,0]},

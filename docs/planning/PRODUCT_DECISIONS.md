@@ -38,6 +38,26 @@ original project plan; they are not evidence that the behavior is implemented.
 
 ## Scope and evidence
 
+14 November mission-catalog amendment: the owner supplied six replacement names
+and objectives: Horde Interception, Elimination Task, Liquidation Assignment,
+Supplies Seizure, Extraction Mission and Humanitarian Aid. Exact briefings,
+source findings and pending decisions appear in [Mission redesign](MISSION_REDESIGN.md).
+This records requested behavior; the active manual-test build does not contain it.
+
+The owner subsequently confirmed the catalog applies throughout Infection
+campaigns, with combat requests targeting infected exclusively. Destroy and
+Random categories are disabled completely. Delivery accepts Rebel HQ or
+Rebel-held permanent sites. Interception fails when the horde reaches its
+destination. Liquidation is always infected-site clearance, superseding the
+earlier competitive conquest requirement for requested missions.
+
+Further owner clarification: seizure includes ammunition, fuel and repair trucks;
+interception fails on the first infected entering the destination; Liquidation
+includes towns and permanent sites and captures them immediately after clearing
+the mission's infected, overriding ordinary town political capture for that task.
+Military bases and airfields retain Ultimate's war-level 3 capture requirement.
+Recovered supply trucks remain usable by the Rebels after delivery.
+
 The full nine-sprint plan remains the backlog. A successful build or addon load
 does not establish campaign, multiplayer, or save compatibility. Stories remain
 open until their acceptance evidence exists; deferred tests must be labelled.

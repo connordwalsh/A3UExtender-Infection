@@ -1,6 +1,6 @@
 # Review record
 
-## 12 November 2026 — Sprint 0 foundation and test tooling
+## 12 November 2026 â€” Sprint 0 foundation and test tooling
 
 Scope: product decisions/backlog, pinned dependency inventory and source
 comparison, isolated launch/build scripts, prepared-class smoke fixture and
@@ -31,7 +31,7 @@ Integration decision: the foundation/tooling can merge independently. Keep S0-1,
 S0-2 and S0-3 open for the documented remaining evidence. No user acceptance,
 clean gameplay certification or Workshop release is implied.
 
-## 13 November 2026 — Registration scaffold
+## 13 November 2026 â€” Registration scaffold
 
 Self-review covers the unique addon/template registration, dependency facts,
 67 prepared-class roles, isolated build scripts and contract fixture/collector.
@@ -45,7 +45,7 @@ its completion record. Startup warnings are retained rather than hidden.
 Integration decision: preserve this as a reviewable development scaffold. It
 does not complete Sprint 1 or authorize a campaign/release claim.
 
-## 13 November 2026 — Foot garrison-line contract
+## 13 November 2026 â€” Foot garrison-line contract
 
 The narrow CfgFunctions override checks both Infection selection and runtime side
 before replacing the virtual line builder. The installed Ultimate implementation
@@ -68,7 +68,7 @@ in the 94-check run. Its zero-query assertion is withdrawn and superseded by the
 corrected 120-check run, which observes five control calls and zero infected calls.
 See `../research/VALIDATION_CORRECTIONS.md`; the older review is not silently erased.
 
-## 13 November 2026 — Prepared infected combat bookkeeping
+## 13 November 2026 â€” Prepared infected combat bookkeeping
 
 Self-review covers the guarded NATOinit override and direct original alias,
 preservation of prepared-class handlers/AI/health/identity, Ultimate event and
@@ -100,7 +100,7 @@ owned profiles; the separate behavior observation batch continues.
 Integration decision: merge this scoped increment after the recorded checks;
 continue S0/S1 and live site implementation. It is not campaign or release acceptance.
 
-## 13 November 2026 — Server spawn reservation component
+## 13 November 2026 â€” Server spawn reservation component
 
 Self-review covers allocation before creation, atomic unscheduled mutations,
 server-origin guards, shared context ceilings, partial grants, unique binding,
@@ -124,7 +124,7 @@ S5-1 stays open for actual callers, spatial rules, cooldowns, special-creature
 accounting and performance. No campaign-wide cap or multiplayer acceptance is
 claimed by this isolated server proof.
 
-## 13 November 2026 — Full queued garrisons at six persistent sites
+## 13 November 2026 â€” Full queued garrisons at six persistent sites
 
 Self-review covers the four guarded site entry points, narrow scheduler routing,
 full-roster queues, budget preflight/binding, bounded terrain/geometry placement,
@@ -160,7 +160,7 @@ gates remain open for other site types, reinforcement/mission routes, actual
 ownership/save cycles, Redux pathing, connected players and performance. No
 Computer Use, client launch, Workshop publication or release claim is included.
 
-## 13 November 2026 — Infected road and field controls
+## 13 November 2026 â€” Infected road and field controls
 
 Self-review covers the guarded creator/scheduler, source-derived infantry weights,
 transient role queues, safe budgeted creation, independent ownership versus
@@ -196,7 +196,7 @@ subsequently approved per-visit town regeneration and administration strongholds
 with survivor rescues; both remain future implementation work. No
 Computer Use, client launch or Workshop publication was performed.
 
-## 13 November 2026 — Per-visit infected town patrols
+## 13 November 2026 â€” Per-visit infected town patrols
 
 Self-review covers the guarded town creator/scheduler, source-derived selection,
 shared transient patrol controller, bounded outdoor routes, retry deadlines and
@@ -234,7 +234,7 @@ saves, multiplayer and performance remain acceptance work. Administration,
 reinforcement and mission routes remain unconverted. No sprint gate is closed,
 and no Computer Use, client launch or Workshop publication was performed.
 
-## 13 November 2026 — Administration strongholds and survivor rescues
+## 13 November 2026 â€” Administration strongholds and survivor rescues
 
 Self-review covers the guarded administration creator/removal paths, server
 dispatch, full transient roster, queued arrivals, engine-event death accounting,
@@ -265,7 +265,7 @@ destruction-triggered foot responses and cooldown persistence remain open. No
 campaign or sprint gate is closed. No Computer Use, client launch or Workshop
 publication was performed.
 
-## 13 November 2026 — Routine infected foot reinforcement
+## 13 November 2026 â€” Routine infected foot reinforcement
 
 Self-review covers the guarded patrol and mixed-cycle adapters, native deficit
 and quota selection, cooldown/combat rules, original queue priority, land-only
@@ -300,7 +300,7 @@ and other positive garrison-update paths are still unconverted. No campaign or
 sprint gate is closed; no Computer Use, client launch or Workshop publication
 was performed.
 
-## 13 November 2026 — Bounded infected roaming patrols
+## 13 November 2026 â€” Bounded infected roaming patrols
 
 Self-review covers mixed-faction selection, the infected source/cooldown policy,
 actual outdoor navigation endpoints, bounded route search, shared native patrol
@@ -336,7 +336,7 @@ source files and identifies separate mixed-factory/support payment owners and
 no-force task/cleanup gaps. No campaign or sprint gate is closed. No Computer Use,
 client launch or Workshop publication was performed.
 
-## 14 November 2026 — Town population selection checkpoint
+## 14 November 2026 â€” Town population selection checkpoint
 
 Self-review confirms that `getCityData` stores population at index 0, distinct
 from vehicle count and both support fields. The approved one-per-three ratio
@@ -357,7 +357,7 @@ unmerged until the remaining spawning work is implemented and verified. It is
 stacked on the paused counterattack feature, whose full regression is incomplete.
 The user's manual client was not controlled or restarted. No Computer Use occurred.
 
-## 14 November 2026 — Capture counterattacks and full town populations
+## 14 November 2026 â€” Capture counterattacks and full town populations
 
 Self-review covers paid foot response selection, source ownership/combat checks,
 bounded staging, native distance activation and capture, partial/virtual garrison
@@ -488,3 +488,57 @@ and Chernarus Redux in its startup log. The sanitized receipt identifies the
 immutable Dev9 artifact from the separate scene branch and its 208/11 isolated
 checks. No Computer Use, gameplay, Zeus UI, compatibility or scene integration
 acceptance is claimed. The user is testing this client manually.
+
+
+## 14 November 2026 - Mission catalog removal draft
+
+Owner decisions now replace all requested mission categories in Infection,
+restrict combat requests to infected, remove Destroy/Random entirely, accept
+HQ/permanent-site deliveries, fail interception on destination arrival, and
+replace competitive conquest with straightforward Liquidation clearance.
+
+Reviewed the first removal increment against Ultimate 12.4.2. Server rejection
+precedes the request lock and native random selection. Client rejection precedes
+the GUI's own random expansion. Four direct Destroy entry points are guarded,
+and both menu definitions receive conditional hide/disable hooks. Ordinary
+unselected campaigns delegate to the original functions. The original
+competitive regression now uses the still-delegated LOG route instead of DES;
+its historical pass is not claimed as evidence for this changed candidate.
+
+Config/PBO packaging, exact production source/artifact hashes, fixture/collector
+agreement for 13 new checks, three evidence-parser tests and whitespace checks
+pass. Evidence: evidence/sprint-4/mission-catalog-removal-draft.json. Runtime
+checks were NOT_RUN: the protected launch check detected the active Dev9 user
+client, PID 52480, before mission installation or server start. Visual controls,
+loaded config inheritance, direct/remote guards and ordinary campaign behavior
+remain unverified at runtime. Keep this branch draft/unmerged and leave the
+manual client's immutable build unchanged. Six replacement mission behaviors
+remain open; the complete project goal and all unmet sprint gates remain open.
+
+
+## 14 November 2026 - Catalog guards and clearance ledger review
+
+Reviewed the full production diff against master. The UI patch now preserves
+native dialog/control bases and declares the native GUI load dependency. Guards
+run before request locking and random expansion, and direct Destroy endpoints
+remain inactive only for a selected, dependency-ready Infection campaign.
+
+Clearance tracking attaches after successful actor initialization, adds adopted
+reinforcement obligations, counts real death once, and distinguishes live deletion
+from defeat. Visit identity rejects stale callbacks. The predicate requires a
+healthy active site, no pending roster or living actors, and settled native
+garrison updates. It is read-only and does not yet implement Liquidation capture.
+
+Dev3 passes 25 focused catalog checks and 717 combined checks; the unchanged
+clearance implementation also passed 30 focused checks in Dev2. The actual Dev3
+missing-dependency run passes 11 checks. No engine/SQF error records occur.
+All 127 production files and the PBO match the build manifest. Reviewed retained
+warnings: 16 startup notices, 53 object-deletion notices and two absent-commander
+notifications in the combined run; seven startup notices without dependencies.
+Rejected Dev2 and intermediate fixture evidence stays in the repository.
+
+Integration scope is this reviewed foundation only. Six replacement lifecycles,
+visual menus, connected-player/HC behavior, terrain, saves and full campaign
+acceptance remain open. The source audit lists native category variants and
+literal callers without claiming complete dynamic reachability. No Computer Use
+or update of the user's immutable manual build was performed.

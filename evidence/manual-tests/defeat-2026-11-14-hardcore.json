@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only diagnosis of user-reported full-screen campaign defeat; no game control or save changes.",
+  "session_log": "arma3_x64_2026-11-14_16-25-49.rpt",
+  "log_sha256_at_inspection": "d021ff9f7201befdd29503419b60715fa21ec2d5ae6b79edd69de3e13aebe939",
+  "campaign_setup": {
+    "lossCondition": 3,
+    "initialHr": 0
+  },
+  "last_performance_sample": {
+    "time": "16:41:22",
+    "faction_cash": "10000",
+    "hr": "0",
+    "war_level": "1"
+  },
+  "ending_evidence": [
+    {
+      "line": 2202,
+      "text": "16:41:35 2026-11-14 21:41:35:133 | Antistasi | Info | File: A3A_fnc_writebackSaveVar | Writing back save var with params [\"ended\",true] | Called By: A3A_fnc_checkLossCondition"
+    },
+    {
+      "line": 2205,
+      "text": "16:41:48 \"InfectionDev/BIS_fnc_log: [BIS_fnc_endMission] Mission failed with 'hardcoreLoss' ending.\""
+    }
+  ],
+  "native_rule": "Hardcore (lossCondition=3) ends the campaign if faction cash <= 0 OR HR <= 0 OR destroyed-town population exceeds one third. Its HR test has no war-level grace period.",
+  "finding": "The campaign started with zero HR and still had zero HR just before the periodic loss check recorded the campaign as ended and emitted hardcoreLoss. Zero HR satisfies the native Hardcore defeat rule.",
+  "limits": "No direct live-variable capture at the exact check; the ending log does not enumerate which OR clauses were true. Zero HR is the evidenced sufficient condition. No claim about civilian casualties or Petros death.",
+  "recommendation": "For a new manual test, choose a different loss condition or positive starting HR; keep HR above zero if retaining Hardcore. Do not modify the ended save without an explicit request.",
+  "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "sources": [
+    {
+      "path": "A3A/addons/core/functions/Base/fn_checkLossCondition.sqf",
+      "sha256": "94ea11d248bade6f0d9e808974a735fc47464c79383ecff5a84b205e1a7d16b7"
+    },
+    {
+      "path": "A3A/addons/core/functions/init/fn_resourcecheck.sqf",
+      "sha256": "c306affdeb61926ad1ee58112b4d542dfecfeb66ce60dc482c8a55a1bd4d1def"
+    },
+    {
+      "path": "A3A/addons/maps/MissionDescription/endMission.hpp",
+      "sha256": "15f91f39b32745787e14e27b1625639d03305cee7fbda4c0bcd03ce140238019"
+    }
+  ]
+}

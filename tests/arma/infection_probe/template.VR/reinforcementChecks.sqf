@@ -166,6 +166,8 @@ sleep 1.5;
 private _adopted = [{count (garrison getVariable _target) == 2},5] call _wait;
 private _site = A3I_sites get _target;
 ["reinf_arrivals_adopt_once",_adopted && {count (_site get "units") == 2}
+    && {_site get "clearanceRemaining" == 2}
+    && {(_units findIf {!(_x getVariable ["A3I_clearanceTracked",false])}) == -1}
     && {_site get "queue" isEqualTo []} && {A3A_resourcesDefenceOcc == 80}
     && {(A3I_budgetRecords get _ticket) # 0 == "site:" + _target}
     && {_group getVariable ["A3I_garrisoned",""] == _target},
@@ -179,7 +181,8 @@ call _waitJob;
     && {(call _stats) select [1,3] isEqualTo [2,0,1]}] call _check;
 (_units # 0) setDamage 1;
 [{count (garrison getVariable _target) == 1}] call _wait;
-["reinf_adopted_death_updates_roster",count (garrison getVariable _target) == 1 && {A3A_resourcesDefenceOcc == 80}] call _check;
+["reinf_adopted_death_updates_roster",count (garrison getVariable _target) == 1 && {A3A_resourcesDefenceOcc == 80}
+    && {_site get "clearanceRemaining" == 1}] call _check;
 call _stopSite;
 ["reinf_adopted_despawn_keeps_roster",count (garrison getVariable _target) == 1
     && {A3A_resourcesDefenceOcc == 80} && {(call _stats) # 1 == 0}] call _check;

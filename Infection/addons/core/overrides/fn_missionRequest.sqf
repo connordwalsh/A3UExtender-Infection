@@ -3,9 +3,11 @@ FIX_LINE_NUMBERS()
 
 if(!isServer) exitWith { Error("Server-only function miscalled") };
 
-// Pinned 12.4.2 body below; only conquest availability/dispatch is adapted.
+// Pinned 12.4.2 conquest body; disabled catalog entries are rejected before
+// native random selection, delegation or the shared mission-request lock.
 if (!([west] call A3I_fnc_isActive)) exitWith {_this call A3I_fnc_originalMissionRequest};
 private _requestedType = _this param [0,"RAN"];
+if (_requestedType in ["DES","RAN"]) exitWith {};
 if (_requestedType isEqualType "" && {!(_requestedType in ["CON","RAN"])})
     exitWith {_this call A3I_fnc_originalMissionRequest};
 if (isRemoteExecuted) exitWith {

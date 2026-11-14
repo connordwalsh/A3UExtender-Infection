@@ -140,6 +140,8 @@ respawnTeamPlayer setMarkerPos [500,500,0];
 private _allArrived = [{_record get "queue" isEqualTo []},20] call _wait;
 private _units = +(_record get "units");
 ["city_full_population_without_casualties",_allArrived && {count _units == 10} && {({alive _x} count _units) == 10}
+    && {_record get "clearanceRemaining" == 10}
+    && {(_units findIf {!(_x getVariable ["A3I_clearanceTracked",false])}) == -1}
     && {(call _stats) select [0,3] isEqualTo [12,12,0]} && {_record get "spawnedCount" == 10},[call _stats]] call _check;
 ["city_server_local_basics",(_units findIf {owner _x != 2 || {side group _x != west} || {vehicle _x != _x}
     || {_x getVariable ["markerX",""] != ""} || {_x getVariable ["A3A_resPool",""] != "legacy"}
