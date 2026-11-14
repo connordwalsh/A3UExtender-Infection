@@ -44,6 +44,13 @@ Supplies Seizure, Extraction Mission and Humanitarian Aid. Exact briefings,
 source findings and pending decisions appear in [Mission redesign](MISSION_REDESIGN.md).
 This records requested behavior; the active manual-test build does not contain it.
 
+The owner subsequently confirmed the catalog applies throughout Infection
+campaigns, with combat requests targeting infected exclusively. Destroy and
+Random categories are disabled completely. Delivery accepts Rebel HQ or
+Rebel-held permanent sites. Interception fails when the horde reaches its
+destination. Liquidation is always infected-site clearance, superseding the
+earlier competitive conquest requirement for requested missions.
+
 The full nine-sprint plan remains the backlog. A successful build or addon load
 does not establish campaign, multiplayer, or save compatibility. Stories remain
 open until their acceptance evidence exists; deferred tests must be labelled.

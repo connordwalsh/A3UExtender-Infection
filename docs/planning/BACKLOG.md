@@ -5,8 +5,12 @@ The acceptance criteria and test requirements are in [PROJECT_PLAN.md](PROJECT_P
 Status is evidence-based; successful packing does not complete a gameplay story.
 
 14 November amendment: [Mission redesign](MISSION_REDESIGN.md) records the
-owner's six replacement categories for S4-1, S4-2, S4-3 and S5-3. Scope and delivery
-questions are pending; requirements/source audit does not complete these stories.
+owner's six replacement categories for S4-1, S4-2, S4-3 and S5-3. The catalog now
+targets infected exclusively; Destroy/Random are removed and Liquidation
+supersedes requested competitive conquest. Delivery accepts HQ/permanent sites.
+The first removal increment is packaged but its 13 new runtime checks are NOT_RUN
+while the owner plays. Existing conquest test results do not establish acceptance
+of the new clearance requirement. None of these stories is complete.
 
 | Story | Work | Status | Evidence / next check |
 | --- | --- | --- | --- |

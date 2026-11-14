@@ -488,3 +488,29 @@ and Chernarus Redux in its startup log. The sanitized receipt identifies the
 immutable Dev9 artifact from the separate scene branch and its 208/11 isolated
 checks. No Computer Use, gameplay, Zeus UI, compatibility or scene integration
 acceptance is claimed. The user is testing this client manually.
+
+
+## 14 November 2026 - Mission catalog removal draft
+
+Owner decisions now replace all requested mission categories in Infection,
+restrict combat requests to infected, remove Destroy/Random entirely, accept
+HQ/permanent-site deliveries, fail interception on destination arrival, and
+replace competitive conquest with straightforward Liquidation clearance.
+
+Reviewed the first removal increment against Ultimate 12.4.2. Server rejection
+precedes the request lock and native random selection. Client rejection precedes
+the GUI's own random expansion. Four direct Destroy entry points are guarded,
+and both menu definitions receive conditional hide/disable hooks. Ordinary
+unselected campaigns delegate to the original functions. The original
+competitive regression now uses the still-delegated LOG route instead of DES;
+its historical pass is not claimed as evidence for this changed candidate.
+
+Config/PBO packaging, exact production source/artifact hashes, fixture/collector
+agreement for 13 new checks, three evidence-parser tests and whitespace checks
+pass. Evidence: evidence/sprint-4/mission-catalog-removal-draft.json. Runtime
+checks were NOT_RUN: the protected launch check detected the active Dev9 user
+client, PID 52480, before mission installation or server start. Visual controls,
+loaded config inheritance, direct/remote guards and ordinary campaign behavior
+remain unverified at runtime. Keep this branch draft/unmerged and leave the
+manual client's immutable build unchanged. Six replacement mission behaviors
+remain open; the complete project goal and all unmet sprint gates remain open.

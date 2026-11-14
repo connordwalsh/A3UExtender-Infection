@@ -149,12 +149,12 @@ A3A_faction_occ set ["infectionTemplate",""]; ["CON",2,true] call A3A_fnc_missio
 [_target] call A3A_fnc_CON_Outpost_Compet;
 A3A_faction_occ set ["infectionTemplate","A3I_Infected"];
 A3I_dependencies set ["available",false]; ["CON",2,true] call A3A_fnc_missionRequest;
-A3I_dependencies set ["available",true]; ["DES",2,true] call A3A_fnc_missionRequest;
+A3I_dependencies set ["available",true]; ["LOG",2,true] call A3A_fnc_missionRequest;
 sidesX setVariable [_target,west]; [_target] call A3A_fnc_CON_Outpost_Compet;
 sidesX setVariable [_target,Invaders];
 ["comp_unrelated_routes_delegate",A3I_test_originals isEqualTo [
     ["missionRequest",["CON",2,true]],["competitiveMission",[_target]],
-    ["missionRequest",["CON",2,true]],["missionRequest",["DES",2,true]],
+    ["missionRequest",["CON",2,true]],["missionRequest",["LOG",2,true]],
     ["competitiveMission",[_target]]]] call _check;
 A3I_test_originals = []; A3I_majorSourceCooldowns set [_source,time + 600];
 ["CON",2,false] call A3A_fnc_missionRequest; sleep 0.2;

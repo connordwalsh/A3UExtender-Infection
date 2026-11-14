@@ -51,6 +51,11 @@ class CfgFunctions
     {
         class Originals
         {
+            class originalRequestMissionDialog { file = "\x\a3i\tests\contracts\fn_originalRequestMissionDialog.sqf"; };
+            class originalDestroyVehicle { file = "\x\a3i\tests\contracts\fn_originalDestroyVehicle.sqf"; };
+            class originalDestroyHeli { file = "\x\a3i\tests\contracts\fn_originalDestroyHeli.sqf"; };
+            class originalDestroyAntenna { file = "\x\a3i\tests\contracts\fn_originalDestroyAntenna.sqf"; };
+            class originalDestroyArtillery { file = "\x\a3i\tests\contracts\fn_originalDestroyArtillery.sqf"; };
             class originalMissionRequest { file = "\x\a3i\tests\contracts\fn_originalMissionRequest.sqf"; };
             class originalCompetitiveMission { file = "\x\a3i\tests\contracts\fn_originalCompetitiveMission.sqf"; };
             class originalChooseAttack { file = "\x\a3i\tests\contracts\fn_originalChooseAttack.sqf"; };

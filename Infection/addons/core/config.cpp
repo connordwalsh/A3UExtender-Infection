@@ -7,7 +7,7 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = 2.22;
-        requiredAddons[] = {"A3A_core", "A3A_ultimate", "A3A_scrt", "cba_main", "cba_settings"};
+        requiredAddons[] = {"A3A_core", "A3A_ultimate", "A3A_scrt", "A3A_gui", "cba_main", "cba_settings"};
         version = 0.1;
         versionStr = "0.1.0-dev";
         A3A_compatibility[] = {12, 4};
@@ -26,6 +26,7 @@ class CfgFunctions
             class initSettings { preInit = 1; };
             class dependencies {};
             class isActive {};
+            class hideRemovedMissionControl {};
             class isManagedUnit {};
             class initInfected {};
             class infectedDamageObserved {};
@@ -122,6 +123,11 @@ class CfgFunctions
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
             class originalMissionRequest { file = "\x\a3a\addons\core\functions\Missions\fn_missionRequest.sqf"; };
+            class originalRequestMissionDialog { file = "\x\a3a\addons\gui\functions\GUI\fn_requestMissionDialog.sqf"; };
+            class originalDestroyVehicle { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Vehicle.sqf"; };
+            class originalDestroyHeli { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Heli.sqf"; };
+            class originalDestroyAntenna { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Antenna.sqf"; };
+            class originalDestroyArtillery { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Artillery.sqf"; };
             class originalCompetitiveMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_Outpost_Compet.sqf"; };
             class originalNATOinit
             {
@@ -152,8 +158,16 @@ class CfgFunctions
     };
     class A3A
     {
+        class GUI
+        {
+            class requestMissionDialog { file = "\x\a3i\addons\core\overrides\fn_requestMissionDialog.sqf"; };
+        };
         class Missions
         {
+            class DES_Vehicle { file = "\x\a3i\addons\core\overrides\fn_DES_Vehicle.sqf"; };
+            class DES_Heli { file = "\x\a3i\addons\core\overrides\fn_DES_Heli.sqf"; };
+            class DES_Antenna { file = "\x\a3i\addons\core\overrides\fn_DES_Antenna.sqf"; };
+            class DES_Artillery { file = "\x\a3i\addons\core\overrides\fn_DES_Artillery.sqf"; };
             class missionRequest { file = "\x\a3i\addons\core\overrides\fn_missionRequest.sqf"; };
             class CON_Outpost_Compet { file = "\x\a3i\addons\core\overrides\fn_CON_Outpost_Compet.sqf"; };
         };
@@ -208,6 +222,8 @@ class CfgFunctions
         };
     };
 };
+
+#include "missionMenus.hpp"
 
 class CfgMarkers
 {

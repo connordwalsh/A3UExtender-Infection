@@ -18,20 +18,28 @@ to actual mission locations or the selected resource truck.
 | Rescue Missions | Extraction Mission | Rumors have circulated that a group of survivors are stranded near {Settlement}. Get out there and bring them to a friendly site. |
 | Supply Missions | Humanitarian Aid | {Settlement} has a lot of survivors who need our help. Deliver a package of supplies to them to buy time before we can move in for cleansing. |
 
-Destroy Missions and Random Missions were struck out without replacements.
-Their intended removal scope is awaiting clarification.
+Destroy Missions and Random Missions are removed completely in Infection
+campaigns, regardless of target faction. Merely loading the addon without
+selecting Infection must still preserve ordinary Ultimate campaigns.
+
+## Accepted scope and rules
+
+- The new catalog replaces all requested mission categories in Infection campaigns.
+- Requested combat missions target infected exclusively; Russian/gang target
+  variants are not retained in this catalog.
+- Supplies Seizure and Extraction deliveries accept Rebel HQ or Rebel-held
+  permanent sites, not Rebel-held towns alone.
+- Horde Interception fails when the horde reaches Settlement B.
+- Liquidation is always a straightforward infected-site clearance. This
+  supersedes the earlier requested competitive conquest/race-to-capture variant.
+  Existing automatic strategic attacks are not themselves requested missions.
 
 ## Pending decisions
 
-Questions sent to the owner:
-
-- Apply these replacements only to infected missions or also Russian/gang missions?
-- Disable Destroy and Random categories against infected?
-- Allow delivery at HQ, Rebel-held permanent sites, or also Rebel-held towns?
-
-Further behavior to resolve before implementation: horde arrival failure rules,
-eligible resource trucks and distribution, and whether Liquidation retains the
-existing competitive conquest variant. Answers are not inferred from briefings.
+Before implementing the relevant behaviors, clarify eligible resource trucks
+and their distribution, the precise horde arrival threshold, and Liquidation
+target types/capture rules where town political ownership differs from physical
+clearance. Do not infer answers from briefings.
 
 ## Source audit
 
@@ -57,10 +65,27 @@ timeout, cancellation and interrupted-cleanup handling. Rewards settle once.
 Spawning follows applicable approved budget rules; special targets remain
 inside the declared special-mission policy.
 
-Check direct requests, retained random/automatic callers and non-infected
-behavior under the scope decision. Multiplayer visibility, late joining,
+Check direct requests, disabled random entry points, automatic callers and
+ordinary campaigns with Infection unselected. Multiplayer visibility, late joining,
 campaign saves and manual gameplay remain separate acceptance checks.
 
-Status: requirements capture and source audit only. Gameplay implementation,
-packaging and runtime validation for this redesign: **NOT_RUN**. The active
-Dev9 game and its immutable artifact remain unchanged.
+## First implementation increment
+
+The draft blocks DES/RAN server requests before native delegation/random
+selection and before acquiring or modifying the mission-request lock. A client
+guard rejects RAN before Ultimate expands it to a concrete request. All four
+native DES functions have Infection guards, covering direct/automatic/HC entry
+points as well as the mission board. Both menu definitions hide and disable the
+removed controls when Infection is selected. Other categories retain native
+wording until their replacement objectives are implemented.
+
+An isolated 13-case fixture covers request rejection, missing-type random
+requests, preserving a busy request lock, GUI dispatch rejection, direct and
+remote Destroy calls, inactive/dependency-absent delegation, and loaded config
+inheritance. These cases are authored, not executed. Visual menu rendering and
+connected-client/HC execution require separate runtime acceptance.
+
+The Dev1 addon and fixture package successfully; three evidence-parser unit
+tests pass. Runtime validation is **NOT_RUN**: the protected launch check found
+the user's active Dev9 client (PID 52480), and no test server started. The active
+game, profile, mission installation and immutable Dev9 artifact remain unchanged.
