@@ -312,9 +312,22 @@ does not turn into a free town capture. No eligible source invokes the native
 political transaction without a rescue task or mission reward. A direct
 `townBattle` call chooses an approved nearby source and has no political fallback.
 
-The 130-input Dev1 candidate builds and passes eleven missing-dependency checks.
-Three parser tests and whitespace checks pass. Seventeen direct-entry/political
-cases are authored (121 focused total), but remain NOT_RUN while the parent
-controller regression and vehicle component use the test port. These tests are
-separate from a real ten-minute campaign economy cycle, connected-player
-proximity, other-faction campaign behavior and the full retained scene.
+The [130-input Dev2 candidate](../../evidence/sprint-3/liberation-dispatch-build.json)
+passes [124 focused checks](../../evidence/sprint-3/liberation-dispatch-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-dispatch-dependencies-absent.json).
+All production/PBO and 196 focused-report input hashes match. The twenty
+dispatch cases cover native political ownership, garrison and tier updates
+without rescue rewards; ordinary-faction delegation; direct nearby-source
+launch; duplicate claims; absent navigation/HQ data; and malformed, destroyed or
+insufficient-support towns. Source review added the missing-navigation/HQ guard
+before the first focused run, because a technical setup failure must not grant
+the peaceful fallback.
+
+No engine/SQF Error records occur. Nineteen focused warnings are retained:
+sixteen startup notices, two friendly-fire deliveries to deleted fixture actors
+and one absent-commander income message. Seven startup notices remain in the
+dependency-absent report. Three parser tests and whitespace checks pass. Both
+completed servers were stopped by verified identity. This candidate's combined
+regression is NOT_RUN. A real ten-minute campaign economy cycle, connected-player
+proximity, ordinary-faction campaign behavior and the full retained scene remain
+separate acceptance work.

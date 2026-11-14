@@ -36,6 +36,19 @@ destroyedSites = [_town];
 _result = [_town] call A3I_fnc_requestLiberation;
 ["lib_dispatch_destroyed_town_no_flip",!(_result # 0) && {sidesX getVariable _town == west}] call _check;
 destroyedSites = _savedDestroyed;
+private _savedNav = NavGrid; NavGrid = nil;
+_result = [_town] call A3I_fnc_requestLiberation;
+["lib_dispatch_missing_navigation_no_flip",!(_result # 0) && {sidesX getVariable _town == west}] call _check;
+NavGrid = _savedNav;
+private _savedHQ = respawnTeamPlayer; respawnTeamPlayer = "missing_hq";
+_result = [_town] call A3I_fnc_requestLiberation;
+["lib_dispatch_missing_hq_no_flip",!(_result # 0) && {sidesX getVariable _town == west}] call _check;
+respawnTeamPlayer = _savedHQ;
+townSkirmishes = [_town];
+_result = [_town] call A3I_fnc_requestLiberation;
+["lib_dispatch_existing_claim_no_flip",!(_result # 0) && {sidesX getVariable _town == west}
+    && {townSkirmishes isEqualTo [_town]}] call _check;
+townSkirmishes = [];
 bigAttackInProgress = true; A3I_majorGlobalOwner = "foreign";
 _result = [_town] call A3I_fnc_requestLiberation;
 ["lib_dispatch_busy_attack_no_flip",!(_result # 0) && {sidesX getVariable _town == west}

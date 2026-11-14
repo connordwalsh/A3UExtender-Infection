@@ -5,6 +5,8 @@ if (!isServer || {!canSuspend} || {isRemoteExecuted}) exitWith {[false,"server_l
 private _eligible = {
     if (!([west] call A3I_fnc_isActive) || {missionNamespace getVariable ["areOccupantsDefeated",false]}
         || {isNil "sidesX"} || {isNil "spawner"}
+        || {isNil "NavGrid"} || {isNil "A3A_navCellHM"}
+        || {!((missionNamespace getVariable ["respawnTeamPlayer",""]) in allMapMarkers)}
         || {!(_town in (missionNamespace getVariable ["citiesX",[]]))} || {!(_town in allMapMarkers)}
         || {sidesX getVariable [_town,sideUnknown] != west}
         || {_town in (missionNamespace getVariable ["destroyedSites",[]])}

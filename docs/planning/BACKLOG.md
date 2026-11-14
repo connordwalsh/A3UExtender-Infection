@@ -248,3 +248,11 @@ The owner chose to retain the native mission scene and survivor vehicle; that
 work and campaign dispatch remain open. The owner subsequently selected peaceful
 joining when no nearby eligible horde origin exists; the isolated dispatch branch
 is implementing that decision. No Computer Use or manual-client update occurred.
+
+Campaign-dispatch checkpoint: the approved peaceful fallback and native townBattle
+entry pass within 124 focused checks and eleven missing-dependency checks on a
+130-input candidate. The source comparison preserves the remaining resourcecheck
+body. All 196 focused inputs match, with no engine/SQF Error records. Busy claims
+and missing navigation/HQ data cannot trigger a free political capture. The
+parent controller's separate 777-case regression is incorporated; combined
+dispatch regression and an actual campaign economy cycle remain NOT_RUN.

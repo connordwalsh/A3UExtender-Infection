@@ -4,9 +4,9 @@
   "suite": "full",
   "expected_dependencies_present": false,
   "status": "passed",
-  "collected_at_utc": "2026-11-14T20:20:00.523659+00:00",
-  "source_log": "arma3server_x64_2026-11-14_15-19-02.rpt",
-  "source_log_sha256_at_collection": "0c5e56113caa4530c6441204e108c8f5db4e740c2ed69ad847b22ebc3c8339af",
+  "collected_at_utc": "2026-11-14T20:28:08.004084+00:00",
+  "source_log": "arma3server_x64_2026-11-14_15-25-38.rpt",
+  "source_log_sha256_at_collection": "158975d7679ad57ad95009901c0d2745c8ebbd03808c3bdcf8b810908b9faf51",
   "source_sha256_at_collection": {
     "tests/arma/infection_probe/template.VR/administrationChecks.sqf": "13bab6774aa13e69ff26a6e98cae431378c7f04b90bbf6cedc3620df0f8cf096",
     "tests/arma/infection_probe/template.VR/budgetChecks.sqf": "3bbc8ab2864ad8be0b19ee002427c7bff9c6a8339ce65f0e6b22fc15d62afbd6",
@@ -20,7 +20,7 @@
     "tests/arma/infection_probe/template.VR/garrisonChecks.sqf": "e97c22843f08c4c6ebc05649a35037a441da615b250c0e0b162b4d6333b34bb8",
     "tests/arma/infection_probe/template.VR/initServer.sqf": "5dc3aaf6203a0db63ea786f90fbda4ce8ce02f1cbaca3fc86fd6aea87a2e2a8b",
     "tests/arma/infection_probe/template.VR/liberationChecks.sqf": "6004196804f5ea8e99d509c1c5c58af21cfe9dbf06e02a21969c85365d366868",
-    "tests/arma/infection_probe/template.VR/liberationDispatchChecks.sqf": "cb3b8a1b6ade2e29b9d588aabbdfc5868567d5599582f8c19d2f189930c147e3",
+    "tests/arma/infection_probe/template.VR/liberationDispatchChecks.sqf": "018d4a29ebe17e457066a1bd81489c345f4147c1c436e2f38293ab2d5c2d16a5",
     "tests/arma/infection_probe/template.VR/liberationHordeChecks.sqf": "8888ffadf4db225a7906394e20fccc2151592c8d91fb62fa939358e647a4d6f0",
     "tests/arma/infection_probe/template.VR/liberationMissionChecks.sqf": "b5e1151368a7be872680864edb9b89f377683c8995a82ebf5d6c6ded2347c895",
     "tests/arma/infection_probe/template.VR/liberationSurvivorChecks.sqf": "211311657fd1314afff41a3d71c9b1b143eaf0e839bc813d510916623e51d467",
@@ -92,7 +92,7 @@
     "Infection/addons/core/functions/fn_reinforcementSources.sqf": "ed665b0bd3c6e162811b511252cc3f4a43110180270f8005887396a875385201",
     "Infection/addons/core/functions/fn_reinforcementTick.sqf": "e88bef754e5be14607ef2bcea710dcdadefa389cb8d18a91bf63d4dfacf55c45",
     "Infection/addons/core/functions/fn_reinforcementWatchdog.sqf": "55d03deab54566a149fb389035892f86ee6811d313053d2786f62a725336943d",
-    "Infection/addons/core/functions/fn_requestLiberation.sqf": "725bd77ec90ca0947b6c7cecaf7e2c0cc036597f3907185ef79e4280e777d9e2",
+    "Infection/addons/core/functions/fn_requestLiberation.sqf": "968cc755ded68d93f6e523c3f838770a2694d6de78709ac82a242aaf1a6d7038",
     "Infection/addons/core/functions/fn_requestReinforcement.sqf": "237995868506b65f35324ddec279dc17b5aaed885aaaa5689c0c2138b1b1301c",
     "Infection/addons/core/functions/fn_requestRescue.sqf": "d19d8c200ab5de28e04872b4542117966717da2c6a4bc7776a6c692abe9bad61",
     "Infection/addons/core/functions/fn_requestTacticalSupport.sqf": "8162d9553d312794bc54a6135540ef41db42db680884e773e9b2fc859f8d6a64",
@@ -180,31 +180,31 @@
   "error_lines": [],
   "warnings_for_review": [
     {
-      "line": 727,
+      "line": 729,
       "message": "Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
     },
     {
-      "line": 752,
+      "line": 754,
       "message": "Attempt to override final function - abz_fnc_load"
     },
     {
-      "line": 753,
+      "line": 755,
       "message": "Attempt to override final function - abz_fnc_queuesave"
     },
     {
-      "line": 754,
+      "line": 756,
       "message": "Attempt to override final function - abz_fnc_synccommit"
     },
     {
-      "line": 755,
+      "line": 757,
       "message": "Attempt to override final function - abz_fnc_save"
     },
     {
-      "line": 762,
+      "line": 764,
       "message": "Attempt to override final function - bis_fnc_storeparamsvalues_data"
     },
     {
-      "line": 763,
+      "line": 765,
       "message": "Attempt to override final function - hals_store_getnearbyvehicles"
     }
   ],
