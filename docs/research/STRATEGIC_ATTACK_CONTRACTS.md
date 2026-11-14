@@ -94,7 +94,7 @@ rebuilding/competitive missions and saved-campaign transitions remain separate
 acceptance work. Only the initial selector/credit/lifecycle checkpoint below has
 runtime evidence; the complete route matrix and campaign scenarios are NOT_RUN.
 
-## Selector development checkpoint
+## Selector development checkpoint before native wiring
 
 `majorAttackTargets` is a prototype on the strategic-attacks branch. It is
 registered for direct validation but is not wired into native campaign dispatch.
@@ -172,3 +172,43 @@ pending. Dev2 passes all 89 focused checks with no engine/SQF Error records and
 
 Campaign dispatch and offscreen simulation are the next increment. This branch
 is still a draft and is not installed in the manual client.
+
+## Campaign dispatch development checkpoint
+
+The active infected `chooseAttack` and `findAttackTargets` entries now route to
+nearby foot origins; ordinary factions, inactive templates and missing dependencies
+retain installed aliases. Target weighting preserves native HQ proximity, enemy
+balance and the 10:1 cull. Secured Rebel towns now select a horde rather than a
+supply convoy. Known HQ and active Invader sites use the same finite controller.
+Enemy-versus-enemy live attacks use Ultimate's intercepted-radio notification;
+its connected-player presentation has not been checked.
+
+Inactive Invader sites retain simulated territory battles, subject to walking
+reachability, readiness, activation/observation and ownership checks. Native
+markerChange, payment and virtual roster insertion execute in one local atomic
+transaction. The pinned offscreen Invader-to-Occupant branch acquires no flag
+and does not suspend. That eliminates the native ten-second gap between capture
+and the already-paid garrison. Native resource math, temporary debt and minimum
+twelve saved basic roles remain; no live actors or shared-budget slots are used.
+A refused native capture is not charged. Garrison size is computed after the
+ownership change, as in native chooseAttack. Town source population arrays are
+never replaced with military idle timestamps.
+
+An intermediate 106-input candidate passes [125 focused checks](../../evidence/sprint-3/major-dispatch-checkpoint.json)
+and [11 dependency-absent checks](../../evidence/sprint-3/major-dispatch-dependencies-absent.json).
+Its [manifest](../../evidence/sprint-3/major-dispatch-checkpoint-build.json) is
+separate from the later reviewed candidate. Native ownership, structured garrison
+lines, reinforcement metadata and capture events run for all six permanent target
+categories. Connected clients, presentation and complete campaign loops do not.
+The first dispatch fixture failed two rapid marker-reuse cases and deleted its
+campaign namespaces before native static-cleanup children completed. Waiting for
+that native cleanup before reuse and teardown gives the passing checkpoint;
+failed results are not accepted. Source review then moved garrison sizing after
+capture and enlarged test markers to check the new-owner size limit.
+
+The combined 648-check suite is running on that reviewed candidate. The five
+response fixtures now assert controller cleanup without deleting leftover groups
+for the implementation. Direct competitive-mission dispatch, native townBattle,
+simpleAttack, save/restart, actual Redux travel, connected-player task/reward
+presentation and representative performance remain open. No manual-client update,
+Computer Use or sprint acceptance is included.

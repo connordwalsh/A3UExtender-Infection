@@ -132,4 +132,5 @@ terminate (_job get "script");
     && {A3A_resourcesAttackOcc == 1} && {A3A_tasksData isEqualTo []}
     && {!bigAttackInProgress} && {forcedSpawn isEqualTo []}] call _check;
 call compile preprocessFileLineNumbers "majorLifecycleExtraChecks.sqf";
+call compile preprocessFileLineNumbers "majorDispatchChecks.sqf";
 [_savedCap,_savedContext] call _setLimits;

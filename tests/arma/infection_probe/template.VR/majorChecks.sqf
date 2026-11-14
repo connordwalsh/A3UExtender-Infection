@@ -1,5 +1,5 @@
 // Native town arrays, size/threat rules and navigation with controlled markers.
-// No campaign dispatch, simulated capture or live horde is exercised here yet.
+// Lifecycle and dispatch cases follow the selector checks below.
 private _before = entities [[],[],true,false];
 private _groupsBefore = +allGroups;
 sidesX = [true] call A3A_fnc_createNamespace;

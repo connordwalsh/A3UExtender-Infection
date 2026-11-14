@@ -99,6 +99,26 @@
     {
       "path": "core/functions/Base/fn_distance.sqf",
       "sha256": "88f857938eac24e76ab8b404c379f815097b7a6af1d6bfb95e484cb129796475"
+    },
+    {
+      "path": "core/functions/Garrison/fn_updateReinfState.sqf",
+      "sha256": "bb14265ea2750fe73420572e7b2765a53f1bbf1d11f0e71b7e6111ee0eb7555c"
+    },
+    {
+      "path": "core/functions/CREATE/fn_vehKilledOrCaptured.sqf",
+      "sha256": "3ed8797602aeb2236dc414373dd5ddb451e87472aa85acb38fc4c978730fd4d3"
+    },
+    {
+      "path": "core/functions/CREATE/fn_garrisonUpdate.sqf",
+      "sha256": "1860ac1642ee75399939bcef04b742b22a29bc40cab49f7416b8a377acaa600d"
+    },
+    {
+      "path": "core/functions/Events/fn_triggerLocalEvent.sqf",
+      "sha256": "2ba24006e549ed449f19d8ea203ffb280ed49f1ad2cd12237e0f02cc665e3b5a"
+    },
+    {
+      "path": "core/Params.hpp",
+      "sha256": "f658ae7078451911db9c9843654a7bbfba28a505457ff4a50a76d6a27b8db977"
     }
   ]
 }

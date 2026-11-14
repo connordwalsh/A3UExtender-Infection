@@ -19,6 +19,10 @@ if (_record get "targetOwner" == teamPlayer) then {
         _record get "position",false,0,true,"Defend",true] call BIS_fnc_taskCreate;
     [_record get "taskId",_record get "taskType","CREATED"] call A3A_fnc_taskUpdate;
     _record set ["taskRegistered",true];
+} else {
+    private _message = format [localize "STR_notifiers_wavedattack",
+        A3A_faction_occ get "name",A3A_faction_inv get "name",[_target] call A3A_fnc_localizar];
+    ["RadioIntercepted",[_message]] remoteExec ["BIS_fnc_showNotification",0];
 };
 while {time < _record get "endTime"} do {
     if (!([west] call A3I_fnc_isActive) || {missionNamespace getVariable ["areOccupantsDefeated",false]}

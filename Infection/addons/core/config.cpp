@@ -66,6 +66,8 @@ class CfgFunctions
             class rebuildSupportWatchdog {};
             class majorAttackTargets {};
             class majorSourceEligible {};
+            class chooseMajorAttack {};
+            class simulateMajorAttack {};
             class startMajorAttack {};
             class runMajorAttack {};
             class finishMajorAttack {};
@@ -108,6 +110,8 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
+            class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
             class originalNATOinit
             {
                 file = "\x\a3a\addons\core\functions\CREATE\fn_NATOinit.sqf";
@@ -154,6 +158,8 @@ class CfgFunctions
         };
         class Base
         {
+            class chooseAttack { file = "\x\a3i\addons\core\overrides\fn_chooseAttack.sqf"; };
+            class findAttackTargets { file = "\x\a3i\addons\core\overrides\fn_findAttackTargets.sqf"; };
             class scheduler { file = "\x\a3i\addons\core\overrides\fn_scheduler.sqf"; };
             class markerChange { file = "\x\a3i\addons\core\overrides\fn_markerChange.sqf"; };
             class cityChangeSide { file = "\x\a3i\addons\core\overrides\fn_cityChangeSide.sqf"; };
