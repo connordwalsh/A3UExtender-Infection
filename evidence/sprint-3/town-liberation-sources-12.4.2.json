@@ -115,6 +115,18 @@
     {
       "path": "core/Templates/Templates/Vanilla/Vanilla_Civ.sqf",
       "sha256": "e0a7c5262624198954d47d12ff08bd6c182a497bf2d4fbdd56a2d187e773fe57"
+    },
+    {
+      "path": "core/functions/OrgPlayers/fn_tierCheck.sqf",
+      "sha256": "b7b1a471f03b5b63ab76420a8e3d3f95896e7f9dfd0b40e92772402007bb4d9d"
+    },
+    {
+      "path": "core/functions/Garrison/fn_updatePreference.sqf",
+      "sha256": "6785bf4104f4ae2514d0fc56f213493959dc4e853c26d0b7a6c52767bd320667"
+    },
+    {
+      "path": "scrt/Location/fn_location_removeMilAdmin.sqf",
+      "sha256": "c7ab2cff1019470cee047257d06972127ae13b973142406a0848719c19a415b6"
     }
   ]
 }

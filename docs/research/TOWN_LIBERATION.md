@@ -2,7 +2,7 @@
 
 The owner selected survivor rescue and defense with a walking infected horde.
 This audit pins Ultimate 12.4.2 at `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`;
-the [28-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
+the [31-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
 records the exact inputs. This is source evidence, not runtime acceptance.
 
 ## Native entry and ownership
@@ -218,3 +218,28 @@ Further native-source review confirms these controller boundaries:
 The political fallback when there is no nearby origin still awaits the owner.
 No fallback is implemented by these helpers. Native decorative wrecks, damage,
 effects and the survivor vehicle also remain part of the full mission audit.
+
+## Parent controller draft (not runtime accepted)
+
+An isolated follow-on checkout adds direct local `startLiberation`, `runLiberation`,
+`finishLiberation` and watchdog functions. They claim the native task type and
+exact skirmish markers, create the human survivor/task, detect native recruitment,
+retain three minutes of preparation and launch the linked horde. An ineligible
+or busy source waits within the forty-minute overall deadline without stealing
+another attack's slot. This draft is not connected to campaign dispatch.
+
+Settlement separates success, early rescue failure, defense failure and technical
+cancellation. The immediate Rebel branch of the pinned `cityChangeSide` is adapted
+inside the atomic settlement, with its control/tier maintenance dispatched after
+five seconds. It preserves native task/ownership/garrison/support/aggression and
+HR/fund transactions, guards the native resource lock, and rechecks the survivor
+before success. Existing stronghold capture guards remain in the path. Completed
+paid liberation hordes retain the native sixty-second attack-release interval.
+
+The draft adds seventeen mission checks, bringing focused declarations to 96.
+They exercise real task metadata, humans/infected, resources and tier calculation;
+support/aggression delivery uses the existing observed fixture endpoints.
+Preparation, arrival and timer positions are injected. The 126-input Dev2 candidate
+builds and the parser/whitespace checks pass, but these new mission checks are
+NOT_RUN while the earlier candidate's combined regression occupies the test port.
+Do not treat this paragraph as mission or campaign acceptance.

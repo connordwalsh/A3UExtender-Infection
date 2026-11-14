@@ -13,7 +13,9 @@ private _liberation = _purpose == "liberation";
 private _parent = (missionNamespace getVariable ["A3I_liberations",createHashMap])
     getOrDefault [_mission,createHashMap];
 private _parentValid = {
-    !isRemoteExecuted && {_mission != ""} && {_parent getOrDefault ["name",""] == _mission}
+    !isRemoteExecuted && {_mission != ""}
+    && {_mission in (missionNamespace getVariable ["A3I_liberations",createHashMap])}
+    && {_parent getOrDefault ["name",""] == _mission}
     && {_parent getOrDefault ["town",""] == _target}
     && {_parent getOrDefault ["source",""] == _source}
     && {_parent getOrDefault ["phase",""] == "horde"}

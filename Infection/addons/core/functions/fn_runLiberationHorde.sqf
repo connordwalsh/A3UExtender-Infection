@@ -21,7 +21,9 @@ while {_record get "outcome" == "pending" && {time < _record get "endTime"}} do 
         exitWith {_record set ["outcome","cancelled"]};
     private _parentOutcome = [_parent] call A3I_fnc_liberationOutcome;
     if (_parentOutcome != "pending") exitWith {
-        _record set ["outcome",["cancelled","defended"] select (_parentOutcome == "won")];
+        _record set ["outcome",if (_parentOutcome == "won") then {"defended"} else {
+            if (_parentOutcome in ["survivor_lost","expired"]) then {_parentOutcome} else {"cancelled"}
+        }];
     };
     if (_record get "paidActors" == 0 && {time >= _record get "emptyDeadline"})
         exitWith {_record set ["outcome","no_force"]};
