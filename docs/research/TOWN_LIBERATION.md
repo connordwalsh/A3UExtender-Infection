@@ -14,8 +14,9 @@ skirmish roll may replace that political flip with `townBattle`. The normal
 caller searches same-side outposts within 3 km, then any same-side outpost;
 without any outpost it calls `cityChangeSide` directly. Infection must replace
 that source search with the approved nearby town/permanent-site walking policy.
-The owner has been asked whether the no-nearby-source case should retain the
-political flip or leave the town infected; that decision remains pending.
+The owner selected the peaceful political flip when no nearby eligible origin
+can send a horde. Existing task claims or a player already in the town are not
+an absent-origin result; those native refusal conditions remain distinct.
 
 `townBattle` is server-only and scheduled. It rejects already defeated factions
 and a Rebel player inside `max(200, town radius)` before creating anything. It
@@ -221,8 +222,8 @@ Further native-source review confirms these controller boundaries:
   trader and victory processing. Any replacement must isolate the infected-town
   branch and preserve the rest of that pinned routine.
 
-The political fallback when there is no nearby origin still awaits the owner.
-No fallback is implemented by these helpers. Native decorative wrecks, damage,
+The owner subsequently approved the peaceful no-origin fallback. It is not yet
+implemented by these helpers. Native decorative wrecks, damage,
 effects and the survivor vehicle also remain part of the full mission audit.
 
 ## Parent controller development checkpoint
@@ -280,12 +281,17 @@ startup/dependency notices, two friendly-fire deliveries to deleted fixture
 actors and one income message to the absent commander. The dependency-absent
 report retains seven startup notices. Three parser tests, PowerShell parsing
 and whitespace checks pass. Both focused servers were stopped by verified
-process/profile identities. The combined 777-case regression is now running;
-it is not yet accepted.
+process/profile identities. The [combined 777-case regression](../../evidence/sprint-3/liberation-controller-contract.json)
+passes, including all 67 role spawns. All 127 production inputs, the PBO and all
+190 collected inputs match. No engine/SQF Error records occur. Its 77 retained
+warnings comprise sixteen startup/dependency notices, fifty-six object-deletion
+notifications, three income messages to the absent commander and two friendly-fire
+deliveries to deleted fixture actors. The completed server was stopped by its
+verified process/profile identity.
 
 The owner selected retention of the native wrecks, bodies, fire/building damage
 and survivor vehicle. That scene is a separate implementation increment. Native
-campaign entry, the no-nearby-origin policy, connected-player rewards/UI, real
+campaign entry with the approved peaceful fallback, connected-player rewards/UI, real
 walking travel, defense pacing and full mission acceptance remain open.
 
 ## Retained scene: source audit and vehicle component
