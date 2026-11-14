@@ -20,8 +20,12 @@ attacking faction or horde origin is required for a clearance assignment.
 The helper neither requests a task nor captures territory. Existing mission
 dispatch is not connected to it yet. The 11 authored selection checks cover
 families, duplicate lists, tier restrictions, ownership, distance, field-control
-exclusion, missing dependencies and missing HQ. They are **NOT_RUN**. Config/PBO
-packaging and three parser tests pass; see the draft build receipt.
+exclusion, missing dependencies and missing HQ. All 11 selection cases plus
+11 shared cases pass in the isolated dedicated engine run. The report retains
+16 startup/dependency notices and no engine/SQF errors. All 129 production
+inputs and the PBO match the Dev1 manifest. Config/PBO packaging and three
+parser tests also pass. See `evidence/sprint-4/liquidation-targets-focused.json`;
+the older draft receipt records the earlier NOT_RUN checkpoint.
 
 ## Capture integration constraints
 
