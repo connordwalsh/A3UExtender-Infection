@@ -65,7 +65,9 @@ private _retireMission = {
         [{!((_horde get "name") in A3I_majorAttacks)}] call _wait;
     };
     private _removed = [{!((_mission get "name") in A3I_liberations)
-        && {[_mission] call _taskState == "MISSING"}}] call _wait;
+        && {[_mission] call _taskState == "MISSING"}
+        && {isNull (_mission getOrDefault ["vip",objNull])}
+        && {isNull (_mission getOrDefault ["vipGroup",grpNull])}}] call _wait;
     if (_pressure != "") then {["close",[_pressure]] call A3I_fnc_budget; _pressure = ""};
     _settled && {_removed}
 };
@@ -122,7 +124,9 @@ private _supportCalls = +A3I_test_support; private _aggressionCalls = +A3I_test_
 private _retired = [_mission] call _retireMission;
 ["lib_mission_success_cleanup_and_native_tier",_retired && {townSkirmishes isEqualTo []}
     && {tierWar == (1 + floor (9 * sqrt (1 / 1.4)))}
-    && {isNull (_mission get "vip")} && {alive _rescuer} && {units _rescuerGroup isEqualTo [_rescuer]}] call _check;
+    && {isNull (_mission get "vip")} && {alive _rescuer} && {units _rescuerGroup isEqualTo [_rescuer]},
+    [_retired,+townSkirmishes,tierWar,isNull (_mission get "vip"),alive _rescuer,
+        (units _rescuerGroup) apply {typeOf _x}]] call _check;
 
 _mission = call _launchMission;
 (_mission get "vip") setVariable ["incapacitated",true];
@@ -164,6 +168,47 @@ sidesX setVariable [_source,Invaders];
 ["lib_mission_source_loss_cancelled",_mission get "outcome" == "cancelled"
     && {A3I_test_support isEqualTo []} && {server getVariable "resourcesFIA" == 0}] call _check;
 [_mission] call _retireMission;
+
+// Interruption after child registration must retire the linked job as well.
+_mission = call _launchMission; [_mission] call _recruit;
+_reservation = ["reserve",["liberation:mission-pressure",1,1]] call A3I_fnc_budget;
+_pressure = _reservation # 1 # 0; (A3I_budgetRecords get _pressure) set [3,diag_tickTime + 600];
+_mission set ["readyAt",time - 1];
+[{!isNil {_mission get "majorRecord"}}] call _wait;
+_horde = _mission get "majorRecord";
+terminate (_mission get "script");
+[{_mission get "settled"}] call _wait;
+["lib_mission_stopped_parent_stops_child",_mission get "outcome" == "interrupted"
+    && {_horde get "outcome" == "cancelled"} && {_horde get "queue" isEqualTo []}
+    && {_horde get "creditRemaining" == 0} && {A3A_resourcesAttackOcc == 0}] call _check;
+["lib_mission_linked_interruption_retires",[_mission] call _retireMission
+    && {!bigAttackInProgress} && {forcedSpawn isEqualTo []} && {isNil "A3I_majorGlobalOwner"}] call _check;
+
+// A later unrelated attack may own the shared slot during preparation.
+_mission = call _launchMission; [_mission] call _recruit;
+bigAttackInProgress = true; A3I_majorGlobalOwner = "fixture_foreign_attack";
+_mission set ["readyAt",time - 1];
+[{!isNil {_mission get "lastLaunchFailure"}}] call _wait;
+["lib_mission_busy_slot_waits_without_stealing",_mission get "phase" == "prepare"
+    && {_mission get "outcome" == "pending"} && {isNil {_mission get "majorRecord"}}
+    && {bigAttackInProgress} && {A3I_majorGlobalOwner == "fixture_foreign_attack"}] call _check;
+_mission set ["outcome","cancelled"];
+[_mission] call _retireMission;
+["lib_mission_cancel_preserves_foreign_attack",bigAttackInProgress
+    && {A3I_majorGlobalOwner == "fixture_foreign_attack"} && {A3I_test_support isEqualTo []}] call _check;
+bigAttackInProgress = false; A3I_majorGlobalOwner = nil;
+
+// A pre-existing administration skirmish marker belongs to another caller.
+private _foreignAdmin = _sources # 7;
+milAdministrationsX = [_foreignAdmin]; townSkirmishes = [_foreignAdmin];
+_mission = call _launchMission;
+["lib_mission_shared_admin_claim_recorded",_foreignAdmin in (_mission get "claims")
+    && {_foreignAdmin in townSkirmishes}] call _check;
+_mission set ["outcome","cancelled"];
+[_mission] call _retireMission;
+["lib_mission_foreign_admin_claim_preserved",townSkirmishes isEqualTo [_foreignAdmin]
+    && {count A3I_liberationSkirmishClaims == 0}] call _check;
+townSkirmishes = []; milAdministrationsX = [];
 
 deleteVehicle _rescuer; [[_rescuerGroup]] call A3I_fnc_cleanupGroups;
 [{isNull _rescuerGroup && {isNil "A3I_groupCleanupHandle"}}] call _wait;

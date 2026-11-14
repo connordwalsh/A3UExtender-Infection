@@ -225,7 +225,7 @@ The political fallback when there is no nearby origin still awaits the owner.
 No fallback is implemented by these helpers. Native decorative wrecks, damage,
 effects and the survivor vehicle also remain part of the full mission audit.
 
-## Parent controller draft (not runtime accepted)
+## Parent controller development checkpoint
 
 An isolated follow-on checkout adds direct local `startLiberation`, `runLiberation`,
 `finishLiberation` and watchdog functions. They claim the native task type and
@@ -242,10 +242,18 @@ HR/fund transactions, guards the native resource lock, and rechecks the survivor
 before success. Existing stronghold capture guards remain in the path. Completed
 paid liberation hordes retain the native sixty-second attack-release interval.
 
-The draft adds seventeen mission checks, bringing focused declarations to 96.
-They exercise real task metadata, humans/infected, resources and tier calculation;
-support/aggression delivery uses the existing observed fixture endpoints.
-Preparation, arrival and timer positions are injected. The 126-input Dev2 candidate
-builds and the parser/whitespace checks pass, but these new mission checks are
-NOT_RUN while the earlier candidate's combined regression occupies the test port.
-Do not treat this paragraph as mission or campaign acceptance.
+The 126-input Dev2 candidate passes 102 focused checks, including 23 parent
+mission cases, and 11 missing-dependency checks. These exercise real task
+metadata, humans/infected, resources and tier calculation; support/aggression
+delivery uses the existing observed fixture endpoints. Preparation, arrival and
+timer positions are injected. All production and focused-report input hashes
+match, with no engine/SQF Error records. Three parser tests pass. Rejected
+attempts exposed observation races: the fixture now waits for exact survivor
+and original-group deletion and the queued native living-despawn refund before
+asserting cleanup or resetting the next case. Assertions remain in place.
+
+Source review after this checkpoint found that player rewards and the native HR
+cap must use the war level after the town's delayed tier update. Dev2 pays before
+that update. The ordering correction is still required; the passing focused
+report does not certify that untested case, native campaign dispatch or full
+mission acceptance. The combined controller regression remains NOT_RUN.
