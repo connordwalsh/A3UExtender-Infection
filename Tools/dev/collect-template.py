@@ -466,6 +466,33 @@ COMPETITIVE_CHECKS = {
 }
 
 
+LIBERATION_CHECKS = {
+    'lib_sources_registered',
+    'lib_all_permanent_sources',
+    'lib_target_excluded_duplicates_collapsed',
+    'lib_non_town_refused',
+    'lib_rebel_town_refused',
+    'lib_invader_town_refused',
+    'lib_existing_skirmish_refused',
+    'lib_forced_target_refused',
+    'lib_other_attack_preserved',
+    'lib_other_horde_preserved',
+    'lib_defeated_refused',
+    'lib_inactive_refused',
+    'lib_missing_dependencies_refused',
+    'lib_unowned_sources_refused',
+    'lib_active_source_refused',
+    'lib_source_cooldown_honored',
+    'lib_combat_source_refused',
+    'lib_distant_source_refused',
+    'lib_disconnected_source_refused',
+    'lib_scheduled_only',
+    'lib_selection_has_no_campaign_effects',
+    'lib_no_external_origin_empty',
+    'lib_sources_cleanup',
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -496,14 +523,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | COMPETITIVE_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | COMPETITIVE_CHECKS | LIBERATION_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "liberation"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
                           "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
-                          "competitive": COMPETITIVE_CHECKS}
+                          "competitive": COMPETITIVE_CHECKS, "liberation": LIBERATION_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -546,7 +573,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "competitive", "liberation"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

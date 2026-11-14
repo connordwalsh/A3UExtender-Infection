@@ -81,6 +81,7 @@ class CfgFunctions
             class finishCompetitiveMission {};
             class competitiveCapture {};
             class competitiveWatchdog {};
+            class liberationSources {};
             class startSite {};
             class runSite {};
             class cleanupSite {};

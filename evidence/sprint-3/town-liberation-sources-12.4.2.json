@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "scope": "Town liberation source audit; implementation and runtime acceptance remain pending",
+  "ultimate_version": "12.4.2",
+  "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "sources": [
+    {
+      "path": "core/functions/init/fn_resourcecheck.sqf",
+      "sha256": "c306affdeb61926ad1ee58112b4d542dfecfeb66ce60dc482c8a55a1bd4d1def"
+    },
+    {
+      "path": "core/functions/CREATE/fn_townBattle.sqf",
+      "sha256": "e1bcf521654eaf7524a260f544ef6403d75404a8c2aac71c5807fc39cb273634"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAttackForceMixed.sqf",
+      "sha256": "fbea2540e62bc80a44eec99fb081e3b3b10766520d000ae4b8776caee7ecb3ee"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createUnit.sqf",
+      "sha256": "cef93e3420643830aad242b1bca1c655a54ce4125d45851ba89e49c2f76a3c92"
+    },
+    {
+      "path": "core/functions/AI/fn_liberateVIP.sqf",
+      "sha256": "4046383deb6c63e09137b9be09839642d64ea54e51ffa3ce127ef7ddafdda87e"
+    },
+    {
+      "path": "core/functions/Base/fn_flagaction.sqf",
+      "sha256": "a550020b26f3da4d950fca0d4e48df91077e38375912e20fdf4b7f954db3be83"
+    },
+    {
+      "path": "core/functions/REINF/fn_FIAinit.sqf",
+      "sha256": "7551bebb7665440dad16251ae3fe13f9f8523acbc917377aa2384f36da448335"
+    },
+    {
+      "path": "core/functions/Utility/fn_createRandomIdentity.sqf",
+      "sha256": "1f4b414ec6cfb2564a8dc3f7e5c414466d6c1693a932af2dcfab397a68009d77"
+    },
+    {
+      "path": "core/functions/Base/fn_cityChangeSide.sqf",
+      "sha256": "8c9db1effcafb60c655880663c63bd2216cee90b63e486d65330b6c31c0a9a46"
+    },
+    {
+      "path": "core/functions/Base/fn_citySupportChange.sqf",
+      "sha256": "9c3fa96e1769d770d76e2c741c8aaca416a780f26b6ad25b4201c42b48bcbcc2"
+    },
+    {
+      "path": "core/functions/Base/fn_resourcesFIA.sqf",
+      "sha256": "4d4e716f7960b58a9d1ea3858b9065f8c5a40c5aa6a9f203123eecb77a516596"
+    },
+    {
+      "path": "core/functions/Missions/fn_taskUpdate.sqf",
+      "sha256": "80ef623454f5236d26b3769b5c0f5f5fa7f01deb6ba8d3368890bcfdd2e5f66a"
+    },
+    {
+      "path": "core/functions/Missions/fn_taskSetState.sqf",
+      "sha256": "ab2bf791ed2240ce7fa949fa0839206eb93a5c2147e920f5b173a2e041e2b0e9"
+    },
+    {
+      "path": "core/functions/Missions/fn_taskDelete.sqf",
+      "sha256": "db6ecf1a4e66d54693db0edef62ec05663b59d3811554da4b9f0a39b603a9524"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAICities.sqf",
+      "sha256": "146b4d1a7d3db93656739c38409f4bce80235e2141411d76b8978100ad801e2f"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createAIMilAdmin.sqf",
+      "sha256": "d6a27ece318f033d44e948a52266698fb4112e59f3a0a6ad0c3d3c893224ebe8"
+    },
+    {
+      "path": "ultimate/functions/effects/fn_createCrashedVehicle.sqf",
+      "sha256": "b5e1de9214849fe29e48b74862b38388ef656ebf970ead7e74153f1bfa4f21e7"
+    },
+    {
+      "path": "ultimate/functions/effects/fn_createDeadSoldiers.sqf",
+      "sha256": "66ff705f921d448b1e1ce4a415101a0da1ab4312bc78ea06afe598c7385591f3"
+    },
+    {
+      "path": "core/Params.hpp",
+      "sha256": "f658ae7078451911db9c9843654a7bbfba28a505457ff4a50a76d6a27b8db977"
+    },
+    {
+      "path": "scrt/Stringtable.xml",
+      "sha256": "1ae93204bbde8d51a50c2034e9609256ba01b8aacf48e26ea6337e15b62d31e2"
+    }
+  ]
+}

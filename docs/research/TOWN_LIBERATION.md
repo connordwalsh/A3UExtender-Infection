@@ -1,0 +1,104 @@
+# Town liberation: source contracts
+
+The owner selected survivor rescue and defense with a walking infected horde.
+This audit pins Ultimate 12.4.2 at `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`;
+the [20-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
+records the exact inputs. This is source evidence, not runtime acceptance.
+
+## Native entry and ownership
+
+`resourcecheck` evaluates towns every ten minutes while players are active.
+A non-destroyed, non-skirmish town can join the Rebels when Rebel support is at
+least 1.5 times government support. Population at least twenty and the configured
+skirmish roll may replace that political flip with `townBattle`. The normal
+caller searches same-side outposts within 3 km, then any same-side outpost;
+without any outpost it calls `cityChangeSide` directly. Infection must replace
+that source search with the approved nearby town/permanent-site walking policy.
+The owner has been asked whether the no-nearby-source case should retain the
+political flip or leave the town infected; that decision remains pending.
+
+`townBattle` is server-only and scheduled. It rejects already defeated factions
+and a Rebel player inside `max(200, town radius)` before creating anything. It
+registers a `townBattle` task and adds the town and closest administration to
+`townSkirmishes`. The town remains enemy-owned throughout the defense. A generic
+major-capture controller cannot be reused unchanged: it rejects WEST targets
+and would interpret WEST ownership as an already completed infected capture.
+
+## Survivor and attack phases
+
+Native creation puts a civilian leader beside a Rebel vehicle, initializes the
+leader without replacing its equipment, and offers `flagaction`'s `townVIP`
+action. `liberateVIP` rejects an undercover CIV rescuer, removes the action,
+ends the ambient animation and joins the leader to the rescuer's group. The
+mission detects that group change. Infection must use a verified human civilian
+role; the native fallback to the Occupant official would create an infected VIP.
+The selected civilian faction and WBK targeting/infection settings remain inputs.
+
+Native recruitment allows 40 minutes. Incapacitation or leaving the town's
+failure radius fails the rescue. Recruitment begins a three-minute preparation,
+then a conventional mixed air/land force. Its allowance depends on population
+and player scale. The owner-selected replacement is one finite walking horde
+using shared active capacity, with actual paid births and gradual arrivals.
+The full independent town infestation remains active during this mission, per
+the owner's explicit town-population decision.
+
+The original defense ends after ten minutes, at 30% remaining attackers, when
+the survivor cannot fight/leaves, or when the overall mission expires. Its final
+success expression omits the survivor condition; simultaneous survivor loss and
+timer/force completion can therefore produce success. The infected adapter must
+require a viable survivor at settlement, and must not award success for zero
+spawned attackers or treat a waiting queue as defeated actors.
+
+## Settlement and cleanup contracts
+
+Success calls native `cityChangeSide`, changes nearby support, reduces Occupant
+aggression, and grants player/commander rewards. Native HR and faction funds use
+population and the `overallHRGain` multiplier. Early rescue failure applies
+`[10,-10,town,false]` support. Failed defense applies nearby/local Rebel support
+penalties plus `-4 * population * player scale` attack resources. A technical
+cancellation must not silently grant those rewards or failure penalties.
+
+Native cleanup has several shared owners: task metadata, `townSkirmishes`,
+`bigAttackInProgress`, `forcedSpawn`, the joined VIP, effects/vehicles and attack
+groups. The infected implementation needs exact ownership and interrupted-worker
+recovery; it must never delete a player's group or release another attack's flag.
+Post-mission corpses and groups should use the existing deferred cleanup contract.
+
+The original decorative effects assume nonempty vehicle/building pools, damage
+nearby buildings and create dead actors and fires. These are separate from the
+defense objective. Any retained effects need checked classes, positions and
+cleanup ownership rather than fallback infected crew or empty random selections.
+
+## Validation required before integration
+
+- Native entry/delegation, selected source distance/readiness/cooldown and the
+  owner's pending no-source policy; duplicate and ownership-change rejection.
+- Real human leader creation/recruitment, default WBK behavior, action delivery,
+  failure radius, death/incapacitation and same-frame failure precedence.
+- Shared-cap births, bounded queue/debt, preparation and physical arrival,
+  source interruption, no-force cancellation and full-town population coexistence.
+- Real native task/territory/resource settlement exactly once; cancellation and
+  worker interruption at each registration boundary.
+- No leftover owned actors, groups, callbacks, task claims or attack flags;
+  survivor/player groups and unrelated attacks remain intact.
+
+Connected-player interaction, Redux travel/placement, longer defense pacing,
+multiplayer/JIP and save/restart require separate evidence. No town-liberation
+runtime checks have run and no campaign/sprint gate is closed.
+
+## Selector development checkpoint
+
+`liberationSources` is registered for direct validation on this separate branch.
+It accepts infected-held towns, excludes the target itself, preserves the native
+nearby-player refusal and rejects existing skirmish/attack claims. Nearby towns
+and all approved permanent source types use the existing walking-route,
+ownership, cooldown, combat and observer checks. Selection has no task, actor,
+resource or ownership side effects. It does not implement the pending political
+fallback and is not connected to native mission dispatch.
+
+The first selector candidate builds successfully and passes
+[11 missing-dependency checks](../../evidence/sprint-3/liberation-selector-dependencies-absent.json).
+Its [manifest](../../evidence/sprint-3/liberation-selector-build.json) records
+118 production inputs. The dedicated selector fixture contains 23 cases
+(34 with startup checks); that focused run has not started while the previous
+strategic/conquest combined regression owns the test profile.
