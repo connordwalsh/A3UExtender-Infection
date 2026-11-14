@@ -24,10 +24,11 @@ if (!_virtual && { !(_site getOrDefault ["kind",""] in ["Resource","Outpost","Mi
 private _units = units _group select {alive _x};
 if (_units isEqualTo []) exitWith {[false,0,"empty_group"]};
 private _ticket = (_units # 0) getVariable ["A3I_budgetTicket",""];
-if (_ticket == "" || {(_units findIf {
+private _paidPool = (_units # 0) getVariable ["A3A_resPool",""];
+if (_ticket == "" || {!(_paidPool in ["attack","defence"])} || {(_units findIf {
     !local _x || {!([_x] call A3I_fnc_isManagedUnit)}
     || {!(_x getVariable ["A3I_reinforcementPaid",false])}
-    || {_x getVariable ["A3A_resPool",""] != "defence"}
+    || {_x getVariable ["A3A_resPool",""] != _paidPool}
     || {_x getVariable ["markerX",""] != ""}
     || {_x getVariable ["A3I_budgetTicket",""] != _ticket}
     || {_x distance2D getMarkerPos _marker > 200}

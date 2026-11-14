@@ -3,8 +3,9 @@
 Baseline: Ultimate 12.4.2 at
 `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`. The
 [source manifest](../../evidence/sprint-3/support-sources-12.4.2.json) pins this
-inspection. This is preparation for the next S3 increment, not an implemented
-support policy or the complete Gate 3 route matrix.
+inspection. A foot-support prototype is now implemented on the tactical-support
+feature branch; engine validation is in progress. This is not the complete Gate 3
+route matrix or campaign acceptance.
 
 ## Selection and direct entry points
 
@@ -81,3 +82,31 @@ support telemetry, duplicate suppression and empty final controller state.
 Keep actual native selection/lock behavior in the fixture where possible.
 Redux travel, connected-player observation, full rebuilding missions and warning
 wording remain separate campaign acceptance scenarios.
+
+## Prototype implementation
+
+The adapter keeps native initialization, target weighting, threat budgets and
+shared call-lock selection. Infection's registry contains only QRFLAND; direct
+conventional createSupport requests return no support. The two direct rebuilding
+constructors both dispatch to the same foot worker. Ordinary factions and missing
+dependency cases delegate to installed originals.
+
+Each job selects a safe land source within 2 km, claims its native one-minute
+idle period, and plans basic infected at 10 resources each. Planning respects
+the caller's exact allowance, three native vehicle allowances, current funds
+and a 64-actor ceiling. Actual births debit the selected pool; estimates populate
+native spend/strike history without prepayment. Four-actor batches share the
+non-town budget and stage at 15-second intervals for at most 600 seconds.
+
+The worker uses native QRF search/retreat thresholds and an 1800-second lifetime
+after its requested delay. Arrival and outstanding defenders guard native capture
+requests. A final 60-second handoff window admits only arrived, paid groups into
+eligible persistent garrisons. The shared adoption contract now accepts uniformly
+paid attack or defence groups; mixed pools are refused. Cleanup owns only actors
+still in the response context, waits for observers and refunds healthy births
+once. Stopped workers use the same recovery path.
+
+The dedicated fixture exercises real native initialization, support selection,
+budget calculation and artillery exclusion. Ordinary constructor endpoints are
+recorded, navigation is synthetic, and arrival/deadline changes are injected.
+Focused and combined validation results will be recorded after completed runs.
