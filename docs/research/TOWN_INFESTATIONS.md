@@ -34,6 +34,14 @@ The model is centralized for later customization; no new mandatory mod is added.
 | Elektrozavodsk | 603 | 198 |
 | Chernogorsk | 1,176 | 200 |
 
+![Approved logistic population curve](town-density/selected-logistic.png)
+
+The [vector plot](town-density/selected-logistic.svg),
+[all 49 town counts](town-density/selected-town-counts.csv), and
+[selected parameters](town-density/selected-model-parameters.json) are reproduced
+by `Tools/dev/plot-selected-town-density.py`. The counts match the engine fixture's
+49 pinned inputs. The earlier 180-cap two-model comparison remains historical.
+
 Only infected WEST ownership uses this controller. Other factions and missing
 dependencies retain the installed native creator. Support, marker size, frontline
 status and destruction do not scale the target. Frontline and ruined status
@@ -54,6 +62,16 @@ states still apply: state 0 is active, state 1 suspends existing actors, and
 state 2 ends the visit and cleans up. Ownership loss cancels waiting births;
 existing actors remain until normal cleanup. Killed infected do not regenerate
 within the visit. A later visit starts with the complete population again.
+
+Both native ownership paths, `markerChange` and the support-driven
+`cityChangeSide`, start a missing town controller after the native transaction
+returns. The capture-response controller also handles this transition. The
+current owner, dependency state and distance state are checked again at handoff;
+an offscreen town waits for normal activation, and state 1 retains the queue
+until simulation resumes. An existing visit is reused without refilling its
+casualties. The previous creator retains its assets and location events.
+The owner explicitly directed default Ultimate conventions for ownership changing
+away and back during a visit; there is no additional recapture reset or refill.
 
 Town casualties use native legacy resource/support bookkeeping and never write
 a persistent garrison. Town ownership stays with Ultimate's support and ownership
@@ -102,16 +120,34 @@ birth locations, movement, deaths, per-visit regeneration, ownership changes,
 simulation, route retries and interruption during creation. The full regression
 also exercises the unchanged non-town budget, sites, reinforcement and responses.
 
-The [focused report](../../evidence/sprint-2/town-infestation-focused.json) passes
-all 68 checks (57 town checks plus 11 startup/activation checks), with no
-engine/SQF Error records and 20 retained dependency/deletion warnings. The
-200-actor town and 21-actor neighbor completed activation in 22.89 seconds while
-two additional actors occupied the non-town budget. The large town used 17 groups.
-The final fixture state had no extra actors, groups, tickets or site records.
-All 82 addon source files and the PBO match the
-[build manifest](../../evidence/sprint-2/town-infestation-build.json).
+The [first full regression](../../evidence/sprint-2/town-infestation-initial-regression.json)
+passes 453 checks on the 82-file population build, with no engine/SQF Error
+records and 56 retained dependency/deletion warnings. Its source and fixture
+bytes were snapshotted before the follow-up ownership edits; its hashes match
+the [initial build manifest](../../evidence/sprint-2/town-infestation-build.json).
 
-Full regression is in progress; it also explicitly checks the non-spawner flag.
+The [ownership-focused report](../../evidence/sprint-2/town-infestation-ownership-focused.json)
+passes 78 checks (67 town checks plus 11 startup/activation checks), with no
+engine/SQF Error records and 20 retained warnings. The 200-actor town and 21-actor
+neighbor completed activation in 23.434 seconds while two additional actors
+occupied the non-town budget. The large town used 17 groups. These timings are
+fixture observations, not a representative performance benchmark. The final
+state had no extra actors, groups, tickets or site records. All 83 addon source
+files and the PBO match the
+[ownership build manifest](../../evidence/sprint-2/town-infestation-ownership-build.json).
+The [updated dependency-absent report](../../evidence/sprint-2/town-infestation-ownership-dependencies-absent.json)
+passes all 11 checks.
+
+The ownership checks exercise active, suspended and offscreen handoffs,
+duplicate requests, native refusal, missing dependencies, and loss of ownership
+during the installed `cityChangeSide` transaction's five-second wait. The first
+two attempts at the latter check used a local-only owner change that was later
+overwritten by the native WEST broadcast. Diagnostics observed EAST immediately
+after the test write and WEST at handoff. The corrected fixture uses the same
+public ownership update as native campaign transactions and observes EAST at
+handoff, with no controller created. Those rejected attempts are not pass evidence.
+
+Final combined regression of the ownership handoffs is in progress.
 A synthetic dedicated fixture cannot certify Redux
 street navigation, connected-player visibility, multiplayer/JIP, saves or
 representative crowded-town performance. The earlier small-patrol evidence in

@@ -298,6 +298,86 @@ private _retried = [_routeGroup,_marker] call A3I_fnc_patrolWaypoints;
 ["city_route_retry_delay",_retry > diag_tickTime && {_early isEqualTo []} && {_keptDeadline} && {_retried isNotEqualTo []}] call _check;
 ["cancel",[_routeSpawn # 1 # 2]] call A3I_fnc_budget;
 ["city_human_route_untouched",([_civilianGroup,_marker] call A3I_fnc_patrolWaypoints) isEqualTo []] call _check;
+
+// Active towns must start after either ownership transaction, without waiting
+// for a distance-state transition. The political route calls the installed
+// native cityChangeSide, including its five-second ownership race window.
+["city_ownership_hooks_registered",getText (configFile >> "CfgFunctions" >> "A3A" >> "Base" >> "cityChangeSide" >> "file")
+    == "\x\a3i\addons\core\overrides\fn_cityChangeSide.sqf"
+    && {getText (configFile >> "CfgFunctions" >> "A3I" >> "Originals" >> "originalCityChangeSide" >> "file")
+        == "\x\a3a\addons\core\functions\Base\fn_cityChangeSide.sqf"}] call _check;
+A3A_townData set [_marker,[10,2,60,40]];
+_marker setMarkerSize [100,100];
+sidesX setVariable [_marker,east]; spawner setVariable [_marker,0];
+private _eventsBeforeHandoff = count A3I_test_siteEvents;
+private _expectedReturn = count A3I_test_originals;
+private _nativeReturn = [west,_marker] call A3A_fnc_markerChange;
+["city_rejected_native_change_does_not_spawn",!(_marker in A3I_sites)
+    && {sidesX getVariable _marker == east} && {_nativeReturn isEqualTo _expectedReturn}] call _check;
+A3I_test_applyMarkerChange = true;
+[west,_marker] call A3A_fnc_markerChange;
+_record = A3I_sites get _marker;
+[{_record get "queue" isEqualTo []}] call _wait;
+["city_active_capture_starts_population",count (_record get "units") == 10
+    && {!(_record get "announced")} && {!(_record get "assets")}
+    && {count A3I_test_siteEvents == _eventsBeforeHandoff} && {alive _civilian}] call _check;
+((_record get "units") # 0) setDamage 1;
+sleep 0.3;
+private _visitId = _record get "id";
+[west,_marker] call A3A_fnc_markerChange;
+["city_capture_handoff_retains_visit",(A3I_sites get _marker) get "id" == _visitId
+    && {_record get "spawnedCount" == 10} && {({alive _x} count (_record get "units")) == 9}] call _check;
+private _handoffUnits = +(_record get "units");
+[] call _stop;
+{deleteVehicle _x} forEach _handoffUnits;
+A3I_test_applyMarkerChange = false;
+A3I_test_markerUpdates = [];
+sidesX setVariable [_marker,east]; spawner setVariable [_marker,0];
+private _politicalReturn = [_marker,false] call A3A_fnc_cityChangeSide;
+_record = A3I_sites get _marker;
+[{_record get "queue" isEqualTo []}] call _wait;
+["city_native_support_change_starts_population",sidesX getVariable _marker == west
+    && {count (_record get "units") == 10} && {garrison getVariable _marker isEqualTo []}
+    && {[_marker] in A3I_test_markerUpdates} && {isNil "_politicalReturn"}
+    && {count A3I_test_siteEvents == _eventsBeforeHandoff}] call _check;
+[] call _stop;
+sidesX setVariable [_marker,east]; spawner setVariable [_marker,1];
+[_marker,false] call A3A_fnc_cityChangeSide;
+_record = A3I_sites get _marker; sleep 1.2;
+["city_suspended_capture_waits_for_activation",_record get "units" isEqualTo []
+    && {count (_record get "queue") == 10}] call _check;
+spawner setVariable [_marker,0];
+[{_record get "queue" isEqualTo []}] call _wait;
+["city_suspended_capture_resumes_population",count (_record get "units") == 10] call _check;
+[] call _stop;
+sidesX setVariable [_marker,east];
+[_marker,false] call A3A_fnc_cityChangeSide;
+["city_offscreen_capture_waits_for_visit",sidesX getVariable _marker == west && {!(_marker in A3I_sites)}] call _check;
+sidesX setVariable [_marker,east]; spawner setVariable [_marker,0];
+A3I_dependencies set ["available",false];
+[_marker,false] call A3A_fnc_cityChangeSide;
+private _missingDidNotSpawn = !(_marker in A3I_sites) && {sidesX getVariable _marker == west};
+A3I_dependencies set ["available",true];
+sidesX setVariable [_marker,east]; A3A_faction_occ set ["infectionTemplate",""];
+[_marker,false] call A3A_fnc_cityChangeSide;
+["city_inactive_ownership_hooks_delegate",_missingDidNotSpawn && {!(_marker in A3I_sites)}
+    && {sidesX getVariable _marker == west}] call _check;
+A3A_faction_occ set ["infectionTemplate","A3I_Infected"];
+sidesX setVariable [_marker,east];
+private _raceBegan = diag_tickTime;
+private _cityScript = [_marker,false] spawn A3A_fnc_cityChangeSide;
+private _raceObserved = [{sidesX getVariable _marker == west}] call _wait;
+private _raceAtFlip = [diag_tickTime - _raceBegan,sidesX getVariable _marker,scriptDone _cityScript];
+// Match native ownership transactions: a local-only update can be overwritten
+// by the earlier WEST broadcast on the global namespace object.
+sidesX setVariable [_marker,east,true];
+private _raceImmediateOwner = sidesX getVariable _marker;
+[{scriptDone _cityScript}] call _wait;
+["city_capture_handoff_rechecks_current_owner",scriptDone _cityScript && {!(_marker in A3I_sites)}
+    && {sidesX getVariable _marker == east} && {alive _civilian},
+    [_raceObserved,_raceAtFlip,_raceImmediateOwner,sidesX getVariable _marker,_marker in A3I_sites]] call _check;
+spawner setVariable [_marker,2];
+A3I_test_applyMarkerChange = nil;
 deleteVehicle _civilian; deleteGroup _civilianGroup;
 sleep 3;
 {deleteGroup _x} forEach (allGroups - _groupsBefore);

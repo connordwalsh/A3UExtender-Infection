@@ -48,13 +48,15 @@ The [site implementation](SITE_SPAWNING.md) records the remaining campaign gates
 | `CREATE/fn_createAIAirplane.sqf` | Airports use the shared controller, flag and crate, without infected aircraft or crews. |
 | `Base/fn_scheduler.sqf` | These four entry points run on the server when the marker is Infection-owned; unrelated functions and arguments delegate untouched. |
 | `Base/fn_mrkWIN.sqf` | Deny a flag attempt while an active site's queued defenders remain; otherwise delegate before any ordinary action/reward code. |
-| `Base/fn_markerChange.sqf` | Apply the queued-defender guard on the authoritative ownership-change path; the existing ownership transaction remains upstream. |
+| `Base/fn_markerChange.sqf` | Apply the queued-defender guard on the authoritative ownership-change path; the existing ownership transaction remains upstream. Afterward, start a missing active infected town controller without duplicating the previous creator's assets or events. |
+| `Base/fn_cityChangeSide.sqf` | Keep the native support-driven town transaction, then start a missing active infected town controller after rechecking the resulting owner and spawn state. Existing visits are reused. |
 | `AI/fn_surrenderAction.sqf` | Registered prepared infected keep their AI instead of receiving human surrender commands. All other actors delegate. |
 
 | Original source | SHA-256 |
 | --- | --- |
 | `Base/fn_scheduler.sqf` | `8daab3180fa8a1d6e6cc2c438e8e86f074ed77fd0d10d570da75480cc3c663c5` |
 | `Base/fn_markerChange.sqf` | `4b283a4359190453daa5179c07616869a7e161cfd0c56a853278d3bbc2e25f5a` |
+| `Base/fn_cityChangeSide.sqf` | `8c9db1effcafb60c655880663c63bd2216cee90b63e486d65330b6c31c0a9a46` |
 | `Base/fn_mrkWIN.sqf` | `47c08fea41f09a21f3e6fcb0050983b4fc579715877ed6e1b3e7bff62995c7c3` |
 | `AI/fn_surrenderAction.sqf` | `62cfc41490be6bb351da45869315386bc8933c5e121288cbd2d4b194a2da734e` |
 | `CREATE/fn_createAIResources.sqf` | `0c3f70883fbc744ed64a832121f5e3d63d9050b9ee540518ae6d820fb91f67f0` |

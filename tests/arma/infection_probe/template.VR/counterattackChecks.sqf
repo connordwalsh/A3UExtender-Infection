@@ -215,12 +215,19 @@ call _stopSite;
 
 // Town recapture keeps Ultimate's transient patrol model, not a saved roster.
 resourcesX = []; citiesX = [_target];
+A3A_townData = createHashMapFromArray [[_target,[10,0,50,50]]];
+destroyedSites = [];
 _record = call _newPair; sidesX setVariable [_target,west];
 _finished = call _waitJob;
 private _townRefund = [{A3A_resourcesDefenceOcc == 100},3] call _wait;
 ["counter_town_capture_no_saved_garrison",_finished && {_townRefund}
-    && {_record get "outcome" == "captured"} && {garrison getVariable _target isEqualTo []}
-    && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;
+    && {_record get "outcome" == "captured"} && {garrison getVariable _target isEqualTo []}] call _check;
+private _townRecord = A3I_sites get _target;
+[{_townRecord get "queue" isEqualTo []}] call _wait;
+["counter_town_capture_starts_population",count (_townRecord get "units") == 10
+    && {!(_townRecord get "announced")} && {(call _stats) select [1,3] isEqualTo [10,0,1]}
+    && {((_townRecord get "units") findIf {_x getVariable ["A3A_resPool",""] != "legacy"}) == -1}] call _check;
+call _stopSite;
 citiesX = []; resourcesX = [_target];
 
 _record = call _newPair; _units = +(_record get "units");

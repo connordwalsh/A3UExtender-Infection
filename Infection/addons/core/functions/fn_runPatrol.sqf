@@ -15,8 +15,11 @@ if (_town) then {
     _record set ["townRoads",_roads select {_x inArea _marker}];
     diag_log format ["[INFECTION_TOWN] marker=%1 target=%2 phase=activate",_marker,_record get "populationTarget"];
 };
-_record set ["announced",true];
-[CBA_EVENT_SERVER_SPAWN_LOCATION,[_marker,_kind,true]] call A3A_fnc_triggerLocalEvent;
+// During a capture handoff the previous creator still owns location events.
+if (_record get "assets") then {
+    _record set ["announced",true];
+    [CBA_EVENT_SERVER_SPAWN_LOCATION,[_marker,_kind,true]] call A3A_fnc_triggerLocalEvent;
+};
 private _nextBatch = 0;
 private _previousSimulation = -1;
 while {spawner getVariable [_marker,2] != 2} do {
