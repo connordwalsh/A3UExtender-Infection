@@ -24,7 +24,7 @@ citiesX = [_sources # 6,_town]; milAdministrationsX = [_sources # 7];
 forcedSpawn = []; townSkirmishes = []; bigAttackInProgress = false;
 areOccupantsDefeated = false; distanceForLandAttack = 2000;
 A3I_majorGlobalOwner = nil; A3I_majorSourceCooldowns = createHashMap;
-A3A_recentDamageOcc = [];
+A3A_recentDamageOcc = []; A3A_recentDamageInv = [];
 private _population = [100,4,20,80];
 server setVariable [_town,+_population]; server setVariable [_sources # 6,+_population];
 NavGrid = [[[4000,4500,0],1,0,[[1,0,1000]]],[[5000,4500,0],1,0,[[0,0,1000]]]];
