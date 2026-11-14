@@ -1,12 +1,12 @@
 /* Server scheduled bounded creation for registered basic infected.
    [context, roles, center, minRadius, maxRadius, marker, pool, localLimit,
-    trackGarrison, eligibility={}, prepay=false, majorDebtToken=""]
+    trackGarrison, eligibility={}, prepay=false, majorDebtToken="", afterInit={true}]
    -> [success, [group, created units, budget ticket], reason].
    A partial result consumes only the first count(units) roles. The caller owns
    the remaining queue and must not treat a refused spawn as a killed defender. */
 params ["_context", "_roles", "_center", "_minimum", "_maximum",
     ["_marker",""], ["_pool","garrison"], ["_localLimit",12], ["_trackGarrison",true,[true]],
-    ["_eligibility",{true},[{}]], ["_prepay",false,[true]], ["_majorDebtToken","",[""]]];
+    ["_eligibility",{true},[{}]], ["_prepay",false,[true]], ["_majorDebtToken","",[""]], ["_afterInit",{true},[{}]]];
 private _empty = [grpNull,[],""];
 if (!isServer || {isRemoteExecuted && {remoteExecutedOwner != 2}}) exitWith {[false,_empty,"server_origin_only"]};
 if (!canSuspend) exitWith {[false,_empty,"scheduled_required"]};
@@ -116,9 +116,16 @@ if (isNull _group) then {_reason = "group_limit"} else {
             // Controls use the marker for ownership/activation checks, but their
             // per-visit patrol casualties are not persistent garrison entries.
             [_unit,if (_trackGarrison) then {_marker} else {""},false,_pool] call A3A_fnc_NATOinit;
-            if !(_unit getVariable ["A3I_initialized",false]) exitWith {
+            private _initialized = _unit getVariable ["A3I_initialized",false];
+            if (_initialized) then {_initialized = [_unit,_context] call _afterInit};
+            if (isNil "_initialized" || {!(_initialized isEqualTo true)}) exitWith {
                 _reason = "initialization_failed";
-                if (_prepay) then {[10,west,_pool] call A3A_fnc_addEnemyResources};
+                if (_prepay) then {
+                    // The explicit rollback owns this refund. A successfully
+                    // initialized unit already has its Deleted refund handler.
+                    _unit setVariable ["A3I_finalized",true];
+                    [10,west,_pool] call A3A_fnc_addEnemyResources;
+                };
                 if (_majorDebtToken != "") then {
                     _debtRecord set ["creditRemaining",(_debtRecord get "creditRemaining") + 1];
                     _debtRecord set ["paidActors",(_debtRecord get "paidActors") - 1];

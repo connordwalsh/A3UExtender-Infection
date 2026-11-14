@@ -273,3 +273,22 @@ errors. All 141 production inputs remain unchanged. The user also confirmed
 Russian supply convoys should remain background military activity without
 player-facing assignments. PR 27 remains draft while formation, task lifecycle,
 arrival handoff and complete dispatch are implemented and integrated.
+
+
+## Working session: 14 November 2026 - Interception formation
+
+The child branch codex/interception-formation adds complete hidden staging,
+atomic whole-horde release, real-death/missing-member bookkeeping and exact
+cleanup after interrupted construction. Formation Dev2 passes 47 focused and
+11 actual dependency-absent checks. Both 40 and 120 members stage and release;
+cleanup leaves no actor/group/budget residue. A movement defect found in Dev1
+was corrected by waiting for prepared AI initialization and superseding its
+startup movement order at departure. Every tested group leader now advances at
+least ten metres toward the destination. Three fixture faults and the movement
+failure remain recorded as rejected evidence, not accepted results.
+
+All 147 production inputs match the candidate. Combined regression is running
+because the initialization hook touches the shared spawn helper. Controller,
+arrival handoff, task settlement, mission-board/intel dispatch and background
+Russian convoy separation remain open. This increment does not close S4 or any
+campaign acceptance gate. No Computer Use or manual-build replacement.

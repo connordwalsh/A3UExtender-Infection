@@ -476,6 +476,45 @@ CLEARANCE_CHECKS = {
 }
 
 
+INTERCEPTION_FORMATION_CHECKS = {
+    'iform_partial_members_hidden',
+    'iform_incomplete_release_refused',
+    'iform_duplicate_preparation_refused',
+    'iform_complete_hidden_roster',
+    'iform_complete_release_visible',
+    'iform_destination_waypoints',
+    'iform_second_release_refused',
+    'iform_actual_march',
+    'iform_real_death_counts_once',
+    'iform_dead_body_deletion_not_second_kill',
+    'iform_fake_death_event_refused',
+    'iform_live_deletion_keeps_obligation',
+    'iform_unscheduled_preparation_refused',
+    'iform_remote_internal_calls_refused',
+    'iform_lost_source_preparation_refused',
+    'iform_short_roster_refused',
+    'iform_invalid_role_rolls_back',
+    'iform_destination_changes_before_release',
+    'iform_source_moves_before_release',
+    'iform_member_inside_destination_cannot_depart',
+    'iform_changed_group_context_refused',
+    'iform_hidden_cleanup_with_observer',
+    'iform_preparation_casualty_blocks_departure',
+    'iform_killed_first_arrival_is_retained',
+    'iform_arrival_survives_whole_horde_death',
+    'iform_dead_body_movement_not_arrival',
+    'iform_russian_takeover_after_departure_preserves_formation',
+    'iform_visible_cleanup_waits_for_observer',
+    'iform_visible_cleanup_after_observer_leaves',
+    'iform_stale_member_cannot_change_new_job',
+    'iform_stopped_creation_reclaims_partial_group',
+    'iform_failed_hook_refunds_paid_spawn_once',
+    'iform_missing_hook_result_refused',
+    'iform_maximum_complete_roster',
+    'iform_maximum_complete_release',
+    'iform_complete_cleanup',
+}
+
 INTERCEPTION_CHECKS = {
     'intercept_initial_sizes_bounded',
     'intercept_connected_town_factory',
@@ -644,14 +683,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | INTERCEPTION_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | INTERCEPTION_CHECKS | INTERCEPTION_FORMATION_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
                           "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
-                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS, "interception": BUDGET_CHECKS | INTERCEPTION_CHECKS}
+                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS, "interception": BUDGET_CHECKS | INTERCEPTION_CHECKS, "interceptionformation": INTERCEPTION_FORMATION_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -694,7 +733,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

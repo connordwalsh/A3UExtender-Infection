@@ -114,12 +114,13 @@ interception-dependencies.json. Full campaign acceptance remains open.
 
 ## Next integration work
 
-Track members within the spawn transaction and hold the full formation before
-starting its march. A killed/deleted distinction is needed before the task can
-claim elimination; interrupted partial construction must be recoverable by exact
-context/ticket ownership. Request success must not silently accept a smaller
-horde after placement failure. The full formation must remain finite, with no
-casualty-driven replacement during marching or arrival aftermath.
+The formation child branch now tracks members inside the spawn transaction and
+holds the whole roster hidden with simulation disabled. It refuses departure
+until every member is present, initialized and alive. Interrupted construction
+can be reclaimed through exact context/ticket ownership. Death and live deletion
+are separate: deletion cannot count as elimination, and an arrival followed by
+immediate death remains an arrival. A controller still needs to own the record,
+poll arrivals, settle the task and supervise eventual cleanup.
 
 Native garrisonUpdate appends arriving classnames without a hard capacity clamp.
 The existing Infection adoptReinforcement helper deliberately requires paid
@@ -134,3 +135,48 @@ combines task creation, rewards and vehicle/campaign behavior, so its strategic
 Russia path needs explicit separation. Do not simply refuse the constructor or
 redirect that activity into an infected task. This behavior is not implemented
 by the foundation branch.
+
+
+## Formation candidate and movement correction
+
+The internal preparation worker creates groups of at most 12 and requires the
+complete requested roster. Source safety and ownership, destination ownership,
+worker identity and remaining obligations are rechecked during staging and at
+departure. These initial destination restrictions do not cancel an already
+marching horde when Russia takes the destination. No player-facing constructor
+uses these helpers yet.
+
+Retirement closes pending reservations immediately. Hidden preparation actors
+can be removed directly; visible survivors wait until observers leave their
+spawn-distance radius. An arriving-horde handoff must explicitly release adopted
+members from formation ownership before this cleanup is used. Cleanup does not
+claim kills, settle tasks or erase the owning job record.
+
+The generic spawn helper has an optional post-initialization callback. A refused
+callback rolls back the unit; prepaid actors receive one refund rather than both
+an explicit refund and the initialized unit's deletion refund.
+
+Formation Dev1 exposed a movement defect: assigning group waypoints did not
+reliably override prepared zombies' initial individual movement order. Its
+rejected report records a group leader with zero progress. Earlier half-metre
+checks were too weak to establish travel. Dev2 waits for native AI initialization
+while the formation is hidden and explicitly orders each released member toward
+the destination, leaving native enemy pursuit enabled. The strengthened check
+requires every group's leader to make at least ten metres of destination progress;
+it does not establish complete route traversal on Chernarus Redux.
+
+Three rejected reports retain test-fixture faults: missing parentheses in
+an SQF hashmap expression, an unserializable null-group diagnostic, and use of
+forEachIndex inside apply when computing group progress. None is a passing
+build result.
+
+Formation Dev2 passes 47 focused dedicated-engine checks (11 common and 36
+formation checks) and 11 actual missing-dependency checks. The focused run
+staged and released all 40 and all 120 infected, reclaimed interrupted partial
+creation, and left no actor/group/budget residue. Four leaders advanced
+12.4893, 12.5686, 10.0027 and 12.4208 metres toward their destination. Observer
+cleanup uses a controlled AI observer injected through the isolated test addon;
+it is not connected-player validation. Focused warnings are 16 startup notices
+and four object-deletion notices; missing dependencies has seven startup notices.
+Neither run has engine/SQF errors. All 147 production inputs and the PBO match
+the recorded Dev2 manifest. Combined regressions are running.
