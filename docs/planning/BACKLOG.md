@@ -206,3 +206,13 @@ origin selector; the no-nearby-origin political fallback is awaiting a decision.
 Connected-player rewards/UI, real HC relay, Redux travel/performance, remaining
 missions, special creatures, abandoned vehicles, multiplayer and saves remain
 open. No sprint gate is closed and no Computer Use or manual-client update occurred.
+
+
+Town-liberation development checkpoint: the separate origin selector passes 34
+focused checks and 11 missing-dependency checks on its 118-input candidate. It
+preserves the native nearby-player refusal, accepts approved nearby towns/sites,
+excludes the target itself and has no ownership/task/resource side effects.
+All production and collected fixture hashes still match after bringing in the
+reviewed strategic/conquest integration. The connected-player refusal, survivor
+creation/recruitment, defense lifecycle and native entry remain to implement or
+validate. The no-nearby-source political fallback is still awaiting the owner.

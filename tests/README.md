@@ -125,7 +125,9 @@ all upstream preferences, fixed/weighted tiers, ordinary side delegation and
 Ultimate's initial-roster/ratio functions. The current suite also exercises combat
 initialization, damage observation, real rifle impacts, resource/garrison death
 and deletion accounting, atomic spawn reservations, setting changes and cleanup.
-A passing current full run requires 684 checks; the
+This feature branch declares 707 full-suite checks; its latest completed
+combined report covers the preceding 684-check integration, and the 23 new
+selector cases have the focused result below. The
 dependency-absent run has 11. The installed Ultimate header must report 12.4.2.
 The full fixture uses a separate test-only addon that records task/support/
 aggression and original-init dispatch endpoints, and wraps the real vehicle
@@ -200,3 +202,13 @@ inputs. The same production candidate passes 11 missing-dependency checks. The
 notifications and two native income messages targeting the absent fixture
 commander. No engine/SQF Error records occur. Real player/commander reward
 delivery, HC relay, Redux travel, campaign saves and performance remain unverified.
+
+
+For the separate town-liberation prototype, build with `-Suite Liberation` and
+collect with `--suite liberation`. All 34 focused checks pass, including 23
+source-selection cases and 11 startup checks. The same 118-input candidate
+passes 11 missing-dependency checks. See `liberation-selector-focused.json` and
+`liberation-selector-build.json` in `evidence/sprint-3/`. This only validates
+selection; survivor interaction, the defense controller, native dispatch and
+the owner-pending political fallback remain unimplemented. No full 707-check
+run or complete liberation mission acceptance is claimed.
