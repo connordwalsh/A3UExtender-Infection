@@ -32,6 +32,8 @@ class CfgFunctions
             class infectedKilled {};
             class infectedDeleted {};
             class budget {};
+            class cleanupGroups {};
+            class cleanupGroupTick {};
             class spawnObservers {};
             class positionSafety {};
             class findSpawnPosition {};
