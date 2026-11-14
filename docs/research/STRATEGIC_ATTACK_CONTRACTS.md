@@ -80,6 +80,19 @@ Exercise those paths together; do not silently add a new support reset or lock
 town ownership. The owner's existing instruction retains Ultimate conventions
 for town ownership changes and per-visit population regeneration.
 
+The owner subsequently chose to retain the town-liberation survivor rescue and
+defense, with a walking infected horde. This is separate work from the strategic
+town-recapture controller. Pinned `resourcecheck` starts it when support would
+otherwise flip a town to the Rebels. Native `townBattle` creates a CIV leader,
+waits for recruitment into a player group, prepares for three minutes, then
+launches a mixed force and checks a ten-minute defense window. The adapter must
+preserve the existing full town population, validate a nearby walking origin,
+keep the leader and rescue action under explicit cleanup ownership, and prevent
+zero-force or interrupted creation from granting a defense victory. Native
+resource/political rewards and the distinct survivor-failure conditions still
+need an implementation and isolated checks. No town-liberation runtime result is
+claimed by this strategic increment.
+
 ## Required evidence
 
 Test eligible and unreachable targets, source ownership and readiness changes,
