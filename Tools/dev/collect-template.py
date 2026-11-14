@@ -192,6 +192,26 @@ ROAMING_CHECKS = {
 }
 
 
+COUNTERATTACK_CHECKS = {
+    "counter_override_registered", "counter_other_routes_delegate", "counter_defeated_faction_rejected",
+    "counter_owned_target_rejected", "counter_invalid_requests_rejected", "counter_scheduled_required",
+    "counter_foot_source_without_vehicle_places", "counter_disconnected_rejected", "counter_source_distance_bounded",
+    "counter_source_loss_before_request", "counter_active_source_rejected", "counter_source_idle_and_forced",
+    "counter_small_source_rejected", "counter_source_combat_rejected", "counter_hq_walk_not_spawn",
+    "counter_unaffordable_no_job", "counter_scheduler_server_and_paid_basics", "counter_cooldown_blocks_duplicate",
+    "counter_no_remote_capture", "counter_approach_moves", "counter_later_batch_paid_once",
+    "counter_arrival_requests_native_capture", "counter_captured_active_site_adopts_once",
+    "counter_adopted_death_is_persistent", "counter_adopted_cleanup_no_refund", "counter_partial_virtual_arrival_waits",
+    "counter_virtual_capture_keeps_paid_roster", "counter_virtual_handoff_not_repeatable", "counter_virtual_reentry_single_roster",
+    "counter_timeout_refunds_only_living", "counter_source_loss_cancels", "counter_third_party_capture_cancels",
+    "counter_defeat_ends_promptly", "counter_stopped_controller_recovers", "counter_allowance_bounded_and_affordable",
+    "counter_no_force_ends_without_charge", "counter_late_shortage_preserves_unpaid_queue",
+    "counter_late_shortage_refunds_actual_births", "counter_recovery_remote_denied", "counter_all_clean",
+    "counter_town_capture_no_saved_garrison", "counter_faction_defeat_cancels",
+    "counter_quarter_strength_retreat", "counter_hard_limit_64",
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -222,12 +242,13 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
-        focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS}
+        focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
+                          "counterattacks": COUNTERATTACK_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -270,7 +291,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

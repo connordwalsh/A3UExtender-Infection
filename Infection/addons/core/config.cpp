@@ -49,6 +49,12 @@ class CfgFunctions
             class startRoaming {};
             class runRoaming {};
             class roamingWatchdog {};
+            class counterattackEligible {};
+            class counterattackSourceEligible {};
+            class counterattackSources {};
+            class startCounterattack {};
+            class runCounterattack {};
+            class counterattackWatchdog {};
             class startSite {};
             class runSite {};
             class cleanupSite {};
@@ -93,6 +99,7 @@ class CfgFunctions
             class originalPatrolReinf { file = "\x\a3a\addons\core\functions\CREATE\fn_patrolReinf.sqf"; };
             class originalReinforcementsAI { file = "\x\a3a\addons\core\functions\CREATE\fn_reinforcementsAI.sqf"; };
             class originalAAFroadPatrol { file = "\x\a3a\addons\core\functions\CREATE\fn_AAFroadPatrol.sqf"; };
+            class originalSingleAttack { file = "\x\a3a\addons\core\functions\CREATE\fn_singleAttack.sqf"; };
             class originalCreateAIResources { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIResources.sqf"; };
             class originalCreateAIOutposts { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIOutposts.sqf"; };
             class originalCreateAIMilbase { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIMilbase.sqf"; };
@@ -114,6 +121,7 @@ class CfgFunctions
             class patrolReinf { file = "\x\a3i\addons\core\overrides\fn_patrolReinf.sqf"; };
             class reinforcementsAI { file = "\x\a3i\addons\core\overrides\fn_reinforcementsAI.sqf"; };
             class AAFroadPatrol { file = "\x\a3i\addons\core\overrides\fn_AAFroadPatrol.sqf"; };
+            class singleAttack { file = "\x\a3i\addons\core\overrides\fn_singleAttack.sqf"; };
             class createAIResources { file = "\x\a3i\addons\core\overrides\fn_createAIResources.sqf"; };
             class createAIOutposts { file = "\x\a3i\addons\core\overrides\fn_createAIOutposts.sqf"; };
             class createAIMilbase { file = "\x\a3i\addons\core\overrides\fn_createAIMilbase.sqf"; };
