@@ -72,15 +72,13 @@ private _waitJob = {
     [{_job get "settled"}] call _wait;
     _job set ["releaseAt",time - 1];
     [{!((_job get "name") in A3I_majorAttacks)}] call _wait;
-    if (!(_job getOrDefault ["rewarded",false])) then {
-        [{!((_job get "taskType") in A3A_activeTasks)},3] call _wait;
-    };
     if (!isNil {_job get "taskDeleteScript"}) then {
         terminate (_job get "taskDeleteScript");
         if ((A3A_tasksData findIf {_x # 0 == _job get "taskId"}) != -1) then {
             [_job get "taskId",_job get "taskType",0] call A3A_fnc_taskDelete;
         };
     };
+    [{!((_job get "taskType") in A3A_activeTasks)},3] call _wait;
 };
 call _reset;
 private _rejected = [_town,_source,0,0] call A3I_fnc_startMajorAttack;
@@ -133,4 +131,5 @@ terminate (_job get "script");
 ["major_stopped_controller_recovers",_job get "outcome" == "interrupted"
     && {A3A_resourcesAttackOcc == 1} && {A3A_tasksData isEqualTo []}
     && {!bigAttackInProgress} && {forcedSpawn isEqualTo []}] call _check;
+call compile preprocessFileLineNumbers "majorLifecycleExtraChecks.sqf";
 [_savedCap,_savedContext] call _setLimits;

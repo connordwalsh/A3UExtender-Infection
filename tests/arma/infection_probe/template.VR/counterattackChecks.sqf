@@ -304,8 +304,8 @@ A3I_test_counterTicks = 0;
 {deleteVehicle _x} forEach [sidesX,spawner,garrison,server];
 {deleteMarker _x} forEach [_source,_target,respawnTeamPlayer];
 sidesX = nil; spawner = nil; garrison = nil; server = nil; respawnTeamPlayer = nil;
-sleep 3;
-{if (count units _x == 0) then {deleteGroup _x}} forEach (allGroups - _groupsBefore);
+// Controllers must finish their own cleanup; the fixture must not hide leaks.
+[{allGroups - _groupsBefore isEqualTo []},8] call _wait;
 [_savedCap,_savedContext] call _setLimits;
 GVAR(despawnQueue) = [];
 private _remaining = (entities [[],[],true,false]) - _before;

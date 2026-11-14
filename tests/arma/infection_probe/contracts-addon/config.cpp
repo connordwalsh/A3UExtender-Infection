@@ -74,6 +74,7 @@ class CfgFunctions
         };
         class TestOriginals
         {
+            class testNativeZoneCheck { file = "\x\a3a\addons\core\functions\Base\fn_zoneCheck.sqf"; };
             class testNativeRemoveMilAdmin { file = "\x\a3a\addons\scrt\Location\fn_location_removeMilAdmin.sqf"; };
             class testOriginalSelectVehicleType
             {

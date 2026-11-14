@@ -148,3 +148,27 @@ the expected resource or actor counts. Native dispatch,
 offscreen simulation, direct mission adapters and expanded HQ/capture/reward
 regressions remain to implement or exercise. This candidate is not installed in
 the manual client, and native campaign attack selection is not wired to it yet.
+
+## Expanded lifecycle checkpoint
+
+The expanded focused suite passes 89 checks on the 102-input Dev2 candidate:
+[report](../../evidence/sprint-3/major-expanded-focused.json) and
+[manifest](../../evidence/sprint-3/major-expanded-build.json). It exercises source,
+target, faction and dependency cancellation; foreign flag ownership; exact
+retreat thresholds; real deaths; native task metadata; HQ relocation and Petros
+death; physical-arrival and pending-defender gates; native zone-count/capture
+decisions; and separate town political data. The final ownership transaction is
+recorded by a fixture endpoint, not a complete campaign capture. Player reward
+delivery, message presentation, travel duration and persistence remain untested.
+
+Two expanded candidates failed only the final empty-group check. Their watchdog
+retired its job before asynchronous unit removal left the group empty. All five
+response watchdogs now retain their records until group removal completes.
+Patrol, reinforcement, counterattack and tactical fixtures no longer manually
+delete leftover groups before asserting cleanup; their combined regression is
+pending. Dev2 passes all 89 focused checks with no engine/SQF Error records and
+20 retained warnings. All 102 source hashes match the tested PBO. The initial
+11-check dependency-absent report remains attached to Dev1, not Dev2.
+
+Campaign dispatch and offscreen simulation are the next increment. This branch
+is still a draft and is not installed in the manual client.

@@ -33,6 +33,8 @@ private _observers = call A3I_fnc_spawnObservers;
     }) != -1) then {continue};
     {["cancel",[_x]] call A3I_fnc_budget} forEach _tickets;
     {if (count units _x == 0) then {deleteGroup _x}} forEach _groups;
+    // Unit deletion may finish after this callback; revisit its empty groups.
+    if ((_groups findIf {!isNull _x}) != -1) then {continue};
     A3I_counterattacks deleteAt _target;
 } forEach keys A3I_counterattacks;
 if (count A3I_counterattacks == 0) then {

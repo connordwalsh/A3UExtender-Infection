@@ -79,6 +79,26 @@
     {
       "path": "core/functions/Base/fn_getRecentDamage.sqf",
       "sha256": "833cb989772e118c1e93a00524341621c76154057891dae6f5028c2fd0f214fd"
+    },
+    {
+      "path": "core/functions/Base/fn_zoneCountUnits.sqf",
+      "sha256": "09b80b16515b830226d7a24a943f6d25481891a254b7bf15aed875713474f6f5"
+    },
+    {
+      "path": "core/functions/Missions/fn_taskUpdate.sqf",
+      "sha256": "80ef623454f5236d26b3769b5c0f5f5fa7f01deb6ba8d3368890bcfdd2e5f66a"
+    },
+    {
+      "path": "core/functions/Missions/fn_taskSetState.sqf",
+      "sha256": "ab2bf791ed2240ce7fa949fa0839206eb93a5c2147e920f5b173a2e041e2b0e9"
+    },
+    {
+      "path": "core/functions/Missions/fn_taskDelete.sqf",
+      "sha256": "db6ecf1a4e66d54693db0edef62ec05663b59d3811554da4b9f0a39b603a9524"
+    },
+    {
+      "path": "core/functions/Base/fn_distance.sqf",
+      "sha256": "88f857938eac24e76ab8b404c379f815097b7a6af1d6bfb95e484cb129796475"
     }
   ]
 }

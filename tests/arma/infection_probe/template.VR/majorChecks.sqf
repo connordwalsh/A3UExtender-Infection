@@ -164,4 +164,8 @@ sleep 0.2;
     && {allGroups - _groupsBefore isEqualTo []}
     && {isNil "A3I_majorWatchdogHandle"} && {count A3I_majorAttacks == 0}
     && {A3A_tasksData isEqualTo []} && {!bigAttackInProgress} && {!HQAttackInProgress}
-    && {forcedSpawn isEqualTo []},[A3A_tasksData,forcedSpawn,keys A3I_majorAttacks]] call _check;
+    && {forcedSpawn isEqualTo []},[A3A_tasksData,forcedSpawn,keys A3I_majorAttacks,
+    ((entities [[],[],true,false]) - _before) apply {[typeOf _x,alive _x,_x getVariable ["A3I_context",""]]},
+    (allGroups - _groupsBefore) apply {[side _x,count units _x,_x getVariable ["A3I_context",""]]},
+    isNil "A3I_majorWatchdogHandle",bigAttackInProgress,HQAttackInProgress,
+    (["stats"] call A3I_fnc_budget) # 1]] call _check;
