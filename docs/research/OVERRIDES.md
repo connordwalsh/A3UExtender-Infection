@@ -77,13 +77,15 @@ See [control behavior and validation boundaries](ROAD_CONTROLS.md).
 
 ## Town patrol routing increment
 
-`CREATE/fn_createAICities.sqf` has an Infection-only per-visit adapter. It preserves
-size/support/frontline selection and skip rules, uses the shared bounded patrol
-controller, and keeps ruined-town infected on WEST. Native support/ownership and
+`CREATE/fn_createAICities.sqf` has an Infection-only per-visit adapter. The latest
+owner-approved policy uses population-based logistic totals of 10-200 and full-town
+activation, including skirmishes and conflicting base ownership. Frontline/ruined
+status selects basic roles without changing the count; all remain WEST. Native support/ownership and
 civilian systems are retained. The scheduler's server-only set includes this
 sixth creator. The original source SHA-256 is
 `146b4d1a7d3db93656739c38409f4bce80235e2141411d76b8978100ad801e2f`.
-See [town behavior and validation boundaries](TOWN_PATROLS.md).
+See [town behavior and validation boundaries](TOWN_INFESTATIONS.md); earlier
+small-patrol evidence is retained in [TOWN_PATROLS.md](TOWN_PATROLS.md).
 
 ## Administration stronghold increment
 

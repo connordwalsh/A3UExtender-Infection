@@ -1,5 +1,10 @@
 # Proposed infected population curves
 
+Decision update: the owner selected the logistic and full-town activation, then
+raised its cap to 200 by replacing 360/180 with 400/200 while retaining the growth
+constant. The comparison below preserves the original 180-cap proposals; see
+[TOWN_INFESTATIONS.md](TOWN_INFESTATIONS.md) for the selected behavior.
+
 14 November 2026. Mathematical design comparison requested by the product owner;
 neither curve is selected or applied to gameplay. The request supersedes the
 earlier fixed one-in-three design target. Infected-held ownership and per-visit

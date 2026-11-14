@@ -4,11 +4,11 @@ Baseline: Ultimate 12.4.2, source
 `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`. The owner explicitly chose to preserve
 Ultimate's per-visit town patrol regeneration on 13 November 2026.
 
-Latest design request, 14 November: replace the fixed one-in-three target with a
-ratio that decreases as population grows, minimum near 10 and ceiling near 180.
-The [logistic and rational proposals](TOWN_DENSITY_CURVES.md) compare that request.
-Neither is applied yet; the implementation and evidence below describe the
-earlier fixed-ratio checkpoint. Town activation policy is also still pending.
+Historical implementation and evidence: the owner has now selected a shifted
+logistic with minimum 10 and cap 200, full-town activation and no town skip
+exceptions. See [TOWN_INFESTATIONS.md](TOWN_INFESTATIONS.md) for the current
+implementation and verification boundary. The description below records the
+earlier fixed-ratio and small-patrol checkpoints.
 
 ## Selection and lifecycle
 
