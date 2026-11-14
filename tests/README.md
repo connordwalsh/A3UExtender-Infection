@@ -125,7 +125,7 @@ all upstream preferences, fixed/weighted tiers, ordinary side delegation and
 Ultimate's initial-roster/ratio functions. The current suite also exercises combat
 initialization, damage observation, real rifle impacts, resource/garrison death
 and deletion accounting, atomic spawn reservations, setting changes and cleanup.
-A passing current full run requires 534 checks; the
+A passing current full run requires 684 checks; the
 dependency-absent run has 11. The installed Ultimate header must report 12.4.2.
 The full fixture uses a separate test-only addon that records task/support/
 aggression and original-init dispatch endpoints, and wraps the real vehicle
@@ -179,3 +179,24 @@ search/retreat thresholds, garrison handoff and stopped-controller recovery.
 The final 534-check full report is `evidence/sprint-3/tactical-contract.json`.
 The relay's connected-player positive path, full rebuilding mission and Redux
 travel remain unverified; synthetic navigation and injected arrivals are explicit.
+
+
+For strategic attacks, build with `-Suite Major` and collect with `--suite major`.
+Its 114 cases cover nearby origin selection, native target weighting, bounded
+resource debt, live lifecycle/capture, HQ outcomes and actual offscreen Invader
+territory transactions. Historical focused reports identify their own candidate
+builds; the accepted final integration is the stacked 684-check report below.
+
+For competitive conquest, build with `-Suite Competitive` and collect with
+`--suite competitive`. The 45-check focused report includes 34 mission cases:
+no ordinary downgrade, real births/refunds, native task/faction-resource
+settlement, remote first-capture failure, immediate retake, deadline precedence,
+partial registration and interrupted parent/child recovery.
+
+`evidence/sprint-3/competitive-contract.json` records the passing 684-check
+combined result; `competitive-validated-build.json` identifies all 117 production
+inputs. The same production candidate passes 11 missing-dependency checks. The
+74 retained warnings are 16 startup/dependency notices, 56 object-deletion
+notifications and two native income messages targeting the absent fixture
+commander. No engine/SQF Error records occur. Real player/commander reward
+delivery, HC relay, Redux travel, campaign saves and performance remain unverified.

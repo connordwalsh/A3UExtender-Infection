@@ -258,3 +258,21 @@ Direct competitive-mission dispatch is a separate prototype in PR #17. Native to
 simpleAttack, save/restart, actual Redux travel, connected-player task/reward
 presentation and representative performance remain open. No manual-client update,
 Computer Use or sprint acceptance is included.
+
+
+## Final combined integration
+
+The stacked strategic/conquest candidate passes all
+[684 combined checks](../../evidence/sprint-3/competitive-contract.json), including
+the 114 major-attack cases and corrected response/site cleanup. Its
+[117-input manifest](../../evidence/sprint-3/competitive-validated-build.json)
+matches the tested PBO; all 176 collected fixture/production hashes match too.
+The same candidate passes 45 focused conquest checks and 11 missing-dependency
+checks. This final combined result supersedes the rejected/incomplete attempts;
+no standalone passing full Dev6 result is claimed.
+
+The combined log has no engine/SQF Error records and retains all 74 warnings.
+The self-review is recorded in `docs/planning/REVIEWS.md`. Strategic attacks and
+competitive conquest are reviewed for integration together; town liberation,
+other mission/convoy callers, terrain/client/HC/performance and save acceptance
+remain open. No manual-client update, Computer Use or sprint gate is included.

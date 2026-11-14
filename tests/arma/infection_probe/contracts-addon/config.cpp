@@ -51,6 +51,8 @@ class CfgFunctions
     {
         class Originals
         {
+            class originalMissionRequest { file = "\x\a3i\tests\contracts\fn_originalMissionRequest.sqf"; };
+            class originalCompetitiveMission { file = "\x\a3i\tests\contracts\fn_originalCompetitiveMission.sqf"; };
             class originalChooseAttack { file = "\x\a3i\tests\contracts\fn_originalChooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3i\tests\contracts\fn_originalFindAttackTargets.sqf"; };
             class originalNATOinit { file = "\x\a3i\tests\contracts\fn_originalNATOinit.sqf"; };

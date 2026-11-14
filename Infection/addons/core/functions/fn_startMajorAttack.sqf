@@ -2,7 +2,7 @@
    -> [accepted, planned actors, reason]. Combine native wave allowances into
    one finite horde; actual births use shared capacity and bounded debt credit. */
 params [["_target","",[""]],["_source","",[""]],["_strength",1,[0]],
-    ["_delay",-1,[0]],["_campaignCharge",true,[true]]];
+    ["_delay",-1,[0]],["_campaignCharge",true,[true]],["_mission","",[""]]];
 if (!isServer || {!canSuspend} || {isRemoteExecuted && {remoteExecutedOwner != 2}})
     exitWith {[false,0,"server_scheduled_only"]};
 if (!([west] call A3I_fnc_isActive) || {missionNamespace getVariable ["areOccupantsDefeated",false]})
@@ -73,6 +73,7 @@ isNil {
         ["creditRemaining",_requested],["paidActors",0],["units",[]],["groups",[]],
         ["readyAt",_ready],["emptyDeadline",_ready + 600],["endTime",_ready + 2700],
         ["arrived",false],["outcome","pending"],["fixedCost",_fixedCost],
+        ["mission",_mission],
         ["taskId",_name],["taskType",_taskType],["taskRegistered",false],
         ["settled",false],["released",false],["cleanupOrdered",false]
     ];

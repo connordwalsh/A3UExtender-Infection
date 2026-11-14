@@ -11,18 +11,18 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 | S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
 | S1-1 | Infection scaffold and dependency checks | In progress | Built and loaded; isolated dependency-present/absent checks passed. Campaign setup acceptance remains open. |
 | S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
-| S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns, strongholds, routine repair, roaming and capture responses and tactical support avoid conventional pools in the 534-check suite; strategic/convoy routes remain open. |
+| S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns, strongholds, routine repair, roaming and capture responses and tactical support avoid conventional pools in the 684-check suite; remaining mission/convoy routes remain open. |
 | S2-1 | Occupied-site lifecycle | In progress | Six persistent types and transient controls/towns/administrations pass isolated spawning/cleanup/reentry checks, including full queued rosters and stopped-controller recovery. Redux campaign acceptance remains open. |
-| S2-2 | Foot patrols and road controls | In progress | Controls, towns and roaming pass 37, 67 and 37 dedicated cases within the 534-check suite. Towns preserve approved per-visit regeneration. Redux navigation, connected players and repeated patrol circuits remain open. |
-| S2-2a | Population-based town infestations | In progress | The approved 10–200 logistic, complete activation, all infected-held towns and ownership handoffs pass 67 town cases within the 534-check regression; 78 focused and 11 missing-dependency checks also pass. See TOWN_INFESTATIONS.md. Redux navigation, connected players and performance remain open. |
+| S2-2 | Foot patrols and road controls | In progress | Controls, towns and roaming pass 37, 67 and 39 dedicated cases within the 684-check suite. Towns preserve approved per-visit regeneration. Redux navigation, connected players and repeated patrol circuits remain open. |
+| S2-2a | Population-based town infestations | In progress | The approved 10–200 logistic, complete activation, all infected-held towns and ownership handoffs pass 67 town cases within the 684-check regression; 78 focused and 11 missing-dependency checks also pass. See TOWN_INFESTATIONS.md. Redux navigation, connected players and performance remain open. |
 | S2-3 | Capture and persistence | In progress | Queued defenders block capture; roster death/reentry contracts pass. Administration clearing uses the actual native ownership/support transaction, including after building destruction. Full campaign ownership/rewards/save/reload/recapture remain open. |
-| S3-1 | QRF and attack routing | In progress | Capture-triggered foot counterattacks pass 51 cases in the 534-check regression, including native distance activation, paid arrival handoff, town population startup and cleanup. Tactical support passes 70 additional cases, including rebuilding policy and remote context. Connected-player rebuilding, strategic attacks and special creatures remain open; see CAPTURE_COUNTERATTACKS.md and TACTICAL_SUPPORT_CONTRACTS.md. |
+| S3-1 | QRF and attack routing | In progress | Capture-triggered foot counterattacks pass 51 cases in the 684-check regression, including native distance activation, paid arrival handoff, town population startup and cleanup. Tactical support passes 70 additional cases, including rebuilding policy and remote context. Strategic walking hordes pass 114 cases and competitive conquest 34. Connected-player rebuilding, remaining missions and special creatures remain open; see CAPTURE_COUNTERATTACKS.md and TACTICAL_SUPPORT_CONTRACTS.md. |
 | S3-2 | Garrison repair | In progress | Routine paid foot arrivals and virtual repair pass 39 cases in the 340-check suite: original queue priority, cooldown/combat/ownership, active limits, roster handoff and cleanup. Redux travel, nearby players and restart persistence remain open. |
 | S3-3 | Conventional force disposition | In progress | Response source audit records remaining vehicle, support, task and payment contracts. Complete route disposition and Invader campaign regression remain open. |
-| S4-1 | Complete mission classification | Backlog | Manual and automatic triggers. |
-| S4-2 | Mission eligibility and common objectives | Backlog | Success/failure/timeout/no-spawn outcomes. |
+| S4-1 | Complete mission classification | In progress | Competitive conquest request/direct/HC paths audited; full mission and automatic-trigger classification remains open. |
+| S4-2 | Mission eligibility and common objectives | In progress | Conquest races require a nearby horde and fail on first infected capture; 34 cases pass within the 684-check suite. Town liberation and other mission families remain open. |
 | S4-3 | Existing outbreak mission adaptations | Backlog | Survivor civilian configuration. |
-| S5-1 | Central spawn budget | In progress | Sites, controls/towns/administrations, routine repair, roaming, capture responses and tactical support use the budget in the 534-check suite. Towns have separate non-transferable full-population allowances. Remaining response/mission callers, terrain/player validation and performance remain open. |
+| S5-1 | Central spawn budget | In progress | Sites, controls/towns/administrations, routine repair, roaming, capture responses, tactical support, strategic hordes and competitive conquest use the budget in the 684-check suite. Towns have separate non-transferable full-population allowances. Remaining response/mission callers, terrain/player validation and performance remain open. |
 | S5-2 | Special roles and escalation | Backlog | Largest types restricted to declared events. |
 | S5-3 | Two distinct outbreak mission patterns | Backlog | End-to-end solo and group evidence. |
 | S6-1 | Chernarus Redux site sweep | Backlog | Fix reproduced defects only. |
@@ -177,3 +177,32 @@ branch and does not enter this tactical integration.
 Connected-player rebuilding, Redux travel, ordinary Invader campaign behavior,
 multiplayer, performance and saves remain open. No sprint gate is closed and no
 Computer Use, manual-client restart or Workshop publication occurred.
+
+
+## Working session: 14 November 2026 - Strategic and conquest integration
+
+Nearby infected towns and permanent sites can now launch one finite walking
+horde, including later town recapture. Native temporary resource debt, shared
+active limits, real arrivals, HQ/Petros outcomes and offscreen Invader territory
+transactions are covered. Competitive races are unavailable without a ready
+walking source and fail immediately on the first infected capture. A later
+Rebel retake cannot reverse the loss.
+
+All 684 combined dedicated checks, 45 focused conquest checks and 11
+missing-dependency checks pass on the final stacked candidate. The PBO matches
+all 117 production inputs; the report matches all 176 fixture/production hashes.
+No engine/SQF Error records occur; 74 warnings are retained and reviewed.
+Source review, parser regressions, PowerShell parsing and whitespace checks pass.
+The completed dedicated server was stopped by verified process/profile identity.
+
+The earlier failed retirement checks led to separate exact-group cleanup so
+corpses no longer hold campaign slots. A later incomplete run ended when the
+owner shut down the PC. Neither attempt is accepted as a passing regression.
+The final source/fixture fixes and their focused checkpoints remain documented.
+
+The owner chose survivor rescue and defense with a walking horde for infected
+town liberation. Its separate branch has a pinned source audit and a nearby
+origin selector; the no-nearby-origin political fallback is awaiting a decision.
+Connected-player rewards/UI, real HC relay, Redux travel/performance, remaining
+missions, special creatures, abandoned vehicles, multiplayer and saves remain
+open. No sprint gate is closed and no Computer Use or manual-client update occurred.
