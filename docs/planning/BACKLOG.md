@@ -4,7 +4,7 @@ The acceptance criteria and test requirements are in [PROJECT_PLAN.md](PROJECT_P
 
 Liquidation selection, guarded capture, task settlement and public dispatch are
 tracked in [LIQUIDATION.md](../research/LIQUIDATION.md). Dispatch Dev1 passes 37
-focused checks; the integrated combined regression is running. Earlier capture
+focused checks, 764 combined checks and 11 actual missing-dependency checks. Earlier capture
 and controller results remain recorded separately. Campaign acceptance is open.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
@@ -35,7 +35,7 @@ none of these stories is complete.
 | S3-2 | Garrison repair | In progress | Routine paid foot arrivals and virtual repair pass 39 cases in the 340-check suite: original queue priority, cooldown/combat/ownership, active limits, roster handoff and cleanup. Redux travel, nearby players and restart persistence remain open. |
 | S3-3 | Conventional force disposition | In progress | Response source audit records remaining vehicle, support, task and payment contracts. Complete route disposition and Invader campaign regression remain open. |
 | S4-1 | Complete mission classification | In progress | Liquidation covers all four native conquest entry points. Other replacement families and automatic-trigger classification remain open. |
-| S4-2 | Mission eligibility and common objectives | In progress | Liquidation target, capture, controller and dispatch components pass focused checks; combined regression is running. Town liberation and the five other replacement families remain open. |
+| S4-2 | Mission eligibility and common objectives | In progress | Liquidation target, capture, controller and dispatch integration passes 764 combined checks, 37 dispatch-focused checks and 11 dependency-absent checks. Town liberation and the five other replacement families remain open. |
 | S4-3 | Existing outbreak mission adaptations | Backlog | Survivor civilian configuration. |
 | S5-1 | Central spawn budget | In progress | Sites, controls/towns/administrations, routine repair, roaming, capture responses, tactical support, strategic hordes and competitive conquest use the budget in the 684-check suite. Towns have separate non-transferable full-population allowances. Remaining response/mission callers, terrain/player validation and performance remain open. |
 | S5-2 | Special roles and escalation | Backlog | Largest types restricted to declared events. |
@@ -233,3 +233,17 @@ is authorized. The 37-case focused run passes without engine/SQF errors; all
 suite is running. Next: collect and review integrated evidence, validate actual
 missing dependencies, then integrate the reviewed stack. No Computer Use or
 manual-client update occurred; no sprint gate is closed.
+
+
+Liquidation dispatch integration result: all 764 combined checks passed, with
+no engine/SQF errors. The actual dependency-absent run passes 11 checks. Retained
+combined warnings are 16 startup notices, 50 object-deletion notices and five
+absent-fixture-commander notifications. All 138 production inputs and the addon
+match Dispatch Dev1. Review supports merging the selector/capture, controller
+and dispatch stack together; it does not close a gameplay or sprint gate.
+
+The owner clarified Horde Interception's next increment: full horde activation,
+separate temporary allowance, developer-tuned size, town/permanent-site endpoints,
+arrival reinforcement/attack, and continued travel after Russian takeover.
+The source audit records mission-board, intel and strategic convoy callers.
+Interception implementation and its acceptance tests remain next work.

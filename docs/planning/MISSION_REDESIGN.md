@@ -56,8 +56,8 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
 ## Current increment
 
 Liquidation is connected to mission-board requests and all four conquest entry
-points on the dispatch branch. Its 37 focused checks pass; the integrated
-combined run is in progress. The other five replacement families remain pending.
+points. Dispatch Dev1 passes 37 focused checks, 764 integrated combined checks
+and 11 actual missing-dependency checks. The other five replacement families remain pending.
 See [current Liquidation behavior and limits](../research/LIQUIDATION.md).
 The implementation notes below retain earlier evidence checkpoints.
 

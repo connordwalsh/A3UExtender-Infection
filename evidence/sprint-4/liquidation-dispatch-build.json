@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "candidate": "Infection_Liquidation_Dispatch_Dev1",
-  "scope": "Build identity and focused isolated dispatch contracts; combined regression running; campaign acceptance open.",
+  "scope": "Integrated Liquidation build identity and isolated dedicated contracts; campaign acceptance remains open.",
   "production_input_count": 138,
   "all_production_inputs_match": true,
   "addon_sha256": "c1fc2038f75de98ef269d91523c668959ee36ab19bb12030da69f46f6bc232b4",
@@ -569,6 +569,25 @@
     ]
   },
   "focused_report": "liquidation-dispatch-focused.json",
-  "combined_status": "RUNNING",
-  "computer_use": "NOT_RUN"
+  "combined_status": "PASSED",
+  "computer_use": "NOT_RUN",
+  "combined_report": "liquidation-dispatch-combined.json",
+  "combined_checks": 764,
+  "dependencies_report": "liquidation-dispatch-dependencies.json",
+  "dependencies_checks": 11,
+  "warnings_review": {
+    "combined": {
+      "startup_dependency": 16,
+      "object_deletion": 50,
+      "absent_fixture_commander": 5
+    },
+    "focused": {
+      "startup_dependency": 16
+    },
+    "dependencies": {
+      "startup_dependency": 7
+    }
+  },
+  "all_production_inputs_match_after_testing": true,
+  "test_servers": "Stopped by verified identity; exit verified"
 }

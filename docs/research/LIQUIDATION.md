@@ -1,8 +1,8 @@
 # Liquidation Assignment
 
-Current candidate: Dispatch Dev1 passes 37 focused dedicated-engine checks.
-All 138 production inputs and the PBO match its recorded manifest. The combined
-regression is running. No Computer Use was performed; visual menus, connected
+Current candidate: Dispatch Dev1 passes 764 combined dedicated-engine checks,
+37 focused dispatch checks and 11 actual missing-dependency checks. All 138
+production inputs and the PBO match its recorded manifest. No Computer Use was performed; visual menus, connected
 players, save/restart and complete campaign acceptance remain open.
 
 ## Approved behavior
@@ -87,7 +87,12 @@ still delegate to native implementations until their behavior is completed.
 See evidence/sprint-4/liquidation-dispatch-focused.json and
 liquidation-dispatch-build.json. The exact loaded addon SHA-256 is
 c1fc2038f75de98ef269d91523c668959ee36ab19bb12030da69f46f6bc232b4.
-The integrated combined run remains in progress; earlier component results do
-not substitute for it. Fixtures use controlled campaign records and notification
+The integrated combined run passes all 764 checks with no engine/SQF errors.
+Its 71 retained warnings comprise 16 startup/dependency notices, 50 object-deletion
+notices and five notifications targeting the absent fixture commander. The actual
+missing-dependency run passes 11 checks with seven startup notices and no errors.
+Both isolated servers were stopped and their exits verified. The reports are
+liquidation-dispatch-combined.json and liquidation-dispatch-dependencies.json.
+Earlier component evidence remains separate from this integrated result. Fixtures use controlled campaign records and notification
 hooks. Actual player/commander reward receipt, visual UI, HC/client connections,
 Redux travel, performance, saves and complete missions remain unverified.

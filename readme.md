@@ -29,10 +29,9 @@ level 3. Russian takeover cancels without a mission penalty. Queue/death ledgers
 prevent missing actors, queued defenders or premature native capture from
 bypassing the objective. Other five replacement mission families remain pending.
 
-The dispatch candidate passes 37 focused dedicated checks, and all 138 production
-inputs match its build manifest. Earlier capture and controller components passed
-750 combined and 33 focused checks respectively; a combined run of the integrated
-dispatch candidate is in progress. These isolated checks do not establish visual
+The integrated Liquidation candidate passes 764 combined dedicated checks,
+37 focused dispatch checks and 11 actual missing-dependency checks. All 138
+production inputs and the PBO match its recorded build manifest. These isolated checks do not establish visual
 menu behavior, connected-player rewards, multiplayer, saves or campaign acceptance.
 See [Liquidation implementation and limits](docs/research/LIQUIDATION.md).
 Connected-player rebuilding, town-liberation integration, other mission adapters,
