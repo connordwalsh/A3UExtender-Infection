@@ -2,7 +2,7 @@
 
 The owner selected survivor rescue and defense with a walking infected horde.
 This audit pins Ultimate 12.4.2 at `c7c8247672ed5e7d4aa317d47efb371c41de4e7d`;
-the [32-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
+the [44-file manifest](../../evidence/sprint-3/town-liberation-sources-12.4.2.json)
 records the exact inputs. This is source evidence, not runtime acceptance.
 
 ## Native entry and ownership
@@ -287,3 +287,51 @@ The owner selected retention of the native wrecks, bodies, fire/building damage
 and survivor vehicle. That scene is a separate implementation increment. Native
 campaign entry, the no-nearby-origin policy, connected-player rewards/UI, real
 walking travel, defense pacing and full mission acceptance remain open.
+
+## Retained scene: source audit and vehicle component
+
+The owner approved retaining the native scene on 14 November. The next branch
+adds a direct survivor-vehicle component; it is not connected to the parent
+mission until the complete scene lifecycle owns its cleanup.
+
+`liberationVehicleClasses` retains native category-then-class selection from the
+Rebel template and its configured `vehiclesBasic` fallback for missing fields.
+It excludes empty/malformed categories, missing classes, nonpublic classes,
+aircraft, boats, static weapons and UAVs. `createLiberationVehicle` requires the
+local, owned, live survivor. It prefers a safe nearby road, otherwise uses the
+bounded outdoor search, and never substitutes a center or origin position when
+that search fails. The parent records the vehicle immediately after creation.
+No crew is requested. Native postmortem preparation, unlocked access and the
+original survivor-group vehicle association are retained. Deletion does not
+permit a repeated call to create a replacement vehicle.
+
+Source findings for the remaining scene work:
+
+- Native `spawnVehicle` creates a driver and turret crew even when its caller
+  immediately deletes them. The empty survivor vehicle avoids that transient
+  crew path and its potential infected-role fallback.
+- Native `createDeadSoldier` creates a civilian group and a blood object but
+  returns only the corpse. The caller also stores body arrays inside another
+  array. The new scene must retain exact corpses, original groups and blood
+  objects so interrupted setup and ordinary cleanup can retire all three.
+- `createFire` returns a particle source and a light, with object-bound JIP
+  setup. `damageBuilding` may return a nested fire array, a smoke object or a
+  null object and assumes a nonempty roof-intersection result. Scene ownership
+  must flatten/validate those effects and handle buildings without a roof hit.
+- Building destruction is linked through the native `BuildingChanged` event.
+  `repairRuinedBuilding` requires both the original building and its linked
+  ruin; it returns false for ordinary partial damage. Cleanup cannot assume
+  that calling it restores every building. Record initial damage and the exact
+  changed buildings, preserving pre-existing damage and protected site objects.
+- The native survivor vehicle has no `ownerSide` initialization; `VEHdespawner`
+  treats that as Rebel ownership and leaves it. Wrecks instead pass through
+  `AIVEHinit` with the attacking side, including capture/damage/resource events.
+  These are distinct lifecycle and economy contracts to preserve or explicitly
+  adapt. The direct vehicle component does not certify collection or saving.
+
+The 129-input Dev2 candidate builds. Twelve vehicle cases are authored, bringing
+the focused suite to 116: category filtering, malformed inputs, remote/foreign
+creation refusal, unavailable placement, real usable empty creation, an actual
+EntityCreated audit for temporary crew, placement/ownership, idempotence and
+deletion. These cases are NOT_RUN while the controller regression uses the test
+port. No bodies, wrecks, fires or building-damage implementation is claimed yet.

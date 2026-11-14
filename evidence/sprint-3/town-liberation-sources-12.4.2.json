@@ -131,6 +131,54 @@
     {
       "path": "core/functions/Garrison/fn_updateVehicles.sqf",
       "sha256": "a1d4e5cfe0801116483b7a156a15b958fbcac775d443a68ffee9e2e8a7d16829"
+    },
+    {
+      "path": "core/functions/CREATE/fn_createVehicleCrew.sqf",
+      "sha256": "a9296eedb25bbe07d506f83b20d1d4828eb5e3c44e85034cca9a5c1a7039835e"
+    },
+    {
+      "path": "core/functions/CREATE/fn_AIVEHinit.sqf",
+      "sha256": "7d251ad117182d97cafa5f2b93324c5ba55bb0e1b739685df179957483d252f4"
+    },
+    {
+      "path": "core/functions/CREATE/fn_vehKilledOrCaptured.sqf",
+      "sha256": "3ed8797602aeb2236dc414373dd5ddb451e87472aa85acb38fc4c978730fd4d3"
+    },
+    {
+      "path": "core/functions/EventHandler/fn_vehicleDeletedEH.sqf",
+      "sha256": "e13eb0dc06c5a9bcfb60e28853a7427e9ff0814e33bf05de2b7e2f36e4a71a6d"
+    },
+    {
+      "path": "core/functions/Base/fn_preparePostMortem.sqf",
+      "sha256": "2dbe93d4b8ed277b7f725de5216bf9b198b41f51fd3fa4022960c722e64420bc"
+    },
+    {
+      "path": "core/functions/Base/fn_repairRuinedBuilding.sqf",
+      "sha256": "aead28b9d9df73dd926700bf1135885ba4531673a21a3c09e2f34a9ed150332d"
+    },
+    {
+      "path": "core/functions/init/fn_initServer.sqf",
+      "sha256": "ea679fb6c6e1f66b53978334708147b512f870cba004fff081a7afa099380366"
+    },
+    {
+      "path": "ultimate/functions/effects/fn_damageBuilding.sqf",
+      "sha256": "7dbbe578cf1dc5006b2a05d7efc216d852f9f422e60310d8be38d69b32ab2a76"
+    },
+    {
+      "path": "ultimate/functions/effects/fn_createFires.sqf",
+      "sha256": "4711c9e7b9c7ec60d20eb7198aa148b4bc8d1b8714f7a275f090c9cb888c3722"
+    },
+    {
+      "path": "ultimate/functions/effects/fn_createFire.sqf",
+      "sha256": "cb90f8c352422901cee31a91ad9799f6502ec577014f0e9be08133b791096548"
+    },
+    {
+      "path": "ultimate/functions/effects/fn_createDeadSoldier.sqf",
+      "sha256": "6b7765b90212cc0fbe7132f1c13d917406f4e041e240884067c0a1664c592b70"
+    },
+    {
+      "path": "ultimate/functions/vehicles/fn_setLock.sqf",
+      "sha256": "a3301d467f853fd00c77e3e1f49f839dee9b25749c87ffb6379617c99a2a0159"
     }
   ]
 }

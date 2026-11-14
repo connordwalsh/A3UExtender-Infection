@@ -136,6 +136,7 @@ waitUntil {sleep 0.05;(isNull _rescuerGroup && {isNull _civilGroup} && {isNil "A
     && {isNil "A3I_groupCleanupHandle"}
     && {missionNamespace getVariable ["A3I_retiredGroups",[]] isEqualTo []}] call _check;
 
+call compile preprocessFileLineNumbers "liberationVehicleChecks.sqf";
 call compile preprocessFileLineNumbers "liberationHordeChecks.sqf";
 call compile preprocessFileLineNumbers "liberationMissionChecks.sqf";
 A3A_faction_civ = _savedCiv; A3A_faction_reb = _savedReb;

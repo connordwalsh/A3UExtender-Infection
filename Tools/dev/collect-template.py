@@ -467,6 +467,18 @@ COMPETITIVE_CHECKS = {
 
 
 LIBERATION_CHECKS = {
+    'lib_vehicle_valid_native_categories',
+    'lib_vehicle_empty_and_malformed_pools',
+    'lib_vehicle_nonmap_template_refused',
+    'lib_vehicle_remote_create_refused',
+    'lib_vehicle_foreign_survivor_refused',
+    'lib_vehicle_missing_pool_has_no_fallback',
+    'lib_vehicle_unsafe_placement_refused',
+    'lib_vehicle_real_empty_usable',
+    'lib_vehicle_no_transient_crew_or_group',
+    'lib_vehicle_owned_near_survivor',
+    'lib_vehicle_creation_idempotent',
+    'lib_vehicle_deleted_actor_not_recreated',
     'lib_sources_registered',
     'lib_all_permanent_sources',
     'lib_target_excluded_duplicates_collapsed',
