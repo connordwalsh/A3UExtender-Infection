@@ -85,3 +85,17 @@ a supply truck, aircraft, artillery or minefield.
 Redux routes, completed long walks, connected-player task presentation,
 rebuilding/competitive missions and saved-campaign transitions remain separate
 acceptance work. All strategic runtime checks in this document are NOT_RUN.
+
+## Selector development checkpoint
+
+`majorAttackTargets` is a prototype on the strategic-attacks branch. It is
+registered for direct validation but is not wired into native campaign dispatch.
+It uses the established nearby military foot sources and bounded outdoor road
+routes, preserves native population/site values and local threat components,
+requires native HQ knowledge, removes air/carrier/convoy assumptions and retains
+per-target source normalization. Empty enemy economic sites receive a finite
+difficulty floor to avoid dividing by zero. Towns are eligible targets for the
+owner-approved later recapture route.
+
+This prototype is unbuilt and untested. Attack launch, resource/debt ownership,
+wave/HQ controllers, tasks, cleanup and native adapters remain to implement.

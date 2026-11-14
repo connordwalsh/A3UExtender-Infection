@@ -64,6 +64,7 @@ class CfgFunctions
             class receiveRebuildSupport {};
             class rebuildSupport {};
             class rebuildSupportWatchdog {};
+            class majorAttackTargets {};
             class startSite {};
             class runSite {};
             class cleanupSite {};
