@@ -411,11 +411,13 @@ A3I_test_tacticalTicks = 0;
 [[],_foreign] remoteExecCall ["A3I_fnc_tacticalWatchdog",2]; sleep 0.6;
 ["tactical_recovery_remote_denied",A3I_test_tacticalTicks >= 2] call _check;
 [_foreign] call CBA_fnc_removePerFrameHandler;
+// Keep campaign namespaces until all normal cleanup callbacks have retired.
+[{allGroups - _groupsBefore isEqualTo [] && {isNil "A3I_groupCleanupHandle"}
+    && {isNil "A3I_siteWatchdogHandle"} && {isNil "A3I_tacticalWatchdogHandle"}
+    && {isNil "A3I_rebuildWatchdogHandle"}},8] call _wait;
 {deleteVehicle _x} forEach [sidesX,spawner,garrison,server];
 {deleteMarker _x} forEach [_source,_target,respawnTeamPlayer];
 sidesX = nil; spawner = nil; garrison = nil; server = nil; respawnTeamPlayer = nil;
-// Controllers must finish their own cleanup; the fixture must not hide leaks.
-[{allGroups - _groupsBefore isEqualTo [] && {isNil "A3I_groupCleanupHandle"}},8] call _wait;
 [_savedCap,_savedContext] call _setLimits;
 GVAR(despawnQueue) = [];
 private _remaining = (entities [[],[],true,false]) - _before;

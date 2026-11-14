@@ -16,7 +16,9 @@ if (!isNil "A3I_budgetRecords") then {
 {deleteVehicle _x} forEach (_record get "civilians");
 private _groups = +(_record get "groups");
 {if (_x getVariable ["A3I_context",""] == _context) then {_groups pushBackUnique _x}} forEach allGroups;
-{if (count units _x == 0) then {deleteGroup _x}} forEach _groups;
+// Deletion may complete on a later frame. Escaping survivors have already joined
+// separate groups; retain only these exact site groups until they become empty.
+[_groups] call A3I_fnc_cleanupGroups;
 deleteVehicle (_record get "flag");
 private _lootTaken = false;
 {

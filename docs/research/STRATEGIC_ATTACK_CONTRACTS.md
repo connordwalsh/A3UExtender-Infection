@@ -232,8 +232,27 @@ The corrected 108-input candidate passes [50 focused patrol checks](../../eviden
 and [11 missing-dependency checks](../../evidence/sprint-3/major-cleanup-dependencies-absent.json).
 Its [manifest](../../evidence/sprint-3/major-cleanup-build.json) identifies the
 tested artifact. The two new cases cover corpse-preserving patrol retirement and
-remote rejection of the empty-group callback. The combined 650-check regression
-is running; this branch remains a draft until it passes and is reviewed.
+remote rejection of the empty-group callback. Its combined regression reached
+589 checks, with only `reinf_all_clean` failing, then the server process exited
+before completion. The owner confirmed shutting down the PC during that run;
+the incomplete run is rejected. The site cleanup path also deleted groups only
+on the immediate frame after deleting their units. It now uses the same deferred
+exact-group cleanup. Escaping administration survivors join separate groups and
+are not included. Focused reinforcement and combined checks must validate this
+follow-up before review or merge. The first focused reinforcement run still
+failed its final check. Added diagnostics showed zero entities/groups, an empty
+budget, empty controller maps and only the site watchdog awaiting its next tick.
+The fixture's wait checked groups but not that handler, so it could finish early.
+It now waits for every asserted cleanup handler within the original eight-second
+deadline and keeps campaign namespaces alive until then. Counterattack/tactical
+final waits follow the same rule. No cleanup assertion is removed or relaxed.
+
+The corrected fixture passes [all 50 reinforcement checks](../../evidence/sprint-3/major-site-cleanup-reinforcements.json)
+on the [Dev6 artifact](../../evidence/sprint-3/major-site-cleanup-build.json), which
+also passes [11 missing-dependency checks](../../evidence/sprint-3/major-site-cleanup-dependencies-absent.json).
+The final combined regression will run on the stacked strategic/conquest
+candidate so the eventual integration is tested together. Historical incomplete
+or failed combined runs remain unaccepted.
 
 Direct competitive-mission dispatch is a separate prototype in PR #17. Native townBattle,
 simpleAttack, save/restart, actual Redux travel, connected-player task/reward
