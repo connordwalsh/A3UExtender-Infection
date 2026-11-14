@@ -1,0 +1,38 @@
+{
+  "status": "proposal_only_not_applied_to_gameplay",
+  "minimum": 10.0,
+  "ceiling": 180.0,
+  "proposed_calibration": {
+    "population": 50.0,
+    "infected": 40.0
+  },
+  "logistic_k": 0.009039702474861144,
+  "rational_h": 175.0,
+  "logistic_leaves_floor_at_population": 12.304125652313894,
+  "rational_leaves_floor_at_population": 10.294117647058824,
+  "integer_rounding": "nearest whole number, positive halves upward, bounded to 10..180",
+  "population_records": 49,
+  "population_range": [
+    23,
+    1176
+  ],
+  "validation_grid": {
+    "minimum_population": 0,
+    "maximum_population": 10000,
+    "step": 0.1
+  },
+  "checks": {
+    "logistic_floor_ceiling": true,
+    "logistic_nondecreasing_count": true,
+    "logistic_decreasing_density": true,
+    "logistic_calibration": true,
+    "logistic_integer_bounds": true,
+    "rational_floor_ceiling": true,
+    "rational_nondecreasing_count": true,
+    "rational_decreasing_density": true,
+    "rational_calibration": true,
+    "rational_integer_bounds": true,
+    "logistic_equivalent_forms": true
+  },
+  "matplotlib_version": "3.11.2"
+}

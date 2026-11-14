@@ -1,0 +1,8 @@
+{
+  "source_repository": "https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate",
+  "source_commit": "c7c8247672ed5e7d4aa317d47efb371c41de4e7d",
+  "source_path": "A3A/addons/maps/Antistasi_chernarusredux.chernarusredux/mapInfo.hpp",
+  "source_sha256": "ac2c65f988f9874943ce1348f5ed9d49fe1dc76bb3a4e3a60b76202a3c1fae2c",
+  "extracted_records": 49,
+  "note": "Exact configured populations, not real-world census data. Curve calibration is a proposed design choice."
+}
