@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "scope": "Installed task text representation used by the dedicated assertion, not visual client acceptance.",
+  "archive": "functions_f.pbo",
+  "archive_sha256": "a4d2d705f163add3ca5abba863ba5d97a3e5882585feece663f3aa0c28bf2e44",
+  "source_sha256": {
+    "tasks/fn_taskdescription.sqf": "b2787a9a9a926e44d4a55373ae8d0dfba4b6e7379db4b352def44ed107a3a6c4",
+    "tasks/fn_settask.sqf": "c0c42905a014f0d767f63a90d27c1a388c9b31c507693b031f258242c82daffe",
+    "tasks/fn_settasklocal.sqf": "d94fb2d581083a87f9c2b6c3ca438bd198cd3a25db7e47872efd6ad87960edd3"
+  },
+  "finding": "setTask wraps literal texts in one-item arrays; taskDescription returns that stored representation; setTaskLocal unwraps/localizes it for the actual client task."
+}

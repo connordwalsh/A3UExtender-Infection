@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory = $true)][string]$ArmaTools,
     [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
-    [ValidateSet('Full', 'Administration', 'Reinforcements', 'Roaming', 'Counterattacks', 'Towns', 'Tactical', 'Major', 'Competitive', 'CatalogPolicy', 'Clearance', 'Liquidation')][string]$Suite = 'Full'
+    [ValidateSet('Full', 'Administration', 'Reinforcements', 'Roaming', 'Counterattacks', 'Towns', 'Tactical', 'Major', 'Competitive', 'CatalogPolicy', 'Clearance', 'Liquidation', 'LiquidationController')][string]$Suite = 'Full'
 )
 $ErrorActionPreference = 'Stop'
 if ($Mode -ne 'Template' -and $Suite -ne 'Full') { throw 'Focused suites require Template mode.' }

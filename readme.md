@@ -37,6 +37,13 @@ Connected-player rebuilding, town-liberation and other mission adapters, special
 creatures, abandoned vehicles and save integration remain unfinished. Do not use this build for a
 campaign you intend to keep.
 
+This feature branch additionally implements Liquidation target selection,
+guarded full-clear capture, native task settlement and interrupted-worker
+recovery. The capture-only candidate passed 750 combined checks; the current
+controller passes 33 focused and 11 missing-dependency checks. Public mission
+dispatch and combined controller validation remain pending. See
+[Liquidation implementation and limits](docs/research/LIQUIDATION.md).
+
 ## Intended campaign
 
 - Infected Occupants on BLUFOR, NATO Rebels on INDEP, Russian Invaders and gangs

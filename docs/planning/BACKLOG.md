@@ -4,8 +4,9 @@ The acceptance criteria and test requirements are in [PROJECT_PLAN.md](PROJECT_P
 
 Liquidation selection and claim-driven capture are tracked in
 [LIQUIDATION.md](../research/LIQUIDATION.md). The focused suite passes 44 checks;
-the combined capture regression passes 750 checks. Task creation/dispatch, automatic capture,
-rewards and recovery remain incomplete, and no gameplay route creates a claim yet.
+the parent capture-only combined regression passes 750 checks. The controller
+adds task creation, automatic capture, rewards and recovery with 33 focused
+checks passing. Mission-board/direct dispatch and complete acceptance remain open.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
 
@@ -14,10 +15,10 @@ owner's six replacement categories for S4-1, S4-2, S4-3 and S5-3. The catalog no
 targets infected exclusively; Destroy/Random are removed and Liquidation
 supersedes requested competitive conquest. Delivery accepts HQ/permanent sites.
 The removal and clearance-ledger increment passes 717 combined dedicated checks
-and 11 checks without zombie dependencies. The read-only clearance predicate is
-not yet connected to Liquidation capture/rewards. Six replacement mission
-lifecycles and visual/connected-player acceptance remain open; none of these
-stories is complete.
+and 11 checks without zombie dependencies. Clearance is now connected to the
+Liquidation controller on this branch; public mission dispatch remains pending.
+The six-mission redesign and visual/connected-player acceptance remain open;
+none of these stories is complete.
 
 | Story | Work | Status | Evidence / next check |
 | --- | --- | --- | --- |

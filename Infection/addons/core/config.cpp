@@ -92,6 +92,12 @@ class CfgFunctions
             class liquidationTransition {};
             class liquidationMarkerChange {};
             class liquidationCityCapture {};
+            class startLiquidation {};
+            class liquidationOutcome {};
+            class captureLiquidation {};
+            class runLiquidation {};
+            class finishLiquidation {};
+            class liquidationWatchdog {};
             class runSite {};
             class cleanupSite {};
             class siteWatchdog {};

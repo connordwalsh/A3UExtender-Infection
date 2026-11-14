@@ -578,3 +578,26 @@ does not claim coverage of that later correction or the mission controller.
 
 The complete project, six replacement lifecycles, player rewards, UI, terrain,
 saves and multiplayer acceptance remain open. No Computer Use was performed.
+
+
+## 14 November 2026 - Liquidation controller focused review
+
+Reviewed exclusive claims and native task registration, atomic capture linkage,
+normal/difficult native CON_Outpost reward amounts, cancellation precedence,
+once-only settlement and task retention. Capture workers remain independent
+of the task loop; the watchdog retains their claim until delayed native flag
+work finishes. The administration write-refusal fault is preserved so a broken
+transaction cancels rather than timing out with a penalty.
+
+Controller Dev3 passes 33 focused dedicated checks without engine/SQF errors.
+The 21 retained warnings comprise 16 startup notices and five absent-commander
+income notifications. All 139 production inputs and the PBO match its manifest.
+The interrupted task-text fixture is retained, with installed function hashes
+explaining the correction. The parent capture-only 750-check regression does
+not establish a full combined controller pass. Keep this branch draft while
+mission-board/direct dispatch, combined integration, connected rewards and
+remaining campaign acceptance are completed. No Computer Use was performed.
+
+The actual Controller Dev3 missing-dependency run also passes 11 checks, with
+seven startup notices and no engine/SQF errors. All test servers were stopped
+by verified process/profile identity, with exit confirmed.

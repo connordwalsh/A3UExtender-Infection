@@ -1,5 +1,10 @@
 # Liquidation Assignment
 
+Current candidate: Controller Dev3 passes 33 focused and 11 missing-dependency
+checks. The parent capture-only candidate passed 750 combined checks. Public
+mission dispatch and a combined controller run remain pending. The sections
+below retain the progression from selector draft to validated controller.
+
 Owner-approved replacement for requested conquest missions. Targets are infected
 towns and sites; clearing the assigned infected captures the location for the
 Rebels. The former race-to-capture objective is superseded. Bases and airfields
@@ -96,3 +101,61 @@ transaction attempted but did not change ownership. PR #25 restores that fault
 only after a real attempted write; blocked clearance does not create a fault.
 Its dedicated controller case checks cancellation without penalty. Keep this
 component draft until that correction and task integration are validated.
+
+
+## Task controller draft
+
+A separate controller branch adds CON task registration and an exclusive target
+claim, the requested title/briefing, automatic capture after full clearance,
+polled cancellation/timeout handling and once-only settlement. The native
+CON_Outpost baseline supplies 90/45-minute limits and normal/difficult rewards:
+600/800 faction money, 250/450 per-player money, 10/20 player and commander
+score, and 100/200 commander money. Native support and infected resource timing
+effects are retained. Timeout retains native penalties; Russian takeover, missing
+dependencies, broken site actors and interrupted workers cancel without mission
+rewards or penalties. Native consequences of losing territory still apply.
+
+Capture runs in an independent owned worker. Stopping the task loop cannot stop
+its delayed native flag handling; the watchdog waits for both workers before
+retiring the claim. Completion/failure uses native average 20-minute task
+retention, while cancelled tasks retire promptly. Cleanup reads native task
+metadata, including interruption between registration and its local flag.
+
+The 21 controller cases are authored but NOT_RUN. Packaging, 139 production
+hashes and three parser tests pass for Controller Dev2. The parent's combined
+capture regression is still running; this worktree has not started another
+server. Mission board/legacy endpoints remain unconnected, and the six-mission
+redesign, connected-player rewards, saves and campaign acceptance remain open.
+
+
+## Controller focused validation
+
+Controller Dev3 passes 33 dedicated checks: 11 common and 22 controller cases.
+They cover the native registered task and requested text, exclusive claims,
+blocked clearance/despawn, automatic permanent-site/town/administration capture,
+normal and difficult rewards applied once, normal/difficult timeouts, Russian
+cancellation without mission penalty, dependency/site failure cancellation,
+stopped-worker recovery, partial registration, missing task metadata, remote
+internal-call rejection and complete fixture cleanup. An actual flag capture
+remains alive after terminating its parent task loop, finishes its native
+markersChanging lock, and settles once.
+
+This candidate restores the older administration capture_failed fault only if
+the native write was attempted and failed; ordinary clearance refusal remains
+retryable. Its targeted controller case passes and cancels without penalty.
+The initial controller fixture halted on a wrong task-description type
+assumption. Installed Arma source shows literal texts stored as arrays; the
+corrected assertion and source hashes are recorded in native-task-text-api.json.
+The production build was unchanged during that fixture correction.
+
+All 139 production inputs and the PBO match Controller Dev3. The focused report
+contains no engine/SQF errors and retains 21 warnings: 16 startup notices and
+five native income notifications targeting the absent fixture commander.
+The earlier capture-only Dev2 passed 750 combined checks; a combined run of
+the complete controller candidate has not been run. Actual player/commander
+reward receipt, visual tasks, terrain, save/restart and multiplayer remain open.
+Mission-board and direct legacy dispatch are the next integration work.
+
+The actual Controller Dev3 missing-dependency run also passes 11 checks, with
+seven startup notices and no engine/SQF errors. All test servers were stopped
+by verified process/profile identity, with exit confirmed.

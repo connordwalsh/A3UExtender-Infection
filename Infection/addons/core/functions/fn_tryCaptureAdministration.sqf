@@ -14,12 +14,17 @@ private _building = _record get "building";
 if (isNull _building) exitWith {_record set ["fault","missing_building"]; false};
 // Preserve the native completed-building registry, ownership and capture reward.
 // The destroyed-building reaction is guarded separately; never run its vehicles.
+private _attempted = false;
 private _committed = [_marker,teamPlayer,{
     params ["_building"];
+    _attempted = true;
     [_building,"CAPTURE"] call A3I_fnc_originalRemoveMilAdmin;
     true
 },[_building]] call A3I_fnc_liquidationTransition;
-if (!_committed) exitWith {false};
+if (!_committed) exitWith {
+    if (_attempted) then {_record set ["fault","capture_failed"]};
+    false
+};
 if (sidesX getVariable [_marker,sideUnknown] != teamPlayer) exitWith {
     _record set ["fault","capture_failed"]; false
 };
