@@ -20,12 +20,16 @@ Roaming patrols use bounded foot routes between nearby owned locations.
 Capture-triggered counterattacks use paid foot groups and native ownership checks.
 Tactical support selects paid foot responses and routes rebuilding requests through
 server validation, with exact refunds, arrival checks and interrupted-job recovery.
-The completed isolated dedicated regression passes 534 checks on Ultimate 12.4.2,
+Strategic attacks use nearby infected-held towns and permanent sites, one finite
+horde under shared limits, and native temporary resource debt. Competitive conquest
+requires a reachable horde and fails immediately if infected capture first.
+The completed isolated dedicated regression passes 684 checks on Ultimate 12.4.2,
 including 67 roles, combat, placement, later arrivals, controls, towns, strongholds,
 routine reinforcement, roaming, counterattacks, tactical support, town ownership
-handoffs and cleanup.
+handoffs, strategic attacks, competitive conquest and cleanup.
 The missing-dependency suite passes 11 checks.
-Connected-player rebuilding, strategic attacks, missions and save integration remain unfinished. Do not use this build for a
+Connected-player rebuilding, town-liberation and other mission adapters, special
+creatures, abandoned vehicles and save integration remain unfinished. Do not use this build for a
 campaign you intend to keep.
 
 ## Intended campaign
@@ -63,7 +67,8 @@ claim that compatibility testing has passed.
 - [Roaming foot patrols and limits](docs/research/ROAMING_PATROLS.md)
 - [Capture counterattacks and limits](docs/research/CAPTURE_COUNTERATTACKS.md)
 - [Tactical support implementation and limits](docs/research/TACTICAL_SUPPORT_CONTRACTS.md)
-- [Strategic attack source contracts](docs/research/STRATEGIC_ATTACK_CONTRACTS.md)
+- [Strategic attack implementation and limits](docs/research/STRATEGIC_ATTACK_CONTRACTS.md)
+- [Competitive conquest implementation and limits](docs/research/COMPETITIVE_CONQUEST.md)
 - [Remaining attack and support contracts](docs/research/RESPONSE_CONTRACTS.md)
 - [Controlled behavior observations](docs/research/BEHAVIOR_12.4.2.md)
 - [Validation corrections](docs/research/VALIDATION_CORRECTIONS.md)

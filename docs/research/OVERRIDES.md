@@ -143,3 +143,43 @@ handoff can start an actor-only Infection controller without duplicating assets
 owned by the previous creator. Offscreen arrivals use an atomic roster handoff.
 [CAPTURE_COUNTERATTACKS.md](CAPTURE_COUNTERATTACKS.md) records costs, limits,
 source contracts and validation boundaries; tactical/major responses remain open.
+
+## Tactical support increment
+
+`Supports/fn_initSupports.sqf`, `fn_createSupport.sqf`, `fn_SUP_QRFLand.sqf`
+and `fn_SUP_QRFAir.sqf` route active infected requests to the paid foot-support
+controller. The native selector retains the shared call lock and telemetry.
+Direct rebuilding requests validate the server's mission and cost, then use a
+local-frame handoff. Installed aliases retain ordinary-faction behavior.
+See [TACTICAL_SUPPORT_CONTRACTS.md](TACTICAL_SUPPORT_CONTRACTS.md) for pinned
+sources, the completed 534-check integration and remaining player/terrain gates.
+
+## Strategic attack increment
+
+`Base/fn_chooseAttack.sqf` and `fn_findAttackTargets.sqf` dispatch only the active
+infected side to nearby walking origins. Their installed aliases handle other
+factions and inactive templates/dependencies. The six-field selection contract,
+native weighting and inactive-Invader territory/resource transaction remain.
+Rebel town attacks use a horde instead of the strategic supply convoy route.
+HQ/active targets use the finite shared-budget controller and scoped resource
+debt; direct unconverted mission callers remain separate work.
+
+[STRATEGIC_ATTACK_CONTRACTS.md](STRATEGIC_ATTACK_CONTRACTS.md) records source
+hashes, exact lifecycle contracts and candidate evidence. Deferred exact-group
+cleanup is also used by site, roaming, reinforcement, counterattack and tactical
+controllers so corpse lifetime does not hold their campaign claims.
+
+## Competitive conquest increment
+
+`Missions/fn_missionRequest.sqf` retains the pinned 12.4.2 body with a scoped
+conquest selection/dispatch change. The AS body and DES-through-end segment
+match the pinned source after newline normalization. Explicit unrelated mission
+types and inactive templates use the installed alias. Unavailable infected
+frontlines are excluded from the ordinary capture fallback as the owner requested.
+
+`Missions/fn_CON_Outpost_Compet.sqf` and the narrow `Base/fn_scheduler.sqf` route
+keep the infected race on the server; other participants retain native dispatch.
+A verified native capture event freezes the first result before polling, with
+local settlement after a remote-origin event. Native rewards and penalties stay
+separate from cancellation. Linked horde tokens recover interrupted startup.
+See [COMPETITIVE_CONQUEST.md](COMPETITIVE_CONQUEST.md) and its pinned manifest.
