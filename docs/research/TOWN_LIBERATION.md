@@ -183,7 +183,13 @@ to remain spent after deliberately despawning a living attacker. The exact
 floating-point deadline assertion was changed to sample one second before and
 after expiry. These rejected attempts remain separate from accepted evidence.
 The corrected third candidate passed 78 cases before the additional special-role
-guard. The fourth candidate's combined 752-case regression is in progress.
+guard. The fourth candidate's [combined 752-case regression](../../evidence/sprint-3/liberation-horde-contract.json)
+passes, including all 67 role spawns. All 122 production inputs, the PBO and all
+184 collected fixture/production hashes match. No engine/SQF Error records occur.
+The 86 retained warnings comprise sixteen startup/dependency warnings, sixty-six
+object-deletion notifications, two absent-commander notifications and two native
+friendly-fire handler targets already removed by the fixture. The completed
+server was stopped by its verified process/profile identity.
 
 ## Remaining controller work
 
