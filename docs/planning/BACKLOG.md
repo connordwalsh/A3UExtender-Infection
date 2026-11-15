@@ -464,3 +464,11 @@ Twenty-four specific cases are authored; the 35-check focused runtime suite is
 NOT_RUN while the parent combined regression runs. Packaging, three parser tests
 and eleven actual missing-dependency checks pass. Public dispatch is unfinished;
 see INTERCEPTION_AFTERMATH.md.
+
+Horde Interception creation and dispatch are now drafted in a separate branch.
+The actual 40-120-member formation is prepared before public task registration;
+requests, direct calls, scheduler routing, both menu labels and convoy-route intel
+use the new mission. Russian automatic supplies remain background activity.
+Packaging, three parser tests and eleven actual missing-dependency checks pass.
+The 36-check focused gameplay suite is authored but NOT_RUN; parent regressions
+remain separate. See INTERCEPTION_DISPATCH.md for scope and open acceptance work.

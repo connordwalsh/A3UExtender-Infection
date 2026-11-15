@@ -62,6 +62,7 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalSelectIntel { file = "\x\a3i\tests\contracts\fn_originalSelectIntel.sqf"; };
             class originalConvoy { file = "\x\a3i\tests\contracts\fn_originalConvoy.sqf"; };
             class originalRequestMissionDialog { file = "\x\a3i\tests\contracts\fn_originalRequestMissionDialog.sqf"; };
             class originalDestroyVehicle { file = "\x\a3i\tests\contracts\fn_originalDestroyVehicle.sqf"; };

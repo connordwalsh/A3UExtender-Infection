@@ -100,6 +100,14 @@ class CfgFunctions
             class watchInterceptionLifecycle {};
             class interceptionLifecycleTick {};
             class interceptionAftermath {};
+            class interceptionBusy {};
+            class startInterception {};
+            class runInterception {};
+            class requestInterception {};
+            class dispatchInterception {};
+            class labelInterceptionControl {};
+            class interceptionIntel {};
+            class selectInfectionIntel {};
             class storeInterceptionArrivals {};
             class adoptInterceptionArrivals {};
             class interceptionPreparing {};
@@ -160,6 +168,7 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalSelectIntel { file = "\x\a3a\addons\core\functions\Intel\fn_selectIntel.sqf"; };
             class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
@@ -202,6 +211,10 @@ class CfgFunctions
     };
     class A3A
     {
+        class Intel
+        {
+            class selectIntel { file = "\x\a3i\addons\core\overrides\fn_selectIntel.sqf"; };
+        };
         class GUI
         {
             class requestMissionDialog { file = "\x\a3i\addons\core\overrides\fn_requestMissionDialog.sqf"; };

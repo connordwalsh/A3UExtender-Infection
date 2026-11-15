@@ -51,9 +51,10 @@ if (!isServer) exitWith {};
         call A3A_fnc_compatibilityLoadFaction;
     ["active_only_for_occupants", [west] call A3I_fnc_isActive && {!([east] call A3I_fnc_isActive)}
         && {!([independent] call A3I_fnc_isActive)} && {!([civilian] call A3I_fnc_isActive)}] call _check;
-    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch","interception","interceptionformation","formationregression","interceptiontask","interceptionstorage","interceptionarrivals","administrationextras","interceptionaftermath","backgroundconvoys"]) exitWith {
+    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch","interception","interceptionformation","formationregression","interceptiontask","interceptionstorage","interceptionarrivals","administrationextras","interceptionaftermath","interceptiondispatch","backgroundconvoys"]) exitWith {
         private _suitePath = switch (_suite) do {
             case "backgroundconvoys": {"backgroundConvoyChecks.sqf"};
+            case "interceptiondispatch": {"interceptionDispatchChecks.sqf"};
             case "interceptionaftermath": {"interceptionAftermathChecks.sqf"};
             case "administrationextras": {"administrationExtraChecks.sqf"};
             case "interceptionarrivals": {"interceptionArrivalsChecks.sqf"};
@@ -172,6 +173,7 @@ if (!isServer) exitWith {};
     call compile preprocessFileLineNumbers "interceptionAdoptionChecks.sqf";
     call compile preprocessFileLineNumbers "administrationExtraChecks.sqf";
     call compile preprocessFileLineNumbers "interceptionAftermathChecks.sqf";
+    call compile preprocessFileLineNumbers "interceptionDispatchChecks.sqf";
     call compile preprocessFileLineNumbers "backgroundConvoyChecks.sqf";
     deleteVehicle A3A_customUnitTypes;
     ["complete", _checks, _failures, _spawned] call _log;
