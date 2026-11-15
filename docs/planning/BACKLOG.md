@@ -452,9 +452,14 @@ casualty/replacement accounting, guarded capture and actual icon endpoints.
 All 38 focused engine checks (27 stronghold-specific and 11 common), eleven
 actual missing-dependency checks, packaging and three parser tests pass without
 engine/SQF errors. The 167-input candidate is unchanged after testing. Its full
-1040-check combined regression is the next gate; the parent's different build
-passed 1013 checks and merged in PR 32. Full campaign save and sprint acceptance
-remain open. See ADMINISTRATION_REINFORCEMENTS.md.
+1040-check combined regression completed with 1038 passing checks and 67 passing
+roles, but two task assertions sampled queued native updates too early. The
+failed report is retained. A bounded wait for the expected task state and both
+resource pools passes all 64 focused task checks without changing production
+reward logic. The corrected combined gate will cover the stacked arrival-owner
+and public-dispatch candidate after focused verification. The parent's different
+build passed 1013 checks and merged in PR 32. Full campaign save and sprint
+acceptance remain open. See ADMINISTRATION_REINFORCEMENTS.md.
 
 Automatic interception aftermath is drafted in a separate feature branch. The
 lifecycle supervisor now calls complete-group handoffs, retains observed actors,
@@ -464,3 +469,4 @@ Twenty-four specific cases are authored; the 35-check focused runtime suite is
 NOT_RUN while the parent combined regression runs. Packaging, three parser tests
 and eleven actual missing-dependency checks pass. Public dispatch is unfinished;
 see INTERCEPTION_AFTERMATH.md.
+
