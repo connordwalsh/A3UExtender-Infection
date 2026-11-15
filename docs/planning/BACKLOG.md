@@ -654,3 +654,10 @@ inputs. The focused engine suite is running; its expected 249 checks include
 scene assembly and the parent controller, which were previously NOT_RUN.
 No source-level merge is treated as runtime acceptance. Connected recruitment,
 visible effects, Redux walking routes, pacing and campaign saves remain open.
+
+15 November native Redux persistence spike: full new-campaign initialization,
+native saveLoop and process-restart loadServer restore the tested town/admin
+extras, dealer and HQ state (9 write + 10 read assertions). Both clean-log gates
+fail on recorded native/terrain errors; no sprint gate is closed. See
+NATIVE_CAMPAIGN_SAVE.md and retained full RPTs. A separate repository decision
+for general Redux fixes is pending. Connected-player acceptance remains open.

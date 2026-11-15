@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "scope": "Official Redux mission, native server campaign init/save/load; no connected-player, UI, JIP, combat or long-session acceptance",
+  "phase": "read",
+  "status": "failed",
+  "collected_at_utc": "2026-11-15T20:15:15.783655+00:00",
+  "source_log": "campaign-save-read-dev1.rpt",
+  "source_log_sha256": "2ee45056123a3fc8449bdba276114964b691e9cff8f68b9ccb8c4d4c7e25845e",
+  "source_sha256": {
+    "tests/arma/campaign_probe/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "tests/arma/campaign_probe/run.sqf": "e7f29655281ec77430e254af6cf3adf53b7d4f953712009471f2711d8131a0f1",
+    "Tools/dev/collect-campaign.py": "5aefce3c03a9f90207bfe9ed3294eb67a46519bffee9a4314acbbe545afa4dde",
+    "Tools/dev/start-campaign-probe.ps1": "b13b7b0b1dddcbdc839ec511343b40b6f30c92e753837077cc054b7676e385ce"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "schema_valid": true,
+    "correct_phase_and_terrain": true,
+    "all_expected_checks_once": true,
+    "runtime_checks_pass": true,
+    "completion_matches": true,
+    "no_engine_or_native_errors": false
+  },
+  "failed_checks": [],
+  "malformed_lines": [],
+  "errors": [
+    {
+      "line": 1234,
+      "message": "15:14:03 \"InfectionCampaign_ReduxSave1/BIS_fnc_log: [BIS_fnc_OM_moduleSmartMarkers] Error: SmartMarker system has not been yet initialized.\""
+    },
+    {
+      "line": 1254,
+      "message": "15:14:04 Error in expression <};"
+    },
+    {
+      "line": 1258,
+      "message": "15:14:04   Error Undefined variable in expression: _leader"
+    },
+    {
+      "line": 1262,
+      "message": "15:14:04 Error: Object(2 : 9) not found"
+    },
+    {
+      "line": 1267,
+      "message": "15:14:04 Error: Object(2 : 10) not found"
+    },
+    {
+      "line": 1523,
+      "message": "15:14:10 2026-11-15 20:14:10:505 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker outp_6_vehicle is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1541,
+      "message": "15:14:10 2026-11-15 20:14:10:677 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_1_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1542,
+      "message": "15:14:10 2026-11-15 20:14:10:710 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_2_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1543,
+      "message": "15:14:10 2026-11-15 20:14:10:712 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_3_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1544,
+      "message": "15:14:10 2026-11-15 20:14:10:712 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_7_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1546,
+      "message": "15:14:10 2026-11-15 20:14:10:712 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_13_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1597,
+      "message": "15:14:12 2026-11-15 20:14:12:363 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Batarov | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1598,
+      "message": "15:14:12 2026-11-15 20:14:12:364 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Chezniki | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1599,
+      "message": "15:14:12 2026-11-15 20:14:12:397 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Chernogorsk | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1600,
+      "message": "15:14:12 2026-11-15 20:14:12:398 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Elektrozavodsk | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1601,
+      "message": "15:14:12 2026-11-15 20:14:12:399 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Tulga | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1602,
+      "message": "15:14:12 2026-11-15 20:14:12:433 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Solnichniy | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1603,
+      "message": "15:14:12 2026-11-15 20:14:12:434 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Berezino | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1604,
+      "message": "15:14:12 2026-11-15 20:14:12:435 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Stary Sobor | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1605,
+      "message": "15:14:12 2026-11-15 20:14:12:469 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Msta | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1606,
+      "message": "15:14:12 2026-11-15 20:14:12:505 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Staroye | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1607,
+      "message": "15:14:12 2026-11-15 20:14:12:506 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Shakhovka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1608,
+      "message": "15:14:12 2026-11-15 20:14:12:541 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Dolina | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1609,
+      "message": "15:14:12 2026-11-15 20:14:12:543 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Orlovets | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1610,
+      "message": "15:14:12 2026-11-15 20:14:12:543 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Bor | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1611,
+      "message": "15:14:12 2026-11-15 20:14:12:577 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Gorka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1612,
+      "message": "15:14:12 2026-11-15 20:14:12:579 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Novy Sobor | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1613,
+      "message": "15:14:12 2026-11-15 20:14:12:613 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Kabanino | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1614,
+      "message": "15:14:12 2026-11-15 20:14:12:614 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Mogilevka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1615,
+      "message": "15:14:12 2026-11-15 20:14:12:649 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Nadezhdino | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1616,
+      "message": "15:14:12 2026-11-15 20:14:12:650 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Guglovo | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1617,
+      "message": "15:14:12 2026-11-15 20:14:12:650 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Kamyshovo | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1618,
+      "message": "15:14:12 2026-11-15 20:14:12:685 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Pusta | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1619,
+      "message": "15:14:12 2026-11-15 20:14:12:686 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Zelenogorsk | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1620,
+      "message": "15:14:12 2026-11-15 20:14:12:687 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Vybor | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1622,
+      "message": "15:14:12 2026-11-15 20:14:12:722 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Dubrovka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1623,
+      "message": "15:14:12 2026-11-15 20:14:12:723 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Vyshnaya Dubrovka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1624,
+      "message": "15:14:12 2026-11-15 20:14:12:724 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Khelm | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1625,
+      "message": "15:14:12 2026-11-15 20:14:12:758 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Olsha | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1626,
+      "message": "15:14:12 2026-11-15 20:14:12:759 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Gvozdno | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1627,
+      "message": "15:14:12 2026-11-15 20:14:12:793 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Krasnostav | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1628,
+      "message": "15:14:12 2026-11-15 20:14:12:794 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Petrovka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1629,
+      "message": "15:14:12 2026-11-15 20:14:12:829 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Grishino | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1630,
+      "message": "15:14:12 2026-11-15 20:14:12:831 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Rogovo | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1631,
+      "message": "15:14:12 2026-11-15 20:14:12:865 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Pogorevka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1632,
+      "message": "15:14:12 2026-11-15 20:14:12:866 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Pustoshka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1633,
+      "message": "15:14:12 2026-11-15 20:14:12:867 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Kozlovka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1634,
+      "message": "15:14:12 2026-11-15 20:14:12:901 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Polana | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1635,
+      "message": "15:14:12 2026-11-15 20:14:12:902 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Balota | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1636,
+      "message": "15:14:12 2026-11-15 20:14:12:903 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Komarovo | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1637,
+      "message": "15:14:12 2026-11-15 20:14:12:938 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Kamenka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1638,
+      "message": "15:14:12 2026-11-15 20:14:12:938 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Myshkino | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1639,
+      "message": "15:14:12 2026-11-15 20:14:12:939 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Pavlovo | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1640,
+      "message": "15:14:12 2026-11-15 20:14:12:972 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Lopatino | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1641,
+      "message": "15:14:12 2026-11-15 20:14:12:973 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Vyshnoye | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1642,
+      "message": "15:14:13 2026-11-15 20:14:13:007 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Prigorodki | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1643,
+      "message": "15:14:13 2026-11-15 20:14:13:009 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Drozhino | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1644,
+      "message": "15:14:13 2026-11-15 20:14:13:010 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Sosnovka | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1645,
+      "message": "15:14:13 2026-11-15 20:14:13:043 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Nizhnoye | Called By: A3A_fnc_initZones"
+    },
+    {
+      "line": 1646,
+      "message": "15:14:13 2026-11-15 20:14:13:045 | Antistasi | Error | File: A3A_fnc_getCityData | Bad population count data for Pulkovo | Called By: A3A_fnc_initZones"
+    }
+  ],
+  "records": [
+    [
+      "start",
+      "read",
+      "chernarusredux",
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ],
+      [
+        2026,
+        11,
+        15,
+        20,
+        14,
+        8,
+        49
+      ]
+    ],
+    [
+      "check",
+      "background_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "saved_receipt_present",
+      true,
+      []
+    ],
+    [
+      "check",
+      "campaign_initialized",
+      true,
+      [
+        "completed"
+      ]
+    ],
+    [
+      "check",
+      "infection_selected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_hq_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "town_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "admin_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "dealer_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "save_identity_restored",
+      true,
+      []
+    ],
+    [
+      "complete",
+      "read",
+      10,
+      []
+    ]
+  ]
+}
