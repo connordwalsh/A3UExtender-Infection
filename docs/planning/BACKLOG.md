@@ -489,3 +489,18 @@ match the tested manifest. Administration persistence, automatic arrival afterma
 and public mission dispatch can integrate together through PR 35. The earlier
 1040-check fixture failure remains rejected evidence. Connected play, travel,
 actual campaign save/load and sprint acceptance remain open; see REVIEWS.md.
+
+Friendly delivery prerequisite: the owner confirmed the native HQ radii, actual
+Rebel-held permanent-site boundaries, and exclusion of cleared administrations.
+A read-only destination helper and 25 specific cases are drafted. Packaging,
+three parser tests and eleven actual missing-dependency checks pass; 36 focused
+engine checks remain NOT_RUN while the parent integrated regression is active.
+Supplies Seizure and Extraction controllers/public dispatch remain unfinished.
+See FRIENDLY_DELIVERY.md.
+
+Friendly delivery checkpoint: all 36 focused checks and 11 actual missing-
+dependency checks pass without engine/SQF errors. All 178 inputs and the PBO
+match the frozen manifest; completed servers exited. HQ and the six approved
+site types are covered. Supplies and Extraction mission controllers remain
+unimplemented. The owner corrected Extraction to wait until all survivors are
+rescued/killed or the deadline, then succeed only if at least one was rescued.

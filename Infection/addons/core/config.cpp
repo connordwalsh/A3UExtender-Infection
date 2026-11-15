@@ -30,6 +30,7 @@ class CfgFunctions
             class dependencies {};
             class isActive {};
             class backgroundSupplyConvoy {};
+            class deliveryDestination {};
             class hideRemovedMissionControl {};
             class isManagedUnit {};
             class initInfected {};
