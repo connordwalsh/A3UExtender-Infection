@@ -461,7 +461,7 @@ MAJOR_CHECKS = {
 
 
 
-CATALOG_POLICY_CHECKS = {"catalog_native_control_bases_preserved", 'catalog_ordinary_delegates', 'catalog_remote_removed_blocks', 'catalog_other_controls_preserved', 'catalog_client_blocks_random_before_selection', 'catalog_destroy_direct_blocks', 'catalog_missing_dependencies_delegate', 'catalog_endpoints_registered', 'catalog_modern_hooks_preserve_controls', 'catalog_client_allowed_delegates', 'catalog_legacy_hooks_preserve_controls', 'catalog_server_blocks_removed', 'catalog_missing_type_blocks_random', 'catalog_busy_lock_untouched'}
+CATALOG_POLICY_CHECKS = {'catalog_infected_tower_stays_destroyed', 'catalog_repair_no_crew_or_task', 'catalog_native_repair_delegates', 'catalog_repair_endpoint_registered', 'catalog_gang_endpoints_native', "catalog_native_control_bases_preserved", 'catalog_ordinary_delegates', 'catalog_remote_removed_blocks', 'catalog_other_controls_preserved', 'catalog_client_blocks_random_before_selection', 'catalog_destroy_direct_blocks', 'catalog_missing_dependencies_delegate', 'catalog_endpoints_registered', 'catalog_modern_hooks_preserve_controls', 'catalog_client_allowed_delegates', 'catalog_legacy_hooks_preserve_controls', 'catalog_server_blocks_removed', 'catalog_missing_type_blocks_random', 'catalog_busy_lock_untouched'}
 
 
 CLEARANCE_CHECKS = {
