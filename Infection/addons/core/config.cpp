@@ -26,6 +26,7 @@ class CfgFunctions
             class initSettings { preInit = 1; };
             class dependencies {};
             class isActive {};
+            class backgroundSupplyConvoy {};
             class hideRemovedMissionControl {};
             class isManagedUnit {};
             class initInfected {};
@@ -131,6 +132,7 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
             class originalMissionRequest { file = "\x\a3a\addons\core\functions\Missions\fn_missionRequest.sqf"; };
@@ -178,6 +180,7 @@ class CfgFunctions
         };
         class Missions
         {
+            class CONVOY { file = "\x\a3i\addons\core\overrides\fn_CONVOY.sqf"; };
             class DES_Vehicle { file = "\x\a3i\addons\core\overrides\fn_DES_Vehicle.sqf"; };
             class DES_Heli { file = "\x\a3i\addons\core\overrides\fn_DES_Heli.sqf"; };
             class DES_Antenna { file = "\x\a3i\addons\core\overrides\fn_DES_Antenna.sqf"; };
