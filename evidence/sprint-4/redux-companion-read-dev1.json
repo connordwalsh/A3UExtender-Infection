@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "scope": "Official Redux mission, native server campaign init/save/load; no connected-player, UI, JIP, combat or long-session acceptance",
+  "phase": "read",
+  "status": "failed",
+  "collected_at_utc": "2026-11-15T20:41:28.533945+00:00",
+  "source_log": "redux-companion-read-dev1.rpt",
+  "source_log_sha256": "7f95cdbd70a4008b0e22d9b7fc847e25a021a4e736b2899d3508678d36bd27b0",
+  "source_sha256": {
+    "tests/arma/campaign_probe/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "tests/arma/campaign_probe/run.sqf": "e7f29655281ec77430e254af6cf3adf53b7d4f953712009471f2711d8131a0f1",
+    "Tools/dev/collect-campaign.py": "5aefce3c03a9f90207bfe9ed3294eb67a46519bffee9a4314acbbe545afa4dde",
+    "Tools/dev/start-campaign-probe.ps1": "1515bee8adae54a95b5520911e58f476e833a3e84dce0e4a6353da9f627796b8"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "schema_valid": true,
+    "correct_phase_and_terrain": true,
+    "all_expected_checks_once": true,
+    "runtime_checks_pass": true,
+    "completion_matches": true,
+    "no_engine_or_native_errors": false
+  },
+  "failed_checks": [],
+  "malformed_lines": [],
+  "errors": [
+    {
+      "line": 1236,
+      "message": "15:40:31 \"InfectionCampaign_ReduxFix1/BIS_fnc_log: [BIS_fnc_OM_moduleSmartMarkers] Error: SmartMarker system has not been yet initialized.\""
+    },
+    {
+      "line": 1256,
+      "message": "15:40:32 Error in expression <};"
+    },
+    {
+      "line": 1260,
+      "message": "15:40:32   Error Undefined variable in expression: _leader"
+    },
+    {
+      "line": 1264,
+      "message": "15:40:32 Error: Object(2 : 9) not found"
+    },
+    {
+      "line": 1269,
+      "message": "15:40:32 Error: Object(2 : 10) not found"
+    },
+    {
+      "line": 1525,
+      "message": "15:40:38 2026-11-15 20:40:38:284 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker outp_6_vehicle is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1543,
+      "message": "15:40:38 2026-11-15 20:40:38:504 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_1_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1544,
+      "message": "15:40:38 2026-11-15 20:40:38:539 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_2_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1545,
+      "message": "15:40:38 2026-11-15 20:40:38:540 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_3_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1546,
+      "message": "15:40:38 2026-11-15 20:40:38:540 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_7_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1548,
+      "message": "15:40:38 2026-11-15 20:40:38:541 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_13_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    }
+  ],
+  "records": [
+    [
+      "start",
+      "read",
+      "chernarusredux",
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ],
+      [
+        2026,
+        11,
+        15,
+        20,
+        40,
+        35,
+        800
+      ]
+    ],
+    [
+      "check",
+      "background_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "saved_receipt_present",
+      true,
+      []
+    ],
+    [
+      "check",
+      "campaign_initialized",
+      true,
+      [
+        "completed"
+      ]
+    ],
+    [
+      "check",
+      "infection_selected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_hq_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "town_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "admin_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "dealer_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "save_identity_restored",
+      true,
+      []
+    ],
+    [
+      "complete",
+      "read",
+      10,
+      []
+    ]
+  ]
+}
