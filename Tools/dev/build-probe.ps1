@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory = $true)][string]$ArmaTools,
     [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
-    [ValidateSet('Full', 'Administration', 'Reinforcements', 'Roaming', 'Counterattacks', 'Towns', 'Tactical', 'Major', 'CatalogPolicy', 'Clearance', 'Liquidation', 'LiquidationController', 'LiquidationDispatch', 'Interception', 'InterceptionFormation', 'FormationRegression', 'InterceptionTask', 'InterceptionStorage', 'InterceptionArrivals', 'AdministrationExtras', 'InterceptionAftermath', 'InterceptionDispatch', 'Delivery', 'ExtractionLedger', 'AidLedger', 'EliminationLedger', 'EliminationScenes', 'ExtractionScenes', 'SupplyTrucks', 'SupplyTask', 'SupplyDispatch', 'BackgroundConvoys')][string]$Suite = 'Full',
+    [ValidateSet('Full', 'Administration', 'Reinforcements', 'Roaming', 'Counterattacks', 'Towns', 'Tactical', 'Major', 'CatalogPolicy', 'Clearance', 'Liquidation', 'LiquidationController', 'LiquidationDispatch', 'Interception', 'InterceptionFormation', 'FormationRegression', 'InterceptionTask', 'InterceptionStorage', 'InterceptionArrivals', 'AdministrationExtras', 'InterceptionAftermath', 'InterceptionDispatch', 'Delivery', 'ExtractionLedger', 'AidLedger', 'AidTask', 'EliminationLedger', 'EliminationScenes', 'EliminationTask', 'EliminationDispatch', 'ExtractionScenes', 'SupplyTrucks', 'SupplyTask', 'SupplyDispatch', 'BackgroundConvoys')][string]$Suite = 'Full',
     [ValidatePattern('^[A-Za-z0-9_-]{0,32}$')][string]$Instance = ''
 )
 $ErrorActionPreference = 'Stop'

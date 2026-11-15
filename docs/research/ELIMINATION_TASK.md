@@ -1,7 +1,8 @@
 # Elimination Task adaptation audit
 
-Status: source audit only; the replacement mission and special-target adapter
-are not implemented. This does not approve any creature for production use.
+Status: historical source audit below, followed by the current controller
+implementation checkpoint. Focused engine validation is in progress; this is
+not campaign or connected-player acceptance.
 
 The approved objective is one powerful special infected in a settlement:
 "A powerful special zombie has been reported in {Settlement}. Find it and
@@ -56,3 +57,89 @@ Native Smasher timing/rewards provide the authorized starting point (normal
 selection, mission-specific timing, defeat/cancellation and cleanup behavior
 still require implementation and evidence. No new product policy is selected by
 this audit. No Computer Use or manual installation change.
+
+## Controller checkpoint: 15 November 2026
+
+The owner approved Screamer, Boomer and Leaper 2 as initial targets; their
+separate ledger and scene prerequisites are merged. The controller branch now
+registers actor ownership, the death ledger, a static search ellipse and an AS
+task inside the factory creation transaction. The task names the primary type;
+minor-special escorts exclude it. Basic escorts and other approved minor types
+use the shared active-infected limit (6-11 total actors depending on war level).
+
+Only an observed primary death by the deadline succeeds. Escort deaths do not
+complete the objective; settlement capture does not cancel it. Live deletion or
+reassignment is a technical cancellation without rewards. Normal/difficult
+limits are 60/30 minutes. Success adapts native AS_Zombies rewards: 1000/2000
+faction funds, 10/20 local support, 10/20 player score and 250/500 player money.
+Timeout fails without the old wave-defense mission's unrelated city destruction.
+
+Seven native assassination entry points, server scheduler routing, commander
+requests, and both menu labels use the replacement only during Infection. Other
+campaigns delegate to their original functions. An independent watchdog settles
+once, releases the exact ledger and marker, retains nearby actors/corpses,
+preserves reassigned actors, and retires empty groups. Task retention follows
+Ultimate's 1200-second average.
+
+EliminationTask Dev1 is built; validation remains pending. The initial fixture
+report is retained as rejected: missing native faction/commander setup and an
+unparenthesized town-data lookup interrupted it. A second rejected fixture used
+a string comparison on the task description's formatting array. The installed
+functions_f.pbo source confirms BIS_fnc_setTask wraps each description field in
+an array; the corrected assertion formats that field. Neither correction changes
+production source. Public dispatch, actual absent dependencies, cleanup, combined
+regression and connected gameplay remain to be verified. No Computer Use or
+manual-install changes.
+
+Dev1's corrected lifecycle run passes 36 checks and the public-dispatch suite
+passes 38 with no engine/SQF errors. An earlier completed run remains rejected:
+its reward assertion counted native per-death support calls as mission rewards,
+and its high-war scene was unavailable (the fixture did not retain the reason).
+The corrected reward assertion compares the callback list before and after a
+repeat settlement. Later checks carry explicit phase, fault, count and outcome
+details. That historical placement failure is not claimed conclusively diagnosed.
+
+Dev2 reserves a margin around the primary spawn for its escort circle, avoiding
+repeated boundary rejection when the primary lies at the site's edge. It also
+preserves an actor that another elimination ledger has claimed, even when the
+older task tag remains. Added checks exercise eleven-actor groups with each of
+the three target classes and transfer the primary to an actual second ledger.
+Validation of Dev2 and integration with Humanitarian Aid are in progress.
+
+Dev2 passes all 40 focused lifecycle checks, including actual eleven-actor
+Screamer, Boomer and Leaper 2 groups and protection of a primary reassigned to a
+second ledger. All 11 actual missing-dependency checks and three parser tests
+pass. No engine/SQF errors. Its 18 reviewed notices comprise 16 startup baseline
+notices and two native resource-notification calls to the fixture's null
+commander; client notifications/rewards are not certified. All 236 production
+inputs and the PBO match the manifest. Both completed Dev2 test servers exited.
+SHA-256: ca5fa6c4bdf3586cb43f36c65846343b19d9a6b7d6ca1a8e4c319593e98ffa4b.
+Combined regression and connected acceptance remain open.
+
+
+## Integrated Dev3 regression checkpoint, 15 November
+
+Dev3 combines public Elimination with the Aid controller and corrected Aid-ledger
+fixture. All 254 production inputs and the PBO match the frozen manifest; SHA-256
+9563500a216a240540f138daafe98c8fed257b102d47b5e6a2ab21b37d6b06ef.
+Its 11 actual dependency-absence checks pass. The first full run stopped before
+completion: every recorded assertion passed and no engine/SQF error was recorded,
+but this is incomplete evidence, not a passing regression. The interruption report
+and Dev2/Dev3 manifests are retained separately. A fresh run of unchanged Dev3 is
+in progress; public integration and the enclosing story remain unaccepted.
+
+
+## Accepted combined code regression, 15 November 2026
+
+The unchanged integrated EliminationTask Dev3 rerun passes all 1,427 checks and
+67 role-spawn records. All 254 production inputs and the PBO still match its
+manifest (SHA-256 9563500a216a240540f138daafe98c8fed257b102d47b5e6a2ab21b37d6b06ef).
+Its actual dependency-absence run passes eleven checks. No engine/SQF errors;
+96 reviewed notices comprise 16 startup, 70 object-deletion and ten null-fixture-
+commander notifications. The completed server was stopped. The earlier
+interrupted run and rejected Aid fixture reports remain preserved.
+
+This accepts the combined code regression containing public Aid and Elimination,
+not a standalone passing Aid Dev4 full run or campaign acceptance. Connected
+players, visible menus/rewards, real-terrain mission behavior, HC/JIP, saves and
+performance remain open. No sprint gate or manual Dev9 installation changed.

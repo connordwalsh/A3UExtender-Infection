@@ -143,9 +143,9 @@ A3A_faction_occ set ["infectionTemplate",""];
 A3A_faction_occ set ["infectionTemplate","A3I_Infected"]; A3I_dependencies set ["available",false];
 ["liq_dispatch_missing_dependencies_delegation",call _exerciseOrdinary] call _check;
 A3I_dependencies set ["available",true]; A3I_test_originals = [];
-{[_x,2,true] call A3A_fnc_missionRequest} forEach ["AS","RES","SUPP"];
+{[_x,2,true] call A3A_fnc_missionRequest} forEach ["RES"];
 ["liq_dispatch_other_categories_preserved",A3I_test_originals isEqualTo
-    (["AS","RES","SUPP"] apply {["missionRequest",[_x,2,true]]})] call _check;
+    (["RES"] apply {["missionRequest",[_x,2,true]]})] call _check;
 call _reset; A3I_test_originals = []; sidesX setVariable [_target,east];
 {[_target] call (missionNamespace getVariable ("A3A_fnc_" + _x))} forEach _entries;
 sleep 0.4;

@@ -1,6 +1,6 @@
 // Internal bounded scene factory. Caller owns returned actors and budget ticket.
-// [marker, optional approved primary class] -> [success,[target,escorts,group,ticket,context],reason].
-params [["_marker","",[""]],["_primary","",[""]]];
+// [marker, optional approved primary class, optional atomic registration callback] -> [success,[target,escorts,group,ticket,context],reason].
+params [["_marker","",[""]],["_primary","",[""]],["_afterCreate",{true},[{}]]];
 private _empty = [objNull,[],grpNull,"",""];
 if (!isServer || {isRemoteExecuted} || {!canSuspend}) exitWith {[false,_empty,"scheduled_server_only"]};
 if !(_marker in (call A3I_fnc_eliminationTargets)) exitWith {[false,_empty,"target_unavailable"]};
@@ -27,10 +27,13 @@ if !(_hqMarker in allMapMarkers) exitWith {[false,_empty,"hq_unavailable"]};
 private _center = getMarkerPos _marker;
 private _radius = if (_marker in (missionNamespace getVariable ["milAdministrationsX",[]])) then {40}
     else {((markerSize _marker # 0) min (markerSize _marker # 1)) min 100};
+// Leave room around the primary for its whole escort. A primary at the boundary
+// otherwise consumes most placement attempts on candidates outside the site.
+private _escortRadius = 25 min (_radius / 2);
 private _positions = []; private _reason = "no_safe_position";
 {
     private _anchor = if (_positions isEqualTo []) then {_center} else {_positions # 0};
-    private _maximum = if (_positions isEqualTo []) then {_radius} else {25 min _radius};
+    private _maximum = if (_positions isEqualTo []) then {_radius - _escortRadius} else {_escortRadius};
     private _position = [];
     for "_attempt" from 1 to 8 do {
         private _search = [_anchor,0,_maximum,_x] call A3I_fnc_findSpawnPosition;
@@ -77,6 +80,14 @@ isNil {
     } forEach _roles;
     _success = _reason == "" && {count _units == count _roles}
         && {(_units findIf {!alive _x || {!(_x getVariable ["A3I_initialized",false])}}) == -1};
+    if (_success) then {
+        // The owner registers lifecycle obligations and actor references before
+        // scheduled native AI or a stopped caller can leave an unowned scene.
+        private _registered = [_units # 0,_units select [1],_group,_ticket,_context] call _afterCreate;
+        if (isNil "_registered" || {!(_registered isEqualTo true)}) then {
+            _success = false; _reason = "registration_failed";
+        };
+    };
 };
 ["close",[_ticket]] call A3I_fnc_budget;
 if (!_success) exitWith {
