@@ -31,6 +31,9 @@ class CfgFunctions
             class isActive {};
             class backgroundSupplyConvoy {};
             class deliveryDestination {};
+            class abandonedVehicleClasses {};
+            class abandonedParkedCount {};
+            class createAbandonedVehicle {};
             class supplyTruckClasses {};
             class createSupplyTruck {};
             class supplySiteKinds {};

@@ -1,7 +1,7 @@
 # Abandoned vehicles: native lifecycle audit
 
-Status: source inspection and owner decisions; no ambient vehicle implementation
-or runtime acceptance yet. Pinned Ultimate 12.4.2 source commit
+Status: asset prerequisites implemented and tested; town-spawning integration
+and campaign acceptance remain open. Pinned Ultimate 12.4.2 source commit
 c7c8247672ed5e7d4aa317d47efb371c41de4e7d. Paths below are relative to A3A/addons.
 
 ## Confirmed owner decisions
@@ -11,8 +11,8 @@ civilian cars, police vehicles and light Russian military vehicles (vanilla
 stand-ins with optional faction equipment). Only infected-held towns receive
 this mix. Taking an abandoned vehicle is free salvage without the native
 civilian-theft penalty. Regeneration and persistence follow Ultimate defaults.
-The requested approval for native counts and developer-tuned mix/fuel/damage
-is still pending. Do not treat that as permission already granted.
+The owner approved native parked counts and developer tuning of the mix, fuel
+and repairable damage.
 
 ## What Ultimate actually does
 
@@ -69,3 +69,30 @@ without theft/resource effects, and retain ownership-scoped cleanup. Tests need
 actual creation, repair, entry/capture, departure/revisit, intact captured-asset
 retention, destruction and native save-filter behavior. Connected driving,
 towing, garage, Redux road clearance and campaign disk saves remain NOT RUN.
+
+## Asset prerequisite checkpoint
+
+Three internal helpers select validated civilian/police/light military pools,
+calculate the exact native parked count, and create one owned-by-caller salvage
+asset. Fallbacks are C_Offroad_01_F/C_Hatchback_01_F/C_SUV_01_F,
+B_GEN_Offroad_01_gen_F and O_MRAP_02_F. Selected faction pools supply optional
+mod classes; missing/invalid pools fall back. The creator accepts only an
+existing infected-held, undestroyed town and a safe position within the native
+250-metre road-search radius. It creates no crew and no autonomous cleanup job.
+
+Native initialization is followed atomically by neutral ownership, empty cargo,
+unlocked access, fuel sampled from 0.10/0.30/0.50 and repairable overall damage
+from 0.15/0.35/0.55. The existing native GetIn and destruction handlers remain.
+No global faction template or civilian vehicle pool is replaced.
+
+AbandonedAssets Dev1 passes 42 focused engine checks, 11 actual missing-
+dependency checks and three parser tests, with no engine/SQF errors. Sixteen
+startup notices match the reviewed baseline. All 257 source inputs and the PBO
+match the manifest. The test uses real native capture, actual vehicle damage and
+repair, native captured-vehicle retention and destruction/resource callbacks.
+It does not certify player driving, road placement, visit regeneration, garage,
+optional faction-pack behavior, towing, or disk save/reload. No town spawning
+caller exists in this increment.
+
+Artifact SHA-256:
+7beb01bbf2ee445ed0817cac65a298f6442a2397384f8c68d17560841e3878f7.

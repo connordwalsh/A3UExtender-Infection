@@ -175,4 +175,5 @@ population. The mission does not launch an additional walking horde.
 persistence rules. The abandoned civilian/police/light military mix appears only
 in infected-held towns, and taking it is free salvage without a civilian-theft
 penalty. These decisions do not change ordinary vehicles in other towns.
-Counts, mix and initial fuel/damage tuning await the owner's answer.
+The owner approved keeping native parked-vehicle counts and developer tuning
+of the civilian/police/light military mix, fuel and repairable damage.
