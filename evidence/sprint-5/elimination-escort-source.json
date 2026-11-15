@@ -1,0 +1,6 @@
+{
+  "scope": "Read-only native Screamer escort audit; no complete call graph or gameplay acceptance",
+  "source": ".work/unpacked/WBK_Zombies/ai/wbk_ai_stunden.sqf",
+  "sha256": "36c24e1b147c69df42affa6c8237f4ab9c48deef8dcd49d86f9b53023fce16cc",
+  "finding": "Scream branch directs existing nearby infected; no direct unit or group creation in this file."
+}

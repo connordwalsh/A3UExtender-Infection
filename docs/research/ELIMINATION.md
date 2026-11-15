@@ -71,3 +71,15 @@ locations and requested an escort containing both basic and minor special
 infected. The public scenario remains a subsequent increment, not part of these
 42 tracking checks. The same three approved smaller specials are the initial
 special roster; larger classes remain unavailable pending investigation.
+
+
+## Escort source audit
+
+The installed Screamer implementation in `WBK_Zombies/ai/wbk_ai_stunden.sqf`
+redirects existing nearby infected toward itself during its scream; that branch
+contains no unit/group creation. The initial mixed escort should reserve its
+whole declared roster through the shared budget, including the target and minor
+specials, and must preserve the native prepared-class AI. Existing ordinary
+spawnGroup intentionally rejects special classes, so the next scene increment
+needs an explicit special creation/management path rather than silently putting
+specials into ordinary garrison roles. No such production path is enabled yet.
