@@ -353,3 +353,22 @@ and the PBO match the manifest; both isolated servers exited. Full combined
 regression is NOT_RUN for this candidate.
 Full catalog, driving, connected players, campaign resilience and sprint gates
 remain open. See [background convoy details](../research/BACKGROUND_CONVOYS.md).
+
+
+Integrated lifecycle regression checkpoint: the frozen 159-input candidate
+completed 955 combined checks, with one failed success-retention assertion and
+no engine/SQF errors. That report remains rejected. A 64-check focused diagnostic
+then reproduced the exact failure state: outcome won, formation retired, four
+native corpses, retained task/claim, zero budget counts, but native task state
+still CREATED. After its queued update, the same values remain and state becomes
+SUCCEEDED. The fixture now waits explicitly for that native state; production
+code did not change. All 64 focused checks pass without engine/SQF errors.
+The combined run has 80 reviewed warnings: 16 startup/dependency notices, 59
+object-deletion notices and five absent-fixture-commander notification targets.
+The focused run has 16 startup notices.
+All 159 production inputs and the PBO still match the manifest. Both test servers
+exited. A clean combined rerun remains required before integration; do not treat
+the rejected combined report as passed. The town-extra branch will include this
+fixture correction before its combined validation. Arrival capacity/offscreen
+persistence/casualty decisions are now resolved: extras exceed normal capacity,
+persist to the next visit, and stay dead when killed. Handoff remains unfinished.
