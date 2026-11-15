@@ -374,12 +374,19 @@ _record set ["routeDistance",500];
 [_record] call A3I_fnc_registerInterceptionTask;
 [_record] call _killAll;
 [{_record getOrDefault ["settled",false] && {_record getOrDefault ["retired",false]}},5] call _wait;
+private _winSnapshot = [_record get "outcome",_record get "retired",_record get "taskRetired",
+    [_record] call _state,{!isNull _x && {!alive _x}} count (_record get "units"),
+    !isNil {A3I_interceptions get (_record get "name")},(call _stats) select [1,3]];
+[{[_record] call _state == "SUCCEEDED"},3] call _wait;
 ["itask_win_retains_task_and_corpses",_record get "outcome" == "won"
     && {_record get "retired"} && {!(_record get "taskRetired")}
     && {[_record] call _state == "SUCCEEDED"}
     && {{!isNull _x && {!alive _x}} count (_record get "units") == 4}
     && {!isNil {A3I_interceptions get (_record get "name")}}
-    && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;
+    && {(call _stats) select [1,3] isEqualTo [0,0,0]},
+    [_winSnapshot,[_record get "outcome",_record get "retired",_record get "taskRetired",
+        [_record] call _state,{!isNull _x && {!alive _x}} count (_record get "units"),
+        !isNil {A3I_interceptions get (_record get "name")},(call _stats) select [1,3]]]] call _check;
 _record set ["taskDeleteAt",time - 1];
 [{isNil {A3I_interceptions get (_record get "name")}},5] call _wait;
 ["itask_win_releases_claim_after_retention",isNil {A3I_interceptions get (_record get "name")}
