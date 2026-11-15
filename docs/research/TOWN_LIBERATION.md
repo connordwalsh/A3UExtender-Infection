@@ -649,3 +649,21 @@ completed servers were stopped by verified identity. This candidate's combined
 regression is NOT_RUN. A real ten-minute campaign economy cycle, connected-player
 proximity, ordinary-faction campaign behavior and the full retained scene remain
 separate acceptance work.
+
+
+## Current-catalog integration, 15 November 2026
+
+The liberation-integration branch combines the retained scene and campaign
+entry branches with the current Liquidation/Interception/Supplies/Aid/Elimination
+catalog and abandoned-town adapter. Retired competitive-conquest registrations
+and checks were not restored. The shared major-horde controller gains a guarded
+liberation purpose; ordinary capture requests retain their existing path.
+Both the native resourcecheck entry and direct townBattle entry are connected,
+including the owner's peaceful-join fallback when no eligible walking origin
+exists. The current catalog and parked-car load-order aliases are preserved.
+
+Integration Dev2 packages and passes three parser checks and eleven actual
+missing-dependency checks. Its focused suite contains 238 liberation assertions
+plus eleven common assertions and is running. This is not a passing scene,
+parent-controller, campaign or sprint acceptance result. Earlier reports above
+remain historical component evidence. No Computer Use or manual-install change.
