@@ -13,10 +13,18 @@ if (_event == "Killed" && {!alive _unit}) exitWith {
     // Preserve first-entry failure if the first arrival dies before the next poll.
     private _target = _record get "target";
     if (_record get "phase" == "marching" && {_target in allMapMarkers} && {_unit inArea _target}) then {
-        _record set ["arrived",true];
+        if (!(_record getOrDefault ["arrived",false]) && {!scriptDone (_record getOrDefault ["script",scriptNull])}) then {
+            _record set ["arrived",true]; _record set ["arrivedAt",time];
+            _record set ["arrivalPosition",getPosATL _unit];
+        };
     };
     _record set ["remaining",((_record get "remaining") - 1) max 0];
     _record set ["killed",(_record getOrDefault ["killed",0]) + 1];
+    if (_record get "remaining" == 0 && {_record get "phase" == "marching"}
+        && {!scriptDone (_record getOrDefault ["script",scriptNull])}) then {
+        _record set ["eliminatedAt",time];
+        _record set ["eliminationPosition",getPosATL _unit];
+    };
     if (_record get "phase" == "preparing") then {_record set ["fault","preparation_casualty"]};
 };
 _record set ["missing",(_record getOrDefault ["missing",0]) + 1];

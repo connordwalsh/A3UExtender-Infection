@@ -86,6 +86,10 @@ class CfgFunctions
             class liquidationMarkerChange {};
             class liquidationCityCapture {};
             class interceptionMarchTick {};
+            class interceptionTaskOutcome {};
+            class finishInterception {};
+            class interceptionTaskTick {};
+            class watchInterceptionTask {};
             class interceptionPreparing {};
             class trackInterceptionMember {};
             class interceptionMemberEvent {};
