@@ -125,3 +125,15 @@ inputs and the PBO match the manifest. Artifact SHA-256:
 Both focused servers exited. Combined regression is the next integration gate.
 Menu configuration is verified; visible menus, client/HC relay and player-facing
 notification delivery are not accepted by this isolated server evidence.
+
+## Combined integration result
+
+SupplyDispatch Dev1 passed all 1228 combined engine checks and 67 role-spawn
+records, with no engine/SQF errors. The same 203 production inputs and PBO still
+match. All 101 warnings were reviewed: 16 startup/dependency notices, 77 object
+deletion notices and eight absent-fixture-commander notification targets. The
+completed isolated server exited. Report: supply-dispatch-full-engine.json.
+This integrates the delivery helper, Extraction ledger, supply trucks,
+Supplies Seizure controller and public dispatch with the earlier site, response,
+Liquidation, Interception and Russian background-convoy behavior. It does not
+close connected-player, terrain, disk-save or full campaign acceptance gates.

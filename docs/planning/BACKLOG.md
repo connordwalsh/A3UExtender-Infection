@@ -551,3 +551,14 @@ checks. Capturing its permanent source site completes recovery in place, with
 once-only rewards and the usable truck registered for saving. Towns provide fuel
 trucks only; all six conventional permanent-site types permit the three approved
 service roles. Public dispatch and combined regression remain open.
+
+## Supplies Seizure integration: 15 November 2026
+
+Supplies Seizure creation, settlement, retained usable trucks, captured-source
+delivery and public logistics dispatch pass 1228 combined engine checks and 67
+role-spawn records. Focused dispatch, actual absent-dependency and parser checks
+also pass. No engine/SQF errors; warnings are classified in SUPPLIES_SEIZURE.md.
+The manual installation is unchanged. Visible menus, connected driving/rewards,
+real terrain travel, HC/JIP and campaign disk saves remain open. Extraction
+scene and Humanitarian Aid ledger drafts are separate increments, outside this
+combined build. No sprint acceptance gate is closed.
