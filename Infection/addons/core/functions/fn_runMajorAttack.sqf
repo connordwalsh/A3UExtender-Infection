@@ -1,5 +1,8 @@
 params ["_record"];
 if (!isServer || {!canSuspend} || {isRemoteExecuted && {remoteExecutedOwner != 2}}) exitWith {};
+if (_record getOrDefault ["purpose","capture"] == "liberation") exitWith {
+    [_record] call A3I_fnc_runLiberationHorde;
+};
 private _target = _record get "target";
 private _source = _record get "source";
 private _hq = _record get "hq";

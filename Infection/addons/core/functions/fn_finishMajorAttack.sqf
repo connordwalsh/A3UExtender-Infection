@@ -12,7 +12,8 @@ if (_record get "paidActors" == 0 && {_record get "fixedCost" > 0}) then {
     _record set ["fixedRefunded",true];
 };
 private _outcome = _record get "outcome";
-private _completed = _record get "paidActors" > 0 && {_outcome in ["defeated","timeout","captured","petros_killed"]};
+private _completed = _record get "paidActors" > 0
+    && {_outcome in ["defeated","timeout","captured","petros_killed","defended","survivor_lost","expired"]};
 private _taskId = _record get "taskId";
 private _taskType = _record get "taskType";
 private _taskExists = (missionNamespace getVariable ["A3A_tasksData",[]]) findIf {_x # 0 == _taskId};

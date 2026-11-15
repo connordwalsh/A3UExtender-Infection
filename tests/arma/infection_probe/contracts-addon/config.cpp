@@ -85,6 +85,8 @@ class CfgFunctions
             class originalLOGAirdrop { file = "\x\a3i\tests\contracts\fn_originalLOGAirdrop.sqf"; };
             class originalLOGCrashsite { file = "\x\a3i\tests\contracts\fn_originalLOGCrashsite.sqf"; };
             class originalLOGHelicrash { file = "\x\a3i\tests\contracts\fn_originalLOGHelicrash.sqf"; };
+            class originalTownBattle { file = "\x\a3i\tests\contracts\fn_originalTownBattle.sqf"; };
+            class originalResourceCheck { file = "\x\a3i\tests\contracts\fn_originalResourceCheck.sqf"; };
             class originalMissionRequest { file = "\x\a3i\tests\contracts\fn_originalMissionRequest.sqf"; };
             class originalConquestMission { file = "\x\a3i\tests\contracts\fn_originalConquestMission.sqf"; };
             class originalAdministrationMission { file = "\x\a3i\tests\contracts\fn_originalAdministrationMission.sqf"; };
