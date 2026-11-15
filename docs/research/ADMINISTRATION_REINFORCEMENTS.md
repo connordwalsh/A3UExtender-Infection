@@ -1,6 +1,7 @@
 # Persistent administration reinforcements
 
-Status: 38 focused engine checks pass; combined regression pending. Normal
+Status: 38 focused engine checks pass; combined regression rejected pending a
+corrected integrated rerun. Normal
 stronghold defenders still regenerate each visit. The owner approved persistent
 extra survivors, permanent extra casualties, and a 50-metre stronghold arrival
 boundary for Horde Interception.
@@ -66,6 +67,21 @@ Artifact: `@Infection_AdminExtras_Dev1`, SHA-256
 
 The parent handoff component passed 1013 combined checks and merged in PR 32.
 That different frozen candidate cannot certify this additional administration
-implementation. The next gate is the full 1040-check combined regression on
-AdminExtras Dev1, including existing town/administration and interception checks.
-Public mission dispatch and hostile arrival ownership are still unfinished.
+implementation. The 1040-check AdminExtras Dev1 run completed with 1038 passing
+checks and all 67 roles passing, but failed two interception task assertions.
+It is retained as `administration-extras-combined-rejected.json`, not accepted.
+There were no engine/SQF errors. The assertion read the native resource update
+before its queued reward completed; the timeout assertion likewise read before
+the queued task state/reward finished.
+
+The fixture now waits up to five seconds for the expected native task state and
+both resource pools, instead of a fixed 0.2-second sleep. Expected results and
+production reward logic are unchanged. All 64 focused task checks then passed,
+with no engine/SQF errors and 16 startup/dependency notices, recorded in
+`administration-task-settlement-engine.json`. Diagnostic before/after snapshots
+show CREATED becoming SUCCEEDED/FAILED and both pools reaching their expected
+values. All 167 production inputs still match the frozen manifest.
+
+The next combined gate will include the stacked arrival-owner and public-dispatch
+changes after their focused checks pass. This diagnostic does not certify that
+integrated candidate or establish full campaign acceptance.
