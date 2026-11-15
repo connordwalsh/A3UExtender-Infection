@@ -929,3 +929,23 @@ without deleting survivors or touching another owner's state. The ledger has
 no public mission caller yet. PR 38 may integrate this tested prerequisite;
 it does not complete Extraction tasks, rewards or connected rescue interactions.
 No Computer Use, manual-install changes or sprint-gate completion.
+
+
+## 14 November 2026 - Supplies Seizure truck assets review
+
+SupplyTrucks Dev1 passes 35 focused engine checks, 11 actual missing-dependency
+checks, packaging and three parser tests without engine/SQF errors. Sixteen
+startup notices reviewed. All 184 production inputs and the PBO match after
+execution; both servers exited. The rejected first report remains committed:
+its vehicle-retention assertion accidentally called the existing stub. The
+corrected fixture calls separately compiled native VEHdespawner; production is
+unchanged. Native GetIn capture, destruction and deleted-vehicle handlers are
+exercised, with resource pools unchanged and no theft-support callback.
+
+Self-review covered configured pools and vanilla fallbacks, creation authority,
+compiled campaign data, safe positions, empty crew, neutral ownership before
+events, unlocked service trucks and preservation of captured Rebel vehicles.
+The helpers have no public mission caller yet. PR 39 may integrate these assets;
+full Supplies Seizure creation/controller/rewards/dispatch, optional mod packs,
+ACE, player driving, garage, disk saves and campaign acceptance remain open.
+No Computer Use, manual-install changes or sprint-gate completion.

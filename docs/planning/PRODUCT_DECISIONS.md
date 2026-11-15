@@ -132,3 +132,8 @@ the task. Ordinary town/permanent-area marker boundaries remain unchanged.
 14 November cleared-administration aftermath: if the player clears a stronghold
 while an interception horde approaches, the horde still attacks the area. The
 stronghold stays permanently cleared and cannot be reestablished by that horde.
+
+14 November Supplies Seizure ownership clarification: once the truck exists,
+continue recovering that same truck if Rebels or Russia capture its settlement.
+Ownership change alone does not cancel the mission; delivery, destruction or
+the original deadline determine its outcome.

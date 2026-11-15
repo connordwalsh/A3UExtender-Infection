@@ -44,15 +44,23 @@ a separate feature. The eventual mission controller owns retention and cleanup.
 
 ## Evidence and remaining work
 
-Dev1 packages and passes three parser tests and 11 actual missing-dependency
-checks. All 35 focused runtime assertions passed, but the report is REJECTED:
+Dev1 passes all 35 corrected focused engine checks, 11 actual missing-dependency
+checks, packaging and three parser tests without engine/SQF errors. Sixteen
+startup/dependency notices were reviewed. All 184 production inputs and the PBO
+match after execution. Both test servers exited.
+
+The first run remains REJECTED despite all 35 runtime assertions passing:
 the claimed-truck retention check called the shared despawner stub, which raised
-an undefined-variable error instead of exercising native retention. Correct it
-to call a separately compiled native function and rerun; do not claim that old
-assertion as proof. The rejected report is supply-trucks-rejected-1.json.
+an undefined-variable error instead of exercising native retention. The corrected fixture calls a separately compiled native function and now passes
+without errors. Production code is unchanged. The rejected report is
+supply-trucks-rejected-1.json; the accepted report is supply-trucks-engine.json.
+Build and absent-dependency reports are recorded alongside them. Artifact
+@Infection_SupplyTrucks_Dev1, SHA-256
+`af23a7e871d695b3d6c305780e090fed84ea89ae068f0d48f916c24cf37c28e8`.
 
 Mission target eligibility, placement search, objective tracking, once-only
 rewards, retention/cleanup, all public/direct/intel/civilian routes, and connected
-play remain unfinished. Ownership changes after the truck exists await owner
-clarification. The usable truck contract is separate from currently unanswered
+play remain unfinished. The owner confirmed that Rebel or Russian capture after the truck exists does
+not cancel recovery. Its delivery, destruction or original deadline resolves the
+mission. Eligible source-location types are awaiting clarification. The usable truck contract is separate from currently unanswered
 Extraction survivor disposition. No Computer Use or manual-install changes.

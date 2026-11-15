@@ -98,7 +98,7 @@ private _until = diag_tickTime+8;
 waitUntil {sleep 0.05; _ammo getVariable ["ownerSide",sideUnknown] == teamPlayer || {diag_tickTime > _until}};
 ["struck_native_capture",driver _ammo == _driver && {_ammo getVariable ["ownerSide",sideUnknown] == teamPlayer}
     && {call _unchanged}] call _check;
-private _despawner = [_ammo] spawn A3A_fnc_VEHdespawner;
+private _despawner = [_ammo] spawn A3I_fnc_testNativeVEHdespawner;
 _until = diag_tickTime+3; waitUntil {sleep 0.05; scriptDone _despawner || {diag_tickTime > _until}};
 ["struck_claimed_truck_retained",scriptDone _despawner && {alive _ammo} && {alive _driver}] call _check;
 moveOut _driver; deleteVehicle _driver; sleep 0.2; deleteGroup _group;

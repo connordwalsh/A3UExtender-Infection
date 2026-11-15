@@ -527,3 +527,10 @@ The 35-check focused report remains rejected because its despawner retention
 check accidentally called the test stub. Wire the actual native function and
 repeat. Full mission creation, objectives, rewards and dispatch remain open.
 See SUPPLIES_SEIZURE.md. Ownership-after-spawn policy awaits owner clarification.
+
+Supply-truck fixture correction: all 35 focused checks now pass using the real
+native vehicle despawner. All 184 production inputs and the PBO remain unchanged;
+11 actual missing-dependency checks and three parser tests also pass. No engine/
+SQF errors; completed servers exited. The owner confirmed recovery continues if
+Rebels or Russia capture the truck settlement. Eligible source-location types
+await clarification. Task/controller/dispatch remain unfinished.
