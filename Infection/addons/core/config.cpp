@@ -7,7 +7,7 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = 2.22;
-        requiredAddons[] = {"A3A_core", "A3A_ultimate", "A3A_scrt", "A3A_gui", "cba_main", "cba_settings"};
+        requiredAddons[] = {"A3A_core", "A3A_patcom", "A3A_ultimate", "A3A_scrt", "A3A_gui", "cba_main", "cba_settings"};
         version = 0.1;
         versionStr = "0.1.0-dev";
         A3A_compatibility[] = {12, 4};
@@ -31,6 +31,10 @@ class CfgFunctions
             class isActive {};
             class backgroundSupplyConvoy {};
             class deliveryDestination {};
+            class startAbandonedTown {};
+            class runAbandonedTown {};
+            class abandonedTownTick {};
+            class cleanupAbandonedTown {};
             class abandonedVehicleClasses {};
             class abandonedParkedCount {};
             class createAbandonedVehicle {};
@@ -237,6 +241,7 @@ class CfgFunctions
             class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
+            class originalAmbientCivTraffic { file = "\x\a3a\addons\patcom\functions\Civilian\fn_createAmbientCivTraffic.sqf"; };
             class originalASAmbush { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Ambush.sqf"; };
             class originalASOfficial { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Official.sqf"; };
             class originalASSmasher { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Smasher.sqf"; };
@@ -291,6 +296,10 @@ class CfgFunctions
     };
     class A3A
     {
+        class Civilian
+        {
+            class createAmbientCivTraffic { file = "\x\a3i\addons\core\overrides\fn_createAmbientCivTraffic.sqf"; };
+        };
         class Intel
         {
             class selectIntel { file = "\x\a3i\addons\core\overrides\fn_selectIntel.sqf"; };

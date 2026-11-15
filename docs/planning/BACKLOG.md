@@ -59,7 +59,7 @@ none of these stories is complete.
 | S8-1 | Reproducible release candidate | Backlog | Clean-install and artifact/source matching. |
 | S8-2 | User and maintenance documentation | Backlog | Verified behavior and override ledger. |
 | S8-3 | Acceptance and handoff | Backlog | Traceability, defect closure, user sign-off. |
-| V-1 | Abandoned, repairable, drivable vehicles | Backlog | Included in this repository by the latest user correction. |
+| V-1 | Abandoned, repairable, drivable vehicles | In progress | Asset helpers pass 42 focused checks; town adapter passes 36 Altis-road lifecycle checks and 11 dependency-absence checks; Redux, player driving, garage and saves remain open. See ABANDONED_VEHICLES.md. |
 
 ## Working session: 12 November 2026
 

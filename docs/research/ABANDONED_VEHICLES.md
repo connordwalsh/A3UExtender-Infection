@@ -96,3 +96,41 @@ caller exists in this increment.
 
 Artifact SHA-256:
 7beb01bbf2ee445ed0817cac65a298f6442a2397384f8c68d17560841e3878f7.
+
+
+## Town adapter in development, 15 November 2026
+
+The adapter now replaces parked cars only in infected-held towns. It retains
+Ultimate 12.4.2's road filtering, per-visit placement-attempt counts, activation
+key, boat generation and civilian traffic logic. The chosen category weights
+are 65 percent civilian, 20 percent police and 15 percent light military.
+These are probabilities per attempt, not quotas promised for each town.
+Unsafe or occupied positions are skipped; counts are never inflated to force
+a category quota. Ownership is checked again by the asset factory at creation.
+
+A server-owned visit record tracks every created car. An independent monitor
+handles both normal despawn and interrupted workers. Claimed cars are released
+without deletion. Nearby observers, living occupants, attachments and ropes
+defer cleanup of neutral cars; a changed ownership tag belongs to another
+controller and is left alone. Unclaimed cars still near their parking location
+are removed, while moved cars go through native VEHdespawner. Native boats and
+traffic retain their native cleanup paths. No persistent replacement-car ledger
+or change to Ultimate's save filtering is introduced.
+
+The dedicated Altis probe uses real roads, vehicle creation, native capture and
+native moved-car cleanup. Civilian driving and boats are gated out of this
+fixture (one town, no sea spawn), so source preservation is not runtime evidence
+for those paths. Dev1 passed 32 checks, including scheduler dispatch, road
+placement, neutral capture, visit cleanup, observer protection and regeneration.
+All 262 production inputs and the PBO matched its manifest. A review then added
+an explicit server-local, scheduled-only guard to the internal worker; Dev2
+adds attachment, foreign-owner and moved-car cleanup cases. Dev2 passed all 36
+checks, 11 actual dependency-absence checks and three parser tests. No engine/SQF
+errors occurred; its 16 startup notices match the reviewed baseline. All 262
+production inputs and the PBO matched after execution. Both vehicle test servers
+were stopped. Artifact SHA-256:
+e4a8e98b39a449dac9e725a5029a236dbcf776778e335161686adeeb106167f1.
+
+Redux roads, connected driving, headless clients, optional faction packs,
+boat/traffic runtime regression, towing interactions, garage and disk save/reload
+remain unaccepted. The manual Dev9 installation is untouched.

@@ -4,7 +4,8 @@ param(
     [string]$InfectionMod,
     [switch]$Visible,
     [ValidatePattern('^[A-Za-z0-9_-]{0,32}$')][string]$Instance = '',
-    [ValidateRange(0,65531)][int]$InstancePort = 0
+    [ValidateRange(0,65531)][int]$InstancePort = 0,
+    [ValidateSet('VR','Altis')][string]$Terrain = 'VR'
 )
 $ErrorActionPreference = 'Stop'
 $profileName = @{ Catalog = 'InfectionProbe'; Behavior = 'InfectionBehavior'; Template = 'InfectionTemplate'; Dependencies = 'InfectionDependencies' }[$Mode]
@@ -18,6 +19,8 @@ if ($Instance) {
     $missionName = $missionName.Replace('.VR', ('_' + $Instance + '.VR'))
     $port = $InstancePort
 } elseif ($InstancePort -ne 0) { throw 'A custom port requires a named probe instance.' }
+if ($Terrain -ne 'VR' -and (!$Instance -or $Mode -ne 'Template')) { throw 'Terrain probes require a named Template instance.' }
+$missionName = $missionName.Replace('.VR', ('.' + $Terrain))
 if (Get-NetUDPEndpoint | Where-Object { $_.LocalPort -ge $port -and $_.LocalPort -le ($port + 4) }) {
     throw 'The requested Arma probe port range is already in use.'
 }

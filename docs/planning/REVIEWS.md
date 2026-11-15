@@ -949,3 +949,24 @@ The helpers have no public mission caller yet. PR 39 may integrate these assets;
 full Supplies Seizure creation/controller/rewards/dispatch, optional mod packs,
 ACE, player driving, garage, disk saves and campaign acceptance remain open.
 No Computer Use, manual-install changes or sprint-gate completion.
+
+
+## 15 November 2026 - Abandoned town vehicles review
+
+The town adapter preserves native parking attempts, road filtering, civilian
+visit activation, native boats/traffic, claim behavior and save eligibility.
+The approved mix is local to each placement; shared faction pools are never
+modified. Review added an explicit server-local scheduled worker guard and
+canonical visit-record validation. The independent cleanup monitor handles
+normal and interrupted workers, exact serial/tag ownership, claimed assets,
+nearby observers, occupants, attached/towed assets and moved-vehicle handoff.
+
+AbandonedTowns Dev2 passes 36 focused Altis-road engine checks, 11 actual
+missing-dependency checks, packaging and three parser tests. Native GetIn,
+neutral salvage and the actual delayed VEHdespawner execute in this fixture.
+No engine/SQF errors; 16 reviewed baseline startup notices. All 262 source
+inputs and PBO match the manifest; both vehicle servers stopped. Dev1 evidence
+is retained. Boat and driven-traffic branches are preserved in source but gated
+out of this fixture. Redux, connected driving, optional packs, HC/JIP, towing,
+garage and disk saves remain open. No sprint acceptance gate is closed and the
+manual Dev9 installation remains untouched.
