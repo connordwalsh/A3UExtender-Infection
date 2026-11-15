@@ -51,10 +51,33 @@ instead of crediting unobserved time after a stalled worker. Serial ownership
 protects packages and terminal outcomes freeze. No public tasks, rewards or
 package cleanup are issued by this layer.
 
-Public dispatch, safe package creation, task rewards/cleanup and engine evidence
-remain NOT IMPLEMENTED or NOT RUN. No Computer Use or manual-install changes.
+Public dispatch, safe package creation and task rewards/cleanup remain
+NOT IMPLEMENTED by this prerequisite. No Computer Use or manual-install changes.
 
-Dev1 packaging, three parser tests and eleven actual missing-dependency checks
-pass without engine/SQF errors. All 187 production inputs and the PBO match after
-that run, and the server exited. The 25 focused unloading/ownership scenarios
-remain NOT RUN while the combined Supplies Seizure regression is active.
+## Corrected engine evidence
+
+AidLedger Dev3 passes 37 focused engine checks, eleven actual missing-dependency
+checks, packaging and three parser tests. No engine/SQF errors; 16 focused and
+seven absence-run startup notices reviewed. All 211 production inputs and the
+PBO match after execution, and both completed servers exited. Artifact SHA-256:
+`4fc03398e3d1b80318ff01f4da3b1c7558e9a05b0f209038264ed4b171363ad2`.
+The baseline includes merged Supplies Seizure and Extraction scene increments.
+
+Dev2 initially passed 36 checks, but the strengthened 37-check run is REJECTED:
+a live package deletion sometimes made alive false before isNull, causing an
+incorrect destroyed outcome. The real sling check itself passed. Retained reports
+include aid-ledger-engine-initial.json and aid-ledger-rejected-dev2.json, with
+Dev1/Dev2 manifests and dependency reports named separately.
+
+Dev3 observes actual EntityKilled/EntityDeleted events for the exact package and
+serial. Only observed destruction is destroyed; unexplained deletion interrupts
+recovery. Actual death remains recorded if its corpse is later deleted. The
+fixture waits for native event delivery and verifies the distinct death/deletion
+flags, rather than assuming synchronous deleteVehicle completion. Event handlers
+retire with the last record. The strengthened checks now all pass, including
+an actual helicopter sling attachment.
+
+The fixture uses real packages, native capable-escort queries, nearby actors,
+attachment and ropes, with controlled time/ownership. It does not establish
+player notification, long-duration continuous unloading, connected carrying,
+client locality, task rewards or full mission acceptance. No sprint closes.

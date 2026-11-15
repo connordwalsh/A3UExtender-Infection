@@ -13,4 +13,9 @@ _registry deleteAt _name;
 if (count _registry == 0 && {!isNil "A3I_aidLedgerHandle"}) then {
     [A3I_aidLedgerHandle] call CBA_fnc_removePerFrameHandler; A3I_aidLedgerHandle = nil;
 };
+if (count _registry == 0 && {!isNil "A3I_aidKilledEH"}) then {
+    removeMissionEventHandler ["EntityKilled",A3I_aidKilledEH];
+    removeMissionEventHandler ["EntityDeleted",A3I_aidDeletedEH];
+    A3I_aidKilledEH = nil; A3I_aidDeletedEH = nil;
+};
 true

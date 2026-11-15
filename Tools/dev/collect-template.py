@@ -965,6 +965,7 @@ EXTRACTION_SCENE_CHECKS = {
 }
 
 AID_LEDGER_CHECKS = {
+    "aid_real_sling_prevents_unloading",
     'aid_attached_package_pauses',
     'aid_cleanup',
     'aid_deadline_fails',

@@ -15,18 +15,18 @@ if (!([west] call A3I_fnc_isActive) || {isNil "sidesX"} || {!(_marker in allMapM
     || {sidesX getVariable [_marker,sideUnknown] != west}) then {
     _terminal = "cancelled"; _reason = "destination_unavailable";
 } else {
-    if (isNull _package || {!((_package getVariable ["A3I_aidOwner",[]]) isEqualTo
-        [_record get "name",_record get "serial"])}) then {
-        _terminal = "interrupted"; _reason = "package_missing_or_reassigned";
-    } else {
-        if (!alive _package) then {_terminal = "failed"; _reason = "destroyed"} else {
+    if (_record get "killed") then {_terminal = "failed"; _reason = "destroyed"} else {
+        if (_record get "deleted" || {isNull _package} || {!((_package getVariable ["A3I_aidOwner",[]]) isEqualTo
+            [_record get "name",_record get "serial"])}) then {
+            _terminal = "interrupted"; _reason = "package_missing_or_reassigned";
+        } else {
             if (time >= _record get "deadline") then {_terminal = "failed"; _reason = "timeout"};
         };
     };
 };
 if (_terminal == "") then {
     private _escort = [80,0,_package,teamPlayer] call A3A_fnc_distanceUnits;
-    private _eligible = _package distance getMarkerPos _marker < 40
+    private _eligible = alive _package && {_package distance getMarkerPos _marker < 40}
         && {isNull attachedTo _package} && {isNull ropeAttachedTo _package}
         && {_escort isNotEqualTo []} && {(_escort findIf {!([_x] call A3A_fnc_canFight)}) == -1}
         && {(allUnits findIf {alive _x && {side group _x == west} && {_x distance _package < 50}}) == -1};
