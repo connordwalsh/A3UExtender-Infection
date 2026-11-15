@@ -28,8 +28,10 @@ deserter fallbacks can place units outdoors. This scene increment requires a
 checked shelter instead. The native release action transfers group locality to
 the player, which the ledger anticipates but connected tests must still verify.
 
-Status: implementation and 24 focused engine scenarios prepared; runtime
-validation NOT RUN. Public mission creation, release actions, rewards,
+Status: implementation and 24 focused engine scenarios prepared; focused scene
+validation NOT RUN. Packaging, three parser tests and eleven actual
+missing-dependency checks pass without engine/SQF errors. The 188 production
+inputs and Dev1 PBO match after the dependency run; that server exited. Public mission creation, release actions, rewards,
 post-rescue disposition and cleanup remain open. The owner question about
 manpower versus usable AI remains pending. No Computer Use or manual-install
 changes; no sprint acceptance gate is closed.
