@@ -1,6 +1,7 @@
 # Interception arrival implementation
 
-Status: town storage/spawn support drafted; focused engine validation pending.
+Status: town storage/spawn support passes 88 focused engine checks; combined
+regression is running on the same immutable candidate.
 The marching-horde handoff, hostile-destination attack and public dispatch remain
 unfinished. No campaign, save-file or connected-client acceptance is claimed.
 
@@ -40,8 +41,17 @@ The new fixture creates 203 living actors for a 200-base town with three extras,
 kills one ordinary actor and one extra, despawns the town, uses the real native
 garrison loader, then revisits. It expects 200 baseline actors and only two extras.
 It also checks unrelated saved-entry preservation and clearance obligations.
-These are authored cases pending execution. The loader case does not claim a
-complete disk-save/load or campaign test.
+All 88 town checks pass, including the ten new reinforcement cases, without
+engine/SQF errors. The actual missing-dependency run passes all 11 checks. Three
+collector parser tests also pass. The loader case does not claim a complete
+disk-save/load or campaign test.
+
+Artifact: `@Infection_TownExtras_Dev1`, 160 production inputs, SHA-256
+`d426c9971337acce8159542c7055817a935674a7fa4ddb0b0653ac3666853a22`.
+Reports: `town-extras-engine.json`, `town-extras-dependencies.json` and
+`town-extras-build.json` under `evidence/sprint-4`. The corrected native-task
+retention fixture from the controller branch is included in the combined run.
+Do not treat the earlier 955-check rejected report as a pass.
 
 ## Remaining handoff work
 

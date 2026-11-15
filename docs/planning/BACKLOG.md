@@ -372,3 +372,13 @@ the rejected combined report as passed. The town-extra branch will include this
 fixture correction before its combined validation. Arrival capacity/offscreen
 persistence/casualty decisions are now resolved: extras exceed normal capacity,
 persist to the next visit, and stay dead when killed. Handoff remains unfinished.
+
+
+Town reinforcement checkpoint: the approved persistent extra roster is implemented
+separately from the regenerated logistic population. Dev1 passes 88 focused town
+checks and 11 actual missing-dependency checks, without engine/SQF errors. Tests
+cover 203 simultaneous actors, one baseline/one extra casualty, native garrison
+loading, a 202-actor revisit and clearance until the remaining extras die.
+The corrected controller retention fixture is merged. Combined validation is
+running on this same 160-input candidate. Live/offscreen horde adoption, hostile
+arrival combat, public mission dispatch and full campaign saves remain open.
