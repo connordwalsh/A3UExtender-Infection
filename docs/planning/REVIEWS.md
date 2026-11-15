@@ -756,3 +756,19 @@ remains draft on PR 28; public task creation/dispatch, complete owner supervisio
 and arrival aftermath remain unfinished. No player reward receipt, player UI,
 JIP, full-route travel, performance, saves or campaign acceptance is claimed.
 No Computer Use or manual install/profile/save changes.
+
+
+### Interception lifecycle follow-up (combined validation pending)
+
+Internal task registration now creates the native briefing only for a released
+formation, refuses duplicate/remote registrations and selects a walking-aware
+travel limit. Independent supervision handles stopped preparation workers,
+observer-safe visible cleanup and claim release after task/formation retirement.
+Arrival survivors remain owned until the separate aftermath controller finishes.
+
+Lifecycle Dev1 passes 62 focused checks and 11 actual missing-dependency checks,
+with no engine/SQF errors; warnings are 16 and seven startup/dependency notices
+respectively. Three parser tests pass. A native briefing representation fixture
+error remains rejected evidence. Two additional success-path corpse/retention
+checks await the combined run. Public launch/dispatch and arrival policy remain
+unfinished; no campaign acceptance or Computer Use/manual-build change.

@@ -117,6 +117,7 @@ private _cleanup = {
     [_record] call _cleanupFormation;
 };
 private _start = {
+    params [["_withTask",true]];
     private _record = [4] call _newJob;
     A3A_resourcesAttackOcc = 100; A3A_resourcesDefenceOcc = 100;
     A3I_test_support = []; A3I_test_aggression = []; killZones setVariable [_source,[]];
@@ -126,7 +127,7 @@ private _start = {
     [{!isNil {_record get "preparationResult"}}] call _wait;
     [_record] call A3I_fnc_releaseInterceptionFormation;
     {_x disableAI "MOVE"} forEach (_record get "units");
-    [_record] call _makeTask;
+    if (_withTask) then {[_record] call _makeTask};
     _record
 };
 private _await = {params ["_record"]; [{_record get "settled"},5] call _wait; sleep 0.2};
@@ -284,6 +285,107 @@ _record set ["deadline","invalid"];
 ["itask_invalid_deadline_cancels_without_reward",_record get "outcome" == "interrupted"
     && {A3A_resourcesAttackOcc == 100} && {A3A_resourcesDefenceOcc == 100}
     && {([_record] call _state == "MISSING" || {[_record get "name"] call BIS_fnc_taskState == "CANCELED"})}] call _check;
+[_record] call _cleanup;
+
+// Production task creation and independent lifecycle supervision.
+_record = [4] call _newJob;
+_record set ["routeDistance",1000];
+["itask_register_before_release_refused",!([_record] call A3I_fnc_registerInterceptionTask)
+    && {A3A_tasksData isEqualTo []}] call _check;
+[_record] call _launch;
+["itask_prepare_lifecycle_watch",[_record] call A3I_fnc_watchInterceptionLifecycle] call _check;
+[{_record get "created" > 0},5] call _wait;
+terminate (_record get "script");
+[{isNil {A3I_interceptions get (_record get "name")}},5] call _wait;
+["itask_interrupted_preparation_retires",_record getOrDefault ["retired",false]
+    && {isNil {A3I_interceptions get (_record get "name")}}
+    && {A3A_tasksData isEqualTo []} && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;
+[_record] call _cleanup;
+
+_record = [false] call _start;
+["itask_missing_route_distance_refused",!([_record] call A3I_fnc_registerInterceptionTask)
+    && {A3A_tasksData isEqualTo []}] call _check;
+_record set ["routeDistance",2500];
+A3A_activeTasks = ["CONVOY"];
+["itask_busy_convoy_refused",!([_record] call A3I_fnc_registerInterceptionTask)
+    && {A3A_tasksData isEqualTo []}] call _check;
+A3A_activeTasks = [];
+[_record] remoteExecCall ["A3I_fnc_registerInterceptionTask",2];
+sleep 0.2;
+["itask_remote_registration_refused",A3A_tasksData isEqualTo []] call _check;
+["itask_native_registration",[_record,true] call A3I_fnc_registerInterceptionTask
+    && {[_record] call _state == "CREATED"} && {_record get "taskRegistered"}
+    && {_record get "difficult"} && {!isNil {_record get "taskHandle"}}
+    && {!isNil {_record get "lifecycleHandle"}}] call _check;
+["itask_walking_deadline",_record get "deadline" > time + 8930
+    && {_record get "deadline" <= time + 8934}] call _check;
+private _description = [_record get "name"] call BIS_fnc_taskDescription;
+["itask_native_briefing",_description # 1 isEqualTo ["Horde Interception"]
+    && {(_description # 0 # 0) find "Neutralize every infected" >= 0}
+    && {(_description # 0 # 0) find "149 minutes" >= 0},_description # 1] call _check;
+["itask_duplicate_registration_refused",!([_record] call A3I_fnc_registerInterceptionTask)
+    && {count A3A_tasksData == 1}] call _check;
+["itask_duplicate_lifecycle_refused",!([_record] call A3I_fnc_watchInterceptionLifecycle)] call _check;
+private _lifeHandle = _record get "lifecycleHandle";
+[[_record get "name",_record get "serial"],_lifeHandle] remoteExecCall ["A3I_fnc_interceptionLifecycleTick",2];
+sleep 0.2;
+["itask_remote_lifecycle_refused",!(_record get "settled")
+    && {_record get "lifecycleHandle" == _lifeHandle}] call _check;
+private _observerGroup = createGroup civilian;
+private _observer = _observerGroup createUnit ["C_man_1",getPosATL ((_record get "units") # 0),[],0,"NONE"];
+_observer allowDamage false; A3I_test_observers = [_observer];
+terminate (_record get "script");
+[{_record getOrDefault ["settled",false] && {_record getOrDefault ["taskRetired",false]}},5] call _wait;
+["itask_observed_survivors_not_deleted",_record get "settled" && {_record get "taskRetired"}
+    && {!(_record get "retired")} && {{alive _x} count (_record get "units") == 4}
+    && {!isNil {A3I_interceptions get (_record get "name")}}] call _check;
+A3I_test_observers = []; deleteVehicle _observer; deleteGroup _observerGroup;
+[{isNil {A3I_interceptions get (_record get "name")}},5] call _wait;
+["itask_unobserved_cleanup_releases_claim",_record get "retired"
+    && {isNil {A3I_interceptions get (_record get "name")}}
+    && {isNil {_record get "lifecycleHandle"}}
+    && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;
+[_record] call _cleanup;
+
+_record = [false] call _start;
+_record set ["routeDistance",500];
+[_record] call A3I_fnc_registerInterceptionTask;
+["itask_minimum_one_hour",_record get "deadline" >= time + 3599 && {_record get "deadline" <= time + 3600}] call _check;
+((_record get "units") # 0) setPosATL _destinationPosition;
+[_record] call _await;
+_record set ["taskDeleteAt",time - 1];
+[{_record getOrDefault ["taskRetired",false]},3] call _wait;
+["itask_arrival_claim_retained_for_aftermath",_record get "outcome" == "arrived"
+    && {_record get "taskRetired"} && {!(_record get "retired")}
+    && {!isNil {A3I_interceptions get (_record get "name")}}
+    && {{alive _x} count (_record get "units") == 4}
+    && {!scriptDone (_record get "script")}] call _check;
+// Test the lifecycle handoff only; reinforcement/combat policy is not simulated.
+_record set ["aftermathComplete",true];
+[{isNil {A3I_interceptions get (_record get "name")}},5] call _wait;
+["itask_finished_aftermath_releases_claim",_record get "retired"
+    && {isNil {A3I_interceptions get (_record get "name")}}
+    && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;
+[_record] call _cleanup;
+
+// Success must retain native corpses while retiring the living-force allowance.
+_record = [false] call _start;
+_record set ["routeDistance",500];
+[_record] call A3I_fnc_registerInterceptionTask;
+[_record] call _killAll;
+[{_record getOrDefault ["settled",false] && {_record getOrDefault ["retired",false]}},5] call _wait;
+["itask_win_retains_task_and_corpses",_record get "outcome" == "won"
+    && {_record get "retired"} && {!(_record get "taskRetired")}
+    && {[_record] call _state == "SUCCEEDED"}
+    && {{!isNull _x && {!alive _x}} count (_record get "units") == 4}
+    && {!isNil {A3I_interceptions get (_record get "name")}}
+    && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;
+_record set ["taskDeleteAt",time - 1];
+[{isNil {A3I_interceptions get (_record get "name")}},5] call _wait;
+["itask_win_releases_claim_after_retention",isNil {A3I_interceptions get (_record get "name")}
+    && {A3A_tasksData isEqualTo []}
+    && {{!isNull _x && {!alive _x}} count (_record get "units") == 4}
+    && {isNil {_record get "lifecycleHandle"}}] call _check;
 [_record] call _cleanup;
 
 [_savedCap,_savedContext] call _setLimits;

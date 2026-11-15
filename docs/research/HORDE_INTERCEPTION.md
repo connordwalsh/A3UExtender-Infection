@@ -1,9 +1,10 @@
 # Horde Interception source audit
 
-Status: route selection and separate-budget foundation drafted on the feature
-branch. It passes 78 focused, 78 town-regression and 11 actual missing-dependency
-checks. Full mission behavior is still incomplete. The task controller, full formation
-staging, march, arrival aftermath, settlement and public dispatch remain incomplete.
+Status: route planning, full formation staging/recovery, task outcome settlement
+and independent task retention have isolated passing evidence below. Internal
+native task creation and interrupted-worker supervision are now being validated.
+Public launch/dispatch and arriving-survivor reinforcement/combat remain unfinished.
+Full route travel, connected clients, performance and campaign acceptance remain open.
 
 ## Approved objective
 
@@ -292,3 +293,38 @@ horde members. Production cleanup did not change. Package/source hashes and the
 rejected before/after observations are retained in the retention diagnosis.
 Historical rejected reports remain evidence, not successful acceptance runs.
 No Computer Use or manual installation update.
+
+
+## Native task creation and lifecycle supervision (in validation)
+
+The final launch helper now creates the actual Horde Interception briefing and
+native CONVOY registration for a fully released formation, attaches observation,
+and refuses active/duplicate convoy registrations, remote calls and invalid
+route distances. It starts the objective immediately after full release; no
+vehicle-convoy departure delay is applied to the hidden preparation stage.
+The time allowance is max(3600, roadDistance / 0.3 + 600) seconds. This retains
+at least the native one-hour travel allowance and extends longer walking routes
+using a conservative tuning speed plus ten minutes. It is not verified terrain
+travel time. The briefing states the resulting available minutes and first-entry
+failure condition; the native normal/hard reward baseline remains separate.
+
+An independent lifecycle callback can attach before preparation. A stopped or
+failed preparation worker is cancelled and its exact reservations/hidden actors
+are retired. A stopped marching worker cancels the task, then waits until
+observers leave before removing visible actors. Task retirement and formation
+retirement must both finish, with no remaining budget bindings, before the
+registry claim is released. Dead bodies keep their native lifetime and empty
+groups remain tracked by the existing group cleanup service.
+
+Arrival settlement explicitly preserves the claim, living members and owner.
+Only the later aftermath owner may signal completion of reinforcement/combat.
+The fixture tests that lifecycle handoff flag; it does not pretend to implement
+arrival policy. The public mission creator and board/intel dispatch are still
+unconnected, so players cannot request this incomplete mission implementation.
+The initial expanded focused suite passes 62 checks without engine/SQF errors,
+as do 11 actual missing-dependency checks. Three parser tests pass. The first
+attempt was interrupted by a fixture type error: native taskDescription returns
+localization arrays, not already localized strings. That rejected report is
+retained. Two further success-lifecycle checks now cover native corpse retention
+and claim release after task retention; their execution is pending the combined
+regression run. No Computer Use or manual-build changes.

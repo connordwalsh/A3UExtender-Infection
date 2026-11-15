@@ -568,6 +568,26 @@ INTERCEPTION_CHECKS = {
 }
 
 INTERCEPTION_TASK_CHECKS = {
+    "itask_win_retains_task_and_corpses",
+    "itask_win_releases_claim_after_retention",
+    'itask_register_before_release_refused',
+    'itask_prepare_lifecycle_watch',
+    'itask_interrupted_preparation_retires',
+    'itask_missing_route_distance_refused',
+    'itask_busy_convoy_refused',
+    'itask_remote_registration_refused',
+    'itask_native_registration',
+    'itask_walking_deadline',
+    'itask_native_briefing',
+    'itask_duplicate_registration_refused',
+    'itask_duplicate_lifecycle_refused',
+    'itask_remote_lifecycle_refused',
+    'itask_observed_survivors_not_deleted',
+    'itask_unobserved_cleanup_releases_claim',
+    'itask_minimum_one_hour',
+    'itask_arrival_claim_retained_for_aftermath',
+    'itask_finished_aftermath_releases_claim',
+
     "itask_retention_not_early", "itask_remote_cleanup_refused",
     "itask_retention_auto_cleanup", "itask_task_cleanup_idempotent",
     "itask_missing_deadline_refused",
