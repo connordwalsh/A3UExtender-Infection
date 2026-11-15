@@ -441,6 +441,9 @@ permanent casualties, plus a 50-metre interception arrival boundary. Inspection
 found administration icons excluded from Ultimate's saved garrison list. This
 branch adds a tagged native plugin save/load payload, separate extra spawning,
 casualty/replacement accounting, guarded capture and actual icon endpoints.
-Twenty-seven focused cases are authored; engine execution awaits the parent's
-combined server. Packaging and parser tests pass. No campaign save or sprint
-acceptance is claimed. See ADMINISTRATION_REINFORCEMENTS.md.
+All 38 focused engine checks (27 stronghold-specific and 11 common), eleven
+actual missing-dependency checks, packaging and three parser tests pass without
+engine/SQF errors. The 167-input candidate is unchanged after testing. Its full
+1040-check combined regression is the next gate; the parent's different build
+passed 1013 checks and merged in PR 32. Full campaign save and sprint acceptance
+remain open. See ADMINISTRATION_REINFORCEMENTS.md.

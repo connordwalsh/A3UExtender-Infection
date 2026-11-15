@@ -1,6 +1,6 @@
 # Persistent administration reinforcements
 
-Status: implementation drafted; focused engine validation pending. Normal
+Status: 38 focused engine checks pass; combined regression pending. Normal
 stronghold defenders still regenerate each visit. The owner approved persistent
 extra survivors, permanent extra casualties, and a 50-metre stronghold arrival
 boundary for Horde Interception.
@@ -42,7 +42,7 @@ entries, ignores unknown markers and non-infected-owned sites, and is idempotent
 Ordinary campaigns and missing zombie dependencies leave save data untouched.
 No native marker list is broadened and no core saveLoop override is introduced.
 
-## Planned focused evidence
+## Focused evidence
 
 Twenty-seven cases cover actual administration icon routing, native task failure
 inside 50 metres, offscreen and live additions, extra casualties, an unfit live
@@ -52,7 +52,20 @@ capture after clearing a ruined building. The test uses real actors/buildings
 and native capture; fixture positioning injects arrival and does not establish
 terrain travel. The save event round-trip is not full disk-save/campaign acceptance.
 
-Packaging and three parser tests pass. Engine execution is pending the parent
-combined regression. The full 1013-check parent run uses a different frozen build
-and cannot certify this additional administration implementation. Public mission
-dispatch and hostile arrival ownership are still unfinished.
+All 38 focused engine checks (27 administration-specific plus 11 common checks),
+11 actual missing-dependency checks, packaging and three parser tests pass.
+There are no engine/SQF errors. The focused run has 29 reviewed warnings: 16
+startup/dependency notices and 13 object-deletion notices. The completed server
+exited. All 167 production inputs and the PBO match the frozen manifest after
+execution. Reports are `administration-extras-build.json`,
+`administration-extras-engine.json` and `administration-extras-dependencies.json`
+under `evidence/sprint-4`.
+
+Artifact: `@Infection_AdminExtras_Dev1`, SHA-256
+`7167260d29be448c293108adf49f77d7d7d2c28bdbd79b513e445306ccb6992d`.
+
+The parent handoff component passed 1013 combined checks and merged in PR 32.
+That different frozen candidate cannot certify this additional administration
+implementation. The next gate is the full 1040-check combined regression on
+AdminExtras Dev1, including existing town/administration and interception checks.
+Public mission dispatch and hostile arrival ownership are still unfinished.
