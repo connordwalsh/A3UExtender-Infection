@@ -8,7 +8,8 @@ private _record = (missionNamespace getVariable ["A3I_interceptions",createHashM
 if (_record getOrDefault ["serial",-1] != _serial
     || {_record getOrDefault ["retired",true]}
     || {!(_record getOrDefault ["phase",""] in ["marching","arrived"])}
-    || {scriptDone (_record getOrDefault ["script",scriptNull])}) exitWith {
+    || {_record getOrDefault ["phase",""] != "arrived"
+        && {scriptDone (_record getOrDefault ["script",scriptNull])}}) exitWith {
     [_handle] call CBA_fnc_removePerFrameHandler;
     if (_record getOrDefault ["marchHandle",-1] == _handle) then {_record deleteAt "marchHandle"};
 };

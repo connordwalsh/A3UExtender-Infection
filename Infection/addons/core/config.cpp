@@ -99,6 +99,7 @@ class CfgFunctions
             class registerInterceptionTask {};
             class watchInterceptionLifecycle {};
             class interceptionLifecycleTick {};
+            class interceptionAftermath {};
             class storeInterceptionArrivals {};
             class adoptInterceptionArrivals {};
             class interceptionPreparing {};

@@ -113,3 +113,7 @@ persist between visits; killed extras stay dead, just as extra town defenders do
 14 November administration arrival boundary: for Horde Interception, the first
 living infected within 50 metres of the stronghold counts as arrival and fails
 the task. Ordinary town/permanent-area marker boundaries remain unchanged.
+
+14 November cleared-administration aftermath: if the player clears a stronghold
+while an interception horde approaches, the horde still attacks the area. The
+stronghold stays permanently cleared and cannot be reestablished by that horde.

@@ -455,3 +455,12 @@ engine/SQF errors. The 167-input candidate is unchanged after testing. Its full
 1040-check combined regression is the next gate; the parent's different build
 passed 1013 checks and merged in PR 32. Full campaign save and sprint acceptance
 remain open. See ADMINISTRATION_REINFORCEMENTS.md.
+
+Automatic interception aftermath is drafted in a separate feature branch. The
+lifecycle supervisor now calls complete-group handoffs, retains observed actors,
+and uses native capture decisions against fully spawned hostile garrisons.
+Cleared administrations remain permanently cleared, per the owner's answer.
+Twenty-four specific cases are authored; the 35-check focused runtime suite is
+NOT_RUN while the parent combined regression runs. Packaging, three parser tests
+and eleven actual missing-dependency checks pass. Public dispatch is unfinished;
+see INTERCEPTION_AFTERMATH.md.

@@ -14,8 +14,12 @@ if (!(_record getOrDefault ["settled",false])) then {
         || {!([west] call A3I_fnc_isActive)}) then {[_record] call A3I_fnc_finishInterception};
 };
 if (!(_record getOrDefault ["settled",false])) exitWith {};
-// First arrival is task failure, not permission to delete the arriving horde.
-// The separate aftermath owner must explicitly finish reinforcement/combat first.
+// Task failure does not retire its arriving force. Continue reinforcement/combat
+// even if the task metadata expires or its original worker has stopped.
+if (_record getOrDefault ["outcome",""] == "arrived"
+    && {!(_record getOrDefault ["aftermathComplete",false])}) then {
+    [_record] call A3I_fnc_interceptionAftermath;
+};
 if (_record getOrDefault ["outcome",""] != "arrived"
     || {_record getOrDefault ["aftermathComplete",false]}) then {
     private _worker = _record getOrDefault ["script",scriptNull];
