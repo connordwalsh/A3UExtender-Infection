@@ -128,13 +128,18 @@ private _worker = [_record] spawn A3I_fnc_createLiberationScene;
 _deadline = diag_tickTime + 12;
 waitUntil {sleep 0.1;_record getOrDefault ["sceneClustersBuilt",0] >= 1 || {scriptDone _worker} || {diag_tickTime > _deadline}};
 terminate _worker;
+private _immediateDone = scriptDone _worker;
+_deadline = diag_tickTime+2;
+waitUntil {sleep 0.05; scriptDone _worker || {diag_tickTime > _deadline}};
 _vipVehicle = _record getOrDefault ["vipVehicle",objNull];
 _ownedObjects = (_record getOrDefault ["sceneBodies",[]]) + (_record getOrDefault ["sceneBlood",[]])
     + (_record getOrDefault ["sceneWrecks",[]]) + (_record getOrDefault ["sceneEffects",[]]) + [_vip];
 _bodyGroups = +(_record getOrDefault ["sceneBodyGroups",[]]); _group = _record get "vipGroup";
 ["lib_scene_interrupted_creation_owned",scriptDone _worker && {!(_record getOrDefault ["sceneReady",false])}
     && {_record getOrDefault ["sceneClustersBuilt",0] >= 1} && {count _ownedObjects > 1}
-    && {alive _vipVehicle} && {!(([_record] call A3I_fnc_createLiberationScene) # 0)}] call _check;
+    && {alive _vipVehicle} && {!(([_record] call A3I_fnc_createLiberationScene) # 0)},
+    [_immediateDone,scriptDone _worker,_record getOrDefault ["sceneReady",false],
+        _record getOrDefault ["sceneClustersBuilt",0],count _ownedObjects,alive _vipVehicle]] call _check;
 _cleaned = [_record] call _cleanScene;
 _deadline = diag_tickTime + 10;
 waitUntil {sleep 0.1;((_ownedObjects findIf {!isNull _x}) == -1

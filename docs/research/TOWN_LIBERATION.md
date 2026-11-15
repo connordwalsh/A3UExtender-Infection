@@ -667,3 +667,13 @@ missing-dependency checks. Its focused suite contains 238 liberation assertions
 plus eleven common assertions and is running. This is not a passing scene,
 parent-controller, campaign or sprint acceptance result. Earlier reports above
 remain historical component evidence. No Computer Use or manual-install change.
+
+
+The first integrated run is retained as rejected/incomplete and was deliberately
+stopped after reproducing fixture defects. Its scene interruption assertion
+queried scriptDone immediately after terminate; the fixture now records that
+immediate value and waits at most two seconds for termination before asserting.
+The parent fixture also replaced markersX with two infected towns, omitting its
+existing Rebel HQ. That made the native nearestFriendlyMarker assert during
+parent scenes. The HQ is now included in the marker list. These fixture changes
+leave the Dev2 production artifact unchanged; the corrected suite is running.

@@ -36,7 +36,7 @@ private _wait = {
 };
 private _source = _sources # 6;
 garrison = [true] call A3A_fnc_createNamespace;
-citiesX = [_source,_town]; markersX = +citiesX; controlsX = [];
+citiesX = [_source,_town]; markersX = citiesX + [respawnTeamPlayer]; controlsX = [];
 milAdministrationsX = []; A3A_milAdministrations = [];
 A3A_townData = createHashMapFromArray [[_town,[100,0,20,80]],[_source,[100,0,70,0]]];
 A3A_faction_reb set ["name","Fixture Rebels"]; A3A_faction_civ set ["currencySymbol","$"];
