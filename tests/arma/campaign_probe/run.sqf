@@ -19,6 +19,9 @@ diag_log format ["[INFECTION_STARTUP] %1",["native_modules",count allPlayers,
     isNull _hc,(synchronizedObjects _hc) apply {[typeOf _x,netId _x]},
     (allMissionObjects "Logic") apply {[typeOf _x,netId _x]},
     isNil "BIS_OM_SmartMarkers_logic"]];
+["empty_hc_deferred",!isNull _hc && {
+    !scriptDone (_hc getVariable ["A3URF_hcWorker",scriptNull])
+} && {isNil {_hc getVariable "A3URF_hcNative"}} && {isNil "BIS_MARTA_mainScope"}] call _check;
 private _receipt=missionProfileNamespace getVariable ["A3I_campaignProbeReceipt",createHashMap];
 private _new=_phase=="write";
 private _selection=createHashMap;
