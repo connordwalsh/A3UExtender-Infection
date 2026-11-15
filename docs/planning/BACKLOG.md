@@ -465,8 +465,9 @@ Automatic interception aftermath is drafted in a separate feature branch. The
 lifecycle supervisor now calls complete-group handoffs, retains observed actors,
 and uses native capture decisions against fully spawned hostile garrisons.
 Cleared administrations remain permanently cleared, per the owner's answer.
-Twenty-four specific cases are authored; the 35-check focused runtime suite is
-NOT_RUN while the parent combined regression runs. Packaging, three parser tests
-and eleven actual missing-dependency checks pass. Public dispatch is unfinished;
-see INTERCEPTION_AFTERMATH.md.
+All 35 focused runtime checks pass after correcting deletion timing, observer
+setup and missing native town data in the fixture. Both rejected reports are
+retained; no production code changed during diagnosis. Packaging, three parser
+tests and eleven actual missing-dependency checks pass. Combined regression and
+public dispatch remain unfinished; see INTERCEPTION_AFTERMATH.md.
 
