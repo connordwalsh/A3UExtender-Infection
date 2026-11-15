@@ -130,7 +130,29 @@ private _start = {
     if (_withTask) then {[_record] call _makeTask};
     _record
 };
-private _await = {params ["_record"]; [{_record get "settled"},5] call _wait; sleep 0.2};
+private _await = {
+    params ["_record"];
+    [{_record get "settled"},5] call _wait;
+    private _beforeSettlement = [_record get "outcome",[_record] call _state,
+        A3A_resourcesAttackOcc,A3A_resourcesDefenceOcc];
+    if (_record get "outcome" in ["won","arrived","timeout"]) then {
+        private _won = _record get "outcome" == "won";
+        private _expectedState = ["FAILED","SUCCEEDED"] select _won;
+        private _bonus = [1,1.5] select (_record getOrDefault ["difficult",false]);
+        // This fixture starts each case at 100. Each real legacy casualty costs
+        // five from each pool; the native task reward then changes both pools.
+        // Native taskUpdate and timingCA run remotely/scheduled, not atomically
+        // with the local settled flag. A fixed sleep can observe them halfway.
+        private _expectedFunds = 100 - 5 * (_record getOrDefault ["killed",0])
+            + ([20,-40 * _bonus] select _won);
+        [{[_record] call _state == _expectedState
+            && {A3A_resourcesAttackOcc == _expectedFunds}
+            && {A3A_resourcesDefenceOcc == _expectedFunds}},5] call _wait;
+    } else {sleep 0.2};
+    diag_log format ["[INFECTION_DIAGNOSTIC] %1",["task_settlement",_record get "name",
+        _beforeSettlement,[_record get "outcome",[_record] call _state,
+            A3A_resourcesAttackOcc,A3A_resourcesDefenceOcc]]];
+};
 private _killAll = {params ["_record"]; {_x setDamage 1} forEach (_record get "units")};
 
 private _record = [4] call _newJob;
@@ -247,7 +269,8 @@ _record = call _start;
 _record set ["deadline",_record get "departedAt"];
 [_record] call _await;
 ["itask_timeout_fails",_record get "outcome" == "timeout" && {[_record] call _state == "FAILED"}
-    && {A3A_resourcesAttackOcc == 120}] call _check;
+    && {A3A_resourcesAttackOcc == 120},[_record get "outcome",[_record] call _state,
+        A3A_resourcesAttackOcc,A3A_resourcesDefenceOcc]] call _check;
 [_record] call _cleanup;
 
 _record = call _start;
