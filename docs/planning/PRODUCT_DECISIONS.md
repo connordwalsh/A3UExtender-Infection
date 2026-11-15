@@ -110,6 +110,13 @@ Normal town population still follows the approved per-visit regeneration policy.
 defenders still regenerate each visit. Extra infected arriving as reinforcements
 persist between visits; killed extras stay dead, just as extra town defenders do.
 
+14 November delivery clarification: Extraction succeeds after at least one
+survivor reaches a friendly destination; rewards scale with rescues. Preserve
+Ultimate's HQ delivery distances: 100 metres for Supplies Seizure trucks and
+50 metres for Extraction survivors. Rebel-held bases, outposts, airfields,
+factories, resource sites and seaports use their marked boundaries. Towns,
+road controls and cleared administration strongholds are not delivery sites.
+
 14 November administration arrival boundary: for Horde Interception, the first
 living infected within 50 metres of the stronghold counts as arrival and fails
 the task. Ordinary town/permanent-area marker boundaries remain unchanged.

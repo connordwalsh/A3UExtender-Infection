@@ -481,3 +481,11 @@ both shared slots are reserved. The rejected first report preserves the fixture'
 incorrect shared-versus-total capacity assertion; production code is unchanged.
 The integrated 1089-check regression is the next gate; parent regressions remain
 separate. See INTERCEPTION_DISPATCH.md for scope and open acceptance work.
+
+Friendly delivery prerequisite: the owner confirmed the native HQ radii, actual
+Rebel-held permanent-site boundaries, and exclusion of cleared administrations.
+A read-only destination helper and 25 specific cases are drafted. Packaging,
+three parser tests and eleven actual missing-dependency checks pass; 36 focused
+engine checks remain NOT_RUN while the parent integrated regression is active.
+Supplies Seizure and Extraction controllers/public dispatch remain unfinished.
+See FRIENDLY_DELIVERY.md.
