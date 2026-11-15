@@ -504,3 +504,9 @@ match the frozen manifest; completed servers exited. HQ and the six approved
 site types are covered. Supplies and Extraction mission controllers remain
 unimplemented. The owner corrected Extraction to wait until all survivors are
 rescued/killed or the deadline, then succeed only if at least one was rescued.
+
+Extraction ledger drafted to honor all-survivors-or-deadline settlement. Dev1
+passes packaging, three parser tests and 11 missing-dependency checks. Focused
+run rejected: 41/42 checks pass, but EntityDeleted object/array handling causes
+two script errors and misses the deletion flag. Fix and retest; see
+EXTRACTION_LEDGER.md. Public Extraction missions remain unimplemented.

@@ -31,6 +31,10 @@ class CfgFunctions
             class isActive {};
             class backgroundSupplyConvoy {};
             class deliveryDestination {};
+            class createExtractionLedger {};
+            class extractionMemberEvent {};
+            class updateExtractionLedger {};
+            class releaseExtractionLedger {};
             class hideRemovedMissionControl {};
             class isManagedUnit {};
             class initInfected {};
