@@ -1,0 +1,17 @@
+{
+  "scope": "Standalone special lifecycle fixture packaging; runtime acceptance pending",
+  "built_at_utc": "2026-11-15T04:12:46.256382+00:00",
+  "fixture_sha256": "ed4f6357616df576c6bc79c17cd9674efed50957665ab79dc87555c1bf37410c",
+  "source": {
+    "tests/arma/infection_probe/lifecycle.VR/description.ext": "37ba144f8c78fee53a392df67cfc2bda025bcfd77995ced929c8114d45b48487",
+    "tests/arma/infection_probe/lifecycle.VR/initServer.sqf": "e3f86ca07247051c0519ba6d6329391a4b7d2ab353175b70e382d42f5aea0fb4",
+    "tests/arma/infection_probe/lifecycle.VR/mission.sqm": "ca8613d27b9b075054b42eb374c1f2c4af849303537df016bd9264a0cee6db20",
+    "tests/arma/infection_probe/lifecycle.VR/scenarios.sqf": "039be200db28feacac69aa13cffdc77bda62aecaa67d23e303e81d90de2457ae",
+    "tests/arma/infection_probe/catalog.VR/candidates.sqf": "d1c7049e6c5bbc02ab1a10ee907aa51bd69131a321ff544ecd343879a5033f9f",
+    "Tools/dev/collect-lifecycle.py": "9b5330153a8d2974b2d0339d51e1e1f2a6d3ee484aa0a2639aeb5939aa3e3bf6",
+    "Tools/dev/build-probe.ps1": "9c9913896b2481aacbcf2c8c48758e25f175e12714243f53259e8726d2927c3f",
+    "Tools/dev/start-probe-server.ps1": "7f947d683f3a96414c02913df94d0a82d7b90b9fe8abdf259e6d5877adf0dd23"
+  },
+  "expected_trials": 56,
+  "unit_tests_passed": 6
+}

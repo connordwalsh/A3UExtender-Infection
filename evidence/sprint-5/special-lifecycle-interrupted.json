@@ -1,0 +1,871 @@
+{
+  "schema_version": 1,
+  "scope": "Standalone prepared-class lifecycle observations; no production special, campaign, visual, client, HC or JIP acceptance",
+  "status": "incomplete",
+  "collected_at_utc": "2026-11-15T04:11:28.967080+00:00",
+  "source_log": "arma3server_x64_2026-11-14_23-09-18.rpt",
+  "source_log_sha256": "8f5a4b720677794f5ae5a3e295673543b2de2c6eec0119acc642bae55564366d",
+  "source_sha256": {
+    "tests/arma/infection_probe/lifecycle.VR/description.ext": "37ba144f8c78fee53a392df67cfc2bda025bcfd77995ced929c8114d45b48487",
+    "tests/arma/infection_probe/lifecycle.VR/initServer.sqf": "eb7d738053eab0fb97c36b3248d71a6155c8656732cbfca284e29044cbe29830",
+    "tests/arma/infection_probe/lifecycle.VR/mission.sqm": "ca8613d27b9b075054b42eb374c1f2c4af849303537df016bd9264a0cee6db20",
+    "tests/arma/infection_probe/lifecycle.VR/scenarios.sqf": "bc3b0e64e0c4133d0da15e5931f7343f87fe189e0962246d00e77c0091489d34",
+    "tests/arma/infection_probe/catalog.VR/candidates.sqf": "d1c7049e6c5bbc02ab1a10ee907aa51bd69131a321ff544ecd343879a5033f9f",
+    "Tools/dev/collect-lifecycle.py": "b52d3418d8b0429ea4c24b9c7ba6cd8b07f911c51189011ca3265bfaad076756"
+  },
+  "checks": {
+    "one_start_and_completion": false,
+    "record_schema_valid": true,
+    "dedicated_server": true,
+    "declared_fixture_matches": true,
+    "completion_count_matches": false,
+    "no_abort": true,
+    "no_engine_or_sqf_errors": true,
+    "begin_once_per_trial": false,
+    "setup_once_per_trial": false,
+    "result_once_per_trial": false,
+    "cleanup_once_per_trial": false,
+    "valid_prepared_subjects": true,
+    "sample_counts_match": true,
+    "existing_subjects_remain_server_local": true,
+    "cleanup_empty": true,
+    "live_deletion_is_not_kill_credit": false,
+    "forced_deaths_have_killed_event": false,
+    "observed_combat_deaths_have_killed_event": true
+  },
+  "malformed_record_lines": [],
+  "errors": [],
+  "warnings_for_review": [
+    {
+      "line": 19,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:18 Warning: memory usage limited by a page file. Current limit 9911 MB, wanted 47339 MB."
+    },
+    {
+      "line": 721,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:23 Arma 3                                             | A3                   | true       | true       | NOT FOUND (Empty)    |                                          |           | "
+    },
+    {
+      "line": 730,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_core_Chemlight_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 731,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Car_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 732,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_APC_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 733,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Tank_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 734,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Ship_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 735,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Heli_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 736,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Plane_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 737,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_StaticMG_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 738,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_StaticAA_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 739,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_StaticAT_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 740,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_StaticMortar_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 741,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Module_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 742,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Rebels_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 743,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Occupants_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 744,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Invaders_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 745,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Rivals_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 746,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:27 [CBA] (xeh) WARNING: A3A_zeus_Civilians_Base does not support Extended Event Handlers! Addon: 3020755032"
+    },
+    {
+      "line": 747,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:28 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
+    },
+    {
+      "line": 752,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:28 bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
+    },
+    {
+      "line": 754,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:32 Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
+    },
+    {
+      "line": 755,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:32 Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
+    },
+    {
+      "line": 756,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:32 Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
+    },
+    {
+      "line": 757,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:32 Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
+    },
+    {
+      "line": 758,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:32 Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
+    },
+    {
+      "line": 759,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:32 Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
+    },
+    {
+      "line": 760,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:32 Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
+    },
+    {
+      "line": 761,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:32 Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
+    },
+    {
+      "line": 762,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Warning: looped for animation: a3\\anims_f_epa\\data\\anim\\sdr\\cts\\hubcleaned\\briefing\\hubbriefing_loop.rtm differs (looped now 1)! MoveName: hubbriefing_loop"
+    },
+    {
+      "line": 763,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Warning: looped for animation: a3\\anims_f_epa\\data\\anim\\sdr\\cts\\hubcleaned\\briefing\\hubbriefing_loop.rtm differs (looped now 0)! MoveName: hubbriefing_ext"
+    },
+    {
+      "line": 764,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Warning: looped for animation: a3\\anims_f_epa\\data\\anim\\sdr\\cts\\hubcleaned\\spectator\\hubspectator_stand.rtm differs (looped now 0)! MoveName: hubspectator_stand"
+    },
+    {
+      "line": 765,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Warning: looped for animation: a3\\anims_f\\data\\anim\\sdr\\mov\\pne\\stp\\non\\non\\amovppnemstpsnonwnondnon_amovppnemevasnonwnondl.rtm differs (looped now 0)! MoveName: prone_burn_left"
+    },
+    {
+      "line": 766,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Warning: looped for animation: a3\\anims_f\\data\\anim\\sdr\\mov\\pne\\stp\\non\\non\\amovppnemstpsnonwnondnon_amovppnemevasnonwnondr.rtm differs (looped now 0)! MoveName: prone_burn_right"
+    },
+    {
+      "line": 778,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 [CBA] (xeh) WARNING: One or more children of class CAManBase do not support Extended Event Handlers. Fall back to loop."
+    },
+    {
+      "line": 781,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Attempt to override final function - abz_fnc_load"
+    },
+    {
+      "line": 782,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Attempt to override final function - abz_fnc_queuesave"
+    },
+    {
+      "line": 783,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Attempt to override final function - abz_fnc_synccommit"
+    },
+    {
+      "line": 784,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Attempt to override final function - abz_fnc_save"
+    },
+    {
+      "line": 791,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Attempt to override final function - bis_fnc_storeparamsvalues_data"
+    },
+    {
+      "line": 792,
+      "trial": [
+        "startup",
+        "startup"
+      ],
+      "message": "23:09:33 Attempt to override final function - hals_store_getnearbyvehicles"
+    }
+  ],
+  "observations": [
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "delete_alive",
+      "sample_count": 6,
+      "final_snapshot": [
+        true,
+        false,
+        false,
+        0,
+        0,
+        -1
+      ],
+      "classification": "deleted_without_recorded_death",
+      "events_before_cleanup": [
+        [
+          "Deleted",
+          2.189,
+          "trial",
+          [
+            false,
+            true,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "forced_death",
+      "sample_count": 15,
+      "final_snapshot": [
+        false,
+        false,
+        true,
+        2,
+        1,
+        30
+      ],
+      "classification": "dead_with_recorded_death",
+      "events_before_cleanup": [
+        [
+          "Killed",
+          2.244,
+          "trial",
+          [
+            false,
+            false,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Crawler_Civ",
+      "scenario": "rifle_combat",
+      "sample_count": 46,
+      "final_snapshot": [
+        false,
+        false,
+        true,
+        2,
+        1,
+        30
+      ],
+      "classification": "dead_with_recorded_death",
+      "events_before_cleanup": [
+        [
+          "Killed",
+          3.396,
+          "trial",
+          [
+            false,
+            false,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "delete_alive",
+      "sample_count": 6,
+      "final_snapshot": [
+        true,
+        false,
+        false,
+        0,
+        0,
+        -1
+      ],
+      "classification": "deleted_without_recorded_death",
+      "events_before_cleanup": [
+        [
+          "Deleted",
+          2.237,
+          "trial",
+          [
+            false,
+            true,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    },
+    {
+      "class": "Zombie_B_Walker_Civ",
+      "scenario": "forced_death",
+      "sample_count": 15,
+      "final_snapshot": [
+        false,
+        false,
+        true,
+        2,
+        1,
+        30
+      ],
+      "classification": "dead_with_recorded_death",
+      "events_before_cleanup": [
+        [
+          "Killed",
+          2.294,
+          "trial",
+          [
+            false,
+            false,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    }
+  ],
+  "event_records": [
+    [
+      "event",
+      "Zombie_B_Crawler_Civ",
+      "delete_alive",
+      [
+        "Deleted",
+        2.189,
+        "trial",
+        [
+          false,
+          true,
+          true,
+          2,
+          1,
+          30
+        ]
+      ]
+    ],
+    [
+      "event",
+      "Zombie_B_Crawler_Civ",
+      "forced_death",
+      [
+        "Killed",
+        2.244,
+        "trial",
+        [
+          false,
+          false,
+          true,
+          2,
+          1,
+          30
+        ]
+      ]
+    ],
+    [
+      "event",
+      "Zombie_B_Crawler_Civ",
+      "forced_death",
+      [
+        "Deleted",
+        10.372,
+        "cleanup",
+        [
+          false,
+          false,
+          true,
+          2,
+          1,
+          30
+        ]
+      ]
+    ],
+    [
+      "event",
+      "Zombie_B_Crawler_Civ",
+      "rifle_combat",
+      [
+        "Killed",
+        3.396,
+        "trial",
+        [
+          false,
+          false,
+          true,
+          2,
+          1,
+          30
+        ]
+      ]
+    ],
+    [
+      "event",
+      "Zombie_B_Crawler_Civ",
+      "rifle_combat",
+      [
+        "Deleted",
+        27.476,
+        "cleanup",
+        [
+          false,
+          false,
+          true,
+          2,
+          1,
+          30
+        ]
+      ]
+    ],
+    [
+      "event",
+      "Zombie_B_Walker_Civ",
+      "delete_alive",
+      [
+        "Deleted",
+        2.237,
+        "trial",
+        [
+          false,
+          true,
+          true,
+          2,
+          1,
+          30
+        ]
+      ]
+    ],
+    [
+      "event",
+      "Zombie_B_Walker_Civ",
+      "forced_death",
+      [
+        "Killed",
+        2.294,
+        "trial",
+        [
+          false,
+          false,
+          true,
+          2,
+          1,
+          30
+        ]
+      ]
+    ],
+    [
+      "event",
+      "Zombie_B_Walker_Civ",
+      "forced_death",
+      [
+        "Deleted",
+        10.457,
+        "cleanup",
+        [
+          false,
+          false,
+          true,
+          2,
+          1,
+          30
+        ]
+      ]
+    ],
+    [
+      "event",
+      "Zombie_B_Walker_Civ",
+      "rifle_combat",
+      [
+        "Killed",
+        4.71799,
+        "trial",
+        [
+          false,
+          false,
+          true,
+          2,
+          1,
+          3
+        ]
+      ]
+    ]
+  ],
+  "cleanup_records": [
+    [
+      "cleanup",
+      "Zombie_B_Crawler_Civ",
+      "delete_alive",
+      [],
+      0,
+      [
+        true,
+        false,
+        false,
+        0,
+        0,
+        -1
+      ],
+      [
+        [
+          "Deleted",
+          2.189,
+          "trial",
+          [
+            false,
+            true,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    ],
+    [
+      "cleanup",
+      "Zombie_B_Crawler_Civ",
+      "forced_death",
+      [],
+      0,
+      [
+        true,
+        false,
+        false,
+        0,
+        0,
+        -1
+      ],
+      [
+        [
+          "Killed",
+          2.244,
+          "trial",
+          [
+            false,
+            false,
+            true,
+            2,
+            1,
+            30
+          ]
+        ],
+        [
+          "Deleted",
+          10.372,
+          "cleanup",
+          [
+            false,
+            false,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    ],
+    [
+      "cleanup",
+      "Zombie_B_Crawler_Civ",
+      "rifle_combat",
+      [],
+      0,
+      [
+        true,
+        false,
+        false,
+        0,
+        0,
+        -1
+      ],
+      [
+        [
+          "Killed",
+          3.396,
+          "trial",
+          [
+            false,
+            false,
+            true,
+            2,
+            1,
+            30
+          ]
+        ],
+        [
+          "Deleted",
+          27.476,
+          "cleanup",
+          [
+            false,
+            false,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    ],
+    [
+      "cleanup",
+      "Zombie_B_Walker_Civ",
+      "delete_alive",
+      [],
+      0,
+      [
+        true,
+        false,
+        false,
+        0,
+        0,
+        -1
+      ],
+      [
+        [
+          "Deleted",
+          2.237,
+          "trial",
+          [
+            false,
+            true,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    ],
+    [
+      "cleanup",
+      "Zombie_B_Walker_Civ",
+      "forced_death",
+      [],
+      0,
+      [
+        true,
+        false,
+        false,
+        0,
+        0,
+        -1
+      ],
+      [
+        [
+          "Killed",
+          2.294,
+          "trial",
+          [
+            false,
+            false,
+            true,
+            2,
+            1,
+            30
+          ]
+        ],
+        [
+          "Deleted",
+          10.457,
+          "cleanup",
+          [
+            false,
+            false,
+            true,
+            2,
+            1,
+            30
+          ]
+        ]
+      ]
+    ]
+  ],
+  "completion": null
+}

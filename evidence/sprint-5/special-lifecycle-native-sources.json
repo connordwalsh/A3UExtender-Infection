@@ -1,0 +1,21 @@
+{
+  "scope": "Installed-source audit for native death, delayed deletion and possession; not gameplay acceptance",
+  "files": [
+    {
+      "path": ".work/unpacked/WBK_Zombies_Corrupted/xeh_preinit.sqf",
+      "sha256": "934bb5bf5000f2f743752cb36c866c62573b32116d7b6a137d2b74cb1f70df85"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies_Corrupted/ai/wbk_ai_corruptedhead.sqf",
+      "sha256": "dd8a296ddc8809883c5bd2fc22ef65b4c40d53cdf0352dd89fabd3310b5c49a0"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies/ai/wbk_ai_zombieexplosion.sqf",
+      "sha256": "b43a12e0f5f6577bac1bfaffd576f1b4610cb12a56c330c38927234d79f7731e"
+    },
+    {
+      "path": ".work/unpacked/WBK_Zombies/ai/wbk_ai_tatzelwurm.sqf",
+      "sha256": "db8ada8e96ff1fb793ee2f13a135ffb7b1ab89bf4d052d8fc3c39cd7b27d1032"
+    }
+  ]
+}

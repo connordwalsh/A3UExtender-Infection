@@ -61,23 +61,38 @@ A3I_fnc_lifecycleEvent = {
                 switch (_scenario) do {
                     case "delete_alive": {deleteVehicle _unit};
                     case "forced_death": {_unit setDamage 1};
-                    case "rifle_combat": {
+                    case "rifle_combat";
+                    case "close_passive": {
                         private _targetGroup = createGroup [independent,true];
-                        _target = _targetGroup createUnit ["I_Soldier_F",[1000,1025,0],[],0,"NONE"];
+                        private _position = if (_scenario == "close_passive") then {[1000,1006,0]} else {[1000,1025,0]};
+                        _target = _targetGroup createUnit ["I_Soldier_F",_position,[],0,"NONE"];
                         _target setDir 180; _target setUnitPos "UP"; _target disableAI "PATH";
-                        _target setSkill 1; _targetGroup setCombatMode "RED";
-                        _targetGroup setBehaviourStrong "COMBAT";
-                        _target reveal [_unit,4]; _target doTarget _unit; _target doFire _unit;
+                        if (_scenario == "close_passive") then {
+                            removeAllWeapons _target;
+                            _target disableAI "TARGET"; _target disableAI "AUTOTARGET";
+                            _targetGroup setCombatMode "BLUE";
+                        } else {
+                            _target setSkill 1; _targetGroup setCombatMode "RED";
+                            _targetGroup setBehaviourStrong "COMBAT";
+                            _target reveal [_unit,4]; _target doTarget _unit; _target doFire _unit;
+                        };
                     };
                 };
             };
             private _until = diag_tickTime + _duration;
             private _samples = 0;
+            private _conversionObserved = false;
             while {diag_tickTime < _until && {!_abort}} do {
                 private _new = (entities [[],[],true,false]) - _before;
                 ["sample",_class,_scenario,[_unit] call A3I_fnc_lifecycleSnapshot,
                     [_target] call A3I_fnc_lifecycleSnapshot,count _new] call _log;
                 _samples = _samples + 1;
+                if (!_conversionObserved && {!isNull _target}
+                    && {!isNil {_target getVariable "WBK_AI_ISZombie"}}) then {
+                    _conversionObserved = true;
+                    ["conversion",_class,_scenario,diag_tickTime - (_record get "started"),
+                        typeOf _target,str side group _target,[_target] call A3I_fnc_lifecycleSnapshot] call _log;
+                };
                 if (count _new > 24) then {
                     ["abort",_class,_scenario,"entity_limit",count _new] call _log;
                     _abort = true;

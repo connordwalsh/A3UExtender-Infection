@@ -33,7 +33,7 @@ def collect(log: Path, repo: Path) -> dict:
     records, malformed, errors, warnings = [], [], [], []
     current = ["startup", "startup"]
     sizes = {"start": 7, "begin": 4, "setup": 5, "sample": 6,
-             "result": 6, "cleanup": 7, "event": 4, "abort": 5, "complete": 3}
+             "result": 6, "cleanup": 7, "event": 4, "conversion": 7, "abort": 5, "complete": 3}
     for number, line in enumerate(raw.decode("utf-8", errors="replace").splitlines(), 1):
         if "Error:" in line or re.search(r"Error\s+(?:in expression|Undefined|Missing|Generic|Type)", line):
             errors.append({"line": number, "trial": list(current), "message": line})
@@ -104,7 +104,7 @@ def collect(log: Path, repo: Path) -> dict:
         classify(r[4], r[5]) in {"dead_with_recorded_death", "deleted_after_recorded_death"} for r in forced)
     checks["observed_combat_deaths_have_killed_event"] = all(
         r[4][1] or classify(r[4], r[5]) in {"dead_with_recorded_death", "deleted_after_recorded_death"}
-        for r in by_kind["result"] if r[2] == "rifle_combat")
+        for r in by_kind["result"] if r[2] in {"rifle_combat", "close_passive"})
     observations = []
     for r in by_kind["result"]:
         observations.append({"class": r[1], "scenario": r[2], "sample_count": r[3],
@@ -121,7 +121,8 @@ def collect(log: Path, repo: Path) -> dict:
                           for p in sources if p.is_file()},
         "checks": checks, "malformed_record_lines": malformed, "errors": errors,
         "warnings_for_review": warnings, "observations": observations,
-        "event_records": by_kind["event"], "cleanup_records": by_kind["cleanup"],
+        "event_records": by_kind["event"], "conversion_records": by_kind["conversion"],
+        "cleanup_records": by_kind["cleanup"],
         "completion": finishes[0][1:] if len(finishes) == 1 else None,
     }
 
