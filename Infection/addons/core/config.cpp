@@ -287,6 +287,7 @@ class CfgFunctions
         class Originals
         {
             class originalDialogCivFinished { file = "\x\a3a\addons\patcom\functions\Civilian\fn_dialogCivFinished.sqf"; };
+            class originalRivalsIntroduction { file = "\x\a3a\addons\core\functions\Missions\fn_RIV_ENC_Rivals.sqf"; };
             class originalENCTrader { file = "\x\a3a\addons\core\functions\Missions\fn_ENC_Trader.sqf"; };
             class originalRepairAntenna { file = "\x\a3a\addons\core\functions\Missions\fn_REP_Antenna.sqf"; };
             class originalRESShipwreck { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Shipwreck.sqf"; };
@@ -376,6 +377,7 @@ class CfgFunctions
         };
         class Missions
         {
+            class RIV_ENC_Rivals { file = "\x\a3i\addons\core\overrides\fn_RIV_ENC_Rivals.sqf"; };
             class ENC_Trader { file = "\x\a3i\addons\core\overrides\fn_ENC_Trader.sqf"; };
             class REP_Antenna { file = "\x\a3i\addons\core\overrides\fn_REP_Antenna.sqf"; };
             class RES_Shipwreck { file = "\x\a3i\addons\core\overrides\fn_RES_Shipwreck.sqf"; };

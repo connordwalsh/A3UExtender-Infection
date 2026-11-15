@@ -201,3 +201,9 @@ at campaign start. These choices do not disable native trader services.
 assault mission may kill approximately 75 percent of nearby outdoor, on-foot
 Occupant units after the scene starts, including infected. Do not suppress this
 effect; the owner explicitly chose the native behavior.
+
+15 November Rivals narrative: initially unknown to the Rebels, who expected
+Chernarus Redux to be largely barren of healthy life. The Rivals distrust
+governments and wish to preserve the anarchic conditions created by infection.
+Their discovery is a surprise. Retain the native discovery timing, gang
+storyline, attacks and staged casualties.
