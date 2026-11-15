@@ -911,3 +911,21 @@ coverage is appropriate without repeating the parent full suite solely for it.
 PR 35 separately passed 1089 combined checks and 67 role records. PR 37 may
 integrate this prerequisite. Actual delivery missions and campaign acceptance
 remain open. No Computer Use or manual installation/profile changes.
+
+
+## 14 November 2026 - Extraction survivor ledger review
+
+The owner's all-survivors-or-deadline rule passes 42 focused engine checks in
+ExtractionLedger Dev2, with 11 actual missing-dependency checks, packaging and
+three parser tests also passing. No engine/SQF errors; 16 startup/dependency
+notices reviewed. All 182 production inputs and the PBO match the manifest.
+Both completed test servers exited. Dev1's failed deletion-event report remains
+committed; Dev2 fixes the actual object/array mismatch without weakening tests.
+
+Review covered exact actor ownership and serials, duplicate/stale records,
+real deaths versus live deletion, first-rescue continuation, mixed outcomes,
+deadline totals, independent ticking, concurrent ledgers, and handler cleanup
+without deleting survivors or touching another owner's state. The ledger has
+no public mission caller yet. PR 38 may integrate this tested prerequisite;
+it does not complete Extraction tasks, rewards or connected rescue interactions.
+No Computer Use, manual-install changes or sprint-gate completion.

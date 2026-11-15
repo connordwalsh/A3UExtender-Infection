@@ -504,3 +504,16 @@ match the frozen manifest; completed servers exited. HQ and the six approved
 site types are covered. Supplies and Extraction mission controllers remain
 unimplemented. The owner corrected Extraction to wait until all survivors are
 rescued/killed or the deadline, then succeed only if at least one was rescued.
+
+Extraction ledger drafted to honor all-survivors-or-deadline settlement. Dev1
+passes packaging, three parser tests and 11 missing-dependency checks. Focused
+run rejected: 41/42 checks pass, but EntityDeleted object/array handling causes
+two script errors and misses the deletion flag. Fix and retest; see
+EXTRACTION_LEDGER.md. Public Extraction missions remain unimplemented.
+
+Extraction ledger Dev2 corrects the observed EntityDeleted argument shape. All
+42 focused checks, 11 actual missing-dependency checks, packaging and three
+parser tests pass without engine/SQF errors. The 182-input manifest and PBO match
+after execution; both servers exited. PR 38 can integrate the internal ledger.
+Its public mission/controller/rewards remain open. Survivor disposition after
+rescue (manpower pool or usable AI) is awaiting owner input.
