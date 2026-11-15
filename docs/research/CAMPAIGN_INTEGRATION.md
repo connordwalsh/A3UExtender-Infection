@@ -40,3 +40,24 @@ full-run capture assertion failure. Keep that issue open until combined evidence
 can assess it. Both focused reports have no engine/SQF errors; all 322 production
 inputs and the shared PBO still match. The next full run includes both original
 feature branches and all later route/dealer changes, with these diagnostics.
+
+## Completed combined regression, 15 November
+
+CampaignIntegration Dev1 completed at 15:19:28: all 1,806 checks and 67 role
+spawns pass. The collector reports no engine/SQF errors; a separate search finds
+no native Antistasi Error-level records. All 322 production inputs and the PBO
+still match the build manifest. The completed isolated server was stopped.
+
+The corrected valid-cap attack case, all offscreen attack simulations, native
+site capture, replacement rescue dispatch and restored-arsenal cleanup pass in
+this combined run. The old Extraction run remains rejected. This result does
+not identify which component failed in its uninstrumented capture/cleanup
+assertions; preserve the intermittent findings for further acceptance testing.
+
+The survivor-defense integration is now merged in #49. This full report supports
+source integration of Extraction and the remaining campaign route/dealer changes.
+It predates the narrative-only Rivals adapter and later disk/campaign test tools.
+Those have separate branch evidence. Native Redux campaign tests reveal existing
+startup/map-data errors; passing isolated regression does not resolve them or
+close a sprint/release gate. Client/UI, multiplayer/JIP, terrain playthroughs and
+long-session performance remain open.
