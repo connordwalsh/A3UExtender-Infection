@@ -9,9 +9,11 @@ Zombies and Creatures as the Occupant faction. This repository is a fork of
 creates foot-only virtual garrison lines, adapts infected combat bookkeeping,
 and spawns full queued garrisons at six persistent site types under shared limits.
 Road/field controls use capped foot groups and guarded local capture.
-Infected-held towns use a population-based logistic target of 10â€“200 infected,
+Infected-held towns use a population-based logistic target of 10-200 infected,
 activate the complete population together and spread groups across the town.
-Each town has its own allowance; casualties regenerate on a later visit.
+Each town has its own allowance; normal casualties regenerate on a later visit.
+Extra town reinforcements use a separate saved roster, can exceed that baseline,
+and stay dead when killed.
 Administration strongholds require clearing even after building destruction;
 survivor rescues give separate rewards, and uncleared defenders regenerate each visit.
 Routine reinforcements use paid foot groups, cooldowns and combat checks, and
@@ -29,21 +31,22 @@ level 3. Russian takeover cancels without a mission penalty. Queue/death ledgers
 prevent missing actors, queued defenders or premature native capture from
 bypassing the objective. Other five replacement mission families remain pending.
 
-The integrated Liquidation candidate passes 764 combined dedicated checks,
-37 focused dispatch checks and 11 actual missing-dependency checks. All 138
-production inputs and the PBO match its recorded build manifest. These isolated checks do not establish visual
-menu behavior, connected-player rewards, multiplayer, saves or campaign acceptance.
-See [Liquidation implementation and limits](docs/research/LIQUIDATION.md).
+The integrated candidate passes 965 combined dedicated checks, 88 focused town
+checks and 11 actual missing-dependency checks. All 160 production inputs and
+the PBO match its recorded build manifest. These isolated checks do not establish
+visual menu behavior, connected-player rewards, multiplayer, full campaign saves
+or campaign acceptance. See [Liquidation implementation and limits](docs/research/LIQUIDATION.md).
 Connected-player rebuilding, town-liberation integration, other mission adapters,
 special creatures, abandoned vehicles and save integration remain unfinished.
 Do not use this build for a campaign you intend to keep.
 
-The Horde Interception branch also stages and releases complete 40-120-infected
-formations with casualty tracking, interrupted cleanup and stalled-order recovery.
-Formation Dev3 passes 85 targeted capture/formation checks and 11 dependency-absent
-checks. Its full combined rerun is pending; the earlier Dev2 combined run was
-rejected. Task lifecycle, arrival consequences and public mission dispatch remain
-unfinished. See [Interception development evidence](docs/research/HORDE_INTERCEPTION.md).
+The internal Horde Interception components stage and release complete 40-120
+infected formations, track casualties and first arrival, create and settle native
+tasks, recover stalled movement, and supervise interrupted cleanup. These paths
+are included in the passing combined run. Arrival reinforcement/attack and public
+mission dispatch remain unfinished, so this is not yet a player-requestable
+replacement mission. See [Interception evidence](docs/research/HORDE_INTERCEPTION.md)
+and [town reinforcement details](docs/research/INTERCEPTION_ARRIVALS.md).
 
 ## Intended campaign
 
