@@ -53,3 +53,8 @@ package cleanup are issued by this layer.
 
 Public dispatch, safe package creation, task rewards/cleanup and engine evidence
 remain NOT IMPLEMENTED or NOT RUN. No Computer Use or manual-install changes.
+
+Dev1 packaging, three parser tests and eleven actual missing-dependency checks
+pass without engine/SQF errors. All 187 production inputs and the PBO match after
+that run, and the server exited. The 25 focused unloading/ownership scenarios
+remain NOT RUN while the combined Supplies Seizure regression is active.
