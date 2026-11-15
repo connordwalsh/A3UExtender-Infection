@@ -31,3 +31,12 @@ has not yet completed either.
 Focused Major and Liquidation diagnostics are running on the same frozen
 CampaignIntegration Dev1 PBO. Full integration, connected clients, campaign
 saves, real terrain, performance and release acceptance remain open.
+
+Focused results: all 126 Major checks pass after the valid-cap reservation fix,
+including the active Invader horde and all six offscreen target categories. All
+44 Liquidation checks pass; the capture diagnostic reads Rebel owner, won claim,
+empty lock and empty garrison. This does not reproduce or explain the earlier
+full-run capture assertion failure. Keep that issue open until combined evidence
+can assess it. Both focused reports have no engine/SQF errors; all 322 production
+inputs and the shared PBO still match. The next full run includes both original
+feature branches and all later route/dealer changes, with these diagnostics.
