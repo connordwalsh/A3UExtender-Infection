@@ -1,9 +1,11 @@
 # Interception arrival implementation
 
-Status: town storage/spawn support passes 88 focused checks and the complete
-965-check combined engine regression on the same immutable candidate.
-The marching-horde handoff, hostile-destination attack and public dispatch remain
-unfinished. No campaign, save-file or connected-client acceptance is claimed.
+Status: town storage/spawn support and offscreen/live handoff helpers pass the
+complete 1013-check combined engine regression on LiveArrivals Dev1. The helper
+fixture passes 59 focused checks. Automatic arrival handling, hostile-destination
+combat and public dispatch remain unfinished. No campaign, save-file or
+connected-client acceptance is claimed. Earlier checkpoints below retain their
+original scope and evidence.
 
 ## Approved policy
 
@@ -104,7 +106,7 @@ Reports: `interception-storage-build.json`, `interception-storage-engine.json`
 and `interception-storage-dependencies.json` under `evidence/sprint-4`.
 
 
-## Active-site adoption design review (not implemented)
+## Active-site adoption design review (implemented in the checkpoint below)
 
 The existing paid reinforcement helper cannot be reused unchanged: it enforces
 native spare capacity and only transfers shared tickets. Interception groups
@@ -155,8 +157,13 @@ Reports are `interception-adoption-build.json`, `interception-adoption-engine.js
 and `interception-adoption-dependencies.json` under `evidence/sprint-4`.
 The focused run has 17 reviewed warnings (16 startup/dependency and one object-
 deletion notice); the absent run has seven startup warnings. Both servers exited.
-Full combined regression is the next gate for this budget change. Public calling
-paths, hostile aftermath and administration reinforcements remain unfinished.
+The full combined regression now passes all 1013 checks and 67 role-spawn records,
+without engine/SQF errors. All 162 production inputs and the PBO still match the
+manifest after execution. The 85 reviewed warnings comprise 16 startup/dependency
+notices, 64 object-deletion notices and five absent-fixture-commander notification
+targets. The completed isolated server exited. The report is
+`interception-adoption-combined.json`. Public calling paths, hostile aftermath and
+administration reinforcements remain unfinished in this candidate.
 
 The owner confirmed administration extras should also persist between visits and
 stay dead when killed. Their ordinary per-visit defenders still regenerate.
