@@ -1,0 +1,24 @@
+{
+  "scope": "Isolated saved fields and plugin payload; not full saveLoop/loadServer campaign acceptance",
+  "modern_save": {
+    "writer_pid": 56844,
+    "reader_pid": 57140,
+    "profile": "template-server-DiskMission",
+    "written_utc": "2026-11-15T20:04:06Z",
+    "read_utc": "2026-11-15T20:04:56Z",
+    "namespace": "missionProfileNamespace",
+    "snapshot": "persistence-mission-snapshot.vars",
+    "sha256": "88e357e5153f803be76389b2c3f91d9130657563738e2bce17438cd057799c8e"
+  },
+  "legacy_save": {
+    "writer_pid": 54896,
+    "reader_pid": 56768,
+    "profile": "template-server-DiskRestart2",
+    "namespace": "profileNamespace",
+    "reader_status": "rejected: fixture did not initialize disableTrader",
+    "snapshot": "persistence-disk-snapshot.vars.Arma3Profile",
+    "sha256": "768b8568694eed0c13200786f3d47b2bebf5fbc1de6b89af3d2a5e84aeeca717"
+  },
+  "production_source_count": 324,
+  "production_addon_sha256": "041ae08279fa15c921bbb09746dcc5d5703ad60fa794828501099a76e1519c13"
+}
