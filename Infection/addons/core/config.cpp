@@ -121,6 +121,7 @@ class CfgFunctions
             class controlRoster {};
             class runPatrol {};
             class cityRoster {};
+            class cityExtraRoster {};
             class cityPopulationTarget {};
             class findCitySpawnPosition {};
             class patrolWaypoints {};

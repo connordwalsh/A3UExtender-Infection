@@ -106,6 +106,17 @@ CONTROL_CHECKS = {
 }
 
 CITY_CHECKS = {
+    'city_extra_roster_filters_unrelated',
+    'city_extra_initial_queue',
+    'city_extra_full_population_above_cap',
+    'city_extra_garrison_bookkeeping',
+    'city_extra_death_only_removes_extra',
+    'city_extra_healthy_despawn_preserves_roster',
+    'city_extra_native_load_restores_survivors',
+    'city_extra_revisit_regenerates_only_base',
+    'city_extra_blocks_clearance',
+    'city_extra_complete_clearance',
+
     'city_override_registered',
     'city_inactive_selection',
     'city_other_factions_delegate',

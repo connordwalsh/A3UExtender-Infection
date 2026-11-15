@@ -27,7 +27,12 @@ private _dedicatedAllowance = 0;
     if (_site getOrDefault ["kind",""] == "City" && {!(_site getOrDefault ["cleaned",false])}
         && {_site getOrDefault ["context",""] == "site:" + _x}) then {
         private _target = _site getOrDefault ["populationTarget",0];
-        if (_target isEqualType 0 && {finite _target} && {_target > 0} && {_target <= 200}) then {
+        private _base = _site getOrDefault ["baselineTarget",_target];
+        private _extra = _site getOrDefault ["extraTarget",0];
+        if (_target isEqualType 0 && {finite _target} && {_target > 0}
+            && {_base isEqualType 0 && {finite _base} && {_base >= 0} && {_base <= 200} && {floor _base == _base}}
+            && {_extra isEqualType 0 && {finite _extra} && {_extra >= 0} && {floor _extra == _extra}}
+            && {_target == _base + _extra}) then {
             _dedicatedCaps set [_site get "context",floor _target];
             _dedicatedAllowance = _dedicatedAllowance + floor _target;
         };
@@ -151,7 +156,7 @@ private _result = switch (_operation) do {
         // retaining their old minimum would prevent later setting increases.
         // context, unbound slots, units, lease deadline, closed, local ceiling, sequence, dedicated domain
         A3I_budgetRecords set [_ticket, [_context, _granted, [], diag_tickTime + 30, false,
-            _localLimit min (if (_dedicated) then {200} else {24}), A3I_budgetSerial, _dedicated]];
+            _localLimit min (if (_dedicated) then {_ceiling} else {24}), A3I_budgetSerial, _dedicated]];
         [true, [_ticket, _granted], ""]
     };
     case "remaining": {

@@ -20,10 +20,13 @@ if (!(_remaining isEqualType 0) || {!finite _remaining} || {_remaining < 0})
 if (_record getOrDefault ["fault","missing"] != "") exitWith {[false,"site_fault",_remaining]};
 if (_record getOrDefault ["clearanceMissing",0] > 0) exitWith {[false,"missing_defender",_remaining]};
 if (_record getOrDefault ["queue",["unknown"]] isNotEqualTo []) exitWith {[false,"queued_defenders",_remaining]};
+if (_record getOrDefault ["extraQueue",[]] isNotEqualTo []) exitWith {[false,"queued_defenders",_remaining]};
 if (_remaining > 0) exitWith {[false,"remaining_defenders",_remaining]};
 if (((_record getOrDefault ["units",[]]) findIf {alive _x}) != -1)
     exitWith {[false,"living_defenders",_remaining]};
 if (_record getOrDefault ["kind",""] in ["Resource","Outpost","Milbase","Airport"]
     && {garrison getVariable [_marker,["unknown"]] isNotEqualTo []})
+    exitWith {[false,"garrison_pending",_remaining]};
+if (_record getOrDefault ["kind",""] == "City" && {[_marker] call A3I_fnc_cityExtraRoster isNotEqualTo []})
     exitWith {[false,"garrison_pending",_remaining]};
 [true,"",0]
