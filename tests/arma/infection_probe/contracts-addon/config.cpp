@@ -69,6 +69,12 @@ class CfgFunctions
             class originalDestroyHeli { file = "\x\a3i\tests\contracts\fn_originalDestroyHeli.sqf"; };
             class originalDestroyAntenna { file = "\x\a3i\tests\contracts\fn_originalDestroyAntenna.sqf"; };
             class originalDestroyArtillery { file = "\x\a3i\tests\contracts\fn_originalDestroyArtillery.sqf"; };
+            class originalLOGAmmo { file = "\x\a3i\tests\contracts\fn_originalLOGAmmo.sqf"; };
+            class originalLOGBank { file = "\x\a3i\tests\contracts\fn_originalLOGBank.sqf"; };
+            class originalLOGSalvage { file = "\x\a3i\tests\contracts\fn_originalLOGSalvage.sqf"; };
+            class originalLOGAirdrop { file = "\x\a3i\tests\contracts\fn_originalLOGAirdrop.sqf"; };
+            class originalLOGCrashsite { file = "\x\a3i\tests\contracts\fn_originalLOGCrashsite.sqf"; };
+            class originalLOGHelicrash { file = "\x\a3i\tests\contracts\fn_originalLOGHelicrash.sqf"; };
             class originalMissionRequest { file = "\x\a3i\tests\contracts\fn_originalMissionRequest.sqf"; };
             class originalConquestMission { file = "\x\a3i\tests\contracts\fn_originalConquestMission.sqf"; };
             class originalAdministrationMission { file = "\x\a3i\tests\contracts\fn_originalAdministrationMission.sqf"; };

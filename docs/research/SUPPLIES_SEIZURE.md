@@ -58,9 +58,82 @@ Build and absent-dependency reports are recorded alongside them. Artifact
 @Infection_SupplyTrucks_Dev1, SHA-256
 `af23a7e871d695b3d6c305780e090fed84ea89ae068f0d48f916c24cf37c28e8`.
 
-Mission target eligibility, placement search, objective tracking, once-only
-rewards, retention/cleanup, all public/direct/intel/civilian routes, and connected
-play remain unfinished. The owner confirmed that Rebel or Russian capture after the truck exists does
+The controller increment now passes 45 focused checks and eleven actual
+missing-dependency checks. It provides bounded parking, guarded creation, native
+tasks, delivery/destruction/deadline settlement, once-only native rewards, save
+registration and observer-safe asset/task retirement. Public/direct/intel/
+civilian routes and connected play remain unfinished. The owner confirmed that Rebel or Russian capture after the truck exists does
 not cancel recovery. Its delivery, destruction or original deadline resolves the
-mission. Eligible source-location types are awaiting clarification. The usable truck contract is separate from currently unanswered
+mission. The owner confirmed fuel trucks only in towns; permanent sites permit all three
+service kinds. Capturing the permanent source site counts as delivery if the
+truck remains within its now-friendly boundary. That specific captured-source
+case passes an explicit engine test, including native rewards, capture and save-list registration. The usable truck contract is separate from currently unanswered
 Extraction survivor disposition. No Computer Use or manual-install changes.
+
+
+## Controller evidence boundary
+
+The 45-check controller run uses actual empty trucks, native tasks, FIA resources,
+army timing rewards, native capture and save-list registration. Travel and
+deadlines are injected. The result has no engine/SQF errors and 19 reviewed
+warnings: 16 startup notices and three missing-fixture-commander income targets.
+All 194 production inputs and the PBO match the frozen manifest; both completed
+servers exited. SupplyTask Dev1 SHA-256:
+`47ec4609d92043cd7ee6bd7912d1e36c7fbe87b9d295b5eabdb6e2a1368d8f8d`.
+
+Normal/difficult durations use 60/30 minutes and native 1x/2x LOG rewards.
+Destruction and timeout fail; missing/reassigned assets or interrupted setup
+cancel without mission rewards. Once spawned, source ownership never cancels
+recovery. A delivered or previously captured Rebel truck is retained; an
+unclaimed failed asset waits while occupied, attached/towed, or near observers.
+Task metadata retires independently using the native 20-minute average window.
+The controller does not create conventional guards; existing infected site/town
+forces remain responsible for their location.
+
+This evidence does not establish real terrain travel, optional faction packs,
+ACE, connected driving/towing, player rewards, garage/disk campaign saves or
+full mission acceptance. No Computer Use or manual-install changes.
+
+The strengthened run also checks all six conventional permanent-site types for
+ammunition/fuel/repair eligibility. The original passing 43-check report is
+retained as supply-task-engine-initial.json; the accepted 45-check report is
+supply-task-engine.json. Production remained unchanged between these runs.
+
+## Public dispatch increment
+
+All six native LOG entry points (Ammo, Bank, Salvage, Airdrop, Crashsite,
+Helicrash) now route to the server-owned Supplies Seizure controller in Infection.
+Ordinary campaigns delegate to their original source functions. The bank object
+is resolved only to an eligible containing source; invalid locations do not
+silently fall back to a different mission. Scheduler routing stays on the server
+when an HC is registered. Direct remote calls accept only the server or registered
+HC owners; the creator remains local-only.
+
+LOG requests preserve the foreign mission-request lock and native HQ leader
+check. They report success only after task registration, honor silent requests,
+and refuse duplicate preparation or retained native LOG tasks. Both menu buttons
+show Supplies Seizure while preserving native actions and inheritance. The pinned
+caller audit found all six variants selected by missionRequest; old airdrop and
+crash missions retry through that same request entry. No separate LOG branch was
+found in the intel override.
+
+SupplyDispatch Dev1 passes 36 focused engine checks, 11 actual missing-dependency
+checks and three parser tests. No engine/SQF errors; 16 startup warnings in the
+focused run and seven in the absent-dependency run were reviewed. All 203 production
+inputs and the PBO match the manifest. Artifact SHA-256:
+`b5869202dff7e72f29dd3c6c30020efe6befe9fe04a2ee7c9edafd4b4f0fc289`.
+Both focused servers exited. Combined regression is the next integration gate.
+Menu configuration is verified; visible menus, client/HC relay and player-facing
+notification delivery are not accepted by this isolated server evidence.
+
+## Combined integration result
+
+SupplyDispatch Dev1 passed all 1228 combined engine checks and 67 role-spawn
+records, with no engine/SQF errors. The same 203 production inputs and PBO still
+match. All 101 warnings were reviewed: 16 startup/dependency notices, 77 object
+deletion notices and eight absent-fixture-commander notification targets. The
+completed isolated server exited. Report: supply-dispatch-full-engine.json.
+This integrates the delivery helper, Extraction ledger, supply trucks,
+Supplies Seizure controller and public dispatch with the earlier site, response,
+Liquidation, Interception and Russian background-convoy behavior. It does not
+close connected-player, terrain, disk-save or full campaign acceptance gates.
