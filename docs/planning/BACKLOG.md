@@ -712,3 +712,11 @@ Altis checks pass. Full native write/restart/read pass 17 assertions per phase
 and 75-second windows. Missing-leader errors are gone; two missing-object records
 and an addon-init error still fail clean-log acceptance. See
 REDUX_HC_VALIDATION.md. Connected-player/UI/JIP and release gates remain open.
+
+15 November Curator activation: bounded diagnosis proves both late requests are
+for already-active addon identities. The independent wrapper returns the current
+set for those redundant Redux server requests while preserving native handling
+elsewhere and for new/malformed requests. Uninstrumented campaign save/reload
+pass 18 assertions each and 75-second windows; all 2874 Curator addons remain
+available. Only two missing-object error records still fail the clean-log gate.
+See REDUX_CURATOR_VALIDATION.md. No client or release gate is closed.

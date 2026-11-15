@@ -22,6 +22,10 @@ diag_log format ["[INFECTION_STARTUP] %1",["native_modules",count allPlayers,
 ["empty_hc_deferred",!isNull _hc && {
     !scriptDone (_hc getVariable ["A3URF_hcWorker",scriptNull])
 } && {isNil {_hc getVariable "A3URF_hcNative"}} && {isNil "BIS_MARTA_mainScope"}] call _check;
+private _curators=allCurators;
+private _active=activatedAddons apply {toLower _x};
+private _curatorAddons=if (count _curators==1) then {curatorAddons (_curators select 0) apply {toLower _x}} else {[]};
+["curator_addons_preserved",count _curators==1 && {count _active>0} && {count (_active - _curatorAddons)==0},[count _active,count _curatorAddons]] call _check;
 private _receipt=missionProfileNamespace getVariable ["A3I_campaignProbeReceipt",createHashMap];
 private _new=_phase=="write";
 private _selection=createHashMap;

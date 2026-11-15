@@ -10,7 +10,7 @@ import re
 import runpy
 
 parse_array = runpy.run_path(str(Path(__file__).with_name("collect-probe.py")))["parse_array"]
-COMMON = {"background_ready", "empty_hc_deferred", "campaign_initialized", "infection_selected", "native_hq_ready", "redux_parking_slots", "redux_orphan_reconnected", "black_market_only_hq_absent", "black_market_only_native_quote", "background_window_completed"}
+COMMON = {"background_ready", "empty_hc_deferred", "curator_addons_preserved", "campaign_initialized", "infection_selected", "native_hq_ready", "redux_parking_slots", "redux_orphan_reconnected", "black_market_only_hq_absent", "black_market_only_native_quote", "background_window_completed"}
 EXPECTED = {
     "write": COMMON | {"fresh_profile", "real_sites_available", "dealer_unlocked", "native_save_completed", "native_save_has_campaign", "loot_crate_fixture", "loot_crate_refund_exact"},
     "read": COMMON | {"saved_receipt_present", "town_extras_restored", "admin_extras_restored", "dealer_restored", "hq_restored", "save_identity_restored", "saved_crate_resources_restored"},
