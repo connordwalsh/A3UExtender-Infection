@@ -42,8 +42,8 @@ of the broader campaign resilience work.
 
 Build and source hashes are recorded in
 `evidence/sprint-4/background-convoys-build.json` and
-`background-convoys-source-audit.json`. Current focused validation is in progress.
-The Dev1 missing-dependency run passes 11 checks; Dev2 is being checked again. Two rejected fixture runs
+`background-convoys-source-audit.json`. Dev2 passes all 64 focused checks and 11 actual missing-dependency checks.
+Two rejected fixture runs
 retain their evidence: the cargo-action recorder originally accepted only arrays,
 and the isolated Rebel faction omitted the loot-crate key used by native logistics.
 Neither correction changes production code. No Computer Use or manual install
@@ -55,3 +55,27 @@ leaving could leave living cargo and keep the convoy lock. Dev2 installs the
 handler before removing spawn protection and targets only its own still-attached
 cargo. An additional parked-truck destruction case covers the pre-departure gap.
 The rejected Dev1 evidence and manifest remain archived.
+
+The first Dev2 fixture run also rejected its own no-cargo assumption: Ultimate's
+hatchback has logistics capacity. The corrected fixture selects only a vehicle
+whose loaded native capacity query returns zero. It also waits for spawned
+cleanup callbacks, rather than treating the convoy flag reset as proof those
+callbacks have already executed. Production Dev2 remains unchanged.
+
+A subsequent Dev2 fixture passed all 64 assertions but was rejected because the
+zero-capacity kart emitted `Error: Wheel reference not initialized`. The final
+fixture uses a base-game armored vehicle with a verified zero cargo capacity
+and derives its crew count from the loaded configuration. This is a test-only
+vehicle substitution; it does not change any production faction vehicle pool.
+The collector continues to reject all engine errors rather than ignoring this one.
+
+## Reviewed checkpoint
+
+Dev2 passes all 64 focused checks, 11 actual missing-dependency checks, and three
+collector parser unit tests. No engine/SQF error records occur. The collector
+retains 16 startup/dependency notices in the focused run and seven in the absent
+run; an additional native truck animation-source notice is recorded separately.
+All 140 production inputs and PBO SHA-256
+`67f8877d8bae82e8ab545f4fa28a387d7a2e4dc9249fe25f37983b3325b67e2e`
+still match the tested candidate. Both isolated servers exited. Full combined
+regression for this candidate is NOT_RUN. The limitations above remain open.

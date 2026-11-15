@@ -478,7 +478,7 @@ CLEARANCE_CHECKS = {
 
 BACKGROUND_CONVOY_CHECKS = {
     "bg_registered", "bg_ordinary_delegates", "bg_ordinary_scheduler_delegates",
-    "bg_other_routes_preserved", "bg_infected_source_rejected", "bg_workers_finish", "bg_cleanup",
+    "bg_other_routes_preserved", "bg_infected_source_rejected", "bg_zero_capacity_vehicle", "bg_workers_finish", "bg_cleanup",
 } | {f"bg_{case}_{check}" for case in ("arrival", "destroyed", "parked", "captured", "no_cargo")
      for check in ("starts", "duplicate_refused", "force", "cost", "cargo", "settles", "support", "strategic", "no_mission")}
 

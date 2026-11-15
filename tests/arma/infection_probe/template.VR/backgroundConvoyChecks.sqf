@@ -29,7 +29,12 @@ A3A_faction_inv = createHashMap;
 A3A_faction_reb = createHashMapFromArray [["vehiclesCivSupply",["C_Truck_02_transport_F"]],["lootCrate","Box_NATO_Ammo_F"]];
 A3A_faction_civ = createHashMapFromArray [["attributeLowCiv",true]];
 A3A_faction_all = createHashMapFromArray [["vehiclesArmor",[]]];
-A3A_vehicleResourceCosts = createHashMapFromArray [["O_MRAP_02_F",100],["C_Truck_02_transport_F",100],["C_Hatchback_01_F",100]];
+private _zeroCargoTypes = ["B_MBT_01_cannon_F"] select {
+    isClass (configFile >> "CfgVehicles" >> _x) && {([_x] call A3A_Logistics_fnc_getVehCapacity) == 0}
+};
+["bg_zero_capacity_vehicle",count _zeroCargoTypes > 0,_zeroCargoTypes] call _check;
+private _zeroCargoType = _zeroCargoTypes param [0,"B_MBT_01_cannon_F"];
+A3A_vehicleResourceCosts = createHashMapFromArray [["O_MRAP_02_F",100],["C_Truck_02_transport_F",100],[_zeroCargoType,100]];
 tierWar = 0; debug = false; A3A_balancePlayerScale = 0;
 A3A_tasksData = []; A3A_activeTasks = []; A3A_taskCount = 19;
 A3I_test_originals = []; A3I_test_convoyMode = true;
@@ -57,13 +62,15 @@ sidesX setVariable [_origin,east];
 private _workers = [];
 {
     private _scenario = _x;
+    private _expectedCrew = if (_scenario == "no_cargo") then {2 + ([_zeroCargoType,false] call BIS_fnc_crewCount)} else {3};
+    private _expectedAttack = 10000 - 300 - 10 * _expectedCrew;
     A3I_test_convoyVehicles = []; A3I_test_convoyTravel = []; A3I_test_nativeInitCalls = [];
     A3I_test_vehicleCleanup = []; A3I_test_groupCleanup = []; A3I_test_logisticsCalls = [];
     A3I_test_support = []; A3I_test_aggression = []; A3I_test_convoyObjective = objNull;
     A3A_resourcesAttackInv = 10000; A3A_resourcesDefenceInv = 10000;
     A3A_resourcesAttackOcc = 10000; A3A_resourcesDefenceOcc = 10000;
     killZones setVariable [_origin,[]];
-    A3A_faction_reb set ["vehiclesCivSupply",[["C_Truck_02_transport_F"],["C_Hatchback_01_F"]] select (_scenario == "no_cargo")];
+    A3A_faction_reb set ["vehiclesCivSupply",[["C_Truck_02_transport_F"],[_zeroCargoType]] select (_scenario == "no_cargo")];
     _arguments set [4,[0,0.1] select (_scenario == "parked")];
     // First case exercises the real scheduler -> remote server wrapper.
     if (_scenario == "arrival") then {
@@ -86,10 +93,10 @@ private _workers = [];
     private _vehicles = A3I_test_convoyVehicles apply {_x # 0};
     private _crew = []; {_crew append crew _x} forEach _vehicles;
     private _cargo = if (isNull _vehicle) then {[]} else {attachedObjects _vehicle};
-    ["bg_" + _scenario + "_force",_ready && {count _vehicles == 3} && {count _crew == 3}
-        && {{side group _x == east && {!(_x getVariable ["A3I_initialized",false])}} count _crew == 3}
-        && {count A3I_test_nativeInitCalls == 3},[count _vehicles,count _crew]] call _check;
-    ["bg_" + _scenario + "_cost",A3A_resourcesAttackInv == 9670 && {A3A_resourcesDefenceInv == 10000}
+    ["bg_" + _scenario + "_force",_ready && {count _vehicles == 3} && {count _crew == _expectedCrew}
+        && {{side group _x == east && {!(_x getVariable ["A3I_initialized",false])}} count _crew == _expectedCrew}
+        && {count A3I_test_nativeInitCalls == _expectedCrew},[count _vehicles,count _crew]] call _check;
+    ["bg_" + _scenario + "_cost",A3A_resourcesAttackInv == _expectedAttack && {A3A_resourcesDefenceInv == 10000}
         && {A3A_resourcesAttackOcc == 10000} && {A3A_resourcesDefenceOcc == 10000},[A3A_resourcesAttackInv]] call _check;
     ["bg_" + _scenario + "_cargo",(count _cargo > 0) isEqualTo (_scenario != "no_cargo"),[count _cargo]] call _check;
     private _capturedGroup = grpNull;
@@ -105,9 +112,10 @@ private _workers = [];
             default {_vehicle setPosATL getMarkerPos _target};
         };
     };
-    private _finished = [{!A3A_convoyInProgress},30] call _wait;
+    private _finished = [{!A3A_convoyInProgress
+        && {count A3I_test_vehicleCleanup == count _vehicles} && {count A3I_test_groupCleanup > 0}},30] call _wait;
     ["bg_" + _scenario + "_settles",_finished && {count A3I_test_vehicleCleanup == count _vehicles}
-        && {count A3I_test_groupCleanup > 0}] call _check;
+        && {count A3I_test_groupCleanup > 0},[!A3A_convoyInProgress,count A3I_test_vehicleCleanup,count _vehicles,count A3I_test_groupCleanup]] call _check;
     private _expectedSupport = switch (_scenario) do {
         case "parked";
         case "destroyed": {[]};
@@ -115,7 +123,7 @@ private _workers = [];
         default {[[15,0,_target]]};
     };
     ["bg_" + _scenario + "_support",A3I_test_support isEqualTo _expectedSupport,A3I_test_support] call _check;
-    ["bg_" + _scenario + "_strategic",A3A_resourcesAttackInv == ([9670,9650] select (_scenario == "captured"))
+    ["bg_" + _scenario + "_strategic",A3A_resourcesAttackInv == (_expectedAttack - ([0,20] select (_scenario == "captured")))
         && {A3A_resourcesDefenceInv == ([10000,9980] select (_scenario == "captured"))}
         && {killZones getVariable [_origin,[]] isEqualTo ([[],[_target,_target]] select (_scenario in ["destroyed","parked","captured"]))}] call _check;
     ["bg_" + _scenario + "_no_mission",A3A_tasksData isEqualTo [] && {A3A_activeTasks isEqualTo []}

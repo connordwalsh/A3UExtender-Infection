@@ -4,12 +4,12 @@
   "suite": "full",
   "expected_dependencies_present": false,
   "status": "passed",
-  "collected_at_utc": "2026-11-15T00:50:26.226914+00:00",
-  "source_log": "arma3server_x64_2026-11-14_19-49-41.rpt",
-  "source_log_sha256_at_collection": "bbb8d091f8e708e14c825530ba0426371e0d0e1e1c46ea9cdcd50ef7bbc81734",
+  "collected_at_utc": "2026-11-15T00:54:54.971650+00:00",
+  "source_log": "arma3server_x64_2026-11-14_19-54-02.rpt",
+  "source_log_sha256_at_collection": "ea57bf41be78f2f511f194692dd9d270ec987c09f0ccdc69d2627e888ce4526e",
   "source_sha256_at_collection": {
     "tests/arma/infection_probe/template.VR/administrationChecks.sqf": "13bab6774aa13e69ff26a6e98cae431378c7f04b90bbf6cedc3620df0f8cf096",
-    "tests/arma/infection_probe/template.VR/backgroundConvoyChecks.sqf": "062441446956d030a1b1025a06b02a44789e40730b78e1082fcfedbc2e82b52d",
+    "tests/arma/infection_probe/template.VR/backgroundConvoyChecks.sqf": "91feaa5e0a32517ec9790a08a637fec5d1f0ea3589c5be06317c393c49aba5d0",
     "tests/arma/infection_probe/template.VR/budgetChecks.sqf": "3bbc8ab2864ad8be0b19ee002427c7bff9c6a8339ce65f0e6b22fc15d62afbd6",
     "tests/arma/infection_probe/template.VR/catalogPolicyChecks.sqf": "759499278e0a24c51eaaa4c3ad779df48f3c5f8a3f37711227154bd409ecb7a6",
     "tests/arma/infection_probe/template.VR/cityChecks.sqf": "55aa8406a7b928d03bc9e468e7df61a966ecd24e2423c0e6a4e1e160a81f72c6",
@@ -42,7 +42,7 @@
     "Infection/addons/core/functions/fn_administrationPositions.sqf": "1bb6e1a27fcecff5b4f23c2a05ea23c111b87d977228d7245789aaaa9bdc7e8a",
     "Infection/addons/core/functions/fn_administrationRoster.sqf": "4c1870f6edcdf29b08fa12b02748553fd12d31520f8561cee61baf0c39955eac",
     "Infection/addons/core/functions/fn_adoptReinforcement.sqf": "2533ff5bbe0e01b313423f57aa1fc45a2f612d12a933ea2a1c62806dcb5cf140",
-    "Infection/addons/core/functions/fn_backgroundSupplyConvoy.sqf": "8488dd73ee7e94c7f6c83ca5c3c37245114373a200260a1449842323ad60c62d",
+    "Infection/addons/core/functions/fn_backgroundSupplyConvoy.sqf": "2f43b2ad0be40a7a29b72380483bd04fbaa2ea74f790c6abf643c0973e2cd6c6",
     "Infection/addons/core/functions/fn_beginRescue.sqf": "a04db60ca2969810ab59982fbc217e237227f3ddb7341943d5d5c6970bcb6cab",
     "Infection/addons/core/functions/fn_bootstrap.sqf": "35f2e15cd7a8a07752a9acc67de6079d7767aa012e6735d3c77857ee45536bbf",
     "Infection/addons/core/functions/fn_budget.sqf": "b8ebeff784df93e3a52a13e43e2f5ffab4b9c957ba0d0b8539801403992a6d98",
@@ -192,31 +192,31 @@
   "error_lines": [],
   "warnings_for_review": [
     {
-      "line": 727,
+      "line": 729,
       "message": "Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
     },
     {
-      "line": 752,
+      "line": 753,
       "message": "Attempt to override final function - abz_fnc_load"
     },
     {
-      "line": 753,
+      "line": 754,
       "message": "Attempt to override final function - abz_fnc_queuesave"
     },
     {
-      "line": 754,
+      "line": 755,
       "message": "Attempt to override final function - abz_fnc_synccommit"
     },
     {
-      "line": 755,
+      "line": 756,
       "message": "Attempt to override final function - abz_fnc_save"
     },
     {
-      "line": 762,
+      "line": 763,
       "message": "Attempt to override final function - bis_fnc_storeparamsvalues_data"
     },
     {
-      "line": 763,
+      "line": 764,
       "message": "Attempt to override final function - hals_store_getnearbyvehicles"
     }
   ],
