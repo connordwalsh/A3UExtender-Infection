@@ -157,3 +157,8 @@ A synthetic dedicated fixture cannot certify Redux
 street navigation, connected-player visibility, multiplayer/JIP, saves or
 representative crowded-town performance. The earlier small-patrol evidence in
 [TOWN_PATROLS.md](TOWN_PATROLS.md) does not establish this new behavior.
+
+
+The later [Chernogorsk two-visit validation](REDUX_TOWN_VALIDATION.md) records
+200 living infected on each visit, movement and clean teardown on the real
+Redux terrain. Its limited scope does not close the campaign/performance gates.

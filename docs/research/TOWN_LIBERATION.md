@@ -719,3 +719,11 @@ accepts the engine's direct-object event form as well as an array. Final cleanup
 logs surviving classes/positions/groups. Production remains frozen Dev2; another
 focused and full run are required. Event signatures were checked against Bohemia's
 [mission event handler documentation](https://community.bistudio.com/wiki/Arma_3%3A_Mission_Event_Handlers).
+
+
+The focused observation rerun passes all 249 checks with no engine/SQF errors;
+all twelve survivor vehicles are retained and final entity/group deltas are empty.
+The 293-input production manifest and PBO still match. Merged Redux-only test
+additions were integrated, retaining both Liberation and ReduxTowns suite routes.
+A second full regression is required; the rejected full report remains authoritative
+for the previous attempt and PR 49 stays draft.
