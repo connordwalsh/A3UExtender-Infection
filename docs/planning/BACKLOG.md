@@ -434,3 +434,13 @@ and requires their deaths for clearance. Three parser tests pass. Run full
 combined regression for the budget change. Administration persistence is now
 approved; its extra queue, casualty/replacement accounting and capture guard
 remain to implement. Public arrival ownership and dispatch are still unfinished.
+
+
+Administration reinforcement work: the owner approved persistent survivors and
+permanent casualties, plus a 50-metre interception arrival boundary. Inspection
+found administration icons excluded from Ultimate's saved garrison list. This
+branch adds a tagged native plugin save/load payload, separate extra spawning,
+casualty/replacement accounting, guarded capture and actual icon endpoints.
+Twenty-seven focused cases are authored; engine execution awaits the parent's
+combined server. Packaging and parser tests pass. No campaign save or sprint
+acceptance is claimed. See ADMINISTRATION_REINFORCEMENTS.md.

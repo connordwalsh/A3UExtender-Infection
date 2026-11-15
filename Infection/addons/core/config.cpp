@@ -24,6 +24,9 @@ class CfgFunctions
             file = "\x\a3i\addons\core\functions";
             class bootstrap { preInit = 1; };
             class initSettings { preInit = 1; };
+            class registerPersistence { postInit = 1; };
+            class saveAdministrationExtras {};
+            class loadAdministrationExtras {};
             class dependencies {};
             class isActive {};
             class backgroundSupplyConvoy {};
@@ -106,6 +109,8 @@ class CfgFunctions
             class retireInterceptionFormation {};
             class interceptionSize {};
             class interceptionLocations {};
+            class interceptionRadius {};
+            class interceptionContains {};
             class interceptionRoutes {};
             class startLiquidation {};
             class requestLiquidation {};
@@ -123,7 +128,7 @@ class CfgFunctions
             class controlRoster {};
             class runPatrol {};
             class cityRoster {};
-            class cityExtraRoster {};
+            class siteExtraRoster {};
             class cityPopulationTarget {};
             class findCitySpawnPosition {};
             class patrolWaypoints {};

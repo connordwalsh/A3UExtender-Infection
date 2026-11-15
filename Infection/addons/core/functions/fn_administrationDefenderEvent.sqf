@@ -13,6 +13,9 @@ if (_event == "Killed" && {!alive _unit}) exitWith {
 };
 if (_event == "Deleted" && {alive _unit} && {sidesX getVariable [_marker,sideUnknown] == west}
     && {spawner getVariable [_marker,2] != 2}) then {
-    (_record get "queue") pushBack (_unit getVariable "unitType");
-    spawner setVariable [_marker + "_A3I_pending",count (_record get "queue"),true];
+    private _extra = _unit getVariable ["markerX",""] == _marker
+        && {_unit getVariable ["A3A_resPool",""] == "garrison"};
+    (_record get (if (_extra) then {"extraQueue"} else {"queue"})) pushBack (_unit getVariable "unitType");
+    spawner setVariable [_marker + "_A3I_pending",count (_record get "queue")
+        + count (_record getOrDefault ["extraQueue",[]]),true];
 };

@@ -6,12 +6,14 @@ private _center = getMarkerPos _marker;
 _record set ["announced",true];
 [CBA_EVENT_SERVER_SPAWN_LOCATION,[_marker,"MilAdmin",true]] call A3A_fnc_triggerLocalEvent;
 private _nextBatch = 0;
+private _pending = {count (_record get "queue") + count (_record getOrDefault ["extraQueue",[]])};
 private _previousSimulation = -1;
 while {spawner getVariable [_marker,2] != 2} do {
     private _state = spawner getVariable [_marker,2];
     private _owned = sidesX getVariable [_marker,sideUnknown] == west;
     if (!_owned) then {
         _record set ["queue",[]];
+        _record set ["extraQueue",[]];
         spawner setVariable [_marker + "_A3I_pending",0,true];
     };
     if (_state != _previousSimulation) then {
@@ -19,10 +21,12 @@ while {spawner getVariable [_marker,2] != 2} do {
         _previousSimulation = _state;
     };
     private _queue = _record get "queue";
+    private _extra = _queue isEqualTo [];
+    if (_extra) then {_queue = _record getOrDefault ["extraQueue",[]]};
     if (_owned && {_state == 0} && {_queue isNotEqualTo []} && {diag_tickTime >= _nextBatch}
         && {_record get "fault" == ""}) then {
         private _result = [_record get "context",_queue select [0,4],_center,0,300,
-            _marker,"legacy",24,false] call A3I_fnc_spawnGroup;
+            _marker,["legacy","garrison"] select _extra,24,_extra] call A3I_fnc_spawnGroup;
         private _count = 0;
         if (_result # 0) then {
             (_result # 1) params ["_group","_units"];
@@ -31,7 +35,7 @@ while {spawner getVariable [_marker,2] != 2} do {
             _record set ["spawnedAny",true];
             _count = count _units;
             _queue deleteRange [0,_count];
-            spawner setVariable [_marker + "_A3I_pending",count _queue,true];
+            spawner setVariable [_marker + "_A3I_pending",call _pending,true];
             private _waypoint = _group addWaypoint [_center,0];
             _waypoint setWaypointType "MOVE";
             _waypoint setWaypointCompletionRadius 20;

@@ -19,6 +19,6 @@ private _position = _record getOrDefault ["spawnPosition",[]];
 private _destination = _record getOrDefault ["destinationPosition",[]];
 if (count _position != 3 || {count _destination != 3}
     || {_position distance2D getMarkerPos _source > 25}
-    || {!(_destination inArea _target)}
-    || {_position distance2D getMarkerPos _target <= ([_target] call A3A_fnc_sizeMarker) + 100}) exitWith {false};
+    || {!([_destination,_target] call A3I_fnc_interceptionContains)}
+    || {_position distance2D getMarkerPos _target <= ([_target] call A3I_fnc_interceptionRadius) + 100}) exitWith {false};
 true

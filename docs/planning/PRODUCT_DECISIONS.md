@@ -109,3 +109,7 @@ Normal town population still follows the approved per-visit regeneration policy.
 14 November administration reinforcement clarification: normal stronghold
 defenders still regenerate each visit. Extra infected arriving as reinforcements
 persist between visits; killed extras stay dead, just as extra town defenders do.
+
+14 November administration arrival boundary: for Horde Interception, the first
+living infected within 50 metres of the stronghold counts as arrival and fails
+the task. Ordinary town/permanent-area marker boundaries remain unchanged.

@@ -12,7 +12,7 @@ _unit setVariable ["A3I_interceptionResolved",true];
 if (_event == "Killed" && {!alive _unit}) exitWith {
     // Preserve first-entry failure if the first arrival dies before the next poll.
     private _target = _record get "target";
-    if (_record get "phase" == "marching" && {_target in allMapMarkers} && {_unit inArea _target}) then {
+    if (_record get "phase" == "marching" && {_target in allMapMarkers} && {[_unit,_target] call A3I_fnc_interceptionContains}) then {
         if (!(_record getOrDefault ["arrived",false]) && {!scriptDone (_record getOrDefault ["script",scriptNull])}) then {
             _record set ["arrived",true]; _record set ["arrivedAt",time];
             _record set ["arrivalPosition",getPosATL _unit];

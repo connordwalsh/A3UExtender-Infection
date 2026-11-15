@@ -24,7 +24,7 @@ private _pairs = [];
 {
     private _destination = _x;
     private _position = getMarkerPos _destination;
-    private _edge = [_destination] call A3A_fnc_sizeMarker;
+    private _edge = [_destination] call A3I_fnc_interceptionRadius;
     {
         private _distance = getMarkerPos _x distance2D _position;
         // Source search stays within 25 m and actor births within 100 m of that
@@ -40,12 +40,13 @@ private _safePoint = {
     params ["_marker","_spawning"];
     private _center = getMarkerPos _marker;
     private _result = [];
+    private _radius = if (!_spawning && {_marker in (missionNamespace getVariable ["milAdministrationsX",[]])}) then {50} else {25};
     for "_attempt" from 0 to 15 do {
-        private _point = if (_attempt == 0) then {_center} else {_center getPos [random 25,random 360]};
+        private _point = if (_attempt == 0) then {_center} else {_center getPos [random _radius,random 360]};
         _point set [2,0];
         _point = _point findEmptyPosition [0,0,"Zombie_B_Walker_Civ"];
-        if (_point isEqualTo [] || {_point distance2D _center > 25}) then {continue};
-        if (!_spawning && {!(_point inArea _marker)}) then {continue};
+        if (_point isEqualTo [] || {_point distance2D _center > _radius}) then {continue};
+        if (!_spawning && {!([_point,_marker] call A3I_fnc_interceptionContains)}) then {continue};
         if (([_point,"Zombie_B_Walker_Civ",[],getMarkerPos _hq,150,_spawning]
             call A3I_fnc_positionSafety) # 0) exitWith {_result = _point};
     };
@@ -56,7 +57,7 @@ private _safePoint = {
     _x params ["_hqDistance","_straight","_destination","_source"];
     private _start = [_source,true] call _safePoint;
     private _end = [_destination,false] call _safePoint;
-    if (_start isEqualTo [] || {_end isEqualTo []} || {_start inArea _destination}) then {continue};
+    if (_start isEqualTo [] || {_end isEqualTo []} || {[_start,_destination] call A3I_fnc_interceptionContains}) then {continue};
     private _startIndex = [_start] call A3A_fnc_getNearestNavPoint;
     private _endIndex = [_end] call A3A_fnc_getNearestNavPoint;
     if (_startIndex < 0 || {_endIndex < 0}) then {continue};

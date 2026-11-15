@@ -26,7 +26,9 @@ private _site = (missionNamespace getVariable ["A3I_sites",createHashMap])
 if (spawner getVariable [_marker,2] != 0 || {_site getOrDefault ["context",""] != "site:" + _marker}
     || {_site getOrDefault ["cleaned",true]} || {_site getOrDefault ["fault","missing"] != ""}
     || {scriptDone (_site getOrDefault ["script",scriptNull])}
-    || {!(_site getOrDefault ["kind",""] in ["City","Resource","Outpost","Milbase","Airport"])}
+    || {!(_site getOrDefault ["kind",""] in ["City","Resource","Outpost","Milbase","Airport","MilAdmin"])}
+    || {_site getOrDefault ["captured",sideUnknown] != sideUnknown}
+    || {!(_marker in (call A3I_fnc_interceptionLocations))}
     || {isNil {_site get "clearanceRemaining"}})
     exitWith {[false,0,"site_unavailable"]};
 if (missionNamespace getVariable ["garrisonIsChanging",false]) exitWith {[false,0,"garrison_busy"]};
@@ -44,7 +46,7 @@ if ((_units findIf {
     || {_x getVariable ["A3I_interceptionResolved",false]}
     || {_x getVariable ["A3I_clearanceTracked",false]}
     || {_x getVariable ["markerX",""] != ""}
-    || {_x getVariable ["A3I_budgetTicket",""] != _ticket} || {!(_x inArea _marker)}
+    || {_x getVariable ["A3I_budgetTicket",""] != _ticket} || {!([_x,_marker] call A3I_fnc_interceptionContains)}
     || {!(_role isEqualType "")} || {_role find "loadouts_occ_" != 0}
     || {!((_role select [13]) in _definitions)}
 }) != -1) exitWith {[false,0,"invalid_arrivals"]};
@@ -61,6 +63,10 @@ private _roster = +(garrison getVariable [_marker,[]]);
 _roster append (_units apply {_x getVariable "unitType"});
 garrison setVariable [_marker,_roster,true];
 _site set ["clearanceRemaining",(_site get "clearanceRemaining") + count _units];
+if (_site get "kind" == "MilAdmin") then {
+    _site set ["remainingDefenders",(_site get "remainingDefenders") + count _units];
+    _site set ["extraTarget",(_site getOrDefault ["extraTarget",0]) + count _units];
+};
 _site set ["adoptedCount",(_site getOrDefault ["adoptedCount",0]) + count _units];
 (_site get "units") append _units; (_site get "groups") pushBackUnique _group;
 _record set ["units",(_record get "units") - _units];
@@ -74,6 +80,7 @@ _group setVariable ["A3I_garrisoned",_marker];
     _x setVariable ["spawner",nil,true];
     _x setVariable ["A3I_interceptionResolved",true];
     [_x,_marker,_site get "context"] call A3I_fnc_trackSiteDefender;
+    [_x,_marker,_site get "context"] call A3I_fnc_trackAdministrationDefender;
 } forEach _units;
 // Replace only group routing; native individual combat/pursuit remains intact.
 while {waypoints _group isNotEqualTo []} do {deleteWaypoint [_group,0]};

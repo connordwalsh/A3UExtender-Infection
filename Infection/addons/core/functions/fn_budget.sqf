@@ -225,8 +225,9 @@ private _result = switch (_operation) do {
             || {_site getOrDefault ["id",-1] != _siteId}
             || {_site getOrDefault ["context",""] != "site:" + _marker}
             || {_site getOrDefault ["cleaned",true]} || {_site getOrDefault ["fault","missing"] != ""}
+            || {_site getOrDefault ["captured",sideUnknown] != sideUnknown}
             || {scriptDone (_site getOrDefault ["script",scriptNull])}
-            || {!(_site getOrDefault ["kind",""] in ["City","Resource","Outpost","Milbase","Airport"])})
+            || {!(_site getOrDefault ["kind",""] in ["City","Resource","Outpost","Milbase","Airport","MilAdmin"])})
             exitWith {[false,0,"invalid_arrival_site"]};
         private _count = count (_record # 2);
         if (_site get "kind" == "City") then {
