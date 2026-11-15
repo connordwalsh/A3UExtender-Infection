@@ -661,3 +661,10 @@ no recorded engine/SQF or native Antistasi Error-level records. Earlier rejected
 Extraction evidence is retained. This supports source integration, not sprint
 or release acceptance; native Redux startup defects, connected players, JIP,
 full mission playthroughs and performance remain open. See CAMPAIGN_INTEGRATION.md.
+
+15 November native Redux persistence spike: full new-campaign initialization,
+native saveLoop and process-restart loadServer restore the tested town/admin
+extras, dealer and HQ state (9 write + 10 read assertions). Both clean-log gates
+fail on recorded native/terrain errors; no sprint gate is closed. See
+NATIVE_CAMPAIGN_SAVE.md and retained full RPTs. A separate repository decision
+for general Redux fixes is pending. Connected-player acceptance remains open.
