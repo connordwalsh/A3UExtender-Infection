@@ -137,3 +137,9 @@ stronghold stays permanently cleared and cannot be reestablished by that horde.
 continue recovering that same truck if Rebels or Russia capture its settlement.
 Ownership change alone does not cancel the mission; delivery, destruction or
 the original deadline determine its outcome.
+
+15 November Supplies Seizure source policy: towns can contain fuel trucks only;
+permanent sites can contain any of the approved ammunition, fuel and repair
+trucks. If the truck's permanent source site becomes Rebel-held while the truck
+is still inside its boundary, complete recovery there. Driving to a different
+friendly site is not required.

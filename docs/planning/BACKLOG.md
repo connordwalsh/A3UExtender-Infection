@@ -534,3 +534,12 @@ native vehicle despawner. All 184 production inputs and the PBO remain unchanged
 SQF errors; completed servers exited. The owner confirmed recovery continues if
 Rebels or Russia capture the truck settlement. Eligible source-location types
 await clarification. Task/controller/dispatch remain unfinished.
+
+15 November Supplies Seizure controller: 43 focused engine checks and 11 actual
+missing-dependency checks pass, with no engine/SQF errors. The 194-input build
+creates an actual truck/task, preserves recovery across ownership changes,
+settles delivery/destruction/deadlines once, retains captured trucks and defers
+unsafe cleanup. Source policy is now confirmed: fuel only in towns, all three
+truck roles at permanent sites. A captured permanent source itself can satisfy
+delivery. Add an explicit test of that clarified case before integration.
+Public dispatch/menu/caller coverage remains unfinished.

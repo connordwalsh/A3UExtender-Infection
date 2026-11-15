@@ -33,6 +33,16 @@ class CfgFunctions
             class deliveryDestination {};
             class supplyTruckClasses {};
             class createSupplyTruck {};
+            class supplySiteKinds {};
+            class supplyTargets {};
+            class findSupplyPosition {};
+            class supplyTaskBusy {};
+            class startSupplySeizure {};
+            class runSupplySeizure {};
+            class supplyTaskOutcome {};
+            class finishSupplySeizure {};
+            class cleanupSupplySeizure {};
+            class supplyTaskTick {};
             class createExtractionLedger {};
             class extractionMemberEvent {};
             class updateExtractionLedger {};
