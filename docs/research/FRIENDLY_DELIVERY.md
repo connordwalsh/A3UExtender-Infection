@@ -1,6 +1,7 @@
 # Friendly delivery destinations
 
-Status: location helper and 25 focused cases drafted; focused runtime NOT_RUN.
+Status: location helper passes all 36 focused runtime checks (25 specific cases
+and 11 common checks).
 Packaging, three parser tests and eleven actual missing-dependency checks pass
 without engine/SQF errors. This does
 not implement Supplies Seizure or Extraction and is not wired into public requests.
@@ -43,6 +44,11 @@ checks, not transport missions, live map travel or multiplayer delivery acceptan
 
 Frozen artifact: @Infection_Delivery_Dev1, 178 production inputs, SHA-256
 52b4f1bc57351c236cb27045dd2430b4c88986cc8e40b4fb3f4f141da839026c.
-All inputs match after dependency testing. Reports are delivery-build.json and
-delivery-dependencies.json under evidence/sprint-4. The completed dependency
-server exited. Focused execution waits for the parent's integrated Template run.
+All 178 inputs and the PBO match after focused runtime testing. Reports are
+delivery-build.json, delivery-dependencies.json and delivery-engine.json under
+evidence/sprint-4. Both completed servers exited. Sixteen startup/dependency
+notices were reviewed; no engine/SQF errors occurred. Self-review covered
+current ownership, actual marker geometry, HQ references, invalid inputs and
+absence of mutation. The parent candidate separately passed 1089 combined checks
+and 67 role spawns in PR 35. The read-only helper has no public caller yet;
+that result is not claimed as a combined run of this 178-input candidate.
