@@ -1146,3 +1146,21 @@ real construction and cleanup, including a parent stopped during construction.
 Dev11 packages with 145 matching production inputs and a matching PBO. Three
 parser tests and whitespace checks pass. Engine validation is NOT_RUN while the
 owner tests Dev9; no current combined-regression or campaign acceptance is claimed.
+## 14 November 2026 - Liberation campaign dispatch review
+
+Review verified the infected-only skirmish insertion and preserved original
+resourcecheck control flow outside that branch. The source-comparison report
+matches the pinned native body after the declared adaptations. Ordinary
+factions delegate to the original functions. The direct mission entry cannot
+force a distant source or receive a political fallback.
+
+All 124 focused checks and eleven missing-dependency checks pass on the 130-input
+candidate. Native peaceful ownership/garrison/tier changes occur without mission
+rewards. Existing claims, busy attacks, invalid/insufficient support, destroyed
+towns and missing navigation/HQ state do not grant a capture. All production/PBO
+and 196 focused input hashes match; no engine/SQF Error records occur. Retained
+warnings are classified in TOWN_LIBERATION.md. Three parser tests and whitespace
+checks pass; completed servers were stopped by verified identity. The separate
+parent 777-case regression is incorporated, but this dispatch candidate's combined
+regression, actual campaign economy cycle and connected-player behavior remain
+NOT_RUN. No Computer Use or manual-client update occurred.

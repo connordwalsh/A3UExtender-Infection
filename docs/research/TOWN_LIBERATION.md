@@ -612,3 +612,40 @@ parser regressions and whitespace checks pass. These checks do not execute SQF
 or certify the integration. The manual Dev9 client remains running unchanged;
 no probe server or Computer Use was started. Native campaign entry remains on
 the separate dispatch branch, and combined/terrain/client/save acceptance is open.
+## Campaign dispatch draft
+
+The owner approved peaceful political joining when no nearby eligible source
+can send the walking horde. The isolated dispatch branch adds a narrow infected
+branch in the pinned `resourcecheck` routine and a direct `townBattle` adapter.
+Ordinary factions use the original functions. The
+[source comparison](../../evidence/sprint-3/liberation-dispatch-source-comparison.json)
+confirms that the remaining native resourcecheck body is identical after newline
+normalization and the declared include-path/dispatch changes; original outpost
+fallback control flow, income, traders and victory handling remain in place.
+
+The campaign request rechecks population/support, ownership, destruction, task
+and attack claims, and nearby players. Those refusal cases never count as an
+absent source. A reachable source launches the parent mission; a failed launch
+does not turn into a free town capture. No eligible source invokes the native
+political transaction without a rescue task or mission reward. A direct
+`townBattle` call chooses an approved nearby source and has no political fallback.
+
+The [130-input Dev2 candidate](../../evidence/sprint-3/liberation-dispatch-build.json)
+passes [124 focused checks](../../evidence/sprint-3/liberation-dispatch-focused.json)
+and [11 missing-dependency checks](../../evidence/sprint-3/liberation-dispatch-dependencies-absent.json).
+All production/PBO and 196 focused-report input hashes match. The twenty
+dispatch cases cover native political ownership, garrison and tier updates
+without rescue rewards; ordinary-faction delegation; direct nearby-source
+launch; duplicate claims; absent navigation/HQ data; and malformed, destroyed or
+insufficient-support towns. Source review added the missing-navigation/HQ guard
+before the first focused run, because a technical setup failure must not grant
+the peaceful fallback.
+
+No engine/SQF Error records occur. Nineteen focused warnings are retained:
+sixteen startup notices, two friendly-fire deliveries to deleted fixture actors
+and one absent-commander income message. Seven startup notices remain in the
+dependency-absent report. Three parser tests and whitespace checks pass. Both
+completed servers were stopped by verified identity. This candidate's combined
+regression is NOT_RUN. A real ten-minute campaign economy cycle, connected-player
+proximity, ordinary-faction campaign behavior and the full retained scene remain
+separate acceptance work.
