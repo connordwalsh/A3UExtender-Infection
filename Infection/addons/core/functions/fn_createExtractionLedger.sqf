@@ -27,7 +27,10 @@ if (isNil "A3I_extractionKilledEH") then {
         [_this # 0,"killed"] call A3I_fnc_extractionMemberEvent;
     }];
     A3I_extractionDeletedEH = addMissionEventHandler ["EntityDeleted", {
-        [_this # 0,"deleted"] call A3I_fnc_extractionMemberEvent;
+        // The installed engine passes the entity directly; accept the documented
+        // array form too, without indexing an object as an array.
+        private _entity = if (_this isEqualType []) then {_this param [0,objNull]} else {_this};
+        [_entity,"deleted"] call A3I_fnc_extractionMemberEvent;
     }];
 };
 if (isNil "A3I_extractionLedgerHandle") then {
