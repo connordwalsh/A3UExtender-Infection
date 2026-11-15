@@ -32,5 +32,10 @@ class CampaignEvidenceTests(unittest.TestCase):
     def test_missing_completion_is_incomplete(self):
         self.assertEqual(self.report(omit_complete=True)["status"],"incomplete")
 
+    def test_uppercase_engine_error_is_not_missed(self):
+        result = self.report('00:00:00/log: ERROR: [BIS_fnc_activateAddons] The function can be activated only during the mission init.')
+        self.assertEqual(result["status"], "failed")
+        self.assertEqual(len(result["errors"]), 1)
+
     def test_duplicate_cannot_replace_missing_evidence(self):
         self.assertEqual(self.report(duplicate=True)["status"],"failed")

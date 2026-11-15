@@ -12,6 +12,13 @@ diag_log format ["[INFECTION_CAMPAIGN] %1",["start",_phase,worldName,productVers
 private _background=[{missionNamespace getVariable ["A3A_backgroundInitDone",false]}] call _wait;
 ["background_ready",_background] call _check;
 if (!_background) exitWith {call _finish};
+// Read-only native module state: distinguish missing-player HC from other errors.
+private _hc=missionNamespace getVariable ["BIS_HC_mainscope",objNull];
+diag_log format ["[INFECTION_STARTUP] %1",["native_modules",count allPlayers,
+    isNull (missionNamespace getVariable ["commanderX",objNull]),
+    isNull _hc,(synchronizedObjects _hc) apply {[typeOf _x,netId _x]},
+    (allMissionObjects "Logic") apply {[typeOf _x,netId _x]},
+    isNil "BIS_OM_SmartMarkers_logic"]];
 private _receipt=missionProfileNamespace getVariable ["A3I_campaignProbeReceipt",createHashMap];
 private _new=_phase=="write";
 private _selection=createHashMap;
