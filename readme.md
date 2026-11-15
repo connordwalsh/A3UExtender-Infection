@@ -82,6 +82,7 @@ claim that compatibility testing has passed.
 - [Sprint 2 site and placement evidence](evidence/sprint-2/)
 - [Sprint 3 reinforcement and roaming evidence](evidence/sprint-3/)
 - [Mission redesign and current limits](docs/planning/MISSION_REDESIGN.md)
+- [Background Russian convoy behavior and limits](docs/research/BACKGROUND_CONVOYS.md)
 - [Sprint 4 mission evidence](evidence/sprint-4/)
 - [Upstream extender instructions](docs/upstream-extender.md)
 

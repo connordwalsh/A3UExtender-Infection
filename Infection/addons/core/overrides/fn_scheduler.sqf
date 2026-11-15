@@ -1,5 +1,9 @@
 params ["_arguments","_function"];
 if (!isServer) exitWith {};
+if (_function isEqualType "" && {toLower _function == "a3a_fnc_convoy"}
+    && {_arguments isEqualType []} && {_arguments param [2,""] == "Supplies"}
+    && {_arguments param [3,"legacy"] == "attack"} && {[west] call A3I_fnc_isActive})
+    exitWith {_arguments remoteExec ["A3A_fnc_CONVOY",2]};
 if (_function isEqualType "" && {toLower _function in
     ["a3a_fnc_con_outpost","a3a_fnc_con_outpost_compet","a3a_fnc_con_outpost_zombies","a3a_fnc_con_miladmin"]}
     && {_arguments isEqualType []} && {[west] call A3I_fnc_isActive})
