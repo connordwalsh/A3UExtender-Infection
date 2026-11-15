@@ -56,3 +56,15 @@ Native Smasher timing/rewards provide the authorized starting point (normal
 selection, mission-specific timing, defeat/cancellation and cleanup behavior
 still require implementation and evidence. No new product policy is selected by
 this audit. No Computer Use or manual installation change.
+
+## Owner clarification and next evidence
+
+The owner confirmed that a Rebel or Russian takeover while the special remains
+alive must leave the hunt active. Once the target exists, settlement ownership
+alone cannot resolve the task. Eligibility before target creation remains a
+separate concern from the existing target's death ledger.
+
+The standalone special lifecycle diagnostic is documented in
+SPECIAL_LIFECYCLE.md. Its close-passive case addresses native Corrupted possession,
+where deletion of the original actor can represent a continuing threat in a new
+host. No production mission or special selection is enabled by that diagnostic.

@@ -109,3 +109,8 @@ Normal town population still follows the approved per-visit regeneration policy.
 14 November administration reinforcement clarification: normal stronghold
 defenders still regenerate each visit. Extra infected arriving as reinforcements
 persist between visits; killed extras stay dead, just as extra town defenders do.
+
+14 November Elimination Task clarification: if Rebels or Russian forces capture
+the settlement while its designated special infected remains alive, keep the
+assignment active and keep hunting that creature. Ownership change alone must
+not cancel the task or award completion.
