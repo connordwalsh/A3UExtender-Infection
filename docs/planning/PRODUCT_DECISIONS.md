@@ -185,3 +185,9 @@ undelivered survivors, including those still travelling with the player. Keep
 the native one-minute cleanup delay. The owner also approved a small additional
 infected guard group near the survivors; use the existing four-member basic
 police-team definition under the shared infected budget.
+
+15 November follow-up campaign routes: destroyed radio towers in infected
+territory stay destroyed; remove the conventional repair-crew mission. Keep the
+separate gang storyline and gang assaults. The arms dealer unlocks without an
+introduction mission, at Ultimate's normal intel/progression timing rather than
+at campaign start. These choices do not disable native trader services.

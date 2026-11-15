@@ -73,3 +73,14 @@ Both completed Extraction servers were stopped after collection. The separate
 full survivor-defense regression remains running in its unchanged worktree.
 Connected-player conversation, remote ownership, release UI, HC/JIP and campaign
 saves remain unverified.
+
+A subsequent inventory cross-check found the sixth registered rescue endpoint,
+RES_Shipwreck. Although the replaced commander request no longer calls it, its
+direct endpoint could still create a conventional naval task. RescueRoutes Dev1
+routes it through Extraction and pins server scheduling. Eligible land sources
+create the normal survivor mission; seaports are refused, preserving the owner's
+approved town/base/outpost/airfield list. Ordinary campaigns use the native
+alias. All six rescue endpoints pass direct/scheduled/native-delegation checks;
+the focused dispatch suite passes 43 checks, with no engine/SQF errors and sixteen
+baseline warnings. All 288 production inputs and the PBO match. This increment
+is separate from the still-running Dev4 full regression.

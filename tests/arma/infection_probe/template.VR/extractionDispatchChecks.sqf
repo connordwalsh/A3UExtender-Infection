@@ -43,8 +43,8 @@ private _clean={params ["_r"];_r set ["taskDeleteAt",time-1];_r set ["cleanupAt"
 
 A3I_test_originals=[]; A3I_test_comms=[]; hcArray=[];
 A3I_extractionTasks=createHashMap;
-private _variants=["RES_Informer","RES_Refugees","RES_Prisoners","RES_Deserters","RIV_RES_Prisoners"];
-private _aliases=["originalRESInformer","originalRESRefugees","originalRESPrisoners","originalRESDeserters","originalRIVRESPrisoners"];
+private _variants=["RES_Shipwreck","RES_Informer","RES_Refugees","RES_Prisoners","RES_Deserters","RIV_RES_Prisoners"];
+private _aliases=["originalRESShipwreck","originalRESInformer","originalRESRefugees","originalRESPrisoners","originalRESDeserters","originalRIVRESPrisoners"];
 private _get={
     [{count A3I_extractionTasks==1}] call _wait;
     private _job=(values A3I_extractionTasks) param [0,createHashMap];
@@ -113,6 +113,14 @@ sidesX setVariable [_source,east];A3I_test_comms=[];
 sidesX setVariable [_source,west];
 [""] call A3A_fnc_RES_Refugees;["missing"] call A3A_fnc_RES_Prisoners;sleep 0.3;
 ["exdispatch_invalid_source_refused",count A3I_extractionTasks==0] call _check;
+// A native naval source cannot broaden the approved land-only rescue locations.
+private _naval="a3i_extask_seaport";createMarker [_naval,[4600,4500,0]];
+_naval setMarkerShape "ELLIPSE";_naval setMarkerSize [100,100];
+sidesX setVariable [_naval,west];seaports=[_naval];markersX pushBack _naval;
+[_naval] call A3A_fnc_RES_Shipwreck;
+[[_naval],"A3A_fnc_RES_Shipwreck"] call A3A_fnc_scheduler;sleep 0.4;
+["exdispatch_shipwreck_seaport_refused",count A3I_extractionTasks==0 && {A3I_test_originals isEqualTo []}] call _check;
+seaports=[];markersX=markersX-[_naval];deleteMarker _naval;
 // Civilian worker uses the same atomic task reservation without owning the native flag.
 A3U_dialogCivMissionInProgress=true;
 private _civilianResult=[_source,petros,petros] call A3I_fnc_requestCivilianExtraction;

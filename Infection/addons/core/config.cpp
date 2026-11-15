@@ -257,6 +257,7 @@ class CfgFunctions
         class Originals
         {
             class originalDialogCivFinished { file = "\x\a3a\addons\patcom\functions\Civilian\fn_dialogCivFinished.sqf"; };
+            class originalRESShipwreck { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Shipwreck.sqf"; };
             class originalRESInformer { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Informer.sqf"; };
             class originalRESRefugees { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Refugees.sqf"; };
             class originalRESPrisoners { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Prisoners.sqf"; };
@@ -337,6 +338,7 @@ class CfgFunctions
         };
         class Missions
         {
+            class RES_Shipwreck { file = "\x\a3i\addons\core\overrides\fn_RES_Shipwreck.sqf"; };
             class RES_Informer { file = "\x\a3i\addons\core\overrides\fn_RES_Informer.sqf"; };
             class RES_Refugees { file = "\x\a3i\addons\core\overrides\fn_RES_Refugees.sqf"; };
             class RES_Prisoners { file = "\x\a3i\addons\core\overrides\fn_RES_Prisoners.sqf"; };
