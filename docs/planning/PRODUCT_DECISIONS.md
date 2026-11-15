@@ -177,3 +177,11 @@ in infected-held towns, and taking it is free salvage without a civilian-theft
 penalty. These decisions do not change ordinary vehicles in other towns.
 The owner approved keeping native parked-vehicle counts and developer tuning
 of the civilian/police/light military mix, fuel and repairable damage.
+
+
+15 November Extraction disposition: delivered survivors become manpower and leave
+the map, following Ultimate. At the deadline follow Ultimate's removal of all
+undelivered survivors, including those still travelling with the player. Keep
+the native one-minute cleanup delay. The owner also approved a small additional
+infected guard group near the survivors; use the existing four-member basic
+police-team definition under the shared infected budget.

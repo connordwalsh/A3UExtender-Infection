@@ -53,6 +53,14 @@ class CfgFunctions
             class finishSupplySeizure {};
             class cleanupSupplySeizure {};
             class supplyTaskTick {};
+            class extractionTaskBusy {};
+            class startExtraction {};
+            class runExtraction {};
+            class extractionTaskOutcome {};
+            class convertExtractionRescues {};
+            class finishExtraction {};
+            class extractionTaskTick {};
+            class cleanupExtraction {};
             class extractionLocations {};
             class extractionTargets {};
             class findExtractionShelter {};
