@@ -592,3 +592,16 @@ Dev2 passes 89 combined ledger/scene/release checks and eleven dependency-absenc
 checks. See [EXTRACTION_RELEASE.md](../research/EXTRACTION_RELEASE.md). Public
 mission dispatch, rewards, post-delivery disposition and connected-player
 acceptance remain open. This is not completion of the Extraction mission.
+
+## Extraction controller and public requests: 15 November 2026
+
+Draft PR 52 supersedes the release-only checkpoint and includes PR 51. All owner
+decisions on disposition, deadlines and guards are implemented in the candidate:
+2-6 sheltered survivors, four basic managed guards, guarded release, incremental
+manpower/inventory delivery, all-resolved or deadline settlement, native rewards
+and undelivered squad cleanup. Commander requests, five legacy rescue routes and
+civilian offers route to Extraction. Dev4 passes 150 combined Extraction checks,
+11 missing-dependency checks and three parser tests; all 287 inputs/PBO match.
+The full cross-system regression is running in the isolated ExtractionFull
+profile. Connected players, conversations/actions, HC/JIP, saves and campaign
+acceptance remain open. No sprint gate is closed. Manual Dev9 is unchanged.

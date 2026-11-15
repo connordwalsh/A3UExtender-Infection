@@ -1013,3 +1013,21 @@ eleven missing-dependency checks, three parser tests and all 268 source/PBO hash
 pass. Native FIA initialization is observed on the dedicated server. Actual
 client action visibility and client-owned recruitment remain untested, as do
 full combined regression and the public mission controller. No gate is closed.
+
+## 15 November 2026 - Extraction controller review
+
+Review covered task/ledger identity, all-resolved/deadline outcomes, native HR
+rounding and reward idempotence, preservation of missing-arsenal deliveries,
+successor-owned actors, delayed deletion of undelivered squad members, and
+server-pinned public requests. Caller audit found RES_Informer and the native
+civilian mission flag; both are now integrated without claiming or clearing
+foreign flags. Scheduled civilian intel retains its return value, and delayed
+zone dialogue explicitly carries its caller. Native behavior is aliased outside
+Infection. Client-origin dialogue verifies caller ownership.
+
+Dev4: 150 isolated Extraction checks and eleven missing-dependency checks pass,
+with no recorded engine/SQF errors. Three parser tests and all 287 production
+source/PBO identities pass. Reviewed warnings and rejected prior attempts are
+retained in the research/evidence records. Full cross-system regression is
+running; connected-player UI/ownership, campaign saves and sprint acceptance
+remain unproven. PR 52 is draft, with PR 51 included as its prerequisite.
