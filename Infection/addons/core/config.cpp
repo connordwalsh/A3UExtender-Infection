@@ -33,6 +33,10 @@ class CfgFunctions
             class deliveryDestination {};
             class supplyTruckClasses {};
             class createSupplyTruck {};
+            class extractionLocations {};
+            class extractionTargets {};
+            class findExtractionShelter {};
+            class createExtractionSurvivors {};
             class createExtractionLedger {};
             class extractionMemberEvent {};
             class updateExtractionLedger {};

@@ -898,6 +898,33 @@ SUPPLY_TRUCK_CHECKS = {
     'struck_created_repair',
 }
 
+EXTRACTION_SCENE_CHECKS = {
+    'esc_actors_register_with_ledger',
+    'esc_all_approved_source_types',
+    'esc_bad_count_refused',
+    'esc_blacklisted_building_refused',
+    'esc_changed_owner_refuses_creation',
+    'esc_cleanup',
+    'esc_control_overlap_excluded',
+    'esc_default_group_in_range',
+    'esc_empty_site_no_center_fallback',
+    'esc_hq_proximity_refused',
+    'esc_native_distance_filter',
+    'esc_native_waiting_survivors',
+    'esc_near_observer_refused',
+    'esc_no_implicit_task_or_ledger',
+    'esc_nonhuman_role_refused',
+    'esc_other_permanent_sources_excluded',
+    'esc_rebel_source_excluded',
+    'esc_remote_factory_refused',
+    'esc_russian_source_excluded',
+    'esc_shelter_distinct_positions',
+    'esc_shelter_real_positions',
+    'esc_six_real_survivors',
+    'esc_sources_infected_only',
+    'esc_two_real_survivors',
+}
+
 EXTRACTION_LEDGER_CHECKS = {
     'exledger_inactive_refused',
     'exledger_invalid_rosters',
@@ -972,14 +999,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | INTERCEPTION_CHECKS | INTERCEPTION_FORMATION_CHECKS | INTERCEPTION_TASK_CHECKS | INTERCEPTION_STORAGE_CHECKS | INTERCEPTION_ADOPTION_CHECKS | ADMINISTRATION_EXTRA_CHECKS | INTERCEPTION_AFTERMATH_CHECKS | INTERCEPTION_DISPATCH_CHECKS | DELIVERY_CHECKS | EXTRACTION_LEDGER_CHECKS | SUPPLY_TRUCK_CHECKS | BACKGROUND_CONVOY_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | INTERCEPTION_CHECKS | INTERCEPTION_FORMATION_CHECKS | INTERCEPTION_TASK_CHECKS | INTERCEPTION_STORAGE_CHECKS | INTERCEPTION_ADOPTION_CHECKS | ADMINISTRATION_EXTRA_CHECKS | INTERCEPTION_AFTERMATH_CHECKS | INTERCEPTION_DISPATCH_CHECKS | DELIVERY_CHECKS | EXTRACTION_LEDGER_CHECKS | EXTRACTION_SCENE_CHECKS | SUPPLY_TRUCK_CHECKS | BACKGROUND_CONVOY_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "interceptionstorage", "interceptionarrivals", "administrationextras", "interceptionaftermath", "interceptiondispatch", "delivery", "extractionledger", "supplytrucks", "backgroundconvoys"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "interceptionstorage", "interceptionarrivals", "administrationextras", "interceptionaftermath", "interceptiondispatch", "delivery", "extractionledger", "extractionscenes", "supplytrucks", "backgroundconvoys"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
                           "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
-                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS, "interception": BUDGET_CHECKS | INTERCEPTION_CHECKS, "interceptionformation": INTERCEPTION_FORMATION_CHECKS, "interceptiontask": INTERCEPTION_TASK_CHECKS, "interceptionstorage": INTERCEPTION_STORAGE_CHECKS, "interceptionarrivals": INTERCEPTION_STORAGE_CHECKS | INTERCEPTION_ADOPTION_CHECKS, "administrationextras": ADMINISTRATION_EXTRA_CHECKS, "interceptionaftermath": INTERCEPTION_AFTERMATH_CHECKS, "interceptiondispatch": INTERCEPTION_DISPATCH_CHECKS, "delivery": DELIVERY_CHECKS, "extractionledger": EXTRACTION_LEDGER_CHECKS, "supplytrucks": SUPPLY_TRUCK_CHECKS, "formationregression": LIQUIDATION_CHECKS | INTERCEPTION_FORMATION_CHECKS, "backgroundconvoys": BACKGROUND_CONVOY_CHECKS}
+                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS, "interception": BUDGET_CHECKS | INTERCEPTION_CHECKS, "interceptionformation": INTERCEPTION_FORMATION_CHECKS, "interceptiontask": INTERCEPTION_TASK_CHECKS, "interceptionstorage": INTERCEPTION_STORAGE_CHECKS, "interceptionarrivals": INTERCEPTION_STORAGE_CHECKS | INTERCEPTION_ADOPTION_CHECKS, "administrationextras": ADMINISTRATION_EXTRA_CHECKS, "interceptionaftermath": INTERCEPTION_AFTERMATH_CHECKS, "interceptiondispatch": INTERCEPTION_DISPATCH_CHECKS, "delivery": DELIVERY_CHECKS, "extractionledger": EXTRACTION_LEDGER_CHECKS, "extractionscenes": EXTRACTION_SCENE_CHECKS, "supplytrucks": SUPPLY_TRUCK_CHECKS, "formationregression": LIQUIDATION_CHECKS | INTERCEPTION_FORMATION_CHECKS, "backgroundconvoys": BACKGROUND_CONVOY_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -1022,7 +1049,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "interceptionstorage", "interceptionarrivals", "administrationextras", "interceptionaftermath", "interceptiondispatch", "delivery", "extractionledger", "supplytrucks", "backgroundconvoys"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "interceptionstorage", "interceptionarrivals", "administrationextras", "interceptionaftermath", "interceptiondispatch", "delivery", "extractionledger", "extractionscenes", "supplytrucks", "backgroundconvoys"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)
