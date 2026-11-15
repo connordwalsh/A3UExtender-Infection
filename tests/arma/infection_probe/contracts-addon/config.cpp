@@ -106,6 +106,7 @@ class CfgFunctions
             class testNativeCrewTypeForVehicle { file = "\x\a3a\addons\core\functions\CREATE\fn_crewTypeForVehicle.sqf"; };
             class testNativeCargoSeats { file = "\x\a3a\addons\core\functions\CREATE\fn_cargoSeats.sqf"; };
             class testNativeAIVEHinit { file = "\x\a3a\addons\core\functions\CREATE\fn_AIVEHinit.sqf"; };
+            class testNativeVEHdespawner { file = "\x\a3a\addons\core\functions\CREATE\fn_VEHdespawner.sqf"; };
             class testNativeVehicleConvoyTravel { file = "\x\a3a\addons\core\functions\AI\fn_vehicleConvoyTravel.sqf"; };
             class testNativeMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };
             class testNativeZoneCheck { file = "\x\a3a\addons\core\functions\Base\fn_zoneCheck.sqf"; };

@@ -9,13 +9,15 @@ and controller results remain recorded separately. Campaign acceptance is open.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
 
-Latest handoff checkpoint: LiveArrivals Dev1 passes 1013 combined engine checks,
-59 focused offscreen/live arrival checks and 11 actual missing-dependency checks.
-Arrived survivors can be saved offscreen or adopted into active towns/permanent
-sites above their normal capacity without disappearing during horde cleanup.
-Automatic arrival handling, hostile combat and public mission dispatch remain
-unfinished. Stronghold extras and 50-metre interception arrivals are separate
-draft work; no sprint acceptance gate is closed.
+Latest integration checkpoint: Horde Interception, including administration
+extras, automatic arrival aftermath and public dispatch, is merged through
+PR 35 after 1089 combined checks and 67 role-spawn records passed. Friendly
+delivery destinations (PR 37) pass 36 focused checks; Extraction's internal
+all-survivors-or-deadline ledger (PR 38) passes 42. Both also pass 11 actual
+missing-dependency checks. Public Extraction tasks/rewards remain unfinished.
+The separate 56-trial special lifecycle diagnostic completed but remains FAILED
+with model errors and Corrupted possession requiring explicit threat tracking.
+No sprint acceptance gate is closed. The manual Dev9 installation is unchanged.
 
 14 November amendment: [Mission redesign](MISSION_REDESIGN.md) records the
 owner's six replacement categories for S4-1, S4-2, S4-3 and S5-3. The catalog now
@@ -517,3 +519,18 @@ parser tests pass without engine/SQF errors. The 182-input manifest and PBO matc
 after execution; both servers exited. PR 38 can integrate the internal ledger.
 Its public mission/controller/rewards remain open. Survivor disposition after
 rescue (manpower pool or usable AI) is awaiting owner input.
+
+Supplies Seizure asset work: declared faction service-truck pools with vanilla
+fallbacks, safe empty creation and neutral native capture/resource handling are
+drafted. Packaging, three parser tests and 11 missing-dependency checks pass.
+The 35-check focused report remains rejected because its despawner retention
+check accidentally called the test stub. Wire the actual native function and
+repeat. Full mission creation, objectives, rewards and dispatch remain open.
+See SUPPLIES_SEIZURE.md. Ownership-after-spawn policy awaits owner clarification.
+
+Supply-truck fixture correction: all 35 focused checks now pass using the real
+native vehicle despawner. All 184 production inputs and the PBO remain unchanged;
+11 actual missing-dependency checks and three parser tests also pass. No engine/
+SQF errors; completed servers exited. The owner confirmed recovery continues if
+Rebels or Russia capture the truck settlement. Eligible source-location types
+await clarification. Task/controller/dispatch remain unfinished.

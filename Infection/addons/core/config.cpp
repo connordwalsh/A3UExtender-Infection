@@ -31,6 +31,8 @@ class CfgFunctions
             class isActive {};
             class backgroundSupplyConvoy {};
             class deliveryDestination {};
+            class supplyTruckClasses {};
+            class createSupplyTruck {};
             class createExtractionLedger {};
             class extractionMemberEvent {};
             class updateExtractionLedger {};
