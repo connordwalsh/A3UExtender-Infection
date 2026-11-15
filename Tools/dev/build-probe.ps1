@@ -1,14 +1,14 @@
 param(
     [Parameter(Mandatory = $true)][string]$ArmaTools,
     [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
-    [ValidateSet('Full', 'Administration', 'Reinforcements', 'Roaming', 'Counterattacks', 'Towns', 'Tactical', 'Major', 'CatalogPolicy', 'Clearance', 'Liquidation', 'LiquidationController', 'LiquidationDispatch', 'Interception', 'InterceptionFormation', 'FormationRegression', 'InterceptionTask', 'InterceptionStorage', 'InterceptionArrivals', 'AdministrationExtras', 'InterceptionAftermath', 'InterceptionDispatch', 'Delivery', 'ExtractionLedger', 'AidLedger', 'AidTask', 'EliminationLedger', 'EliminationScenes', 'EliminationTask', 'EliminationDispatch', 'ExtractionScenes', 'SupplyTrucks', 'AbandonedVehicles', 'AbandonedTowns', 'ReduxParking', 'SupplyTask', 'SupplyDispatch', 'BackgroundConvoys')][string]$Suite = 'Full',
+    [ValidateSet('Full', 'Administration', 'Reinforcements', 'Roaming', 'Counterattacks', 'Towns', 'Tactical', 'Major', 'CatalogPolicy', 'Clearance', 'Liquidation', 'LiquidationController', 'LiquidationDispatch', 'Interception', 'InterceptionFormation', 'FormationRegression', 'InterceptionTask', 'InterceptionStorage', 'InterceptionArrivals', 'AdministrationExtras', 'InterceptionAftermath', 'InterceptionDispatch', 'Delivery', 'ExtractionLedger', 'AidLedger', 'AidTask', 'EliminationLedger', 'EliminationScenes', 'EliminationTask', 'EliminationDispatch', 'ExtractionScenes', 'SupplyTrucks', 'AbandonedVehicles', 'AbandonedTowns', 'ReduxParking', 'ReduxTowns', 'SupplyTask', 'SupplyDispatch', 'BackgroundConvoys')][string]$Suite = 'Full',
     [ValidatePattern('^[A-Za-z0-9_-]{0,32}$')][string]$Instance = '',
     [ValidateSet('VR','Altis','chernarusredux')][string]$Terrain = 'VR'
 )
 $ErrorActionPreference = 'Stop'
 if ($Mode -ne 'Template' -and $Suite -ne 'Full') { throw 'Focused suites require Template mode.' }
 if ($Suite -eq 'AbandonedTowns' -and $Terrain -ne 'Altis') { throw 'AbandonedTowns requires Altis.' }
-if ($Suite -eq 'ReduxParking' -and $Terrain -ne 'chernarusredux') { throw 'ReduxParking requires chernarusredux.' }
+if ($Suite -in @('ReduxParking','ReduxTowns') -and $Terrain -ne 'chernarusredux') { throw 'Redux terrain suites require chernarusredux.' }
 $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..')).Path
 if ($Mode -eq 'Template') {
     $activeHooks = Join-Path $repoRoot '.work\probe-addons\@Infection_Contract_Probe'
