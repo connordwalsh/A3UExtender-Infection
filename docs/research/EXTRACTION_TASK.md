@@ -73,3 +73,22 @@ Both completed Extraction servers were stopped after collection. The separate
 full survivor-defense regression remains running in its unchanged worktree.
 Connected-player conversation, remote ownership, release UI, HC/JIP and campaign
 saves remain unverified.
+
+## Dev4 full regression rejected (2026-11-15)
+
+The 14:18:46 dedicated run completed at 14:48:15 with 1,542 checks and
+67 role spawns. Six checks failed; no engine/SQF errors were recorded.
+The retained report is `evidence/sprint-4/extraction-controller-full-dev4-rejected.json`.
+All 287 production inputs and the PBO still match the Dev4 build manifest.
+The completed isolated server was stopped after collection.
+
+Failures: `major_choose_active_invader_horde`, `major_sim_native_airportsX`,
+`major_sim_native_outposts`, `liq_capture_native_site_commits`,
+`liq_dispatch_other_categories_preserved`, and
+`extask_restored_arsenal_finishes_cleanup`. The combined integration branch
+corrects the invalid zero-cap and obsolete native RES-dispatch fixtures and
+adds component diagnostics to capture. The restored-arsenal assertion observes
+actor deletion immediately after task retirement; delayed engine deletion is a
+possible cause, not a confirmed diagnosis. It also checks HR and funds without
+component detail. Keep both capture and restored-arsenal failures open.
+The earlier focused pass does not certify this rejected full run.
