@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "case": "busy_port",
+      "rejected": true,
+      "reason": "The requested Arma probe port range is already in use."
+    },
+    {
+      "case": "unnamed_custom_port",
+      "rejected": true,
+      "reason": "A custom port requires a named probe instance."
+    },
+    {
+      "case": "invalid_name",
+      "rejected": true,
+      "reason": "Cannot validate argument on parameter 'Instance'. The argument \"../unsafe\" does not match the \"^[A-Za-z0-9_-]{0,32}$\" pattern. Supply an argument that matches \"^[A-Za-z0-9_-]{0,32}$\" and try the command again."
+    }
+  ],
+  "activeMissionPreserved": true,
+  "activeRegressionProcessId": 56524,
+  "testedAtUtc": "2026-11-15T06:39:37.0452927Z"
+}

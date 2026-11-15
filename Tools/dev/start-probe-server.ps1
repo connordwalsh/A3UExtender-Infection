@@ -2,13 +2,25 @@ param(
     [Parameter(Mandatory = $true)][string]$SteamLibrary,
     [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
     [string]$InfectionMod,
-    [switch]$Visible
+    [switch]$Visible,
+    [ValidatePattern('^[A-Za-z0-9_-]{0,32}$')][string]$Instance = '',
+    [ValidateRange(0,65531)][int]$InstancePort = 0
 )
 $ErrorActionPreference = 'Stop'
 $profileName = @{ Catalog = 'InfectionProbe'; Behavior = 'InfectionBehavior'; Template = 'InfectionTemplate'; Dependencies = 'InfectionDependencies' }[$Mode]
 $profileFolder = @{ Catalog = 'probe-server'; Behavior = 'behavior-server'; Template = 'template-server'; Dependencies = 'dependency-server' }[$Mode]
 $missionName = @{ Catalog = 'Infection_ClassProbe.VR'; Behavior = 'Infection_BehaviorProbe.VR'; Template = 'Infection_TemplateProbe.VR'; Dependencies = 'Infection_DependencyProbe.VR' }[$Mode]
 $port = @{ Catalog = 2402; Behavior = 2602; Template = 2702; Dependencies = 2802 }[$Mode]
+if ($Instance) {
+    if ($InstancePort -lt 1024) { throw 'Named probe instances require an explicit port of at least 1024.' }
+    $profileName += '_' + $Instance
+    $profileFolder += '-' + $Instance
+    $missionName = $missionName.Replace('.VR', ('_' + $Instance + '.VR'))
+    $port = $InstancePort
+} elseif ($InstancePort -ne 0) { throw 'A custom port requires a named probe instance.' }
+if (Get-NetUDPEndpoint | Where-Object { $_.LocalPort -ge $port -and $_.LocalPort -le ($port + 4) }) {
+    throw 'The requested Arma probe port range is already in use.'
+}
 $processPattern = '(?:^|\s)-name=' + [regex]::Escape($profileName) + '(?:\s|$)'
 if (Get-CimInstance Win32_Process -Filter "Name='arma3server_x64.exe'" |
     Where-Object { $_.CommandLine -match $processPattern }) {
@@ -49,6 +61,7 @@ $missionDirectoryName = 'MPMissions'
 $missionDirectory = Join-Path $gameDirectory $missionDirectoryName
 $missionTarget = Join-Path $missionDirectory ($missionName + '.pbo')
 $receiptName = @{ Catalog = 'probe-install.json'; Behavior = 'behavior-install.json'; Template = 'template-install.json'; Dependencies = 'dependency-install.json' }[$Mode]
+if ($Instance) { $receiptName = $receiptName.Replace('.json', ('-' + $Instance + '.json')) }
 $receiptPath = Join-Path $repoRoot ('.work\' + $receiptName)
 if (Test-Path -LiteralPath $missionTarget) {
     if (-not (Test-Path -LiteralPath $receiptPath)) { throw "Unmanaged mission already exists: $missionTarget" }
