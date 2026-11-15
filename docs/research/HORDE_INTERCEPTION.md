@@ -179,4 +179,63 @@ cleanup uses a controlled AI observer injected through the isolated test addon;
 it is not connected-player validation. Focused warnings are 16 startup notices
 and four object-deletion notices; missing dependencies has seven startup notices.
 Neither run has engine/SQF errors. All 147 production inputs and the PBO match
-the recorded Dev2 manifest. Combined regressions are running.
+the recorded Dev2 manifest. The combined Dev2 regression completed 844 checks with two failures: remote
+Rebel capture in the Liquidation fixture and one stationary formation leader.
+It has no engine/SQF errors but is rejected, not a passing integrated result.
+
+
+### Background convoy integration boundary
+
+Pinned chooseAttack sends the native Supplies/attack request after its existing
+200-resource strategic debit. Keep that scheduling and the native vehicle,
+crew, route, supply/support effects and cleanup path. Background mode must gate
+both task creation/registration and task settlement/deletion; simply setting
+visible=false only removes route dots and still creates a task. Mission-linked
+commander/player rewards and penalties also need explicit separation from
+world/resource effects. Ordinary campaigns must still delegate unchanged.
+The requested and intel paths use the legacy pool; they need Infection mission
+dispatch rather than the background strategic path. This is source analysis,
+not a claim that the convoy adapter has been implemented or tested.
+
+
+### Dev3 correction under validation
+
+The targeted capture diagnostic recorded EAST or GUER at entry after the fixture
+had locally reset the owner to WEST. Normal captures publish the object variable;
+changing the fixture reset to publish it too made all twelve remote trials
+succeed. The same rule is needed for its final spawner reset before deleting
+campaign namespaces. These are fixture corrections; production capture code
+is unchanged. A cleanup-error run is retained separately from passing results.
+
+The movement diagnostic found a living, simulated, awake walker on the ground,
+with a MOVE command, no nearest enemy and no native movement lock, advancing
+only 0.052 metres while the other leaders marched. Reissuing its destination
+order restored movement: 6.064 metres of progress after fifteen seconds. Thus
+Dev2's one-time departure order was insufficient; startup ordering alone is not
+claimed as the complete root cause.
+
+Dev3 adds a per-job march monitor. Every ten seconds it checks movement and
+reissues the destination only for stationary, unadopted, local foot members
+outside the arrival radius without native pursuit or a movement lock. It never
+teleports units or changes native AI flags. Cleanup and owner termination remove
+the monitor. The diagnostic record and original rejected combined report remain
+in evidence/sprint-4. New targeted checks cover stopped-order recovery, native
+pursuit, remote callback refusal and monitor removal. Dev3 now passes 85 targeted regression checks (11 common, 33 Liquidation and
+41 formation) and 11 actual missing-dependency checks. The formation checks
+include full 40/120-member staging/release, all four leaders progressing ten
+metres, confirmed STOP recovery, native enemy-pursuit preservation, remote
+callback refusal, and monitor removal on retirement/owner termination. The
+forced-stop check observed STOP, one recovery and 2.025 metres of renewed
+movement. Its earlier doMove-to-self fixture was rejected because the actor
+never stopped and advanced 16.423 metres normally.
+
+The targeted report has 20 reviewed warnings: 16 startup/dependency notices and
+four object-deletion notices. Dependencies has seven startup notices. Neither
+has engine/SQF errors. Three parser tests pass. All 148 production inputs and
+the PBO match the Dev3 manifest after testing. Both servers exited.
+
+Dev3 full combined suite: NOT_RUN. The previous Dev2 combined run remains
+rejected; the targeted run exercises both corrected failures. Repeat the full
+suite on the next integrated controller/dispatch candidate before integration.
+No full-route, connected-player, performance, save or campaign acceptance is
+claimed. No Computer Use or manual-build replacement occurred.

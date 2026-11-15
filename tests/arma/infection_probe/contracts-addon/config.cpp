@@ -51,6 +51,7 @@ class CfgFunctions
     {
         class Core
         {
+            class liquidationMarkerChange { file = "\x\a3i\tests\contracts\fn_liquidationMarkerChange.sqf"; };
             class spawnObservers { file = "\x\a3i\tests\contracts\fn_spawnObservers.sqf"; };
         };
         class Originals
@@ -90,6 +91,7 @@ class CfgFunctions
         };
         class TestOriginals
         {
+            class testNativeLiquidationMarkerChange { file = "\x\a3i\addons\core\functions\fn_liquidationMarkerChange.sqf"; };
             class testNativeSpawnObservers { file = "\x\a3i\addons\core\functions\fn_spawnObservers.sqf"; };
             class testNativeMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };
             class testNativeZoneCheck { file = "\x\a3a\addons\core\functions\Base\fn_zoneCheck.sqf"; };

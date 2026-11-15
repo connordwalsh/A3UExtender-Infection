@@ -122,8 +122,41 @@ private _progress = {
     {_result pushBack ((_initialDistances # _forEachIndex) - (_x distance2D _destinationPosition))} forEach _leaders;
     _result
 };
-private _moved = [{((call _progress) findIf {!finite _x || {_x < 10}}) == -1},45] call _wait;
-["iform_actual_march",_moved,call _progress] call _check;
+private _movementTrace = [];
+private _traceAt = 0;
+private _sampleMovement = {
+    if (diag_tickTime < _traceAt) exitWith {};
+    _traceAt = diag_tickTime + 5;
+    _movementTrace pushBack [diag_tickTime,call _progress,_leaders apply {
+        [typeOf _x,getPosATL _x,animationState _x,currentCommand _x,unitReady _x,
+            simulationEnabled _x,isAwake _x,isTouchingGround _x,
+            str (_x findNearestEnemy _x),_x getVariable ["WBK_IsUnitLocked",-1]]
+    }];
+};
+private _moved = [{call _sampleMovement; ((call _progress) findIf {!finite _x || {_x < 10}}) == -1},45] call _wait;
+["iform_actual_march",_moved,[call _progress,_movementTrace # (count _movementTrace - 1)]] call _check;
+{diag_log format ["[INFECTION_DIAGNOSTIC] %1",["formation_movement_sample",_x]]} forEach _movementTrace;
+if (!_moved) then {
+    {_x doMove _destinationPosition} forEach _leaders;
+    sleep 15;
+    call _sampleMovement;
+    diag_log format ["[INFECTION_DIAGNOSTIC] %1",["formation_movement_retry",call _progress,_movementTrace # (count _movementTrace - 1)]];
+};
+// Exercise recovery with an actual STOP order; doMove-to-self can immediately
+// resume the group waypoint and therefore is not a deterministic stopped actor.
+private _stalled = _leaders # 0;
+private _stallPosition = getPosATL _stalled;
+private _beforeRecoveries = _stalled getVariable ["A3I_marchRecoveries",0];
+doStop _stalled;
+private _observedStop = [{currentCommand _stalled == "STOP"},2] call _wait;
+private _recovered = [{_stalled getVariable ["A3I_marchRecoveries",0] > _beforeRecoveries
+    && {_stalled distance2D _stallPosition > 2}},35] call _wait;
+["iform_stalled_order_recovers",_observedStop && {_recovered},
+    [_observedStop,_beforeRecoveries,_stalled getVariable ["A3I_marchRecoveries",0],_stalled distance2D _stallPosition,currentCommand _stalled]] call _check;
+private _marchHandle = _record get "marchHandle";
+[[_record get "name",(_record get "serial") + 1],_marchHandle] remoteExecCall ["A3I_fnc_interceptionMarchTick",2];
+sleep 0.1;
+["iform_remote_march_tick_refused",_record get "marchHandle" == _marchHandle] call _check;
 private _members = +(_record get "units");
 (_members # 0) setDamage 1; sleep 0.2;
 ["iform_real_death_counts_once",_record get "remaining" == 39 && {_record get "killed" == 1}
@@ -136,6 +169,7 @@ deleteVehicle (_members # 1); sleep 0.1;
 ["iform_live_deletion_keeps_obligation",_record get "remaining" == 39 && {_record get "missing" == 1}
     && {_record get "fault" == "missing_member"}] call _check;
 [_record] call _cleanup;
+["iform_retirement_removes_march_handler",isNil {_record get "marchHandle"}] call _check;
 
 _record = [] call _newJob;
 private _unscheduled = true; isNil {_unscheduled = [_record] call A3I_fnc_prepareInterception};
@@ -253,6 +287,23 @@ private _hookNil = ["iform-nil",[_role],_sourcePosition,0,100,"","legacy",1,fals
     call A3I_fnc_spawnGroup;
 ["iform_missing_hook_result_refused",!(_hookNil # 0) && {_hookNil # 2 == "initialization_failed"}
     && {(call _stats) select [1,3] isEqualTo [0,0,0]}] call _check;
+_record = [] call _newJob; [_record] call A3I_fnc_prepareInterception;
+[_record] call A3I_fnc_releaseInterceptionFormation;
+private _pursuer = (_record get "units") # 0;
+private _enemyGroup = createGroup east;
+private _enemy = _enemyGroup createUnit ["O_Soldier_F",(getPosATL _pursuer) getPos [75,90],[],0,"NONE"];
+_enemy allowDamage false; _enemy disableAI "ALL";
+_pursuer reveal [_enemy,4];
+private _hasEnemy = [{_pursuer findNearestEnemy _pursuer == _enemy},2] call _wait;
+private _beforePursuitRecovery = _pursuer getVariable ["A3I_marchRecoveries",0];
+_pursuer setVariable ["A3I_marchPosition",getPosATL _pursuer];
+_pursuer setVariable ["A3I_marchCheckedAt",time - 11];
+isNil { [[_record get "name",_record get "serial"],_record get "marchHandle"] call A3I_fnc_interceptionMarchTick };
+["iform_native_pursuit_preserved",_hasEnemy
+    && {_pursuer getVariable ["A3I_marchRecoveries",0] == _beforePursuitRecovery}] call _check;
+deleteVehicle _enemy; sleep 0.1; deleteGroup _enemyGroup;
+[_record] call _cleanup;
+
 _record = [120] call _newJob;
 private _maxPrepared = [_record] call A3I_fnc_prepareInterception;
 ["iform_maximum_complete_roster",_maxPrepared && {_record get "created" == 120}
@@ -261,6 +312,9 @@ private _maxPrepared = [_record] call A3I_fnc_prepareInterception;
     [_record get "created",_record get "fault"]] call _check;
 ["iform_maximum_complete_release",[_record] call A3I_fnc_releaseInterceptionFormation
     && {((_record get "units") findIf {isObjectHidden _x || {!simulationEnabled _x}}) == -1}] call _check;
+terminate (_record get "script");
+private _stoppedMarch = [{scriptDone (_record get "script") && {isNil {_record get "marchHandle"}}},3] call _wait;
+["iform_owner_stop_removes_march_handler",_stoppedMarch] call _check;
 [_record] call _cleanup;
 A3I_test_observers = nil; A3I_interceptions = nil;
 {deleteVehicle _x} forEach [sidesX,spawner,garrison,server];

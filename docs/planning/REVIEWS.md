@@ -667,3 +667,66 @@ Keep PR 27 draft until formation, controller and dispatch integration are review
 No public mission flow yet creates an interception job. Connected clients,
 Redux travel, performance, saves and full campaign acceptance remain open.
 No Computer Use or manual-build replacement occurred.
+
+
+## 14 November 2026 - Interception formation component
+
+Reviewed the six new server-only formation helpers, separate-budget ownership,
+atomic post-initialization tracking, complete-roster departure, real-event death
+accounting, stale serial refusal, and retirement of interrupted spawn batches.
+The formation remains finite; no casualty-driven replacement is introduced.
+The generic callback defaults to true for existing callers, and explicit paid
+rollback suppresses the existing deletion refund to prevent double credit.
+
+Dev1's weak movement assertion was replaced after a run recorded zero progress.
+Prepared zombie classes issue their own startup doMove-to-self command. Dev2
+allows native initialization to settle while hidden and issues destination
+orders on release. Every tested group leader must now gain at least ten metres
+toward the destination. Four leaders passed that assertion in the focused run;
+this does not certify full Redux paths or combat pursuit/recovery.
+
+Formation Dev2 passes 47 focused checks, including complete 40/120-member release
+and cleanup, and 11 actual missing-dependency checks. No engine/SQF errors.
+Focused warnings are 16 startup/dependency notices plus four object-deletion
+notices; missing dependencies has seven startup notices. Three parser tests
+pass. All 147 production inputs and the PBO match the recorded manifest.
+Three fixture errors and one stationary-leader result remain rejected evidence.
+The combined regression suite is still running and is not yet claimed passed.
+
+PR 28 is stacked on draft PR 27. Keep task/controller ownership, first-arrival
+observation, settlement, arriving-survivor handoff, requested/intel dispatch and
+background Russian convoy separation open. Connected clients, performance,
+saves and full campaign acceptance remain open. No Computer Use or manual build
+replacement occurred.
+
+
+### Formation follow-up review
+
+Dev2's combined run completed 844 checks with two failures and no script errors;
+it is rejected. Capture diagnostics traced one to a test reset of published
+namespace variables without publishing the replacement. The corrected reset
+and final spawner cleanup publish their values. Twelve repeated real remote
+captures then pass. Production Liquidation code did not change. Diagnostic
+logging stays in the isolated test addon and is absent from gameplay packages.
+
+The second failure was a real stationary walker retaining a MOVE command.
+Diagnostics verified life, simulation, ground contact, no enemy and no movement
+lock, then observed renewed movement after reissuing the destination. Dev3's
+new internal monitor checks ten-second movement intervals, respects native
+pursuit and locks, skips adopted/player-controlled/nonlocal members, and retries
+stationary march orders without teleporting or changing AI feature flags.
+Retirement or owner termination removes its CBA handler. Initial one-time
+startup ordering is no longer presented as a sufficient movement fix.
+
+Reviewed the monitor, lifecycle changes, diagnostic evidence and test corrections.
+Dev3 passes 85 targeted checks (including both formerly failing paths) and 11
+actual missing-dependency checks. No engine/SQF errors. Targeted warnings are
+16 startup/dependency notices and four object-deletion notices; absent dependencies
+has seven startup notices. Three parser tests pass. All 148 production inputs
+and the addon match the manifest after testing. Both servers have exited.
+
+Dev3 full combined run is NOT_RUN. Keep PR 28 draft and repeat full regressions
+on the next integrated task/controller/dispatch candidate. The 47-check Dev2
+focused report remains historical and does not override its failed combined
+report. Full-route travel, connected clients, performance, saves and complete
+campaign acceptance remain open.

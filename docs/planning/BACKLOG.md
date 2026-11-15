@@ -292,3 +292,33 @@ because the initialization hook touches the shared spawn helper. Controller,
 arrival handoff, task settlement, mission-board/intel dispatch and background
 Russian convoy separation remain open. This increment does not close S4 or any
 campaign acceptance gate. No Computer Use or manual-build replacement.
+
+
+Movement follow-up: review strategic/capture-response walking groups for the
+same prepared-class startup movement order. Their current source also assigns
+group waypoints; the observed stationary-member failure is from the new
+formation test, not proof that those separate controllers have failed a live
+travel test. Track actual destination progress in their eventual travel checks.
+
+
+Formation regression follow-up: Dev2's combined result is rejected: 842/844
+checks passed, with remote Liquidation fixture ownership and stationary leader
+failures. Diagnostics found the fixture overwrote published variables locally;
+published resets fix its twelve remote trials. A second local spawner-reset
+cleanup error is also retained. Production Liquidation code is unchanged.
+The movement failure is real: a living walker kept its MOVE command but made no
+progress until its destination order was reissued. Dev3 adds guarded periodic
+recovery and explicit monitor cleanup. Targeted validation is running; the
+component is not accepted as integrated and PR 28 remains draft.
+
+
+Formation checkpoint: Dev3 passes all 85 targeted capture/formation checks and
+11 actual missing-dependency checks without engine/SQF errors. It recovers a
+confirmed stopped member, preserves native pursuit and removes its monitor on
+retirement or owner interruption. All 148 production inputs match the tested
+artifact. The earlier artificial stop did not stop its actor and is retained
+as rejected fixture evidence. Dev3 full combined suite is NOT_RUN; the earlier
+Dev2 combined report remains rejected. Run the full suite on the next integrated
+controller/dispatch candidate. No test servers remain running from this session.
+Next implementation: server-owned task lifecycle and first-arrival settlement,
+then survivor handoff, requested/intel dispatch and background Russian convoys.

@@ -38,6 +38,13 @@ Connected-player rebuilding, town-liberation integration, other mission adapters
 special creatures, abandoned vehicles and save integration remain unfinished.
 Do not use this build for a campaign you intend to keep.
 
+The Horde Interception branch also stages and releases complete 40-120-infected
+formations with casualty tracking, interrupted cleanup and stalled-order recovery.
+Formation Dev3 passes 85 targeted capture/formation checks and 11 dependency-absent
+checks. Its full combined rerun is pending; the earlier Dev2 combined run was
+rejected. Task lifecycle, arrival consequences and public mission dispatch remain
+unfinished. See [Interception development evidence](docs/research/HORDE_INTERCEPTION.md).
+
 ## Intended campaign
 
 - Infected Occupants on BLUFOR, NATO Rebels on INDEP, Russian Invaders and gangs

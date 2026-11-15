@@ -8,6 +8,11 @@ private _name = _record getOrDefault ["name",""];
 private _current = (missionNamespace getVariable ["A3I_interceptions",createHashMap]) getOrDefault [_name,createHashMap];
 if (_current getOrDefault ["serial",-1] != _record getOrDefault ["serial",-2]) exitWith {false};
 _record set ["phase","cleanup"];
+private _marchHandle = _record getOrDefault ["marchHandle",-1];
+if (_marchHandle >= 0) then {
+    [_marchHandle] call CBA_fnc_removePerFrameHandler;
+    _record deleteAt "marchHandle";
+};
 private _context = _record get "context";
 private _tickets = []; private _units = +(_record get "units");
 {

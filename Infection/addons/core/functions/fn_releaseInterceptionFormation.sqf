@@ -27,5 +27,9 @@ _record set ["departedAt",time];
     // Clear the prepared class's individual doMove-to-self order. Group
     // waypoints alone need not supersede it. Native target pursuit stays intact.
     _x doMove (_record get "destinationPosition");
+    _x setVariable ["A3I_marchPosition",getPosATL _x];
+    _x setVariable ["A3I_marchCheckedAt",time];
 } forEach _units;
+_record set ["marchHandle",[A3I_fnc_interceptionMarchTick,1,
+    [_record get "name",_record get "serial"]] call CBA_fnc_addPerFrameHandler];
 true

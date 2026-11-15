@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "candidate": "Infection_Formation_Dev2",
-  "scope": "Finite full-horde staging, release, member tracking and retirement only. Task/controller/arrival/dispatch still pending.",
-  "production_input_count": 147,
+  "candidate": "Infection_Formation_Dev3",
+  "scope": "Finite full-horde staging, release, stalled-order recovery, member tracking and retirement. Task/controller/arrival/dispatch still pending.",
+  "production_input_count": 148,
   "all_production_inputs_match": true,
-  "addon_sha256": "d972112ab91d85d2c7a27659dbfbd00fcf9bddb8b47b95d2cda5d19cd99c0fe7",
+  "addon_sha256": "c0b565beefe91586b4d49c6adfb68aea211dcf7a00cc06d180b70532b202b99a",
   "manifest": {
     "schema_version": 1,
     "product": "Antistasi Ultimate: Infection",
     "version": "0.1.0-dev",
     "scope": "Development prototype; isolated contracts cover infected sites, responses, strategic hordes and Liquidation assignments. Remaining mission adapters, connected players, terrain, special creatures, vehicles, saves and full campaign acceptance remain incomplete.",
-    "built_at_utc": "2026-11-14T23:51:58.8862177Z",
+    "built_at_utc": "2026-11-15T00:23:43.6937667Z",
     "prefix": "x\\a3i\\addons\\core",
-    "addon_sha256": "d972112ab91d85d2c7a27659dbfbd00fcf9bddb8b47b95d2cda5d19cd99c0fe7",
+    "addon_sha256": "c0b565beefe91586b4d49c6adfb68aea211dcf7a00cc06d180b70532b202b99a",
     "source": [
       {
         "path": "Infection/addons/core/config.cpp",
-        "sha256": "db146771c416c47a429362e1f3da18219ec7b22fc665ee175b03099ae3377557"
+        "sha256": "63ddd39a7e3809ec3bdf073519e09e85bb082ac0eae5a17a951629e993495dab"
       },
       {
         "path": "Infection/addons/core/functions/fn_administrationAssets.sqf",
@@ -167,6 +167,10 @@
         "sha256": "011cdd10d4fc309597812cf92aca6f4b570ad74cde9a6707f672dcc04f829635"
       },
       {
+        "path": "Infection/addons/core/functions/fn_interceptionMarchTick.sqf",
+        "sha256": "dfcddbfea430c4a7f7279a170ae304fcb8014765cffd36820d04b840f89dafa7"
+      },
+      {
         "path": "Infection/addons/core/functions/fn_interceptionMemberEvent.sqf",
         "sha256": "95ae46d7fdc063e2f501ece030faf80356a1aba44c9d586022e70c56f0937934"
       },
@@ -280,7 +284,7 @@
       },
       {
         "path": "Infection/addons/core/functions/fn_releaseInterceptionFormation.sqf",
-        "sha256": "036f844ddd813b86938457a4b1886176ff290d0c9bf338681f8861afeb58ed7a"
+        "sha256": "5e8a397b3f17f5439508c4632334737225fa6408957a4252c8993dbe027bd069"
       },
       {
         "path": "Infection/addons/core/functions/fn_requestLiquidation.sqf",
@@ -304,7 +308,7 @@
       },
       {
         "path": "Infection/addons/core/functions/fn_retireInterceptionFormation.sqf",
-        "sha256": "8f64aedc19d1eea97087e34974e023ddba4f6ed78d5c58f4cd661c387fcbb830"
+        "sha256": "3641723a3bf9fcc3d8739c29be90b90a6ed5d188ac469b1269fba416824789bd"
       },
       {
         "path": "Infection/addons/core/functions/fn_roamingBases.sqf",
