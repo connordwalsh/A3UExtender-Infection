@@ -3,6 +3,7 @@ param(
     [Parameter(Mandatory=$true)][string]$ArmaTools,
     [Parameter(Mandatory=$true)][string]$InfectionMod,
     [string]$ReduxFixesMod,
+    [switch]$TraceStartup,
     [ValidateSet('Write','Read')][string]$Phase='Write',
     [ValidatePattern('^[A-Za-z0-9_-]{1,24}$')][string]$Instance='ReduxSave1',
     [ValidateRange(1024,65531)][int]$Port=5002
@@ -33,8 +34,12 @@ foreach ($required in @($executable,$converter,$packer,(Join-Path $modRoot 'addo
 }
 New-Item -ItemType Directory -Path $addon,$packed,$output,$profile -Force | Out-Null
 Copy-Item -LiteralPath (Join-Path $source 'run.sqf') -Destination $addon
+if ($TraceStartup) {
+    Copy-Item -LiteralPath (Join-Path $source 'observe.sqf'),(Join-Path $source 'traceActivateAddons.sqf') -Destination $addon
+}
 ('"'+$Phase.ToLowerInvariant()+'"') | Set-Content -LiteralPath (Join-Path $addon 'phase.sqf') -Encoding ASCII
-& $converter -bin -dst (Join-Path $addon 'config.bin') (Join-Path $source 'config.cpp')
+$helperConfig=if ($TraceStartup) {'trace-config.cpp'} else {'config.cpp'}
+& $converter -bin -dst (Join-Path $addon 'config.bin') (Join-Path $source $helperConfig)
 if ($LASTEXITCODE -ne 0) {throw 'Campaign helper configuration failed'}
 & $packer -property 'prefix=x\a3i\tests\campaign' -dst $packed $addon
 if ($LASTEXITCODE -ne 0) {throw 'Campaign helper packing failed'}
@@ -65,7 +70,10 @@ class Missions {
 $launchArgs=@('-autoInit','-noSound','-ip=127.0.0.1',('-port='+$Port),('-name=InfectionCampaign_'+$Instance),
     ('"-profiles={0}"' -f $profile),('"-config={0}"' -f $config),('"-mod={0}"' -f ($mods -join ';')))
 $process=Start-Process -FilePath $executable -ArgumentList $launchArgs -WorkingDirectory $gameDirectory -WindowStyle Hidden -PassThru
-$receipt=[ordered]@{Phase=$Phase;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
+$helperInputs=@{}
+$inputNames=if ($TraceStartup) {@('trace-config.cpp','observe.sqf','traceActivateAddons.sqf')} else {@('config.cpp','run.sqf')}
+foreach ($inputName in $inputNames) {$helperInputs[$inputName]=(Get-FileHash (Join-Path $source $inputName)).Hash}
+$receipt=[ordered]@{Phase=$Phase;TraceStartup=[bool]$TraceStartup;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
     StartedUTC=[DateTime]::UtcNow.ToString('o');ProductionPBO=(Get-FileHash (Join-Path $modRoot 'addons/a3i_core.pbo')).Hash;
     HelperPBO=(Get-FileHash (Join-Path $output 'a3i_campaign_probe.pbo')).Hash;
     HelperSource=(Get-FileHash (Join-Path $source 'run.sqf')).Hash;ReduxFixes=$companionReceipt}
