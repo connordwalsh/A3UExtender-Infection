@@ -44,13 +44,14 @@ isNil {
     if (_kind == "City") then {
         // Town garrisons store permanent additions, separate from the normal
         // per-visit population. Native save/load already persists these roles.
-        _extraRoster = [_marker] call A3I_fnc_cityExtraRoster;
+        _extraRoster = [_marker] call A3I_fnc_siteExtraRoster;
         private _selection = [_marker] call A3I_fnc_cityRoster;
         _roster = _selection # 0;
         _branch = _selection # 1;
         _batchSize = _selection # 2;
     };
     if (_kind == "MilAdmin") then {
+        _extraRoster = [_marker] call A3I_fnc_siteExtraRoster;
         private _selection = [_marker] call A3I_fnc_administrationRoster;
         _roster = _selection # 0;
         _branch = _selection # 1;

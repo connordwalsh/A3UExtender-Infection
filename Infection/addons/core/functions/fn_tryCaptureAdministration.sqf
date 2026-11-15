@@ -8,7 +8,9 @@ if (_record getOrDefault ["kind",""] != "MilAdmin" || {_record get "cleaned"}
     || {_record get "captured" != sideUnknown} || {_record get "fault" != ""}
     || {!(_record get "spawnedAny")} || {_record get "remainingDefenders" != 0}
     || {((_record get "units") findIf {alive _x}) != -1}
-    || {_record get "queue" isNotEqualTo []} || {spawner getVariable [_marker,2] != 0}
+    || {_record get "queue" isNotEqualTo []} || {_record getOrDefault ["extraQueue",[]] isNotEqualTo []}
+    || {[_marker] call A3I_fnc_siteExtraRoster isNotEqualTo []}
+    || {spawner getVariable [_marker,2] != 0}
     || {sidesX getVariable [_marker,sideUnknown] != west} || {!([west] call A3I_fnc_isActive)}) exitWith {false};
 private _building = _record get "building";
 if (isNull _building) exitWith {_record set ["fault","missing_building"]; false};

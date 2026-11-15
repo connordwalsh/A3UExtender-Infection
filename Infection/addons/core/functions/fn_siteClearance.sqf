@@ -27,6 +27,6 @@ if (((_record getOrDefault ["units",[]]) findIf {alive _x}) != -1)
 if (_record getOrDefault ["kind",""] in ["Resource","Outpost","Milbase","Airport"]
     && {garrison getVariable [_marker,["unknown"]] isNotEqualTo []})
     exitWith {[false,"garrison_pending",_remaining]};
-if (_record getOrDefault ["kind",""] == "City" && {[_marker] call A3I_fnc_cityExtraRoster isNotEqualTo []})
+if (_record getOrDefault ["kind",""] in ["City","MilAdmin"] && {[_marker] call A3I_fnc_siteExtraRoster isNotEqualTo []})
     exitWith {[false,"garrison_pending",_remaining]};
 [true,"",0]

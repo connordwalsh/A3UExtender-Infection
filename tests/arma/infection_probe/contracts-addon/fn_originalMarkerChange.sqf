@@ -3,6 +3,9 @@ if (missionNamespace getVariable ["A3I_test_nativeMarkerChange",false]) exitWith
     _this call A3I_fnc_testNativeMarkerChange
 };
 if (missionNamespace getVariable ["A3I_test_applyMarkerChange",false]) then {
+    if (missionNamespace getVariable ["A3I_test_clearCapturedGarrison",false]) then {
+        garrison setVariable [_this # 1,[],true];
+    };
     sidesX setVariable [_this # 1,_this # 0];
 };
 _result

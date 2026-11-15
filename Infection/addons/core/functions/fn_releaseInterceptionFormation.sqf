@@ -8,7 +8,7 @@ private _units = _record get "units";
 private _groups = _record get "groups";
 if (count _units != _record get "size" || {_groups isEqualTo []}
     || {(_units findIf {!alive _x || {!local _x} || {!isObjectHidden _x} || {simulationEnabled _x}
-        || {!(group _x in _groups)} || {side group _x != west} || {_x inArea (_record get "target")}}) != -1}
+        || {!(group _x in _groups)} || {side group _x != west} || {[_x,_record get "target"] call A3I_fnc_interceptionContains}}) != -1}
     || {(_groups findIf {isNull _x || {!local _x} || {units _x - _units isNotEqualTo []}
         || {_x getVariable ["A3I_context",""] != _record get "context"}}) != -1}) exitWith {false};
 {

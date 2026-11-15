@@ -386,7 +386,7 @@ A3A_townData set [_marker,[1176,2,60,40]];
 _marker setMarkerSize [300,300];
 private _extraRole = "loadouts_occ_militia_Rifleman";
 garrison setVariable [_marker,["unrelated_saved_entry",_extraRole,_extraRole,_extraRole],true];
-["city_extra_roster_filters_unrelated",[_marker] call A3I_fnc_cityExtraRoster isEqualTo [_extraRole,_extraRole,_extraRole]] call _check;
+["city_extra_roster_filters_unrelated",[_marker] call A3I_fnc_siteExtraRoster isEqualTo [_extraRole,_extraRole,_extraRole]] call _check;
 [2,2] call _setLimits;
 [_marker,"City",false] call A3I_fnc_startSite;
 _record = A3I_sites get _marker;
@@ -404,22 +404,22 @@ private _baseUnits = (_record get "units") - _extraUnits;
 ["city_extra_garrison_bookkeeping",(_extraUnits findIf {_x getVariable ["A3A_resPool",""] != "garrison"}) == -1
     && {(_baseUnits findIf {_x getVariable ["A3A_resPool",""] != "legacy"}) == -1}] call _check;
 (_baseUnits # 0) setDamage 1; (_extraUnits # 0) setDamage 1;
-[{count ([_marker] call A3I_fnc_cityExtraRoster) == 2 && {_record get "clearanceRemaining" == 201}}] call _wait;
-["city_extra_death_only_removes_extra",count ([_marker] call A3I_fnc_cityExtraRoster) == 2
+[{count ([_marker] call A3I_fnc_siteExtraRoster) == 2 && {_record get "clearanceRemaining" == 201}}] call _wait;
+["city_extra_death_only_removes_extra",count ([_marker] call A3I_fnc_siteExtraRoster) == 2
     && {_record get "clearanceRemaining" == 201}
     && {"unrelated_saved_entry" in (garrison getVariable _marker)}] call _check;
 private _firstVisitUnits = +(_record get "units");
 [] call _stop;
-["city_extra_healthy_despawn_preserves_roster",count ([_marker] call A3I_fnc_cityExtraRoster) == 2] call _check;
+["city_extra_healthy_despawn_preserves_roster",count ([_marker] call A3I_fnc_siteExtraRoster) == 2] call _check;
 {deleteVehicle _x} forEach _firstVisitUnits;
 // Exercise the real native garrison loader on the same row shape saveLoop emits.
 // This is a loader contract, not a disk-save or connected campaign acceptance.
-private _savedRoles = [_marker] call A3I_fnc_cityExtraRoster;
+private _savedRoles = [_marker] call A3I_fnc_siteExtraRoster;
 A3A_faction_inv = missionNamespace getVariable ["A3A_faction_inv",createHashMap];
 A3A_faction_reb = missionNamespace getVariable ["A3A_faction_reb",createHashMap];
 garrison setVariable [_marker,[],true];
 ["garrison",[[_marker,_savedRoles,0,0,0]]] call A3A_fnc_loadStat;
-["city_extra_native_load_restores_survivors",[_marker] call A3I_fnc_cityExtraRoster isEqualTo _savedRoles] call _check;
+["city_extra_native_load_restores_survivors",[_marker] call A3I_fnc_siteExtraRoster isEqualTo _savedRoles] call _check;
 spawner setVariable [_marker,0,true];
 [_marker,"City",false] call A3I_fnc_startSite;
 _record = A3I_sites get _marker;
@@ -435,7 +435,7 @@ _baseUnits = (_record get "units") - _extraUnits;
 {_x setDamage 1} forEach _extraUnits;
 [{([_marker] call A3I_fnc_siteClearance) # 0}] call _wait;
 ["city_extra_complete_clearance",([_marker] call A3I_fnc_siteClearance) # 0
-    && {[_marker] call A3I_fnc_cityExtraRoster isEqualTo []}
+    && {[_marker] call A3I_fnc_siteExtraRoster isEqualTo []}
     && {sidesX getVariable _marker == west}] call _check;
 private _secondVisitUnits = +(_record get "units");
 [] call _stop;

@@ -687,9 +687,39 @@ INTERCEPTION_ADOPTION_CHECKS = {
     "iadopt_complete_cleanup",
 }
 
+ADMINISTRATION_EXTRA_CHECKS = {
+    "aextra_native_task_created",
+    "aextra_task_waits_outside_fifty_metres",
+    "aextra_first_inside_fails_native_task",
+    "aextra_icon_endpoint_enabled",
+    "aextra_fifty_metre_boundary",
+    "aextra_route_to_native_icon",
+    "aextra_storage_outside_boundary_refused",
+    "aextra_offscreen_survivors_saved",
+    "aextra_initial_queue_counts",
+    "aextra_baseline_and_extras_spawn",
+    "aextra_death_removes_saved_extra",
+    "aextra_live_arrivals_adopted",
+    "aextra_unfit_deletion_precondition",
+    "aextra_live_deletion_keeps_saved_role",
+    "aextra_deleted_extra_replaced_as_extra",
+    "aextra_old_owner_cleanup_safe",
+    "aextra_native_save_event_serializes",
+    "aextra_hooks_registered_once",
+    "aextra_healthy_despawn_preserves_extras",
+    "aextra_native_load_restores_without_duplicates",
+    "aextra_malformed_load_preserves_roster",
+    "aextra_inactive_save_untouched",
+    "aextra_revisit_regenerates_only_baseline",
+    "aextra_ruin_still_requires_extras",
+    "aextra_cleared_extras_allow_capture",
+    "aextra_load_does_not_restore_enemy_on_rebel_site",
+    "aextra_complete_cleanup",
+}
+
 BACKGROUND_CONVOY_CHECKS = {
     "bg_registered", "bg_ordinary_delegates", "bg_ordinary_scheduler_delegates",
-    "bg_other_routes_preserved", "bg_infected_source_rejected", "bg_zero_capacity_vehicle", "bg_workers_finish", "bg_cleanup",
+    "bg_requested_routes_do_not_delegate", "bg_infected_source_rejected", "bg_zero_capacity_vehicle", "bg_workers_finish", "bg_cleanup",
 } | {f"bg_{case}_{check}" for case in ("arrival", "destroyed", "parked", "captured", "no_cargo")
      for check in ("starts", "duplicate_refused", "force", "cost", "cargo", "settles", "support", "strategic", "no_mission")}
 
@@ -784,6 +814,63 @@ LIQUIDATION_CHECKS = {
 }
 
 
+INTERCEPTION_AFTERMATH_CHECKS = {
+    'iafter_marching_not_processed',
+    'iafter_partial_group_waits',
+    'iafter_one_hour_window',
+    'iafter_stopped_worker_keeps_march',
+    'iafter_busy_garrison_defers',
+    'iafter_offscreen_automatic_storage',
+    'iafter_storage_no_second_reward',
+    'iafter_storage_not_duplicated',
+    'iafter_claim_released_after_retention',
+    'iafter_observed_offscreen_waits',
+    'iafter_live_site_automatic_adoption',
+    'iafter_old_owner_keeps_adopted_units',
+    'iafter_adopted_death_persists',
+    'iafter_multiple_group_fixture',
+    'iafter_all_groups_automatically_adopted',
+    'iafter_unspawned_destination_not_captured',
+    'iafter_missing_defenders_block_capture',
+    'iafter_native_ratio_holds_defended_site',
+    'iafter_native_capture_then_reinforcement',
+    'iafter_capture_does_not_reverse_failed_task',
+    'iafter_cleared_administration_stays_cleared',
+    'iafter_timeout_preserves_observed_horde',
+    'iafter_unobserved_timeout_retires',
+    'iafter_complete_cleanup',
+}
+
+
+INTERCEPTION_DISPATCH_CHECKS = {
+    'idis_atomic_preparation_claim',
+    'idis_duplicate_preparation_refused',
+    'idis_full_horde_before_task',
+    'idis_separate_allowance',
+    'idis_real_route_record',
+    'idis_source_cooldown_preserves_population',
+    'idis_real_worker_cleanup',
+    'idis_interrupted_preparation_releases_claim',
+    'idis_constructor_remote_refused',
+    'idis_major_battle_blocks_creation',
+    'idis_existing_native_task_blocks_creation',
+    'idis_russian_source_refused',
+    'idis_ordinary_delegation',
+    'idis_foreign_request_lock_waits',
+    'idis_stopped_request_preserves_foreign_lock',
+    'idis_native_hq_leader_gate',
+    'idis_unavailable_request_has_no_legacy_fallback',
+    'idis_intel_matches_actual_route',
+    'idis_both_menus_label_horde',
+    'idis_intel_override_registered',
+    'idis_complete_cleanup',
+    'idis_entry_direct',
+    'idis_entry_scheduler',
+    'idis_entry_request',
+    'idis_entry_remote_request',
+}
+
+
 def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str = "full") -> dict:
     raw = log_path.read_bytes()
     records, malformed, errors, warnings = [], [], [], []
@@ -814,14 +901,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | INTERCEPTION_CHECKS | INTERCEPTION_FORMATION_CHECKS | INTERCEPTION_TASK_CHECKS | INTERCEPTION_STORAGE_CHECKS | INTERCEPTION_ADOPTION_CHECKS | BACKGROUND_CONVOY_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | INTERCEPTION_CHECKS | INTERCEPTION_FORMATION_CHECKS | INTERCEPTION_TASK_CHECKS | INTERCEPTION_STORAGE_CHECKS | INTERCEPTION_ADOPTION_CHECKS | ADMINISTRATION_EXTRA_CHECKS | INTERCEPTION_AFTERMATH_CHECKS | INTERCEPTION_DISPATCH_CHECKS | BACKGROUND_CONVOY_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "interceptionstorage", "interceptionarrivals", "backgroundconvoys"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "interceptionstorage", "interceptionarrivals", "administrationextras", "interceptionaftermath", "interceptiondispatch", "backgroundconvoys"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
                           "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
-                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS, "interception": BUDGET_CHECKS | INTERCEPTION_CHECKS, "interceptionformation": INTERCEPTION_FORMATION_CHECKS, "interceptiontask": INTERCEPTION_TASK_CHECKS, "interceptionstorage": INTERCEPTION_STORAGE_CHECKS, "interceptionarrivals": INTERCEPTION_STORAGE_CHECKS | INTERCEPTION_ADOPTION_CHECKS, "formationregression": LIQUIDATION_CHECKS | INTERCEPTION_FORMATION_CHECKS, "backgroundconvoys": BACKGROUND_CONVOY_CHECKS}
+                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS, "interception": BUDGET_CHECKS | INTERCEPTION_CHECKS, "interceptionformation": INTERCEPTION_FORMATION_CHECKS, "interceptiontask": INTERCEPTION_TASK_CHECKS, "interceptionstorage": INTERCEPTION_STORAGE_CHECKS, "interceptionarrivals": INTERCEPTION_STORAGE_CHECKS | INTERCEPTION_ADOPTION_CHECKS, "administrationextras": ADMINISTRATION_EXTRA_CHECKS, "interceptionaftermath": INTERCEPTION_AFTERMATH_CHECKS, "interceptiondispatch": INTERCEPTION_DISPATCH_CHECKS, "formationregression": LIQUIDATION_CHECKS | INTERCEPTION_FORMATION_CHECKS, "backgroundconvoys": BACKGROUND_CONVOY_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -864,7 +951,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "interceptionstorage", "interceptionarrivals", "backgroundconvoys"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "interceptionstorage", "interceptionarrivals", "administrationextras", "interceptionaftermath", "interceptiondispatch", "backgroundconvoys"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

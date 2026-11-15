@@ -160,12 +160,12 @@ _record set ["settled",true]; _record set ["outcome","arrived"]; _record set ["p
 private _corpse = _units # 0;
 _stored = call _invoke;
 ["istore_town_only_survivors_persist",_stored isEqualTo [true,3,"stored"]
-    && {count ([_destination] call A3I_fnc_cityExtraRoster) == 4}
+    && {count ([_destination] call A3I_fnc_siteExtraRoster) == 4}
     && {_record get "killed" == 1} && {_record get "missing" == 0},[_stored,_record get "killed"]] call _check;
 ["istore_native_corpse_retained",!isNull _corpse && {!alive _corpse}
     && {_corpse in (_record get "units")}] call _check;
 [_record] call _cleanup;
-["istore_town_saved_after_owner_cleanup",count ([_destination] call A3I_fnc_cityExtraRoster) == 4] call _check;
+["istore_town_saved_after_owner_cleanup",count ([_destination] call A3I_fnc_siteExtraRoster) == 4] call _check;
 
 A3I_test_observers = nil; A3I_interceptions = nil;
 {deleteVehicle _x} forEach [sidesX,spawner,garrison,server];

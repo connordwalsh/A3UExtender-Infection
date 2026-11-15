@@ -32,7 +32,7 @@ private _target = _record get "target";
 if (!(_target in allMapMarkers) || {!(_record get "source" in allMapMarkers)}) exitWith {"cancelled"};
 private _index = (_record get "units") findIf {
     alive _x && {_x getVariable ["A3I_interceptionName",""] == _name}
-        && {_x getVariable ["A3I_interceptionSerial",-1] == _record get "serial"} && {_x inArea _target}
+        && {_x getVariable ["A3I_interceptionSerial",-1] == _record get "serial"} && {[_x,_target] call A3I_fnc_interceptionContains}
 };
 if (_index >= 0) exitWith {
     _record set ["arrived",true]; _record set ["arrivedAt",time];

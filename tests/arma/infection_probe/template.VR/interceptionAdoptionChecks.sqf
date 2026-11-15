@@ -186,14 +186,14 @@ _adopted = call _invoke;
 ["iadopt_city_completes_original_population",count (_site get "units") == 89
     && {_site get "queue" isEqualTo []} && {_site get "extraQueue" isEqualTo []}
     && {_site get "clearanceRemaining" == 89}
-    && {count ([_destination] call A3I_fnc_cityExtraRoster) == 4},[count (_site get "units"),count (_site get "queue"),call _stats]] call _check;
+    && {count ([_destination] call A3I_fnc_siteExtraRoster) == 4},[count (_site get "units"),count (_site get "queue"),call _stats]] call _check;
 private _job2 = call _startHorde;
 private _group2 = (_job2 get "groups") # 0;
 private _units2 = +(_job2 get "units");
 private _adopted2 = [_job2,_group2] call A3I_fnc_adoptInterceptionArrivals;
 ["iadopt_city_second_group_adds_once",_adopted2 isEqualTo [true,4,"adopted"]
     && {_site get "populationTarget" == 93} && {_site get "extraTarget" == 8}
-    && {count (_site get "units") == 93} && {count ([_destination] call A3I_fnc_cityExtraRoster) == 8}] call _check;
+    && {count (_site get "units") == 93} && {count ([_destination] call A3I_fnc_siteExtraRoster) == 8}] call _check;
 [_record] call _cleanup; [_job2] call _cleanup;
 ["iadopt_city_survives_both_owner_cleanups",{alive _x} count (_units + _units2) == 8
     && {(call _stats) # 1 == 93}] call _check;
@@ -205,7 +205,7 @@ private _ordinary = (_site get "units") - _units - _units2;
 {_x setDamage 1} forEach (_units + _units2);
 [{([_destination] call A3I_fnc_siteClearance) # 0},10] call _wait;
 ["iadopt_city_clearance_after_extras_die",([_destination] call A3I_fnc_siteClearance) # 0
-    && {[_destination] call A3I_fnc_cityExtraRoster isEqualTo []}] call _check;
+    && {[_destination] call A3I_fnc_siteExtraRoster isEqualTo []}] call _check;
 call _stopSite;
 A3I_test_observers = nil; A3I_interceptions = nil;
 {deleteVehicle _x} forEach [sidesX,spawner,garrison,server];

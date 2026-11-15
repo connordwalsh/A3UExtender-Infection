@@ -24,6 +24,9 @@ class CfgFunctions
             file = "\x\a3i\addons\core\functions";
             class bootstrap { preInit = 1; };
             class initSettings { preInit = 1; };
+            class registerPersistence { postInit = 1; };
+            class saveAdministrationExtras {};
+            class loadAdministrationExtras {};
             class dependencies {};
             class isActive {};
             class backgroundSupplyConvoy {};
@@ -96,6 +99,15 @@ class CfgFunctions
             class registerInterceptionTask {};
             class watchInterceptionLifecycle {};
             class interceptionLifecycleTick {};
+            class interceptionAftermath {};
+            class interceptionBusy {};
+            class startInterception {};
+            class runInterception {};
+            class requestInterception {};
+            class dispatchInterception {};
+            class labelInterceptionControl {};
+            class interceptionIntel {};
+            class selectInfectionIntel {};
             class storeInterceptionArrivals {};
             class adoptInterceptionArrivals {};
             class interceptionPreparing {};
@@ -106,6 +118,8 @@ class CfgFunctions
             class retireInterceptionFormation {};
             class interceptionSize {};
             class interceptionLocations {};
+            class interceptionRadius {};
+            class interceptionContains {};
             class interceptionRoutes {};
             class startLiquidation {};
             class requestLiquidation {};
@@ -123,7 +137,7 @@ class CfgFunctions
             class controlRoster {};
             class runPatrol {};
             class cityRoster {};
-            class cityExtraRoster {};
+            class siteExtraRoster {};
             class cityPopulationTarget {};
             class findCitySpawnPosition {};
             class patrolWaypoints {};
@@ -154,6 +168,7 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalSelectIntel { file = "\x\a3a\addons\core\functions\Intel\fn_selectIntel.sqf"; };
             class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
@@ -196,6 +211,10 @@ class CfgFunctions
     };
     class A3A
     {
+        class Intel
+        {
+            class selectIntel { file = "\x\a3i\addons\core\overrides\fn_selectIntel.sqf"; };
+        };
         class GUI
         {
             class requestMissionDialog { file = "\x\a3i\addons\core\overrides\fn_requestMissionDialog.sqf"; };

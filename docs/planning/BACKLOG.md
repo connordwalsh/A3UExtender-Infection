@@ -442,3 +442,50 @@ and requires their deaths for clearance. Three parser tests pass. Run full
 combined regression for the budget change. Administration persistence is now
 approved; its extra queue, casualty/replacement accounting and capture guard
 remain to implement. Public arrival ownership and dispatch are still unfinished.
+
+
+Administration reinforcement work: the owner approved persistent survivors and
+permanent casualties, plus a 50-metre interception arrival boundary. Inspection
+found administration icons excluded from Ultimate's saved garrison list. This
+branch adds a tagged native plugin save/load payload, separate extra spawning,
+casualty/replacement accounting, guarded capture and actual icon endpoints.
+All 38 focused engine checks (27 stronghold-specific and 11 common), eleven
+actual missing-dependency checks, packaging and three parser tests pass without
+engine/SQF errors. The 167-input candidate is unchanged after testing. Its full
+1040-check combined regression completed with 1038 passing checks and 67 passing
+roles, but two task assertions sampled queued native updates too early. The
+failed report is retained. A bounded wait for the expected task state and both
+resource pools passes all 64 focused task checks without changing production
+reward logic. The corrected combined gate will cover the stacked arrival-owner
+and public-dispatch candidate after focused verification. The parent's different
+build passed 1013 checks and merged in PR 32. Full campaign save and sprint
+acceptance remain open. See ADMINISTRATION_REINFORCEMENTS.md.
+
+Automatic interception aftermath is drafted in a separate feature branch. The
+lifecycle supervisor now calls complete-group handoffs, retains observed actors,
+and uses native capture decisions against fully spawned hostile garrisons.
+Cleared administrations remain permanently cleared, per the owner's answer.
+All 35 focused runtime checks pass after correcting deletion timing, observer
+setup and missing native town data in the fixture. Both rejected reports are
+retained; no production code changed during diagnosis. Packaging, three parser
+tests and eleven actual missing-dependency checks pass. Combined regression and
+public dispatch remain unfinished; see INTERCEPTION_AFTERMATH.md.
+
+Horde Interception creation and dispatch are now drafted in a separate branch.
+The actual 40-120-member formation is prepared before public task registration;
+requests, direct calls, scheduler routing, both menu labels and convoy-route intel
+use the new mission. Russian automatic supplies remain background activity.
+Packaging, three parser tests and eleven actual missing-dependency checks pass.
+All 36 focused runtime checks pass, including the actual 40-member horde while
+both shared slots are reserved. The rejected first report preserves the fixture's
+incorrect shared-versus-total capacity assertion; production code is unchanged.
+The integrated 1089-check regression is the next gate; parent regressions remain
+separate. See INTERCEPTION_DISPATCH.md for scope and open acceptance work.
+
+
+Integrated interception checkpoint: InterceptionDispatch Dev1 passes 1089 combined
+checks and 67 role spawns without engine/SQF errors. All 177 inputs and the PBO
+match the tested manifest. Administration persistence, automatic arrival aftermath
+and public mission dispatch can integrate together through PR 35. The earlier
+1040-check fixture failure remains rejected evidence. Connected play, travel,
+actual campaign save/load and sprint acceptance remain open; see REVIEWS.md.

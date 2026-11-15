@@ -24,11 +24,8 @@ if (!(_group in (_record get "groups")) || {_group getVariable ["A3I_context",""
 if (isNil "garrison" || {isNil "spawner"} || {isNil "sidesX"}
     || {!(_marker in allMapMarkers)} || {sidesX getVariable [_marker,sideUnknown] != west})
     exitWith {[false,0,"inactive_destination"]};
-// Administrations have a separate per-visit roster and survivor controller.
-// Do not persist actors to a roster that their creator would ignore.
-private _locations = [];
-{_locations append (missionNamespace getVariable [_x,[]])}
-    forEach ["citiesX","airportsX","milbases","outposts","seaports","resourcesX","factories"];
+// Regenerated towns/administrations keep these roles as persistent additions.
+private _locations = call A3I_fnc_interceptionLocations;
 if (!(_marker in _locations) || {spawner getVariable [_marker,2] != 2}
     || {count ((missionNamespace getVariable ["A3I_sites",createHashMap])
         getOrDefault [_marker,createHashMap]) != 0})
@@ -48,7 +45,7 @@ if ((_units findIf {
     || {_x getVariable ["A3I_interceptionResolved",false]}
     || {_x getVariable ["markerX",""] != ""}
     || {_x getVariable ["A3I_budgetTicket",""] != _ticket}
-    || {!(_x inArea _marker)} || {!(_x call A3A_fnc_canFight)}
+    || {!([_x,_marker] call A3I_fnc_interceptionContains)} || {!(_x call A3A_fnc_canFight)}
     || {!(_role isEqualType "")} || {_role find "loadouts_occ_" != 0}
     || {!((_role select [13]) in _definitions)}
 }) != -1) exitWith {[false,0,"invalid_arrivals"]};
