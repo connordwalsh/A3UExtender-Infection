@@ -872,6 +872,7 @@ draft PR 33 and cannot claim this different candidate's regression result.
 No Computer Use or manual installation/profile changes.
 
 
+<<<<<<< HEAD
 ## 14 November 2026 - Friendly delivery predicate review
 
 Delivery Dev1 passes 36 focused engine checks, 11 actual missing-dependency
@@ -884,3 +885,30 @@ coverage is appropriate without repeating the parent full suite solely for it.
 PR 35 separately passed 1089 combined checks and 67 role records. PR 37 may
 integrate this prerequisite. Actual delivery missions and campaign acceptance
 remain open. No Computer Use or manual installation/profile changes.
+=======
+## 14 November 2026 - Integrated Horde Interception dispatch review
+
+InterceptionDispatch Dev1 passes all 1089 combined dedicated checks and all 67
+role-spawn records, plus 36 focused dispatch checks, 11 actual missing-dependency
+checks and three parser tests. Parent components separately pass 38 administration
+and 35 aftermath checks; the corrected native task settlement fixture passes 64.
+No engine/SQF errors occurred in the accepted runs. The combined run has 93
+reviewed warnings: 16 startup/dependency notices, 72 object-deletion notices and
+five missing-fixture-commander notification targets. All 177 production inputs
+and the PBO still match the frozen manifest. The completed combined server exited.
+
+Self-review covered validated/idempotent administration save payloads, persistent
+extra casualties, 50-metre administration arrival, complete-group adoption,
+observer-safe retirement, native hostile capture guards, permanently cleared
+administrations, server authority, creation claims, request locks and real route
+intel. Integrate PRs 33 and 34 through PR 35 against master. Historical rejected
+reports stay committed; the task assertion corrections did not change rewards.
+Upstream intel-body trailing whitespace is deliberately preserved; aggregate
+diff whitespace checks report those lines and a fixture EOF blank line.
+
+This completes the source implementation of Horde Interception's requested
+entry points and arrival aftermath, with isolated engine evidence. It does not
+prove connected menus, HC/JIP, Redux travel, disk campaign saves, stochastic intel
+outcomes, one-hour aftermath or full campaign/release acceptance. No sprint gate
+is closed. No Computer Use or manual installation/profile changes.
+>>>>>>> origin/master
