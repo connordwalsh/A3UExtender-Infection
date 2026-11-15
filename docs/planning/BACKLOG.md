@@ -704,3 +704,11 @@ its subordinate only. The collector now catches uppercase ERROR records too;
 five remaining records include a previously missed addon-initialization error.
 The earlier market log contains six under the corrected rule (old reports are
 preserved). See REDUX_SMART_VALIDATION.md. Clean-log and release gates stay open.
+
+15 November High Command deferral: the independent Redux fix waits for a
+synchronized commander, then invokes native HC. Eight focused lifecycle checks
+cover late leaders, duplicate scheduling and deleted scopes; ready-leader and
+Altis checks pass. Full native write/restart/read pass 17 assertions per phase
+and 75-second windows. Missing-leader errors are gone; two missing-object records
+and an addon-init error still fail clean-log acceptance. See
+REDUX_HC_VALIDATION.md. Connected-player/UI/JIP and release gates remain open.
