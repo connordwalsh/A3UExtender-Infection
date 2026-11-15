@@ -4,14 +4,14 @@
   "suite": "aidtask",
   "expected_dependencies_present": true,
   "status": "passed",
-  "collected_at_utc": "2026-11-15T06:23:52.597158+00:00",
-  "source_log": "arma3server_x64_2026-11-15_01-22-45.rpt",
-  "source_log_sha256_at_collection": "76eb0f96a4225552fdbadb4f6ab48b6fe68fb8a38aafbd1dea2a80859addbd7b",
+  "collected_at_utc": "2026-11-15T06:59:50.292379+00:00",
+  "source_log": "arma3server_x64_2026-11-15_01-57-36.rpt",
+  "source_log_sha256_at_collection": "81f94d4d0cfdf27d4271c7446aeca9bb89b6af64c4486bb74a65937c7b4c0b8e",
   "source_sha256_at_collection": {
     "tests/arma/infection_probe/template.VR/administrationChecks.sqf": "13bab6774aa13e69ff26a6e98cae431378c7f04b90bbf6cedc3620df0f8cf096",
     "tests/arma/infection_probe/template.VR/administrationExtraChecks.sqf": "6a5bbe036eacfba2d587c5d3fba271437a4b8048972cff3d199df7a711fca211",
     "tests/arma/infection_probe/template.VR/aidLedgerChecks.sqf": "92804da618948e383c3a10ec015539860335b4818e36d0b0bf0af57295b74667",
-    "tests/arma/infection_probe/template.VR/aidTaskChecks.sqf": "d98d38c80e1812ed307c953060f7f467b9dd07eb15a374c09fd32d210a97d426",
+    "tests/arma/infection_probe/template.VR/aidTaskChecks.sqf": "6d8af52c61c85a87731d7d844e7c663587222be4381aec1250e8d77d1b3ddb11",
     "tests/arma/infection_probe/template.VR/backgroundConvoyChecks.sqf": "56c81a3d5e58a82887276c823c09f284e347dc3218a4626a3bb838552ee6055d",
     "tests/arma/infection_probe/template.VR/budgetChecks.sqf": "3bbc8ab2864ad8be0b19ee002427c7bff9c6a8339ce65f0e6b22fc15d62afbd6",
     "tests/arma/infection_probe/template.VR/catalogPolicyChecks.sqf": "759499278e0a24c51eaaa4c3ad779df48f3c5f8a3f37711227154bd409ecb7a6",
@@ -129,7 +129,7 @@
     "Infection/addons/core/functions/fn_aidPackageActions.sqf": "1debd30ae12e080372dcb5c9d94dca3542916c812686dca2a1e02d0d2c059ad2",
     "Infection/addons/core/functions/fn_aidPackageEvent.sqf": "83e08a003f857c2323a41e8d764a15d3dc9f7464fdab55be32e549d843f223d0",
     "Infection/addons/core/functions/fn_aidPackagePositionSafe.sqf": "a01c593ab5c0de65f555af397f0d91727e2fb1adc6ec7bd45cfb06ad4897c7c2",
-    "Infection/addons/core/functions/fn_aidProgressHint.sqf": "5e602ac3cfb66f87d7bb33ae9ea1e04004bb6131102310ec1a3974ec8bff08e5",
+    "Infection/addons/core/functions/fn_aidProgressHint.sqf": "eb183d52c59cfd8384e1b9c1a316a8d14137d66bfadd160b338a4cb0bfb4ffff",
     "Infection/addons/core/functions/fn_aidTargets.sqf": "c0e60082e0e9a8601085ba6114702af554565be50fdeb74be5cc74fe88a47970",
     "Infection/addons/core/functions/fn_aidTaskBusy.sqf": "915d1d285fa2ab2d74e924c699898bf134036932fa8edb465dd50e601021dc72",
     "Infection/addons/core/functions/fn_aidTaskOutcome.sqf": "b4897f82eb61c320d8da09200df6e1e2cb26efde82317a2eca3339b1a8e25d0d",
@@ -365,67 +365,67 @@
   "warnings_for_review": [
     {
       "line": 751,
-      "message": "1:22:54 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
+      "message": "1:57:44 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
     },
     {
       "line": 756,
-      "message": "1:22:54 bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
-    },
-    {
-      "line": 758,
-      "message": "1:22:54 Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
+      "message": "1:57:44 bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
     },
     {
       "line": 759,
-      "message": "1:22:54 Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
+      "message": "1:57:44 Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
     },
     {
       "line": 760,
-      "message": "1:22:54 Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
+      "message": "1:57:44 Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
     },
     {
       "line": 761,
-      "message": "1:22:54 Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
+      "message": "1:57:44 Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
     },
     {
       "line": 762,
-      "message": "1:22:54 Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
+      "message": "1:57:44 Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
     },
     {
       "line": 763,
-      "message": "1:22:54 Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
+      "message": "1:57:44 Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
     },
     {
       "line": 764,
-      "message": "1:22:54 Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
+      "message": "1:57:44 Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
     },
     {
       "line": 765,
-      "message": "1:22:54 Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
+      "message": "1:57:44 Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
+    },
+    {
+      "line": 766,
+      "message": "1:57:44 Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
     },
     {
       "line": 785,
-      "message": "1:22:56 Attempt to override final function - abz_fnc_load"
+      "message": "1:57:46 Attempt to override final function - abz_fnc_load"
     },
     {
       "line": 786,
-      "message": "1:22:56 Attempt to override final function - abz_fnc_queuesave"
+      "message": "1:57:46 Attempt to override final function - abz_fnc_queuesave"
     },
     {
       "line": 787,
-      "message": "1:22:56 Attempt to override final function - abz_fnc_synccommit"
+      "message": "1:57:46 Attempt to override final function - abz_fnc_synccommit"
     },
     {
       "line": 788,
-      "message": "1:22:56 Attempt to override final function - abz_fnc_save"
+      "message": "1:57:46 Attempt to override final function - abz_fnc_save"
     },
     {
       "line": 795,
-      "message": "1:22:56 Attempt to override final function - bis_fnc_storeparamsvalues_data"
+      "message": "1:57:46 Attempt to override final function - bis_fnc_storeparamsvalues_data"
     },
     {
       "line": 796,
-      "message": "1:22:56 Attempt to override final function - hals_store_getnearbyvehicles"
+      "message": "1:57:46 Attempt to override final function - hals_store_getnearbyvehicles"
     }
   ],
   "runtime_checks": [
@@ -636,7 +636,11 @@
     {
       "name": "atask_unobserved_package_retired",
       "passed": true,
-      "detail": []
+      "detail": [
+        true,
+        true,
+        0
+      ]
     },
     {
       "name": "atask_independent_monitor",

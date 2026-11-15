@@ -136,7 +136,11 @@ _carrier setVariable ["LoadingCargo",nil];
 A3I_test_observers = [petros]; sleep 1.2;
 ["atask_observed_package_retained",!isNull _package && {!(_job get "assetRetired")}] call _check;
 A3I_test_observers = []; [_job] call _retire; deleteVehicle _carrier;
-["atask_unobserved_package_retired",isNull _package] call _check;
+// Registry retirement follows deleteVehicle submission; the engine may retain
+// the object reference until a later frame under the full-suite entity load.
+[{isNull _package},2] call _wait;
+["atask_unobserved_package_retired",isNull _package,
+    [_job get "assetRetired",_job get "taskRetired",count A3I_aidTasks]] call _check;
 ["SUPP",2,true] call A3A_fnc_missionRequest; _job = call _getJob;
 terminate (_job get "script"); (_job get "ledger") set ["deadline",time-1];
 [{_job get "settled"}] call _wait;

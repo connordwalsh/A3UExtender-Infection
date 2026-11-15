@@ -4,9 +4,9 @@
   "suite": "full",
   "expected_dependencies_present": false,
   "status": "passed",
-  "collected_at_utc": "2026-11-15T06:23:52.739154+00:00",
-  "source_log": "arma3server_x64_2026-11-15_01-22-46.rpt",
-  "source_log_sha256_at_collection": "b893a010748dd7ea96175575e7aebcf48cb24247a986794d507d102d2143eefd",
+  "collected_at_utc": "2026-11-15T06:30:49.503419+00:00",
+  "source_log": "arma3server_x64_2026-11-15_01-27-26.rpt",
+  "source_log_sha256_at_collection": "00e15cbd12735f2efe7a1beb5dcde96cfd85350e7510be816717f33d3074599d",
   "source_sha256_at_collection": {
     "tests/arma/infection_probe/template.VR/administrationChecks.sqf": "13bab6774aa13e69ff26a6e98cae431378c7f04b90bbf6cedc3620df0f8cf096",
     "tests/arma/infection_probe/template.VR/administrationExtraChecks.sqf": "6a5bbe036eacfba2d587c5d3fba271437a4b8048972cff3d199df7a711fca211",
@@ -65,7 +65,7 @@
     "Infection/addons/core/functions/fn_aidPackageActions.sqf": "1debd30ae12e080372dcb5c9d94dca3542916c812686dca2a1e02d0d2c059ad2",
     "Infection/addons/core/functions/fn_aidPackageEvent.sqf": "83e08a003f857c2323a41e8d764a15d3dc9f7464fdab55be32e549d843f223d0",
     "Infection/addons/core/functions/fn_aidPackagePositionSafe.sqf": "a01c593ab5c0de65f555af397f0d91727e2fb1adc6ec7bd45cfb06ad4897c7c2",
-    "Infection/addons/core/functions/fn_aidProgressHint.sqf": "5e602ac3cfb66f87d7bb33ae9ea1e04004bb6131102310ec1a3974ec8bff08e5",
+    "Infection/addons/core/functions/fn_aidProgressHint.sqf": "eb183d52c59cfd8384e1b9c1a316a8d14137d66bfadd160b338a4cb0bfb4ffff",
     "Infection/addons/core/functions/fn_aidTargets.sqf": "c0e60082e0e9a8601085ba6114702af554565be50fdeb74be5cc74fe88a47970",
     "Infection/addons/core/functions/fn_aidTaskBusy.sqf": "915d1d285fa2ab2d74e924c699898bf134036932fa8edb465dd50e601021dc72",
     "Infection/addons/core/functions/fn_aidTaskOutcome.sqf": "b4897f82eb61c320d8da09200df6e1e2cb26efde82317a2eca3339b1a8e25d0d",
@@ -300,32 +300,32 @@
   "error_lines": [],
   "warnings_for_review": [
     {
-      "line": 727,
-      "message": "1:22:54 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
-    },
-    {
-      "line": 751,
-      "message": "1:22:57 Attempt to override final function - abz_fnc_load"
-    },
-    {
-      "line": 752,
-      "message": "1:22:57 Attempt to override final function - abz_fnc_queuesave"
+      "line": 729,
+      "message": "1:27:35 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
     },
     {
       "line": 753,
-      "message": "1:22:57 Attempt to override final function - abz_fnc_synccommit"
+      "message": "1:27:36 Attempt to override final function - abz_fnc_load"
     },
     {
       "line": 754,
-      "message": "1:22:57 Attempt to override final function - abz_fnc_save"
+      "message": "1:27:36 Attempt to override final function - abz_fnc_queuesave"
     },
     {
-      "line": 761,
-      "message": "1:22:58 Attempt to override final function - bis_fnc_storeparamsvalues_data"
+      "line": 755,
+      "message": "1:27:36 Attempt to override final function - abz_fnc_synccommit"
     },
     {
-      "line": 762,
-      "message": "1:22:58 Attempt to override final function - hals_store_getnearbyvehicles"
+      "line": 756,
+      "message": "1:27:36 Attempt to override final function - abz_fnc_save"
+    },
+    {
+      "line": 763,
+      "message": "1:27:37 Attempt to override final function - bis_fnc_storeparamsvalues_data"
+    },
+    {
+      "line": 764,
+      "message": "1:27:37 Attempt to override final function - hals_store_getnearbyvehicles"
     }
   ],
   "runtime_checks": [

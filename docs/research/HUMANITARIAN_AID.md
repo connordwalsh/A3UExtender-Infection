@@ -129,3 +129,24 @@ asset preservation and that unexplained package deletion cancels without penalty
 Cleanup now preserves the object-derived native logistics JIP action when an
 existing package has been reassigned. This is server-side preservation evidence,
 not connected JIP acceptance. The combined regression is still running.
+
+
+## Dev3 review and combined-run correction
+
+Dev3 corrects progress-message retirement when another notification covers the
+Aid timer: it removes only the matching Aid queue entry, preserving unrelated
+messages. Client rendering remains NOT RUN. The Dev3 dependency-absence run
+passes all 11 checks. Its first full run completed 1317 checks and 67 role records
+with no engine/SQF errors, but is REJECTED for one fixture assertion:
+`atask_unobserved_package_retired`. All other 1316 assertions passed. The report
+retains 16 startup notices, 72 object-deletion notices and eight null-target
+notifications from fixtures without a commander.
+
+The fixture previously checked isNull immediately after registry retirement,
+although cleanup retires the record after submitting deleteVehicle and the
+engine can retain the reference until a later frame. It now waits up to two
+seconds for the actual deletion and reports task/asset/registry state. All 50
+focused checks pass on the unchanged Dev3 production build after that correction.
+A new combined run will include the separately reviewed Elimination prerequisites;
+there is not yet an accepted clean combined Aid report. Historical Dev2 engine,
+build and absence reports and the interrupted Dev2 full run remain preserved.

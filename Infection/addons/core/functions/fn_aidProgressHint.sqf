@@ -6,7 +6,16 @@ private _header = "Humanitarian Aid";
 private _messages = missionNamespace getVariable ["A3A_customHint_MSGs",[]];
 private _top = count _messages-1;
 if (_state == "stop") exitWith {
-    if (_serial == _last && {_top >= 0} && {(_messages # _top # 0) == _header}) then {[false] call A3A_fnc_customHintDismiss};
+    if (_serial == _last) then {
+        // A newer unrelated notification may cover our timer. Remove only
+        // our entry wherever it sits so dismissing that notification cannot
+        // resurrect a stale timer. Do not dismiss or reset unrelated messages.
+        private _index = _messages findIf {(_x # 0) == _header};
+        if (_index >= 0) then {
+            if (_index == _top) then {[false] call A3A_fnc_customHintDismiss}
+            else {A3A_customHint_MSGs deleteAt _index};
+        };
+    };
 };
 A3I_aidHintSerial = _serial;
 private _body = switch (_state) do {

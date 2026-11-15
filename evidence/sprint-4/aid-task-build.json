@@ -3,9 +3,9 @@
   "product": "Antistasi Ultimate: Infection",
   "version": "0.1.0-dev",
   "scope": "Development prototype; isolated contracts cover infected sites, responses, strategic hordes and Liquidation assignments. Remaining mission adapters, connected players, terrain, special creatures, vehicles, saves and full campaign acceptance remain incomplete.",
-  "built_at_utc": "2026-11-15T06:22:44.6373501Z",
+  "built_at_utc": "2026-11-15T06:27:25.7473761Z",
   "prefix": "x\\a3i\\addons\\core",
-  "addon_sha256": "7b9a870e341ccfccd47d908359f9d51fe8bdd817e595a9cee3b859b46ac3d2d3",
+  "addon_sha256": "2bc797886d78d0e7ccbf4d85352887f614e6aafb03ef308e5483cffef2f39971",
   "source": [
     {
       "path": "Infection/addons/core/config.cpp",
@@ -49,7 +49,7 @@
     },
     {
       "path": "Infection/addons/core/functions/fn_aidProgressHint.sqf",
-      "sha256": "5e602ac3cfb66f87d7bb33ae9ea1e04004bb6131102310ec1a3974ec8bff08e5"
+      "sha256": "eb183d52c59cfd8384e1b9c1a316a8d14137d66bfadd160b338a4cb0bfb4ffff"
     },
     {
       "path": "Infection/addons/core/functions/fn_aidTargets.sqf",
