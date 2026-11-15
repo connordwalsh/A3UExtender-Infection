@@ -951,6 +951,42 @@ ACE, player driving, garage, disk saves and campaign acceptance remain open.
 No Computer Use, manual-install changes or sprint-gate completion.
 
 
+## 15 November 2026 - Abandoned town vehicles review
+
+The town adapter preserves native parking attempts, road filtering, civilian
+visit activation, native boats/traffic, claim behavior and save eligibility.
+The approved mix is local to each placement; shared faction pools are never
+modified. Review added an explicit server-local scheduled worker guard and
+canonical visit-record validation. The independent cleanup monitor handles
+normal and interrupted workers, exact serial/tag ownership, claimed assets,
+nearby observers, occupants, attached/towed assets and moved-vehicle handoff.
+
+AbandonedTowns Dev2 passes 36 focused Altis-road engine checks, 11 actual
+missing-dependency checks, packaging and three parser tests. Native GetIn,
+neutral salvage and the actual delayed VEHdespawner execute in this fixture.
+No engine/SQF errors; 16 reviewed baseline startup notices. All 262 source
+inputs and PBO match the manifest; both vehicle servers stopped. Dev1 evidence
+is retained. Boat and driven-traffic branches are preserved in source but gated
+out of this fixture. Redux, connected driving, optional packs, HC/JIP, towing,
+garage and disk saves remain open. No sprint acceptance gate is closed and the
+manual Dev9 installation remains untouched.
+
+
+### Redux parking validation follow-up
+
+Unchanged AbandonedTowns Dev2 passes 163 checks across all 49 towns initialized
+by Ultimate on installed Chernarus Redux. It created 110 cars and completed all
+bounded deletion checks without leftover entities/groups. All 262 inputs and
+PBO still match. Sixteen reviewed baseline notices, no engine/SQF errors. The
+first full sweep is retained as rejected (15 premature cleanup assertions), and
+a deliberately interrupted diagnostic records the engine-deletion boundary.
+The corrected fixture waits for both controller retirement and object deletion,
+with a five-second limit and no forced cleanup before the assertion. Native
+parking attempts may yield zero cars when every candidate is unsafe; Nadezhdino
+was such a case in the accepted sweep. No placement fallback or extra attempt was
+added. The server exited. Driving, horde navigation, boats/traffic, towing, garage,
+saves and full campaign acceptance remain open. README/backlog/override records
+now distinguish current mission implementations from the retired conquest race.
 ## 15 November 2026 - Combined Aid and Elimination integration review
 
 The current Elimination branch includes the complete Aid controller branch.

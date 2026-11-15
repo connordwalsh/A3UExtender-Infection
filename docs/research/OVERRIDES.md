@@ -170,17 +170,46 @@ hashes, exact lifecycle contracts and candidate evidence. Deferred exact-group
 cleanup is also used by site, roaming, reinforcement, counterattack and tactical
 controllers so corpse lifetime does not hold their campaign claims.
 
-## Competitive conquest increment
+## Retired competitive conquest increment
 
-`Missions/fn_missionRequest.sqf` retains the pinned 12.4.2 body with a scoped
-conquest selection/dispatch change. The AS body and DES-through-end segment
-match the pinned source after newline normalization. Explicit unrelated mission
-types and inactive templates use the installed alias. Unavailable infected
-frontlines are excluded from the ordinary capture fallback as the owner requested.
+The race-to-capture prototype is superseded by the owner's six-category mission
+redesign. Requested conquest now always uses Liquidation; the historical
+[COMPETITIVE_CONQUEST.md](COMPETITIVE_CONQUEST.md) records the earlier prototype,
+not current request behavior.
 
-`Missions/fn_CON_Outpost_Compet.sqf` and the narrow `Base/fn_scheduler.sqf` route
-keep the infected race on the server; other participants retain native dispatch.
-A verified native capture event freezes the first result before polling, with
-local settlement after a remote-origin event. Native rewards and penalties stay
-separate from cancellation. Linked horde tokens recover interrupted startup.
-See [COMPETITIVE_CONQUEST.md](COMPETITIVE_CONQUEST.md) and its pinned manifest.
+## Replacement mission routing
+
+`Missions/fn_missionRequest.sqf`, the scheduler and both request-menu adapters
+route Infection requests into the new catalog. Destroy and Random are disabled;
+requested combat targets are infected only. The installed aliases preserve
+ordinary campaigns. The public Extraction controller is still pending.
+
+- `CON_Outpost`, `CON_MilAdmin`, `CON_Outpost_Zombies` and `CON_Outpost_Compet`
+  dispatch Liquidation. Clearance, native capture, queued defenders and ownership
+  cancellation are detailed in [LIQUIDATION.md](LIQUIDATION.md).
+- Horde Interception replaces requested convoy ambushes. Automatic Russian supply
+  convoys remain background activity; see [BACKGROUND_CONVOYS.md](BACKGROUND_CONVOYS.md).
+- `LOG_Ammo`, `LOG_Bank`, `LOG_Salvage`, `LOG_Airdrop`, `LOG_Crashsite` and
+  `LOG_Helicrash` dispatch Supplies Seizure in Infection. Native aliases retain
+  other campaigns. See [SUPPLIES_SEIZURE.md](SUPPLIES_SEIZURE.md).
+- `SUPP_Supplies` and `RIV_SUPP_Salvage` dispatch Humanitarian Aid. See
+  [HUMANITARIAN_AID.md](HUMANITARIAN_AID.md) for unloading, rewards, cancellation
+  and cleanup evidence. The integrated Dev3 regression passes 1,427 checks; campaign acceptance remains open.
+- `AS_Ambush`, `AS_Official`, `AS_Smasher`, `AS_specOP`, `AS_Traitor`, `AS_Zombies`
+  and `RIV_AS_Traitor` dispatch Elimination. See [ELIMINATION_TASK.md](ELIMINATION_TASK.md)
+  for target-only death completion, search areas, rewards and cleanup. The integrated
+  Dev3 regression passes 1,427 checks; campaign acceptance remains open.
+
+## Parked civilian traffic adapter
+
+`A3A/addons/patcom/functions/Civilian/fn_createAmbientCivTraffic.sqf` is the
+additional pinned entry point. Infection uses its parked-car lifecycle only for
+infected-held towns, with server scheduling and internal worker/cleanup guards.
+Ordinary campaigns and other owners call the installed native alias. The
+adapted body retains native road selection, placement-attempt counts, boats and
+driven civilian traffic; parked-car creation and visit cleanup are scoped to
+owned records. `A3A_patcom` is an explicit load-order dependency.
+
+The pinned source SHA-256 is `514d24395b15d6732e6c1ea7f7ddfbd4a91a2d2825a4de1bdfd1ca85d2f7836e`.
+See [ABANDONED_VEHICLES.md](ABANDONED_VEHICLES.md) for the native save policy,
+actual Altis-road evidence and remaining Redux/player/traffic/save acceptance.

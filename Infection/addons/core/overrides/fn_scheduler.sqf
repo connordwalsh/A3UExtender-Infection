@@ -1,5 +1,8 @@
 params ["_arguments","_function"];
 if (!isServer) exitWith {};
+if (_function isEqualType "" && {toLower _function == "a3a_fnc_createambientcivtraffic"}
+    && {_arguments isEqualType []} && {[west] call A3I_fnc_isActive})
+    exitWith {_arguments remoteExec [_function,2]};
 if (_function isEqualType "" && {toLower _function in ["a3a_fnc_supp_supplies","a3a_fnc_riv_supp_salvage"]}
     && {_arguments isEqualType []} && {[west] call A3I_fnc_isActive})
     exitWith {_arguments remoteExec [_function,2]};

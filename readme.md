@@ -29,24 +29,41 @@ Assignment replaces requested conquest races: clear every assigned infected to
 capture the town or site, with military bases and airfields restricted to war
 level 3. Russian takeover cancels without a mission penalty. Queue/death ledgers
 prevent missing actors, queued defenders or premature native capture from
-bypassing the objective. Other five replacement mission families remain pending.
+bypassing the objective.
 
-The integrated candidate passes 965 combined dedicated checks, 88 focused town
-checks and 11 actual missing-dependency checks. All 160 production inputs and
-the PBO match its recorded build manifest. These isolated checks do not establish
-visual menu behavior, connected-player rewards, multiplayer, full campaign saves
-or campaign acceptance. See [Liquidation implementation and limits](docs/research/LIQUIDATION.md).
-Connected-player rebuilding, town-liberation integration, other mission adapters,
-special creatures, abandoned vehicles and save integration remain unfinished.
-Do not use this build for a campaign you intend to keep.
+Horde Interception is connected to requests, spawns its entire 40-120 infected
+formation together and fails when the first attacker reaches the destination.
+Survivors reinforce infected-held destinations or attack hostile ones. Supplies
+Seizure recovers ammunition, fuel or repair trucks to HQ or Rebel-held permanent
+sites; towns offer fuel trucks only. Delivered trucks remain usable.
 
-The internal Horde Interception components stage and release complete 40-120
-infected formations, track casualties and first arrival, create and settle native
-tasks, recover stalled movement, and supervise interrupted cleanup. These paths
-are included in the passing combined run. Arrival reinforcement/attack and public
-mission dispatch remain unfinished, so this is not yet a player-requestable
-replacement mission. See [Interception evidence](docs/research/HORDE_INTERCEPTION.md)
-and [town reinforcement details](docs/research/INTERCEPTION_ARRIVALS.md).
+Humanitarian Aid and Elimination have public controllers in this candidate.
+Aid preserves timed unloading and cancels without penalty if town ownership
+changes. Elimination identifies a Screamer, Boomer or Leaper 2 in a search area,
+uses different special types in its escort, and keeps the hunt active after
+settlement ownership changes. Their combined regression passes 1,427 checks and 67 role-spawn records;
+feature-specific evidence and remaining limits are linked below. Extraction has a tested survivor ledger and
+scene creator, but its public controller and rescued-survivor disposition remain
+unfinished.
+
+Infected-held towns now generate repairable, unlocked abandoned cars using
+Ultimate's parking counts and a civilian/police/light-military mix. Capture is
+free salvage. The town adapter passes 36 isolated Altis-road checks and 11
+actual missing-dependency checks. The Redux parking sweep passes 163 checks across 49 towns; this verifies placement
+and cleanup, not driving or campaign acceptance.
+
+Validation is recorded per build and feature, not as one blanket certification.
+See [Liquidation](docs/research/LIQUIDATION.md),
+[Interception](docs/research/HORDE_INTERCEPTION.md),
+[Supplies Seizure](docs/research/SUPPLIES_SEIZURE.md),
+[Humanitarian Aid](docs/research/HUMANITARIAN_AID.md),
+[Elimination](docs/research/ELIMINATION_TASK.md), and
+[abandoned vehicles](docs/research/ABANDONED_VEHICLES.md).
+Connected-player rewards and rescue interactions, visible menus, headless clients,
+JIP, town-liberation integration, larger special creatures, optional faction packs,
+garage/save integration and the campaign performance soak remain unaccepted.
+No sprint acceptance gate has closed. Do not use this build for a campaign you
+intend to keep.
 
 ## Intended campaign
 
