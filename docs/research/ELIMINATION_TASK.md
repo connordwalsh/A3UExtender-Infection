@@ -127,3 +127,19 @@ completion: every recorded assertion passed and no engine/SQF error was recorded
 but this is incomplete evidence, not a passing regression. The interruption report
 and Dev2/Dev3 manifests are retained separately. A fresh run of unchanged Dev3 is
 in progress; public integration and the enclosing story remain unaccepted.
+
+
+## Accepted combined code regression, 15 November 2026
+
+The unchanged integrated EliminationTask Dev3 rerun passes all 1,427 checks and
+67 role-spawn records. All 254 production inputs and the PBO still match its
+manifest (SHA-256 9563500a216a240540f138daafe98c8fed257b102d47b5e6a2ab21b37d6b06ef).
+Its actual dependency-absence run passes eleven checks. No engine/SQF errors;
+96 reviewed notices comprise 16 startup, 70 object-deletion and ten null-fixture-
+commander notifications. The completed server was stopped. The earlier
+interrupted run and rejected Aid fixture reports remain preserved.
+
+This accepts the combined code regression containing public Aid and Elimination,
+not a standalone passing Aid Dev4 full run or campaign acceptance. Connected
+players, visible menus/rewards, real-terrain mission behavior, HC/JIP, saves and
+performance remain open. No sprint gate or manual Dev9 installation changed.
