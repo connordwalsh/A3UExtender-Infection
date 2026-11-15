@@ -1001,3 +1001,15 @@ remain retained. The accepted combined run uses the corrected Aid timing fixture
 This supports integrating PR 46 and its included PR 43 commits. It does not
 certify connected player rewards, visible menu behavior, campaign progression,
 terrain, saves, performance or a sprint gate. Manual Dev9 remains unchanged.
+
+
+## 15 November 2026 - Extraction release review
+
+Reviewed actor/ledger identity, server-side request checks, duplicate reservations,
+three-second revalidation, cleanup ownership and late-join prevention. Review
+found a JIP-key cleanup gap when actor ownership changes; Dev2 retires that key
+while preserving the foreign actor state. The 89-check combined Extraction suite,
+eleven missing-dependency checks, three parser tests and all 268 source/PBO hashes
+pass. Native FIA initialization is observed on the dedicated server. Actual
+client action visibility and client-owned recruitment remain untested, as do
+full combined regression and the public mission controller. No gate is closed.

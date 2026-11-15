@@ -6,6 +6,7 @@ if (canSuspend) exitWith {[A3I_fnc_releaseExtractionLedger,_this] call CBA_fnc_d
 private _registry = missionNamespace getVariable ["A3I_extractionLedgers",createHashMap];
 private _record = _registry getOrDefault [_name,createHashMap];
 if (_record getOrDefault ["serial",-2] != _serial) exitWith {false};
+[_record,false] call A3I_fnc_setExtractionActions;
 {
     private _unit = _x get "unit";
     if (!isNull _unit && {(_unit getVariable ["A3I_extractionOwner",[]]) isEqualTo

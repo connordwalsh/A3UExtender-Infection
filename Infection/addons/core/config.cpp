@@ -57,6 +57,12 @@ class CfgFunctions
             class extractionTargets {};
             class findExtractionShelter {};
             class createExtractionSurvivors {};
+            class extractionAction {};
+            class setExtractionActions {};
+            class requestExtractionRelease {};
+            class beginExtractionRelease {};
+            class extractionRecruitLocal {};
+            class extractionReleaseTick {};
             class eliminationTaskBusy {};
             class startElimination {};
             class runElimination {};

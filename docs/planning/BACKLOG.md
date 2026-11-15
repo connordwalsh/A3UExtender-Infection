@@ -583,3 +583,12 @@ missing-dependency checks; Dev1 passed 38 public-dispatch checks. All 236 Dev2
 production inputs match the packaged artifact. Combined integration, connected
 combat/rewards, terrain, HC/JIP and performance remain open. No sprint acceptance
 gate is closed and the manual installation remains unchanged.
+
+
+## Extraction release prerequisite: 15 November 2026
+
+The guarded release interaction is implemented on codex/extraction-release.
+Dev2 passes 89 combined ledger/scene/release checks and eleven dependency-absence
+checks. See [EXTRACTION_RELEASE.md](../research/EXTRACTION_RELEASE.md). Public
+mission dispatch, rewards, post-delivery disposition and connected-player
+acceptance remain open. This is not completion of the Extraction mission.
