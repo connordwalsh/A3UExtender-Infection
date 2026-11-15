@@ -78,3 +78,12 @@ No recorded engine/SQF errors; sixteen/seven baseline warnings remain. Native
 stock cleanup also prints a zero-client update notice in this no-player fixture.
 The rejected initial report is retained. Both completed dealer servers stopped.
 No connected buying, JIP, real terrain or disk-save acceptance is claimed.
+
+## Gang-cell staged casualties
+
+Source review of pinned Ultimate `fn_RIV_ATT_Cell.sqf` found a delayed scene
+effect: after 30 seconds it selects on-foot Occupant actors within 1.5 times
+the site size, excludes actors indoors, and gives each a 75 percent chance
+of fatal damage. The owner explicitly retained this behavior on 15 November.
+No Infection override is needed. This is a source-policy finding, not proof
+of completed gang-story campaign playthroughs.
