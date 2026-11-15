@@ -137,3 +137,7 @@ stronghold stays permanently cleared and cannot be reestablished by that horde.
 continue recovering that same truck if Rebels or Russia capture its settlement.
 Ownership change alone does not cancel the mission; delivery, destruction or
 the original deadline determine its outcome.
+
+15 November Humanitarian Aid: retain Ultimate's unloading phase (180 seconds
+normal, 90 difficult), with no infected within 50 metres. If Rebels or Russian
+forces capture the destination before completion, cancel without a penalty.

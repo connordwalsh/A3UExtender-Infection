@@ -42,9 +42,14 @@ fn_RIV_SUPP_Salvage.sqf; CREATE/fn_AIVEHinit.sqf.
 
 ## Open decisions and implementation
 
-The owner has been asked whether to retain the unloading phase or complete on
-drop-off, and whether a destination ownership change should continue delivery
-or cancel without a penalty. No answer is inferred. Public dispatch, safe
-package creation, task progress/rewards/cleanup and focused engine evidence are
-NOT IMPLEMENTED by this audit. SupplyTask/Extraction evidence does not establish
-Humanitarian Aid acceptance. No Computer Use or manual-install changes.
+The owner chose the existing unloading phase and cancellation without a penalty
+if Rebels or Russia capture the destination. The internal ledger now tracks that
+phase independently of a mission worker, requires an actual eligible escort,
+pauses when conditions fail, and gives ownership cancellation priority over
+simultaneous delivery or timeout. It caps sampled progress at one second per tick
+instead of crediting unobserved time after a stalled worker. Serial ownership
+protects packages and terminal outcomes freeze. No public tasks, rewards or
+package cleanup are issued by this layer.
+
+Public dispatch, safe package creation, task rewards/cleanup and engine evidence
+remain NOT IMPLEMENTED or NOT RUN. No Computer Use or manual-install changes.
