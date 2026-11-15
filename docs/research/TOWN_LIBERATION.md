@@ -727,3 +727,17 @@ The 293-input production manifest and PBO still match. Merged Redux-only test
 additions were integrated, retaining both Liberation and ReduxTowns suite routes.
 A second full regression is required; the rejected full report remains authoritative
 for the previous attempt and PR 49 stays draft.
+
+The corrected full Dev2 run (14:08:27 RPT) completed at 14:42:58: all 1,696
+checks and 67 role-spawn records pass, with no recorded engine/SQF errors.
+All 293 production inputs and the PBO match. There are 112 retained warnings
+from baseline config/animations, deletion traffic and null-player notifications.
+The completed server was stopped by exact identity. The rejected earlier full
+run and both corrected focused results remain preserved.
+
+A later Extraction full run exposed an unrelated older Major fixture attempting
+a zero CBA slider value. That diagnostic also appears here even though the
+composite assertion passed in this run. The combined integration branch replaces
+that invalid setup with a reservation against a valid one-slot cap; its focused
+126-check Major suite passes. This survivor-defense result does not certify the
+later Extraction/dealer/tower increments or connected gameplay/save acceptance.
