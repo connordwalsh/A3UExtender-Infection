@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "scope": "Official Redux mission, native server campaign init/save/load; no connected-player, UI, JIP, combat or long-session acceptance",
+  "phase": "write",
+  "status": "failed",
+  "collected_at_utc": "2026-11-15T21:05:19.771947+00:00",
+  "source_log": "redux-companion-parking-write-dev1.rpt",
+  "source_log_sha256": "c38367a065f118472e022b75e058ed03cb51b161777f927c47d5ffee703886d7",
+  "source_sha256": {
+    "tests/arma/campaign_probe/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "tests/arma/campaign_probe/run.sqf": "82048a25a4756ba0b93f053e25fc3c3bc6b10a7f7376f5322cdd38afd6fa2492",
+    "Tools/dev/collect-campaign.py": "aa55dd4f76241f6d82cbd82977321fc82e2fde2abf573ee4d3053a8cd23d8f3d",
+    "Tools/dev/start-campaign-probe.ps1": "1515bee8adae54a95b5520911e58f476e833a3e84dce0e4a6353da9f627796b8"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "schema_valid": true,
+    "correct_phase_and_terrain": true,
+    "all_expected_checks_once": true,
+    "runtime_checks_pass": true,
+    "completion_matches": true,
+    "no_engine_or_native_errors": false
+  },
+  "failed_checks": [],
+  "malformed_lines": [],
+  "errors": [
+    {
+      "line": 1234,
+      "message": "16:04:10 \"InfectionCampaign_ReduxParking1/BIS_fnc_log: [BIS_fnc_OM_moduleSmartMarkers] Error: SmartMarker system has not been yet initialized.\""
+    },
+    {
+      "line": 1254,
+      "message": "16:04:10 Error in expression <};"
+    },
+    {
+      "line": 1258,
+      "message": "16:04:10   Error Undefined variable in expression: _leader"
+    },
+    {
+      "line": 1262,
+      "message": "16:04:10 Error: Object(2 : 9) not found"
+    },
+    {
+      "line": 1267,
+      "message": "16:04:10 Error: Object(2 : 10) not found"
+    }
+  ],
+  "records": [
+    [
+      "start",
+      "write",
+      "chernarusredux",
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ],
+      [
+        2026,
+        11,
+        15,
+        21,
+        4,
+        14,
+        317
+      ]
+    ],
+    [
+      "check",
+      "background_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "fresh_profile",
+      true,
+      []
+    ],
+    [
+      "check",
+      "campaign_initialized",
+      true,
+      [
+        "completed"
+      ]
+    ],
+    [
+      "check",
+      "infection_selected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_hq_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "redux_parking_slots",
+      true,
+      [
+        [
+          [
+            "outpost_6",
+            1
+          ],
+          [
+            "resource_1",
+            1
+          ],
+          [
+            "resource_2",
+            1
+          ],
+          [
+            "resource_3",
+            1
+          ],
+          [
+            "resource_7",
+            1
+          ],
+          [
+            "resource_10",
+            1
+          ]
+        ]
+      ]
+    ],
+    [
+      "check",
+      "redux_orphan_reconnected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "real_sites_available",
+      true,
+      [
+        49,
+        4
+      ]
+    ],
+    [
+      "check",
+      "dealer_unlocked",
+      true,
+      []
+    ],
+    [
+      "check",
+      "loot_crate_fixture",
+      true,
+      [
+        1,
+        100,
+        1000
+      ]
+    ],
+    [
+      "check",
+      "native_save_completed",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_save_has_campaign",
+      true,
+      [
+        72
+      ]
+    ],
+    [
+      "check",
+      "loot_crate_refund_exact",
+      true,
+      [
+        1100,
+        1100
+      ]
+    ],
+    [
+      "complete",
+      "write",
+      13,
+      []
+    ]
+  ]
+}

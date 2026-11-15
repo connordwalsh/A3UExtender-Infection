@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "scope": "Official Redux mission, native server campaign init/save/load; no connected-player, UI, JIP, combat or long-session acceptance",
+  "phase": "read",
+  "status": "failed",
+  "collected_at_utc": "2026-11-15T21:06:48.863895+00:00",
+  "source_log": "redux-companion-parking-read-dev1.rpt",
+  "source_log_sha256": "091c57f47e23d95d72051ef17bb0f085552888c3407c2e3b342deff466cf66ed",
+  "source_sha256": {
+    "tests/arma/campaign_probe/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "tests/arma/campaign_probe/run.sqf": "82048a25a4756ba0b93f053e25fc3c3bc6b10a7f7376f5322cdd38afd6fa2492",
+    "Tools/dev/collect-campaign.py": "aa55dd4f76241f6d82cbd82977321fc82e2fde2abf573ee4d3053a8cd23d8f3d",
+    "Tools/dev/start-campaign-probe.ps1": "1515bee8adae54a95b5520911e58f476e833a3e84dce0e4a6353da9f627796b8"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "schema_valid": true,
+    "correct_phase_and_terrain": true,
+    "all_expected_checks_once": true,
+    "runtime_checks_pass": true,
+    "completion_matches": true,
+    "no_engine_or_native_errors": false
+  },
+  "failed_checks": [],
+  "malformed_lines": [],
+  "errors": [
+    {
+      "line": 1236,
+      "message": "16:05:34 \"InfectionCampaign_ReduxParking1/BIS_fnc_log: [BIS_fnc_OM_moduleSmartMarkers] Error: SmartMarker system has not been yet initialized.\""
+    },
+    {
+      "line": 1256,
+      "message": "16:05:35 Error in expression <};"
+    },
+    {
+      "line": 1260,
+      "message": "16:05:35   Error Undefined variable in expression: _leader"
+    },
+    {
+      "line": 1264,
+      "message": "16:05:35 Error: Object(2 : 9) not found"
+    },
+    {
+      "line": 1269,
+      "message": "16:05:35 Error: Object(2 : 10) not found"
+    },
+    {
+      "line": 1698,
+      "message": "16:06:45 2026-11-15 21:06:45:244 | Antistasi | Error | File: A3URF_fnc_originalVehiclePrice | Invalid vehicle price :O_Heli_Light_02_dynamicLoadout_F. | Called By: A3A_fnc_vehiclePrice"
+    }
+  ],
+  "records": [
+    [
+      "start",
+      "read",
+      "chernarusredux",
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ],
+      [
+        2026,
+        11,
+        15,
+        21,
+        5,
+        38,
+        931
+      ]
+    ],
+    [
+      "check",
+      "background_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "saved_receipt_present",
+      true,
+      []
+    ],
+    [
+      "check",
+      "campaign_initialized",
+      true,
+      [
+        "completed"
+      ]
+    ],
+    [
+      "check",
+      "infection_selected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_hq_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "redux_parking_slots",
+      true,
+      [
+        [
+          [
+            "outpost_6",
+            1
+          ],
+          [
+            "resource_1",
+            1
+          ],
+          [
+            "resource_2",
+            1
+          ],
+          [
+            "resource_3",
+            1
+          ],
+          [
+            "resource_7",
+            1
+          ],
+          [
+            "resource_10",
+            1
+          ]
+        ]
+      ]
+    ],
+    [
+      "check",
+      "redux_orphan_reconnected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "town_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "admin_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "dealer_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "save_identity_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "saved_crate_resources_restored",
+      true,
+      [
+        1100,
+        1100
+      ]
+    ],
+    [
+      "complete",
+      "read",
+      13,
+      []
+    ]
+  ]
+}
