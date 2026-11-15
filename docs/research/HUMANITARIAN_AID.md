@@ -81,3 +81,32 @@ The fixture uses real packages, native capable-escort queries, nearby actors,
 attachment and ropes, with controlled time/ownership. It does not establish
 player notification, long-duration continuous unloading, connected carrying,
 client locality, task rewards or full mission acceptance. No sprint closes.
+
+## Public mission integration draft: 15 November 2026
+
+The owner selected the town's existing infected population for the unloading
+defense. No additional horde is created. The public controller now connects the
+ledger to bounded HQ package placement, native logistics loading, a SUPP task,
+the normal and legacy menus, mission requests and both native supply endpoints.
+Ordinary campaigns still delegate to Ultimate. Infection keeps execution on the
+server, including scheduler requests that would otherwise select an HC.
+
+The package retains Ultimate's invulnerability and rope support. Native
+AIVEHinit exits before vehicle ownership/resource hooks for this non-crewed
+object. The task has the original 60/30-minute deadline and 180/90-second unload
+duration. A nearby capable escort is required; an empty escort cannot progress.
+Nearby undercover escorts are exposed during distribution. No extra defenders,
+civilians, police or horde are spawned by this mission.
+
+Settlement uses native support, aggression, score and cash functions, with
+once-only settlement before external effects. Capturing the town cancels without
+penalty. Cleanup protects attached, slung, visibly observed and logistics-owned
+packages, including Ultimate's nested Cargo entries and LoadingCargo operation.
+Task metadata has a separate native-length retention interval. A stopped mission
+script does not stop the independent deadline and settlement monitor.
+
+The isolated AidTask suite exercises actual packages, native task bookkeeping,
+support/aggression state and logistics registration, with controlled travel and
+time. Player notifications, connected loading and cash/score delivery remain
+NOT RUN. Engine evidence for this integration is pending; earlier ledger results
+do not certify the new public controller.

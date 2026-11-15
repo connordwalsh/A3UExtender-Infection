@@ -51,6 +51,22 @@ class CfgFunctions
             class findExtractionShelter {};
             class createExtractionSurvivors {};
             class aidPackageEvent {};
+            class aidTargets {};
+            class requestHumanitarianAid {};
+            class dispatchHumanitarianAid {};
+            class labelAidControl {};
+            class aidPackagePositionSafe {};
+            class findAidPackagePosition {};
+            class createAidPackage {};
+            class aidTaskBusy {};
+            class startHumanitarianAid {};
+            class runHumanitarianAid {};
+            class aidTaskOutcome {};
+            class finishHumanitarianAid {};
+            class cleanupHumanitarianAid {};
+            class aidTaskTick {};
+            class aidPackageActions {};
+            class aidProgressHint {};
             class createAidLedger {};
             class updateAidLedger {};
             class releaseAidLedger {};
@@ -200,6 +216,8 @@ class CfgFunctions
             class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
+            class originalSUPPSupplies { file = "\x\a3a\addons\core\functions\Missions\fn_SUPP_Supplies.sqf"; };
+            class originalRIVSUPPSalvage { file = "\x\a3a\addons\core\functions\Missions\fn_RIV_SUPP_Salvage.sqf"; };
             class originalLOGAmmo { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Ammo.sqf"; };
             class originalLOGBank { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Bank.sqf"; };
             class originalLOGSalvage { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Salvage.sqf"; };
@@ -255,6 +273,8 @@ class CfgFunctions
         };
         class Missions
         {
+            class SUPP_Supplies { file = "\x\a3i\addons\core\overrides\fn_SUPP_Supplies.sqf"; };
+            class RIV_SUPP_Salvage { file = "\x\a3i\addons\core\overrides\fn_RIV_SUPP_Salvage.sqf"; };
             class LOG_Ammo { file = "\x\a3i\addons\core\overrides\fn_LOG_Ammo.sqf"; };
             class LOG_Bank { file = "\x\a3i\addons\core\overrides\fn_LOG_Bank.sqf"; };
             class LOG_Salvage { file = "\x\a3i\addons\core\overrides\fn_LOG_Salvage.sqf"; };

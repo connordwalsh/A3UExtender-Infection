@@ -154,3 +154,6 @@ approved delivery destinations.
 15 November Humanitarian Aid: retain Ultimate's unloading phase (180 seconds
 normal, 90 difficult), with no infected within 50 metres. If Rebels or Russian
 forces capture the destination before completion, cancel without a penalty.
+
+15 November Humanitarian Aid defenders: use the town's existing infected
+population. The mission does not launch an additional walking horde.
