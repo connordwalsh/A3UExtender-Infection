@@ -9,6 +9,14 @@ and controller results remain recorded separately. Campaign acceptance is open.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
 
+Latest handoff checkpoint: LiveArrivals Dev1 passes 1013 combined engine checks,
+59 focused offscreen/live arrival checks and 11 actual missing-dependency checks.
+Arrived survivors can be saved offscreen or adopted into active towns/permanent
+sites above their normal capacity without disappearing during horde cleanup.
+Automatic arrival handling, hostile combat and public mission dispatch remain
+unfinished. Stronghold extras and 50-metre interception arrivals are separate
+draft work; no sprint acceptance gate is closed.
+
 14 November amendment: [Mission redesign](MISSION_REDESIGN.md) records the
 owner's six replacement categories for S4-1, S4-2, S4-3 and S5-3. The catalog now
 targets infected exclusively; Destroy/Random are removed and Liquidation
@@ -403,3 +411,34 @@ or sprint gate. Public mission creation/dispatch, active/hostile arrival afterma
 connected players, terrain, full campaign saves and remaining mission families
 are still unfinished. Offscreen arrival transaction work is isolated in PR 32.
 No Computer Use or manual installation/profile changes.
+
+
+Offscreen arrival work: a separate feature branch adds the atomic survivor-roster
+transaction while the parent combined suite remains frozen. It refuses observed
+or live destinations, appends extras above capacity only after physical arrival,
+and prevents duplicate additions/resource refunds. Twenty-three focused cases
+are authored; engine execution awaits the current combined server. Packaging,
+three parser tests and eleven actual missing-dependency checks pass. Public
+calling paths, active adoption and administration arrivals remain unfinished.
+
+
+Offscreen arrival review: all 34 focused engine checks pass, including physical
+arrival guards, observer refusal, an above-capacity permanent garrison, three
+survivors saved after a real casualty, native corpse retention, duplicate
+prevention, resource neutrality and complete cleanup. Eleven actual missing-
+dependency checks and three parser tests pass. No engine/SQF errors; the focused
+run has 16 reviewed startup/dependency warnings. All 161 production inputs and
+the PBO match the tested manifest. Both isolated servers exited. The helper has
+no public caller yet; active/hostile/administration handoff and dispatch remain
+unfinished. Keep PR 32 draft for continued integration. Its full combined run
+is NOT_RUN; the parent candidate's 965-check report is separately identified.
+
+
+Active interception arrivals: 59 focused offscreen/live handoff checks and 11
+actual missing-dependency checks pass without engine/SQF errors. The 162-input
+candidate preserves full shared queues, expands an in-progress town population,
+accepts two arriving groups, retains adopted actors through old-owner cleanup,
+and requires their deaths for clearance. Three parser tests pass. Run full
+combined regression for the budget change. Administration persistence is now
+approved; its extra queue, casualty/replacement accounting and capture guard
+remain to implement. Public arrival ownership and dispatch are still unfinished.

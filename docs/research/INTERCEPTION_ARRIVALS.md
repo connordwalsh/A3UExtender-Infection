@@ -1,9 +1,11 @@
 # Interception arrival implementation
 
-Status: town storage/spawn support passes 88 focused checks and the complete
-965-check combined engine regression on the same immutable candidate.
-The marching-horde handoff, hostile-destination attack and public dispatch remain
-unfinished. No campaign, save-file or connected-client acceptance is claimed.
+Status: town storage/spawn support and offscreen/live handoff helpers pass the
+complete 1013-check combined engine regression on LiveArrivals Dev1. The helper
+fixture passes 59 focused checks. Automatic arrival handling, hostile-destination
+combat and public dispatch remain unfinished. No campaign, save-file or
+connected-client acceptance is claimed. Earlier checkpoints below retain their
+original scope and evidence.
 
 ## Approved policy
 
@@ -67,3 +69,101 @@ normal-garrison behavior on later visits. A live adopted horde must keep its
 separate temporary allowance until its physical actors retire. Hostile arrivals
 must fight/capture under the approved campaign rules, not flip territory merely
 because the task failed. These paths are not implemented by town storage support.
+
+
+## Offscreen arrival transaction (focused validation passed)
+
+`storeInterceptionArrivals` accepts one fully arrived group from the exact settled
+interception owner. It requires an infected-owned town or ordinary permanent
+site, no live site controller, all survivors inside the actual destination marker,
+valid registered roles, a closed dedicated ticket containing exactly that living
+group, and no nearby observers. A busy native garrison defers the transaction.
+It appends survivor roles without applying the normal garrison capacity, changes
+the actors to native garrison accounting, marks the handoff before deletion, and
+releases only their ticket. Native corpses retain their lifetime. Retrying cannot
+append the same survivors again.
+
+The transaction is an internal helper; public mission dispatch and the arrival
+owner do not call it yet. Active-site adoption and administration strongholds
+remain separate work. Administration creators use a separate regenerated roster,
+so the helper refuses those locations rather than saving ignored defenders.
+
+The focused fixture uses real prepared infected, native initialization and budget
+bindings. It tests stale/foreign claims, busy/active/hostile destinations, observers,
+invalid roles and tickets, above-capacity permanent-site additions, a dead member
+excluded from saved town additions, corpse retention, resource neutrality and
+cleanup. No physical walking, campaign save-file or connected-player acceptance
+is implied by placing fixture actors at the destination. All 34 focused engine checks pass, without engine/SQF errors. Packaging and
+three parser tests pass. The actual missing-dependency run passes all eleven
+checks without engine/SQF errors. The focused run has 16 reviewed startup or
+dependency warnings. All 161 production inputs and the PBO match the manifest.
+Both isolated test servers exited. Full combined regression of this additional
+helper is NOT_RUN; the parent candidate passed its 965 combined checks.
+
+Artifact: `@Infection_OffscreenArrivals_Dev1`, SHA-256
+`8dcac9e5c0acee52959d3bc0e17ae7f561714ebf1df683df3148f1cbf5078a51`.
+Reports: `interception-storage-build.json`, `interception-storage-engine.json`
+and `interception-storage-dependencies.json` under `evidence/sprint-4`.
+
+
+## Active-site adoption design review (implemented in the checkpoint below)
+
+The existing paid reinforcement helper cannot be reused unchanged: it enforces
+native spare capacity and only transfers shared tickets. Interception groups
+already own dedicated capacity, and the approved arrivals may exceed the native
+garrison size. Weakening the ordinary helper would also change routine paid
+reinforcements, so that path must retain its current limits.
+
+A live handoff must update saved roles, clearance obligations, site membership
+and budget ownership in one unscheduled transaction. The original horde must
+lose ownership of the transferred actors before its retirement can delete them.
+For towns, existing dedicated ticket ceilings must grow with extraTarget and
+populationTarget; the original spawn queues must not spawn the adopted actors a
+second time. For permanent sites, transferred living groups need a dedicated
+arrival context that cannot reserve new actors or suppress the site's ordinary
+shared queue. Site cleanup can then delete those owned actors and release their
+closed tickets, while healthy saved roles remain for later visits.
+
+Review/test obligations: adoption during a partially filled queue; a full shared
+limit; two simultaneous arrival groups; native garrison mutex contention; owner
+or site replacement; death during a scheduled retry; old horde cleanup after
+transfer; site despawn after transfer; repeated adoption; and clearance after
+all original and extra defenders are defeated. Hostile destinations must remain
+under native combat/capture rules until ownership actually changes. First-entry
+task failure alone never authorizes a territory transfer.
+
+
+## Active town and permanent-site adoption (focused validation passed)
+
+`adoptInterceptionArrivals` validates the exact horde owner, full living group,
+closed dedicated ticket, destination ownership and running site controller.
+It appends native garrison roles and clearance obligations atomically, transfers
+budget responsibility and removes live actors/groups from their old horde owner.
+Native combat AI and the physical actors remain. Administration sites are not yet
+supported by this helper.
+
+A town expands populationTarget and extraTarget, including existing reservation
+ceilings, while preserving its original queue. Permanent-site arrivals receive
+closed `arrival:` contexts that cannot reserve new actors; the normal shared
+queue continues independently. Site cleanup owns both kinds of adopted actors.
+Ordinary paid reinforcements keep their existing capacity limit. A second handoff
+cannot duplicate an already adopted group.
+
+LiveArrivals Dev1 passes all 59 combined offscreen/adoption focused engine checks,
+11 actual missing-dependency checks and three parser tests, without engine/SQF
+errors. All 162 production inputs and the PBO match the manifest. The immutable
+artifact SHA-256 is `b961d085a231a1491fd3cf5060e8f6aed0c3cfffc5505c49079f1f78fd293e7c`.
+Reports are `interception-adoption-build.json`, `interception-adoption-engine.json`
+and `interception-adoption-dependencies.json` under `evidence/sprint-4`.
+The focused run has 17 reviewed warnings (16 startup/dependency and one object-
+deletion notice); the absent run has seven startup warnings. Both servers exited.
+The full combined regression now passes all 1013 checks and 67 role-spawn records,
+without engine/SQF errors. All 162 production inputs and the PBO still match the
+manifest after execution. The 85 reviewed warnings comprise 16 startup/dependency
+notices, 64 object-deletion notices and five absent-fixture-commander notification
+targets. The completed isolated server exited. The report is
+`interception-adoption-combined.json`. Public calling paths, hostile aftermath and
+administration reinforcements remain unfinished in this candidate.
+
+The owner confirmed administration extras should also persist between visits and
+stay dead when killed. Their ordinary per-visit defenders still regenerate.

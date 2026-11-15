@@ -4,10 +4,11 @@
    remaining: [ticket] -> unbound slots after expiry/limit reconciliation
    bind: [ticket, unit] -> 1; close: [ticket] -> unused slots released
    transfer: [closed ticket, context, localLimit=24] -> living units moved
+   handoff: [ticket, interception name, serial, marker, site ID] -> owned arrivals
    cancel: [ticket] -> living units deleted; release: [unit] -> slots released
    stats: [] -> [cap, living, pending, tickets, [[context, occupied], ...]]
    Registered towns and preparing interception hordes own separate allowances.
-   Dedicated allowances cannot be borrowed or transferred to another context.
+   Dedicated allowances move only through a validated interception handoff.
    Every mutation is unscheduled, including calls from scheduled spawn scripts. */
 params [["_operation", "stats", [""]], ["_args", [], [[]]]];
 if (!isServer) exitWith {[false, [], "server_only"]};
@@ -58,6 +59,17 @@ private _interceptionReservations = [];
         };
     };
 } forEach (missionNamespace getVariable ["A3I_interceptions",createHashMap]);
+
+// Adopted permanent-site arrivals keep only their existing physical allowance.
+// These closed contexts can never reserve replacements or consume shared slots.
+{
+    if ((_y # 0) find "arrival:" == 0 && {_y param [7,false]}
+        && {_y # 4} && {_y # 1 == 0}) then {
+        private _living = {alive _x} count (_y # 2);
+        _dedicatedCaps set [_y # 0,_living];
+        _dedicatedAllowance = _dedicatedAllowance + _living;
+    };
+} forEach A3I_budgetRecords;
 
 // Retire dead/null bindings and expired unfilled reservations before granting.
 // A stopped spawn script cannot retain capacity indefinitely. Bound live units
@@ -134,6 +146,7 @@ private _result = switch (_operation) do {
             exitWith {[false, ["",0], "invalid_request"]};
         if (_context find "interception:" == 0 && {!(_context in _interceptionReservations)})
             exitWith {[false,["",0],"interception_closed"]};
+        if (_context find "arrival:" == 0) exitWith {[false,["",0],"arrival_closed"]};
         private _dedicated = _context in _dedicatedCaps;
         private _ceiling = if (_dedicated) then {_dedicatedCaps get _context} else {_contextCap};
         private _limit = _localLimit min _ceiling;
@@ -189,6 +202,48 @@ private _result = switch (_operation) do {
         _unit addEventHandler ["Deleted", {["release", [_this # 0]] call A3I_fnc_budget}];
         [true, 1, ""]
     };
+    case "handoff": {
+        if (isRemoteExecuted) exitWith {[false,0,"server_local_only"]};
+        _args params [["_ticket","",[""]],["_name","",[""]],["_serial",-1,[0]],
+            ["_marker","",[""]],["_siteId",-1,[0]]];
+        private _record = A3I_budgetRecords getOrDefault [_ticket,[]];
+        private _job = (missionNamespace getVariable ["A3I_interceptions",createHashMap])
+            getOrDefault [_name,createHashMap];
+        private _site = (missionNamespace getVariable ["A3I_sites",createHashMap])
+            getOrDefault [_marker,createHashMap];
+        if (_record isEqualTo [] || {!(_record # 4)} || {_record # 1 != 0}
+            || {!(_record param [7,false])} || {_record # 2 isEqualTo []}
+            || {_record # 0 != "interception:" + _name}
+            || {_job getOrDefault ["serial",-1] != _serial}
+            || {_job getOrDefault ["target",""] != _marker}
+            || {_job getOrDefault ["outcome",""] != "arrived"}
+            || {_job getOrDefault ["phase",""] != "arrived"}
+            || {!(_job getOrDefault ["settled",false])} || {_job getOrDefault ["retired",true]})
+            exitWith {[false,0,"invalid_arrival_owner"]};
+        if (!([west] call A3I_fnc_isActive) || {isNil "sidesX"} || {isNil "spawner"}
+            || {sidesX getVariable [_marker,sideUnknown] != west} || {spawner getVariable [_marker,2] != 0}
+            || {_site getOrDefault ["id",-1] != _siteId}
+            || {_site getOrDefault ["context",""] != "site:" + _marker}
+            || {_site getOrDefault ["cleaned",true]} || {_site getOrDefault ["fault","missing"] != ""}
+            || {scriptDone (_site getOrDefault ["script",scriptNull])}
+            || {!(_site getOrDefault ["kind",""] in ["City","Resource","Outpost","Milbase","Airport"])})
+            exitWith {[false,0,"invalid_arrival_site"]};
+        private _count = count (_record # 2);
+        if (_site get "kind" == "City") then {
+            private _context = _site get "context";
+            if (!(_context in _dedicatedCaps)) exitWith {[false,0,"invalid_city_allowance"]};
+            private _target = (_site get "populationTarget") + _count;
+            _site set ["populationTarget",_target];
+            _site set ["extraTarget",(_site getOrDefault ["extraTarget",0]) + _count];
+            // Existing town reservations must still finish their original queue.
+            {if (_y # 0 == _context) then {_y set [5,_target]}} forEach A3I_budgetRecords;
+            _record set [0,_context]; _record set [5,_target];
+            [true,_count,""]
+        } else {
+            _record set [0,"arrival:" + _ticket]; _record set [5,_count];
+            [true,_count,""]
+        }
+    };
     case "transfer": {
         private _ticket = _args param [0, ""];
         private _context = _args param [1, ""];
@@ -200,6 +255,7 @@ private _result = switch (_operation) do {
         private _record = A3I_budgetRecords getOrDefault [_ticket,[]];
         if (_record isEqualTo []) exitWith {[false,0,"unknown_ticket"]};
         if (!(_record # 4) || {_record # 1 != 0}) exitWith {[false,0,"ticket_not_closed"]};
+        if (_context find "arrival:" == 0) exitWith {[false,0,"arrival_closed"]};
         if (_record # 0 == _context) exitWith {[true,0,"already_transferred"]};
         // Dedicated populations cannot turn their allowance into shared capacity
         // or receive outside actors. Interception arrival needs an explicit
