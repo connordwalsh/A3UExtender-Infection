@@ -572,3 +572,13 @@ versus destruction timing. Both increments pass actual missing-dependency and
 parser/build checks. Their reports retain precise build identities and rejected
 historical evidence. Public Extraction and Aid tasks, interactions and rewards
 remain unfinished; Extraction's post-rescue disposition awaits owner input.
+
+## Elimination controller checkpoint: 15 November 2026
+
+The public Elimination draft names the primary type in a static search area,
+uses other approved special types among its basic/special escort, and keeps the
+hunt active across settlement capture. Dev2 passes 40 lifecycle and 11 actual
+missing-dependency checks; Dev1 passed 38 public-dispatch checks. All 236 Dev2
+production inputs match the packaged artifact. Combined integration, connected
+combat/rewards, terrain, HC/JIP and performance remain open. No sprint acceptance
+gate is closed and the manual installation remains unchanged.

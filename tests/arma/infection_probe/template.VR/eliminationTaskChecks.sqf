@@ -90,8 +90,9 @@ _target setDamage 1;
 [{(A3A_townData get _site) # 3 == 30}] call _wait;
 ["etask_native_rewards",server getVariable "resourcesFIA" == 2000 && {server getVariable "hr" == 10}
     && {(A3A_townData get _site) # 3 == 30}] call _check;
+private _supportBefore = +A3I_test_support;
 [_job] call A3I_fnc_finishElimination; sleep 0.2;
-["etask_rewards_once",server getVariable "resourcesFIA" == 2000 && {count A3I_test_support == 1}] call _check;
+["etask_rewards_once",server getVariable "resourcesFIA" == 2000 && {A3I_test_support isEqualTo _supportBefore}] call _check;
 ["etask_marker_and_ledger_retired",!(_search in allMapMarkers) && {count A3I_eliminationLedgers == 0}] call _check;
 ["etask_native_task_retention",_job get "taskDeleteAt" > time+590 && {_job get "taskDeleteAt" <= time+1800}
     && {call A3I_fnc_eliminationTaskBusy}] call _check;
@@ -99,26 +100,26 @@ _target setDamage 1;
 petros setPosATL [3000,4000,0]; [_job] call _retire;
 ["etask_unobserved_retirement",count A3I_eliminationTasks == 0 && {(call _stats) select [1,2] isEqualTo [0,0]}] call _check;
 tierWar = 10; _made = ["Zombie_Special_BLUFOR_Leaper_2"] call _start; _job = _made # 1;
-["etask_hard_roster_and_deadline",_made # 0 && {count (_job get "units") == 11} && {_job get "duration" == 1800}] call _check;
+["etask_hard_roster_and_deadline",_made # 0 && {count (_job get "units") == 11} && {_job get "duration" == 1800},[_made # 0,_job get "phase",_job get "fault",count (_job get "units"),_job get "duration",_job get "outcome"]] call _check;
 ((_job get "ledger") get "unit") setDamage 1;
 [{_job get "settled" && {server getVariable "resourcesFIA" == 4000}}] call _wait;
 [{(A3A_townData get _site) # 3 == 50}] call _wait;
 ["etask_hard_rewards",_job get "outcome" == "neutralized" && {server getVariable "resourcesFIA" == 4000}
-    && {(A3A_townData get _site) # 3 == 50}] call _check;
+    && {(A3A_townData get _site) # 3 == 50},[_job get "outcome",server getVariable "resourcesFIA",A3A_townData get _site]] call _check;
 [_job] call _retire; tierWar = 0;
 _made = [] call _start; _job = _made # 1;
 (_job get "ledger") set ["deadline",time-1];
 [{_job get "settled" && {([_job] call _state) == "FAILED"}}] call _wait;
 ["etask_timeout_fails",_job get "outcome" == "failed" && {[_job] call _state == "FAILED"}
     && {server getVariable "resourcesFIA" == 4000} && {sidesX getVariable _site == west}
-    && {!(_site in destroyedSites)}] call _check;
+    && {!(_site in destroyedSites)},[_job get "outcome",[_job] call _state,server getVariable "resourcesFIA"]] call _check;
 [_job] call _retire;
 _made = [] call _start; _job = _made # 1;
 deleteVehicle ((_job get "ledger") get "unit");
 [{_job get "settled"}] call _wait;
 ["etask_live_deletion_cancelled",_job get "outcome" == "interrupted"
     && {[_job get "name"] call BIS_fnc_taskState == "CANCELED"}
-    && {server getVariable "resourcesFIA" == 4000}] call _check;
+    && {server getVariable "resourcesFIA" == 4000},[_job get "outcome",[_job get "name"] call BIS_fnc_taskState,server getVariable "resourcesFIA"]] call _check;
 [_job] call _retire;
 _made = [] call _start; _job = _made # 1;
 private _foreign = (_job get "units") # 1;
@@ -138,6 +139,26 @@ private _rollback = [_site,"Zombie_Special_BLUFOR_Screamer",{false}] call A3I_fn
 sleep 0.5;
 ["etask_registration_rollback",!(_rollback # 0) && {_rollback # 2 == "registration_failed"}
     && {(call _stats) select [1,2] isEqualTo [0,0]}] call _check;
+// Repeated full high-war rosters exercise the boundary margin with every target.
+tierWar = 10;
+{
+    private _made = [_x] call _start; private _job = _made # 1;
+    ["etask_high_repeat_"+_x,_made # 0 && {_job get "phase" == "active"}
+        && {count (_job get "units") == 11},[_job get "phase",_job get "fault",count (_job get "units")]] call _check;
+    [_job] call _retire;
+} forEach (call A3I_fnc_eliminationClasses);
+tierWar = 0;
+_made = [] call _start; _job = _made # 1;
+private _oldLedger = _job get "ledger";
+_target = _oldLedger get "unit";
+[_oldLedger get "name",_oldLedger get "serial"] call A3I_fnc_releaseEliminationLedger;
+private _newLedger = ["foreign_elimination",_target,time+3600] call A3I_fnc_createEliminationLedger;
+[_job] call _retire;
+["etask_new_ledger_owner_preserved",alive _target && {count _newLedger > 0}
+    && {(_target getVariable ["A3I_eliminationOwner",[]]) isEqualTo [_newLedger get "name",_newLedger get "serial"]}
+    && {isNil {_target getVariable "A3I_eliminationTaskOwner"}}] call _check;
+[_newLedger get "name",_newLedger get "serial"] call A3I_fnc_releaseEliminationLedger;
+deleteVehicle _target; sleep 0.3;
 A3I_test_eliminationNative = false;
 ["A3I_activeLimit",_savedCap,2,"server",false] call CBA_settings_fnc_set;
 ["A3I_contextLimit",_savedContext,2,"server",false] call CBA_settings_fnc_set;

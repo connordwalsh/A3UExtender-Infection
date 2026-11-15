@@ -27,10 +27,13 @@ if !(_hqMarker in allMapMarkers) exitWith {[false,_empty,"hq_unavailable"]};
 private _center = getMarkerPos _marker;
 private _radius = if (_marker in (missionNamespace getVariable ["milAdministrationsX",[]])) then {40}
     else {((markerSize _marker # 0) min (markerSize _marker # 1)) min 100};
+// Leave room around the primary for its whole escort. A primary at the boundary
+// otherwise consumes most placement attempts on candidates outside the site.
+private _escortRadius = 25 min (_radius / 2);
 private _positions = []; private _reason = "no_safe_position";
 {
     private _anchor = if (_positions isEqualTo []) then {_center} else {_positions # 0};
-    private _maximum = if (_positions isEqualTo []) then {_radius} else {25 min _radius};
+    private _maximum = if (_positions isEqualTo []) then {_radius - _escortRadius} else {_escortRadius};
     private _position = [];
     for "_attempt" from 1 to 8 do {
         private _search = [_anchor,0,_maximum,_x] call A3I_fnc_findSpawnPosition;

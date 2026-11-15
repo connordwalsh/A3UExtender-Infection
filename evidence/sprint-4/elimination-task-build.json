@@ -3,9 +3,9 @@
   "product": "Antistasi Ultimate: Infection",
   "version": "0.1.0-dev",
   "scope": "Development prototype; isolated contracts cover infected sites, responses, strategic hordes and Liquidation assignments. Remaining mission adapters, connected players, terrain, special creatures, vehicles, saves and full campaign acceptance remain incomplete.",
-  "built_at_utc": "2026-11-15T07:16:29.3231010Z",
+  "built_at_utc": "2026-11-15T07:24:38.7993233Z",
   "prefix": "x\\a3i\\addons\\core",
-  "addon_sha256": "c18caf09f2486e2609c8ad2d1bb257d5b5ee50fa469ac53b91fb44a536ef6489",
+  "addon_sha256": "ca5fa6c4bdf3586cb43f36c65846343b19d9a6b7d6ca1a8e4c319593e98ffa4b",
   "source": [
     {
       "path": "Infection/addons/core/config.cpp",
@@ -73,7 +73,7 @@
     },
     {
       "path": "Infection/addons/core/functions/fn_cleanupElimination.sqf",
-      "sha256": "dc75e020c6e6cf54dd928b19df31e4e50b5fdc2a85bf876efaaa1c49fc6d4858"
+      "sha256": "23f7711d0bce5bc2563690f0aca2820dc2abc70f3c9bf5f59ef90c05a0f1d228"
     },
     {
       "path": "Infection/addons/core/functions/fn_cleanupGroups.sqf",
@@ -609,7 +609,7 @@
     },
     {
       "path": "Infection/addons/core/functions/fn_spawnEliminationScene.sqf",
-      "sha256": "b2a53743cecc6871a42e3ca30cc5409950fec47fa27a0932961b6a34c3362eb1"
+      "sha256": "46874702dd5100fbbf9779299791e1f76cd3f7931016021afa78644f49dd605c"
     },
     {
       "path": "Infection/addons/core/functions/fn_spawnGroup.sqf",

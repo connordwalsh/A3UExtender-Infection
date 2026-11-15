@@ -21,6 +21,15 @@ if !(_record get "assetRetired") then {
     {
         if (isNull _x || {!((_x getVariable ["A3I_eliminationTaskOwner",[]])
             isEqualTo [_name,_record get "serial"])}) then {continue};
+        // A new ledger owner may have claimed the primary after releasing the
+        // previous ledger. Do not delete that actor using our older task tag.
+        private _ledgerOwner = _x getVariable ["A3I_eliminationOwner",[]];
+        private _ledger = _record get "ledger";
+        if (_ledgerOwner isNotEqualTo [] && {!(_ledgerOwner isEqualTo
+            [_ledger getOrDefault ["name",""],_ledger getOrDefault ["serial",-1]])}) then {
+            _x setVariable ["A3I_eliminationTaskOwner",nil];
+            continue;
+        };
         private _unit = _x;
         private _inUse = isPlayer _unit || {!local _unit} || {!isNull attachedTo _unit}
             || {(_observers findIf {_x distance2D _unit <

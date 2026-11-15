@@ -90,3 +90,28 @@ an array; the corrected assertion formats that field. Neither correction changes
 production source. Public dispatch, actual absent dependencies, cleanup, combined
 regression and connected gameplay remain to be verified. No Computer Use or
 manual-install changes.
+
+Dev1's corrected lifecycle run passes 36 checks and the public-dispatch suite
+passes 38 with no engine/SQF errors. An earlier completed run remains rejected:
+its reward assertion counted native per-death support calls as mission rewards,
+and its high-war scene was unavailable (the fixture did not retain the reason).
+The corrected reward assertion compares the callback list before and after a
+repeat settlement. Later checks carry explicit phase, fault, count and outcome
+details. That historical placement failure is not claimed conclusively diagnosed.
+
+Dev2 reserves a margin around the primary spawn for its escort circle, avoiding
+repeated boundary rejection when the primary lies at the site's edge. It also
+preserves an actor that another elimination ledger has claimed, even when the
+older task tag remains. Added checks exercise eleven-actor groups with each of
+the three target classes and transfer the primary to an actual second ledger.
+Validation of Dev2 and integration with Humanitarian Aid are in progress.
+
+Dev2 passes all 40 focused lifecycle checks, including actual eleven-actor
+Screamer, Boomer and Leaper 2 groups and protection of a primary reassigned to a
+second ledger. All 11 actual missing-dependency checks and three parser tests
+pass. No engine/SQF errors. Its 18 reviewed notices comprise 16 startup baseline
+notices and two native resource-notification calls to the fixture's null
+commander; client notifications/rewards are not certified. All 236 production
+inputs and the PBO match the manifest. Both completed Dev2 test servers exited.
+SHA-256: ca5fa6c4bdf3586cb43f36c65846343b19d9a6b7d6ca1a8e4c319593e98ffa4b.
+Combined regression and connected acceptance remain open.
