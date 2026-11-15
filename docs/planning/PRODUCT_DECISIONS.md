@@ -154,3 +154,13 @@ approved delivery destinations.
 15 November Humanitarian Aid: retain Ultimate's unloading phase (180 seconds
 normal, 90 difficult), with no infected within 50 metres. If Rebels or Russian
 forces capture the destination before completion, cancel without a penalty.
+
+15 November Elimination initial roster: the owner approved Screamer, Boomer and
+Leaper 2 while the larger creatures' observed model/lifecycle errors are investigated.
+This approval does not certify those three for full campaign gameplay; target
+tracking, spawn policy, missions and connected combat acceptance remain required.
+
+15 November Elimination locations and escorts: use infected-held towns and
+permanent sites, and add a group accompanying the special target. The owner amended the proposed basic-only escort to include both basic and
+minor special infected; use the approved initial special roster and tune the mix
+within the shared limit.

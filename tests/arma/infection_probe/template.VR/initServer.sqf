@@ -51,13 +51,14 @@ if (!isServer) exitWith {};
         call A3A_fnc_compatibilityLoadFaction;
     ["active_only_for_occupants", [west] call A3I_fnc_isActive && {!([east] call A3I_fnc_isActive)}
         && {!([independent] call A3I_fnc_isActive)} && {!([civilian] call A3I_fnc_isActive)}] call _check;
-    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch","interception","interceptionformation","formationregression","interceptiontask","interceptionstorage","interceptionarrivals","administrationextras","interceptionaftermath","interceptiondispatch","delivery","extractionledger","aidledger","extractionscenes","supplytrucks","supplytask","supplydispatch","backgroundconvoys"]) exitWith {
+    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch","interception","interceptionformation","formationregression","interceptiontask","interceptionstorage","interceptionarrivals","administrationextras","interceptionaftermath","interceptiondispatch","delivery","extractionledger","aidledger","eliminationledger","extractionscenes","supplytrucks","supplytask","supplydispatch","backgroundconvoys"]) exitWith {
         private _suitePath = switch (_suite) do {
             case "backgroundconvoys": {"backgroundConvoyChecks.sqf"};
             case "supplydispatch": {"supplyDispatchChecks.sqf"};
             case "supplytask": {"supplyTaskChecks.sqf"};
             case "supplytrucks": {"supplyTruckChecks.sqf"};
             case "extractionscenes": {"extractionSceneChecks.sqf"};
+            case "eliminationledger": {"eliminationLedgerChecks.sqf"};
             case "aidledger": {"aidLedgerChecks.sqf"};
             case "extractionledger": {"extractionLedgerChecks.sqf"};
             case "delivery": {"deliveryChecks.sqf"};
@@ -184,6 +185,7 @@ if (!isServer) exitWith {};
     call compile preprocessFileLineNumbers "deliveryChecks.sqf";
     call compile preprocessFileLineNumbers "extractionLedgerChecks.sqf";
     call compile preprocessFileLineNumbers "aidLedgerChecks.sqf";
+    call compile preprocessFileLineNumbers "eliminationLedgerChecks.sqf";
     call compile preprocessFileLineNumbers "extractionSceneChecks.sqf";
     call compile preprocessFileLineNumbers "supplyTruckChecks.sqf";
     call compile preprocessFileLineNumbers "supplyTaskChecks.sqf";

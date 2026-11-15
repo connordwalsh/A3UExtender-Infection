@@ -50,6 +50,11 @@ class CfgFunctions
             class extractionTargets {};
             class findExtractionShelter {};
             class createExtractionSurvivors {};
+            class eliminationClasses {};
+            class createEliminationLedger {};
+            class eliminationTargetEvent {};
+            class updateEliminationLedger {};
+            class releaseEliminationLedger {};
             class aidPackageEvent {};
             class createAidLedger {};
             class updateAidLedger {};
