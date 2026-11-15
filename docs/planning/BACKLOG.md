@@ -442,3 +442,11 @@ and requires their deaths for clearance. Three parser tests pass. Run full
 combined regression for the budget change. Administration persistence is now
 approved; its extra queue, casualty/replacement accounting and capture guard
 remain to implement. Public arrival ownership and dispatch are still unfinished.
+
+Special lifecycle diagnostic completed all 56 trials with valid setup/locality
+and complete cleanup. The report remains FAILED: 936 model/attachment errors
+across Corrupted, Smasher, Acid Smasher, Hellbeast and Goliath, plus Corrupted's
+observed live-body deletion during possession without Killed. The victim became
+WEST/native-infected. Boomer instead died before delayed corpse deletion. All
+fixture/source hashes match and the server exited. No production specials are
+enabled. See SPECIAL_LIFECYCLE.md and the retained failed engine report.

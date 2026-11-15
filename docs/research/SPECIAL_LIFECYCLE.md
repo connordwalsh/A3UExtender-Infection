@@ -1,7 +1,9 @@
 # Special infected lifecycle diagnostic
 
-Status: fixture packages and six parser/classification tests pass; expanded runtime
-validation pending. No special is enabled in production.
+Status: all 56 trials completed and cleanup passed, but the runtime report is
+FAILED. It records 936 model/attachment errors across five special classes and
+one genuine live-body removal without a Killed event. Packaging and six parser/
+classification tests pass. No special is enabled in production.
 This work follows the unresolved seven ownership/deletion assertions in the
 112-trial prepared-class behavior study, not a decision to accept those classes.
 
@@ -38,7 +40,32 @@ and deletes the original actor; `WBK_Zombies/ai/wbk_ai_zombieexplosion.sqf` inst
 kills the Boomer before delayed corpse deletion. Their hashes are recorded in
 `special-lifecycle-native-sources.json` under `evidence/sprint-5`.
 
-Next: execute all 56 trials, review death/deletion order and surviving
-objects, then determine which native lifecycle can support an Elimination Task.
+## Completed observations
+
+The frozen 56-trial fixture and all recorded source hashes match after execution;
+the isolated server exited. `special-lifecycle-engine.json` retains the failed
+report with every observation and error. All 56 trials began, produced valid
+subjects, sampled, ended and cleaned up exactly once. Existing actors remained
+server-local. Every forced-death trial recorded Killed; every living-deletion
+control remained ineligible for kill credit.
+
+Corrupted close-passive possession deleted the original living body at 14.681
+seconds without Killed. At 15.13 seconds the original INDEP victim was observed
+on WEST with the native zombie flag. The failed death-evidence assertion is a
+real lifecycle finding, not a reason to relax kill credit. An eventual adapter
+must track the continuing possessed threat, or leave Corrupted unavailable.
+Boomer close-passive instead recorded Killed before delayed Deleted, which can
+support a durable death ledger even after native corpse cleanup.
+
+Error counts are Corrupted 218, Smasher 290, Acid Smasher 119, Hellbeast 119 and
+Goliath 190. Keep these classes unaccepted pending model/attachment investigation.
+Leaper 2, Screamer and Boomer recorded actual rifle-combat deaths without these
+error records; Leaper 1 remained alive during this run's short rifle window.
+Surviving a short window is not an invulnerability finding or balance approval.
+Basic-class controls recorded rifle deaths. None of this establishes visual
+quality, player credit, special-objective tracking or release readiness.
+
+Next: implement explicit mission death tracking for validated native lifecycles
+and resolve the five classes' errors before enabling those classes.
 Visual model quality, terrain movement, player combat, headless transfer, JIP,
 special mission balancing and campaign integration remain separate work.
