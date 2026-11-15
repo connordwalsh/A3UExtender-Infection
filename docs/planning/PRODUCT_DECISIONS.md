@@ -143,3 +143,10 @@ permanent sites can contain any of the approved ammunition, fuel and repair
 trucks. If the truck's permanent source site becomes Rebel-held while the truck
 is still inside its boundary, complete recovery there. Driving to a different
 friendly site is not required.
+
+15 November Extraction sources and group size: use infected-held towns, military
+bases, outposts and airfields, preserving Ultimate's usual source categories.
+Place 2-6 stranded survivors, choosing a number that fits the available shelter.
+Factories, resource sites, seaports, road controls and administration strongholds
+are not sources for these requested missions. This does not change the broader
+approved delivery destinations.
