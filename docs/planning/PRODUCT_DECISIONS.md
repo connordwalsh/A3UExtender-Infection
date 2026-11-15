@@ -170,3 +170,9 @@ type. Escort special infected must use types other than the primary target.
 The marked area is the reported spawn area; it does not track the creature.
 15 November Humanitarian Aid defenders: use the town's existing infected
 population. The mission does not launch an additional walking horde.
+
+15 November abandoned vehicles: follow Ultimate's default regeneration and
+persistence rules. The abandoned civilian/police/light military mix appears only
+in infected-held towns, and taking it is free salvage without a civilian-theft
+penalty. These decisions do not change ordinary vehicles in other towns.
+Counts, mix and initial fuel/damage tuning await the owner's answer.
