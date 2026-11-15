@@ -168,3 +168,5 @@ within the shared limit.
 15 November Elimination identification: mark a search area and name the target
 type. Escort special infected must use types other than the primary target.
 The marked area is the reported spawn area; it does not track the creature.
+15 November Humanitarian Aid defenders: use the town's existing infected
+population. The mission does not launch an additional walking horde.

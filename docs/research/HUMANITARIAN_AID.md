@@ -17,7 +17,8 @@ fn_RIV_SUPP_Salvage.sqf; CREATE/fn_AIVEHinit.sqf.
   therefore need guarded Infection behavior, preserving ordinary campaigns.
 - Native normal/difficult deadlines are 60/30 minutes. It creates an invulnerable
   Land_FoodSacks_01_cargo_brown_F package near HQ, adds native loading and rope
-  support, and initializes it as Rebel-owned. This is a delivery package, not
+  support, and passes teamPlayer to AIVEHinit. That function returns before its
+  ownership/resource hooks for this non-crewed object. This is a delivery package, not
   the recoverable truck used by Supplies Seizure.
 - Native placement uses findEmptyPosition without a checked empty-result branch.
   The replacement needs bounded, collision-checked HQ placement and rollback.
@@ -81,3 +82,91 @@ The fixture uses real packages, native capable-escort queries, nearby actors,
 attachment and ropes, with controlled time/ownership. It does not establish
 player notification, long-duration continuous unloading, connected carrying,
 client locality, task rewards or full mission acceptance. No sprint closes.
+
+## Public mission integration draft: 15 November 2026
+
+The owner selected the town's existing infected population for the unloading
+defense. No additional horde is created. The public controller now connects the
+ledger to bounded HQ package placement, native logistics loading, a SUPP task,
+the normal and legacy menus, mission requests and both native supply endpoints.
+Ordinary campaigns still delegate to Ultimate. Infection keeps execution on the
+server, including scheduler requests that would otherwise select an HC.
+
+The package retains Ultimate's invulnerability and rope support. Native
+AIVEHinit exits before vehicle ownership/resource hooks for this non-crewed
+object. The task has the original 60/30-minute deadline and 180/90-second unload
+duration. A nearby capable escort is required; an empty escort cannot progress.
+Nearby undercover escorts are exposed during distribution. No extra defenders,
+civilians, police or horde are spawned by this mission.
+
+Settlement uses native support, aggression, score and cash functions, with
+once-only settlement before external effects. Capturing the town cancels without
+penalty. Cleanup protects attached, slung, visibly observed and logistics-owned
+packages, including Ultimate's nested Cargo entries and LoadingCargo operation.
+Task metadata has a separate native-length retention interval. A stopped mission
+script does not stop the independent deadline and settlement monitor.
+
+The isolated AidTask suite exercises actual packages, native task bookkeeping,
+support/aggression state and logistics registration, with controlled travel and
+time. Player notifications, connected loading and cash/score delivery remain
+NOT RUN. Engine evidence for this integration is pending; earlier ledger results
+do not certify the new public controller.
+
+
+## Focused controller evidence
+
+AidTask Dev2 passes 50 focused engine checks, 11 actual missing-dependency
+checks and three parser tests, with no engine/SQF errors. Sixteen focused and
+seven missing-dependency startup notices match the reviewed dependency baseline.
+All 229 production inputs and the PBO match the manifest after execution.
+SHA-256: `7b9a870e341ccfccd47d908359f9d51fe8bdd817e595a9cee3b859b46ac3d2d3`.
+Both completed servers exited before the combined run started.
+
+The rejected initial report is retained: its 48 assertions passed, but the
+fixture had not initialized the marker-update log used by native support changes.
+The corrected fixture initializes that state. Two added checks verify foreign
+asset preservation and that unexplained package deletion cancels without penalty.
+Cleanup now preserves the object-derived native logistics JIP action when an
+existing package has been reassigned. This is server-side preservation evidence,
+not connected JIP acceptance. The combined regression is still running.
+
+
+## Dev3 review and combined-run correction
+
+Dev3 corrects progress-message retirement when another notification covers the
+Aid timer: it removes only the matching Aid queue entry, preserving unrelated
+messages. Client rendering remains NOT RUN. The Dev3 dependency-absence run
+passes all 11 checks. Its first full run completed 1317 checks and 67 role records
+with no engine/SQF errors, but is REJECTED for one fixture assertion:
+`atask_unobserved_package_retired`. All other 1316 assertions passed. The report
+retains 16 startup notices, 72 object-deletion notices and eight null-target
+notifications from fixtures without a commander.
+
+The fixture previously checked isNull immediately after registry retirement,
+although cleanup retires the record after submitting deleteVehicle and the
+engine can retain the reference until a later frame. It now waits up to two
+seconds for the actual deletion and reports task/asset/registry state. All 50
+focused checks pass on the unchanged Dev3 production build after that correction.
+A new combined run will include the separately reviewed Elimination prerequisites;
+there is not yet an accepted clean combined Aid report. Historical Dev2 engine,
+build and absence reports and the interrupted Dev2 full run remain preserved.
+
+## Dev4 integrated regression
+
+AidTask Dev4 includes the merged Elimination ledger/scene prerequisites and
+completes 1371 checks plus 67 role records. It is REJECTED for two Aid-ledger
+fixture assertions: outside-dropoff pause and stalled-sample accounting. All
+other 1369 checks pass, with no engine/SQF errors. All 237 source inputs and the
+PBO still match the build manifest; the report remains committed. The Dev4
+actual missing-dependency run passes all 11 checks.
+
+The normal unloading fixture used manually injected one-second samples while
+the production per-frame handler remained active between scheduled statements.
+A real timer tick could advance the valid in-town sample before the later
+outside-dropoff assertion compared it with an older progress value. The normal
+sample sequence is now one unscheduled block, with explicit position/eligibility
+details. Its separate independent-deadline test continues to exercise the real
+handler. The gameplay ledger is unchanged. Focused verification is running;
+combined acceptance is still pending.
+
+The corrected fixture passes all 37 focused checks on unchanged Dev4, with no engine/SQF errors and 16 startup notices. The completed focused server exited. Dev4 full notices comprise 16 startup, 74 object-deletion and eight null-commander notifications. The next full run will combine this fixture correction with the public Elimination controller; both remain drafts pending that result.

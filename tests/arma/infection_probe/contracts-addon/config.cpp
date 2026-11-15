@@ -77,6 +77,8 @@ class CfgFunctions
             class originalASZombies { file = "\x\a3i\tests\contracts\fn_originalASZombies.sqf"; };
             class originalRIVASTraitor { file = "\x\a3i\tests\contracts\fn_originalRIVASTraitor.sqf"; };
             class testEliminationNativeSupport { file = "\x\a3a\addons\core\functions\Base\fn_citySupportChange.sqf"; };
+            class originalSUPPSupplies { file = "\x\a3i\tests\contracts\fn_originalSUPPSupplies.sqf"; };
+            class originalRIVSUPPSalvage { file = "\x\a3i\tests\contracts\fn_originalRIVSUPPSalvage.sqf"; };
             class originalLOGAmmo { file = "\x\a3i\tests\contracts\fn_originalLOGAmmo.sqf"; };
             class originalLOGBank { file = "\x\a3i\tests\contracts\fn_originalLOGBank.sqf"; };
             class originalLOGSalvage { file = "\x\a3i\tests\contracts\fn_originalLOGSalvage.sqf"; };
@@ -113,6 +115,9 @@ class CfgFunctions
         };
         class TestOriginals
         {
+            class testNativeCitySupportChange { file = "\x\a3a\addons\core\functions\Base\fn_citySupportChange.sqf"; };
+            class testNativeAddAggression { file = "\x\a3a\addons\core\functions\Base\fn_addAggression.sqf"; };
+            class testNativeAddLoadAction { file = "\x\a3a\addons\logistics\Public\fn_addLoadAction.sqf"; };
             class testNativeFinishInterception { file = "\x\a3i\addons\core\functions\fn_finishInterception.sqf"; };
             class testNativeInterceptionTaskOutcome { file = "\x\a3i\addons\core\functions\fn_interceptionTaskOutcome.sqf"; };
             class testNativeLiquidationMarkerChange { file = "\x\a3i\addons\core\functions\fn_liquidationMarkerChange.sqf"; };

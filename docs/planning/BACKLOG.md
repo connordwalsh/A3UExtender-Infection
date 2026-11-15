@@ -9,14 +9,14 @@ and controller results remain recorded separately. Campaign acceptance is open.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
 
-Latest integration checkpoint: Horde Interception, including administration
-extras, automatic arrival aftermath and public dispatch, is merged through
-PR 35 after 1089 combined checks and 67 role-spawn records passed. Friendly
-delivery destinations (PR 37) pass 36 focused checks; Extraction's internal
-all-survivors-or-deadline ledger (PR 38) passes 42. Both also pass 11 actual
-missing-dependency checks. Public Extraction tasks/rewards remain unfinished.
-The separate 56-trial special lifecycle diagnostic completed but remains FAILED
-with model errors and Corrupted possession requiring explicit threat tracking.
+Latest integration checkpoint: merged PR 40 covers Supplies Seizure after 1228
+combined checks and 67 role-spawn records; PR 41 adds Extraction scenes (35 focused
+checks); PR 42 adds the Humanitarian Aid unloading ledger (37). All pass their
+actual missing-dependency checks. Humanitarian Aid's public controller in PR 43
+passes 50 focused checks, with combined regression in progress. Public Extraction
+and Elimination remain unfinished. Extraction's post-rescue disposition is still
+awaiting owner input. The separate 56-trial special lifecycle diagnostic remains
+FAILED with model errors and Corrupted possession requiring explicit tracking.
 No sprint acceptance gate is closed. The manual Dev9 installation is unchanged.
 
 14 November amendment: [Mission redesign](MISSION_REDESIGN.md) records the

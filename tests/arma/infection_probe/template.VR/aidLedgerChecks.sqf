@@ -27,6 +27,11 @@ private _advance = {
     isNil {_r set ["lastCheck",time-1]; [_r] call A3I_fnc_updateAidLedger};
 };
 private _r = ["normal"] call _new; private _package = _r get "package";
+private _anchor = objNull;
+// These injected one-second samples form one deterministic scenario. Keep the
+// production PFH from adding real elapsed time between a sample and its check.
+// The independent-deadline case below still tests the live PFH separately.
+isNil {
 ["aid_normal_duration",_r get "requiredSeconds" == 180] call _check;
 ["aid_duplicate_actor_refused",count (["duplicate",_town,_package,time+3600] call A3I_fnc_createAidLedger) == 0] call _check;
 _escort setVariable ["spawner",false];
@@ -44,20 +49,21 @@ _escort setVariable ["incapacitated",false]; [_r] call _advance;
 _enemy setPosATL [4510,4510,0]; [_r] call _advance;
 ["aid_near_infected_pauses",_r get "unloadedSeconds" == _progress] call _check;
 _enemy setPosATL [4700,4500,0]; [_r] call _advance;
-private _anchor = createVehicle ["Land_Can_V3_F",[4500,4500,0],[],0,"CAN_COLLIDE"];
+_anchor = createVehicle ["Land_Can_V3_F",[4500,4500,0],[],0,"CAN_COLLIDE"];
 _package attachTo [_anchor,[0,0,0.5]]; [_r] call _advance;
 ["aid_attached_package_pauses",_r get "unloadedSeconds" == _progress] call _check;
 detach _package; _package setPosATL [4500,4500,0]; [_r] call _advance;
 _package setPosATL [4550,4500,0]; [_r] call _advance;
-["aid_outside_dropoff_pauses",_r get "unloadedSeconds" == _progress] call _check;
+["aid_outside_dropoff_pauses",_package distance getMarkerPos _town >= 40 && {_r get "unloadedSeconds" == _progress},[_progress,_r get "unloadedSeconds",getPosATL _package,_r get "wasEligible"]] call _check;
 _package setPosATL [4500,4500,0]; [_r] call _advance;
 isNil {_r set ["lastCheck",time-600]; [_r] call A3I_fnc_updateAidLedger};
-["aid_stall_does_not_skip_unloading",_r get "unloadedSeconds" <= _progress+1] call _check;
+["aid_stall_does_not_skip_unloading",_r get "unloadedSeconds" <= _progress+1,[_progress,_r get "unloadedSeconds",_r get "wasEligible"]] call _check;
 isNil {_r set ["unloadedSeconds",179]; _r set ["wasEligible",true]; [_r] call _advance};
 ["aid_normal_finishes_after_unloading",_r get "outcome" == "delivered" && {_r get "unloadedSeconds" == 180}] call _check;
 _r set ["deadline",time-1]; sidesX setVariable [_town,east]; [_r] call _advance;
 ["aid_terminal_result_frozen",_r get "outcome" == "delivered"] call _check;
 [_r] call _release; sidesX setVariable [_town,west];
+};
 _r = ["hard",true] call _new;
 ["aid_difficult_duration",_r get "requiredSeconds" == 90] call _check;
 isNil {_r set ["unloadedSeconds",89]; _r set ["wasEligible",true]; [_r] call _advance};
