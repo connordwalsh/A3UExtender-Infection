@@ -1,0 +1,30 @@
+{
+  "Inputs": [
+    {
+      "SHA256": "92A1A57757FCA53A936B02FB1528D903254D17FD14D823D8048A1429A2ACDB10",
+      "Path": "ReduxFixes\\mod.cpp"
+    },
+    {
+      "SHA256": "51D401CDB960FACDBE002EC39E2AF4E01B7B4346F4A0D6DA833ADB3A9A6BC2B0",
+      "Path": "ReduxFixes\\addons\\core\\config.cpp"
+    },
+    {
+      "SHA256": "E84E2CE664038B10DC28CD73C636503F9B0EA28FAE48BA4299C808FB725F9631",
+      "Path": "ReduxFixes\\addons\\core\\fn_getCityData.sqf"
+    },
+    {
+      "SHA256": "DDFF29B8FA38FA71B0F3CA630FDFB7ED62EE3F91D0914D95439862AEB1387D6C",
+      "Path": "ReduxFixes\\addons\\core\\fn_prepareMarkerArrays.sqf"
+    },
+    {
+      "SHA256": "79B43BFE3FE975D2762B2E96DA3C9114B7E5CED0193FAF47D21DF8F62FEA96F9",
+      "Path": "ReduxFixes\\addons\\core\\fn_repairParkingMarkers.sqf"
+    },
+    {
+      "SHA256": "D9C88E4BC8825B0B05BB80C7DAD2C40C9B16F2C3062988910EB46ECBBC03A9D0",
+      "Path": "ReduxFixes\\addons\\core\\fn_vehiclePrice.sqf"
+    }
+  ],
+  "PBO": "416087574CCC11570D26FFB53E4590901DB2677AF957574409284BB4D8A9FAFF",
+  "BuiltUTC": "2026-11-15T21:10:58.1878167Z"
+}

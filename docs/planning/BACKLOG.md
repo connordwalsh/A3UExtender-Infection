@@ -689,3 +689,10 @@ pass 13 assertions. Clean-log gates still fail on five writer/six reader records
 startup/object errors plus a later helicopter-price error in the reader. No
 population, loot-crate-price or marker errors remain. See
 REDUX_PARKING_VALIDATION.md. Client/JIP/performance and release gates remain open.
+
+15 November black-market fallback: the independent Redux fix preserves the native
+28800 helicopter quote without the false missing-HQ error. Full native write and
+restart/read pass 16 assertions each, including 75-second background windows.
+Both whole-log reports still fail on five startup/object records; no pricing,
+population or parking errors occur. See REDUX_MARKET_VALIDATION.md. Long-session,
+client/JIP and release gates remain open.
