@@ -1,9 +1,9 @@
 # Horde Interception creation and dispatch
 
-Status: drafted; 36 focused runtime checks NOT_RUN. Packaging, three parser tests
+Status: all 36 focused runtime checks pass. Packaging, three parser tests
 and eleven actual missing-dependency checks pass without engine/SQF errors.
-The parent stronghold combined regression and aftermath focused validation must
-finish before testing this additional candidate. No manual installation update.
+The parent aftermath component also passes its 35 focused checks. Integrated
+combined regression remains pending. No manual installation update.
 
 ## Creation
 
@@ -50,7 +50,7 @@ license notices remain packaged in Infection/THIRD_PARTY_LICENSES.txt.
 
 Twenty-five specific runtime cases are authored, for 36 focused checks including
 the common activation checks. They exercise real 40-member creation with a shared
-limit of two, claims, interruption cleanup, cooldown/population preservation,
+limit of two and both shared slots reserved, claims, interruption cleanup, cooldown/population preservation,
 direct/scheduler/request/remote-request entry points, native request locks,
 unavailable routes, intel route text and menu config inheritance. The existing
 Liquidation category-preservation test now excludes the newly replaced CONVOY
@@ -61,9 +61,16 @@ approved catalog, not removal of Russian background activity.
 Artifact: `@Infection_InterceptionDispatch_Dev1`, 177 production inputs, SHA-256
 `79db3352bb737f40dab6ad6f5165e321829cf4468e38427f4841a20f5be831b8`.
 All production inputs match the manifest after dependency testing. Reports are
-`interception-dispatch-build.json` and `interception-dispatch-dependencies.json`
-under `evidence/sprint-4`. The dependency server exited.
+`interception-dispatch-engine.json`, `interception-dispatch-build.json` and `interception-dispatch-dependencies.json`
+under `evidence/sprint-4`. Both isolated servers exited.
 
-Focused gameplay, combined regression, stochastic intel outcomes, connected menu
+All 36 focused checks pass without engine/SQF errors; 16 startup/dependency
+notices were reviewed. The first run is retained as
+`interception-dispatch-rejected-1.json`: its budget assertion confused the shared
+limit with the API's combined shared-plus-dedicated capacity. The corrected check
+also reserves both shared slots before creation and proves further shared work
+is refused while all 40 interception actors spawn. Production code is unchanged.
+
+Combined regression, stochastic intel outcomes, connected menu
 interaction, actual HC relay, terrain travel, saves and campaign acceptance remain
 open. No Computer Use was performed. This draft does not close a sprint gate.

@@ -83,6 +83,8 @@ private _retire = {
     A3I_majorSourceCooldowns = createHashMap;
 };
 
+// Fill the ordinary shared allowance before starting the separate horde.
+private _shared = ["reserve",["idis-shared",2,2]] call A3I_fnc_budget;
 private _result = [_destination,_source] call A3I_fnc_startInterception;
 private _job = A3I_interceptions getOrDefault [_result # 1,createHashMap];
 ["idis_atomic_preparation_claim",_result # 0 && {count _job > 0}
@@ -97,7 +99,14 @@ _job = call _getJob;
     && {((_job get "units") findIf {!alive _x || {isObjectHidden _x}
         || {!simulationEnabled _x} || {side group _x != west}}) == -1}
     && {count A3A_tasksData == 1}] call _check;
-["idis_separate_allowance",(call _stats) # 0 == 2 && {(call _stats) # 1 == 40}] call _check;
+private _budget = call _stats;
+private _extraShared = ["reserve",["idis-extra-shared",1,1]] call A3I_fnc_budget;
+["idis_separate_allowance",_shared # 0 && {A3I_activeLimit == 2}
+    && {_budget select [0,3] isEqualTo [42,40,2]}
+    && {!(_extraShared # 0)} && {_extraShared # 2 == "capacity"},
+    [_budget,_shared,_extraShared]] call _check;
+["cancel",[(_shared # 1) # 0]] call A3I_fnc_budget;
+if (_extraShared # 0) then {["cancel",[(_extraShared # 1) # 0]] call A3I_fnc_budget};
 ["idis_real_route_record",_job get "source" == _source && {_job get "target" == _destination}
     && {_job get "routeDistance" == 1000}] call _check;
 ["idis_source_cooldown_preserves_population",(A3I_majorSourceCooldowns get _source) > time + 590

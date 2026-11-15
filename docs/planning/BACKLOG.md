@@ -476,5 +476,8 @@ The actual 40-120-member formation is prepared before public task registration;
 requests, direct calls, scheduler routing, both menu labels and convoy-route intel
 use the new mission. Russian automatic supplies remain background activity.
 Packaging, three parser tests and eleven actual missing-dependency checks pass.
-The 36-check focused gameplay suite is authored but NOT_RUN; parent regressions
-remain separate. See INTERCEPTION_DISPATCH.md for scope and open acceptance work.
+All 36 focused runtime checks pass, including the actual 40-member horde while
+both shared slots are reserved. The rejected first report preserves the fixture's
+incorrect shared-versus-total capacity assertion; production code is unchanged.
+The integrated 1089-check regression is the next gate; parent regressions remain
+separate. See INTERCEPTION_DISPATCH.md for scope and open acceptance work.
