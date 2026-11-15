@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "scope": "Official Redux mission, native server campaign init/save/load; no connected-player, UI, JIP, combat or long-session acceptance",
+  "phase": "write",
+  "status": "failed",
+  "collected_at_utc": "2026-11-15T20:48:59.020728+00:00",
+  "source_log": "redux-companion-price-write-dev1.rpt",
+  "source_log_sha256": "9f11d06ead3b1bb406236c18ca151d44e4103acfb1fd636a680d32f139762518",
+  "source_sha256": {
+    "tests/arma/campaign_probe/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "tests/arma/campaign_probe/run.sqf": "21735f04178274a7286564d1a07b2273d49ae3b250899f3a843769c61eec4cc7",
+    "Tools/dev/collect-campaign.py": "e28071f1db03f333e923ce5cb604117d1c5a957146dd47bdb809ff724fa55fb2",
+    "Tools/dev/start-campaign-probe.ps1": "1515bee8adae54a95b5520911e58f476e833a3e84dce0e4a6353da9f627796b8"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "schema_valid": true,
+    "correct_phase_and_terrain": true,
+    "all_expected_checks_once": true,
+    "runtime_checks_pass": true,
+    "completion_matches": true,
+    "no_engine_or_native_errors": false
+  },
+  "failed_checks": [],
+  "malformed_lines": [],
+  "errors": [
+    {
+      "line": 1234,
+      "message": "15:47:54 \"InfectionCampaign_ReduxPrice1/BIS_fnc_log: [BIS_fnc_OM_moduleSmartMarkers] Error: SmartMarker system has not been yet initialized.\""
+    },
+    {
+      "line": 1254,
+      "message": "15:47:55 Error in expression <};"
+    },
+    {
+      "line": 1258,
+      "message": "15:47:55   Error Undefined variable in expression: _leader"
+    },
+    {
+      "line": 1262,
+      "message": "15:47:55 Error: Object(2 : 9) not found"
+    },
+    {
+      "line": 1267,
+      "message": "15:47:55 Error: Object(2 : 10) not found"
+    },
+    {
+      "line": 1523,
+      "message": "15:48:00 2026-11-15 20:48:00:855 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker outp_6_vehicle is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1541,
+      "message": "15:48:01 2026-11-15 20:48:01:081 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_1_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1542,
+      "message": "15:48:01 2026-11-15 20:48:01:115 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_2_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1543,
+      "message": "15:48:01 2026-11-15 20:48:01:117 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_3_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1544,
+      "message": "15:48:01 2026-11-15 20:48:01:117 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_7_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    },
+    {
+      "line": 1546,
+      "message": "15:48:01 2026-11-15 20:48:01:117 | Antistasi | Error | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Marker reso_13_vehicle_1 is not long enough for vehicles required are 10 meters! | Called By: A3A_fnc_prepareMarkerArrays"
+    }
+  ],
+  "records": [
+    [
+      "start",
+      "write",
+      "chernarusredux",
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ],
+      [
+        2026,
+        11,
+        15,
+        20,
+        47,
+        58,
+        513
+      ]
+    ],
+    [
+      "check",
+      "background_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "fresh_profile",
+      true,
+      []
+    ],
+    [
+      "check",
+      "campaign_initialized",
+      true,
+      [
+        "completed"
+      ]
+    ],
+    [
+      "check",
+      "infection_selected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_hq_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "real_sites_available",
+      true,
+      [
+        49,
+        4
+      ]
+    ],
+    [
+      "check",
+      "dealer_unlocked",
+      true,
+      []
+    ],
+    [
+      "check",
+      "loot_crate_fixture",
+      true,
+      [
+        1,
+        100,
+        1000
+      ]
+    ],
+    [
+      "check",
+      "native_save_completed",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_save_has_campaign",
+      true,
+      [
+        72
+      ]
+    ],
+    [
+      "check",
+      "loot_crate_refund_exact",
+      true,
+      [
+        1100,
+        1100
+      ]
+    ],
+    [
+      "complete",
+      "write",
+      11,
+      []
+    ]
+  ]
+}

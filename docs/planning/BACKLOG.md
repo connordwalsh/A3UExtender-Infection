@@ -675,3 +675,9 @@ Native save/restart/reload assertions still pass (9 write, 10 read). Clean-log
 gates remain failed with 14 writer and 11 reader error records, including the
 previously recorded marker, no-player initialization and pricing defects.
 No sprint/release gate is closed. See REDUX_COMPANION_VALIDATION.md.
+
+15 November loot-crate valuation: owner approved configured-price reimbursement.
+The independent Redux fix passes full native save/restart/reload with a real
+crate: 1000 live funds + 100 crate value = 1100 saved/restored funds. Both phases
+pass 11 assertions; both clean-log gates remain failed on 11 unrelated records.
+See REDUX_CRATE_VALUATION.md. No Infection production code changed.
