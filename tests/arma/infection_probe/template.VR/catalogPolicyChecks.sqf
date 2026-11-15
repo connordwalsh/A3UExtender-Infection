@@ -94,10 +94,15 @@ A3A_faction_occ set ["infectionTemplate",""];
 A3A_faction_occ set ["infectionTemplate","A3I_Infected"];
 ["catalog_repair_endpoint_registered",getText (configFile >> "CfgFunctions" >> "A3A" >> "Missions" >> "REP_Antenna" >> "file")
     == "\x\a3i\addons\core\overrides\fn_REP_Antenna.sqf"] call _check;
-["catalog_gang_endpoints_native",(["RIV_ENC_Rivals","RIV_ATT_Cell","RIV_ATT_Hideout","RIV_ATT_Transfer"] findIf {
+["catalog_gang_routes_preserved",(["RIV_ATT_Cell","RIV_ATT_Hideout","RIV_ATT_Transfer"] findIf {
     private _cfg=configFile >> "CfgFunctions" >> "A3A" >> "Missions" >> _x;
     !isClass _cfg || {(toLower getText (_cfg >> "file")) find "\x\a3i\" >= 0}
-})==-1] call _check;
+})==-1 && {getText (configFile >> "CfgFunctions" >> "A3A" >> "Missions" >> "RIV_ENC_Rivals" >> "file")
+    == "\x\a3i\addons\core\overrides\fn_RIV_ENC_Rivals.sqf"}
+    && {!isNil "A3I_fnc_originalRivalsIntroduction"}] call _check;
+["catalog_rivals_text_available",(["STR_A3I_Rivals_InitialIntel","STR_A3I_Rivals_Investigation",
+    "STR_A3I_Rivals_InvestigationTitle","STR_A3I_Rivals_Manifesto","STR_A3I_Rivals_Ambush"]
+    findIf {!isLocalized _x || {localize _x == ""}}) == -1] call _check;
 deleteVehicle _tower;antennasDead=_oldDead;sleep 0.2;
 A3I_test_originals = _savedOriginals; A3I_test_catalogCalls = _savedCalls;
 if (isNil "_savedLock") then {A3A_missionRequestInProgress = nil} else {A3A_missionRequestInProgress = _savedLock};

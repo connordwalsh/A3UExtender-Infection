@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Project name="AntistasiUltimateInfection">
+    <Package name="Infection">
+        <Container name="Rivals">
+            <Key ID="STR_A3I_Rivals_InitialIntel">
+                <Original>We expected %1 to be almost empty of healthy life. Reports of sustained gunfire suggest an organized group is still out there. We do not know who they are or whether they will welcome us. Investigate the reported battle site.</Original>
+                <English>We expected %1 to be almost empty of healthy life. Reports of sustained gunfire suggest an organized group is still out there. We do not know who they are or whether they will welcome us. Investigate the reported battle site.</English>
+            </Key>
+            <Key ID="STR_A3I_Rivals_Investigation">
+                <Original>Our forces entered %1 expecting few uninfected survivors. Now we have reports of armed people fighting the infected. Their identity and intentions are unknown. Search the battle site for evidence and find out who is living here.</Original>
+                <English>Our forces entered %1 expecting few uninfected survivors. Now we have reports of armed people fighting the infected. Their identity and intentions are unknown. Search the battle site for evidence and find out who is living here.</English>
+            </Key>
+            <Key ID="STR_A3I_Rivals_InvestigationTitle">
+                <Original>Signs of Life</Original>
+                <English>Signs of Life</English>
+            </Key>
+            <Key ID="STR_A3I_Rivals_Manifesto">
+                <Original>The intercepted broadcast identifies the group as &lt;t color='#800000'&gt;%2&lt;/t&gt;, led by %3. We expected scattered survivors in %1, not an organized armed faction. Their manifesto rejects government authority: they distrust anyone claiming to restore order and want the lawlessness brought by the infection to continue. They see our arrival as a threat to that freedom and have declared us enemies.</Original>
+                <English>The intercepted broadcast identifies the group as &lt;t color='#800000'&gt;%2&lt;/t&gt;, led by %3. We expected scattered survivors in %1, not an organized armed faction. Their manifesto rejects government authority: they distrust anyone claiming to restore order and want the lawlessness brought by the infection to continue. They see our arrival as a threat to that freedom and have declared us enemies.</English>
+            </Key>
+            <Key ID="STR_A3I_Rivals_Ambush">
+                <Original>It is an ambush. These survivors see us as another government force trying to control their lives. Defeat the attackers or escape the settlement before %1.</Original>
+                <English>It is an ambush. These survivors see us as another government force trying to control their lives. Defeat the attackers or escape the settlement before %1.</English>
+            </Key>
+        </Container>
+    </Package>
+</Project>

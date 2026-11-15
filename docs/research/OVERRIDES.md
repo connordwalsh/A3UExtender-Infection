@@ -223,3 +223,31 @@ The adapted worker is scheduled to preserve synchronous intel return values.
 `RES_Informer` joins the four other rescue aliases and server-pinned scheduler
 routes. See [EXTRACTION_TASK.md](EXTRACTION_TASK.md) for flag ownership and
 validation limits.
+
+## Rivals introduction narrative
+
+`A3A/addons/core/functions/Missions/fn_RIV_ENC_Rivals.sqf` is adapted only
+while Infection is active; ordinary campaigns call the installed native alias.
+Pinned source SHA-256: `96c4f97bf2c5e9e9f710ac05261a48485f7bf1cc2d29c5ba55550e01ceca6555`.
+Review against that source shows only the include path, attribution, inactive
+delegation, five localization-key substitutions and two location-format arguments
+changed. Discovery timing, scene creation, ambush, rewards and cleanup retain
+the native implementation. New string IDs are confined to Infection; upstream
+translations and ordinary campaigns are not globally replaced.
+
+Initial reports and the Signs of Life investigation do not name the group or
+reveal its ideology. The existing later broadcast reveals the selected Rivals
+name and leader and explains their distrust of governments and desire to retain
+the lawlessness created by the infection. The Rebels' surprise is stated as
+expecting few healthy survivors, not as a claim that survivors cannot exist.
+The template names, faction relationships and gang-cell staged casualties stay
+native. Connected-player pacing, displayed text and the complete discovery
+sequence still require campaign acceptance.
+
+RivalsNarrative Dev1 validation: 31 mission-routing/localization checks, eleven
+missing-dependency checks and three evidence-parser tests pass. All 324
+production inputs and the PBO match the retained manifest. No recorded
+engine/SQF errors. The first routing run is retained as rejected because its
+old assertion required the introduction itself to remain native; the corrected
+check verifies the narrative adapter, preserved native attacks and actual
+engine localization of every new string. This is not a full storyline playtest.
