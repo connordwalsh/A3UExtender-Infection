@@ -534,3 +534,31 @@ native vehicle despawner. All 184 production inputs and the PBO remain unchanged
 SQF errors; completed servers exited. The owner confirmed recovery continues if
 Rebels or Russia capture the truck settlement. Eligible source-location types
 await clarification. Task/controller/dispatch remain unfinished.
+
+15 November Supplies Seizure controller: 43 focused engine checks and 11 actual
+missing-dependency checks pass, with no engine/SQF errors. The 194-input build
+creates an actual truck/task, preserves recovery across ownership changes,
+settles delivery/destruction/deadlines once, retains captured trucks and defers
+unsafe cleanup. Source policy is now confirmed: fuel only in towns, all three
+truck roles at permanent sites. A captured permanent source itself can satisfy
+delivery. Add an explicit test of that clarified case before integration.
+Public dispatch/menu/caller coverage remains unfinished.
+
+## Supplies Seizure controller checkpoint: 15 November 2026
+
+The controller passes 45 focused engine checks and 11 actual missing-dependency
+checks. Capturing its permanent source site completes recovery in place, with
+once-only rewards and the usable truck registered for saving. Towns provide fuel
+trucks only; all six conventional permanent-site types permit the three approved
+service roles. Public dispatch and combined regression remain open.
+
+## Supplies Seizure integration: 15 November 2026
+
+Supplies Seizure creation, settlement, retained usable trucks, captured-source
+delivery and public logistics dispatch pass 1228 combined engine checks and 67
+role-spawn records. Focused dispatch, actual absent-dependency and parser checks
+also pass. No engine/SQF errors; warnings are classified in SUPPLIES_SEIZURE.md.
+The manual installation is unchanged. Visible menus, connected driving/rewards,
+real terrain travel, HC/JIP and campaign disk saves remain open. Extraction
+scene and Humanitarian Aid ledger drafts are separate increments, outside this
+combined build. No sprint acceptance gate is closed.
