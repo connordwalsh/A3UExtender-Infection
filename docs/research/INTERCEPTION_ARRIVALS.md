@@ -129,3 +129,34 @@ transfer; site despawn after transfer; repeated adoption; and clearance after
 all original and extra defenders are defeated. Hostile destinations must remain
 under native combat/capture rules until ownership actually changes. First-entry
 task failure alone never authorizes a territory transfer.
+
+
+## Active town and permanent-site adoption (focused validation passed)
+
+`adoptInterceptionArrivals` validates the exact horde owner, full living group,
+closed dedicated ticket, destination ownership and running site controller.
+It appends native garrison roles and clearance obligations atomically, transfers
+budget responsibility and removes live actors/groups from their old horde owner.
+Native combat AI and the physical actors remain. Administration sites are not yet
+supported by this helper.
+
+A town expands populationTarget and extraTarget, including existing reservation
+ceilings, while preserving its original queue. Permanent-site arrivals receive
+closed `arrival:` contexts that cannot reserve new actors; the normal shared
+queue continues independently. Site cleanup owns both kinds of adopted actors.
+Ordinary paid reinforcements keep their existing capacity limit. A second handoff
+cannot duplicate an already adopted group.
+
+LiveArrivals Dev1 passes all 59 combined offscreen/adoption focused engine checks,
+11 actual missing-dependency checks and three parser tests, without engine/SQF
+errors. All 162 production inputs and the PBO match the manifest. The immutable
+artifact SHA-256 is `b961d085a231a1491fd3cf5060e8f6aed0c3cfffc5505c49079f1f78fd293e7c`.
+Reports are `interception-adoption-build.json`, `interception-adoption-engine.json`
+and `interception-adoption-dependencies.json` under `evidence/sprint-4`.
+The focused run has 17 reviewed warnings (16 startup/dependency and one object-
+deletion notice); the absent run has seven startup warnings. Both servers exited.
+Full combined regression is the next gate for this budget change. Public calling
+paths, hostile aftermath and administration reinforcements remain unfinished.
+
+The owner confirmed administration extras should also persist between visits and
+stay dead when killed. Their ordinary per-visit defenders still regenerate.

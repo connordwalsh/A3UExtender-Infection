@@ -104,3 +104,8 @@ is full. If a town is not active, remember those extra infected for its next
 visit. This supersedes the previously pending capacity/offscreen-town questions.
 The owner also confirmed that killed extra town reinforcements stay dead.
 Normal town population still follows the approved per-visit regeneration policy.
+
+
+14 November administration reinforcement clarification: normal stronghold
+defenders still regenerate each visit. Extra infected arriving as reinforcements
+persist between visits; killed extras stay dead, just as extra town defenders do.

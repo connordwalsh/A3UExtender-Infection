@@ -424,3 +424,13 @@ the PBO match the tested manifest. Both isolated servers exited. The helper has
 no public caller yet; active/hostile/administration handoff and dispatch remain
 unfinished. Keep PR 32 draft for continued integration. Its full combined run
 is NOT_RUN; the parent candidate's 965-check report is separately identified.
+
+
+Active interception arrivals: 59 focused offscreen/live handoff checks and 11
+actual missing-dependency checks pass without engine/SQF errors. The 162-input
+candidate preserves full shared queues, expands an in-progress town population,
+accepts two arriving groups, retains adopted actors through old-owner cleanup,
+and requires their deaths for clearance. Three parser tests pass. Run full
+combined regression for the budget change. Administration persistence is now
+approved; its extra queue, casualty/replacement accounting and capture guard
+remain to implement. Public arrival ownership and dispatch are still unfinished.

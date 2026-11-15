@@ -51,9 +51,10 @@ if (!isServer) exitWith {};
         call A3A_fnc_compatibilityLoadFaction;
     ["active_only_for_occupants", [west] call A3I_fnc_isActive && {!([east] call A3I_fnc_isActive)}
         && {!([independent] call A3I_fnc_isActive)} && {!([civilian] call A3I_fnc_isActive)}] call _check;
-    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch","interception","interceptionformation","formationregression","interceptiontask","interceptionstorage","backgroundconvoys"]) exitWith {
+    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch","interception","interceptionformation","formationregression","interceptiontask","interceptionstorage","interceptionarrivals","backgroundconvoys"]) exitWith {
         private _suitePath = switch (_suite) do {
             case "backgroundconvoys": {"backgroundConvoyChecks.sqf"};
+            case "interceptionarrivals": {"interceptionArrivalsChecks.sqf"};
             case "interceptionstorage": {"interceptionStorageChecks.sqf"};
             case "interceptiontask": {"interceptionTaskChecks.sqf"};
             case "administration": {"administrationChecks.sqf"};
@@ -166,6 +167,7 @@ if (!isServer) exitWith {};
     call compile preprocessFileLineNumbers "interceptionFormationChecks.sqf";
     call compile preprocessFileLineNumbers "interceptionTaskChecks.sqf";
     call compile preprocessFileLineNumbers "interceptionStorageChecks.sqf";
+    call compile preprocessFileLineNumbers "interceptionAdoptionChecks.sqf";
     call compile preprocessFileLineNumbers "backgroundConvoyChecks.sqf";
     deleteVehicle A3A_customUnitTypes;
     ["complete", _checks, _failures, _spawned] call _log;
