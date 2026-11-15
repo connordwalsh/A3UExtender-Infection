@@ -58,6 +58,11 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
 
 ## Current increment
 
+The owner chose to keep automatic Russian supply convoys as background military
+activity without offering a mission. This is implemented separately from the
+unfinished Horde Interception flow; see
+[background convoy behavior and limits](../research/BACKGROUND_CONVOYS.md).
+
 Liquidation is connected to mission-board requests and all four conquest entry
 points. Dispatch Dev1 passes 37 focused checks, 764 integrated combined checks
 and 11 actual missing-dependency checks. The other five replacement families remain pending.

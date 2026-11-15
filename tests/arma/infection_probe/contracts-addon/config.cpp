@@ -27,6 +27,7 @@ class CfgFunctions
         };
         class AI
         {
+            class vehicleConvoyTravel { file = "\x\a3i\tests\contracts\fn_vehicleConvoyTravel.sqf"; };
             class AIreactOnKill { file = "\x\a3i\tests\contracts\fn_AIreactOnKill.sqf"; };
         };
         class Garrison
@@ -43,6 +44,9 @@ class CfgFunctions
         };
         class CREATE
         {
+            class crewTypeForVehicle { file = "\x\a3i\tests\contracts\fn_crewTypeForVehicle.sqf"; };
+            class cargoSeats { file = "\x\a3i\tests\contracts\fn_cargoSeats.sqf"; };
+            class AIVEHinit { file = "\x\a3i\tests\contracts\fn_AIVEHinit.sqf"; };
             class VEHdespawner { file = "\x\a3i\tests\contracts\fn_VEHdespawner.sqf"; };
             class groupDespawner { file = "\x\a3i\tests\contracts\fn_groupDespawner.sqf"; };
         };
@@ -58,6 +62,7 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalConvoy { file = "\x\a3i\tests\contracts\fn_originalConvoy.sqf"; };
             class originalRequestMissionDialog { file = "\x\a3i\tests\contracts\fn_originalRequestMissionDialog.sqf"; };
             class originalDestroyVehicle { file = "\x\a3i\tests\contracts\fn_originalDestroyVehicle.sqf"; };
             class originalDestroyHeli { file = "\x\a3i\tests\contracts\fn_originalDestroyHeli.sqf"; };
@@ -97,6 +102,10 @@ class CfgFunctions
             class testNativeInterceptionTaskOutcome { file = "\x\a3i\addons\core\functions\fn_interceptionTaskOutcome.sqf"; };
             class testNativeLiquidationMarkerChange { file = "\x\a3i\addons\core\functions\fn_liquidationMarkerChange.sqf"; };
             class testNativeSpawnObservers { file = "\x\a3i\addons\core\functions\fn_spawnObservers.sqf"; };
+            class testNativeCrewTypeForVehicle { file = "\x\a3a\addons\core\functions\CREATE\fn_crewTypeForVehicle.sqf"; };
+            class testNativeCargoSeats { file = "\x\a3a\addons\core\functions\CREATE\fn_cargoSeats.sqf"; };
+            class testNativeAIVEHinit { file = "\x\a3a\addons\core\functions\CREATE\fn_AIVEHinit.sqf"; };
+            class testNativeVehicleConvoyTravel { file = "\x\a3a\addons\core\functions\AI\fn_vehicleConvoyTravel.sqf"; };
             class testNativeMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };
             class testNativeZoneCheck { file = "\x\a3a\addons\core\functions\Base\fn_zoneCheck.sqf"; };
             class testNativeRemoveMilAdmin { file = "\x\a3a\addons\scrt\Location\fn_location_removeMilAdmin.sqf"; };

@@ -772,3 +772,29 @@ respectively. Three parser tests pass. A native briefing representation fixture
 error remains rejected evidence. Two additional success-path corpse/retention
 checks await the combined run. Public launch/dispatch and arrival policy remain
 unfinished; no campaign acceptance or Computer Use/manual-build change.
+## 14 November 2026 - Background Russian supply traffic
+
+Self-reviewed the complete production diff against master and pinned Ultimate
+12.4.2 source. The new override handles only active Infection, Invader-source,
+Supplies/attack-pool convoys. Its scheduler path is server-owned; ordinary and
+legacy convoy calls delegate with unchanged arguments. The supply adaptation
+retains native strategic effects and vehicle/logistics behavior while omitting
+player tasks, route/objective revelation and personal mission rewards/penalties.
+
+The early truck-destruction case revealed and reproduced an inherited native
+race. Dev2 registers cargo destruction before vulnerability/departure and targets
+only its tracked cargo while still attached. Both parked/departing destruction,
+normal and captured delivery, real logistics loading, a queried zero-capacity
+vehicle, force cost, duplicate exclusion, cleanup handoff and completed workers
+pass in the isolated engine fixture. Fixture-only errors and the test kart's
+engine error remain in rejected evidence; the collector was not relaxed.
+
+Accepted evidence: 64 focused checks, 11 actual missing-dependency checks, three
+parser unit tests, no engine/SQF errors. Reviewed 16/7 collector startup notices
+and the additional native truck animation-source notice. All 140 production
+inputs and the PBO match Dev2; isolated test processes exited. Integrate this
+scoped feature through PR 29. No Computer Use or manual installation update.
+
+Full combined regression, driving, connected UI/rewards, native despawner behavior,
+real-hour timeout, interruption handling, HC/multiplayer, saves and the full
+mission catalog remain unaccepted. No sprint gate is closed by this checkpoint.

@@ -337,3 +337,19 @@ owner supervision, arrival reinforcement/attack and board/intel dispatch remain
 unfinished. Arrival capacity and offscreen-town persistence questions remain
 pending. Background Russian convoys were separately merged in master PR 29;
 that change is not yet integrated into this stacked interception worktree.
+## Working session: 14 November 2026 - Background Russian supply convoys
+
+Owner decision: automatic Russian supply convoys remain background military
+activity and do not offer missions. The separate `codex/background-convoys`
+branch implements that exact strategic path, preserving ordinary campaigns and
+other native convoy entry points pending their replacement work. No private
+campaign save or manual install is changed.
+
+The first real destruction case exposed Ultimate's late cargo-killed handler.
+Dev2 moves it before vulnerability/departure and tests both parked and departing
+truck destruction. Rejected fixture/candidate evidence is preserved. Dev2 passes all 64 focused checks, 11 actual missing-dependency checks and three
+collector parser unit tests. No engine/SQF errors occur. All 140 production inputs
+and the PBO match the manifest; both isolated servers exited. Full combined
+regression is NOT_RUN for this candidate.
+Full catalog, driving, connected players, campaign resilience and sprint gates
+remain open. See [background convoy details](../research/BACKGROUND_CONVOYS.md).

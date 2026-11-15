@@ -1,0 +1,11 @@
+{
+  "source_log": "arma3server_x64_2026-11-14_20-03-55.rpt",
+  "source_log_sha256": "6de31af5e0a36a9824322b0496ee92d0fb252eb8326e540856505105e27685bd",
+  "additional_vehicle_notices": [
+    {
+      "line": 893,
+      "message": "C_Truck_02_transport_F: rear_hide - unknown animation source rear_hide"
+    }
+  ],
+  "scope": "Native vehicle animation notices not classified as engine errors; retained in addition to collector startup warnings."
+}
