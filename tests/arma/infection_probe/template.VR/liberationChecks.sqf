@@ -98,4 +98,6 @@ deleteVehicle sidesX; deleteVehicle spawner; deleteVehicle server;
 sleep 0.2;
 ["lib_sources_cleanup",entities [[],[],true,false] - _before isEqualTo []
     && {allGroups - _groupsBefore isEqualTo []}
-    && {(_markers findIf {_x in allMapMarkers}) == -1}] call _check;
+    && {(_markers findIf {_x in allMapMarkers}) == -1},
+    [((entities [[],[],true,false] - _before) select [0,10]) apply {[typeOf _x,getPosATL _x]},
+        (allGroups - _groupsBefore) apply {[str _x,count units _x]}]] call _check;

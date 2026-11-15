@@ -21,7 +21,7 @@ A3A_vehicleResourceCosts = createHashMap;
 {A3A_vehicleResourceCosts set [_x,300]} forEach (call A3I_fnc_liberationWreckClasses);
 A3A_GCThreshold = 600; GVAR(despawnQueue) = [];
 enableVehicleAutoLock = false; enableVehicleAutoLockCiv = false; destroyedBuildings = [];
-private _retentionResults = [];
+private _retentionResults = []; private _retentionDetails = [];
 private _savedCap = A3I_activeLimit; private _savedContext = A3I_contextLimit;
 private _setLimits = {
     params ["_global","_context"];
@@ -98,6 +98,10 @@ private _retireMission = {
         && {(_ownedScene findIf {!isNull _x}) == -1}
         && {(_bodyGroups findIf {!isNull _x}) == -1}},35] call _wait;
     _retentionResults pushBack (alive _survivorVehicle && {_mission getOrDefault ["vehicleReleased",false]});
+    _retentionDetails pushBack [_mission get "name",_mission get "phase",isNull _survivorVehicle,
+        alive _survivorVehicle,_mission getOrDefault ["vehicleReady",false],
+        _mission getOrDefault ["vehicleReleased",false],_mission getOrDefault ["cancelReason",""]];
+    diag_log format ["[INFECTION_DIAGNOSTIC] retention=%1",_retentionDetails # (count _retentionDetails-1)];
     // Native retention is asserted before the fixture removes its remaining car.
     deleteVehicle _survivorVehicle;
     [{isNull _survivorVehicle}] call _wait;

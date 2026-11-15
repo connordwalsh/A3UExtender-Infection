@@ -81,7 +81,7 @@ call _resetMission;
 [west,_town,"distant_origin"] call A3A_fnc_townBattle;
 private _parents = values A3I_liberations;
 private _mission = _parents param [0,createHashMap];
-[{_mission getOrDefault ["taskRegistered",false]}] call _wait;
+[{_mission getOrDefault ["taskRegistered",false] && {_mission getOrDefault ["phase",""] == "rescue"}},45] call _wait;
 ["lib_dispatch_direct_nearby_parent",count _parents == 1
     && {_mission get "source" == _source} && {_mission get "town" == _town}
     && {[_mission] call _taskState == "CREATED"}] call _check;
@@ -89,7 +89,7 @@ _mission set ["outcome","cancelled"]; [_mission] call _retireMission;
 call _resetMission;
 _result = [_town] call A3I_fnc_requestLiberation;
 _parents = values A3I_liberations; _mission = _parents param [0,createHashMap];
-[{_mission getOrDefault ["taskRegistered",false]}] call _wait;
+[{_mission getOrDefault ["taskRegistered",false] && {_mission getOrDefault ["phase",""] == "rescue"}},45] call _wait;
 ["lib_dispatch_reachable_campaign_parent",_result isEqualTo [true,"started"]
     && {count _parents == 1} && {sidesX getVariable _town == west}
     && {[_mission] call _taskState == "CREATED"}] call _check;

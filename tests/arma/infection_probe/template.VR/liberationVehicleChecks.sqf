@@ -27,9 +27,12 @@ _vip enableSimulationGlobal false;
 private _beforeVehicles = entities "LandVehicle";
 private _beforeActors = entities "CAManBase";
 private _beforeGroups = allGroups;
-A3I_test_sceneCrewCreated = [];
+A3I_test_sceneCrewCreated = []; A3I_test_sceneGroupsCreated = [];
+private _groupCreatedHandler = addMissionEventHandler ["GroupCreated",{
+    params ["_group"]; A3I_test_sceneGroupsCreated pushBack str _group;
+}];
 private _createdHandler = addMissionEventHandler ["EntityCreated",{
-    params ["_entity"];
+    private _entity = if (_this isEqualType []) then {_this param [0,objNull]} else {_this};
     if (_entity isKindOf "CAManBase") then {A3I_test_sceneCrewCreated pushBack typeOf _entity};
 }];
 [_record] remoteExecCall ["A3I_fnc_createLiberationVehicle",2]; sleep 0.3;
@@ -57,9 +60,14 @@ private _vehicle = _record getOrDefault ["vipVehicle",objNull];
     && {typeOf _vehicle == "C_Offroad_01_F"},[_result,typeOf _vehicle]] call _check;
 sleep 0.2;
 removeMissionEventHandler ["EntityCreated",_createdHandler];
+removeMissionEventHandler ["GroupCreated",_groupCreatedHandler];
 ["lib_vehicle_no_transient_crew_or_group",A3I_test_sceneCrewCreated isEqualTo []
-    && {entities "CAManBase" isEqualTo _beforeActors}
-    && {allGroups isEqualTo _beforeGroups}] call _check;
+    && {A3I_test_sceneGroupsCreated isEqualTo []}
+    && {(entities "CAManBase") - _beforeActors isEqualTo []}
+    && {allGroups - _beforeGroups isEqualTo []},
+    [A3I_test_sceneCrewCreated,A3I_test_sceneGroupsCreated,
+        entities "CAManBase" isEqualTo _beforeActors,allGroups isEqualTo _beforeGroups,
+        count (_beforeActors - entities "CAManBase"),count (_beforeGroups - allGroups)]] call _check;
 ["lib_vehicle_owned_near_survivor",_vehicle getVariable ["A3I_liberationVehicleId",""] == _record get "name"
     && {_vehicle distance2D _vip <= 25} && {_vehicle inArea _town}] call _check;
 _result = [_record] call A3I_fnc_createLiberationVehicle;

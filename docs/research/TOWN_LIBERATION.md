@@ -703,3 +703,19 @@ A full combined regression started at 13:23:12 using the same frozen Dev2 PBO,
 profile LiberationFull, port 4202. Its result is pending; the focused pass does
 not certify shared-controller regression, connected players, saves, terrain or
 campaign acceptance. PR 49 remains draft. Manual Dev9 remains unchanged.
+
+
+The first full integrated run completed 1,696 checks and 67 role-spawn records,
+but failed three assertions: transient crew/group tracking, retained survivor
+vehicles (the final dispatch case), and final entity cleanup. It has no engine/
+SQF errors and is retained as rejected. Review found the two dispatch fixtures
+waited for task registration, which precedes scene creation, then captured the
+vehicle reference too early during cancellation. They now wait for the rescue
+phase, as the other parent cases already do. New retention diagnostics identify
+the exact vehicle state for every case. Vehicle creation checks now record the
+actual GroupCreated event and compare added entities/groups without relying on
+the ordering or continued existence of unrelated pre-existing groups. EntityCreated
+accepts the engine's direct-object event form as well as an array. Final cleanup
+logs surviving classes/positions/groups. Production remains frozen Dev2; another
+focused and full run are required. Event signatures were checked against Bohemia's
+[mission event handler documentation](https://community.bistudio.com/wiki/Arma_3%3A_Mission_Event_Handlers).
