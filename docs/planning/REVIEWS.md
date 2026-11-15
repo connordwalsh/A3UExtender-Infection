@@ -819,6 +819,27 @@ persistence/casualty decisions are now resolved: extras exceed normal capacity,
 persist to the next visit, and stay dead when killed. Handoff remains unfinished.
 
 
+## 14 November 2026 - Integrated interception and town extras review
+
+TownExtras Dev1 passes all 965 combined dedicated checks and all 67 role-spawn
+records, without engine/SQF errors. The focused town run passes 88 checks;
+the actual missing-dependency run passes 11; three parser tests pass. All 160
+production inputs and the PBO match the frozen build manifest after testing.
+The combined server exited. Its 81 warnings were reviewed: 16 startup/dependency
+notices, 60 object-deletion notices and five absent-fixture-commander notification
+targets. The earlier 955-check failure remains rejected historical evidence.
+
+Self-review covered owner/serial guards, dedicated population accounting,
+queued baseline/extra separation, native casualty/save roles, task state and
+retention, observer-safe retirement and source/target ownership races. Integrate
+foundation PR 27, formation PR 28 and controller PR 30 through combined PR 31.
+This is component acceptance, not a completed Horde Interception player mission
+or sprint gate. Public mission creation/dispatch, active/hostile arrival aftermath,
+connected players, terrain, full campaign saves and remaining mission families
+are still unfinished. Offscreen arrival transaction work is isolated in PR 32.
+No Computer Use or manual installation/profile changes.
+
+
 Offscreen arrival review: all 34 focused engine checks pass, including physical
 arrival guards, observer refusal, an above-capacity permanent garrison, three
 survivors saved after a real casualty, native corpse retention, duplicate
