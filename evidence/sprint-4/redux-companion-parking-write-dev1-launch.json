@@ -1,0 +1,14 @@
+{
+  "Phase": "Write",
+  "ProcessId": 21624,
+  "ProfileDirectory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Zombie Occupant Faction\\.work\\redux-parking-validation\\.work\\profiles\\campaign-server-ReduxParking1",
+  "Port": 6202,
+  "StartedUTC": "2026-11-15T21:03:53.4104928Z",
+  "ProductionPBO": "B4B0C17E92A87E16020635ED4EBCD8AD1E28DD2FF78C5866C494EC23DD981085",
+  "HelperPBO": "84AEAE61C380A79BA3A0EC6F6FF70131B369F8E2A540271BC023A8C1DD334592",
+  "HelperSource": "82048A25A4756BA0B93F053E25FC3C3BC6B10A7F7376F5322CDD38AFD6FA2492",
+  "ReduxFixes": {
+    "PBO": "0111067BA349DF53024D0EC0CE7BAAF35254048B7C90BB166C513E6DED5FCF7D",
+    "Directory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Chernarus Redux Map Change\\.work\\build\\@A3U_Redux_Fixes"
+  }
+}

@@ -42,6 +42,19 @@ private _initialized=[{missionNamespace getVariable ["serverInitDone",false]},90
 if (!_initialized) exitWith {call _finish};
 ["infection_selected",[west] call A3I_fnc_isActive] call _check;
 ["native_hq_ready",alive petros && {!isNull boxX} && {!isNull flagX}] call _check;
+private _parkingSites=[
+    ["outpost_6","outp_6_vehicle"],["resource_1","reso_1_vehicle_1"],
+    ["resource_2","reso_2_vehicle_1"],["resource_3","reso_3_vehicle_1"],
+    ["resource_7","reso_7_vehicle_1"],["resource_10","reso_10_vehicle_1"]
+];
+private _parkingCounts=_parkingSites apply {
+    _x params ["_site","_parking"];
+    [_site,{(_x # 0) inArea _parking} count (spawner getVariable [_site+"_vehicle_places",[]])]
+};
+["redux_parking_slots",(_parkingCounts findIf {(_x # 1)!=1})==-1,[_parkingCounts]] call _check;
+["redux_orphan_reconnected",!("reso_13_vehicle_1" in allMapMarkers)
+    && {"reso_10_vehicle_1" in allMapMarkers}
+    && {isNil {spawner getVariable "resource_13_vehicle_places"}}] call _check;
 sleep 5;
 if (_new) then {
     private _towns=citiesX select {sidesX getVariable [_x,sideUnknown]==west};

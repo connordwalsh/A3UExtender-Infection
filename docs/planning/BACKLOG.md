@@ -681,3 +681,11 @@ The independent Redux fix passes full native save/restart/reload with a real
 crate: 1000 live funds + 100 crate value = 1100 saved/restored funds. Both phases
 pass 11 assertions; both clean-log gates remain failed on 11 unrelated records.
 See REDUX_CRATE_VALUATION.md. No Infection production code changed.
+
+15 November parking compatibility: the independent Redux fix restores six native
+vehicle slots without expanding their footprints and reconnects the orphan to
+resource_10 under owner-authorized judgment. Full native write/restart/read each
+pass 13 assertions. Clean-log gates still fail on five writer/six reader records:
+startup/object errors plus a later helicopter-price error in the reader. No
+population, loot-crate-price or marker errors remain. See
+REDUX_PARKING_VALIDATION.md. Client/JIP/performance and release gates remain open.
