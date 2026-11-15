@@ -391,3 +391,15 @@ and prevents duplicate additions/resource refunds. Twenty-three focused cases
 are authored; engine execution awaits the current combined server. Packaging,
 three parser tests and eleven actual missing-dependency checks pass. Public
 calling paths, active adoption and administration arrivals remain unfinished.
+
+
+Offscreen arrival review: all 34 focused engine checks pass, including physical
+arrival guards, observer refusal, an above-capacity permanent garrison, three
+survivors saved after a real casualty, native corpse retention, duplicate
+prevention, resource neutrality and complete cleanup. Eleven actual missing-
+dependency checks and three parser tests pass. No engine/SQF errors; the focused
+run has 16 reviewed startup/dependency warnings. All 161 production inputs and
+the PBO match the tested manifest. Both isolated servers exited. The helper has
+no public caller yet; active/hostile/administration handoff and dispatch remain
+unfinished. Keep PR 32 draft for continued integration. Its full combined run
+is NOT_RUN; the parent candidate's 965-check report is separately identified.

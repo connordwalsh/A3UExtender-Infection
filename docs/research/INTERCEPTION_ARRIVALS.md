@@ -65,7 +65,7 @@ must fight/capture under the approved campaign rules, not flip territory merely
 because the task failed. These paths are not implemented by town storage support.
 
 
-## Offscreen arrival transaction (draft)
+## Offscreen arrival transaction (focused validation passed)
 
 `storeInterceptionArrivals` accepts one fully arrived group from the exact settled
 interception owner. It requires an infected-owned town or ordinary permanent
@@ -87,6 +87,41 @@ bindings. It tests stale/foreign claims, busy/active/hostile destinations, obser
 invalid roles and tickets, above-capacity permanent-site additions, a dead member
 excluded from saved town additions, corpse retention, resource neutrality and
 cleanup. No physical walking, campaign save-file or connected-player acceptance
-is implied by placing fixture actors at the destination. Engine execution is
-pending; packaging and three parser tests pass. The actual missing-dependency
-run passes all eleven checks without engine/SQF errors.
+is implied by placing fixture actors at the destination. All 34 focused engine checks pass, without engine/SQF errors. Packaging and
+three parser tests pass. The actual missing-dependency run passes all eleven
+checks without engine/SQF errors. The focused run has 16 reviewed startup or
+dependency warnings. All 161 production inputs and the PBO match the manifest.
+Both isolated test servers exited. Full combined regression of this additional
+helper is NOT_RUN; the parent candidate passed its 965 combined checks.
+
+Artifact: `@Infection_OffscreenArrivals_Dev1`, SHA-256
+`8dcac9e5c0acee52959d3bc0e17ae7f561714ebf1df683df3148f1cbf5078a51`.
+Reports: `interception-storage-build.json`, `interception-storage-engine.json`
+and `interception-storage-dependencies.json` under `evidence/sprint-4`.
+
+
+## Active-site adoption design review (not implemented)
+
+The existing paid reinforcement helper cannot be reused unchanged: it enforces
+native spare capacity and only transfers shared tickets. Interception groups
+already own dedicated capacity, and the approved arrivals may exceed the native
+garrison size. Weakening the ordinary helper would also change routine paid
+reinforcements, so that path must retain its current limits.
+
+A live handoff must update saved roles, clearance obligations, site membership
+and budget ownership in one unscheduled transaction. The original horde must
+lose ownership of the transferred actors before its retirement can delete them.
+For towns, existing dedicated ticket ceilings must grow with extraTarget and
+populationTarget; the original spawn queues must not spawn the adopted actors a
+second time. For permanent sites, transferred living groups need a dedicated
+arrival context that cannot reserve new actors or suppress the site's ordinary
+shared queue. Site cleanup can then delete those owned actors and release their
+closed tickets, while healthy saved roles remain for later visits.
+
+Review/test obligations: adoption during a partially filled queue; a full shared
+limit; two simultaneous arrival groups; native garrison mutex contention; owner
+or site replacement; death during a scheduled retry; old horde cleanup after
+transfer; site despawn after transfer; repeated adoption; and clearance after
+all original and extra defenders are defeated. Hostile destinations must remain
+under native combat/capture rules until ownership actually changes. First-entry
+task failure alone never authorizes a territory transfer.
