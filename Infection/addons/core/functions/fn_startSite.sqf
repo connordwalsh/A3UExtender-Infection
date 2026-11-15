@@ -18,6 +18,7 @@ isNil {
     };
     if (_marker in A3I_sites) exitWith {};
     private _roster = garrison getVariable [_marker,[]];
+    private _extraRoster = [];
     private _road = false;
     private _branch = "persistent";
     private _batchSize = 4;
@@ -41,6 +42,9 @@ isNil {
         _branch = _selection # 1;
     };
     if (_kind == "City") then {
+        // Town garrisons store permanent additions, separate from the normal
+        // per-visit population. Native save/load already persists these roles.
+        _extraRoster = [_marker] call A3I_fnc_cityExtraRoster;
         private _selection = [_marker] call A3I_fnc_cityRoster;
         _roster = _selection # 0;
         _branch = _selection # 1;
@@ -53,24 +57,27 @@ isNil {
         _building = _selection # 2;
     };
     if !(_roster isEqualType []) exitWith {};
+    if !(_extraRoster isEqualType []) exitWith {};
     if (_kind == "Control" && {_roster isEqualTo []}) exitWith {};
     if (_kind == "MilAdmin" && {_roster isEqualTo []}) exitWith {};
     if (_kind == "City" && {_branch in ["inactive","invalid_town","invalid_town_data"]}) exitWith {};
     A3I_siteSerial = A3I_siteSerial + 1;
     private _record = createHashMapFromArray [
         ["id",A3I_siteSerial], ["kind",_kind], ["context","site:" + _marker],
-        ["queue",+_roster], ["units",[]], ["groups",[]], ["civilians",[]],
+        ["queue",+_roster], ["extraQueue",+_extraRoster], ["units",[]], ["groups",[]], ["civilians",[]],
         ["flag",objNull], ["crates",[]], ["positions",[]],
         ["assets",_assets],
         ["announced",false], ["cleaned",false], ["fault",""],
         ["road",_road], ["branch",_branch], ["spawnedAny",false], ["captured",sideUnknown], ["batchSize",_batchSize],
-        ["building",_building], ["remainingDefenders",count _roster],
-        ["clearanceRemaining",count _roster], ["clearanceMissing",0],
-        ["populationTarget",if (_kind == "City") then {count _roster} else {0}],
+        ["building",_building], ["remainingDefenders",count _roster + count _extraRoster],
+        ["clearanceRemaining",count _roster + count _extraRoster], ["clearanceMissing",0],
+        ["baselineTarget",if (_kind == "City") then {count _roster} else {0}],
+        ["extraTarget",count _extraRoster],
+        ["populationTarget",if (_kind == "City") then {count _roster + count _extraRoster} else {0}],
         ["spawnedCount",0], ["townRoads",[]]
     ];
     A3I_sites set [_marker,_record];
-    spawner setVariable [_marker + "_A3I_pending",count _roster,true];
+    spawner setVariable [_marker + "_A3I_pending",count _roster + count _extraRoster,true];
     private _controller = switch (_kind) do {
         case "Control";
         case "City": {A3I_fnc_runPatrol};

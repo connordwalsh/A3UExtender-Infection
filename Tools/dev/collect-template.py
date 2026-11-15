@@ -106,6 +106,17 @@ CONTROL_CHECKS = {
 }
 
 CITY_CHECKS = {
+    'city_extra_roster_filters_unrelated',
+    'city_extra_initial_queue',
+    'city_extra_full_population_above_cap',
+    'city_extra_garrison_bookkeeping',
+    'city_extra_death_only_removes_extra',
+    'city_extra_healthy_despawn_preserves_roster',
+    'city_extra_native_load_restores_survivors',
+    'city_extra_revisit_regenerates_only_base',
+    'city_extra_blocks_clearance',
+    'city_extra_complete_clearance',
+
     'city_override_registered',
     'city_inactive_selection',
     'city_other_factions_delegate',
@@ -476,6 +487,152 @@ CLEARANCE_CHECKS = {
 }
 
 
+INTERCEPTION_FORMATION_CHECKS = {
+    'iform_partial_members_hidden',
+    'iform_incomplete_release_refused',
+    'iform_duplicate_preparation_refused',
+    'iform_complete_hidden_roster',
+    'iform_complete_release_visible',
+    'iform_destination_waypoints',
+    'iform_second_release_refused',
+    'iform_actual_march',
+    'iform_stalled_order_recovers',
+    'iform_remote_march_tick_refused',
+    'iform_retirement_removes_march_handler',
+    'iform_native_pursuit_preserved',
+    'iform_owner_stop_removes_march_handler',
+    'iform_real_death_counts_once',
+    'iform_dead_body_deletion_not_second_kill',
+    'iform_fake_death_event_refused',
+    'iform_live_deletion_keeps_obligation',
+    'iform_unscheduled_preparation_refused',
+    'iform_remote_internal_calls_refused',
+    'iform_lost_source_preparation_refused',
+    'iform_short_roster_refused',
+    'iform_invalid_role_rolls_back',
+    'iform_destination_changes_before_release',
+    'iform_source_moves_before_release',
+    'iform_member_inside_destination_cannot_depart',
+    'iform_changed_group_context_refused',
+    'iform_hidden_cleanup_with_observer',
+    'iform_preparation_casualty_blocks_departure',
+    'iform_killed_first_arrival_is_retained',
+    'iform_arrival_survives_whole_horde_death',
+    'iform_dead_body_movement_not_arrival',
+    'iform_russian_takeover_after_departure_preserves_formation',
+    'iform_visible_cleanup_waits_for_observer',
+    'iform_visible_cleanup_after_observer_leaves',
+    'iform_stale_member_cannot_change_new_job',
+    'iform_stopped_creation_reclaims_partial_group',
+    'iform_failed_hook_refunds_paid_spawn_once',
+    'iform_missing_hook_result_refused',
+    'iform_maximum_complete_roster',
+    'iform_maximum_complete_release',
+    'iform_complete_cleanup',
+}
+
+INTERCEPTION_CHECKS = {
+    'intercept_initial_sizes_bounded',
+    'intercept_connected_town_factory',
+    'intercept_planning_has_no_campaign_effects',
+    'intercept_rebel_destination_allowed',
+    'intercept_initial_russian_destination_refused',
+    'intercept_russian_source_refused',
+    'intercept_automatic_pair_selection',
+    'intercept_duplicate_location_lists',
+    'intercept_controls_never_endpoints',
+    'intercept_hq_never_endpoint',
+    'intercept_boundary_required',
+    'intercept_overlapping_spawn_area_refused',
+    'intercept_active_source_refused',
+    'intercept_forced_source_refused',
+    'intercept_combat_source_refused',
+    'intercept_cooldown_respected',
+    'intercept_foot_route_ignores_vehicle_marker',
+    'intercept_disconnected_route_refused',
+    'intercept_walking_range_respected',
+    'intercept_hq_range_respected',
+    'intercept_unsafe_source_refused',
+    'intercept_unscheduled_search_refused',
+    'intercept_dependencies_required',
+    'intercept_inactive_template_refused',
+    'intercept_shared_budget_filled',
+    'intercept_full_allowance_with_shared_and_town_full',
+    'intercept_cannot_exceed_job_size',
+    'intercept_cannot_borrow_job_allowance',
+    'intercept_actual_complete_horde_with_shared_full',
+    'intercept_marching_cannot_add_members',
+    'intercept_cannot_transfer_to_shared',
+    'intercept_cannot_import_shared_members',
+    'intercept_death_does_not_refill',
+    'intercept_live_deletion_releases_only_its_slot',
+    'intercept_worker_stop_observed',
+    'intercept_stopped_worker_loses_pending_reservation',
+    'intercept_stopped_worker_cannot_reserve',
+    'intercept_retired_bindings_stay_outside_shared',
+    'intercept_removed_job_cannot_reclassify_context',
+    'intercept_oversized_allowance_refused',
+    'intercept_mismatched_job_context_refused',
+    'intercept_phase_change_retires_unused_slots',
+    'intercept_actual_maximum_horde',
+    'intercept_foundation_cleanup',
+}
+
+INTERCEPTION_TASK_CHECKS = {
+    "itask_win_retains_task_and_corpses",
+    "itask_win_releases_claim_after_retention",
+    'itask_register_before_release_refused',
+    'itask_prepare_lifecycle_watch',
+    'itask_interrupted_preparation_retires',
+    'itask_missing_route_distance_refused',
+    'itask_busy_convoy_refused',
+    'itask_remote_registration_refused',
+    'itask_native_registration',
+    'itask_walking_deadline',
+    'itask_native_briefing',
+    'itask_duplicate_registration_refused',
+    'itask_duplicate_lifecycle_refused',
+    'itask_remote_lifecycle_refused',
+    'itask_observed_survivors_not_deleted',
+    'itask_unobserved_cleanup_releases_claim',
+    'itask_minimum_one_hour',
+    'itask_arrival_claim_retained_for_aftermath',
+    'itask_finished_aftermath_releases_claim',
+
+    "itask_retention_not_early", "itask_remote_cleanup_refused",
+    "itask_retention_auto_cleanup", "itask_task_cleanup_idempotent",
+    "itask_missing_deadline_refused",
+    "itask_invalid_deadline_cancels_without_reward",
+    'itask_absent_task_no_reward',
+    'itask_absent_task_watch_refused',
+    'itask_actual_marker_boundary',
+    'itask_arrival_penalty_once',
+    'itask_cleanup',
+    'itask_disabled_campaign_cancels',
+    'itask_duplicate_watch_refused',
+    'itask_elimination_hard',
+    'itask_elimination_normal',
+    'itask_entry_then_last_kill_fails',
+    'itask_first_living_arrival_fails',
+    'itask_late_kills_fail',
+    'itask_live_deletion_not_elimination',
+    'itask_native_retention_range',
+    'itask_no_duplicate_rewards_hard',
+    'itask_no_duplicate_rewards_normal',
+    'itask_pending_not_settled',
+    'itask_preparation_not_watchable',
+    'itask_remote_mutation_denied',
+    'itask_repeat_settlement_no_effect',
+    'itask_rewards_hard',
+    'itask_rewards_normal',
+    'itask_russian_takeover_continues',
+    'itask_stopped_owner_cancels',
+    'itask_survivors_preserved',
+    'itask_timely_kills_survive_poll_delay',
+    'itask_timeout_fails',
+    'itask_watch_released',
+}
+
 BACKGROUND_CONVOY_CHECKS = {
     "bg_registered", "bg_ordinary_delegates", "bg_ordinary_scheduler_delegates",
     "bg_other_routes_preserved", "bg_infected_source_rejected", "bg_zero_capacity_vehicle", "bg_workers_finish", "bg_cleanup",
@@ -603,14 +760,14 @@ def collect(log_path: Path, repo: Path, expected_dependencies: bool, suite: str 
     expected_checks = COMMON | ({
         "active_only_for_occupants", "role_count", "generated_groups_resolve", "prepared_basic_classes_only",
         "assets_resolve", "conventional_pools_empty", "cleanup",
-    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | BACKGROUND_CONVOY_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
+    } | GARRISON_CHECKS | COMBAT_CHECKS | BUDGET_CHECKS | SPAWN_CHECKS | SITE_CHECKS | CONTROL_CHECKS | CITY_CHECKS | ADMIN_CHECKS | REINFORCEMENT_CHECKS | ROAMING_CHECKS | COUNTERATTACK_CHECKS | TACTICAL_CHECKS | MAJOR_CHECKS | CATALOG_POLICY_CHECKS | CLEARANCE_CHECKS | LIQUIDATION_CHECKS | LIQUIDATION_CONTROLLER_CHECKS | LIQUIDATION_DISPATCH_CHECKS | INTERCEPTION_CHECKS | INTERCEPTION_FORMATION_CHECKS | INTERCEPTION_TASK_CHECKS | BACKGROUND_CONVOY_CHECKS | {"spawn_" + name for name in EXPECTED_ROLES} if expected_dependencies else {"both_required_patches_absent"})
     expected_roles = EXPECTED_ROLES if expected_dependencies else []
-    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "backgroundconvoys"):
+    if suite in ("administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "backgroundconvoys"):
         if not expected_dependencies:
             raise ValueError("Focused suites require dependencies")
         focused_checks = {"administration": ADMIN_CHECKS, "reinforcements": REINFORCEMENT_CHECKS, "roaming": ROAMING_CHECKS,
                           "counterattacks": COUNTERATTACK_CHECKS, "towns": CITY_CHECKS, "tactical": TACTICAL_CHECKS, "major": MAJOR_CHECKS,
-                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS, "backgroundconvoys": BACKGROUND_CONVOY_CHECKS}
+                          "catalogpolicy": CATALOG_POLICY_CHECKS, "clearance": CLEARANCE_CHECKS, "liquidation": LIQUIDATION_CHECKS, "liquidationcontroller": LIQUIDATION_CONTROLLER_CHECKS, "liquidationdispatch": LIQUIDATION_DISPATCH_CHECKS, "interception": BUDGET_CHECKS | INTERCEPTION_CHECKS, "interceptionformation": INTERCEPTION_FORMATION_CHECKS, "interceptiontask": INTERCEPTION_TASK_CHECKS, "formationregression": LIQUIDATION_CHECKS | INTERCEPTION_FORMATION_CHECKS, "backgroundconvoys": BACKGROUND_CONVOY_CHECKS}
         expected_checks = COMMON | {"active_only_for_occupants"} | focused_checks[suite]
         expected_roles = []
     checks = {
@@ -653,7 +810,7 @@ def main() -> int:
     parser.add_argument("log", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--dependencies", choices=("present", "absent"), required=True)
-    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "backgroundconvoys"), default="full")
+    parser.add_argument("--suite", choices=("full", "administration", "reinforcements", "roaming", "counterattacks", "towns", "tactical", "major", "catalogpolicy", "clearance", "liquidation", "liquidationcontroller", "liquidationdispatch", "interception", "interceptionformation", "formationregression", "interceptiontask", "backgroundconvoys"), default="full")
     args = parser.parse_args()
     report = collect(args.log, Path(__file__).resolve().parents[2], args.dependencies == "present", args.suite)
     args.output.parent.mkdir(parents=True, exist_ok=True)

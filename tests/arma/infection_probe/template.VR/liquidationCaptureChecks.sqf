@@ -88,7 +88,9 @@ private _resetClaim = {
     _claim = createHashMapFromArray [["name","A3I_LIQ_capture_fixture"],["target",_target],
         ["settled",false],["outcome","pending"],["deadline",dateToNumber date + 0.01]];
     A3I_liquidationClaims set [_target,_claim];
-    sidesX setVariable [_target,west]; spawner setVariable [_target,0]; garrison setVariable [_target,[]];
+    // Native capture publishes these object variables. Publish the reset too,
+    // so a queued network update cannot restore the previous trial's owner.
+    sidesX setVariable [_target,west,true]; spawner setVariable [_target,0,true]; garrison setVariable [_target,[],true];
     _site set ["clearanceRemaining",1]; _site set ["captured",sideUnknown];
 };
 private _write = {params ["_marker","_side"]; sidesX setVariable [_marker,_side,true]; true};
@@ -139,11 +141,21 @@ call _resetClaim;
 [{_claim get "outcome" == "cancelled" && {markersChanging isEqualTo []}}] call _wait;
 ["liq_capture_native_remote_russian_cancels",sidesX getVariable _target == east
     && {_claim get "outcome" == "cancelled"} && {markersChanging isEqualTo []}] call _check;
-call _resetClaim; _site set ["clearanceRemaining",0];
-[teamPlayer,_target] remoteExec ["A3A_fnc_markerChange",2];
-[{_claim get "outcome" == "won" && {markersChanging isEqualTo []}}] call _wait;
-["liq_capture_native_remote_rebel_clearance",sidesX getVariable _target == teamPlayer
-    && {_claim get "outcome" == "won"} && {markersChanging isEqualTo []}] call _check;
+private _remoteTrials = [];
+for "_trial" from 1 to 12 do {
+    call _resetClaim; _site set ["clearanceRemaining",0];
+    A3I_test_captureTrace = [];
+    [teamPlayer,_target] remoteExec ["A3A_fnc_markerChange",2];
+    private _finished = [{_claim get "outcome" == "won" && {markersChanging isEqualTo []}}] call _wait;
+    private _trialResult = [_finished,str (sidesX getVariable _target),_claim get "outcome",
+        +markersChanging,[_target] call A3I_fnc_siteClearance,+A3I_test_captureTrace];
+    diag_log format ["[INFECTION_DIAGNOSTIC] %1",["capture_remote_trial",_trial,_trialResult]];
+    _remoteTrials pushBack (_trialResult select [0,4]);
+};
+A3I_test_captureTrace = nil;
+["liq_capture_native_remote_rebel_clearance",(_remoteTrials findIf {!(_x # 0)
+    || {_x # 1 != str teamPlayer} || {_x # 2 != "won"} || {_x # 3 isNotEqualTo []}}) == -1,
+    _remoteTrials] call _check;
 
 // Town political capture must use the same ledger, then retain native effects.
 call _resetClaim; citiesX pushBack _target; factories = [_ordinary]; _site set ["kind","City"];
@@ -185,7 +197,7 @@ _site set ["clearanceRemaining",0];
 A3I_test_realAdminCapture = false;
 deleteVehicle _building; milAdministrationsX = []; A3A_milAdministrations = []; A3A_destroyedMilAdministrations = [];
 // Allow native enemy-capture static cleanup to finish before deleting spawner.
-{spawner setVariable [_x,2]} forEach _markers;
+{spawner setVariable [_x,2,true]} forEach _markers;
 sleep 1.5;
 terminate _worker; A3I_liquidationClaims = createHashMap; A3I_sites = createHashMap;
 deleteVehicle petros; sleep 0.2; deleteGroup _petrosGroup;

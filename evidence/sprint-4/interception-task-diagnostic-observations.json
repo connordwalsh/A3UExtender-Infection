@@ -1,0 +1,47 @@
+{
+  "source_log": "arma3server_x64_2026-11-14_20-21-04.rpt",
+  "source_log_sha256": "f3e29e9ef7e5cd7a56cf9a59a694318c811d950bc44293a19ea63a2923b6d3e2",
+  "observations": [
+    {
+      "line": 968,
+      "message": "\"[INTERCEPTION_TASK_TRACE] before deadline t=29.424 keys=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"outcome\"\",\"\"\"\"\"\"pending\"\"\"\"\"\"],[\"\"deadline\"\",\"\"149.424\"\"],[\"\"eliminatedAt\"\",\"\"\"\"\"\"UNSET\"\"\"\"\"\"],[\"\"remaining\"\",\"\"4\"\"],[\"\"killed\"\",\"\"0\"\"]]\""
+    },
+    {
+      "line": 973,
+      "message": "\"[INTERCEPTION_TASK_TRACE] before watch t=29.544 keys=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"outcome\"\",\"\"\"\"\"\"pending\"\"\"\"\"\"],[\"\"deadline\"\",string],[\"\"eliminatedAt\"\",\"\"29.424\"\"],[\"\"remaining\"\",\"\"0\"\"],[\"\"killed\"\",\"\"4\"\"]]\""
+    },
+    {
+      "line": 974,
+      "message": "\"[INTERCEPTION_TASK_TRACE] finishInterception entry t=29.608 suspended=false data=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"phase\"\",\"\"\"\"\"\"marching\"\"\"\"\"\"],[\"\"outcome\"\",\"\"\"\"\"\"pending\"\"\"\"\"\"],[\"\"settled\"\",\"\"false\"\"],[\"\"deadline\"\",string],[\"\"eliminatedAt\"\",\"\"29.424\"\"],[\"\"remaining\"\",\"\"0\"\"],[\"\"killed\"\",\"\"4\"\"],[\"\"fault\"\",\"\"\"\"\"\"\"\"\"\"\"\"]]\""
+    },
+    {
+      "line": 975,
+      "message": "\"[INTERCEPTION_TASK_TRACE] interceptionTaskOutcome entry t=29.608 suspended=false data=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"phase\"\",\"\"\"\"\"\"marching\"\"\"\"\"\"],[\"\"outcome\"\",\"\"\"\"\"\"pending\"\"\"\"\"\"],[\"\"settled\"\",\"\"false\"\"],[\"\"deadline\"\",string],[\"\"eliminatedAt\"\",\"\"29.424\"\"],[\"\"remaining\"\",\"\"0\"\"],[\"\"killed\"\",\"\"4\"\"],[\"\"fault\"\",\"\"\"\"\"\"\"\"\"\"\"\"]]\""
+    },
+    {
+      "line": 976,
+      "message": "\"[INTERCEPTION_TASK_TRACE] interceptionTaskOutcome exit t=29.608 result=UNSET data=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"phase\"\",\"\"\"\"\"\"marching\"\"\"\"\"\"],[\"\"outcome\"\",\"\"\"\"\"\"pending\"\"\"\"\"\"],[\"\"settled\"\",\"\"false\"\"],[\"\"deadline\"\",string],[\"\"eliminatedAt\"\",\"\"29.424\"\"],[\"\"remaining\"\",\"\"0\"\"],[\"\"killed\"\",\"\"4\"\"],[\"\"fault\"\",\"\"\"\"\"\"\"\"\"\"\"\"]]\""
+    },
+    {
+      "line": 977,
+      "message": "\"[INTERCEPTION_TASK_TRACE] finishInterception exit t=29.608 result=true data=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"phase\"\",\"\"\"\"\"\"marching\"\"\"\"\"\"],[\"\"outcome\"\",string],[\"\"settled\"\",\"\"true\"\"],[\"\"deadline\"\",string],[\"\"eliminatedAt\"\",\"\"29.424\"\"],[\"\"remaining\"\",\"\"0\"\"],[\"\"killed\"\",\"\"4\"\"],[\"\"fault\"\",\"\"\"\"\"\"\"\"\"\"\"\"]]\""
+    },
+    {
+      "line": 1015,
+      "message": "\"[INTERCEPTION_TASK_TRACE] finishInterception entry t=29.854 suspended=true data=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"phase\"\",\"\"\"\"\"\"marching\"\"\"\"\"\"],[\"\"outcome\"\",string],[\"\"settled\"\",\"\"true\"\"],[\"\"deadline\"\",string],[\"\"eliminatedAt\"\",\"\"29.424\"\"],[\"\"remaining\"\",\"\"0\"\"],[\"\"killed\"\",\"\"4\"\"],[\"\"fault\"\",\"\"\"\"\"\"fixture_cleanup\"\"\"\"\"\"]]\""
+    },
+    {
+      "line": 1016,
+      "message": "\"[INTERCEPTION_TASK_TRACE] finishInterception entry t=29.854 suspended=false data=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"phase\"\",\"\"\"\"\"\"marching\"\"\"\"\"\"],[\"\"outcome\"\",string],[\"\"settled\"\",\"\"true\"\"],[\"\"deadline\"\",string],[\"\"eliminatedAt\"\",\"\"29.424\"\"],[\"\"remaining\"\",\"\"0\"\"],[\"\"killed\"\",\"\"4\"\"],[\"\"fault\"\",\"\"\"\"\"\"fixture_cleanup\"\"\"\"\"\"]]\""
+    },
+    {
+      "line": 1017,
+      "message": "\"[INTERCEPTION_TASK_TRACE] finishInterception exit t=29.854 result=UNSET data=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"phase\"\",\"\"\"\"\"\"marching\"\"\"\"\"\"],[\"\"outcome\"\",string],[\"\"settled\"\",\"\"true\"\"],[\"\"deadline\"\",string],[\"\"eliminatedAt\"\",\"\"29.424\"\"],[\"\"remaining\"\",\"\"0\"\"],[\"\"killed\"\",\"\"4\"\"],[\"\"fault\"\",\"\"\"\"\"\"fixture_cleanup\"\"\"\"\"\"]]\""
+    },
+    {
+      "line": 1018,
+      "message": "\"[INTERCEPTION_TASK_TRACE] finishInterception exit t=29.854 result=UNSET data=[[\"\"name\"\",\"\"\"\"\"\"task_10\"\"\"\"\"\"],[\"\"phase\"\",\"\"\"\"\"\"marching\"\"\"\"\"\"],[\"\"outcome\"\",string],[\"\"settled\"\",\"\"true\"\"],[\"\"deadline\"\",string],[\"\"eliminatedAt\"\",\"\"29.424\"\"],[\"\"remaining\"\",\"\"0\"\"],[\"\"killed\"\",\"\"4\"\"],[\"\"fault\"\",\"\"\"\"\"\"fixture_cleanup\"\"\"\"\"\"]]\""
+    }
+  ],
+  "finding": "The fixture reads eliminatedAt before queued engine Killed events execute, then writes an invalid deadline. Both task outcomes and watcher need fail-closed deadline validation; the fixture must await genuine event delivery."
+}

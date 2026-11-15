@@ -1,4 +1,4 @@
-// Town/control patrols regenerate per visit, without a saved roster or vehicles.
+// Normal town/control patrols regenerate. Extra town garrisons retain casualties.
 #include "\x\a3a\addons\core\script_component.hpp"
 params ["_marker","_record"];
 if (!isServer || {!canSuspend} || {isRemoteExecuted && {remoteExecutedOwner != 2}}) exitWith {};
@@ -21,12 +21,14 @@ if (_record get "assets") then {
     [CBA_EVENT_SERVER_SPAWN_LOCATION,[_marker,_kind,true]] call A3A_fnc_triggerLocalEvent;
 };
 private _nextBatch = 0;
+private _pending = {count (_record get "queue") + count (_record getOrDefault ["extraQueue",[]])};
 private _previousSimulation = -1;
 while {spawner getVariable [_marker,2] != 2} do {
     private _state = spawner getVariable [_marker,2];
     private _owned = sidesX getVariable [_marker,sideUnknown] == west;
     if (!_owned) then {
         _record set ["queue",[]];
+        _record set ["extraQueue",[]];
         spawner setVariable [_marker + "_A3I_pending",0,true];
     };
     if (_state != _previousSimulation) then {
@@ -34,10 +36,13 @@ while {spawner getVariable [_marker,2] != 2} do {
         _previousSimulation = _state;
     };
     private _queue = _record get "queue";
+    private _extra = _town && {_queue isEqualTo []};
+    if (_extra) then {_queue = _record getOrDefault ["extraQueue",[]]};
     if (_owned && {_state == 0} && {_queue isNotEqualTo []} && {diag_tickTime >= _nextBatch}
         && {_record get "fault" == ""}) then {
         private _result = [_record get "context",_queue select [0,_record get "batchSize"],_center,0,_outerRadius,
-            _marker,"legacy",if (_town) then {200} else {24},false] call A3I_fnc_spawnGroup;
+            _marker,["legacy","garrison"] select _extra,
+            if (_town) then {_record get "populationTarget"} else {24},_extra] call A3I_fnc_spawnGroup;
         private _count = 0;
         if (_result # 0) then {
             (_result # 1) params ["_group","_units"];
@@ -47,7 +52,7 @@ while {spawner getVariable [_marker,2] != 2} do {
             _count = count _units;
             _record set ["spawnedCount",(_record get "spawnedCount") + _count];
             _queue deleteRange [0,_count];
-            spawner setVariable [_marker + "_A3I_pending",count _queue,true];
+            spawner setVariable [_marker + "_A3I_pending",call _pending,true];
             if (_kind == "City") then {[_group,_marker] call A3I_fnc_patrolWaypoints} else {
                 private _waypoint = _group addWaypoint [_center,0];
                 _waypoint setWaypointType "MOVE";
@@ -70,7 +75,7 @@ while {spawner getVariable [_marker,2] != 2} do {
         // wait. Controls preserve their existing 15-second arrival pacing.
         _nextBatch = diag_tickTime + (if (_count > 0) then {if (_town) then {0} else {15}} else {5});
     };
-    if (_town && {_owned} && {!_populationReady} && {_queue isEqualTo []}) then {
+    if (_town && {_owned} && {!_populationReady} && {call _pending == 0}) then {
         _populationReady = true;
         diag_log format ["[INFECTION_TOWN] marker=%1 target=%2 created=%3 living=%4 phase=ready seconds=%5",
             _marker,_record get "populationTarget",_record get "spawnedCount",{alive _x} count (_record get "units"),diag_tickTime - _began];
@@ -95,7 +100,7 @@ while {spawner getVariable [_marker,2] != 2} do {
     };
     _record set ["units",(_record get "units") select {!isNull _x}];
     _record set ["groups",(_record get "groups") select {!isNull _x}];
-    sleep (if (_town && {_owned} && {_state == 0} && {_queue isNotEqualTo []} && {_record get "fault" == ""}
+    sleep (if (_town && {_owned} && {_state == 0} && {call _pending > 0} && {_record get "fault" == ""}
         && {diag_tickTime >= _nextBatch}) then {0.05} else {1});
 };
 [_marker,_record] call A3I_fnc_cleanupSite;

@@ -641,6 +641,137 @@ Redux traversal and full campaign acceptance remain open. The other five mission
 replacements are not represented as finished by this merge. No Computer Use.
 
 
+## 14 November 2026 - Horde Interception foundation
+
+Reviewed bounded route planning, initial faction/endpoint restrictions, source
+safety and cooldowns, native HQ distance, land connectivity and exclusion of
+spawn/destination overlap. Source search is independent of vehicle spawn aliases.
+The 40-120 tuning follows the owner's authorization; it is not a performance
+acceptance claim. Full formation staging and march remain unimplemented.
+
+The budget retains existing shared/town behavior and adds a finite dedicated
+interception domain. Only a live preparing owner reserves new slots; later phases
+retire unused reservations, and living bindings cannot turn into shared capacity
+if the owner disappears. Population domains cannot transfer into each other.
+
+Interception Dev1 passes 78 focused checks (11 common, 23 shared-budget and 44
+interception), 78 town-regression checks and 11 actual missing-dependency checks.
+No engine/SQF errors. Focused warnings: 16 startup/dependency notices. Town
+warnings: the same 16 plus four object-deletion notices. Missing dependencies:
+seven startup notices. All 141 production inputs and the PBO match the manifest.
+The first fixture failed before engine script termination became observable;
+the corrected check records that timing and tests refusal after actual exit.
+The failed report remains separate. No production fix was needed for that issue.
+
+Keep PR 27 draft until formation, controller and dispatch integration are reviewed.
+No public mission flow yet creates an interception job. Connected clients,
+Redux travel, performance, saves and full campaign acceptance remain open.
+No Computer Use or manual-build replacement occurred.
+
+
+## 14 November 2026 - Interception formation component
+
+Reviewed the six new server-only formation helpers, separate-budget ownership,
+atomic post-initialization tracking, complete-roster departure, real-event death
+accounting, stale serial refusal, and retirement of interrupted spawn batches.
+The formation remains finite; no casualty-driven replacement is introduced.
+The generic callback defaults to true for existing callers, and explicit paid
+rollback suppresses the existing deletion refund to prevent double credit.
+
+Dev1's weak movement assertion was replaced after a run recorded zero progress.
+Prepared zombie classes issue their own startup doMove-to-self command. Dev2
+allows native initialization to settle while hidden and issues destination
+orders on release. Every tested group leader must now gain at least ten metres
+toward the destination. Four leaders passed that assertion in the focused run;
+this does not certify full Redux paths or combat pursuit/recovery.
+
+Formation Dev2 passes 47 focused checks, including complete 40/120-member release
+and cleanup, and 11 actual missing-dependency checks. No engine/SQF errors.
+Focused warnings are 16 startup/dependency notices plus four object-deletion
+notices; missing dependencies has seven startup notices. Three parser tests
+pass. All 147 production inputs and the PBO match the recorded manifest.
+Three fixture errors and one stationary-leader result remain rejected evidence.
+The combined regression suite is still running and is not yet claimed passed.
+
+PR 28 is stacked on draft PR 27. Keep task/controller ownership, first-arrival
+observation, settlement, arriving-survivor handoff, requested/intel dispatch and
+background Russian convoy separation open. Connected clients, performance,
+saves and full campaign acceptance remain open. No Computer Use or manual build
+replacement occurred.
+
+
+### Formation follow-up review
+
+Dev2's combined run completed 844 checks with two failures and no script errors;
+it is rejected. Capture diagnostics traced one to a test reset of published
+namespace variables without publishing the replacement. The corrected reset
+and final spawner cleanup publish their values. Twelve repeated real remote
+captures then pass. Production Liquidation code did not change. Diagnostic
+logging stays in the isolated test addon and is absent from gameplay packages.
+
+The second failure was a real stationary walker retaining a MOVE command.
+Diagnostics verified life, simulation, ground contact, no enemy and no movement
+lock, then observed renewed movement after reissuing the destination. Dev3's
+new internal monitor checks ten-second movement intervals, respects native
+pursuit and locks, skips adopted/player-controlled/nonlocal members, and retries
+stationary march orders without teleporting or changing AI feature flags.
+Retirement or owner termination removes its CBA handler. Initial one-time
+startup ordering is no longer presented as a sufficient movement fix.
+
+Reviewed the monitor, lifecycle changes, diagnostic evidence and test corrections.
+Dev3 passes 85 targeted checks (including both formerly failing paths) and 11
+actual missing-dependency checks. No engine/SQF errors. Targeted warnings are
+16 startup/dependency notices and four object-deletion notices; absent dependencies
+has seven startup notices. Three parser tests pass. All 148 production inputs
+and the addon match the manifest after testing. Both servers have exited.
+
+Dev3 full combined run is NOT_RUN. Keep PR 28 draft and repeat full regressions
+on the next integrated task/controller/dispatch candidate. The 47-check Dev2
+focused report remains historical and does not override its failed combined
+report. Full-route travel, connected clients, performance, saves and complete
+campaign acceptance remain open.
+
+
+### Interception task outcome and retention review (PR 30)
+
+Reviewed server/remote guards, exact job serial matching, once-only settlement,
+first-entry precedence, event timestamps, deadline validation and cleanup. A
+missing or non-finite deadline now fails closed instead of producing invalid
+reward data. Task retention has its own callback so removal does not delete
+arrival survivors. Repeated settlement and cleanup calls are idempotent.
+
+Dev3 passes 45 focused task checks and 11 actual missing-dependency checks with
+no engine/SQF errors. Three parser tests pass. The final fixture asserts native
+registry/owner removal rather than BIS taskExists: installed engine source shows
+that no-player dedicated deletion can retain ID. Production was unchanged for
+that correction. Rejected timing, cleanup-index and taskExists assumptions are
+preserved with diagnostic evidence. Warnings: 16 focused startup/dependency and
+seven absent-dependency notices. All 154 production inputs match the artifact.
+
+Formation/capture regression passes all 85 checks without engine/SQF errors.
+Its 20 warnings comprise 16 startup/dependency notices and four object-deletion
+notices. All 154 production inputs and the PBO still match the manifest after
+testing; the isolated test server exited. Full combined suite NOT_RUN. PR 30
+remains draft on PR 28; public task creation/dispatch, complete owner supervision
+and arrival aftermath remain unfinished. No player reward receipt, player UI,
+JIP, full-route travel, performance, saves or campaign acceptance is claimed.
+No Computer Use or manual install/profile/save changes.
+
+
+### Interception lifecycle follow-up (combined validation pending)
+
+Internal task registration now creates the native briefing only for a released
+formation, refuses duplicate/remote registrations and selects a walking-aware
+travel limit. Independent supervision handles stopped preparation workers,
+observer-safe visible cleanup and claim release after task/formation retirement.
+Arrival survivors remain owned until the separate aftermath controller finishes.
+
+Lifecycle Dev1 passes 62 focused checks and 11 actual missing-dependency checks,
+with no engine/SQF errors; warnings are 16 and seven startup/dependency notices
+respectively. Three parser tests pass. A native briefing representation fixture
+error remains rejected evidence. Two additional success-path corpse/retention
+checks await the combined run. Public launch/dispatch and arrival policy remain
+unfinished; no campaign acceptance or Computer Use/manual-build change.
 ## 14 November 2026 - Background Russian supply traffic
 
 Self-reviewed the complete production diff against master and pinned Ultimate
@@ -667,3 +798,43 @@ scoped feature through PR 29. No Computer Use or manual installation update.
 Full combined regression, driving, connected UI/rewards, native despawner behavior,
 real-hour timeout, interruption handling, HC/multiplayer, saves and the full
 mission catalog remain unaccepted. No sprint gate is closed by this checkpoint.
+
+
+Integrated lifecycle regression checkpoint: the frozen 159-input candidate
+completed 955 combined checks, with one failed success-retention assertion and
+no engine/SQF errors. That report remains rejected. A 64-check focused diagnostic
+then reproduced the exact failure state: outcome won, formation retired, four
+native corpses, retained task/claim, zero budget counts, but native task state
+still CREATED. After its queued update, the same values remain and state becomes
+SUCCEEDED. The fixture now waits explicitly for that native state; production
+code did not change. All 64 focused checks pass without engine/SQF errors.
+The combined run has 80 reviewed warnings: 16 startup/dependency notices, 59
+object-deletion notices and five absent-fixture-commander notification targets.
+The focused run has 16 startup notices.
+All 159 production inputs and the PBO still match the manifest. Both test servers
+exited. A clean combined rerun remains required before integration; do not treat
+the rejected combined report as passed. The town-extra branch will include this
+fixture correction before its combined validation. Arrival capacity/offscreen
+persistence/casualty decisions are now resolved: extras exceed normal capacity,
+persist to the next visit, and stay dead when killed. Handoff remains unfinished.
+
+
+## 14 November 2026 - Integrated interception and town extras review
+
+TownExtras Dev1 passes all 965 combined dedicated checks and all 67 role-spawn
+records, without engine/SQF errors. The focused town run passes 88 checks;
+the actual missing-dependency run passes 11; three parser tests pass. All 160
+production inputs and the PBO match the frozen build manifest after testing.
+The combined server exited. Its 81 warnings were reviewed: 16 startup/dependency
+notices, 60 object-deletion notices and five absent-fixture-commander notification
+targets. The earlier 955-check failure remains rejected historical evidence.
+
+Self-review covered owner/serial guards, dedicated population accounting,
+queued baseline/extra separation, native casualty/save roles, task state and
+retention, observer-safe retirement and source/target ownership races. Integrate
+foundation PR 27, formation PR 28 and controller PR 30 through combined PR 31.
+This is component acceptance, not a completed Horde Interception player mission
+or sprint gate. Public mission creation/dispatch, active/hostile arrival aftermath,
+connected players, terrain, full campaign saves and remaining mission families
+are still unfinished. Offscreen arrival transaction work is isolated in PR 32.
+No Computer Use or manual installation/profile changes.
