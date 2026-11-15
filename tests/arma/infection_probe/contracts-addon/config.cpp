@@ -51,6 +51,8 @@ class CfgFunctions
     {
         class Core
         {
+            class finishInterception { file = "\x\a3i\tests\contracts\fn_finishInterception.sqf"; };
+            class interceptionTaskOutcome { file = "\x\a3i\tests\contracts\fn_interceptionTaskOutcome.sqf"; };
             class liquidationMarkerChange { file = "\x\a3i\tests\contracts\fn_liquidationMarkerChange.sqf"; };
             class spawnObservers { file = "\x\a3i\tests\contracts\fn_spawnObservers.sqf"; };
         };
@@ -91,6 +93,8 @@ class CfgFunctions
         };
         class TestOriginals
         {
+            class testNativeFinishInterception { file = "\x\a3i\addons\core\functions\fn_finishInterception.sqf"; };
+            class testNativeInterceptionTaskOutcome { file = "\x\a3i\addons\core\functions\fn_interceptionTaskOutcome.sqf"; };
             class testNativeLiquidationMarkerChange { file = "\x\a3i\addons\core\functions\fn_liquidationMarkerChange.sqf"; };
             class testNativeSpawnObservers { file = "\x\a3i\addons\core\functions\fn_spawnObservers.sqf"; };
             class testNativeMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };

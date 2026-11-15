@@ -322,3 +322,16 @@ Dev2 combined report remains rejected. Run the full suite on the next integrated
 controller/dispatch candidate. No test servers remain running from this session.
 Next implementation: server-owned task lifecycle and first-arrival settlement,
 then survivor handoff, requested/intel dispatch and background Russian convoys.
+
+
+Interception task checkpoint: Dev3 passes 45 focused task checks and 11 actual
+missing-dependency checks without engine/SQF errors. First arrival fails the
+task, Russia takeover continues, genuine full elimination uses event time,
+settlement rewards occur once, and independent task retention preserves living
+survivors. Invalid deadlines cancel without mission rewards/penalties. Three
+parser tests pass. Capture/formation regression is running; full combined and
+connected-player checks are still open. Keep PR 30 draft. Public creation,
+owner supervision, arrival reinforcement/attack and board/intel dispatch remain
+unfinished. Arrival capacity and offscreen-town persistence questions remain
+pending. Background Russian convoys were separately merged in master PR 29;
+that change is not yet integrated into this stacked interception worktree.

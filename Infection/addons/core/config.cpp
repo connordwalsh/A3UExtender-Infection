@@ -90,6 +90,8 @@ class CfgFunctions
             class finishInterception {};
             class interceptionTaskTick {};
             class watchInterceptionTask {};
+            class cleanupInterceptionTask {};
+            class interceptionTaskCleanupTick {};
             class interceptionPreparing {};
             class trackInterceptionMember {};
             class interceptionMemberEvent {};

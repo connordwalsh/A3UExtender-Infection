@@ -730,3 +730,26 @@ on the next integrated task/controller/dispatch candidate. The 47-check Dev2
 focused report remains historical and does not override its failed combined
 report. Full-route travel, connected clients, performance, saves and complete
 campaign acceptance remain open.
+
+
+### Interception task outcome and retention review (PR 30)
+
+Reviewed server/remote guards, exact job serial matching, once-only settlement,
+first-entry precedence, event timestamps, deadline validation and cleanup. A
+missing or non-finite deadline now fails closed instead of producing invalid
+reward data. Task retention has its own callback so removal does not delete
+arrival survivors. Repeated settlement and cleanup calls are idempotent.
+
+Dev3 passes 45 focused task checks and 11 actual missing-dependency checks with
+no engine/SQF errors. Three parser tests pass. The final fixture asserts native
+registry/owner removal rather than BIS taskExists: installed engine source shows
+that no-player dedicated deletion can retain ID. Production was unchanged for
+that correction. Rejected timing, cleanup-index and taskExists assumptions are
+preserved with diagnostic evidence. Warnings: 16 focused startup/dependency and
+seven absent-dependency notices. All 154 production inputs match the artifact.
+
+Formation/capture regression is running. Full combined suite NOT_RUN. PR 30
+remains draft on PR 28; public task creation/dispatch, complete owner supervision
+and arrival aftermath remain unfinished. No player reward receipt, player UI,
+JIP, full-route travel, performance, saves or campaign acceptance is claimed.
+No Computer Use or manual install/profile/save changes.

@@ -112,10 +112,8 @@ private _cleanup = {
     _record set ["fault","fixture_cleanup"];
     [_record] call A3I_fnc_finishInterception;
     sleep 0.3; // Allow native taskSetState's remote registry update to finish.
-    if ([_record] call _state != "MISSING") then {
-        [_record get "name","CONVOY","DELETED"] call A3A_fnc_taskUpdate;
-        [_record get "name"] call BIS_fnc_deleteTask;
-    };
+    _record set ["taskDeleteAt",time - 1];
+    [_record] call A3I_fnc_cleanupInterceptionTask;
     [_record] call _cleanupFormation;
 };
 private _start = {
@@ -165,6 +163,26 @@ _first setPosATL _destinationPosition;
     && {isNil {_record get "taskHandle"}}] call _check;
 ["itask_survivors_preserved",{alive _x} count (_record get "units") == 4 && {!(_record get "retired")}] call _check;
 ["itask_native_retention_range",_record get "taskDeleteAt" >= time + 299 && {_record get "taskDeleteAt" <= time + 900}] call _check;
+["itask_retention_not_early",!([_record] call A3I_fnc_cleanupInterceptionTask)
+    && {[_record] call _state == "FAILED"}] call _check;
+private _cleanupHandle = _record get "taskCleanupHandle";
+[_record] remoteExecCall ["A3I_fnc_cleanupInterceptionTask",2];
+[[_record get "name",_record get "serial"],_cleanupHandle] remoteExecCall ["A3I_fnc_interceptionTaskCleanupTick",2];
+sleep 0.2;
+["itask_remote_cleanup_refused",!(_record get "taskRetired") && {_record get "taskCleanupHandle" == _cleanupHandle}] call _check;
+_record set ["taskDeleteAt",time - 1];
+[{_record get "taskRetired"},3] call _wait;
+// BIS deleteTask clears OWNERS, but keeps ID on dedicated servers with no
+// matching local units. taskExists therefore is not a task-removal assertion.
+private _ownersKey = format ["%1.3",(_record get "name") call BIS_fnc_taskVar];
+["itask_retention_auto_cleanup",_record get "taskRetired" && {[_record] call _state == "MISSING"}
+    && {isNil {missionNamespace getVariable _ownersKey}} && {isNil {_record get "taskCleanupHandle"}}
+    && {{alive _x} count (_record get "units") == 4},
+    [_record get "taskRetired",[_record] call _state,
+        isNil {missionNamespace getVariable _ownersKey},isNil {_record get "taskCleanupHandle"},
+        {alive _x} count (_record get "units")]] call _check;
+["itask_task_cleanup_idempotent",[_record] call A3I_fnc_cleanupInterceptionTask && {A3A_tasksData isEqualTo []}] call _check;
+
 [_record] call _cleanup;
 
 {
@@ -203,7 +221,7 @@ _record = call _start;
 deleteVehicle ((_record get "units") # 0);
 [_record] call _await;
 ["itask_live_deletion_not_elimination",_record get "outcome" == "interrupted" && {_record get "remaining" == 4}
-    && {_record get "missing" == 1} && {[_record get "name"] call BIS_fnc_taskState == "CANCELED"}
+    && {_record get "missing" == 1} && {([_record] call _state == "MISSING" || {[_record get "name"] call BIS_fnc_taskState == "CANCELED"})}
     && {A3A_resourcesAttackOcc == 100}] call _check;
 [_record] call _cleanup;
 
@@ -211,7 +229,7 @@ _record = call _start;
 [_record] call A3I_fnc_watchInterceptionTask;
 terminate (_record get "script"); [_record] call _await;
 ["itask_stopped_owner_cancels",_record get "outcome" == "interrupted" && {A3A_resourcesAttackOcc == 100}
-    && {[_record get "name"] call BIS_fnc_taskState == "CANCELED"}
+    && {([_record] call _state == "MISSING" || {[_record get "name"] call BIS_fnc_taskState == "CANCELED"})}
     && {_record get "taskDeleteAt" <= time}] call _check;
 [_record] call _cleanup;
 
@@ -233,6 +251,7 @@ _record set ["deadline",_record get "departedAt"];
 
 _record = call _start;
 [_record] call _killAll;
+[{_record get "remaining" == 0 && {!isNil {_record get "eliminatedAt"}}},3] call _wait;
 _record set ["deadline",(_record get "eliminatedAt") + 0.01]; sleep 0.1;
 [_record] call A3I_fnc_watchInterceptionTask; [_record] call _await;
 ["itask_timely_kills_survive_poll_delay",_record get "outcome" == "won"] call _check;
@@ -252,10 +271,27 @@ private _oldFaction = A3A_faction_occ; A3A_faction_occ = createHashMap;
 ["itask_disabled_campaign_cancels",_record get "outcome" == "interrupted" && {A3A_resourcesAttackOcc == 100}] call _check;
 A3A_faction_occ = _oldFaction; [_record] call _cleanup;
 
+_record = call _start;
+_record deleteAt "deadline";
+["itask_missing_deadline_refused",!([_record] call A3I_fnc_watchInterceptionTask)
+    && {[_record] call A3I_fnc_interceptionTaskOutcome == "interrupted"}] call _check;
+[_record] call _cleanup;
+
+_record = call _start;
+[_record] call A3I_fnc_watchInterceptionTask;
+_record set ["deadline","invalid"];
+[_record] call _await;
+["itask_invalid_deadline_cancels_without_reward",_record get "outcome" == "interrupted"
+    && {A3A_resourcesAttackOcc == 100} && {A3A_resourcesDefenceOcc == 100}
+    && {([_record] call _state == "MISSING" || {[_record get "name"] call BIS_fnc_taskState == "CANCELED"})}] call _check;
+[_record] call _cleanup;
+
 [_savedCap,_savedContext] call _setLimits;
 {deleteVehicle _x} forEach [sidesX,spawner,garrison,server,killZones];
 {deleteMarker _x} forEach _markers;
 sleep 0.5;
 ["itask_cleanup",(entities [[],[],true,false]) - _before isEqualTo [] && {allGroups - _groupsBefore isEqualTo []}
     && {A3A_tasksData isEqualTo []} && {A3A_activeTasks isEqualTo []} && {count A3I_interceptions == 0}
-    && {(call _stats) # 0 == 0}] call _check;
+    && {(call _stats) select [1,3] isEqualTo [0,0,0]},
+    [count ((entities [[],[],true,false]) - _before),count (allGroups - _groupsBefore),
+        count A3A_tasksData,count A3A_activeTasks,count A3I_interceptions,call _stats]] call _check;

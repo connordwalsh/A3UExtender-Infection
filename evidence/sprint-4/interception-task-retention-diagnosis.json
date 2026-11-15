@@ -1,0 +1,15 @@
+{
+  "status": "diagnosed_fixture_error",
+  "package": "F:\\SteamLibrary\\steamapps\\common\\Arma 3\\Addons\\functions_f.pbo",
+  "package_sha256": "a4d2d705f163add3ca5abba863ba5d97a3e5882585feece663f3aa0c28bf2e44",
+  "source_sha256": {
+    "Tasks\\defines.inc": "b6b918ed8b0ec63fde12950a9cdbb96e7ea8c1c4f7bf881b0e149969ef4938f0",
+    "Tasks\\fn_deleteTask.sqf": "fdb82a1539470517d8b71b39ea6bf0267db0d05cf2b7014bfa39620883b4e492",
+    "Tasks\\fn_taskExists.sqf": "f9c26c00ccf46e8a08f47d36423439ca504c1826a8778c60cddfa8b6301a0a42"
+  },
+  "observation": "Native A3A task entry absent, task cleanup callback removed, four living horde members retained; BIS taskExists remains true even after an additional three seconds.",
+  "cause": "BIS deleteTask clears OWNERS globally. ID and other task fields are cleared inside the local matching-unit loop. A dedicated fixture with no matching units retains ID. BIS taskExists checks ID only.",
+  "correction": "Assert native A3A registry removal and absent BIS OWNERS, callback removal and four retained living members. Do not assert absent ID.",
+  "limitations": "No connected player task UI or JIP acceptance. Production cleanup is unchanged from Dev3.",
+  "rejected_report": "interception-task-dev3-retention-diagnostic-rejected.json"
+}

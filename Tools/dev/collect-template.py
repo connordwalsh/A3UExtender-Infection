@@ -568,6 +568,10 @@ INTERCEPTION_CHECKS = {
 }
 
 INTERCEPTION_TASK_CHECKS = {
+    "itask_retention_not_early", "itask_remote_cleanup_refused",
+    "itask_retention_auto_cleanup", "itask_task_cleanup_idempotent",
+    "itask_missing_deadline_refused",
+    "itask_invalid_deadline_cancels_without_reward",
     'itask_absent_task_no_reward',
     'itask_absent_task_watch_refused',
     'itask_actual_marker_boundary',

@@ -6,12 +6,16 @@ private _name = _record getOrDefault ["name",""];
 private _current = (missionNamespace getVariable ["A3I_interceptions",createHashMap]) getOrDefault [_name,createHashMap];
 if (_current getOrDefault ["serial",-1] != _record getOrDefault ["serial",-2]) exitWith {"interrupted"};
 private _outcome = _record getOrDefault ["outcome","pending"];
+if (isNil "_outcome" || {!(_outcome isEqualType "")}) exitWith {"interrupted"};
 if (_outcome != "pending") exitWith {_outcome};
 if (!([west] call A3I_fnc_isActive) || {_record getOrDefault ["retired",true]}
     || {!(_record getOrDefault ["phase",""] in ["marching","arrived"])}) exitWith {"interrupted"};
 if ((missionNamespace getVariable ["A3A_tasksData",[]]) findIf {_x # 0 == _name && {_x # 1 == "CONVOY"}} == -1)
     exitWith {"cancelled"};
+if (isNil {_record get "deadline"}) exitWith {"interrupted"};
 private _deadline = _record get "deadline";
+if !(_deadline isEqualType 0) exitWith {"interrupted"};
+if (!finite _deadline) exitWith {"interrupted"};
 // Engine events retain terminal evidence even if a controller stops afterward.
 // Arrival wins when the first entrant is also the last actor killed that frame.
 if (_record getOrDefault ["arrived",false]) exitWith {

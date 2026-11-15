@@ -239,3 +239,54 @@ rejected; the targeted run exercises both corrected failures. Repeat the full
 suite on the next integrated controller/dispatch candidate before integration.
 No full-route, connected-player, performance, save or campaign acceptance is
 claimed. No Computer Use or manual-build replacement occurred.
+
+
+## Task observation and settlement increment
+
+The child `codex/interception-controller` branch adds server-only per-frame task
+observation, once-only settlement and independent retention cleanup. These are
+internal components for an already created task and fully released formation;
+public mission creation/dispatch and arrival aftermath are not connected yet.
+
+The first living owned actor entering the actual destination marker fails the
+task. Native Killed events preserve first-arrival and final-elimination times,
+so an entrant killed before the next frame still causes failure, and a genuine
+full elimination before the deadline survives a delayed observation. Missing
+actors, a stopped owner, invalid timing data or a disabled Infection campaign
+cancel without mission rewards or penalties. Russian takeover does not cancel.
+
+Settlement follows the native reinforcement-convoy baseline: normal/hard success
+uses its 1/1.5 multiplier, timing, support, aggression, commander and nearby-player
+rewards, and kill-zone entries. Nearby-player rewards use 500 metres horizontally
+from the last elimination. Arrival/timeout use the native failure penalty.
+Personal reward receipt still needs connected-player validation. Combat death
+resource costs remain separate from task rewards.
+
+Settled tasks retain Ultimate's randomized 300-900 second convoy retention;
+infrastructure cancellations can retire immediately. A separate server callback
+removes that task's native registry entry and BIS owners, without deleting
+arrival survivors. Connected-client UI removal remains untested. Unit adoption, hostile-destination aftermath, full owner supervision
+and public task launch remain unfinished.
+
+The first diagnostic run proved that engine Killed events can arrive a frame
+after setDamage. The fixture had read eliminatedAt before that event and produced
+invalid timing data. Dev2 added fail-closed deadline/outcome checks and awaited
+the real events. Its 41-check run has no engine/SQF errors but is rejected for a
+fixture cleanup assertion that incorrectly compared the configured cap to zero.
+Dev3 checks active/pending/ticket counts and adds real retention-cleanup cases.
+Its 45 focused checks now pass without engine/SQF errors, as do 11 actual
+missing-dependency checks. Focused warnings are the same 16 startup/dependency
+notices; absent dependencies has seven. Three parser tests pass. All 154
+production inputs still match the Dev3 manifest. Formation/capture regression
+is running; full combined, connected-player and campaign acceptance remain open.
+
+The first retention test incorrectly assumed BIS taskExists becomes false
+when a task is deleted. Inspection of the installed functions_f.pbo shows that
+BIS deleteTask clears OWNERS globally but clears ID inside its local matching-unit
+loop. With no matching units on this dedicated server, ID remains and taskExists
+continues returning true. The corrected assertion checks absent native task
+registration and BIS owners, removed cleanup callback, and four retained living
+horde members. Production cleanup did not change. Package/source hashes and the
+rejected before/after observations are retained in the retention diagnosis.
+Historical rejected reports remain evidence, not successful acceptance runs.
+No Computer Use or manual installation update.

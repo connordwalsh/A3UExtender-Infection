@@ -7,10 +7,15 @@ private _current = (missionNamespace getVariable ["A3I_interceptions",createHash
 if (_current getOrDefault ["serial",-1] != _record getOrDefault ["serial",-2]
     || {_record getOrDefault ["settled",false]}) exitWith {};
 private _outcome = [_record] call A3I_fnc_interceptionTaskOutcome;
+if (isNil "_outcome") then {_outcome = "interrupted"};
+if !(_outcome in ["pending","won","arrived","timeout","cancelled","interrupted"]) then {_outcome = "interrupted"};
 if (_outcome == "pending") exitWith {};
 _record set ["outcome",_outcome];
 _record set ["settled",true];
 _record set ["taskDeleteAt",time];
+_record set ["taskRetired",false];
+_record set ["taskCleanupHandle",[A3I_fnc_interceptionTaskCleanupTick,1,
+    [_name,_record get "serial"]] call CBA_fnc_addPerFrameHandler];
 private _handle = _record getOrDefault ["taskHandle",-1];
 if (_handle >= 0) then {[_handle] call CBA_fnc_removePerFrameHandler; _record deleteAt "taskHandle"};
 private _exists = (missionNamespace getVariable ["A3A_tasksData",[]]) findIf {_x # 0 == _name && {_x # 1 == "CONVOY"}};
