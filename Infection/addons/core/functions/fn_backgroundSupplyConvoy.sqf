@@ -128,6 +128,20 @@ if (_convoyType == "Supplies") then
     };
     _vehObj setVariable ["A3A_reported", true, true];
 };
+// Arm cargo destruction before removing spawn protection or starting any travel.
+// Native CONVOY installs this after departure, missing earlier truck kills.
+_objectiveIsCargo = !isNull _supObj && {attachedTo _supObj == _vehObj};
+if (_objectiveIsCargo) then {
+    _vehObj setVariable ["A3I_supplyCargo",_supObj];
+    _vehObj addEventHandler ["Killed", {
+        params ["_vehicle"];
+        private _cargo = _vehicle getVariable ["A3I_supplyCargo",objNull];
+        if (!isNull _cargo && {attachedTo _cargo == _vehicle}) then {
+            _cargo setDamage 1;
+            deleteVehicle _cargo;
+        };
+    }];
+};
 // Initial escort vehicles, 0-1 for SP, 1-2 for 10+
 private _countX = round ((A3A_balancePlayerScale min 1.5) + random 0.5 + ([-0.75, 0.25] select _difficult));
 for "_i" from 1 to _countX do
@@ -199,13 +213,7 @@ if (_convoyType isEqualTo "Supplies") then
 if (_objectiveIsCargo) then {
         _objectiveObj = _supObj;
         _driver = driver attachedTo _supObj;
-        _vehObj addEventHandler ["Killed", {
-            params ["_vehicle", "_killer", "_instigator", "_useEffects"];
-            private _cargoItem = _vehicle call A3A_Logistics_fnc_getCargo select 0;
-            _cargoItem setDamage 1;
-            deleteVehicle _cargoItem;
 
-        }];
     } else {
         _objectiveObj = _vehObj;
         _driver = driver _vehObj;

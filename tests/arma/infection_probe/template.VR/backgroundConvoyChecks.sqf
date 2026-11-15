@@ -26,7 +26,7 @@ A3A_faction_inv = createHashMap;
     "vehiclesMilitiaAPCs","vehiclesLightUnarmed","vehiclesLightArmedTroop","vehiclesTrucks",
     "vehiclesLightAPCs","vehiclesAPCs","vehiclesIFVs","vehiclesTanks","vehiclesLightTanks","vehiclesAA"];
 {A3A_faction_inv set [_x,["O_MRAP_02_F"]]} forEach ["vehiclesLightUnarmed","vehiclesLightArmed","vehiclesMilitiaLightArmed"];
-A3A_faction_reb = createHashMapFromArray [["vehiclesCivSupply",["C_Truck_02_transport_F"]]];
+A3A_faction_reb = createHashMapFromArray [["vehiclesCivSupply",["C_Truck_02_transport_F"]],["lootCrate","Box_NATO_Ammo_F"]];
 A3A_faction_civ = createHashMapFromArray [["attributeLowCiv",true]];
 A3A_faction_all = createHashMapFromArray [["vehiclesArmor",[]]];
 A3A_vehicleResourceCosts = createHashMapFromArray [["O_MRAP_02_F",100],["C_Truck_02_transport_F",100],["C_Hatchback_01_F",100]];
@@ -64,6 +64,7 @@ private _workers = [];
     A3A_resourcesAttackOcc = 10000; A3A_resourcesDefenceOcc = 10000;
     killZones setVariable [_origin,[]];
     A3A_faction_reb set ["vehiclesCivSupply",[["C_Truck_02_transport_F"],["C_Hatchback_01_F"]] select (_scenario == "no_cargo")];
+    _arguments set [4,[0,0.1] select (_scenario == "parked")];
     // First case exercises the real scheduler -> remote server wrapper.
     if (_scenario == "arrival") then {
         [_arguments,"a3a_fnc_convoy"] call A3A_fnc_scheduler;
@@ -75,8 +76,12 @@ private _workers = [];
     private _duplicate = _arguments spawn A3A_fnc_CONVOY;
     [{scriptDone _duplicate},5] call _wait;
     ["bg_" + _scenario + "_duplicate_refused",scriptDone _duplicate] call _check;
-    private _ready = [{!isNull A3I_test_convoyObjective
-        && {count A3I_test_convoyTravel == count A3I_test_convoyVehicles}},40] call _wait;
+    private _ready = if (_scenario == "parked") then {
+        [{count A3I_test_convoyVehicles == 3 && {isDamageAllowed (A3I_test_convoyVehicles # 1 # 0)}},40] call _wait
+    } else {
+        [{!isNull A3I_test_convoyObjective && {count A3I_test_convoyTravel == count A3I_test_convoyVehicles}},40] call _wait
+    };
+    if (_scenario == "parked" && {_ready}) then {A3I_test_convoyObjective = A3I_test_convoyVehicles # 1 # 0};
     private _vehicle = A3I_test_convoyObjective;
     private _vehicles = A3I_test_convoyVehicles apply {_x # 0};
     private _crew = []; {_crew append crew _x} forEach _vehicles;
@@ -90,6 +95,7 @@ private _workers = [];
     private _capturedGroup = grpNull;
     if (_ready) then {
         switch (_scenario) do {
+            case "parked";
             case "destroyed": {_vehicle setDamage 1};
             case "captured": {
                 _capturedGroup = createGroup [teamPlayer,true];
@@ -99,10 +105,11 @@ private _workers = [];
             default {_vehicle setPosATL getMarkerPos _target};
         };
     };
-    private _finished = [{!A3A_convoyInProgress},20] call _wait;
+    private _finished = [{!A3A_convoyInProgress},30] call _wait;
     ["bg_" + _scenario + "_settles",_finished && {count A3I_test_vehicleCleanup == count _vehicles}
         && {count A3I_test_groupCleanup > 0}] call _check;
     private _expectedSupport = switch (_scenario) do {
+        case "parked";
         case "destroyed": {[]};
         case "captured": {[[0,15,_target]]};
         default {[[15,0,_target]]};
@@ -110,7 +117,7 @@ private _workers = [];
     ["bg_" + _scenario + "_support",A3I_test_support isEqualTo _expectedSupport,A3I_test_support] call _check;
     ["bg_" + _scenario + "_strategic",A3A_resourcesAttackInv == ([9670,9650] select (_scenario == "captured"))
         && {A3A_resourcesDefenceInv == ([10000,9980] select (_scenario == "captured"))}
-        && {killZones getVariable [_origin,[]] isEqualTo ([[],[_target,_target]] select (_scenario in ["destroyed","captured"]))}] call _check;
+        && {killZones getVariable [_origin,[]] isEqualTo ([[],[_target,_target]] select (_scenario in ["destroyed","parked","captured"]))}] call _check;
     ["bg_" + _scenario + "_no_mission",A3A_tasksData isEqualTo [] && {A3A_activeTasks isEqualTo []}
         && {A3A_taskCount == 19} && {allMapMarkers - _markersBefore - [_origin,_target] isEqualTo []}] call _check;
     {deleteVehicle _x} forEach _crew;
@@ -118,7 +125,7 @@ private _workers = [];
     {deleteVehicle _x} forEach _vehicles;
     {deleteGroup _x} forEach (allGroups - _groupsBefore);
     sleep 0.5;
-} forEach ["arrival","destroyed","captured","no_cargo"];
+} forEach ["arrival","destroyed","parked","captured","no_cargo"];
 // Native return-order tail lasts 60 seconds. Let it finish before deleting markers.
 sleep 61;
 ["bg_workers_finish",{!scriptDone _x} count _workers == 0 && {!A3A_convoyInProgress}] call _check;
