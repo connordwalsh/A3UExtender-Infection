@@ -150,3 +150,23 @@ focused checks pass on the unchanged Dev3 production build after that correction
 A new combined run will include the separately reviewed Elimination prerequisites;
 there is not yet an accepted clean combined Aid report. Historical Dev2 engine,
 build and absence reports and the interrupted Dev2 full run remain preserved.
+
+## Dev4 integrated regression
+
+AidTask Dev4 includes the merged Elimination ledger/scene prerequisites and
+completes 1371 checks plus 67 role records. It is REJECTED for two Aid-ledger
+fixture assertions: outside-dropoff pause and stalled-sample accounting. All
+other 1369 checks pass, with no engine/SQF errors. All 237 source inputs and the
+PBO still match the build manifest; the report remains committed. The Dev4
+actual missing-dependency run passes all 11 checks.
+
+The normal unloading fixture used manually injected one-second samples while
+the production per-frame handler remained active between scheduled statements.
+A real timer tick could advance the valid in-town sample before the later
+outside-dropoff assertion compared it with an older progress value. The normal
+sample sequence is now one unscheduled block, with explicit position/eligibility
+details. Its separate independent-deadline test continues to exercise the real
+handler. The gameplay ledger is unchanged. Focused verification is running;
+combined acceptance is still pending.
+
+The corrected fixture passes all 37 focused checks on unchanged Dev4, with no engine/SQF errors and 16 startup notices. The completed focused server exited. Dev4 full notices comprise 16 startup, 74 object-deletion and eight null-commander notifications. The next full run will combine this fixture correction with the public Elimination controller; both remain drafts pending that result.

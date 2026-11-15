@@ -3,13 +3,13 @@
   "product": "Antistasi Ultimate: Infection",
   "version": "0.1.0-dev",
   "scope": "Development prototype; isolated contracts cover infected sites, responses, strategic hordes and Liquidation assignments. Remaining mission adapters, connected players, terrain, special creatures, vehicles, saves and full campaign acceptance remain incomplete.",
-  "built_at_utc": "2026-11-15T06:27:25.7473761Z",
+  "built_at_utc": "2026-11-15T07:00:42.7856426Z",
   "prefix": "x\\a3i\\addons\\core",
-  "addon_sha256": "2bc797886d78d0e7ccbf4d85352887f614e6aafb03ef308e5483cffef2f39971",
+  "addon_sha256": "6c1c86c6c8b9f9c12c70a8827441cd015aff3641bb85b67cdf850c1fc8a52856",
   "source": [
     {
       "path": "Infection/addons/core/config.cpp",
-      "sha256": "e1fa972ced25dba1590716025fd278a40f8703016af8829c8d65319f7defbd69"
+      "sha256": "6b233afc9a3d6b190050b84dbf475143fbef4548f755f94a3b025757bc6acc8e"
     },
     {
       "path": "Infection/addons/core/functions/fn_administrationAssets.sqf",
@@ -156,6 +156,10 @@
       "sha256": "92ec65824e94286c4cd53270d889d61988cc4d7a747682103e16a74d3fafd8b1"
     },
     {
+      "path": "Infection/addons/core/functions/fn_createEliminationLedger.sqf",
+      "sha256": "ab6c47b538913a06af211bd1e6c7e0cd77a1d6f69fc3f7f9ae5dd59b0eb64bf0"
+    },
+    {
       "path": "Infection/addons/core/functions/fn_createExtractionLedger.sqf",
       "sha256": "0b7083d8402c06ced1ceeaaed6c8f342f3b444c4646efe4055c156ce2a4fa7d3"
     },
@@ -198,6 +202,22 @@
     {
       "path": "Infection/addons/core/functions/fn_elapsedDateMinutes.sqf",
       "sha256": "351ab7b36e33510b96076352638ec4cae70f23dd7770bce02efc7c3ca6ee366e"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_eliminationClasses.sqf",
+      "sha256": "f91dc9d2cbd86082034cac35cf286e89858b88a4b5ddcc893c1b87e944cba91c"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_eliminationRoster.sqf",
+      "sha256": "1a78d5be094b495531f0cd72e7847463c38d5a2e97bba2b5a1a2f0d59413e21f"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_eliminationTargetEvent.sqf",
+      "sha256": "be55e35f2bb170e43bc13a524572a932d2a7dd707562a5c454608aba644bfc15"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_eliminationTargets.sqf",
+      "sha256": "275dae936d59f26c51f46adc1d1c1ef4846cddb333fc0cb71db5e0542d255448"
     },
     {
       "path": "Infection/addons/core/functions/fn_extractionLocations.sqf",
@@ -345,7 +365,7 @@
     },
     {
       "path": "Infection/addons/core/functions/fn_isManagedUnit.sqf",
-      "sha256": "9ceb2c3f414a290597efb88c2523f02a9b5f97423c5f275930c7c23c719073eb"
+      "sha256": "f5dfad1835fa8d7036a00fd297dac38c8445055d9ad98bb8dd6b4f6ab3b2a832"
     },
     {
       "path": "Infection/addons/core/functions/fn_labelAidControl.sqf",
@@ -462,6 +482,10 @@
     {
       "path": "Infection/addons/core/functions/fn_releaseAidLedger.sqf",
       "sha256": "a1917fe5b4f2132fc1587f10409ea9afd97b5bb22165a1470c18454a6b40090c"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_releaseEliminationLedger.sqf",
+      "sha256": "2071d0b7e3678ba49164328fffabb06b6da80d3f410fe8681daa505394b081f6"
     },
     {
       "path": "Infection/addons/core/functions/fn_releaseExtractionLedger.sqf",
@@ -608,6 +632,10 @@
       "sha256": "f84c730b5f2567b9f86b033ac41b72524ba56243eb57e1649ffa57b599fc22bd"
     },
     {
+      "path": "Infection/addons/core/functions/fn_spawnEliminationScene.sqf",
+      "sha256": "1ce9eeb5f36dc93e8268e11287596c1f6de04a4912e990f549da18a5f8b07f08"
+    },
+    {
       "path": "Infection/addons/core/functions/fn_spawnGroup.sqf",
       "sha256": "f663f2fca83696308d1c8209ad0724ed759be4aede342967f421ae96c6c609aa"
     },
@@ -714,6 +742,10 @@
     {
       "path": "Infection/addons/core/functions/fn_updateAidLedger.sqf",
       "sha256": "d8eb6d3ffce64bace81a478adc6fde5d56729ae6be69d9b08d23d91da64f8755"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_updateEliminationLedger.sqf",
+      "sha256": "2fd8dda9090fcd904c0e50464f701512fac4d4d5404e0dc149fc2a0072cb0b63"
     },
     {
       "path": "Infection/addons/core/functions/fn_updateExtractionLedger.sqf",
