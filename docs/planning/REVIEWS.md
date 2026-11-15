@@ -1178,3 +1178,18 @@ remain retained. The accepted combined run uses the corrected Aid timing fixture
 This supports integrating PR 46 and its included PR 43 commits. It does not
 certify connected player rewards, visible menu behavior, campaign progression,
 terrain, saves, performance or a sprint gate. Manual Dev9 remains unchanged.
+
+
+## 15 November 2026 - Focused integrated survivor-defense result
+
+The third focused run (13:14:17 RPT) passes all 249 checks with no engine/SQF
+errors. All 293 production source hashes and the Dev2 PBO hash still match the
+build manifest. This covers the integrated scene, parent mission, walking-horde
+phases, native recruitment, settlement and peaceful-join contracts. The two
+rejected reports remain retained; only test fixtures changed between these runs.
+The completed focused server was stopped by verified process/profile identity.
+
+A full combined regression started at 13:23:12 using the same frozen Dev2 PBO,
+profile LiberationFull, port 4202. Its result is pending; the focused pass does
+not certify shared-controller regression, connected players, saves, terrain or
+campaign acceptance. PR 49 remains draft. Manual Dev9 remains unchanged.
