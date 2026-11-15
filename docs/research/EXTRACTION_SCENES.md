@@ -28,10 +28,19 @@ deserter fallbacks can place units outdoors. This scene increment requires a
 checked shelter instead. The native release action transfers group locality to
 the player, which the ledger anticipates but connected tests must still verify.
 
-Status: implementation and 24 focused engine scenarios prepared; focused scene
-validation NOT RUN. Packaging, three parser tests and eleven actual
-missing-dependency checks pass without engine/SQF errors. The 188 production
-inputs and Dev1 PBO match after the dependency run; that server exited. Public mission creation, release actions, rewards,
-post-rescue disposition and cleanup remain open. The owner question about
-manpower versus usable AI remains pending. No Computer Use or manual-install
-changes; no sprint acceptance gate is closed.
+Status: Dev2 passes all 35 focused engine checks, eleven actual missing-dependency
+checks and three parser tests. There are no engine/SQF errors; 16 focused and
+seven dependency-absence startup warnings were reviewed. All 207 production
+inputs and the PBO match after execution; both servers exited. Dev2 includes the
+merged Supplies Seizure baseline. Artifact SHA-256:
+`f9acd2a647356352342f2fb643775f11d32e3d61d1965027fc21a725d8ecbbb7`.
+
+The earlier Dev1 build/absence reports are retained separately with -dev1 names;
+its focused scenarios were not run. Reports for Dev2 use the unqualified names.
+The scene fixture uses real VR barracks geometry, native human creation and the
+actual Extraction ledger, with controlled ownership and observers. Chernarus
+Redux shelters, connected release/locality and complete gameplay remain untested.
+
+Public mission creation, release actions, rewards, post-rescue disposition and
+cleanup remain open. The owner question about manpower versus usable AI remains
+pending. No Computer Use or manual-install changes; no sprint gate is closed.

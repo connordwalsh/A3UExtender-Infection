@@ -3,13 +3,13 @@
   "product": "Antistasi Ultimate: Infection",
   "version": "0.1.0-dev",
   "scope": "Development prototype; isolated contracts cover infected sites, responses, strategic hordes and Liquidation assignments. Remaining mission adapters, connected players, terrain, special creatures, vehicles, saves and full campaign acceptance remain incomplete.",
-  "built_at_utc": "2026-11-15T05:27:55.4682806Z",
+  "built_at_utc": "2026-11-15T05:50:17.8705954Z",
   "prefix": "x\\a3i\\addons\\core",
-  "addon_sha256": "0cfe81343e23d555174b7ce45fe028a61efd1d86b75e66f4ac020e334a3141bc",
+  "addon_sha256": "f9acd2a647356352342f2fb643775f11d32e3d61d1965027fc21a725d8ecbbb7",
   "source": [
     {
       "path": "Infection/addons/core/config.cpp",
-      "sha256": "b66e4e42962d6a69209616f691a74cc97babe438c4ae08f19a89df57cb53bee4"
+      "sha256": "4277f96016eb39ccdc4a3e733bb9fa12465373f421f30a46dcba552b71c77836"
     },
     {
       "path": "Infection/addons/core/functions/fn_administrationAssets.sqf",
@@ -84,6 +84,10 @@
       "sha256": "9afd78c5a0ef2e4ac574262eb85c7ba273532aff5fb83ded423272163bdf8784"
     },
     {
+      "path": "Infection/addons/core/functions/fn_cleanupSupplySeizure.sqf",
+      "sha256": "d5d8b8f9427913964c6fb1336a32f6e0673dce3d623c29f8f5ad84adc4b9a478"
+    },
+    {
       "path": "Infection/addons/core/functions/fn_controlResetTick.sqf",
       "sha256": "49e696d08d33dc4cdffcbf9c9e99aa9bb6eb594a5354c16e857f5b91de07da02"
     },
@@ -140,6 +144,10 @@
       "sha256": "c0d1490fb7b22e038a38df6302ab34abff4bd1af44be715f6bfdc60d7153b99f"
     },
     {
+      "path": "Infection/addons/core/functions/fn_dispatchSupplySeizure.sqf",
+      "sha256": "04bdaa5b637d653c4eb22e8f8d1b964b0c386e0d1a94a9c9900fbf69fb26e9bc"
+    },
+    {
       "path": "Infection/addons/core/functions/fn_elapsedDateMinutes.sqf",
       "sha256": "351ab7b36e33510b96076352638ec4cae70f23dd7770bce02efc7c3ca6ee366e"
     },
@@ -168,6 +176,10 @@
       "sha256": "cd65fcc4123ac2b5f5b37755dfd7c986d425db38f0df1baf513c846bda466548"
     },
     {
+      "path": "Infection/addons/core/functions/fn_findSupplyPosition.sqf",
+      "sha256": "b784e544dccd6e60966720131d4b724d2f6dfdbd70eaf12e6b5e43af1e01d1cc"
+    },
+    {
       "path": "Infection/addons/core/functions/fn_finishInterception.sqf",
       "sha256": "e42f4b8ad54a4a57356132e8b72de9aee539922e18c5dbf915a928a7671d0f69"
     },
@@ -178,6 +190,10 @@
     {
       "path": "Infection/addons/core/functions/fn_finishMajorAttack.sqf",
       "sha256": "718762cb9147621d7a18e19251ade6f2d9c13d945e3a0d2743229389f304d006"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_finishSupplySeizure.sqf",
+      "sha256": "20c83c32afaf738e4a786d6148324323eed278949167f81108559b67ecd709f8"
     },
     {
       "path": "Infection/addons/core/functions/fn_hideRemovedMissionControl.sqf",
@@ -282,6 +298,10 @@
     {
       "path": "Infection/addons/core/functions/fn_labelLiquidationControl.sqf",
       "sha256": "4922d02f09ceaf961117690a6f60fdb9f39a30b6426be7e244746a9c46ebbd1a"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_labelSupplyControl.sqf",
+      "sha256": "f3e310a25833edec77942ebe256f3f162eb46460b7c49c0089c6f149a10a485c"
     },
     {
       "path": "Infection/addons/core/functions/fn_liquidationCityCapture.sqf",
@@ -404,6 +424,10 @@
       "sha256": "d19d8c200ab5de28e04872b4542117966717da2c6a4bc7776a6c692abe9bad61"
     },
     {
+      "path": "Infection/addons/core/functions/fn_requestSupplySeizure.sqf",
+      "sha256": "91fc80398c2d520206bac7c700ea6c8b3608f7796bb5783f827ddcd8cb3006e2"
+    },
+    {
       "path": "Infection/addons/core/functions/fn_requestTacticalSupport.sqf",
       "sha256": "8162d9553d312794bc54a6135540ef41db42db680884e773e9b2fc859f8d6a64"
     },
@@ -470,6 +494,10 @@
     {
       "path": "Infection/addons/core/functions/fn_runSite.sqf",
       "sha256": "b517de9ca4e20ecfabc4a83d26c581f2a158569ce621b3ac5d859de497f34620"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_runSupplySeizure.sqf",
+      "sha256": "252afe7a1609d64e9698340c6238a147a87ce5eba95f8eefa90c3c3854a436ff"
     },
     {
       "path": "Infection/addons/core/functions/fn_runTacticalSupport.sqf",
@@ -540,12 +568,36 @@
       "sha256": "e407c7c3fce262f4bc9e8584b73c8c2899ea7d8e5b186b22f133a428efd4cd43"
     },
     {
+      "path": "Infection/addons/core/functions/fn_startSupplySeizure.sqf",
+      "sha256": "4e45dd92db053cf0f771262ae594d9c4149b17d2949e7f8a245ed60cb2efd9fa"
+    },
+    {
       "path": "Infection/addons/core/functions/fn_startTacticalSupport.sqf",
       "sha256": "167875cab464155e98f00deb12900dd5ed1fb0ba3042962056977a110572c0a0"
     },
     {
       "path": "Infection/addons/core/functions/fn_storeInterceptionArrivals.sqf",
       "sha256": "2e81f7851db54ff194d4c8c1a369a62781cb314acd288a2564660e74d79d37a8"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_supplySiteKinds.sqf",
+      "sha256": "18b8418afc4879addee4c70fec5af215c00155037d82e8f4b503af45c406ed8b"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_supplyTargets.sqf",
+      "sha256": "a6b25bfc002d8bc5af6631491ff853ea60edd03ae22bdb37b2a799d7b3d95052"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_supplyTaskBusy.sqf",
+      "sha256": "36bc3377ea99ff3fb2335a54efcc4f7c4cd113d655664b7a2f1df967f7b9b4e1"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_supplyTaskOutcome.sqf",
+      "sha256": "0974d6063cf1e5b29fd1d6d816e9667fcbc37d4cf8e2566b3107d47261bda3d0"
+    },
+    {
+      "path": "Infection/addons/core/functions/fn_supplyTaskTick.sqf",
+      "sha256": "5f521473fa2ee602bb2c5acc17500dbbca47d9e7666a0519b564ee24529f34d5"
     },
     {
       "path": "Infection/addons/core/functions/fn_supplyTruckClasses.sqf",
@@ -597,7 +649,7 @@
     },
     {
       "path": "Infection/addons/core/missionMenus.hpp",
-      "sha256": "a05f8cdcd4e21a77f02625cef44066c75cf31a1b19f56bf4c0834cac4a164fd8"
+      "sha256": "930f85fe1625502ef52c31e1c0b15382bbcd7bf31c93713ddbdacdad07357d3e"
     },
     {
       "path": "Infection/addons/core/overrides/fn_AAFroadPatrol.sqf",
@@ -696,12 +748,36 @@
       "sha256": "b7119ae543e788dd7e87dc54939bb44eae4de59480b26501550608746e372f31"
     },
     {
+      "path": "Infection/addons/core/overrides/fn_LOG_Airdrop.sqf",
+      "sha256": "778657338e69f281600217e04202856ef42dc0269258100ee718bf2763da7423"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_LOG_Ammo.sqf",
+      "sha256": "c502a4a676f8399f12016ac77fd8971b11e6e15a4460b71c6ae17a5208148eaf"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_LOG_Bank.sqf",
+      "sha256": "81ee6e607d03f1e55fb5215dbfbdfe3e4d086b64d16e92239b51b1cb30d0b3ef"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_LOG_Crashsite.sqf",
+      "sha256": "1a2b660334e873ed1c57c9fd472d5af14981b075a450050a5c16a94df7d64ec3"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_LOG_Helicrash.sqf",
+      "sha256": "6ad65243197c1883687e730bb7335b325711b630e6b249ccfb022d362ce4f6ee"
+    },
+    {
+      "path": "Infection/addons/core/overrides/fn_LOG_Salvage.sqf",
+      "sha256": "19c0b1d362640521904f98408462c21a028f4de6262698b6ac427558e158dc34"
+    },
+    {
       "path": "Infection/addons/core/overrides/fn_markerChange.sqf",
       "sha256": "af681819d84483ef849ae270413ea6533955d92b3ab3f148c50248aedc6b0a16"
     },
     {
       "path": "Infection/addons/core/overrides/fn_missionRequest.sqf",
-      "sha256": "4efeb474099208d403f2cf598209be4e41f52613e422bb7f366b401c31f61477"
+      "sha256": "20e329c85030152b23a89e88a3e1dd401745145252c4e61e790147a891b9f7e3"
     },
     {
       "path": "Infection/addons/core/overrides/fn_mrkWIN.sqf",
@@ -725,7 +801,7 @@
     },
     {
       "path": "Infection/addons/core/overrides/fn_scheduler.sqf",
-      "sha256": "c052ea282b101c2a2e9e8a85de58d7a354d05981df95a7d17a90dfe68324fdb2"
+      "sha256": "1eee4dd4c03059e22960be959d14cb358b9f09583772de7719902e49b6885d90"
     },
     {
       "path": "Infection/addons/core/overrides/fn_selectIntel.sqf",
