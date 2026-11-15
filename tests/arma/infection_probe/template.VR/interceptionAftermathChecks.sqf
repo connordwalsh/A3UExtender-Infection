@@ -94,6 +94,8 @@ private _launch = {
     [_job] call A3I_fnc_releaseInterceptionFormation;
     {_x disableAI "MOVE"} forEach (_job get "units");
     [_job] call A3I_fnc_registerInterceptionTask;
+    diag_log format ["[INFECTION_DIAGNOSTIC] %1",["aftermath_launch",_job get "name",
+        _job get "fault",_job get "created",_job get "phase",_job getOrDefault ["lastPreparation",""]]];
     _job
 };
 private _place = {
@@ -147,10 +149,13 @@ sleep 1.2;
     && {{alive _x} count _actors == 4}] call _check;
 private _funds = [A3A_resourcesAttackOcc,A3A_resourcesDefenceOcc];
 garrisonIsChanging = false;
-[{_job getOrDefault ["retired",false]},5] call _wait;
+// deleteVehicle completes on a later frame than the atomic storage transaction.
+[{_job getOrDefault ["retired",false] && {{alive _x} count _actors == 0}},5] call _wait;
 ["iafter_offscreen_automatic_storage",count (garrison getVariable _destination) == 4
     && {_job getOrDefault ["storedArrivals",0] == 4}
-    && {{alive _x} count _actors == 0} && {_job get "aftermathComplete"}] call _check;
+    && {{alive _x} count _actors == 0} && {_job get "aftermathComplete"},
+    [count (garrison getVariable _destination),_job getOrDefault ["storedArrivals",0],
+        {alive _x} count _actors,_job getOrDefault ["aftermathComplete",false]]] call _check;
 ["iafter_storage_no_second_reward",_funds isEqualTo [A3A_resourcesAttackOcc,A3A_resourcesDefenceOcc]
     && {(A3A_tasksData findIf {_x # 0 == _job get "name" && {_x # 2 == "FAILED"}}) >= 0}
     && {!(_job get "taskRetired")}] call _check;
@@ -162,21 +167,25 @@ sleep 1.2;
 
 // Observer presence defers storage until the normal destination controller starts.
 garrison setVariable [_destination,[]];
+_job = [4] call _launch; _actors = +(_job get "units");
 private _observerGroup = createGroup civilian;
 private _observer = _observerGroup createUnit ["C_man_1",_destinationPosition,[],0,"NONE"];
 _observer allowDamage false; _observer enableSimulationGlobal false;
 A3I_test_observers = [_observer];
-_job = [4] call _launch; _actors = +(_job get "units");
 [_job] call _place; [_job] call _settled; sleep 1.2;
 ["iafter_observed_offscreen_waits",count (garrison getVariable _destination) == 0
-    && {{alive _x} count _actors == 4} && {!(_job getOrDefault ["aftermathComplete",false])}] call _check;
+    && {{alive _x} count _actors == 4} && {!(_job getOrDefault ["aftermathComplete",false])},
+    [_job get "fault",_job get "phase",count (garrison getVariable _destination),
+        {alive _x} count _actors,_job getOrDefault ["lastArrivalHandoff",[]]]] call _check;
 spawner setVariable [_destination,0,true];
 [_destination,"Resource",false] call A3I_fnc_startSite;
 [{_job getOrDefault ["adoptedArrivals",0] == 4},5] call _wait;
 private _site = A3I_sites get _destination;
 ["iafter_live_site_automatic_adoption",count (garrison getVariable _destination) == 4
     && {{alive _x} count _actors == 4} && {_actors - (_site get "units") isEqualTo []}
-    && {_site get "clearanceRemaining" == 4}] call _check;
+    && {_site get "clearanceRemaining" == 4},
+    [count (garrison getVariable _destination),{alive _x} count _actors,
+        _site get "clearanceRemaining",_job getOrDefault ["lastArrivalHandoff",[]]]] call _check;
 [_job] call _finishJob;
 ["iafter_old_owner_keeps_adopted_units",{alive _x} count _actors == 4
     && {!(([_destination] call A3I_fnc_siteClearance) # 0)}] call _check;
@@ -191,16 +200,21 @@ deleteVehicle _observer; deleteGroup _observerGroup; A3I_test_observers = [];
 // Two tickets must both move, even as each transaction edits the owner's arrays.
 factories = []; citiesX pushBack _destination;
 server setVariable [_destination,[10,0,0]]; garrison setVariable [_destination,[]];
+A3A_townData = createHashMapFromArray [[_destination,[10,0,0,0]]];
+townSkirmishes = []; destroyedSites = [];
 spawner setVariable [_destination,0,true];
 [_destination,"City",false] call A3I_fnc_startSite;
-_site = A3I_sites get _destination;
+_site = A3I_sites getOrDefault [_destination,createHashMap];
 _job = [16] call _launch; _actors = +(_job get "units");
 ["iafter_multiple_group_fixture",count (_job get "groups") == 2] call _check;
 [_job] call _place; [_job] call _settled;
 [{_job getOrDefault ["adoptedArrivals",0] == 16},5] call _wait;
 ["iafter_all_groups_automatically_adopted",_job getOrDefault ["adoptedArrivals",0] == 16
     && {count ([_destination] call A3I_fnc_siteExtraRoster) == 16}
-    && {_site get "populationTarget" == 26} && {{alive _x} count _actors == 16}] call _check;
+    && {_site getOrDefault ["populationTarget",-1] == 26} && {{alive _x} count _actors == 16},
+    [_job getOrDefault ["adoptedArrivals",0],count ([_destination] call A3I_fnc_siteExtraRoster),
+        _site getOrDefault ["populationTarget",-1],{alive _x} count _actors,
+        _job getOrDefault ["lastArrivalHandoff",[]]]] call _check;
 [_job] call _finishJob; call _stopSite;
 {deleteVehicle _x} forEach _actors;
 citiesX = [_source]; factories = [_destination];
