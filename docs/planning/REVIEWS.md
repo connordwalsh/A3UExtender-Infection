@@ -850,3 +850,23 @@ the PBO match the tested manifest. Both isolated servers exited. The helper has
 no public caller yet; active/hostile/administration handoff and dispatch remain
 unfinished. Keep PR 32 draft for continued integration. Its full combined run
 is NOT_RUN; the parent candidate's 965-check report is separately identified.
+
+## 14 November 2026 - Live and offscreen interception handoff review
+
+LiveArrivals Dev1 passes all 1013 combined engine checks and all 67 role-spawn
+records, plus 59 focused handoff checks, 11 actual missing-dependency checks and
+three parser tests. No engine/SQF errors were recorded. All 162 production inputs
+and the PBO match the immutable manifest after execution. The completed server
+exited. Its 85 reviewed warnings consist of 16 startup/dependency notices,
+64 object-deletion notices and five missing-fixture-commander notification targets.
+
+Self-review covered exact owner/serial and ticket guards, garrison mutex handling,
+duplicate prevention, preservation of physical actors, removal from the old horde
+owner before cleanup, native casualty persistence, town allowance expansion and
+closed permanent-site arrival capacity. The ordinary shared spawn queue and paid
+reinforcement rules remain independently exercised by the combined regression.
+PR 32 can integrate this component. It does not complete Horde Interception:
+automatic arrival handling, hostile combat and public dispatch remain open.
+Administration persistence and the owner's 50-metre boundary are isolated in
+draft PR 33 and cannot claim this different candidate's regression result.
+No Computer Use or manual installation/profile changes.

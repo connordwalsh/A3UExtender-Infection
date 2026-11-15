@@ -9,6 +9,14 @@ and controller results remain recorded separately. Campaign acceptance is open.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
 
+Latest handoff checkpoint: LiveArrivals Dev1 passes 1013 combined engine checks,
+59 focused offscreen/live arrival checks and 11 actual missing-dependency checks.
+Arrived survivors can be saved offscreen or adopted into active towns/permanent
+sites above their normal capacity without disappearing during horde cleanup.
+Automatic arrival handling, hostile combat and public mission dispatch remain
+unfinished. Stronghold extras and 50-metre interception arrivals are separate
+draft work; no sprint acceptance gate is closed.
+
 14 November amendment: [Mission redesign](MISSION_REDESIGN.md) records the
 owner's six replacement categories for S4-1, S4-2, S4-3 and S5-3. The catalog now
 targets infected exclusively; Destroy/Random are removed and Liquidation
