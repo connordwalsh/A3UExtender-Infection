@@ -4,9 +4,9 @@
   "suite": "supplytask",
   "expected_dependencies_present": true,
   "status": "passed",
-  "collected_at_utc": "2026-11-15T05:09:15.171415+00:00",
-  "source_log": "arma3server_x64_2026-11-15_00-06-44.rpt",
-  "source_log_sha256_at_collection": "c2595223a7fd9aec577e5d049cefdfa77a3e3da7acffecae64d4ea822e6a46ad",
+  "collected_at_utc": "2026-11-15T05:16:28.170303+00:00",
+  "source_log": "arma3server_x64_2026-11-15_00-11-14.rpt",
+  "source_log_sha256_at_collection": "3da3d66011206643486e1df4f15c955fd69a3420fd5c6d15deeed056516d73c9",
   "source_sha256_at_collection": {
     "tests/arma/infection_probe/template.VR/administrationChecks.sqf": "13bab6774aa13e69ff26a6e98cae431378c7f04b90bbf6cedc3620df0f8cf096",
     "tests/arma/infection_probe/template.VR/administrationExtraChecks.sqf": "6a5bbe036eacfba2d587c5d3fba271437a4b8048972cff3d199df7a711fca211",
@@ -48,7 +48,7 @@
     "tests/arma/infection_probe/template.VR/roamingChecks.sqf": "79cdd6aa6a74cf37bf999f8d59c5695516c2ca113e9303cb4843f59682a98677",
     "tests/arma/infection_probe/template.VR/siteChecks.sqf": "ba5092c0743de4ca7f6568ffe8f56672e5ba87277fa31bc125dff6d0e17c9b30",
     "tests/arma/infection_probe/template.VR/spawnChecks.sqf": "a258dbfd86433f9a8c2ee13f0bbc79a131b9c139b52e5f8dd03e57b6052fc202",
-    "tests/arma/infection_probe/template.VR/supplyTaskChecks.sqf": "fc31e5ac31933048f6dab51a22d5e7d30a87745af8ee54a8eb17d52ed049a9cf",
+    "tests/arma/infection_probe/template.VR/supplyTaskChecks.sqf": "322aa555f0f63fae0e99e66f93f0fd3924992955af46e7fb66a5d57851fc566c",
     "tests/arma/infection_probe/template.VR/supplyTruckChecks.sqf": "6febb945d968e433a8e8a30681602ef193eec28b17386eb54743647b290925ed",
     "tests/arma/infection_probe/template.VR/tacticalChecks.sqf": "8749de08fd41ac877ba6b1a48cb8bf26e4688e050a4d451c92f3ab9148fc50be",
     "tests/arma/infection_probe/contracts-addon/config.cpp": "4f34ce7f4729a5eb8e440b262f0a0cc8b7c9abc8055778209a7a57e76e2309c2",
@@ -317,76 +317,80 @@
   "error_lines": [],
   "warnings_for_review": [
     {
-      "line": 750,
-      "message": "0:06:56 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
+      "line": 751,
+      "message": "0:11:21 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\\na3_characters_f"
     },
     {
-      "line": 755,
-      "message": "0:06:56 bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
-    },
-    {
-      "line": 757,
-      "message": "0:07:00 Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
+      "line": 756,
+      "message": "0:11:21 bin\\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)"
     },
     {
       "line": 758,
-      "message": "0:07:00 Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
+      "message": "0:11:22 Animation wbk_animations\\starwars_lightsaber_combo_1.rtm not found or empty"
     },
     {
       "line": 759,
-      "message": "0:07:00 Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
+      "message": "0:11:22 Animation wbk_animations\\ims_cin_fight_1.rtm not found or empty"
     },
     {
       "line": 760,
-      "message": "0:07:00 Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
+      "message": "0:11:22 Animation wbk_animations\\ims_cin_fight_2.rtm not found or empty"
     },
     {
       "line": 761,
-      "message": "0:07:00 Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
+      "message": "0:11:22 Animation wbk_animations\\ims_cinematicfight_main.rtm not found or empty"
     },
     {
       "line": 762,
-      "message": "0:07:00 Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
+      "message": "0:11:22 Animation wbk_animations\\ims_cinematicfight_victim.rtm not found or empty"
     },
     {
       "line": 763,
-      "message": "0:07:00 Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
+      "message": "0:11:22 Animation wbk_animations\\ims_cinematicfight_2_main.rtm not found or empty"
     },
     {
       "line": 764,
-      "message": "0:07:00 Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
+      "message": "0:11:22 Animation wbk_animations\\ims_cinematicfight_2_victim.rtm not found or empty"
     },
     {
-      "line": 785,
-      "message": "0:07:02 Attempt to override final function - abz_fnc_load"
+      "line": 765,
+      "message": "0:11:22 Animation wbk_zombies\\wbk_walker_tryingtocatch.rtm not found or empty"
     },
     {
       "line": 786,
-      "message": "0:07:02 Attempt to override final function - abz_fnc_queuesave"
+      "message": "0:11:23 Attempt to override final function - abz_fnc_load"
     },
     {
       "line": 787,
-      "message": "0:07:02 Attempt to override final function - abz_fnc_synccommit"
+      "message": "0:11:23 Attempt to override final function - abz_fnc_queuesave"
     },
     {
       "line": 788,
-      "message": "0:07:02 Attempt to override final function - abz_fnc_save"
+      "message": "0:11:23 Attempt to override final function - abz_fnc_synccommit"
     },
     {
-      "line": 795,
-      "message": "0:07:02 Attempt to override final function - bis_fnc_storeparamsvalues_data"
+      "line": 789,
+      "message": "0:11:23 Attempt to override final function - abz_fnc_save"
     },
     {
       "line": 796,
-      "message": "0:07:02 Attempt to override final function - hals_store_getnearbyvehicles"
+      "message": "0:11:23 Attempt to override final function - bis_fnc_storeparamsvalues_data"
     },
     {
-      "line": 889,
-      "message": "0:07:06 A null object passed as a target to RemoteExec(Call) 'a3a_fnc_commsmp'"
+      "line": 797,
+      "message": "0:11:23 Attempt to override final function - hals_store_getnearbyvehicles"
     },
     {
-      "line": 900,
-      "message": "0:07:08 A null object passed as a target to RemoteExec(Call) 'a3a_fnc_commsmp'"
+      "line": 891,
+      "message": "0:11:27 A null object passed as a target to RemoteExec(Call) 'a3a_fnc_commsmp'"
+    },
+    {
+      "line": 902,
+      "message": "0:11:30 A null object passed as a target to RemoteExec(Call) 'a3a_fnc_commsmp'"
+    },
+    {
+      "line": 929,
+      "message": "0:11:41 A null object passed as a target to RemoteExec(Call) 'a3a_fnc_commsmp'"
     }
   ],
   "runtime_checks": [
@@ -461,6 +465,11 @@
     },
     {
       "name": "stask_site_three_roles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "stask_all_permanent_types",
       "passed": true,
       "detail": []
     },
@@ -600,6 +609,11 @@
       "detail": []
     },
     {
+      "name": "stask_captured_source_completes",
+      "passed": true,
+      "detail": []
+    },
+    {
       "name": "stask_stopped_preparation_reclaimed",
       "passed": true,
       "detail": []
@@ -617,7 +631,7 @@
   ],
   "spawn_records": [],
   "completion": [
-    43,
+    45,
     [],
     0
   ]

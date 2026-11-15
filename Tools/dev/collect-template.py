@@ -872,6 +872,8 @@ INTERCEPTION_DISPATCH_CHECKS = {
 
 
 SUPPLY_TASK_CHECKS = {
+    'stask_all_permanent_types',
+    'stask_captured_source_completes',
     'stask_town_fuel_only',
     'stask_site_three_roles',
     'stask_targets_infected_only',

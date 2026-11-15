@@ -59,6 +59,16 @@ private _state = {
 };
 ["stask_town_fuel_only",([_town] call A3I_fnc_supplySiteKinds) isEqualTo ["fuel"]] call _check;
 ["stask_site_three_roles",([_site] call A3I_fnc_supplySiteKinds) isEqualTo ["ammunition","fuel","repair"]] call _check;
+outposts = [];
+private _allPermanent = true;
+{
+    private _prior = missionNamespace getVariable _x;
+    missionNamespace setVariable [_x,[_site]];
+    _allPermanent = _allPermanent && {([_site] call A3I_fnc_supplySiteKinds) isEqualTo ["ammunition","fuel","repair"]};
+    missionNamespace setVariable [_x,_prior];
+} forEach ["airportsX","milbases","outposts","factories","resourcesX","seaports"];
+outposts = [_site];
+["stask_all_permanent_types",_allPermanent] call _check;
 ["stask_targets_infected_only",(call A3I_fnc_supplyTargets) isEqualTo [_town,_site]] call _check;
 private _count = count A3I_supplyTasks;
 ["stask_wrong_town_role_refused",!([_town,"ammunition"] call A3I_fnc_startSupplySeizure)
@@ -167,6 +177,16 @@ _truck setVariable ["A3I_supplyTaskOwner",["foreign",123]];
 [{_r get "settled"},5] call _wait; [_r] call _cleanup;
 ["stask_foreign_asset_preserved",alive _truck && {_r get "outcome" == "interrupted"}
     && {(_truck getVariable "A3I_supplyTaskOwner") isEqualTo ["foreign",123]}] call _check;
+
+_made = [_site,"ammunition"] call _start; _r = _made # 1; _truck = _r get "truck";
+_funds = server getVariable "resourcesFIA"; _army = A3A_resourcesAttackOcc;
+sidesX setVariable [_site,teamPlayer];
+[{([_r] call _state) == "SUCCEEDED" && {server getVariable "resourcesFIA" == _funds+300}
+    && {A3A_resourcesAttackOcc == _army-120}},8] call _wait;
+["stask_captured_source_completes",_r get "outcome" == "delivered"
+    && {_r get "deliveryDestination" == _site} && {server getVariable "resourcesFIA" == _funds+300}
+    && {_truck inArea _site} && {alive _truck} && {_truck in staticsToSave}] call _check;
+[_r] call _cleanup; sidesX setVariable [_site,west];
 
 private _accepted = [_town,"fuel"] call A3I_fnc_startSupplySeizure;
 _r = A3I_supplyTasks get ("A3I_SUPPLY_" + str A3I_supplySerial);

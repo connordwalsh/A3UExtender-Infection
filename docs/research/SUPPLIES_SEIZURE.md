@@ -58,7 +58,7 @@ Build and absent-dependency reports are recorded alongside them. Artifact
 @Infection_SupplyTrucks_Dev1, SHA-256
 `af23a7e871d695b3d6c305780e090fed84ea89ae068f0d48f916c24cf37c28e8`.
 
-The first controller increment now passes 43 focused checks and eleven actual
+The controller increment now passes 45 focused checks and eleven actual
 missing-dependency checks. It provides bounded parking, guarded creation, native
 tasks, delivery/destruction/deadline settlement, once-only native rewards, save
 registration and observer-safe asset/task retirement. Public/direct/intel/
@@ -67,16 +67,16 @@ not cancel recovery. Its delivery, destruction or original deadline resolves the
 mission. The owner confirmed fuel trucks only in towns; permanent sites permit all three
 service kinds. Capturing the permanent source site counts as delivery if the
 truck remains within its now-friendly boundary. That specific captured-source
-case will receive an explicit focused test before integration. The usable truck contract is separate from currently unanswered
+case passes an explicit engine test, including native rewards, capture and save-list registration. The usable truck contract is separate from currently unanswered
 Extraction survivor disposition. No Computer Use or manual-install changes.
 
 
 ## Controller evidence boundary
 
-The 43-check controller run uses actual empty trucks, native tasks, FIA resources,
+The 45-check controller run uses actual empty trucks, native tasks, FIA resources,
 army timing rewards, native capture and save-list registration. Travel and
-deadlines are injected. The result has no engine/SQF errors and 18 reviewed
-warnings: 16 startup notices and two missing-fixture-commander income targets.
+deadlines are injected. The result has no engine/SQF errors and 19 reviewed
+warnings: 16 startup notices and three missing-fixture-commander income targets.
 All 194 production inputs and the PBO match the frozen manifest; both completed
 servers exited. SupplyTask Dev1 SHA-256:
 `47ec4609d92043cd7ee6bd7912d1e36c7fbe87b9d295b5eabdb6e2a1368d8f8d`.
@@ -93,3 +93,8 @@ forces remain responsible for their location.
 This evidence does not establish real terrain travel, optional faction packs,
 ACE, connected driving/towing, player rewards, garage/disk campaign saves or
 full mission acceptance. No Computer Use or manual-install changes.
+
+The strengthened run also checks all six conventional permanent-site types for
+ammunition/fuel/repair eligibility. The original passing 43-check report is
+retained as supply-task-engine-initial.json; the accepted 45-check report is
+supply-task-engine.json. Production remained unchanged between these runs.

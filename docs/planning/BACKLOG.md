@@ -543,3 +543,11 @@ unsafe cleanup. Source policy is now confirmed: fuel only in towns, all three
 truck roles at permanent sites. A captured permanent source itself can satisfy
 delivery. Add an explicit test of that clarified case before integration.
 Public dispatch/menu/caller coverage remains unfinished.
+
+## Supplies Seizure controller checkpoint: 15 November 2026
+
+The controller passes 45 focused engine checks and 11 actual missing-dependency
+checks. Capturing its permanent source site completes recovery in place, with
+once-only rewards and the usable truck registered for saving. Towns provide fuel
+trucks only; all six conventional permanent-site types permit the three approved
+service roles. Public dispatch and combined regression remain open.
