@@ -748,7 +748,10 @@ that correction. Rejected timing, cleanup-index and taskExists assumptions are
 preserved with diagnostic evidence. Warnings: 16 focused startup/dependency and
 seven absent-dependency notices. All 154 production inputs match the artifact.
 
-Formation/capture regression is running. Full combined suite NOT_RUN. PR 30
+Formation/capture regression passes all 85 checks without engine/SQF errors.
+Its 20 warnings comprise 16 startup/dependency notices and four object-deletion
+notices. All 154 production inputs and the PBO still match the manifest after
+testing; the isolated test server exited. Full combined suite NOT_RUN. PR 30
 remains draft on PR 28; public task creation/dispatch, complete owner supervision
 and arrival aftermath remain unfinished. No player reward receipt, player UI,
 JIP, full-route travel, performance, saves or campaign acceptance is claimed.

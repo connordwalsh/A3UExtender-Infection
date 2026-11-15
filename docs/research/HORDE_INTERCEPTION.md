@@ -277,8 +277,10 @@ Dev3 checks active/pending/ticket counts and adds real retention-cleanup cases.
 Its 45 focused checks now pass without engine/SQF errors, as do 11 actual
 missing-dependency checks. Focused warnings are the same 16 startup/dependency
 notices; absent dependencies has seven. Three parser tests pass. All 154
-production inputs still match the Dev3 manifest. Formation/capture regression
-is running; full combined, connected-player and campaign acceptance remain open.
+production inputs still match the Dev3 manifest. Formation/capture regression now passes all 85 checks without engine/SQF
+errors. Its 20 warnings comprise 16 startup/dependency notices and four object
+deletion notices. Full combined, connected-player and campaign acceptance remain
+open. The test server has exited.
 
 The first retention test incorrectly assumed BIS taskExists becomes false
 when a task is deleted. Inspection of the installed functions_f.pbo shows that

@@ -329,7 +329,9 @@ missing-dependency checks without engine/SQF errors. First arrival fails the
 task, Russia takeover continues, genuine full elimination uses event time,
 settlement rewards occur once, and independent task retention preserves living
 survivors. Invalid deadlines cancel without mission rewards/penalties. Three
-parser tests pass. Capture/formation regression is running; full combined and
+parser tests pass. Capture/formation regression also passes all 85 checks
+without engine/SQF errors. All 154 production inputs and the PBO match the
+manifest after testing; the isolated test server exited. Full combined and
 connected-player checks are still open. Keep PR 30 draft. Public creation,
 owner supervision, arrival reinforcement/attack and board/intel dispatch remain
 unfinished. Arrival capacity and offscreen-town persistence questions remain
