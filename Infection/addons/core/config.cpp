@@ -168,6 +168,35 @@ class CfgFunctions
             class runMajorAttack {};
             class finishMajorAttack {};
             class majorWatchdog {};
+            class liberationSources {};
+            class createLiberationSurvivor {};
+            class cleanupLiberationSurvivor {};
+            class liberationOutcome {};
+            class runLiberationHorde {};
+            class startLiberation {};
+            class requestLiberation {};
+            class runLiberation {};
+            class finishLiberation {};
+            class rewardLiberation {};
+            class liberationVehicleClasses {};
+            class createLiberationVehicle {};
+            class createLiberationFire {};
+            class applyLiberationFire {};
+            class cleanupLiberationEffects {};
+            class liberationBodyRoles {};
+            class createLiberationBody {};
+            class cleanupLiberationBodies {};
+            class liberationWreckClasses {};
+            class createLiberationWreck {};
+            class cleanupLiberationWrecks {};
+            class damageLiberationBuilding {};
+            class liberationBuildingChanged {};
+            class cleanupLiberationBuildings {};
+            class liberationRoofPosition {};
+            class decorateLiberationBuilding {};
+            class createLiberationScene {};
+            class cleanupLiberationScene {};
+            class liberationWatchdog {};
             class startSite {};
             class trackSiteDefender {};
             class siteDefenderEvent {};
@@ -269,6 +298,8 @@ class CfgFunctions
 
             class originalSelectIntel { file = "\x\a3a\addons\core\functions\Intel\fn_selectIntel.sqf"; };
             class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
+            class originalTownBattle { file = "\x\a3a\addons\core\functions\CREATE\fn_townBattle.sqf"; };
+            class originalResourceCheck { file = "\x\a3a\addons\core\functions\init\fn_resourcecheck.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
             class originalAmbientCivTraffic { file = "\x\a3a\addons\patcom\functions\Civilian\fn_createAmbientCivTraffic.sqf"; };
@@ -339,6 +370,10 @@ class CfgFunctions
         {
             class requestMissionDialog { file = "\x\a3i\addons\core\overrides\fn_requestMissionDialog.sqf"; };
         };
+        class init
+        {
+            class resourcecheck { file = "\x\a3i\addons\core\overrides\fn_resourcecheck.sqf"; };
+        };
         class Missions
         {
             class ENC_Trader { file = "\x\a3i\addons\core\overrides\fn_ENC_Trader.sqf"; };
@@ -378,6 +413,7 @@ class CfgFunctions
         };
         class CREATE
         {
+            class townBattle { file = "\x\a3i\addons\core\overrides\fn_townBattle.sqf"; };
             class NATOinit { file = "\x\a3i\addons\core\overrides\fn_NATOinit.sqf"; };
             class patrolReinf { file = "\x\a3i\addons\core\overrides\fn_patrolReinf.sqf"; };
             class reinforcementsAI { file = "\x\a3i\addons\core\overrides\fn_reinforcementsAI.sqf"; };

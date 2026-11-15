@@ -135,7 +135,8 @@ _site set ["clearanceRemaining",0];
 [teamPlayer,_target] call A3A_fnc_markerChange;
 ["liq_capture_native_site_commits",sidesX getVariable _target == teamPlayer
     && {_claim get "outcome" == "won"} && {markersChanging isEqualTo []}
-    && {garrison getVariable _target isEqualTo []}] call _check;
+    && {garrison getVariable _target isEqualTo []},[sidesX getVariable _target,_claim get "outcome",+markersChanging,
+        garrison getVariable _target,[_target] call A3I_fnc_siteClearance]] call _check;
 call _resetClaim;
 [east,_target] remoteExec ["A3A_fnc_markerChange",2];
 [{_claim get "outcome" == "cancelled" && {markersChanging isEqualTo []}}] call _wait;

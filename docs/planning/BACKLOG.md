@@ -620,3 +620,37 @@ All increments remain draft pending combined integration and connected-player,
 terrain, network and save acceptance. Manual Dev9 is unchanged; no sprint gate
 is closed. Longer survivor-defense and Extraction regressions are still running
 on their previously frozen builds, which do not include these later increments.
+
+Parent-controller checkpoint: real native task registration, human rescue,
+preparation, linked horde, capture/reward/failure transactions and interruption
+cleanup pass within 104 focused checks; the missing-dependency suite passes 11.
+Source review corrected rewards to follow the native five-second tier update,
+including its effect on the HR cap. The 127-input candidate and all 190 focused
+report inputs match. The combined 777-case regression passes with no engine/SQF
+Error records, including all 67 role spawns. Its 77 retained warnings are reviewed
+in TOWN_LIBERATION.md; the completed server was stopped by verified identity.
+The owner chose to retain the native mission scene and survivor vehicle; that
+work and campaign dispatch remain open. The owner subsequently selected peaceful
+joining when no nearby eligible horde origin exists; the isolated dispatch branch
+is implementing that decision. No Computer Use or manual-client update occurred.
+
+Campaign-dispatch checkpoint: the approved peaceful fallback and native townBattle
+entry pass within 124 focused checks and eleven missing-dependency checks on a
+130-input candidate. The source comparison preserves the remaining resourcecheck
+body. All 196 focused inputs match, with no engine/SQF Error records. Busy claims
+and missing navigation/HQ data cannot trigger a free political capture. The
+parent controller's separate 777-case regression is incorporated; combined
+dispatch regression and an actual campaign economy cycle remain NOT_RUN.
+
+
+## Working session: 15 November 2026 - Survivor-defense integration
+
+Integrated the earlier controller, retained scene and campaign-dispatch branches
+with the current six-category mission redesign and parked-vehicle adapter on
+codex/liberation-integration. The retired competitive request path remains
+retired. The scene/dispatch integration builds, three parser checks pass, and
+all eleven actual dependency-absence checks pass. Dev2 has 293 verified source
+inputs. The focused engine suite is running; its expected 249 checks include
+scene assembly and the parent controller, which were previously NOT_RUN.
+No source-level merge is treated as runtime acceptance. Connected recruitment,
+visible effects, Redux walking routes, pacing and campaign saves remain open.

@@ -125,7 +125,9 @@ all upstream preferences, fixed/weighted tiers, ordinary side delegation and
 Ultimate's initial-roster/ratio functions. The current suite also exercises combat
 initialization, damage observation, real rifle impacts, resource/garrison death
 and deletion accounting, atomic spawn reservations, setting changes and cleanup.
-A passing current full run requires 684 checks; the
+This feature branch declares 707 full-suite checks; its latest completed
+combined report covers the preceding 684-check integration, and the 23 new
+selector cases have the focused result below. The
 dependency-absent run has 11. The installed Ultimate header must report 12.4.2.
 The full fixture uses a separate test-only addon that records task/support/
 aggression and original-init dispatch endpoints, and wraps the real vehicle
