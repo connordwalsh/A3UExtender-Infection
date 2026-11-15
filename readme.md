@@ -41,8 +41,8 @@ Humanitarian Aid and Elimination have public controllers in this candidate.
 Aid preserves timed unloading and cancels without penalty if town ownership
 changes. Elimination identifies a Screamer, Boomer or Leaper 2 in a search area,
 uses different special types in its escort, and keeps the hunt active after
-settlement ownership changes. Their combined regression is still pending;
-focused evidence is linked below. Extraction has a tested survivor ledger and
+settlement ownership changes. Their combined regression passes 1,427 checks and 67 role-spawn records;
+feature-specific evidence and remaining limits are linked below. Extraction has a tested survivor ledger and
 scene creator, but its public controller and rescued-survivor disposition remain
 unfinished.
 

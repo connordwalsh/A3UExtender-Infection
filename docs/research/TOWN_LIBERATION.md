@@ -677,3 +677,14 @@ The parent fixture also replaced markersX with two infected towns, omitting its
 existing Rebel HQ. That made the native nearestFriendlyMarker assert during
 parent scenes. The HQ is now included in the marker list. These fixture changes
 leave the Dev2 production artifact unchanged; the corrected suite is running.
+
+
+The corrected run completed all 249 checks with no engine/SQF errors, but failed
+one preparation-time assertion and remains rejected. It confirmed the first
+interruption issue: scriptDone was false immediately after terminate, then true
+at the bounded observation. The parent HQ error is absent. Recruitment succeeded
+and phase was prepare; the failed clock check printed readyAt 338.416 versus
+observed time 158.416. The fixture now captures one time value in an unscheduled
+block, compares absolute deadlines using the same addition as production, and
+logs each condition plus the six-decimal remaining interval. No gameplay timer
+or production input changed. Another focused run is required before acceptance.

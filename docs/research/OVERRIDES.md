@@ -194,11 +194,11 @@ ordinary campaigns. The public Extraction controller is still pending.
   other campaigns. See [SUPPLIES_SEIZURE.md](SUPPLIES_SEIZURE.md).
 - `SUPP_Supplies` and `RIV_SUPP_Salvage` dispatch Humanitarian Aid. See
   [HUMANITARIAN_AID.md](HUMANITARIAN_AID.md) for unloading, rewards, cancellation
-  and cleanup evidence. Combined regression remains pending.
+  and cleanup evidence. The integrated Dev3 regression passes 1,427 checks; campaign acceptance remains open.
 - `AS_Ambush`, `AS_Official`, `AS_Smasher`, `AS_specOP`, `AS_Traitor`, `AS_Zombies`
   and `RIV_AS_Traitor` dispatch Elimination. See [ELIMINATION_TASK.md](ELIMINATION_TASK.md)
-  for target-only death completion, search areas, rewards and cleanup. Combined
-  regression remains pending.
+  for target-only death completion, search areas, rewards and cleanup. The integrated
+  Dev3 regression passes 1,427 checks; campaign acceptance remains open.
 
 ## Parked civilian traffic adapter
 

@@ -12,9 +12,9 @@ Status is evidence-based; successful packing does not complete a gameplay story.
 Latest integration checkpoint: merged PR 40 covers Supplies Seizure after 1228
 combined checks and 67 role-spawn records. PRs 41/42 add Extraction scenes and the
 Aid unloading ledger; PRs 44/45 add Elimination tracking and scenes. Public Aid
-and Elimination are implemented in draft PRs 43/46; their combined Dev3 regression
-was interrupted before completion and is being rerun on the unchanged build.
-The interrupted report is retained and does not count as a pass. PR 47 adds
+and Elimination are merged through PR 46 after their unchanged Dev3 rerun passed
+1,427 checks and 67 role-spawn records. The earlier interrupted report is retained
+and does not count as a pass. PR 47 adds
 abandoned vehicle assets; PR 48 connects them to town visits, passing 36 focused
 Altis-road checks and 11 actual missing-dependency checks. The Redux parking sweep passes 163 checks across 49 towns. Public Extraction and post-rescue disposition remain unfinished.
 The separate large-creature diagnostic remains failed and is tracked separately.

@@ -1164,3 +1164,17 @@ checks pass; completed servers were stopped by verified identity. The separate
 parent 777-case regression is incorporated, but this dispatch candidate's combined
 regression, actual campaign economy cycle and connected-player behavior remain
 NOT_RUN. No Computer Use or manual-client update occurred.
+## 15 November 2026 - Combined Aid and Elimination integration review
+
+The current Elimination branch includes the complete Aid controller branch.
+Review preserved both mission families' registration, native aliases, scheduler
+routes, menu labels and test endpoints. Frozen Dev3 passes 1,427 combined engine
+checks, 67 role-spawn records and eleven actual dependency-absence checks; all
+254 source/PBO hashes match. No engine/SQF errors, with 16 baseline startup,
+70 object-deletion and ten null-fixture-commander notices reviewed. The completed
+server exited. The first interrupted Dev3 run is not a pass; rejected Aid runs
+remain retained. The accepted combined run uses the corrected Aid timing fixture.
+
+This supports integrating PR 46 and its included PR 43 commits. It does not
+certify connected player rewards, visible menu behavior, campaign progression,
+terrain, saves, performance or a sprint gate. Manual Dev9 remains unchanged.

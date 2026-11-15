@@ -119,10 +119,17 @@ private _mission = call _launchMission;
 ["lib_mission_duplicate_refused",!(([_town,_source] call A3I_fnc_startLiberation) # 0)
     && {count A3I_liberations == 1} && {count A3A_tasksData == 1}] call _check;
 private _recruited = [_mission] call _recruit;
-["lib_mission_native_recruit_starts_preparation",_recruited && {_mission get "recruited"}
-    && {(_mission get "readyAt") - time > 178} && {(_mission get "readyAt") - time <= 180}
-    && {isNil {_mission get "majorRecord"}},[_recruited,_mission get "recruited",
-        _mission getOrDefault ["readyAt",-1],time,_mission get "phase"]] call _check;
+isNil {
+    private _observedAt = time;
+    private _readyAt = _mission getOrDefault ["readyAt",-1];
+    private _notEarly = _readyAt > _observedAt + 178;
+    private _notLate = _readyAt <= _observedAt + 180;
+    private _noHorde = isNil {_mission get "majorRecord"};
+    ["lib_mission_native_recruit_starts_preparation",_recruited && {_mission get "recruited"}
+        && {_notEarly} && {_notLate} && {_noHorde},
+        [_recruited,_mission get "recruited",_readyAt,_observedAt,_mission get "phase",
+            _notEarly,_notLate,_noHorde,(_readyAt-_observedAt) toFixed 6]] call _check;
+};
 private _reservation = ["reserve",["liberation:mission-pressure",1,1]] call A3I_fnc_budget;
 _pressure = _reservation # 1 # 0; (A3I_budgetRecords get _pressure) set [3,diag_tickTime + 600];
 _mission set ["readyAt",time - 1];
