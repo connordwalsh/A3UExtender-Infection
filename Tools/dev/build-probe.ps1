@@ -1,6 +1,6 @@
 param(
     [Parameter(Mandatory = $true)][string]$ArmaTools,
-    [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
+    [ValidateSet('Catalog', 'Behavior', 'SpecialLifecycle', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
     [ValidateSet('Full', 'Administration', 'Reinforcements', 'Roaming', 'Counterattacks', 'Towns', 'Tactical', 'Major', 'CatalogPolicy', 'Clearance', 'Liquidation', 'LiquidationController', 'LiquidationDispatch', 'Interception', 'InterceptionFormation', 'FormationRegression', 'InterceptionTask', 'InterceptionStorage', 'InterceptionArrivals', 'BackgroundConvoys')][string]$Suite = 'Full'
 )
 $ErrorActionPreference = 'Stop'
@@ -13,8 +13,8 @@ if ($Mode -eq 'Template') {
         $_.CommandLine -and $_.CommandLine.Contains($activeHooks)
     }) { throw 'The template contract addon is in use; collect and stop that probe before rebuilding.' }
 }
-$sourceName = @{ Catalog = 'catalog.VR'; Behavior = 'behavior.VR'; Template = 'template.VR'; Dependencies = 'template.VR' }[$Mode]
-$missionName = @{ Catalog = 'Infection_ClassProbe.VR'; Behavior = 'Infection_BehaviorProbe.VR'; Template = 'Infection_TemplateProbe.VR'; Dependencies = 'Infection_DependencyProbe.VR' }[$Mode]
+$sourceName = @{ Catalog = 'catalog.VR'; Behavior = 'behavior.VR'; SpecialLifecycle = 'lifecycle.VR'; Template = 'template.VR'; Dependencies = 'template.VR' }[$Mode]
+$missionName = @{ Catalog = 'Infection_ClassProbe.VR'; Behavior = 'Infection_BehaviorProbe.VR'; SpecialLifecycle = 'Infection_LifecycleProbe.VR'; Template = 'Infection_TemplateProbe.VR'; Dependencies = 'Infection_DependencyProbe.VR' }[$Mode]
 $source = Join-Path $repoRoot ('tests\arma\infection_probe\' + $sourceName)
 $output = Join-Path $repoRoot '.work\probe-missions'
 # Every build uses an empty staging directory; an old PBO cannot mask a failure.
@@ -30,7 +30,7 @@ foreach ($relative in @('mission.sqm', 'description.ext')) {
     if ($LASTEXITCODE -ne 0) { throw "Config validation failed: $relative" }
 }
 Get-ChildItem -LiteralPath $source -File | Copy-Item -Destination $stagedSource
-if ($Mode -eq 'Behavior') {
+if ($Mode -in @('Behavior', 'SpecialLifecycle')) {
     Copy-Item -LiteralPath (Join-Path $repoRoot 'tests\arma\infection_probe\catalog.VR\candidates.sqf') -Destination $stagedSource
 }
 if ($Mode -in @('Template', 'Dependencies')) {
