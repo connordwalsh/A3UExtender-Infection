@@ -115,3 +115,15 @@ commander; client notifications/rewards are not certified. All 236 production
 inputs and the PBO match the manifest. Both completed Dev2 test servers exited.
 SHA-256: ca5fa6c4bdf3586cb43f36c65846343b19d9a6b7d6ca1a8e4c319593e98ffa4b.
 Combined regression and connected acceptance remain open.
+
+
+## Integrated Dev3 regression checkpoint, 15 November
+
+Dev3 combines public Elimination with the Aid controller and corrected Aid-ledger
+fixture. All 254 production inputs and the PBO match the frozen manifest; SHA-256
+9563500a216a240540f138daafe98c8fed257b102d47b5e6a2ab21b37d6b06ef.
+Its 11 actual dependency-absence checks pass. The first full run stopped before
+completion: every recorded assertion passed and no engine/SQF error was recorded,
+but this is incomplete evidence, not a passing regression. The interruption report
+and Dev2/Dev3 manifests are retained separately. A fresh run of unchanged Dev3 is
+in progress; public integration and the enclosing story remain unaccepted.
