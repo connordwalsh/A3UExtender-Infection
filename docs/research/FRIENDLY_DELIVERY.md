@@ -20,6 +20,13 @@ Mission owners must still validate the exact mission-owned truck or survivor,
 handle arrival/death/deletion timing, retain delivered trucks, and settle rewards
 once. This helper does not award resources, transfer ownership or delete assets.
 
+The owner corrected Extraction settlement: reaching safety with the first
+survivor does not finish the task. Every survivor must be resolved as rescued or
+killed before early settlement; otherwise it stays active until the deadline.
+At settlement, one or more rescues means success and zero means failure. The
+eventual controller needs a per-survivor ledger and must distinguish native
+deletion from actual rescue or death; this location helper alone is insufficient.
+
 The native reference is pinned Ultimate 12.4.2 commit
 c7c8247672ed5e7d4aa317d47efb371c41de4e7d:
 `core/functions/Missions/fn_LOG_Ammo.sqf` uses a 100-metre posHQ test, while

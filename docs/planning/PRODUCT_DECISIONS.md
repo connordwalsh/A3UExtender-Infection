@@ -110,12 +110,20 @@ Normal town population still follows the approved per-visit regeneration policy.
 defenders still regenerate each visit. Extra infected arriving as reinforcements
 persist between visits; killed extras stay dead, just as extra town defenders do.
 
-14 November delivery clarification: Extraction succeeds after at least one
-survivor reaches a friendly destination; rewards scale with rescues. Preserve
+14 November delivery clarification: Extraction success requires at least one
+survivor rescued; rewards scale with rescues. Preserve
 Ultimate's HQ delivery distances: 100 metres for Supplies Seizure trucks and
 50 metres for Extraction survivors. Rebel-held bases, outposts, airfields,
 factories, resource sites and seaports use their marked boundaries. Towns,
 road controls and cleared administration strongholds are not delivery sites.
+
+Extraction settlement correction: the first rescue does NOT finish the mission.
+Keep it active until every survivor has been rescued or killed, or until its
+original deadline. If any survivor remains unresolved, including in infected
+territory, the assignment persists until that deadline. At settlement, succeed
+if at least one survivor was rescued; fail if zero were rescued. This supersedes
+the earlier immediate-completion interpretation and the proposed post-completion
+reward window.
 
 14 November administration arrival boundary: for Horde Interception, the first
 living infected within 50 metres of the stronghold counts as arrival and fails
