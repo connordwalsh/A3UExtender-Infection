@@ -30,6 +30,7 @@ class CfgFunctions
             class dependencies {};
             class isActive {};
             class backgroundSupplyConvoy {};
+            class unlockDealer {};
             class deliveryDestination {};
             class startAbandonedTown {};
             class runAbandonedTown {};
@@ -257,6 +258,7 @@ class CfgFunctions
         class Originals
         {
             class originalDialogCivFinished { file = "\x\a3a\addons\patcom\functions\Civilian\fn_dialogCivFinished.sqf"; };
+            class originalENCTrader { file = "\x\a3a\addons\core\functions\Missions\fn_ENC_Trader.sqf"; };
             class originalRepairAntenna { file = "\x\a3a\addons\core\functions\Missions\fn_REP_Antenna.sqf"; };
             class originalRESShipwreck { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Shipwreck.sqf"; };
             class originalRESInformer { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Informer.sqf"; };
@@ -339,6 +341,7 @@ class CfgFunctions
         };
         class Missions
         {
+            class ENC_Trader { file = "\x\a3i\addons\core\overrides\fn_ENC_Trader.sqf"; };
             class REP_Antenna { file = "\x\a3i\addons\core\overrides\fn_REP_Antenna.sqf"; };
             class RES_Shipwreck { file = "\x\a3i\addons\core\overrides\fn_RES_Shipwreck.sqf"; };
             class RES_Informer { file = "\x\a3i\addons\core\overrides\fn_RES_Informer.sqf"; };

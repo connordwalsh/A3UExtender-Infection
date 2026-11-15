@@ -11,6 +11,13 @@ class CfgPatches
 };
 class CfgFunctions
 {
+    class SCRT
+    {
+        class Trader
+        {
+            class trader_addVehicleMarketAction { file = "\x\a3i\tests\contracts\fn_trader_addVehicleMarketAction.sqf"; };
+        };
+    };
     class A3A
     {
         class Base
@@ -63,6 +70,7 @@ class CfgFunctions
         class Originals
         {
             class originalDialogCivFinished { file = "\x\a3i\tests\contracts\fn_originalDialogCivFinished.sqf"; };
+            class originalENCTrader { file = "\x\a3i\tests\contracts\fn_originalENCTrader.sqf"; };
             class originalRepairAntenna { file = "\x\a3i\tests\contracts\fn_originalRepairAntenna.sqf"; };
             class originalRESShipwreck { file = "\x\a3i\tests\contracts\fn_originalRESShipwreck.sqf"; };
             class originalRESInformer { file = "\x\a3i\tests\contracts\fn_originalRESInformer.sqf"; };
@@ -124,6 +132,7 @@ class CfgFunctions
         };
         class TestOriginals
         {
+            class testNativeTraderMarketAction { file = "\x\a3a\addons\scrt\Trader\fn_trader_addVehicleMarketAction.sqf"; };
             class testNativeCitySupportChange { file = "\x\a3a\addons\core\functions\Base\fn_citySupportChange.sqf"; };
             class testNativeAddAggression { file = "\x\a3a\addons\core\functions\Base\fn_addAggression.sqf"; };
             class testNativeAddLoadAction { file = "\x\a3a\addons\logistics\Public\fn_addLoadAction.sqf"; };

@@ -51,8 +51,9 @@ if (!isServer) exitWith {};
         call A3A_fnc_compatibilityLoadFaction;
     ["active_only_for_occupants", [west] call A3I_fnc_isActive && {!([east] call A3I_fnc_isActive)}
         && {!([independent] call A3I_fnc_isActive)} && {!([civilian] call A3I_fnc_isActive)}] call _check;
-    if (_suite in ["administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch","interception","interceptionformation","formationregression","interceptiontask","interceptionstorage","interceptionarrivals","administrationextras","interceptionaftermath","interceptiondispatch","delivery","extractionledger","aidledger","aidtask","eliminationledger","eliminationscenes","eliminationtask","eliminationdispatch","extractionscenes","extractionrelease","extractionregression","extractiontask","extractiondispatch","supplytrucks","abandonedvehicles","abandonedtowns","reduxparking","reduxtowns","supplytask","supplydispatch","backgroundconvoys"]) exitWith {
+    if (_suite in ["dealerunlock","administration","reinforcements","roaming","counterattacks","towns","tactical","major","catalogpolicy","clearance","liquidation","liquidationcontroller","liquidationdispatch","interception","interceptionformation","formationregression","interceptiontask","interceptionstorage","interceptionarrivals","administrationextras","interceptionaftermath","interceptiondispatch","delivery","extractionledger","aidledger","aidtask","eliminationledger","eliminationscenes","eliminationtask","eliminationdispatch","extractionscenes","extractionrelease","extractionregression","extractiontask","extractiondispatch","supplytrucks","abandonedvehicles","abandonedtowns","reduxparking","reduxtowns","supplytask","supplydispatch","backgroundconvoys"]) exitWith {
         private _suitePath = switch (_suite) do {
+            case "dealerunlock": {"dealerUnlockChecks.sqf"};
             case "backgroundconvoys": {"backgroundConvoyChecks.sqf"};
             case "supplydispatch": {"supplyDispatchChecks.sqf"};
             case "supplytask": {"supplyTaskChecks.sqf"};
@@ -182,6 +183,7 @@ if (!isServer) exitWith {};
     call compile preprocessFileLineNumbers "tacticalChecks.sqf";
     call compile preprocessFileLineNumbers "majorChecks.sqf";
     call compile preprocessFileLineNumbers "catalogPolicyChecks.sqf";
+    call compile preprocessFileLineNumbers "dealerUnlockChecks.sqf";
     call compile preprocessFileLineNumbers "clearanceChecks.sqf";
     call compile preprocessFileLineNumbers "liquidationChecks.sqf";
     call compile preprocessFileLineNumbers "liquidationControllerChecks.sqf";

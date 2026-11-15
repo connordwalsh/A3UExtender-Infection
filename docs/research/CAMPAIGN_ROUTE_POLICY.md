@@ -6,7 +6,7 @@ Owner decisions on 15 November 2026:
   mission and its automatic rebuild.
 - Keep the gang introduction and player-ordered gang assaults.
 - Unlock the arms dealer without an introduction mission, at Ultimate's normal
-  intel/progression timing. Dealer implementation is still pending.
+  intel/progression timing. Dealer implementation is in the separate DealerUnlock candidate described below.
 
 The tower adapter stops REP_Antenna both in scheduling and at its public
 endpoint, while ordinary campaigns delegate to the native alias. It does not
@@ -49,3 +49,32 @@ repair/scheduler alias calls. No added entities/groups are observed. All 289
 production inputs and the PBO match the retained manifest. Three parser tests
 pass. All eleven missing-dependency checks also pass; native disk saves and full campaign
 acceptance are not certified by these checks.
+
+## Dealer unlock candidate
+
+The separate DealerUnlock Dev1 keeps native prepareTraderQuest and its callers,
+so intel/progression timing and the disabled-trader setting remain native. The
+ENC_Trader adapter runs once on the server, creates the native trader and stock,
+dispatches the native market action, and publishes the native marker, position
+and completed flags without an introduction task, search area or score reward.
+Placement retains native terrain/road/enemy-site checks, with a 200-attempt
+bound; failed workers release the assignment flag for a later normal retry.
+
+The first test created the trader, stock and saved fields successfully but is
+rejected: its marker-update recorder lacked initialization, and it incorrectly
+expected an action ID on a dedicated server. Bohemia documents that addAction
+is ignored on dedicated servers: https://community.bistudio.com/wiki/addAction .
+The corrected fixture forwards the native market function while recording its
+server-origin remote dispatch; it does not claim visible client interaction.
+The production build is unchanged for this rerun. Actual purchasing, JIP action
+visibility and disk save/reload remain acceptance work.
+
+DealerUnlock Dev1 results: the corrected 26-check run passes; the expanded
+28-check run also passes, including remote worker rejection and a no-safe-position
+case that releases the assignment in 0.179 seconds without creating a scene.
+The following normal native trigger succeeds, demonstrating retry. Eleven
+missing-dependency checks pass. All 291 production inputs and the PBO match.
+No recorded engine/SQF errors; sixteen/seven baseline warnings remain. Native
+stock cleanup also prints a zero-client update notice in this no-player fixture.
+The rejected initial report is retained. Both completed dealer servers stopped.
+No connected buying, JIP, real terrain or disk-save acceptance is claimed.

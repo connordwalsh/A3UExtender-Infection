@@ -1031,3 +1031,19 @@ source/PBO identities pass. Reviewed warnings and rejected prior attempts are
 retained in the research/evidence records. Full cross-system regression is
 running; connected-player UI/ownership, campaign saves and sprint acceptance
 remain unproven. PR 52 is draft, with PR 51 included as its prerequisite.
+
+## 15 November 2026 - Route follow-up and dealer review
+
+Closed the registered Shipwreck endpoint gap without adding naval rescue sources.
+The approved tower policy blocks repair missions at dispatch and endpoint while
+leaving destroyed tower serialization intact. Gang routes remain native. Dealer
+review preserves native trigger timing, disabled-trader behavior, stock selection
+and saved position/flags; strips introduction tasks and discovery rewards; and
+adds server pinning, duplicate protection and bounded failed-placement retry.
+
+The dealer fixture uses real native creation and stock; market dispatch is
+recorded and forwarded to the native function. Dedicated servers cannot establish
+visible action usability. The initial marker-recorder/error and UI assertion
+failures are retained as rejected. Corrected 28-check and eleven dependency
+runs pass with all 291 production/PBO identities verified. Full cross-system,
+connected purchases/JIP and save/reload acceptance remain open.

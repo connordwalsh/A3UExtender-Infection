@@ -605,3 +605,18 @@ civilian offers route to Extraction. Dev4 passes 150 combined Extraction checks,
 The full cross-system regression is running in the isolated ExtractionFull
 profile. Connected players, conversations/actions, HC/JIP, saves and campaign
 acceptance remain open. No sprint gate is closed. Manual Dev9 is unchanged.
+
+## Remaining campaign entrypoints: 15 November 2026
+
+Rescue route audit adds the sixth endpoint, RES_Shipwreck (43 focused checks and
+11 missing-dependency checks). Destroyed infected towers no longer dispatch
+repair crews or rebuild through REP_Antenna (30 catalog checks and 11 dependency
+checks). Gang storyline/assault routes stay native. DealerUnlock skips the intro
+while retaining normal native intel/progression triggers, real trader/stock and
+save fields (28 focused checks and 11 dependency checks). Source/PBO manifests
+match each separate candidate. Rejected attempts remain documented.
+
+All increments remain draft pending combined integration and connected-player,
+terrain, network and save acceptance. Manual Dev9 is unchanged; no sprint gate
+is closed. Longer survivor-defense and Extraction regressions are still running
+on their previously frozen builds, which do not include these later increments.
