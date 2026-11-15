@@ -96,3 +96,11 @@ entry: reinforcement/combat aftermath must remain distinct from task failure.
 as background military activity, without offering missions against Russian
 forces. The requested catalog remains infected-only; do not disable the Russian
 convoy activity to achieve that UI policy.
+
+
+14 November interception reinforcement clarification: surviving arrivals add
+extra defenders even when the destination's normal garrison or town population
+is full. If a town is not active, remember those extra infected for its next
+visit. This supersedes the previously pending capacity/offscreen-town questions.
+The owner also confirmed that killed extra town reinforcements stay dead.
+Normal town population still follows the approved per-visit regeneration policy.

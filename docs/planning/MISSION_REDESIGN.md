@@ -43,6 +43,9 @@ selecting Infection must still preserve ordinary Ultimate campaigns.
 - After first arrival fails Interception, survivors reinforce an infected-held
   destination or attack a hostile destination. Russian capture during the march
   does not cancel the assignment; the horde continues to the destination.
+- Surviving interception arrivals add extra defenders above normal destination
+  capacity; offscreen town additions are remembered for the next visit. Killed
+  extra town defenders stay dead; the normal population still regenerates.
 - Liquidation is always a straightforward infected-site clearance. This
   supersedes the earlier requested competitive conquest/race-to-capture variant.
   Existing automatic strategic attacks are not themselves requested missions.

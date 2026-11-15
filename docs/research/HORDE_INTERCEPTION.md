@@ -328,3 +328,13 @@ localization arrays, not already localized strings. That rejected report is
 retained. Two further success-lifecycle checks now cover native corpse retention
 and claim release after task retention; their execution is pending the combined
 regression run. No Computer Use or manual-build changes.
+
+
+## Arrival policy clarification
+
+Survivors add extra defenders above the destination's normal capacity. Offscreen
+town arrivals must be remembered for the next visit; they cannot be silently
+removed with horde cleanup. Baseline town population retains its existing
+logistic/per-visit behavior. Killed extra town
+reinforcements stay dead, as the owner subsequently confirmed.
+No production arrival handoff is implemented yet.
