@@ -20,7 +20,7 @@ def collect(path: Path, phase: str) -> dict:
     raw = path.read_bytes()
     records, malformed, errors = [], [], []
     for number, line in enumerate(raw.decode("utf-8", errors="replace").splitlines(), 1):
-        if re.search(r"Error(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|\| Error \|", line):
+        if re.search(r"\bError(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|\| Error \|", line, re.IGNORECASE):
             errors.append({"line": number, "message": line})
         if "[INFECTION_CAMPAIGN] " not in line:
             continue

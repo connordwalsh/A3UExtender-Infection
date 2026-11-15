@@ -696,3 +696,11 @@ restart/read pass 16 assertions each, including 75-second background windows.
 Both whole-log reports still fail on five startup/object records; no pricing,
 population or parking errors occur. See REDUX_MARKET_VALIDATION.md. Long-session,
 client/JIP and release gates remain open.
+
+15 November SmartMarker lifecycle guard: native write/restart/read pass 16
+assertions per phase with 75-second windows and no Old Man marker startup error.
+Read-only campaign state confirms absent commanderX and HC synchronization to
+its subordinate only. The collector now catches uppercase ERROR records too;
+five remaining records include a previously missed addon-initialization error.
+The earlier market log contains six under the corrected rule (old reports are
+preserved). See REDUX_SMART_VALIDATION.md. Clean-log and release gates stay open.

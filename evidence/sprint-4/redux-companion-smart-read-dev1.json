@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "scope": "Official Redux mission, native server campaign init/save/load; no connected-player, UI, JIP, combat or long-session acceptance",
+  "phase": "read",
+  "status": "failed",
+  "collected_at_utc": "2026-11-15T21:37:18.373719+00:00",
+  "source_log": "redux-companion-smart-read-dev1.rpt",
+  "source_log_sha256": "c11ed6b203cf44de0d83f104fe82e0f76fd8e5020080d3d642bb205b82adb54d",
+  "source_sha256": {
+    "tests/arma/campaign_probe/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "tests/arma/campaign_probe/run.sqf": "56a6e611d927a5a99ffeef5f3643878321cfbd8a1433c234f7b15f61ea89edfa",
+    "Tools/dev/collect-campaign.py": "61c820f5339588d0de7bf4c146d4dfc676cabd9da42746845f077004b696bdfa",
+    "Tools/dev/start-campaign-probe.ps1": "1515bee8adae54a95b5520911e58f476e833a3e84dce0e4a6353da9f627796b8"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "schema_valid": true,
+    "correct_phase_and_terrain": true,
+    "all_expected_checks_once": true,
+    "runtime_checks_pass": true,
+    "completion_matches": true,
+    "no_engine_or_native_errors": false
+  },
+  "failed_checks": [],
+  "malformed_lines": [],
+  "errors": [
+    {
+      "line": 1255,
+      "message": "16:35:10 Error in expression <};"
+    },
+    {
+      "line": 1259,
+      "message": "16:35:10   Error Undefined variable in expression: _leader"
+    },
+    {
+      "line": 1263,
+      "message": "16:35:10 Error: Object(2 : 9) not found"
+    },
+    {
+      "line": 1268,
+      "message": "16:35:10 Error: Object(2 : 10) not found"
+    },
+    {
+      "line": 1274,
+      "message": "16:35:10 \"InfectionCampaign_ReduxSmart1/log: ERROR: [BIS_fnc_activateAddons] The function can be activated only during the mission init.\""
+    }
+  ],
+  "records": [
+    [
+      "start",
+      "read",
+      "chernarusredux",
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ],
+      [
+        2026,
+        11,
+        15,
+        21,
+        35,
+        13,
+        475
+      ]
+    ],
+    [
+      "check",
+      "background_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "saved_receipt_present",
+      true,
+      []
+    ],
+    [
+      "check",
+      "campaign_initialized",
+      true,
+      [
+        "completed"
+      ]
+    ],
+    [
+      "check",
+      "infection_selected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_hq_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "black_market_only_hq_absent",
+      true,
+      []
+    ],
+    [
+      "check",
+      "black_market_only_native_quote",
+      true,
+      [
+        28800,
+        28800
+      ]
+    ],
+    [
+      "check",
+      "redux_parking_slots",
+      true,
+      [
+        [
+          [
+            "outpost_6",
+            1
+          ],
+          [
+            "resource_1",
+            1
+          ],
+          [
+            "resource_2",
+            1
+          ],
+          [
+            "resource_3",
+            1
+          ],
+          [
+            "resource_7",
+            1
+          ],
+          [
+            "resource_10",
+            1
+          ]
+        ]
+      ]
+    ],
+    [
+      "check",
+      "redux_orphan_reconnected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "town_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "admin_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "dealer_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "save_identity_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "saved_crate_resources_restored",
+      true,
+      [
+        1100,
+        1100
+      ]
+    ],
+    [
+      "check",
+      "background_window_completed",
+      true,
+      [
+        75.02
+      ]
+    ],
+    [
+      "complete",
+      "read",
+      16,
+      []
+    ]
+  ]
+}
