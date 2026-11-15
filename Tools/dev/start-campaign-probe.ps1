@@ -2,6 +2,7 @@ param(
     [Parameter(Mandatory=$true)][string]$SteamLibrary,
     [Parameter(Mandatory=$true)][string]$ArmaTools,
     [Parameter(Mandatory=$true)][string]$InfectionMod,
+    [string]$ReduxFixesMod,
     [ValidateSet('Write','Read')][string]$Phase='Write',
     [ValidatePattern('^[A-Za-z0-9_-]{1,24}$')][string]$Instance='ReduxSave1',
     [ValidateRange(1024,65531)][int]$Port=5002
@@ -39,6 +40,14 @@ if ($LASTEXITCODE -ne 0) {throw 'Campaign helper configuration failed'}
 if ($LASTEXITCODE -ne 0) {throw 'Campaign helper packing failed'}
 Copy-Item -LiteralPath (Join-Path $packed 'a3i_campaign_probe.pbo') -Destination $output -Force
 $mods+=@($modRoot,$helper)
+$companionReceipt=$null
+if ($ReduxFixesMod) {
+    $companion=(Resolve-Path -LiteralPath $ReduxFixesMod).Path
+    $companionPbo=Join-Path $companion 'addons/a3urf_core.pbo'
+    if (!(Test-Path -LiteralPath $companionPbo)) {throw 'Redux fixes addon missing'}
+    $mods+=$companion
+    $companionReceipt=@{Directory=$companion;PBO=(Get-FileHash $companionPbo).Hash}
+}
 $config=Join-Path $profile 'server.cfg'
 @'
 hostname = "Infection isolated full campaign save probe";
@@ -59,6 +68,6 @@ $process=Start-Process -FilePath $executable -ArgumentList $launchArgs -WorkingD
 $receipt=[ordered]@{Phase=$Phase;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
     StartedUTC=[DateTime]::UtcNow.ToString('o');ProductionPBO=(Get-FileHash (Join-Path $modRoot 'addons/a3i_core.pbo')).Hash;
     HelperPBO=(Get-FileHash (Join-Path $output 'a3i_campaign_probe.pbo')).Hash;
-    HelperSource=(Get-FileHash (Join-Path $source 'run.sqf')).Hash}
+    HelperSource=(Get-FileHash (Join-Path $source 'run.sqf')).Hash;ReduxFixes=$companionReceipt}
 $receipt | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $profile ($Phase.ToLowerInvariant()+'-launch.json')) -Encoding UTF8
 [pscustomobject]$receipt

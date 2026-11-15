@@ -39,8 +39,9 @@ initZones calls it again, where the display-name array masks the numeric
 configuration-name fallback. The second call logs bad population and counts
 houses instead. Infection town rosters read A3A_townData, which initVarCommon
 filled on the first call; do not infer every downstream native town/vehicle
-consumer therefore has the same population. A separate-repository decision
-for general Redux compatibility fixes is pending.
+consumer therefore has the same population. The owner approved the independent
+public `connordwalsh/A3U-Redux-Fixes` repository on 15 November. Its population
+correction is being validated separately; this original rejected run is retained.
 
 These findings require resolution or explicit acceptance before release. No
 connected client, commander menu, local host, JIP, player save, mission playthrough
