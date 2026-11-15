@@ -150,3 +150,7 @@ Place 2-6 stranded survivors, choosing a number that fits the available shelter.
 Factories, resource sites, seaports, road controls and administration strongholds
 are not sources for these requested missions. This does not change the broader
 approved delivery destinations.
+
+15 November Humanitarian Aid: retain Ultimate's unloading phase (180 seconds
+normal, 90 difficult), with no infected within 50 metres. If Rebels or Russian
+forces capture the destination before completion, cancel without a penalty.

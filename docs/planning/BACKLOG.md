@@ -562,3 +562,13 @@ The manual installation is unchanged. Visible menus, connected driving/rewards,
 real terrain travel, HC/JIP and campaign disk saves remain open. Extraction
 scene and Humanitarian Aid ledger drafts are separate increments, outside this
 combined build. No sprint acceptance gate is closed.
+
+## Extraction scenes and Humanitarian Aid ledger: 15 November 2026
+
+Extraction's infected-only town/base/outpost/airfield sources and sheltered 2-6
+survivor factory pass 35 focused engine checks. Humanitarian Aid's 180/90-second
+unloading ledger and ownership cancellation pass 37 after correcting deletion
+versus destruction timing. Both increments pass actual missing-dependency and
+parser/build checks. Their reports retain precise build identities and rejected
+historical evidence. Public Extraction and Aid tasks, interactions and rewards
+remain unfinished; Extraction's post-rescue disposition awaits owner input.

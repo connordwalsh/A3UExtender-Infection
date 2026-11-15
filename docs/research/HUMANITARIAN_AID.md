@@ -1,0 +1,83 @@
+# Humanitarian Aid adaptation audit
+
+The owner's replacement Supply category delivers a package of supplies to
+survivors before an infected settlement is cleansed. The requested catalog is
+infected-only and must not fall back to gang missions. Timing and rewards may
+start from Ultimate's defaults under the owner's earlier authorization.
+
+Pinned source: Ultimate 12.4.2, c7c8247672ed5e7d4aa317d47efb371c41de4e7d,
+Missions/fn_missionRequest.sqf, fn_SUPP_Supplies.sqf and
+fn_RIV_SUPP_Salvage.sqf; CREATE/fn_AIVEHinit.sqf.
+
+## Native behavior to account for
+
+- Requested SUPP chooses a non-destroyed town within distanceMission with Rebel
+  support below 90, weighting low support and short distance. It does not require
+  infected ownership. It may dispatch RIV_SUPP_Salvage instead. Both endpoints
+  therefore need guarded Infection behavior, preserving ordinary campaigns.
+- Native normal/difficult deadlines are 60/30 minutes. It creates an invulnerable
+  Land_FoodSacks_01_cargo_brown_F package near HQ, adds native loading and rope
+  support, and initializes it as Rebel-owned. This is a delivery package, not
+  the recoverable truck used by Supplies Seizure.
+- Native placement uses findEmptyPosition without a checked empty-result branch.
+  The replacement needs bounded, collision-checked HQ placement and rollback.
+- Delivery starts within 40 metres of the town center with the package detached
+  and unroped. Normal/difficult unloading is 180/90 seconds. It checks that nearby
+  Rebels can fight and no Occupants are within 50 metres. The inner loop can
+  advance with no nearby Rebels because zero eligible units equals zero total;
+  the replacement must not mistake that vacuous count for a present escort.
+- Initial activation spawns conventional police, and the difficult mission adds
+  another conventional group. Native direct movement/reveal instructions also
+  affect nearby troops/civilians. Infection cannot reuse empty vehicle/group
+  pools or assume ordinary waypoints control WebKnight behavior.
+- Success adds 5*bonus Rebel support, subtracts that much Occupant support,
+  gives all Rebel players 15*bonus score and 300*bonus money, and gives the
+  commander 5*bonus score and 100*bonus money. It reduces Occupant aggression
+  by 10 for 60 minutes. Failure reverses support and penalizes commander score
+  by 10*bonus. No direct FIA army resource reward is issued.
+- Native cleanup releases the global supply lock, deletes the package, then
+  reads its position to create a pallet. The replacement must capture any needed
+  position before deletion and own task/asset cleanup independently of a worker.
+  Native task retention averages 900 seconds.
+
+## Open decisions and implementation
+
+The owner chose the existing unloading phase and cancellation without a penalty
+if Rebels or Russia capture the destination. The internal ledger now tracks that
+phase independently of a mission worker, requires an actual eligible escort,
+pauses when conditions fail, and gives ownership cancellation priority over
+simultaneous delivery or timeout. It caps sampled progress at one second per tick
+instead of crediting unobserved time after a stalled worker. Serial ownership
+protects packages and terminal outcomes freeze. No public tasks, rewards or
+package cleanup are issued by this layer.
+
+Public dispatch, safe package creation and task rewards/cleanup remain
+NOT IMPLEMENTED by this prerequisite. No Computer Use or manual-install changes.
+
+## Corrected engine evidence
+
+AidLedger Dev3 passes 37 focused engine checks, eleven actual missing-dependency
+checks, packaging and three parser tests. No engine/SQF errors; 16 focused and
+seven absence-run startup notices reviewed. All 211 production inputs and the
+PBO match after execution, and both completed servers exited. Artifact SHA-256:
+`4fc03398e3d1b80318ff01f4da3b1c7558e9a05b0f209038264ed4b171363ad2`.
+The baseline includes merged Supplies Seizure and Extraction scene increments.
+
+Dev2 initially passed 36 checks, but the strengthened 37-check run is REJECTED:
+a live package deletion sometimes made alive false before isNull, causing an
+incorrect destroyed outcome. The real sling check itself passed. Retained reports
+include aid-ledger-engine-initial.json and aid-ledger-rejected-dev2.json, with
+Dev1/Dev2 manifests and dependency reports named separately.
+
+Dev3 observes actual EntityKilled/EntityDeleted events for the exact package and
+serial. Only observed destruction is destroyed; unexplained deletion interrupts
+recovery. Actual death remains recorded if its corpse is later deleted. The
+fixture waits for native event delivery and verifies the distinct death/deletion
+flags, rather than assuming synchronous deleteVehicle completion. Event handlers
+retire with the last record. The strengthened checks now all pass, including
+an actual helicopter sling attachment.
+
+The fixture uses real packages, native capable-escort queries, nearby actors,
+attachment and ropes, with controlled time/ownership. It does not establish
+player notification, long-duration continuous unloading, connected carrying,
+client locality, task rewards or full mission acceptance. No sprint closes.
