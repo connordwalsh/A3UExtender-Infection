@@ -121,8 +121,16 @@ _r set ["cleanupAt",time-1];_r set ["taskDeleteAt",time-1];sleep 1.2;
     && {_r get "name" in A3I_extractionTasks} && {server getVariable "hr"==_expectedHR}] call _check;
 boxX=createVehicle ["Box_NATO_Ammo_F",posHQ,[],0,"NONE"];
 [{!((_r get "name") in A3I_extractionTasks)}] call _wait;
+private _retiredAt=diag_tickTime;
+private _atRetirement=[_units apply {isNull _x},server getVariable "hr",_expectedHR,
+    server getVariable "resourcesFIA",_expectedFunds];
+diag_log format ["[INFECTION_EXTRACTION_DIAGNOSTIC] retirement=%1",_atRetirement];
+// deleteVehicle completes asynchronously; observe actual actor removal as well as registry retirement.
+[{(_units findIf {!isNull _x}) == -1},3] call _wait;
 ["extask_restored_arsenal_finishes_cleanup",(_units findIf {!isNull _x}) == -1
-    && {server getVariable "hr"==_expectedHR} && {server getVariable "resourcesFIA"==_expectedFunds}] call _check;
+    && {server getVariable "hr"==_expectedHR} && {server getVariable "resourcesFIA"==_expectedFunds},
+    [_atRetirement,_units apply {isNull _x},diag_tickTime-_retiredAt,
+        server getVariable "hr",server getVariable "resourcesFIA"]] call _check;
 // A successor ledger owns a delivered actor before the old task can convert it.
 _made=call _start;_r=_made # 1;_units=+(_r get "units");
 private _foreignUnit=_units # 0;private _foreignLedger=createHashMap;

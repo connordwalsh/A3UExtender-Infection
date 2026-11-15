@@ -196,3 +196,8 @@ territory stay destroyed; remove the conventional repair-crew mission. Keep the
 separate gang storyline and gang assaults. The arms dealer unlocks without an
 introduction mission, at Ultimate's normal intel/progression timing rather than
 at campaign start. These choices do not disable native trader services.
+
+15 November gang-cell scene: retain Ultimate's staged casualties. Its native
+assault mission may kill approximately 75 percent of nearby outdoor, on-foot
+Occupant units after the scene starts, including infected. Do not suppress this
+effect; the owner explicitly chose the native behavior.
