@@ -69,6 +69,14 @@ class CfgFunctions
             class originalDestroyHeli { file = "\x\a3i\tests\contracts\fn_originalDestroyHeli.sqf"; };
             class originalDestroyAntenna { file = "\x\a3i\tests\contracts\fn_originalDestroyAntenna.sqf"; };
             class originalDestroyArtillery { file = "\x\a3i\tests\contracts\fn_originalDestroyArtillery.sqf"; };
+            class originalASAmbush { file = "\x\a3i\tests\contracts\fn_originalASAmbush.sqf"; };
+            class originalASOfficial { file = "\x\a3i\tests\contracts\fn_originalASOfficial.sqf"; };
+            class originalASSmasher { file = "\x\a3i\tests\contracts\fn_originalASSmasher.sqf"; };
+            class originalASspecOP { file = "\x\a3i\tests\contracts\fn_originalASspecOP.sqf"; };
+            class originalASTraitor { file = "\x\a3i\tests\contracts\fn_originalASTraitor.sqf"; };
+            class originalASZombies { file = "\x\a3i\tests\contracts\fn_originalASZombies.sqf"; };
+            class originalRIVASTraitor { file = "\x\a3i\tests\contracts\fn_originalRIVASTraitor.sqf"; };
+            class testEliminationNativeSupport { file = "\x\a3a\addons\core\functions\Base\fn_citySupportChange.sqf"; };
             class originalLOGAmmo { file = "\x\a3i\tests\contracts\fn_originalLOGAmmo.sqf"; };
             class originalLOGBank { file = "\x\a3i\tests\contracts\fn_originalLOGBank.sqf"; };
             class originalLOGSalvage { file = "\x\a3i\tests\contracts\fn_originalLOGSalvage.sqf"; };

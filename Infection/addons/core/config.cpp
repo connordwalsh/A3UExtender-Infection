@@ -50,6 +50,16 @@ class CfgFunctions
             class extractionTargets {};
             class findExtractionShelter {};
             class createExtractionSurvivors {};
+            class eliminationTaskBusy {};
+            class startElimination {};
+            class runElimination {};
+            class eliminationTaskOutcome {};
+            class finishElimination {};
+            class cleanupElimination {};
+            class eliminationTaskTick {};
+            class requestElimination {};
+            class dispatchElimination {};
+            class labelEliminationControl {};
             class eliminationClasses {};
             class eliminationTargets {};
             class eliminationRoster {};
@@ -208,6 +218,13 @@ class CfgFunctions
             class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
+            class originalASAmbush { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Ambush.sqf"; };
+            class originalASOfficial { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Official.sqf"; };
+            class originalASSmasher { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Smasher.sqf"; };
+            class originalASspecOP { file = "\x\a3a\addons\core\functions\Missions\fn_AS_specOP.sqf"; };
+            class originalASTraitor { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Traitor.sqf"; };
+            class originalASZombies { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Zombies.sqf"; };
+            class originalRIVASTraitor { file = "\x\a3a\addons\core\functions\Missions\fn_RIV_AS_Traitor.sqf"; };
             class originalLOGAmmo { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Ammo.sqf"; };
             class originalLOGBank { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Bank.sqf"; };
             class originalLOGSalvage { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Salvage.sqf"; };
@@ -263,6 +280,13 @@ class CfgFunctions
         };
         class Missions
         {
+            class AS_Ambush { file = "\x\a3i\addons\core\overrides\fn_AS_Ambush.sqf"; };
+            class AS_Official { file = "\x\a3i\addons\core\overrides\fn_AS_Official.sqf"; };
+            class AS_Smasher { file = "\x\a3i\addons\core\overrides\fn_AS_Smasher.sqf"; };
+            class AS_specOP { file = "\x\a3i\addons\core\overrides\fn_AS_specOP.sqf"; };
+            class AS_Traitor { file = "\x\a3i\addons\core\overrides\fn_AS_Traitor.sqf"; };
+            class AS_Zombies { file = "\x\a3i\addons\core\overrides\fn_AS_Zombies.sqf"; };
+            class RIV_AS_Traitor { file = "\x\a3i\addons\core\overrides\fn_RIV_AS_Traitor.sqf"; };
             class LOG_Ammo { file = "\x\a3i\addons\core\overrides\fn_LOG_Ammo.sqf"; };
             class LOG_Bank { file = "\x\a3i\addons\core\overrides\fn_LOG_Bank.sqf"; };
             class LOG_Salvage { file = "\x\a3i\addons\core\overrides\fn_LOG_Salvage.sqf"; };

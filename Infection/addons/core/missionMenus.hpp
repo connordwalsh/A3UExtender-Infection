@@ -16,6 +16,7 @@ class A3A_RequestMissionDialog: A3A_DefaultDialog
                 class RandomIcon: A3A_Picture { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
                 class RandomButton: A3A_Button { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
                 class ConquestButton: A3A_Button { onLoad = "_this call A3I_fnc_labelLiquidationControl"; };
+                class AssassinationButton: A3A_Button { onLoad = "_this call A3I_fnc_labelEliminationControl"; };
                 class LogisticsButton: A3A_Button { onLoad = "_this call A3I_fnc_labelSupplyControl"; };
                 class ConvoyButton: A3A_Button { onLoad = "_this call A3I_fnc_labelInterceptionControl"; };
             };
@@ -31,6 +32,7 @@ class missionMenu: SimpleMenuBig
         class destroyButton: SimpleButton { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
         class randomButton: SimpleButton { onLoad = "_this call A3I_fnc_hideRemovedMissionControl"; };
         class conButton: SimpleButton { onLoad = "_this call A3I_fnc_labelLiquidationControl"; };
+        class asButton: SimpleButton { onLoad = "_this call A3I_fnc_labelEliminationControl"; };
         class logButton: SimpleButton { onLoad = "_this call A3I_fnc_labelSupplyControl"; };
         class convoyButton: SimpleButton { onLoad = "_this call A3I_fnc_labelInterceptionControl"; };
     };

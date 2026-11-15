@@ -164,3 +164,7 @@ tracking, spawn policy, missions and connected combat acceptance remain required
 permanent sites, and add a group accompanying the special target. The owner amended the proposed basic-only escort to include both basic and
 minor special infected; use the approved initial special roster and tune the mix
 within the shared limit.
+
+15 November Elimination identification: mark a search area and name the target
+type. Escort special infected must use types other than the primary target.
+The marked area is the reported spawn area; it does not track the creature.

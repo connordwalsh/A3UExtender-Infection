@@ -7,6 +7,8 @@ private _specials = call A3I_fnc_eliminationClasses;
 if (_specials isEqualTo []) exitWith {[]};
 if (_primary == "") then {_primary = selectRandom _specials};
 if !(_primary in _specials) exitWith {[]};
+private _minorChoices = _specials - [_primary];
+if (_minorChoices isEqualTo []) exitWith {[]};
 private _choices = [A3A_faction_occ,"groupsTierSquads"] call SCRT_fnc_unit_flattenTier;
 private _definitions = A3A_faction_occ get "loadouts";
 _choices = _choices select {_x isEqualType [] && {_x isNotEqualTo []}
@@ -18,6 +20,6 @@ private _count = (4+floor (_war/2)) min 8;
 private _basics = [];
 while {count _basics < _count} do {_basics append selectRandom _choices};
 _basics resize _count;
-private _minor = [selectRandom _specials];
-if (_war >= 7) then {_minor pushBack selectRandom _specials};
+private _minor = [selectRandom _minorChoices];
+if (_war >= 7) then {_minor pushBack selectRandom _minorChoices};
 [_primary,_basics,_minor]

@@ -1,6 +1,6 @@
 // Internal bounded scene factory. Caller owns returned actors and budget ticket.
-// [marker, optional approved primary class] -> [success,[target,escorts,group,ticket,context],reason].
-params [["_marker","",[""]],["_primary","",[""]]];
+// [marker, optional approved primary class, optional atomic registration callback] -> [success,[target,escorts,group,ticket,context],reason].
+params [["_marker","",[""]],["_primary","",[""]],["_afterCreate",{true},[{}]]];
 private _empty = [objNull,[],grpNull,"",""];
 if (!isServer || {isRemoteExecuted} || {!canSuspend}) exitWith {[false,_empty,"scheduled_server_only"]};
 if !(_marker in (call A3I_fnc_eliminationTargets)) exitWith {[false,_empty,"target_unavailable"]};
@@ -77,6 +77,14 @@ isNil {
     } forEach _roles;
     _success = _reason == "" && {count _units == count _roles}
         && {(_units findIf {!alive _x || {!(_x getVariable ["A3I_initialized",false])}}) == -1};
+    if (_success) then {
+        // The owner registers lifecycle obligations and actor references before
+        // scheduled native AI or a stopped caller can leave an unowned scene.
+        private _registered = [_units # 0,_units select [1],_group,_ticket,_context] call _afterCreate;
+        if (isNil "_registered" || {!(_registered isEqualTo true)}) then {
+            _success = false; _reason = "registration_failed";
+        };
+    };
 };
 ["close",[_ticket]] call A3I_fnc_budget;
 if (!_success) exitWith {

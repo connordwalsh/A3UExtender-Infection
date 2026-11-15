@@ -1,7 +1,8 @@
 # Elimination Task adaptation audit
 
-Status: source audit only; the replacement mission and special-target adapter
-are not implemented. This does not approve any creature for production use.
+Status: historical source audit below, followed by the current controller
+implementation checkpoint. Focused engine validation is in progress; this is
+not campaign or connected-player acceptance.
 
 The approved objective is one powerful special infected in a settlement:
 "A powerful special zombie has been reported in {Settlement}. Find it and
@@ -56,3 +57,36 @@ Native Smasher timing/rewards provide the authorized starting point (normal
 selection, mission-specific timing, defeat/cancellation and cleanup behavior
 still require implementation and evidence. No new product policy is selected by
 this audit. No Computer Use or manual installation change.
+
+## Controller checkpoint: 15 November 2026
+
+The owner approved Screamer, Boomer and Leaper 2 as initial targets; their
+separate ledger and scene prerequisites are merged. The controller branch now
+registers actor ownership, the death ledger, a static search ellipse and an AS
+task inside the factory creation transaction. The task names the primary type;
+minor-special escorts exclude it. Basic escorts and other approved minor types
+use the shared active-infected limit (6-11 total actors depending on war level).
+
+Only an observed primary death by the deadline succeeds. Escort deaths do not
+complete the objective; settlement capture does not cancel it. Live deletion or
+reassignment is a technical cancellation without rewards. Normal/difficult
+limits are 60/30 minutes. Success adapts native AS_Zombies rewards: 1000/2000
+faction funds, 10/20 local support, 10/20 player score and 250/500 player money.
+Timeout fails without the old wave-defense mission's unrelated city destruction.
+
+Seven native assassination entry points, server scheduler routing, commander
+requests, and both menu labels use the replacement only during Infection. Other
+campaigns delegate to their original functions. An independent watchdog settles
+once, releases the exact ledger and marker, retains nearby actors/corpses,
+preserves reassigned actors, and retires empty groups. Task retention follows
+Ultimate's 1200-second average.
+
+EliminationTask Dev1 is built; validation remains pending. The initial fixture
+report is retained as rejected: missing native faction/commander setup and an
+unparenthesized town-data lookup interrupted it. A second rejected fixture used
+a string comparison on the task description's formatting array. The installed
+functions_f.pbo source confirms BIS_fnc_setTask wraps each description field in
+an array; the corrected assertion formats that field. Neither correction changes
+production source. Public dispatch, actual absent dependencies, cleanup, combined
+regression and connected gameplay remain to be verified. No Computer Use or
+manual-install changes.
