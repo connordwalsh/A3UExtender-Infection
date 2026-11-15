@@ -59,15 +59,29 @@ if (_new) then {
         _receipt=createHashMapFromArray [["gameID",A3A_saveTarget # 1],["town",_town],["admin",_admin],
             ["townRoster",_townRoster],["adminRoster",_adminRoster],["traderPosition",traderPosition],
             ["hq",getPosATL petros],["writtenUTC",systemTimeUTC]];
+        // One real utility crate checks native reimbursement, not just a price getter.
+        private _crateClass=A3A_faction_reb get "lootCrate";
+        private _crate=createVehicle [_crateClass,(getPosATL petros) vectorAdd [4,0,0],[],0,"CAN_COLLIDE"];
+        private _crateCount=count (allMissionObjects _crateClass);
+        private _initialFunds=server getVariable "resourcesFIA";
+        private _expectedFunds=_initialFunds+_crateCount*lootCratePrice;
+        ["loot_crate_fixture",!isNull _crate && {_crateCount==1}
+            && {!(missionNamespace getVariable ["isRallyPointPlaced",false])},
+            [_crateCount,lootCratePrice,_initialFunds]] call _check;
+        _receipt set ["expectedFunds",_expectedFunds];
         // saveLoop and all registered campaign plugin listeners run unmodified.
         private _saveHandle=[] spawn A3A_fnc_saveLoop;
         private _saved=[{scriptDone _saveHandle && {!(missionNamespace getVariable ["savingServer",true])}},180] call _wait;
         ["native_save_completed",_saved] call _check;
         private _data=missionProfileNamespace getVariable [format ["A3A_saveData_%1",A3A_saveTarget # 1],createHashMap];
         ["native_save_has_campaign",count _data>30 && {_data getOrDefault ["campaignID",""]==A3A_saveTarget # 1},[count _data]] call _check;
+        ["loot_crate_refund_exact",(_data getOrDefault ["resourcesFIA",-1])==_expectedFunds
+            && {(server getVariable "resourcesFIA")==_initialFunds},
+            [_data getOrDefault ["resourcesFIA",-1],_expectedFunds]] call _check;
         if (_saved && {count _data>30}) then {
             missionProfileNamespace setVariable ["A3I_campaignProbeReceipt",_receipt];saveMissionProfileNamespace;
         };
+        deleteVehicle _crate;
     };
 } else {
     ["town_extras_restored",garrison getVariable [_receipt get "town",[]] isEqualTo (_receipt get "townRoster")] call _check;
@@ -76,5 +90,7 @@ if (_new) then {
         && {traderPosition isEqualTo (_receipt get "traderPosition")}] call _check;
     ["hq_restored",petros distance2D (_receipt get "hq") < 5] call _check;
     ["save_identity_restored",A3A_saveTarget # 1 == _receipt get "gameID"] call _check;
+    ["saved_crate_resources_restored",(server getVariable "resourcesFIA")==(_receipt get "expectedFunds"),
+        [server getVariable "resourcesFIA",_receipt get "expectedFunds"]] call _check;
 };
 call _finish;
