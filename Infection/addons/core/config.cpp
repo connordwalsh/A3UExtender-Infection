@@ -53,6 +53,9 @@ class CfgFunctions
             class finishSupplySeizure {};
             class cleanupSupplySeizure {};
             class supplyTaskTick {};
+            class requestExtraction {};
+            class dispatchExtraction {};
+            class labelExtractionControl {};
             class extractionTaskBusy {};
             class startExtraction {};
             class runExtraction {};
@@ -251,6 +254,11 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalRESRefugees { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Refugees.sqf"; };
+            class originalRESPrisoners { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Prisoners.sqf"; };
+            class originalRESDeserters { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Deserters.sqf"; };
+            class originalRIVRESPrisoners { file = "\x\a3a\addons\core\functions\Missions\fn_RIV_RES_Prisoners.sqf"; };
+
             class originalSelectIntel { file = "\x\a3a\addons\core\functions\Intel\fn_selectIntel.sqf"; };
             class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
@@ -324,6 +332,11 @@ class CfgFunctions
         };
         class Missions
         {
+            class RES_Refugees { file = "\x\a3i\addons\core\overrides\fn_RES_Refugees.sqf"; };
+            class RES_Prisoners { file = "\x\a3i\addons\core\overrides\fn_RES_Prisoners.sqf"; };
+            class RES_Deserters { file = "\x\a3i\addons\core\overrides\fn_RES_Deserters.sqf"; };
+            class RIV_RES_Prisoners { file = "\x\a3i\addons\core\overrides\fn_RIV_RES_Prisoners.sqf"; };
+
             class AS_Ambush { file = "\x\a3i\addons\core\overrides\fn_AS_Ambush.sqf"; };
             class AS_Official { file = "\x\a3i\addons\core\overrides\fn_AS_Official.sqf"; };
             class AS_Smasher { file = "\x\a3i\addons\core\overrides\fn_AS_Smasher.sqf"; };

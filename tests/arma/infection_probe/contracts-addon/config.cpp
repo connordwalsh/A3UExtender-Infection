@@ -62,6 +62,11 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalRESRefugees { file = "\x\a3i\tests\contracts\fn_originalRESRefugees.sqf"; };
+            class originalRESPrisoners { file = "\x\a3i\tests\contracts\fn_originalRESPrisoners.sqf"; };
+            class originalRESDeserters { file = "\x\a3i\tests\contracts\fn_originalRESDeserters.sqf"; };
+            class originalRIVRESPrisoners { file = "\x\a3i\tests\contracts\fn_originalRIVRESPrisoners.sqf"; };
+
             class originalSelectIntel { file = "\x\a3i\tests\contracts\fn_originalSelectIntel.sqf"; };
             class originalConvoy { file = "\x\a3i\tests\contracts\fn_originalConvoy.sqf"; };
             class originalRequestMissionDialog { file = "\x\a3i\tests\contracts\fn_originalRequestMissionDialog.sqf"; };

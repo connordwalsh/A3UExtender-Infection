@@ -86,7 +86,10 @@ private _late=_units # 1;
 _late setPosATL posHQ; sleep 1.2;
 ["extask_late_delivery_no_credit",server getVariable "hr"==14 && {server getVariable "resourcesFIA"==1300}] call _check;
 ["extask_partial_cleanup",[_r] call _clean] call _check;
-["extask_undelivered_squad_removed",isNull _late && {!isNull _players} && {alive petros}] call _check;
+private _immediateRemoval=[isNull _late,isNull _players,alive petros];
+[{isNull _late},3] call _wait;
+["extask_undelivered_squad_removed",isNull _late && {!isNull _players} && {alive petros},
+    [_immediateRemoval,[isNull _late,isNull _players,alive petros]]] call _check;
 // No rescued survivors means failure at deadline.
 tierWar=0;_made=call _start;_r=_made # 1;
 (_r get "ledger") set ["deadline",time-1];
@@ -106,6 +109,36 @@ sidesX setVariable [_source,east];
 ["extask_all_killed_fails",_r get "outcome"=="failed"] call _check;
 [_r] call _clean; sidesX setVariable [_source,west];
 ["extask_final_rewards_unchanged",server getVariable "hr"==14 && {server getVariable "resourcesFIA"==1300}] call _check;
+// A temporarily missing HQ arsenal must not discard delivered equipment.
+_made=call _start;_r=_made # 1;_units=+(_r get "units");
+private _rescuedCount=count _units;private _expectedHR=14+ceil (_rescuedCount*1.2);
+private _expectedFunds=1300+100*_rescuedCount;
+deleteVehicle boxX;
+{_x setPosATL posHQ} forEach _units;
+[{_r get "settled" && {server getVariable "resourcesFIA"==_expectedFunds}}] call _wait;
+_r set ["cleanupAt",time-1];_r set ["taskDeleteAt",time-1];sleep 1.2;
+["extask_missing_arsenal_preserves_delivery",(_units findIf {isNull _x}) == -1
+    && {_r get "name" in A3I_extractionTasks} && {server getVariable "hr"==_expectedHR}] call _check;
+boxX=createVehicle ["Box_NATO_Ammo_F",posHQ,[],0,"NONE"];
+[{!((_r get "name") in A3I_extractionTasks)}] call _wait;
+["extask_restored_arsenal_finishes_cleanup",(_units findIf {!isNull _x}) == -1
+    && {server getVariable "hr"==_expectedHR} && {server getVariable "resourcesFIA"==_expectedFunds}] call _check;
+// A successor ledger owns a delivered actor before the old task can convert it.
+_made=call _start;_r=_made # 1;_units=+(_r get "units");
+private _foreignUnit=_units # 0;private _foreignLedger=createHashMap;
+isNil {
+    _foreignUnit setPosATL posHQ;
+    private _oldLedger=_r get "ledger";[_oldLedger] call A3I_fnc_updateExtractionLedger;
+    [_oldLedger get "name",_oldLedger get "serial"] call A3I_fnc_releaseExtractionLedger;
+    _foreignLedger=["successor",[_foreignUnit],time+60] call A3I_fnc_createExtractionLedger;
+};
+[{_r get "settled"}] call _wait;
+["extask_successor_owner_not_converted",alive _foreignUnit && {count _foreignLedger>0}
+    && {(_foreignUnit getVariable ["A3I_extractionOwner",[]]) isEqualTo ["successor",_foreignLedger get "serial",0]}] call _check;
+[_r] call _clean;
+["extask_successor_owner_survives_cleanup",alive _foreignUnit && {isNil {_foreignUnit getVariable "A3I_extractionTaskOwner"}}] call _check;
+["successor",_foreignLedger get "serial"] call A3I_fnc_releaseExtractionLedger;
+deleteVehicle _foreignUnit;sleep 1;
 {deleteVehicle _x} forEach [_building,boxX,petros,sidesX,server];deleteGroup _players;
 {deleteMarker _x} forEach _markers;sleep 1.5;
 ["extask_final_cleanup",(entities [[],[],true,false])-_before isEqualTo [] && {allGroups-_groupsBefore isEqualTo []}

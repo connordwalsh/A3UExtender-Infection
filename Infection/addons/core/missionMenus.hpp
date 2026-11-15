@@ -18,6 +18,7 @@ class A3A_RequestMissionDialog: A3A_DefaultDialog
                 class ConquestButton: A3A_Button { onLoad = "_this call A3I_fnc_labelLiquidationControl"; };
                 class AssassinationButton: A3A_Button { onLoad = "_this call A3I_fnc_labelEliminationControl"; };
                 class SupportButton: A3A_Button { onLoad = "_this call A3I_fnc_labelAidControl"; };
+                class RescueButton: A3A_Button { onLoad = "_this call A3I_fnc_labelExtractionControl"; };
                 class LogisticsButton: A3A_Button { onLoad = "_this call A3I_fnc_labelSupplyControl"; };
                 class ConvoyButton: A3A_Button { onLoad = "_this call A3I_fnc_labelInterceptionControl"; };
             };
@@ -35,6 +36,7 @@ class missionMenu: SimpleMenuBig
         class conButton: SimpleButton { onLoad = "_this call A3I_fnc_labelLiquidationControl"; };
         class asButton: SimpleButton { onLoad = "_this call A3I_fnc_labelEliminationControl"; };
         class suppButton: SimpleButton { onLoad = "_this call A3I_fnc_labelAidControl"; };
+        class resButton: SimpleButton { onLoad = "_this call A3I_fnc_labelExtractionControl"; };
         class logButton: SimpleButton { onLoad = "_this call A3I_fnc_labelSupplyControl"; };
         class convoyButton: SimpleButton { onLoad = "_this call A3I_fnc_labelInterceptionControl"; };
     };

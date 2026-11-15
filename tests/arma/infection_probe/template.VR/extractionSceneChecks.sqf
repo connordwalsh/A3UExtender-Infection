@@ -60,6 +60,16 @@ respawnTeamPlayer setMarkerPos _oldHQ;
 petros setPosATL getMarkerPos _town; A3I_test_observers = [petros];
 ["esc_near_observer_refused",([_town,2] call A3I_fnc_findExtractionShelter) isEqualTo [objNull,[]]] call _check;
 A3I_test_observers = []; petros setPosATL _oldHQ;
+private _rolledUnits=[]; private _rolledGroup=grpNull;
+private _rolled=[_town,2,{params ["_units","_group"];_rolledUnits=+_units;_rolledGroup=_group;false}] call A3I_fnc_createExtractionSurvivors;
+sleep 0.3;
+["esc_callback_rejection_rolls_back",_rolled # 2 == "registration_failed"
+    && {(_rolledUnits findIf {!isNull _x}) == -1} && {isNull _rolledGroup}] call _check;
+private _registeredUnits=[]; private _registeredGroup=grpNull;
+private _accepted=[_town,2,{params ["_units","_group"];_registeredUnits=+_units;_registeredGroup=_group;true}] call A3I_fnc_createExtractionSurvivors;
+["esc_callback_owns_actual_scene",_accepted # 0 isEqualTo _registeredUnits
+    && {_accepted # 1 == _registeredGroup} && {count _registeredUnits == 2}] call _check;
+{deleteVehicle _x} forEach _registeredUnits;deleteGroup _registeredGroup;sleep 0.3;
 private _made = [_town,2] call A3I_fnc_createExtractionSurvivors;
 private _actors = _made # 0; private _group = _made # 1;
 ["esc_two_real_survivors",count _actors == 2 && {!isNull _group} && {_made # 2 == ""}

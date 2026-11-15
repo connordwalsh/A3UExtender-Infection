@@ -15,6 +15,9 @@ if (_delta > 0) then {_record set ["hrCredited",_targetHR]; [_delta,0] spawn A3A
     private _unit=_x get "unit";
     if (isNull _unit) then {_x set ["converted",true]; continue};
     if (!((_unit getVariable ["A3I_extractionTaskOwner",[]]) isEqualTo [_record get "name",_record get "serial"]) || {isPlayer _unit}) then {continue};
+    private _liveOwner=_unit getVariable ["A3I_extractionOwner",[]];
+    private _expectedOwner=[_ledger get "name",_ledger get "serial",_forEachIndex];
+    if (_liveOwner isNotEqualTo [] && {!(_liveOwner isEqualTo _expectedOwner)}) then {continue};
     if (isNil "boxX" || {isNull boxX}) then {continue};
     // Native refugee inventory recovery, applied to every approved delivery site.
     {private _weapon=[_x] call BIS_fnc_baseWeapon;

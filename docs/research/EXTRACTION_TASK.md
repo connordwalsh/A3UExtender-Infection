@@ -33,3 +33,17 @@ native resource transaction, inventory recovery and accelerated deadlines/cleanu
 No connected players, visible menus, real travel, HC/JIP, disk saves, campaign
 acceptance or full combined regression are certified. Public dispatch is the next
 increment. No Computer Use or manual Dev9 changes.
+
+
+Dev2 connects four legacy rescue routes, server scheduling, the public RES request
+and both menu labels; 31 focused dispatch checks pass. Dev3 adds successor-ledger
+ownership protection and checks missing-arsenal recovery, scene registration
+rollback and cumulative manpower. Its 141-check combined Extraction suite and
+eleven actual missing-dependency checks pass, with no engine/SQF errors. All 283
+production inputs/PBO match. The first Dev3 run is rejected: it sampled survivor
+deletion immediately after task retirement. The bounded rerun recorded not-null
+then null, with the player group and Petros intact. The rejected report is kept.
+
+Caller audit found a fifth route, RES_Informer, and the native civilian-conversation
+mission flag. Those still require integration before the rescue caller surface
+is complete. Full combined regression and connected-player acceptance remain open.
