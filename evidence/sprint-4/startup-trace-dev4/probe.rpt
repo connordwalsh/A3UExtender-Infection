@@ -1,0 +1,1633 @@
+=====================================================================
+== F:\SteamLibrary\steamapps\common\Arma 3\arma3server_x64.exe
+== "F:\SteamLibrary\steamapps\common\Arma 3\arma3server_x64.exe" -autoInit -noSound -ip=127.0.0.1 -port=8502 -name=InfectionCampaign_StartupTrace4 "-profiles=E:\Games\Arma 3\Projects\Zombies Antistasi\Zombie Occupant Faction\.work\startup-trace\.work\profiles\campaign-server-StartupTrace4" "-config=E:\Games\Arma 3\Projects\Zombies Antistasi\Zombie Occupant Faction\.work\startup-trace\.work\profiles\campaign-server-StartupTrace4\server.cfg" "-mod=F:\SteamLibrary\steamapps\workshop\content\107410\450814997;F:\SteamLibrary\steamapps\workshop\content\107410\2291129343;F:\SteamLibrary\steamapps\workshop\content\107410\2789152015;F:\SteamLibrary\steamapps\workshop\content\107410\3020755032;F:\SteamLibrary\steamapps\workshop\content\107410\583496184;F:\SteamLibrary\steamapps\workshop\content\107410\1128256978;E:\Games\Arma 3\Projects\Zombies Antistasi\Zombie Occupant Faction\.work\campaign-save-smoke\.work\build\@Infection_CampaignSave_Dev1;E:\Games\Arma 3\Projects\Zombies Antistasi\Zombie Occupant Faction\.work\startup-trace\.work\campaign-probe\@Infection_Campaign_Probe;E:\Games\Arma 3\Projects\Zombies Antistasi\Chernarus Redux Map Change\.work\build\@A3U_Redux_Fixes"
+
+Original output filename: Arma3Retail_Server_x64
+Exe timestamp: 2026/09/29 10:26:50
+Current time:  2026/11/15 16:57:09
+
+Type: Public
+Build: Stable
+Version: 2.22.154089
+
+Allocator: F:\SteamLibrary\steamapps\common\Arma 3\Dll\tbb4malloc_bi_x64.dll [2017.0.0.0] [2017.0.0.0]
+PhysMem: 62 GiB, VirtMem : 131072 GiB, AvailPhys : 39 GiB, AvailVirt : 131068 GiB, AvailPage : 31 GiB, PageSize : 4.0 KiB/2.0 MiB/HasLockMemory, CPUCount : 16
+CPU: AMD Ryzen 9 9950X3D 16-Core Processor
+OS: 10.0.26200 (1)
+=====================================================================
+
+16:57:09 Steam beta branch: none
+16:57:09 Detected number of DLCs: 24
+16:57:09 ---------------------------------------------------------- Game ----------------------------------------------------------
+16:57:09        name                                                         appId      owned   installed  available  isDlc  
+16:57:09        Arma 3                                                       107410     yes     yes        yes        no     
+16:57:09        Unknown                                                      -1         no      no         no         yes    
+16:57:09 ---------------------------------------------------------- Dlcs ----------------------------------------------------------
+16:57:09  index name                                                         appId      owned   installed  available  isDlc  
+16:57:09  0     Arma 3 Maps                                                  249861     no      no         no         yes    
+16:57:09  1     Arma 3 Tactical Guide                                        249862     no      no         no         yes    
+16:57:09  2     Arma 3 Zeus                                                  275700     yes     yes        yes        yes    
+16:57:09  3     Arma 3 Karts                                                 288520     yes     yes        yes        yes    
+16:57:09  4     Arma 3 Helicopters                                           304380     yes     yes        yes        yes    
+16:57:09  5     Arma 3 DLC Bundle 1                                          304400     no      no         no         yes    
+16:57:09  6     Arma 3 Marksmen                                              332350     yes     yes        yes        yes    
+16:57:09  7     Arma 3 Apex                                                  395180     yes     yes        yes        yes    
+16:57:09  8     Arma 3 Laws of War                                           571710     yes     yes        yes        yes    
+16:57:09  9     Arma 3 Jets                                                  601670     yes     yes        yes        yes    
+16:57:09  10    Arma 3 DLC Bundle 2                                          612480     no      no         no         yes    
+16:57:09  11    Arma 3 Malden                                                639600     yes     yes        yes        yes    
+16:57:09  12    Arma 3 Tac-Ops Mission Pack                                  744950     yes     yes        yes        yes    
+16:57:09  13    Arma 3 Tanks                                                 798390     yes     yes        yes        yes    
+16:57:09  14    Arma 3 Contact                                               1021790    yes     yes        yes        yes    
+16:57:09  15    Arma 3 Creator DLC: Global Mobilization - Cold War Germany   1042220    yes     yes        yes        yes    
+16:57:09  16    Arma 3 Creator DLC: Spearhead 1944                           1175380    yes     yes        yes        yes    
+16:57:09  17    Arma 3 Creator DLC: S.O.G. Prairie Fire                      1227700    yes     yes        yes        yes    
+16:57:09  18    Arma 3 Creator DLC: CSLA Iron Curtain                        1294440    yes     yes        yes        yes    
+16:57:09  19    Arma 3 Art of War                                            1325500    yes     yes        yes        yes    
+16:57:09  20    Arma 3 Creator DLC: Western Sahara                           1681170    yes     yes        yes        yes    
+16:57:09  21    Arma 3 Creator DLC: Reaction Forces                          2647760    yes     yes        yes        yes    
+16:57:09  22    Arma 3 Creator DLC: Expeditionary Forces                     2647830    yes     yes        yes        yes    
+16:57:09  23    Arma 3 Pass                                                  4198200    no      no         yes        yes    
+16:57:09 --------------------------------------------------------------------------------------------------------------------------
+16:57:09 Initializing stats manager.
+16:57:09 Stats config disabled.
+16:57:10 Item str_location_zelenogorsk listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_airfield listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_skalistyproliv listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_airstrip listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_sinayavoda listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_balota listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_rify listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_berezino listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_prud listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_bor listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_ozerko listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_chernogorsk listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_lakewillow listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_dolina listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_lakeblack listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_drozhino listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_guba listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_dubrovka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_damtopolka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_elektrozavodsk listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_dampobeda listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_factory listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_bayzelenaya listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_gorka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_baytikhaya listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_grishino listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_baynizhnaya listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_guglovo listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_baymutnaya listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_gvozdno listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_w_baychyornaya listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_kabanino listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_vyshnoe listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_kamenka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_vybor listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_kamyshovo listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_tulga listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_khelm listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_starysobor listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_komarovo listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_staroye listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_kozlovka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_sosnovka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_krasnostav listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_solnichniy listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_blackforest listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_shakhovka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_bluntrocks listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_rogovo listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_capgolova listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_quarry listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_capkrutoy listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_pustoshka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_devilscastle listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_pusta listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_dichina listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_pulkovo listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_drakon listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_prigorodki listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_greenmountain listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_powerplant listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_islandskalisty listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_polana listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_kopyto listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_pogorevka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_kumyrna listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_petrovka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_novylug listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_pavlovo listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_oldfields listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_orlovets listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_otmel listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_olsha listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_passgrozovoy listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_novysobor listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_passoreshka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_nizhnoye listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_passsosnovy listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_nadezhdino listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_rog listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_myshkino listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_skalka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_windymt listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_threevalleys listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_vysokykamen listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_vysota listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_veresnik listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_loc_zub listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_tron listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_lopatino listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_ridgepostoy listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_lumbermill listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_ridgelesnoy listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_military listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_prestol listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mogilevka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_popivan listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_msta listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_pikkozlova listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_altar listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_ostry listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_baranchik listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_olsha listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_bashnya listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_mistypeak listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_blackmt listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_malinovka listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_dobryy listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_lysina listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_dubina listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_littlehill listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_klen listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_kustryk listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_korona listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Item str_location_mt_kurgan listed twice
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:10 Unsupported language English in stringtable
+16:57:10  ➥ Context: ca\language\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: CUP\Terrains\cup_terrains_compositions\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: CUP\Terrains\cup_terrains_music\stringtable.xml
+16:57:11 Item STR_A3U_Bazaar_Shop_Sold listed twice
+16:57:11  ➥ Context: x\A3A\addons\bazaar\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\bazaar\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\core\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\core\scripts\spectumdevice\stringtable.xml
+16:57:11 Item STR_HR_GRG_Generic_Heli listed twice
+16:57:11  ➥ Context: x\A3A\addons\garage\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\garage\stringtable.xml
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><Original>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><Czech>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><French>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><Italian>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><Korean>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><Russian>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><Polish>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><Portuguese>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><Chinesesimp>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_export_button_disabled"><Turkish>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><Original>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><Czech>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><French>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><Italian>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><Korean>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><Russian>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><Polish>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><Portuguese>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><Chinesesimp>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_antistasi_dialogs_setup_ie_savelist_tooltip"><Turkish>
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\gui\stringtable.xml
+16:57:11 Item STR_A3AU_JCA_ARSENAL listed twice
+16:57:11  ➥ Context: x\A3A\addons\hals\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\hals\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\jeroen_arsenal\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\maps\stringtable.xml
+16:57:11 Unexpected stringtable format inside <Text ID="STR_end_mission_logistical_victory_desc"><Turkish>
+16:57:11 Unexpected stringtable format inside <Text ID="STR_A3A_teardownModeEnabled_text"><Turkish>
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\scrt\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\ultimate\stringtable.xml
+16:57:11 Unsupported language English in stringtable
+16:57:11  ➥ Context: x\A3A\addons\zeus\stringtable.xml
+16:57:12 Config 'CUP\Terrains\cup_terrains_dummy\config.bin' contains a duplicate CfgPatches entry 'CA_Animals2', which was previously defined in 'ca\animals2\config.bin', the duplicate is SKIPPED.
+16:57:12 Skipped loading of addon 'cba_jam_ws' as required addon 'data_f_lxWS_Loadorder' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_SOG' as required addon 'wheeled_f_vietnam_02_c' is not present
+16:57:12 Skipped loading of addon 'cba_jam_spe' as required addon 'WW2_SPE_Core_c_ZZZ_LastLoaded_c' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_GM' as required addon 'gm_vehicles_land_wheeled_w123_ge_civ_w123' is not present
+16:57:12 Skipped loading of addon 'cba_jam_csla' as required addon 'CSLA' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_SOG_NK' as required addon 'air_f_vietnam_04' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_SPEX' as required addon 'ww2_spex_assets_c_characters_americans_c' is not present
+16:57:12 Skipped loading of addon 'A3A_ultimate_ace_compat' as required addon 'ace_main' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_IFA' as required addon 'IFA3_Core' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_WS' as required addon 'Vehicles_F_lxWS' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_SPE' as required addon 'ww2_spe_assets_c_characters_germans_c' is not present
+16:57:12 Skipped loading of addon 'cba_jam_rf' as required addon 'RF_Data_Loadorder' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_RF' as required addon 'RF_Vehicles' is not present
+16:57:12 Skipped loading of addon 'cba_jr_gm' as required addon 'gm_weapons_attachments_optics_feroz24' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_CUP' as required addon 'CUP_WheeledVehicles_NewHMMWV' is not present
+16:57:12 Skipped loading of addon 'A3A_ultimate_trader_selling_ace' as required addon 'ace_interaction' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_3CBF' as required addon 'UK3CB_Factions_AAF_B' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_TKE' as required addon 'TKE_Mod_LoadOrder' is not present
+16:57:12 Skipped loading of addon 'A3A_config_fixes_CSLA' as required addon 'CSLA_CIV' is not present
+16:57:12 Skipped loading of addon 'cba_xeh_sog' as required addon 'loadorder_f_vietnam' is not present
+16:57:12 Skipped loading of addon 'cba_xeh_ws' as required addon 'data_f_lxWS' is not present
+16:57:12 Skipped loading of addon 'cba_jam_vn' as required addon 'loadorder_f_vietnam' is not present
+16:57:12 Skipped loading of addon 'cba_xeh_contact' as required addon 'A3_Data_F_Contact' is not present
+16:57:12 Skipped loading of addon 'cba_jam_gm' as required addon 'gm_weapons_launchers_carlgustaf' is not present
+16:57:12 Skipped loading of addon 'cba_xeh_csla' as required addon 'CSLA' is not present
+16:57:12 Updating base class 'All'->'', by 'CHR\chernarusredux_vegetation\trees\config.bin/CfgVehicles/Thing/' ('1128256978'/'chernarusredux_trees') (original 'bin\config.bin')
+16:57:12 Updating base class ''->'All', by 'a3\data_f\config.bin/CfgVehicles/Thing/' (''/'A3_Data_F') (original '(bin\config.bin - no unload)')
+16:57:12 Updating base class ''->'EtelkaMonospacePro', by 'a3\uifonts_f\config.bin/CfgFontFamilies/EtelkaMonospaceProBold/' (''/'A3_UiFonts_F') (original 'ca\uifonts\config.bin')
+16:57:12 Updating base class 'dependencies'->'', by 'x\A3A\addons\core\config.cpp/A3A/Params/disableTrader/dependencies/' ('3020755032'/'A3A_core') (original '(no unload 'a3a_ultimate_trader_selling')')
+16:57:13 Updating base class 'ZavoraAnim'->'House', by 'ca\buildings_c\misc\config.bin/CfgVehicles/Land_zavora/' ('583496184'/'CUP_CABuildings_Misc') (original 'ca\buildings_c\config.bin')
+16:57:13 Updating base class 'ZavoraAnim'->'Land_zavora_2', by 'ca\buildings_c\misc\config.bin/CfgVehicles/Land_zavora_2_a1/' ('583496184'/'CUP_CABuildings_Misc') (original 'ca\buildings_c\config.bin')
+16:57:13 Updating base class 'SoldierGB'->'SoldierWB', by 'x\A3A\addons\zeus\config.cpp/CfgVehicles/I_Soldier_base_F/' ('3020755032'/'A3A_zeus') (original 'a3\characters_f\config.bin')
+16:57:13 Updating base class 'SoldierEB'->'SoldierWB', by 'x\A3A\addons\zeus\config.cpp/CfgVehicles/O_Soldier_base_F/' ('3020755032'/'A3A_zeus') (original 'a3\characters_f\config.bin')
+16:57:13 Updating base class 'OpenGate'->'', by 'ca\misc3_c\config.bin/CfgVehicles/ZavoraAnim/UserActions/CloseGate/' ('583496184'/'CUP_Misc3_Config') (original 'ca\buildings_c\config.bin')
+16:57:13 Updating base class 'House_EP1'->'House', by 'CHR\chernarusredux_buildings\open_sheds\config.bin/CfgVehicles/Land_Shed_M01_EP1/' ('1128256978'/'Open_Sheds') (original 'ca\structures_e_c\misc\config.bin')
+16:57:13 Updating base class 'House_EP1'->'House', by 'CHR\chernarusredux_buildings\open_sheds\config.bin/CfgVehicles/Land_Shed_W03_EP1/' ('1128256978'/'Open_Sheds') (original 'ca\structures_e_c\misc\config.bin')
+16:57:13 Updating base class 'House'->'House_Small_F', by 'CHR\chernarusredux_buildings\open_sheds\config.bin/CfgVehicles/Land_Shed_W4/' ('1128256978'/'Open_Sheds') (original 'ca\structures_c\shed\shed_small\config.bin')
+16:57:13 Updating base class 'DestructionEffects'->'DestructionEffects', by 'CHR\chernarusredux_buildings\open_sheds\config.bin/CfgVehicles/Land_Shed_W4/DestructionEffects/' ('1128256978'/'Open_Sheds') (original 'ca\structures_c\shed\shed_small\config.bin')
+16:57:13 Updating base class 'Land_fuel_tank_small'->'House', by 'CHR\chernarusredux_buildings\a2\config.bin/CfgVehicles/Land_Fuel_tank_big/' ('1128256978'/'chernarusredux_buildings_a2') (original 'ca\misc\config.bin')
+16:57:13 Updating base class 'Strategic'->'House', by 'CHR\chernarusredux_buildings\a2\config.bin/CfgVehicles/Land_fuel_tank_small/' ('1128256978'/'chernarusredux_buildings_a2') (original 'ca\misc\config.bin')
+16:57:13 Updating base class 'Land_fuel_tank_small'->'House', by 'CHR\chernarusredux_buildings\a2\config.bin/CfgVehicles/Land_Fuel_tank_stairs/' ('1128256978'/'chernarusredux_buildings_a2') (original 'ca\misc\config.bin')
+16:57:13 Updating base class 'Land_GeneralStore_01a_PMC'->'House', by 'CHR\chernarusredux_buildings\generalstore\config.bin/CfgVehicles/Land_GeneralStore_01a_dam_PMC/' ('1128256978'/'chernarusredux_buildings_generalstore') (original 'ca\structures_pmc_c\buildings\generalstore\config.bin')
+16:57:13 Updating base class 'PointerSlot'->'SlotInfo', by 'CHR\chernarusredux_flashlight\config.bin/CfgWeapons/Rifle/WeaponSlotsInfo/PointerSlot/' ('1128256978'/'chernarusredux_flashlight') (original 'a3\weapons_f\config.bin')
+16:57:13 Updating base class 'PointerSlot_Pistol'->'PointerSlot', by 'CHR\chernarusredux_flashlight\config.bin/CfgWeapons/hgun_Pistol_heavy_01_F/WeaponSlotsInfo/PointerSlot/' ('1128256978'/'chernarusredux_flashlight') (original 'a3\weapons_f\pistols\pistol_heavy_01\config.bin')
+16:57:13 Updating base class 'PointerSlot_Pistol'->'PointerSlot', by 'CHR\chernarusredux_flashlight\config.bin/CfgWeapons/hgun_Pistol_heavy_02_F/WeaponSlotsInfo/PointerSlot/' ('1128256978'/'chernarusredux_flashlight') (original 'a3\weapons_f\pistols\pistol_heavy_02\config.bin')
+16:57:13 Updating base class 'PointerSlot_Pistol'->'PointerSlot', by 'CHR\chernarusredux_flashlight\config.bin/CfgWeapons/hgun_ACPC2_F/WeaponSlotsInfo/PointerSlot/' ('1128256978'/'chernarusredux_flashlight') (original 'a3\weapons_f\pistols\acpc2\config.bin')
+16:57:13 Updating base class 'PointerSlot_Rail'->'PointerSlot', by 'CHR\chernarusredux_flashlight\config.bin/CfgWeapons/SMG_01_Base/WeaponSlotsInfo/PointerSlot/' ('1128256978'/'chernarusredux_flashlight') (original 'a3\weapons_f\smgs\smg_01\config.bin')
+16:57:14 Updating base class 'SoldierWB'->'SoldierGB', by 'a3\characters_f_enoch\config.bin/CfgVehicles/I_Soldier_base_F/' ('enoch'/'A3_Characters_F_Enoch') (original '(a3\characters_f\config.bin - no unload)')
+16:57:14 Initializing Steam Manager
+16:57:14 unable to load subscribed content list. list will be updated from steam
+16:57:14 unable to load published content list. list will be updated from steam
+16:57:14 unable to load cached items meta info. save and update functionality will be broken
+16:57:14 Starting initial content check.
+16:57:14 Steam Manager initialized.
+16:57:14 
+16:57:14 ==== Loaded addons ====
+16:57:14 
+16:57:14 dta\bin.pbo - 154089
+16:57:14 dta\core.pbo - 151188
+16:57:14 dta\languagecore_f.pbo - 151420
+16:57:14 E:\Games\Arma 3\Projects\Zombies Antistasi\Chernarus Redux Map Change\.work\build\@A3U_Redux_Fixes\addons\a3urf_core.pbo - unknown
+16:57:14 E:\Games\Arma 3\Projects\Zombies Antistasi\Zombie Occupant Faction\.work\startup-trace\.work\campaign-probe\@Infection_Campaign_Probe\addons\a3i_campaign_probe.pbo - unknown
+16:57:14 E:\Games\Arma 3\Projects\Zombies Antistasi\Zombie Occupant Faction\.work\campaign-save-smoke\.work\build\@Infection_CampaignSave_Dev1\addons\a3i_core.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux.pbo - Mon Jul 20 18:47:35 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_animals.pbo - Mon Jul 20 18:13:36 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_buildings.pbo - Mon Jul 20 18:17:24 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_c.pbo - Mon Jul 20 18:18:48 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_chz.pbo - Mon Jul 20 18:21:13 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_data.pbo - Mon Jul 20 18:21:31 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_flashlight.pbo - Mon Jul 20 18:23:04 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_functions.pbo - Mon Jul 20 18:23:38 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_lang.pbo - Mon Jul 20 18:23:43 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_layers.pbo - Mon Jul 20 18:25:43 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_objects.pbo - Mon Jul 20 18:27:48 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_ponds.pbo - Mon Jul 20 18:28:56 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_scenes.pbo - Mon Jul 20 18:29:14 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_sounds.pbo - Mon Jul 20 18:30:07 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_soundtrack.pbo - Mon Jul 20 18:30:17 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_vegetation.pbo - Mon Jul 20 18:32:59 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\1128256978\addons\chernarusredux_wrecks.pbo - Mon Jul 20 18:35:07 2020
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_a1always_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_a1_editorobjects.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_a2_editorobjects.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_aia_compat.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_baseconfig_f.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_buildings.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_a10_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_air2_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_air3_dummy.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_air_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_air_d_baf_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_air_e_dummy.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_air_pmc_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_animals2_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_buildings.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_buildings2.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_buildings2_c.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_buildings_c.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_ca_acr.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_ca_c.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_ca_e.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_ca_pmc.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_characters2_dummy.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_cti_buildings.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_data.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_data_baf.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_data_baf_c.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_hotfix.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_hotfix_c.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_l39_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_language.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_languagemissions.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_languagemissions_baf.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_languagemissions_e.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_languagemissions_pmc.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_language_acr.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_language_baf.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_language_e.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_language_pmc.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc2.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc3.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc3_c.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc_acr.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc_acr_c.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc_baf.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc_e.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc_e_c.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_misc_rtm2.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_mp_armory_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_plants.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_plants2.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_plants_e.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_plants_e2.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_plants_pmc.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_roads.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_roads2.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_roads_e.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_roads_pmc.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_roads_rtm2.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_rocks.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_rocks2.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_rocks_e.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_signs.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_signs2.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_signs_e.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_sounds_c_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_sounds_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_sounds_e_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_structures.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_structures_c.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_structures_e.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_structures_e_c.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_structures_pmc.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_structures_pmc_c.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_tracked2_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_tracked_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_tracked_e_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_uifonts.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_ui_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_water2_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_water_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_weapons2_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_weapons_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_weapons_e_dummy.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_weapons_pmc_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_wheeled2_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_wheeled_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ca_wheeled_e_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_compositions.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_core.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_dbe1_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_dbe1_models_dbe1.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_dbe1_models_dbe1_c.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_editor_c.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_hsim_data_h_dummy.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_hsim_languagemissions_h.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_hsim_language_h.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_ibr_plants.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_music.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_opx_structures.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_opx_structures_c.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_opx_structures_complex.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_plants.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_roadfix.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_structures_e.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_structures_e_c.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_terrains_core.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_weather.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_winter_animals.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_winter_objects.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_winter_plants.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_winter_roads.pbo - 26052517
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\583496184\addons\cup_terrains_worlds.pbo - 26052518
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\bazaar.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\config_fixes.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\core.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\events.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\garage.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\gui.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\hals.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\jeroen_arsenal.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\logistics.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\main_menu.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\maps.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\patcom.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\scrt.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\ultimate.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\3020755032\addons\zeus.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2789152015\addons\wbk_zombies.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2789152015\addons\wbk_zombies_corrupted.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2789152015\addons\wbk_zombies_goliath.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2789152015\addons\wbk_zombies_smasher.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\adapterus.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\apr_ims_iconrework.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\mellee.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\spike.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\sshields.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\wbk_animations.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\wbk_knifes.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\webknight_improvedmeleesystem_animations.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\webknight_melee_new_weapons.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\webknight_melee_weapons.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\webknight_starwars_gestures.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\webknight_starwars_mechanic.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\webknight_starwars_movesets.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\2291129343\addons\webknight_starwars_sounds.pbo - unknown
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_accessory.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_ai.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_arrays.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_bitwise.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_characters.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_common.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_diagnostic.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_disposable.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_events.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_hashes.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_help.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_jam.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_jr.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_keybinding.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_loadout.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_main.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_main_a3.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_modules.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_music.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_network.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_optics.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_pid.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_pylons.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_quicktime.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_settings.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_statemachine.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_statuseffects.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_strings.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_ui.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_vectors.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_versioning.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\workshop\content\107410\450814997\addons\cba_xeh.pbo - 3.19.0.260808
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\anims_f_aow.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\characters_f_aow.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\data_f_aow.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\dubbing_f_aow.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\editorpreviews_f_aow.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\functions_f_aow.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\languagemissions_f_aow.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\language_f_aow.pbo - 151415
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\missions_f_aow.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\missions_f_aow_data.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\missions_f_aow_video.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\props_f_aow.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\sounds_f_aow.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\structures_f_aow.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\supplies_f_aow.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\aow\addons\ui_f_aow.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\air_f_enoch.pbo - 151184
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\anims_f_enoch.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\armor_f_enoch.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\cargoposes_f_enoch.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\characters_f_enoch.pbo - 151255
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\data_f_enoch.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\dubbing_radio_f_enoch.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\dubbing_radio_f_enoch_data.pbo - 151272
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\editorpreviews_f_enoch.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\functions_f_enoch.pbo - 151303
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\languagemissions_f_enoch.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\language_f_enoch.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\map_enoch.pbo - 151221
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\map_enoch_data.pbo - 151432
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\map_enoch_data_layers.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\map_enoch_scenes_f.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\missions_f_enoch.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\music_f_enoch.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\music_f_enoch_music.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\props_f_enoch.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\rocks_f_enoch.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\soft_f_enoch.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\sounds_f_enoch.pbo - 151321
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\static_f_enoch.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\structures_f_enoch.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\structures_f_enoch_civilian.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\structures_f_enoch_commercial.pbo - 151221
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\structures_f_enoch_cultural.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\structures_f_enoch_data.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\structures_f_enoch_furniture.pbo - 151205
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\structures_f_enoch_industrial.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\structures_f_enoch_infrastructure.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\structures_f_enoch_military.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\supplies_f_enoch.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\ui_f_enoch.pbo - 151425
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\vegetation_f_enoch.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\enoch\addons\weapons_f_enoch.pbo - 151255
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\armor_f_tank.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\cargoposes_f_tank.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\characters_f_tank.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\data_f_tank.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\dubbing_f_tank.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\editorpreviews_f_tank.pbo - 151315
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\functions_f_tank.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\languagemissions_f_tank.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\language_f_tank.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\missions_f_tank.pbo - 151205
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\missions_f_tank_data.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\modules_f_tank.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\music_f_tank.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\props_f_tank.pbo - 151321
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\sounds_f_tank.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\structures_f_tank.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\ui_f_tank.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tank\addons\weapons_f_tank.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\characters_f_tacops.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\data_f_tacops.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\dubbing_f_tacops.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\functions_f_tacops.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\languagemissions_f_tacops.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\language_f_tacops.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\missions_f_tacops.pbo - 151315
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\modules_f_tacops.pbo - 151205
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\music_f_tacops.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\sounds_f_tacops.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\tacops\addons\ui_f_tacops.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\air_f_orange.pbo - 151205
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\cargoposes_f_orange.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\characters_f_orange.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\data_f_orange.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\dubbing_f_orange.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\editorpreviews_f_orange.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\functions_f_orange.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\languagemissions_f_orange.pbo - 151415
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\language_f_orange.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\missions_f_orange.pbo - 151216
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\modules_f_orange.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\music_f_orange.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\props_f_orange.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\soft_f_orange.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\sounds_f_orange.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\structures_f_orange.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\supplies_f_orange.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\ui_f_orange.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\orange\addons\weapons_f_orange.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\armor_f_argo.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\characters_f_patrol.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\data_f_argo.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\data_f_patrol.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\editorpreviews_f_argo.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\functions_f_patrol.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\languagemissions_f_patrol.pbo - 151415
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\language_f_argo.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\language_f_patrol.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\map_malden.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\map_malden_data.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\map_malden_data_layers.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\map_malden_scenes_f.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\missions_f_patrol.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\modules_f_patrol.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\music_f_argo.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\props_f_argo.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\rocks_f_argo.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\sounds_f_patrol.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\structures_f_argo.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\ui_f_patrol.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\vegetation_f_argo.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\argo\addons\weapons_f_patrol.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\air_f_jets.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\anims_f_jets.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\boat_f_destroyer.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\boat_f_jets.pbo - 151255
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\cargoposes_f_jets.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\characters_f_jets.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\data_f_destroyer.pbo - 151240
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\data_f_jets.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\data_f_sams.pbo - 151240
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\dubbing_f_jets.pbo - 151221
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\editorpreviews_f_destroyer.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\editorpreviews_f_jets.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\editorpreviews_f_sams.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\functions_f_destroyer.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\functions_f_jets.pbo - 151425
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\languagemissions_f_jets.pbo - 151415
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\language_f_destroyer.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\language_f_jets.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\language_f_sams.pbo - 151415
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\missions_f_jets.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\modules_f_jets.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\music_f_jets.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\props_f_destroyer.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\props_f_jets.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\sounds_f_jets.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\static_f_destroyer.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\static_f_jets.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\static_f_sams.pbo - 151240
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\ui_f_jets.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\weapons_f_destroyer.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\weapons_f_jets.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\jets\addons\weapons_f_sams.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\air_f_exp.pbo - 151421
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\anims_f_exp.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\armor_f_exp.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\boat_f_exp.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\cargoposes_f_exp.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\characters_f_exp.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\characters_f_oldman.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\data_f_exp.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\data_f_oldman.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\dubbing_f_exp.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\dubbing_f_oldman.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\dubbing_radio_f_exp.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\dubbing_radio_f_exp_data_chi.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\dubbing_radio_f_exp_data_engfre.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\dubbing_radio_f_exp_data_fre.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\editorpreviews_f_exp.pbo - 151374
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\editorpreviews_f_oldman.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\functions_f_exp.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\functions_f_oldman.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\languagemissions_f_exp.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\languagemissions_f_oldman.pbo - 151415
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\language_f_exp.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\language_f_oldman.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\map_data_exp.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\map_tanoabuka.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\map_tanoabuka_data.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\map_tanoabuka_data_layers.pbo - 151204
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\map_tanoabuka_data_layers_00_00.pbo - 0000
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\map_tanoa_scenes_f.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\missions_f_exp.pbo - 151420
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\missions_f_exp_data.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\missions_f_exp_video.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\missions_f_oldman.pbo - 151427
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\modules_f_exp.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\modules_f_oldman.pbo - 151205
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\music_f_exp.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\music_f_exp_music.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\music_f_oldman.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\music_f_oldman_music.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\props_f_exp.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\props_f_oldman.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\rocks_f_exp.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\soft_f_exp.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\soft_f_oldman.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\sounds_f_exp.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\sounds_f_oldman.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\static_f_exp.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\static_f_oldman.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\structures_f_exp.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\structures_f_exp_civilian.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\structures_f_exp_commercial.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\structures_f_exp_cultural.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\structures_f_exp_data.pbo - 151272
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\structures_f_exp_industrial.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\structures_f_exp_infrastructure.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\structures_f_oldman.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\supplies_f_exp.pbo - 151353
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\supplies_f_oldman.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\ui_f_exp.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\ui_f_oldman.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\vegetation_f_exp.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\expansion\addons\weapons_f_exp.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\anims_f_mark.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\characters_f_mark.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\data_f_mark.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\dubbing_f_mark.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\dubbing_f_mp_mark.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\functions_f_mark.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\functions_f_mp_mark.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\languagemissions_f_mark.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\languagemissions_f_mp_mark.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\language_f_mark.pbo - 151415
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\language_f_mp_mark.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\missions_f_mark.pbo - 151417
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\missions_f_mark_data.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\missions_f_mark_video.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\missions_f_mp_mark.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\missions_f_mp_mark_data.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\modules_f_mark.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\modules_f_mp_mark.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\music_f_mark.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\music_f_mark_music.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\sounds_f_mark.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\static_f_mark.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\structures_f_mark.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\supplies_f_mark.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\ui_f_mark.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\ui_f_mp_mark.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\mark\addons\weapons_f_mark.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\air_f_heli.pbo - 151321
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\anims_f_heli.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\boat_f_heli.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\cargoposes_f_heli.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\data_f_heli.pbo - 151205
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\dubbing_f_heli.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\functions_f_heli.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\languagemissions_f_heli.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\language_f_heli.pbo - 151415
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\missions_f_heli.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\missions_f_heli_data.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\missions_f_heli_video.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\modules_f_heli.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\music_f_heli.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\music_f_heli_music.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\soft_f_heli.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\sounds_f_heli.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\structures_f_heli.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\supplies_f_heli.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\heli\addons\ui_f_heli.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\anims_f_kart.pbo - 151185
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\characters_f_kart.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\data_f_kart.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\languagemissions_f_kart.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\language_f_kart.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\missions_f_kart.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\missions_f_kart_data.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\modules_f_kart.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\modules_f_kart_data.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\soft_f_kart.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\sounds_f_kart.pbo - 151187
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\structures_f_kart.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\ui_f_kart.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\kart\addons\weapons_f_kart.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\curator\addons\data_f_curator.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\curator\addons\data_f_curator_music.pbo - 151188
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\curator\addons\functions_f_curator.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\curator\addons\language_f_curator.pbo - 151414
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\curator\addons\missions_f_curator.pbo - 151216
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\curator\addons\modules_f_curator.pbo - 151186
+16:57:14 F:\SteamLibrary\steamapps\common\Arma 3\curator\addons\ui_f_curator.pbo - 151205
+16:57:14 addons\3den.pbo - 151321
+16:57:14 addons\3den_language.pbo - 151414
+16:57:14 addons\a3.pbo - 151204
+16:57:14 addons\air_f.pbo - 151184
+16:57:14 addons\air_f_beta.pbo - 151423
+16:57:14 addons\air_f_epb.pbo - 151184
+16:57:14 addons\air_f_epc.pbo - 151185
+16:57:14 addons\air_f_gamma.pbo - 151185
+16:57:14 addons\animals_f.pbo - 151185
+16:57:14 addons\animals_f_beta.pbo - 151185
+16:57:14 addons\anims_f.pbo - 151185
+16:57:14 addons\anims_f_bootcamp.pbo - 151185
+16:57:14 addons\anims_f_data.pbo - 151185
+16:57:14 addons\anims_f_epa.pbo - 151185
+16:57:14 addons\anims_f_epc.pbo - 151185
+16:57:14 addons\anims_f_exp_a.pbo - 151185
+16:57:14 addons\anims_f_mod.pbo - 151185
+16:57:14 addons\armor_f.pbo - 151185
+16:57:14 addons\armor_f_beta.pbo - 151185
+16:57:14 addons\armor_f_decade.pbo - 151185
+16:57:14 addons\armor_f_epb.pbo - 151185
+16:57:14 addons\armor_f_epc.pbo - 151185
+16:57:14 addons\armor_f_gamma.pbo - 151185
+16:57:14 addons\baseconfig_f.pbo - 151188
+16:57:14 addons\boat_f.pbo - 151185
+16:57:14 addons\boat_f_beta.pbo - 151185
+16:57:14 addons\boat_f_epc.pbo - 151185
+16:57:14 addons\boat_f_gamma.pbo - 151185
+16:57:14 addons\cargoposes_f.pbo - 151218
+16:57:14 addons\characters_f.pbo - 151185
+16:57:14 addons\characters_f_beta.pbo - 151185
+16:57:14 addons\characters_f_bootcamp.pbo - 151185
+16:57:14 addons\characters_f_decade.pbo - 151185
+16:57:14 addons\characters_f_epa.pbo - 151188
+16:57:14 addons\characters_f_epb.pbo - 151188
+16:57:14 addons\characters_f_epc.pbo - 151188
+16:57:14 addons\characters_f_gamma.pbo - 151188
+16:57:14 addons\data_f.pbo - 151188
+16:57:14 addons\data_f_bootcamp.pbo - 151188
+16:57:14 addons\data_f_decade.pbo - 151188
+16:57:14 addons\data_f_exp_a.pbo - 151188
+16:57:14 addons\data_f_exp_b.pbo - 151188
+16:57:14 addons\data_f_mod.pbo - 151188
+16:57:14 addons\data_f_warlords.pbo - 151188
+16:57:14 addons\drones_f.pbo - 151188
+16:57:14 addons\dubbing_f.pbo - 151188
+16:57:14 addons\dubbing_f_beta.pbo - 151188
+16:57:14 addons\dubbing_f_bootcamp.pbo - 151188
+16:57:14 addons\dubbing_f_epa.pbo - 151188
+16:57:14 addons\dubbing_f_epb.pbo - 151185
+16:57:14 addons\dubbing_f_epc.pbo - 151185
+16:57:14 addons\dubbing_f_gamma.pbo - 151185
+16:57:14 addons\dubbing_f_warlords.pbo - 151186
+16:57:14 addons\dubbing_radio_f.pbo - 151186
+16:57:14 addons\dubbing_radio_f_data_eng.pbo - 151186
+16:57:14 addons\dubbing_radio_f_data_engb.pbo - 151186
+16:57:14 addons\dubbing_radio_f_data_gre.pbo - 151186
+16:57:14 addons\dubbing_radio_f_data_per.pbo - 151186
+16:57:14 addons\dubbing_radio_f_data_vr.pbo - 151186
+16:57:14 addons\editorpreviews_f.pbo - 151374
+16:57:14 addons\editorpreviews_f_decade.pbo - 151186
+16:57:14 addons\editor_f.pbo - 151249
+16:57:14 addons\functions_f.pbo - 151420
+16:57:14 addons\functions_f_bootcamp.pbo - 151430
+16:57:14 addons\functions_f_decade.pbo - 151186
+16:57:14 addons\functions_f_epa.pbo - 151186
+16:57:14 addons\functions_f_epc.pbo - 151186
+16:57:14 addons\functions_f_exp_a.pbo - 151186
+16:57:14 addons\functions_f_warlords.pbo - 151186
+16:57:14 addons\languagemissions_f.pbo - 151415
+16:57:14 addons\languagemissions_f_beta.pbo - 151414
+16:57:14 addons\languagemissions_f_bootcamp.pbo - 151414
+16:57:14 addons\languagemissions_f_epa.pbo - 151414
+16:57:14 addons\languagemissions_f_epb.pbo - 151414
+16:57:14 addons\languagemissions_f_epc.pbo - 151415
+16:57:14 addons\languagemissions_f_exp_a.pbo - 151414
+16:57:14 addons\languagemissions_f_gamma.pbo - 151414
+16:57:14 addons\language_f.pbo - 151415
+16:57:14 addons\language_f_beta.pbo - 151420
+16:57:14 addons\language_f_bootcamp.pbo - 151414
+16:57:14 addons\language_f_decade.pbo - 151414
+16:57:14 addons\language_f_epa.pbo - 151414
+16:57:14 addons\language_f_epb.pbo - 151414
+16:57:14 addons\language_f_epc.pbo - 151415
+16:57:14 addons\language_f_exp_a.pbo - 151414
+16:57:14 addons\language_f_exp_b.pbo - 151414
+16:57:14 addons\language_f_gamma.pbo - 151415
+16:57:14 addons\language_f_mod.pbo - 151414
+16:57:14 addons\language_f_warlords.pbo - 151414
+16:57:14 addons\map_altis.pbo - 151188
+16:57:14 addons\map_altis_data.pbo - 151188
+16:57:14 addons\map_altis_data_layers.pbo - 151188
+16:57:14 addons\map_altis_data_layers_00_00.pbo - 0000
+16:57:14 addons\map_altis_data_layers_00_01.pbo - 0000
+16:57:14 addons\map_altis_data_layers_01_00.pbo - 0000
+16:57:14 addons\map_altis_data_layers_01_01.pbo - 0000
+16:57:14 addons\map_altis_scenes_f.pbo - 151188
+16:57:14 addons\map_data.pbo - 151188
+16:57:14 addons\map_stratis.pbo - 151188
+16:57:14 addons\map_stratis_data.pbo - 151188
+16:57:14 addons\map_stratis_data_layers.pbo - 151188
+16:57:14 addons\map_stratis_scenes_f.pbo - 151188
+16:57:14 addons\map_vr.pbo - 151188
+16:57:14 addons\map_vr_scenes_f.pbo - 151188
+16:57:14 addons\misc_f.pbo - 151186
+16:57:14 addons\missions_f.pbo - 151240
+16:57:14 addons\missions_f_beta.pbo - 151205
+16:57:14 addons\missions_f_beta_data.pbo - 151186
+16:57:14 addons\missions_f_beta_video.pbo - 151186
+16:57:14 addons\missions_f_bootcamp.pbo - 151186
+16:57:14 addons\missions_f_bootcamp_data.pbo - 151186
+16:57:14 addons\missions_f_bootcamp_video.pbo - 151186
+16:57:14 addons\missions_f_data.pbo - 151186
+16:57:14 addons\missions_f_epa.pbo - 151205
+16:57:14 addons\missions_f_epa_data.pbo - 151186
+16:57:14 addons\missions_f_epa_video.pbo - 151186
+16:57:14 addons\missions_f_epb.pbo - 151186
+16:57:14 addons\missions_f_epc.pbo - 151186
+16:57:14 addons\missions_f_exp_a.pbo - 151186
+16:57:14 addons\missions_f_exp_a_data.pbo - 151186
+16:57:14 addons\missions_f_gamma.pbo - 151186
+16:57:14 addons\missions_f_gamma_data.pbo - 151186
+16:57:14 addons\missions_f_gamma_video.pbo - 151186
+16:57:14 addons\missions_f_video.pbo - 151186
+16:57:14 addons\missions_f_warlords.pbo - 151186
+16:57:14 addons\modules_f.pbo - 151321
+16:57:14 addons\modules_f_beta.pbo - 151219
+16:57:14 addons\modules_f_beta_data.pbo - 151186
+16:57:14 addons\modules_f_bootcamp.pbo - 151186
+16:57:14 addons\modules_f_data.pbo - 151186
+16:57:14 addons\modules_f_epb.pbo - 151186
+16:57:14 addons\modules_f_exp_a.pbo - 151186
+16:57:14 addons\modules_f_warlords.pbo - 151186
+16:57:14 addons\music_f.pbo - 151186
+16:57:14 addons\music_f_bootcamp.pbo - 151186
+16:57:14 addons\music_f_bootcamp_music.pbo - 151186
+16:57:14 addons\music_f_epa.pbo - 151186
+16:57:14 addons\music_f_epa_music.pbo - 151186
+16:57:14 addons\music_f_epb.pbo - 151186
+16:57:14 addons\music_f_epb_music.pbo - 151186
+16:57:14 addons\music_f_epc.pbo - 151186
+16:57:14 addons\music_f_epc_music.pbo - 151186
+16:57:14 addons\music_f_music.pbo - 151186
+16:57:14 addons\plants_f.pbo - 151186
+16:57:14 addons\props_f_decade.pbo - 151240
+16:57:14 addons\props_f_exp_a.pbo - 151186
+16:57:14 addons\roads_f.pbo - 151187
+16:57:14 addons\rocks_f.pbo - 151187
+16:57:14 addons\signs_f.pbo - 151187
+16:57:14 addons\soft_f.pbo - 151218
+16:57:14 addons\soft_f_beta.pbo - 151187
+16:57:14 addons\soft_f_bootcamp.pbo - 151187
+16:57:14 addons\soft_f_epc.pbo - 151187
+16:57:14 addons\soft_f_gamma.pbo - 151321
+16:57:14 addons\sounds_f.pbo - 151423
+16:57:14 addons\sounds_f_arsenal.pbo - 151187
+16:57:14 addons\sounds_f_bootcamp.pbo - 151187
+16:57:14 addons\sounds_f_characters.pbo - 151187
+16:57:14 addons\sounds_f_decade.pbo - 151343
+16:57:14 addons\sounds_f_environment.pbo - 151187
+16:57:14 addons\sounds_f_epb.pbo - 151187
+16:57:14 addons\sounds_f_epc.pbo - 151187
+16:57:14 addons\sounds_f_exp_a.pbo - 151187
+16:57:14 addons\sounds_f_mod.pbo - 151187
+16:57:14 addons\sounds_f_sfx.pbo - 151187
+16:57:14 addons\sounds_f_vehicles.pbo - 151187
+16:57:14 addons\static_f.pbo - 151187
+16:57:14 addons\static_f_beta.pbo - 151187
+16:57:14 addons\static_f_gamma.pbo - 151187
+16:57:14 addons\structures_f.pbo - 151296
+16:57:14 addons\structures_f_bootcamp.pbo - 151187
+16:57:14 addons\structures_f_data.pbo - 151187
+16:57:14 addons\structures_f_epa.pbo - 151188
+16:57:14 addons\structures_f_epb.pbo - 151188
+16:57:14 addons\structures_f_epc.pbo - 151188
+16:57:14 addons\structures_f_exp_a.pbo - 151188
+16:57:14 addons\structures_f_households.pbo - 151188
+16:57:14 addons\structures_f_ind.pbo - 151296
+16:57:14 addons\structures_f_mil.pbo - 151188
+16:57:14 addons\structures_f_wrecks.pbo - 151188
+16:57:14 addons\uifonts_f.pbo - 151430
+16:57:14 addons\uifonts_f_data.pbo - 151430
+16:57:14 addons\ui_f.pbo - 151417
+16:57:14 addons\ui_f_bootcamp.pbo - 151188
+16:57:14 addons\ui_f_data.pbo - 151387
+16:57:14 addons\ui_f_decade.pbo - 151188
+16:57:14 addons\ui_f_exp_a.pbo - 151188
+16:57:14 addons\weapons_f.pbo - 151408
+16:57:14 addons\weapons_f_beta.pbo - 151188
+16:57:14 addons\weapons_f_bootcamp.pbo - 151188
+16:57:14 addons\weapons_f_decade.pbo - 151321
+16:57:14 addons\weapons_f_epa.pbo - 151188
+16:57:14 addons\weapons_f_epb.pbo - 151188
+16:57:14 addons\weapons_f_epc.pbo - 151188
+16:57:14 addons\weapons_f_gamma.pbo - 151188
+16:57:14 addons\weapons_f_mod.pbo - 151188
+16:57:14 
+16:57:14 =======================
+16:57:14 
+16:57:14 ============================================================================================= List of mods ===============================================================================================
+16:57:14 modsReadOnly = true
+16:57:14 safeModsActivated = false
+16:57:14 customMods = true
+16:57:14 hash = '0C7CDCF1A11FF2B502999D30840010BD021ABA38'
+16:57:14 hashShort = 'bf996a12'
+16:57:14 name                                               | modDir               | default    | official   | origin               | hash                                     | hashShort | fullPath
+16:57:14 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+16:57:14 A3U Redux Fixes                                    | @A3U_Redux_Fixes     | false      | false      | GAME DIR             | 52b036008f8e3cbe44a00667dd648e55f8573eed | d46e1ca2  | E:\Games\Arma 3\Projects\Zombies Antistasi\Chernarus Redux Map Change\.work\build\@A3U_Redux_Fixes
+16:57:14 @Infection_Campaign_Probe                          | @Infection_Campaign_Probe | false      | false      | GAME DIR             | 89c36a58666504ca37143f3d0ac090fa8cc50f0a | 409bde97  | E:\Games\Arma 3\Projects\Zombies Antistasi\Zombie Occupant Faction\.work\startup-trace\.work\campaign-probe\@Infection_Campaign_Probe
+16:57:14 Antistasi Ultimate: Infection                      | @Infection_CampaignSave_Dev1 | false      | false      | GAME DIR             | df8295d14f067021bff0d8a5f29c409f4e6c9de3 | 7a5d13e9  | E:\Games\Arma 3\Projects\Zombies Antistasi\Zombie Occupant Faction\.work\campaign-save-smoke\.work\build\@Infection_CampaignSave_Dev1
+16:57:14 Chernarus Redux                                    | 1128256978           | false      | false      | GAME DIR             | bb7e9c64b9621544a99b606e116e9724fd4516d3 | 194be1c1  | F:\SteamLibrary\steamapps\workshop\content\107410\1128256978
+16:57:14 CUP Terrains - Core 1.19.3                         | 583496184            | false      | false      | GAME DIR             | e34d59ccbe4cbc59548fec00db4d9cf4979b227f | a8b38f00  | F:\SteamLibrary\steamapps\workshop\content\107410\583496184
+16:57:14 Antistasi Ultimate [v12.4.2]                       | 3020755032           | false      | false      | GAME DIR             | 152611017860fb456307cb1a38bc9bb6b25d7d62 | 4d83e92f  | F:\SteamLibrary\steamapps\workshop\content\107410\3020755032
+16:57:14 WebKnight's Zombies And Creatures                  | 2789152015           | false      | false      | GAME DIR             | d2bd85483459aa00bf10926ecdbe5d8ea1f1ad06 | 7225e6b5  | F:\SteamLibrary\steamapps\workshop\content\107410\2789152015
+16:57:14 Improved Melee System                              | 2291129343           | false      | false      | GAME DIR             | 982ef2171906763187a2ed56af9b7ead1a72928d | 4163442e  | F:\SteamLibrary\steamapps\workshop\content\107410\2291129343
+16:57:14 Community Base Addons v3.19.0                      | 450814997            | false      | false      | GAME DIR             | 191c55263683942147a8ee29b5429d08b598cff4 | fa98719e  | F:\SteamLibrary\steamapps\workshop\content\107410\450814997
+16:57:14 Arma 3 Art of War                                  | aow                  | true       | true       | GAME DIR             | 211e1b4cd2f62e3968e438d84980176ab817e779 | ffe0f24a  | F:\SteamLibrary\steamapps\common\Arma 3\aow
+16:57:14 Arma 3 Contact (Platform)                          | enoch                | true       | true       | GAME DIR             | dd9b0b04108ee11becbb1eee54a3613e9bddb83d | 3e1ecdf0  | F:\SteamLibrary\steamapps\common\Arma 3\enoch
+16:57:14 Arma 3 Tanks                                       | tank                 | true       | true       | GAME DIR             | 1a4f38e9d27666cb01fc89ee55c6070fe318468b | 3cfb7f5f  | F:\SteamLibrary\steamapps\common\Arma 3\tank
+16:57:14 Arma 3 Tac-Ops                                     | tacops               | true       | true       | GAME DIR             | 1f3f39fd9d68378c2b72f22c5d3452d093cc3b88 | be9266f2  | F:\SteamLibrary\steamapps\common\Arma 3\tacops
+16:57:14 Arma 3 Laws of War                                 | orange               | true       | true       | GAME DIR             | fd917fa24ba8e30fa437c1ee1de93bcc30d50100 | b5f74b01  | F:\SteamLibrary\steamapps\common\Arma 3\orange
+16:57:14 Arma 3 Malden                                      | argo                 | true       | true       | GAME DIR             | 61774ca97de063da1c6beef596ec5e8c63d662bb | 91268d12  | F:\SteamLibrary\steamapps\common\Arma 3\argo
+16:57:14 Arma 3 Jets                                        | jets                 | true       | true       | GAME DIR             | e99a23e1c11fe5c23fb91bc22a247cff77b01226 | 865dbc0d  | F:\SteamLibrary\steamapps\common\Arma 3\jets
+16:57:14 Arma 3 Apex                                        | expansion            | true       | true       | GAME DIR             | 87e59b5a05062229d2557642ad25aa4a3d06c44c | 1aa14b93  | F:\SteamLibrary\steamapps\common\Arma 3\expansion
+16:57:14 Arma 3 Marksmen                                    | mark                 | true       | true       | GAME DIR             | 0bdec639463b8faa15fcd1262a8ab4bb89bffa55 | 3b361037  | F:\SteamLibrary\steamapps\common\Arma 3\mark
+16:57:14 Arma 3 Helicopters                                 | heli                 | true       | true       | GAME DIR             | e9e4dd10400095fca7fb6e7ee0bec7e2237f193d | aaebb0ae  | F:\SteamLibrary\steamapps\common\Arma 3\heli
+16:57:14 Arma 3 Karts                                       | kart                 | true       | true       | GAME DIR             | 67d670d0d95dcfc258002b0b72dbe15ad41f36e7 | 4582456   | F:\SteamLibrary\steamapps\common\Arma 3\kart
+16:57:14 Arma 3 Zeus                                        | curator              | true       | true       | GAME DIR             | 716831621eaa4f06c490b8f89e1db6c712c6728d | 1d382734  | F:\SteamLibrary\steamapps\common\Arma 3\curator
+16:57:14 Arma 3                                             | A3                   | true       | true       | NOT FOUND (Empty)    |                                          |           | 
+16:57:14 ==========================================================================================================================================================================================================
+16:57:14 InitSound ...
+16:57:14 InitSound - complete
+16:57:14 PhysX3 SDK Init started ...
+16:57:14 PhysX3 SDK Init ended.
+16:57:17 [CBA] (xeh) INFO: [0,8.027,0] PreStart started.
+16:57:17 [CBA] (settings) INFO: Userconfig: Ignored.
+16:57:17 [CBA] (xeh) INFO: [0,8.034,0] PreStart finished.
+16:57:17 [CBA] (xeh) WARNING: A3A_core_Chemlight_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Car_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_APC_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Tank_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Ship_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Heli_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_Plane_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_StaticMG_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_StaticAA_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_StaticAT_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Vehicle_StaticMortar_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Module_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Rebels_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Occupants_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Invaders_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Rivals_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 [CBA] (xeh) WARNING: A3A_zeus_Civilians_Base does not support Extended Event Handlers! Addon: 3020755032
+16:57:17 Warning Message: You cannot play/edit this mission; it is dependent on downloadable content that has been deleted.\na3_characters_f
+16:57:17 Loading movesType CfgGesturesMale
+16:57:17 Creating action map cache
+16:57:17 MovesType CfgGesturesMale load time 52.0 ms
+16:57:17 Loading movesType CfgMovesMaleSdr
+16:57:17 bin\config.bin/CfgMovesMaleSdr/States/starWars_lightsaber_heavyattack2.interpolateTo: item count not multiple of 2 (is 5)
+16:57:17 Creating action map cache
+16:57:20 Animation wbk_animations\starwars_lightsaber_combo_1.rtm not found or empty
+16:57:20 Animation wbk_animations\ims_cin_fight_1.rtm not found or empty
+16:57:20 Animation wbk_animations\ims_cin_fight_2.rtm not found or empty
+16:57:20 Animation wbk_animations\ims_cinematicfight_main.rtm not found or empty
+16:57:20 Animation wbk_animations\ims_cinematicfight_victim.rtm not found or empty
+16:57:20 Animation wbk_animations\ims_cinematicfight_2_main.rtm not found or empty
+16:57:20 Animation wbk_animations\ims_cinematicfight_2_victim.rtm not found or empty
+16:57:20 Animation wbk_zombies\wbk_walker_tryingtocatch.rtm not found or empty
+16:57:20 Warning: looped for animation: a3\anims_f_epa\data\anim\sdr\cts\hubcleaned\briefing\hubbriefing_loop.rtm differs (looped now 0)! MoveName: hubbriefing_ext
+16:57:20 Warning: looped for animation: a3\anims_f_epa\data\anim\sdr\cts\hubcleaned\spectator\hubspectator_stand.rtm differs (looped now 0)! MoveName: hubspectator_stand
+16:57:20 Warning: looped for animation: a3\anims_f\data\anim\sdr\mov\pne\stp\non\non\amovppnemstpsnonwnondnon_amovppnemevasnonwnondl.rtm differs (looped now 1)! MoveName: amovppnemstpsnonwnondnon_amovppnemevasnonwnondl
+16:57:20 Warning: looped for animation: a3\anims_f\data\anim\sdr\mov\pne\stp\non\non\amovppnemstpsnonwnondnon_amovppnemevasnonwnondr.rtm differs (looped now 1)! MoveName: amovppnemstpsnonwnondnon_amovppnemevasnonwnondr
+16:57:21 MovesType CfgMovesMaleSdr load time 3611.0 ms
+16:57:21 sessionID: be5eea8e81a71cc94678df72b715e206b403a403
+16:57:21 String STR_antistasi_mission_info_chernarus_blurb_text not found
+16:57:21 Starting mission:
+16:57:21  Mission file: Antistasi_chernarusredux
+16:57:21  Mission world: chernarusredux
+16:57:21  Mission directory: x\A3A\addons\maps\Antistasi_chernarusredux.chernarusredux\
+16:57:23 No more slot to add roadlink connection at grid 043046 (4368.7,4679.0) Maximum number of connections reached.
+16:57:23 No more slot to add roadlink connection at grid 047063 (4704.8,6352.7) Maximum number of connections reached.
+16:57:23 No more slot to add roadlink connection at grid 075050 (7523.8,5034.4) Maximum number of connections reached.
+16:57:23 No more slot to add roadlink connection at grid 084135 (8465.1,13512.2) Maximum number of connections reached.
+16:57:23 No more slot to add roadlink connection at grid 088080 (8871.4,8027.1) Maximum number of connections reached.
+16:57:23 No more slot to add roadlink connection at grid 088080 (8870.7,8027.2) Maximum number of connections reached.
+16:57:23 No more slot to add roadlink connection at grid 091074 (9172.5,7488.7) Maximum number of connections reached.
+16:57:23 No more slot to add roadlink connection at grid 092078 (9201.8,7809.2) Maximum number of connections reached.
+16:57:23 No more slot to add roadlink connection at grid 104088 (10448.1,8869.4) Maximum number of connections reached.
+16:57:23 No more slot to add roadlink connection at grid 114113 (11437.0,11366.9) Maximum number of connections reached.
+16:57:23 Warning: Unaccessible ladder point for AI (already used for actionend4) in chr\chernarusredux_buildings\ds_houses\a2_housev_1l2\ds_housev_1l2.p3d
+16:57:23 Warning: Unaccessible ladder point for AI (already used for actionend3) in chr\chernarusredux_buildings\ds_houses\a2_housev_3i2\ds_housev_3i2.p3d
+16:57:23 Warning: Unaccessible ladder point for AI (already used for actionend3) in chr\chernarusredux_buildings\ds_houses\a2_housev_3i2\ds_housev_3i2.p3d
+16:57:23 Strange convex component10 in chr\chernarusredux_buildings\open_sheds\land_shed_m01\shed_m01.p3d:geometry
+16:57:23 Strange convex component11 in chr\chernarusredux_buildings\open_sheds\land_shed_m01\shed_m01.p3d:geometry
+16:57:23 Strange convex component13 in chr\chernarusredux_buildings\open_sheds\land_shed_m01\shed_m01.p3d:geometry
+16:57:23 Strange convex component14 in chr\chernarusredux_buildings\open_sheds\land_shed_m01\shed_m01.p3d:geometry
+16:57:23 Warning: Unaccessible ladder point for AI (already used for actionbegin7) in chr\chernarusredux_buildings\ds_houses\a2_housev_2l\ds_housev_2l.p3d
+16:57:23 Warning: Unaccessible ladder point for AI (already used for actionbegin7) in chr\chernarusredux_buildings\ds_houses\a2_housev_2l\ds_housev_2l.p3d
+16:57:23 Warning: Unaccessible ladder point for AI (already used for actionend7) in chr\chernarusredux_buildings\ds_houses\a2_housev_2l\ds_housev_2l.p3d
+16:57:23 Warning: Unaccessible ladder point for AI (already used for actionend7) in chr\chernarusredux_buildings\ds_houses\a2_housev_2l\ds_housev_2l.p3d
+16:57:23 Strange convex component03 in chr\chernarusredux_vegetation\bushes\b_str_krovisko_vysoke.p3d:geometryFire
+16:57:23 Strange convex component03 in chr\chernarusredux_vegetation\bushes\b_str_krovisko_vysoke.p3d:geometryView
+16:57:23 Strange convex component03 in chr\chernarusredux_chz\chz_traktor_2.p3d:geometryFire
+16:57:23 ca\misc\garbage_metal.p3d: house, config class missing
+16:57:24 ca\buildings\dum_mesto_in_open.p3d: house, config class missing
+16:57:24 Bad simulation thing, type Land_Barrel_empty (class=house), ca\structures\misc\armory\barels\barrel_empty.p3d
+16:57:24 Bad simulation thing, type Land_Barrel_empty (class=house), ca\structures\misc\armory\barels\barrel_empty.p3d
+16:57:24 Strange convex component87 in chr\chernarusredux_chz\chz_pod.p3d:geometry
+16:57:24 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:24 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:24 Strange convex component05 in chr\chernarusredux_chz\chz_train_vagon_platforma.p3d:geometry
+16:57:24 Strange convex component06 in chr\chernarusredux_chz\chz_train_vagon_platforma.p3d:geometry
+16:57:24 Strange convex component05 in chr\chernarusredux_chz\chz_train_vagon_platforma.p3d:geometryFire
+16:57:24 Strange convex component06 in chr\chernarusredux_chz\chz_train_vagon_platforma.p3d:geometryFire
+16:57:24 Strange convex component05 in chr\chernarusredux_chz\chz_train_vagon_platforma.p3d:geometryView
+16:57:24 Strange convex component06 in chr\chernarusredux_chz\chz_train_vagon_platforma.p3d:geometryView
+16:57:24 ca\buildings\dum_mesto_in_open.p3d: house, config class missing
+16:57:24 Bad simulation thing, type Land_Barrel_sand (class=house), ca\structures\misc\armory\barels\barrel_sand.p3d
+16:57:24 Bad simulation thing, type Land_Barrel_empty (class=house), ca\structures\misc\armory\barels\barrel_empty.p3d
+16:57:24 Bad simulation thing, type Land_Barrel_water (class=house), ca\structures\misc\armory\barels\barrel_water.p3d
+16:57:24 ca\misc\ohniste.p3d: vehicle, config class missing
+16:57:24 Strange convex component02 in chr\chernarusredux_buildings\hospital\emerg_entr\emerg_entr.p3d:geometry
+16:57:24 Strange convex component02 in chr\chernarusredux_buildings\hospital\emerg_entr\emerg_entr.p3d:geometryFire
+16:57:24 Strange convex component02 in chr\chernarusredux_buildings\hospital\emerg_entr\emerg_entr.p3d:geometryView
+16:57:24 chr\chernarusredux_buildings\hospital\emerg_entr\emerg_entr.p3d: house, config class missing
+16:57:24 Land_NetFence_02_m_gate_v1_closed_F: door_1_locked_rot - unknown animation source door_1_locked_source
+16:57:24 Strange convex component145 in a3\plants_f\tree\t_pinuss2s_b_f.p3d:geometryView
+16:57:24 Strange convex component149 in a3\plants_f\tree\t_pinuss2s_b_f.p3d:geometryView
+16:57:24 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:24 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:24 Bad simulation thing, type Land_Barrel_empty (class=house), ca\structures\misc\armory\barels\barrel_empty.p3d
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [BIS_fnc_preload] ----- Initializing scripts in Antistasi_chernarusredux -----"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [recompile] recompile BIS_fnc_missionTasksLocal"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [recompile] recompile BIS_fnc_missionConversationsLocal"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [recompile] recompile BIS_fnc_missionFlow"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] BIS_fnc_feedbackMain (0 ms)"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] BIS_fnc_missionHandlers (0 ms)"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] BIS_fnc_storeParamsValues (0 ms)"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] ""DeltaTime computation started"""
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] BIS_fnc_keyframeAnimation_deltaTime (0 ms)"
+16:57:25 2026-11-15 21:57:25:678 | Antistasi | Debug | File: A3A_fnc_initPreJIP | fn_initPreJIP Started | Called By: preInit
+16:57:25 2026-11-15 21:57:25:678 | Antistasi | Debug | File: A3A_fnc_initPreJIP | fn_initPreJIP Finished | Called By: preInit
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] A3A_fnc_initPreJIP (0 ms)"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] BIS_fnc_getServerVariable (0 ms)"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] BIS_fnc_OM_HandleMapControls (0 ms)"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] BIS_fnc_OM_moduleSmartMarkers (0 ms)"
+16:57:25 [CBA] (xeh) INFO: [10551,16.447,0] PreInit started. v3.19.0.260808
+16:57:25 [CBA] (settings) INFO: Reading settings from settings file.
+16:57:25 [CBA] (settings) INFO: Finished reading settings from settings file.
+16:57:25 [CBA] (settings) INFO: Mission Config: File [cba_settings.sqf] loaded successfully.
+16:57:25 [CBA] (xeh) WARNING: One or more children of class CAManBase do not support Extended Event Handlers. Fall back to loop.
+16:57:25 [CBA] (xeh) INFO: [10551,16.664,0] PreInit finished.
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] CBA_fnc_preInit (217.001 ms)"
+16:57:25 "[INFECTION] addon=0.1.0-dev dependencies=[[""missingPatches"",[]],[""invalidClasses"",[]],[""aceMedical"",false],[""ace"",false],[""available"",true],[""basicClasses"",[""Zombie_B_Walker_Civ"",""Zombie_B_Shambler_Civ"",""Zombie_B_RA_Civ""]]]"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] A3I_fnc_bootstrap (0 ms)"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] A3I_fnc_initSettings (0 ms)"
+16:57:25 "[INFECTION_TRACE] [""preInit"",0,2874]"
+16:57:25 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [preInit] A3ITrace_fnc_observe (0 ms)"
+16:57:25 Fresnel k must be >0, given n=1,k=0
+16:57:26 Strange convex component04 in a3\props_f_jets\military\trolley\land_bomb_trolley_01_f.p3d:geometryView
+16:57:26 Strange convex component05 in a3\props_f_jets\military\trolley\land_bomb_trolley_01_f.p3d:geometryView
+16:57:26 Strange convex component06 in a3\props_f_jets\military\trolley\land_bomb_trolley_01_f.p3d:geometryView
+16:57:26 Strange convex component07 in a3\props_f_jets\military\trolley\land_bomb_trolley_01_f.p3d:geometryView
+16:57:26 Bad simulation thingx, type Land_RepairDepot_01_green_F (class=house), a3\structures_f_tank\military\repairdepot\repairdepot_01_green_f.p3d
+16:57:26 ca\misc3\ladderhalf.p3d: house, config class missing
+16:57:26 No face for R Alpha 1-1:1
+16:57:26 Attempt to override final function - bis_fnc_storeparamsvalues_data
+16:57:26 Server: Object 2:9 not found (message Type_136)
+16:57:26 Error: Object(2 : 9) not found
+16:57:26 Server: Object 2:9 not found (message Type_108)
+16:57:26 Server: Object 2:9 not found (message Type_180)
+16:57:26 Server: Object 2:9 not found (message Type_484)
+16:57:26 Server: Object 2:10 not found (message Type_136)
+16:57:26 Error: Object(2 : 10) not found
+16:57:26 Server: Object 2:10 not found (message Type_108)
+16:57:26 Server: Object 2:10 not found (message Type_180)
+16:57:26 Server: Object 2:10 not found (message Type_484)
+16:57:26 d:\Bis\Source\Stable\Futura\lib\Network\networkServer.cpp NetworkServer::OnClientStateChanged:NOT IMPLEMENTED - briefing!
+16:57:26  Mission id: 
+16:57:26 "[INFECTION_TRACE] [""activateAddons"",0.127,2874,[""Core"",""A3Data"",""A3_Functions_F""],2874,2790,0,[],[""hsim_data_h"",""hsim_data_h_data_particleeffects"",""hsim_data_h_data_particleeffects_rotor_blades""]]"
+16:57:26 "InfectionCampaign_StartupTrace4/log: ERROR: [A3ITrace_fnc_originalActivateAddons] The function can be activated only during the mission init."
+16:57:26 "[INFECTION_TRACE] [""activateAddonsResult"",0.127,0]"
+16:57:26 "[INFECTION_TRACE] [""activateAddons"",0.227,0,[],2874,0,0,[],[""hsim_data_h"",""hsim_data_h_data_particleeffects"",""hsim_data_h_data_particleeffects_rotor_blades""]]"
+16:57:26 "InfectionCampaign_StartupTrace4/log: ERROR: [A3ITrace_fnc_originalActivateAddons] The function can be activated only during the mission init."
+16:57:26 "[INFECTION_TRACE] [""activateAddonsResult"",0.227,0]"
+16:57:26 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] BIS_fnc_moduleCurator (323 ms)"
+16:57:26 Strange convex component49 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Strange convex component50 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Strange convex component51 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Strange convex component52 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Strange convex component53 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Strange convex component54 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Strange convex component55 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Strange convex component57 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Strange convex component68 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Strange convex component69 in a3\structures_f_epb\civ\playground\slidecastle_ruins_f.p3d:geometryFire
+16:57:26 Bad simulation thing, type Land_Barrel_empty (class=house), ca\structures\misc\armory\barels\barrel_empty.p3d
+16:57:26 Strange convex component86 in chr\chernarusredux_chz\chz_kinder_item_besedka.p3d:geometryFire
+16:57:26 Land_gate: door_1_rot - unknown animation source door_1_sound_source
+16:57:27 ca\misc_e\powgen_big_ep1.p3d: house, config class missing
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (68.0008 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (68.0008 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (68.0008 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (68.0008 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (68.0008 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (112 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (111 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (113.001 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (113.001 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (113.001 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (113.001 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (113.001 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (113.001 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (114 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (117.001 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (116.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (116.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (116.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (116.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (116.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (116.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (116.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (116.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (116.999 ms)"
+16:57:28 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [module] bis_fnc_moduleHideTerrainObjects (115 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [script] initServer.sqf"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] BIS_fnc_missionFlow (0 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] BIS_fnc_initParams (0 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] BIS_fnc_initRespawn (0 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] BIS_fnc_keyframeAnimation_init (0 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] HALs_money_fnc_initModule (0 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] HALs_store_fnc_initModule (0 ms)"
+16:57:30 2026-11-15 21:57:30:182 | Antistasi | Info | File: HR_GRG_fnc_loadSaveData | Formatting an existing saved garage to 8 categories | Called By: HR_GRG_fnc_initServer
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] HR_GRG_fnc_initServer (1.00136 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] CUP_fnc_emissiveLights (0 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] BIS_fnc_reviveInit (0 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] CHR_fnc_DarknessEffect (0 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] chernarusredux_functions_fnc_postInit (0 ms)"
+16:57:30 [CBA] (xeh) INFO: [10614,20.945,3.693] PostInit started. MISSIONINIT: missionName=Antistasi_chernarusredux, missionVersion=54, worldName=chernarusredux, isMultiplayer=true, isServer=true, isDedicated=true, CBA_isHeadlessClient=false, hasInterface=false, didJIP=false
+16:57:30 [CBA] (versioning) INFO: [10614,20.954,3.693] VERSIONING:cba=3.19.0.260808
+16:57:30 [CBA] (xeh) INFO: [10614,20.955,3.693] PostInit finished.
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] CBA_fnc_postInit (10.0002 ms)"
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [postInit] A3I_fnc_registerPersistence (0 ms)"
+16:57:30 [A3A] (bazaar) INFO: [ABZ] Hooking into CBA server init done event
+16:57:30 [A3A] (bazaar) INFO: [ABZ] Hooking into CBA server game save event
+16:57:30 2026-11-15 21:57:30:232 | Antistasi | Info | File: A3A_fnc_initServer | Server init started
+16:57:30 2026-11-15 21:57:30:232 | Antistasi | Info | File: A3A_fnc_initServer | Server version: 12.4.2.0
+16:57:30 2026-11-15 21:57:30:232 | Antistasi | Info | File: A3A_fnc_initVarCommon | initVarCommon started | Called By: A3A_fnc_initServer
+16:57:30 2026-11-15 21:57:30:232 | Antistasi | Info | File: A3A_fnc_initVarCommon | Setting initial variables | Called By: A3A_fnc_initServer
+16:57:30 ca\misc\garbage_metal.p3d: house, config class missing
+16:57:30 ca\misc\garbage_metal.p3d: house, config class missing
+16:57:30 ca\misc\garbage_metal.p3d: house, config class missing
+16:57:30 chr\chernarusredux_buildings\hospital\emerg_entr\emerg_entr.p3d: house, config class missing
+16:57:30 Attempt to override final function - hals_store_getnearbyvehicles
+16:57:30 Land_Ind_Mlyn_03: door_1_rot - unknown animation source door_1_sound_source
+16:57:30 Land_Ind_Mlyn_03: door_2_rot - unknown animation source door_2_sound_source
+16:57:30 Land_Ind_Mlyn_03: door_3_rot - unknown animation source door_3_sound_source
+16:57:30 Land_Ind_Mlyn_03: door_3_handle_rot_1 - unknown animation source door_3_sound_source
+16:57:30 Land_Ind_Mlyn_03: door_3_handle_rot_2 - unknown animation source door_3_sound_source
+16:57:30 Land_Ind_Mlyn_03: glass_1_hide - unknown animation source glass_1_source
+16:57:30 Land_Ind_Mlyn_03: glass_2_hide - unknown animation source glass_2_source
+16:57:30 Land_Ind_Mlyn_03: glass_3_hide - unknown animation source glass_3_source
+16:57:30 Warning: Unaccessible ladder point for AI (already used for actionend7) in ca\buildings2\ind_cementworks\ind_pec\ind_pec_02.p3d
+16:57:30 Warning: Unaccessible ladder point for AI (already used for actionend7) in ca\buildings2\ind_cementworks\ind_pec\ind_pec_02.p3d
+16:57:30 Warning: Unaccessible ladder point for AI (already used for actionend10) in ca\buildings2\ind_cementworks\ind_pec\ind_pec_02.p3d
+16:57:30 Warning: Unaccessible ladder point for AI (already used for actionend10) in ca\buildings2\ind_cementworks\ind_pec\ind_pec_02.p3d
+16:57:30 Warning: Unaccessible ladder point for AI (already used for actionend11) in ca\buildings2\ind_cementworks\ind_pec\ind_pec_02.p3d
+16:57:30 Warning: Unaccessible ladder point for AI (already used for actionend11) in ca\buildings2\ind_cementworks\ind_pec\ind_pec_02.p3d
+16:57:30 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:30 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:30 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:30 "InfectionCampaign_StartupTrace4/BIS_fnc_log: [BIS_fnc_preload] ----- Scripts initialized at 5119 ms -----"
+16:57:30 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:30 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:31 ca\misc\garbage_metal.p3d: house, config class missing
+16:57:31 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:31 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:32 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:32 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:32 2026-11-15 21:57:32:618 | Antistasi | Info | File: A3A_fnc_initVarCommon | Initialising PATCOM Variables | Called By: A3A_fnc_initServer
+16:57:32 2026-11-15 21:57:32:618 | Antistasi | Info | File: A3A_fnc_initVarCommon | Declaring item categories | Called By: A3A_fnc_initServer
+16:57:32 2026-11-15 21:57:32:619 | Antistasi | Info | File: A3A_fnc_initVarCommon | Starting mod detection | Called By: A3A_fnc_initServer
+16:57:32 2026-11-15 21:57:32:619 | Antistasi | Info | File: A3A_fnc_initVarCommon | Creating building arrays | Called By: A3A_fnc_initServer
+16:57:32 2026-11-15 21:57:32:619 | Antistasi | Info | File: A3A_fnc_initVarCommon | Compiling sounds and animations | Called By: A3A_fnc_initServer
+16:57:32 2026-11-15 21:57:32:619 | Antistasi | Info | File: A3A_fnc_initVarCommon | initVarCommon completed | Called By: A3A_fnc_initServer
+16:57:32 2026-11-15 21:57:32:619 | Antistasi | Info | File: A3A_fnc_initZones | initZones started | Called By: A3A_fnc_initServer
+16:57:32 2026-11-15 21:57:32:712 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | Placementmarker airp_mortar_2 is more than 500 meter away from its mainMarker airport. You may want to check that! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:32 2026-11-15 21:57:32:712 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | Placementmarker airp_mortar_3 is more than 500 meter away from its mainMarker airport. You may want to check that! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:32 2026-11-15 21:57:32:712 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | Placementmarker airp_mortar_4 is more than 500 meter away from its mainMarker airport. You may want to check that! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:32 ca\misc_acr\targets\target_figure_static_acr.p3d: vehicle, config class missing
+16:57:32 ca\misc_acr\targets\target_figure_static_acr.p3d: vehicle, config class missing
+16:57:32 ca\misc_acr\targets\target_figure_static_acr.p3d: vehicle, config class missing
+16:57:32 ca\misc_acr\targets\target_figure_static_acr.p3d: vehicle, config class missing
+16:57:32 ca\misc_acr\targets\target_figure_static_acr.p3d: vehicle, config class missing
+16:57:32 ca\misc_acr\targets\target_figure_static_acr.p3d: vehicle, config class missing
+16:57:32 ca\misc_acr\targets\target_figure_static_acr.p3d: vehicle, config class missing
+16:57:32 ca\misc_acr\targets\target_figure_static_acr.p3d: vehicle, config class missing
+16:57:32 Warn: Shape '???' contains water texture however it does not carry a property "class=pond". Consider creating one to speed up the detection!
+16:57:33 a3\structures_f\training\target_popup_moving_f.p3d: house, config class missing
+16:57:33 a3\structures_f\training\target_popup_moving_f.p3d: house, config class missing
+16:57:33 a3\structures_f\training\target_popup_moving_f.p3d: house, config class missing
+16:57:33 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:33 Strange convex component03 in chr\chernarusredux_chz\chz_kinder_item_auto.p3d:geometryFire
+16:57:33 Strange convex component04 in chr\chernarusredux_chz\chz_kinder_item_auto.p3d:geometryFire
+16:57:33 Strange convex component05 in chr\chernarusredux_chz\chz_kinder_item_auto.p3d:geometryFire
+16:57:33 Strange convex component03 in chr\chernarusredux_chz\chz_kinder_item_auto.p3d:geometryView
+16:57:33 Strange convex component04 in chr\chernarusredux_chz\chz_kinder_item_auto.p3d:geometryView
+16:57:33 Strange convex component05 in chr\chernarusredux_chz\chz_kinder_item_auto.p3d:geometryView
+16:57:33 Strange convex component04 in a3\structures_f\households\slum\slum_house02_ruins_f.p3d:geometryFire
+16:57:33 Strange convex component03 in a3\structures_f\households\slum\slum_house02_ruins_f.p3d:geometryView
+16:57:33 2026-11-15 21:57:33:573 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | Placementmarker airp_4_vehicle is more than 500 meter away from its mainMarker airport_4. You may want to check that! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:633 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | Placementmarker airp_4_vehicle_1 is more than 500 meter away from its mainMarker airport_4. You may want to check that! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:633 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | Placementmarker airp_4_vehicle_2 is more than 500 meter away from its mainMarker airport_4. You may want to check that! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:633 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | Placementmarker airp_4_vehicle_3 is more than 500 meter away from its mainMarker airport_4. You may want to check that! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:633 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | Placementmarker airp_4_vehicle_4 is more than 500 meter away from its mainMarker airport_4. You may want to check that! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:681 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on airport_3! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:728 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on resource_4! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:728 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on resource_6! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:729 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on resource! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:729 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on resource_8! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:788 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on resource_9! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:788 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on resource_11! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:789 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on resource_5! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:790 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on factory_9! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:852 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_2! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 ca\buildings\tents\pristresek.p3d: house, config class missing
+16:57:33 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:33 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:33 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:33 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:33 a3\structures_f\training\target_popup_moving_90deg_f.p3d: house, config class missing
+16:57:33 2026-11-15 21:57:33:913 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_4! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:913 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_5! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:914 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_3! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:915 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_7! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:33 2026-11-15 21:57:33:959 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_8! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:019 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_9! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:020 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_10! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:020 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_12! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:020 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_14! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:020 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_15! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:020 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_16! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:021 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_17! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:021 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_18! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:021 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_19! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:021 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_20! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:021 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_21! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:065 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_22! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:067 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_23! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:067 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_24! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:067 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_25! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:113 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_26! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:114 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_29! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:175 | Antistasi | Warning | File: A3A_fnc_initSpawnPlaces | InitSpawnPlaces: Could not find any vehicle places on outpost_30! | Called By: A3URF_fnc_originalPrepareMarkerArrays
+16:57:34 2026-11-15 21:57:34:176 | Antistasi | Info | File: A3A_fnc_initBases | InitBases started | Called By: A3A_fnc_initZones
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 No roadway in road ca\roads\runway_main.p3d
+16:57:35 Bad simulation thing, type Land_Barrel_empty (class=house), ca\structures\misc\armory\barels\barrel_empty.p3d
+16:57:36 2026-11-15 21:57:36:327 | Antistasi | Info | File: A3A_fnc_initBases | InitBases completed | Called By: A3A_fnc_initZones
+16:57:36 2026-11-15 21:57:36:327 | Antistasi | Info | File: A3A_fnc_initZones | Setting up towns | Called By: A3A_fnc_initServer
+16:57:36 2026-11-15 21:57:36:605 | Antistasi | Info | File: A3A_fnc_initZones | Setting up zone-dependent objects - antennas and banks | Called By: A3A_fnc_initServer
+16:57:36 ca\misc\garbage_metal.p3d: house, config class missing
+16:57:37 No skeleton given for chr\chernarusredux_buildings\a2\bridge_stone_asf2_25.p3d destruction
+16:57:37 Bad simulation thing, type Land_Barrel_water (class=house), ca\structures\misc\armory\barels\barrel_water.p3d
+16:57:37 Bad simulation thing, type Land_Barrel_empty (class=house), ca\structures\misc\armory\barels\barrel_empty.p3d
+16:57:38 "[INFECTION_TRACE] [""observation_complete"",10.032,2874,[[""ModuleCurator_F"",2874]]]"
+16:57:38 2026-11-15 21:57:38:218 | Antistasi | Info | File: A3A_fnc_initZones | Setting up fuel stations | Called By: A3A_fnc_initServer
+16:57:38 2026-11-15 21:57:38:279 | Antistasi | Info | File: A3A_fnc_initZones | Setting up military administrations | Called By: A3A_fnc_initServer
+16:57:38 2026-11-15 21:57:38:743 | Antistasi | Info | File: A3A_fnc_initZones | initZones completed | Called By: A3A_fnc_initServer
+16:57:38 2026-11-15 21:57:38:743 | Antistasi | Info | File: A3A_fnc_initServer | Background init started
+16:57:38 2026-11-15 21:57:38:743 | Antistasi | Info | File: A3A_fnc_loadNavGrid | Started loading nav grid | Called By: A3A_fnc_initServer
+16:57:38 2026-11-15 21:57:38:810 | Antistasi | Info | File: fn_advancedTowingInit.sqf | Loading advanced towing
+16:57:38 2026-11-15 21:57:38:810 | Antistasi | Info | File: fn_advancedTowingInit.sqf | Loaded advanced towing
+16:57:38 [a3a-game-setup-monitor] FSM start
+16:57:38 [a3a-game-setup-monitor] Looking for extenders...
+16:57:38 2026-11-15 21:57:38:966 | Antistasi | Info | File: fn_initExtenderDetection.sqf | Extender detection completed.
+16:57:38 2026-11-15 21:57:38:967 | Antistasi | Info | File: fn_initExtenderDetection.sqf | Found 2 extenders. 0 of which have compatibility issues.
+16:57:38 2026-11-15 21:57:38:967 | Antistasi | Info | File: fn_initExtenderDetection.sqf | #0: [["compatDeclared",12.4],["compatReason","compatible"],["name","A3U Redux Fixes"],["compatStatus",0],["extender","A3URF_core"],["version",0.1],["author","A3U Redux Fixes contributors"],["A3A_compatibility",[12,4]]] [title: A3U Redux Fixes author: A3U Redux Fixes contributors version: 0.1]
+16:57:38 2026-11-15 21:57:38:967 | Antistasi | Info | File: fn_initExtenderDetection.sqf | #1: [["compatDeclared",12.4],["compatReason","compatible"],["name","Antistasi Ultimate: Infection"],["compatStatus",0],["extender","A3I_core"],["version",0.1],["author","Antistasi Ultimate: Infection contributors"],["A3A_compatibility",[12,4]]] [title: Antistasi Ultimate: Infection author: Antistasi Ultimate: Infection contributors version: 0.1]
+16:57:39 [a3a-game-setup-monitor] A3A_startupState is "adminwait"
+16:57:40 2026-11-15 21:57:40:145 | Antistasi | Info | File: A3A_fnc_loadNavGrid | Finished loading nav grid | Called By: A3A_fnc_initServer
+16:57:40 2026-11-15 21:57:40:464 | Antistasi | Info | File: A3A_fnc_initServer | Server JNA preload started
+16:57:45 2026-11-15 21:57:45:958 | Antistasi | Info | File: A3A_fnc_initServer | Background init completed
+16:57:45 2026-11-15 21:57:45:958 | Antistasi | Info | File: A3A_fnc_initServer | Server Initialising PATCOM Variables
+16:57:45 2026-11-15 21:57:45:958 | Antistasi | Info | File: A3A_fnc_patrolInit | PATCOM | Init Complete | Called By: A3A_fnc_initServer

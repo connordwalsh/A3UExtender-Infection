@@ -1,0 +1,95 @@
+{
+  "scope": "Instrumented startup diagnosis only; not clean-log or gameplay acceptance",
+  "trace_complete": true,
+  "sha256": "e3b6a905e040b2cd93495429da475507c56479e52029e19fb3b28e1894b795d4",
+  "records": [
+    [
+      "preInit",
+      0,
+      2874
+    ],
+    [
+      "activateAddons",
+      0.127,
+      2874,
+      [
+        "Core",
+        "A3Data",
+        "A3_Functions_F"
+      ],
+      2874,
+      2790,
+      0,
+      [],
+      [
+        "hsim_data_h",
+        "hsim_data_h_data_particleeffects",
+        "hsim_data_h_data_particleeffects_rotor_blades"
+      ]
+    ],
+    [
+      "activateAddonsResult",
+      0.127,
+      0
+    ],
+    [
+      "activateAddons",
+      0.227,
+      0,
+      [],
+      2874,
+      0,
+      0,
+      [],
+      [
+        "hsim_data_h",
+        "hsim_data_h_data_particleeffects",
+        "hsim_data_h_data_particleeffects_rotor_blades"
+      ]
+    ],
+    [
+      "activateAddonsResult",
+      0.227,
+      0
+    ],
+    [
+      "observation_complete",
+      10.032,
+      2874,
+      [
+        [
+          "ModuleCurator_F",
+          2874
+        ]
+      ]
+    ]
+  ],
+  "malformed_lines": [],
+  "errors": [
+    {
+      "line": 1256,
+      "message": "16:57:26 Error: Object(2 : 9) not found"
+    },
+    {
+      "line": 1261,
+      "message": "16:57:26 Error: Object(2 : 10) not found"
+    },
+    {
+      "line": 1268,
+      "message": "16:57:26 \"InfectionCampaign_StartupTrace4/log: ERROR: [A3ITrace_fnc_originalActivateAddons] The function can be activated only during the mission init.\""
+    },
+    {
+      "line": 1271,
+      "message": "16:57:26 \"InfectionCampaign_StartupTrace4/log: ERROR: [A3ITrace_fnc_originalActivateAddons] The function can be activated only during the mission init.\""
+    }
+  ],
+  "calls_after_start": true,
+  "normalized_missing_counts": [
+    0,
+    0
+  ],
+  "native_result_counts": [
+    0,
+    0
+  ]
+}

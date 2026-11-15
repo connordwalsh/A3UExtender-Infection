@@ -1,2 +1,3 @@
 /evidence/sprint-4/campaign-save-*-dev1.rpt -text
 /evidence/sprint-4/redux-companion-*.rpt -text
+/evidence/sprint-4/startup-trace-*/probe.rpt -text
