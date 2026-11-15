@@ -200,3 +200,17 @@ inputs. The same production candidate passes 11 missing-dependency checks. The
 notifications and two native income messages targeting the absent fixture
 commander. No engine/SQF Error records occur. Real player/commander reward
 delivery, HC relay, Redux travel, campaign saves and performance remain unverified.
+
+
+## Named isolated instances
+
+To run an independent fixture alongside an existing probe, supply the same
+`-Instance Elimination` to build-probe and start-probe-server, and explicitly
+supply an unused `-InstancePort 3102` to the latter. This example creates
+`Infection_TemplateProbe_Elimination.VR.pbo`, the profile
+`template-server-Elimination`, and a separate install receipt. Instance names
+permit only 1-32 letters, digits, underscores or hyphens. The default empty name
+preserves the existing profile/mission naming. Named launches require a port at
+least 1024 and reject an occupied five-port UDP range before installing anything.
+Each worktree still protects its contract addon against rebuilding while loaded.
+These concurrent fixtures are not valid performance measurements.

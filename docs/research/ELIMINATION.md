@@ -48,3 +48,26 @@ engine suite is pending the running Humanitarian Aid regression's use of the
 shared isolated Template profile. No manual installation changes or Computer
 Use. Public target selection, safe spawning, tasks, rewards, menus, connected
 combat, saves and full campaign acceptance remain open.
+
+
+## First focused engine evidence
+
+EliminationLedger Dev1 passes 42 focused engine checks, 11 actual missing-dependency
+checks and three parser tests. No engine/SQF errors; the 16 focused and seven
+absence-run startup notices match the reviewed baseline. All 216 production
+inputs and the PBO match after execution. Artifact SHA-256:
+`e8823b4ae3c81aed6dbc67b948b6da58761f596d4b2243edd2834e0473d70576`.
+Both completed servers exited. The native Boomer self-destructed, its death was
+recorded, and its own later corpse deletion preserved neutralization.
+
+The probe tools now accept a validated named instance with its own mission name,
+profile, receipt and explicit unused port. The Elimination fixture ran on port
+3102 without replacing Humanitarian Aid's running Template mission on 2702.
+The per-worktree contract addon remains protected against live rebuilds. This
+allows independent checks to overlap; it is not a performance benchmark.
+
+The owner has also selected infected-held towns and permanent sites for target
+locations and requested an escort containing both basic and minor special
+infected. The public scenario remains a subsequent increment, not part of these
+42 tracking checks. The same three approved smaller specials are the initial
+special roster; larger classes remain unavailable pending investigation.

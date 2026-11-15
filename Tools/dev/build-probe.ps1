@@ -1,7 +1,8 @@
 param(
     [Parameter(Mandatory = $true)][string]$ArmaTools,
     [ValidateSet('Catalog', 'Behavior', 'Template', 'Dependencies')][string]$Mode = 'Catalog',
-    [ValidateSet('Full', 'Administration', 'Reinforcements', 'Roaming', 'Counterattacks', 'Towns', 'Tactical', 'Major', 'CatalogPolicy', 'Clearance', 'Liquidation', 'LiquidationController', 'LiquidationDispatch', 'Interception', 'InterceptionFormation', 'FormationRegression', 'InterceptionTask', 'InterceptionStorage', 'InterceptionArrivals', 'AdministrationExtras', 'InterceptionAftermath', 'InterceptionDispatch', 'Delivery', 'ExtractionLedger', 'AidLedger', 'EliminationLedger', 'ExtractionScenes', 'SupplyTrucks', 'SupplyTask', 'SupplyDispatch', 'BackgroundConvoys')][string]$Suite = 'Full'
+    [ValidateSet('Full', 'Administration', 'Reinforcements', 'Roaming', 'Counterattacks', 'Towns', 'Tactical', 'Major', 'CatalogPolicy', 'Clearance', 'Liquidation', 'LiquidationController', 'LiquidationDispatch', 'Interception', 'InterceptionFormation', 'FormationRegression', 'InterceptionTask', 'InterceptionStorage', 'InterceptionArrivals', 'AdministrationExtras', 'InterceptionAftermath', 'InterceptionDispatch', 'Delivery', 'ExtractionLedger', 'AidLedger', 'EliminationLedger', 'ExtractionScenes', 'SupplyTrucks', 'SupplyTask', 'SupplyDispatch', 'BackgroundConvoys')][string]$Suite = 'Full',
+    [ValidatePattern('^[A-Za-z0-9_-]{0,32}$')][string]$Instance = ''
 )
 $ErrorActionPreference = 'Stop'
 if ($Mode -ne 'Template' -and $Suite -ne 'Full') { throw 'Focused suites require Template mode.' }
@@ -15,6 +16,7 @@ if ($Mode -eq 'Template') {
 }
 $sourceName = @{ Catalog = 'catalog.VR'; Behavior = 'behavior.VR'; Template = 'template.VR'; Dependencies = 'template.VR' }[$Mode]
 $missionName = @{ Catalog = 'Infection_ClassProbe.VR'; Behavior = 'Infection_BehaviorProbe.VR'; Template = 'Infection_TemplateProbe.VR'; Dependencies = 'Infection_DependencyProbe.VR' }[$Mode]
+if ($Instance) { $missionName = $missionName.Replace('.VR', ('_' + $Instance + '.VR')) }
 $source = Join-Path $repoRoot ('tests\arma\infection_probe\' + $sourceName)
 $output = Join-Path $repoRoot '.work\probe-missions'
 # Every build uses an empty staging directory; an old PBO cannot mask a failure.
