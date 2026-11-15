@@ -1239,6 +1239,17 @@ profile LiberationFull, port 4202. Its result is pending; the focused pass does
 not certify shared-controller regression, connected players, saves, terrain or
 campaign acceptance. PR 49 remains draft. Manual Dev9 remains unchanged.
 
+## 15 November 2026 - Survivor-defense full integration result
+
+Corrected Dev2: 1,696 checks and 67 role spawns pass; no engine/SQF errors.
+All 293 production inputs/PBO match. Earlier failed runs remain retained.
+The parent waits now observe the actual rescue scene before retirement, the
+vehicle fixture observes created crews/groups without relying on unrelated
+array ordering, and final cleanup succeeds. The later shared Major fixture
+zero-limit defect is documented and corrected in the combined integration
+branch. PR 49 is ready for source integration; connected players, save/reload,
+real terrain and sprint acceptance remain open. Manual Dev9 is unchanged.
+
 15 November combined integration review: CampaignIntegration Dev1 passes
 1,806 isolated checks and 67 roles, with 322 source/PBO identities verified and
 no recorded engine/SQF or native Antistasi Error-level records. Earlier rejected
