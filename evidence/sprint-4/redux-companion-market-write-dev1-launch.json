@@ -1,0 +1,14 @@
+{
+  "Phase": "Write",
+  "ProcessId": 47868,
+  "ProfileDirectory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Zombie Occupant Faction\\.work\\redux-market-validation\\.work\\profiles\\campaign-server-ReduxMarket1",
+  "Port": 6502,
+  "StartedUTC": "2026-11-15T21:12:25.2097369Z",
+  "ProductionPBO": "B4B0C17E92A87E16020635ED4EBCD8AD1E28DD2FF78C5866C494EC23DD981085",
+  "HelperPBO": "8B55F51F5EBE12480245F2D7EC8D3B97E22A0A97D599F22DFA2D653C9DE59126",
+  "HelperSource": "7A33E1025B267395538E25EDBD67543E1CAC534ABDE3BBEA1B84CC8054061E25",
+  "ReduxFixes": {
+    "PBO": "416087574CCC11570D26FFB53E4590901DB2677AF957574409284BB4D8A9FAFF",
+    "Directory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Chernarus Redux Map Change\\.work\\build\\@A3U_Redux_Fixes"
+  }
+}

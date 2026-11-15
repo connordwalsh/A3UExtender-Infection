@@ -42,6 +42,11 @@ private _initialized=[{missionNamespace getVariable ["serverInitDone",false]},90
 if (!_initialized) exitWith {call _finish};
 ["infection_selected",[west] call A3I_fnc_isActive] call _check;
 ["native_hq_ready",alive petros && {!isNull boxX} && {!isNull flagX}] call _check;
+private _helicopter="O_Heli_Light_02_dynamicLoadout_F";
+private _expectedQuote=[_helicopter] call A3U_fnc_blackMarketVehiclePrice;
+private _actualQuote=[_helicopter] call A3A_fnc_vehiclePrice;
+["black_market_only_hq_absent",isNil {server getVariable _helicopter}] call _check;
+["black_market_only_native_quote",_expectedQuote>0 && {_actualQuote==_expectedQuote},[_actualQuote,_expectedQuote]] call _check;
 private _parkingSites=[
     ["outpost_6","outp_6_vehicle"],["resource_1","reso_1_vehicle_1"],
     ["resource_2","reso_2_vehicle_1"],["resource_3","reso_3_vehicle_1"],
@@ -106,4 +111,9 @@ if (_new) then {
     ["saved_crate_resources_restored",(server getVariable "resourcesFIA")==(_receipt get "expectedFunds"),
         [server getVariable "resourcesFIA",_receipt get "expectedFunds"]] call _check;
 };
+// The original helicopter error occurred after the old completion marker.
+// Keep a deliberate background observation window in this expanded regression.
+private _backgroundWindowStart=diag_tickTime;
+sleep 75;
+["background_window_completed",diag_tickTime-_backgroundWindowStart>=75,[diag_tickTime-_backgroundWindowStart]] call _check;
 call _finish;
