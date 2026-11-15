@@ -872,20 +872,6 @@ draft PR 33 and cannot claim this different candidate's regression result.
 No Computer Use or manual installation/profile changes.
 
 
-<<<<<<< HEAD
-## 14 November 2026 - Friendly delivery predicate review
-
-Delivery Dev1 passes 36 focused engine checks, 11 actual missing-dependency
-checks, packaging and three parser tests. No engine/SQF errors; 16 startup
-notices reviewed. All 178 production inputs and the PBO match after testing;
-both servers exited. Review covered current ownership, all six site lists,
-HQ references, rotated marker geometry, excluded sites and read-only behavior.
-This helper has no public caller and changes no rewards or assets; focused
-coverage is appropriate without repeating the parent full suite solely for it.
-PR 35 separately passed 1089 combined checks and 67 role records. PR 37 may
-integrate this prerequisite. Actual delivery missions and campaign acceptance
-remain open. No Computer Use or manual installation/profile changes.
-=======
 ## 14 November 2026 - Integrated Horde Interception dispatch review
 
 InterceptionDispatch Dev1 passes all 1089 combined dedicated checks and all 67
@@ -911,4 +897,17 @@ entry points and arrival aftermath, with isolated engine evidence. It does not
 prove connected menus, HC/JIP, Redux travel, disk campaign saves, stochastic intel
 outcomes, one-hour aftermath or full campaign/release acceptance. No sprint gate
 is closed. No Computer Use or manual installation/profile changes.
->>>>>>> origin/master
+
+
+## 14 November 2026 - Friendly delivery predicate review
+
+Delivery Dev1 passes 36 focused engine checks, 11 actual missing-dependency
+checks, packaging and three parser tests. No engine/SQF errors; 16 startup
+notices reviewed. All 178 production inputs and the PBO match after testing;
+both servers exited. Review covered current ownership, all six site lists,
+HQ references, rotated marker geometry, excluded sites and read-only behavior.
+This helper has no public caller and changes no rewards or assets; focused
+coverage is appropriate without repeating the parent full suite solely for it.
+PR 35 separately passed 1089 combined checks and 67 role records. PR 37 may
+integrate this prerequisite. Actual delivery missions and campaign acceptance
+remain open. No Computer Use or manual installation/profile changes.
