@@ -382,3 +382,12 @@ loading, a 202-actor revisit and clearance until the remaining extras die.
 The corrected controller retention fixture is merged. Combined validation is
 running on this same 160-input candidate. Live/offscreen horde adoption, hostile
 arrival combat, public mission dispatch and full campaign saves remain open.
+
+
+Offscreen arrival work: a separate feature branch adds the atomic survivor-roster
+transaction while the parent combined suite remains frozen. It refuses observed
+or live destinations, appends extras above capacity only after physical arrival,
+and prevents duplicate additions/resource refunds. Twenty-three focused cases
+are authored; engine execution awaits the current combined server. Packaging,
+three parser tests and eleven actual missing-dependency checks pass. Public
+calling paths, active adoption and administration arrivals remain unfinished.

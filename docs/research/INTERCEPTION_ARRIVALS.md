@@ -63,3 +63,30 @@ normal-garrison behavior on later visits. A live adopted horde must keep its
 separate temporary allowance until its physical actors retire. Hostile arrivals
 must fight/capture under the approved campaign rules, not flip territory merely
 because the task failed. These paths are not implemented by town storage support.
+
+
+## Offscreen arrival transaction (draft)
+
+`storeInterceptionArrivals` accepts one fully arrived group from the exact settled
+interception owner. It requires an infected-owned town or ordinary permanent
+site, no live site controller, all survivors inside the actual destination marker,
+valid registered roles, a closed dedicated ticket containing exactly that living
+group, and no nearby observers. A busy native garrison defers the transaction.
+It appends survivor roles without applying the normal garrison capacity, changes
+the actors to native garrison accounting, marks the handoff before deletion, and
+releases only their ticket. Native corpses retain their lifetime. Retrying cannot
+append the same survivors again.
+
+The transaction is an internal helper; public mission dispatch and the arrival
+owner do not call it yet. Active-site adoption and administration strongholds
+remain separate work. Administration creators use a separate regenerated roster,
+so the helper refuses those locations rather than saving ignored defenders.
+
+The focused fixture uses real prepared infected, native initialization and budget
+bindings. It tests stale/foreign claims, busy/active/hostile destinations, observers,
+invalid roles and tickets, above-capacity permanent-site additions, a dead member
+excluded from saved town additions, corpse retention, resource neutrality and
+cleanup. No physical walking, campaign save-file or connected-player acceptance
+is implied by placing fixture actors at the destination. Engine execution is
+pending; packaging and three parser tests pass. The actual missing-dependency
+run passes all eleven checks without engine/SQF errors.
