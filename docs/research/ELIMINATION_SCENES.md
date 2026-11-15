@@ -40,3 +40,18 @@ The repeat passes all 34 checks without engine/SQF errors. Actual
 missing-dependency checks also pass all 11 cases. Basic formation regression and
 final integration are running or pending. Actual connected combat, terrain and
 campaign behavior remain open.
+
+
+The unchanged 219-input EliminationScenes Dev1 artifact also passes 85 existing
+Liquidation/Interception formation checks, including real basic-unit spawning,
+marching, cleanup and the full 120-actor horde. No engine/SQF errors. Its 20
+reviewed notices comprise the 16 startup baseline notices and four native object
+deletion notices. The scene and absence suites retain 16 and seven startup
+notices respectively. All completed scene, formation and dependency servers exited.
+The artifact SHA-256 is
+`23e83d8562f76dc6488ff7b8f61a944260ac959aab4b3f575a5646e94ab39a53`.
+
+This increment changes explicit-special recognition in isManagedUnit; the
+existing basic-role branch remains unchanged and the formation regression covers
+its callers. Ordinary unrelated special actors are explicitly rejected by the
+new scene test. Final integration with the Humanitarian Aid branch is pending.
