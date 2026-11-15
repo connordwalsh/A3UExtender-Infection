@@ -1,6 +1,6 @@
 // Internal scene factory; caller owns actors and must register task/ledger/actions.
 // [source marker, optional desired 2..6] -> [units, group, failure reason].
-params [["_marker","",[""]],["_desired",0,[0]]];
+params [["_marker","",[""]],["_desired",0,[0]],["_afterCreate",{true},[{}]]];
 if (!isServer || {isRemoteExecuted} || {!canSuspend}) exitWith {[[],grpNull,"scheduled_server_only"]};
 if (_desired == 0) then {_desired = 2 + floor random 5};
 private _role = (missionNamespace getVariable ["A3A_faction_reb",createHashMap]) getOrDefault ["unitUnarmed",""];
@@ -45,6 +45,11 @@ isNil {
         || {side group _x != teamPlayer} || {_x getVariable ["WBK_AI_ISZombie",false]}}) != -1}) exitWith {
         {deleteVehicle _x} forEach _units; deleteGroup _group;
         _result = [[],grpNull,"unit_creation_failed"];
+    };
+    private _registered = [_units,_group] call _afterCreate;
+    if (isNil "_registered" || {!(_registered isEqualTo true)}) exitWith {
+        {deleteVehicle _x} forEach _units; deleteGroup _group;
+        _result = [[],grpNull,"registration_failed"];
     };
     _result = [_units,_group,""];
 };

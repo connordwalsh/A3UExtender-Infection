@@ -213,3 +213,13 @@ owned records. `A3A_patcom` is an explicit load-order dependency.
 The pinned source SHA-256 is `514d24395b15d6732e6c1ea7f7ddfbd4a91a2d2825a4de1bdfd1ca85d2f7836e`.
 See [ABANDONED_VEHICLES.md](ABANDONED_VEHICLES.md) for the native save policy,
 actual Altis-road evidence and remaining Redux/player/traffic/save acceptance.
+
+## Extraction civilian requests
+
+`A3A/addons/patcom/functions/Civilian/fn_dialogCivFinished.sqf` is adapted
+only while Infection is active; ordinary campaigns use the native alias.
+Pinned source SHA-256: `e786ff360ddd995c233670fbcb38418bcbcf8449ce2ed385bda80a371da5bb2c`.
+The adapted worker is scheduled to preserve synchronous intel return values.
+`RES_Informer` joins the four other rescue aliases and server-pinned scheduler
+routes. See [EXTRACTION_TASK.md](EXTRACTION_TASK.md) for flag ownership and
+validation limits.

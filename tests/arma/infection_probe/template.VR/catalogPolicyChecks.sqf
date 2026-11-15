@@ -77,5 +77,27 @@ private _hook = "_this call A3I_fnc_hideRemovedMissionControl";
         != ("\x\a3i\addons\core\overrides\fn_" + _x + ".sqf")
 }) == -1 && {getText (configFile >> "CfgFunctions" >> "A3A" >> "GUI" >> "requestMissionDialog" >> "file")
     == "\x\a3i\addons\core\overrides\fn_requestMissionDialog.sqf"}] call _check;
+private _tower=createVehicle ["Land_TTowerSmall_1_F",[5500,5500,0],[],0,"NONE"];
+_tower setDamage 1;sleep 0.2;
+private _oldDead=missionNamespace getVariable ["antennasDead",[]];antennasDead=[_tower];
+private _beforeRepair=entities [[],[],true,false];private _repairGroups=+allGroups;
+A3I_test_originals=[];
+["fixture_site",_tower] call A3A_fnc_REP_Antenna;
+[["fixture_site",_tower],"A3A_fnc_REP_Antenna"] call A3A_fnc_scheduler;sleep 0.3;
+["catalog_infected_tower_stays_destroyed",!alive _tower && {antennasDead isEqualTo [_tower]}
+    && {A3I_test_originals isEqualTo []},[alive _tower,antennasDead isEqualTo [_tower],+A3I_test_originals]] call _check;
+["catalog_repair_no_crew_or_task",entities [[],[],true,false]-_beforeRepair isEqualTo []
+    && {allGroups-_repairGroups isEqualTo []}] call _check;
+A3A_faction_occ set ["infectionTemplate",""];
+["fixture_site",_tower] call A3A_fnc_REP_Antenna;
+["catalog_native_repair_delegates",A3I_test_originals isEqualTo [["originalRepairAntenna",["fixture_site",_tower]]]] call _check;
+A3A_faction_occ set ["infectionTemplate","A3I_Infected"];
+["catalog_repair_endpoint_registered",getText (configFile >> "CfgFunctions" >> "A3A" >> "Missions" >> "REP_Antenna" >> "file")
+    == "\x\a3i\addons\core\overrides\fn_REP_Antenna.sqf"] call _check;
+["catalog_gang_endpoints_native",(["RIV_ENC_Rivals","RIV_ATT_Cell","RIV_ATT_Hideout","RIV_ATT_Transfer"] findIf {
+    private _cfg=configFile >> "CfgFunctions" >> "A3A" >> "Missions" >> _x;
+    !isClass _cfg || {(toLower getText (_cfg >> "file")) find "\x\a3i\" >= 0}
+})==-1] call _check;
+deleteVehicle _tower;antennasDead=_oldDead;sleep 0.2;
 A3I_test_originals = _savedOriginals; A3I_test_catalogCalls = _savedCalls;
 if (isNil "_savedLock") then {A3A_missionRequestInProgress = nil} else {A3A_missionRequestInProgress = _savedLock};

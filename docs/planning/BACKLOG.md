@@ -583,6 +583,44 @@ missing-dependency checks; Dev1 passed 38 public-dispatch checks. All 236 Dev2
 production inputs match the packaged artifact. Combined integration, connected
 combat/rewards, terrain, HC/JIP and performance remain open. No sprint acceptance
 gate is closed and the manual installation remains unchanged.
+
+
+## Extraction release prerequisite: 15 November 2026
+
+The guarded release interaction is implemented on codex/extraction-release.
+Dev2 passes 89 combined ledger/scene/release checks and eleven dependency-absence
+checks. See [EXTRACTION_RELEASE.md](../research/EXTRACTION_RELEASE.md). Public
+mission dispatch, rewards, post-delivery disposition and connected-player
+acceptance remain open. This is not completion of the Extraction mission.
+
+## Extraction controller and public requests: 15 November 2026
+
+Draft PR 52 supersedes the release-only checkpoint and includes PR 51. All owner
+decisions on disposition, deadlines and guards are implemented in the candidate:
+2-6 sheltered survivors, four basic managed guards, guarded release, incremental
+manpower/inventory delivery, all-resolved or deadline settlement, native rewards
+and undelivered squad cleanup. Commander requests, five legacy rescue routes and
+civilian offers route to Extraction. Dev4 passes 150 combined Extraction checks,
+11 missing-dependency checks and three parser tests; all 287 inputs/PBO match.
+The full cross-system regression is running in the isolated ExtractionFull
+profile. Connected players, conversations/actions, HC/JIP, saves and campaign
+acceptance remain open. No sprint gate is closed. Manual Dev9 is unchanged.
+
+## Remaining campaign entrypoints: 15 November 2026
+
+Rescue route audit adds the sixth endpoint, RES_Shipwreck (43 focused checks and
+11 missing-dependency checks). Destroyed infected towers no longer dispatch
+repair crews or rebuild through REP_Antenna (30 catalog checks and 11 dependency
+checks). Gang storyline/assault routes stay native. DealerUnlock skips the intro
+while retaining normal native intel/progression triggers, real trader/stock and
+save fields (28 focused checks and 11 dependency checks). Source/PBO manifests
+match each separate candidate. Rejected attempts remain documented.
+
+All increments remain draft pending combined integration and connected-player,
+terrain, network and save acceptance. Manual Dev9 is unchanged; no sprint gate
+is closed. Longer survivor-defense and Extraction regressions are still running
+on their previously frozen builds, which do not include these later increments.
+
 Parent-controller checkpoint: real native task registration, human rescue,
 preparation, linked horde, capture/reward/failure transactions and interruption
 cleanup pass within 104 focused checks; the missing-dependency suite passes 11.
@@ -616,3 +654,10 @@ inputs. The focused engine suite is running; its expected 249 checks include
 scene assembly and the parent controller, which were previously NOT_RUN.
 No source-level merge is treated as runtime acceptance. Connected recruitment,
 visible effects, Redux walking routes, pacing and campaign saves remain open.
+
+15 November combined integration review: CampaignIntegration Dev1 passes
+1,806 isolated checks and 67 roles, with 322 source/PBO identities verified and
+no recorded engine/SQF or native Antistasi Error-level records. Earlier rejected
+Extraction evidence is retained. This supports source integration, not sprint
+or release acceptance; native Redux startup defects, connected players, JIP,
+full mission playthroughs and performance remain open. See CAMPAIGN_INTEGRATION.md.

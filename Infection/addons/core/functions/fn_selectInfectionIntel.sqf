@@ -65,7 +65,7 @@ if (!disableTrader && {!isTraderQuestCompleted && {!isTraderQuestAssigned}}) the
 
     if (random 100 < (_thresholds get _intelType)) then {
         [] remoteExec ["SCRT_fnc_trader_prepareTraderQuest", 2];
-        _text = format [localize "STR_trader_task_hint_description", ([] call SCRT_fnc_misc_getWorldName)];
+        _text = "Arms-dealer contact received. Their location will be marked once confirmed.";
         _intelContent = DEALER;
     };
 };

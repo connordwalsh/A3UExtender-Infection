@@ -30,6 +30,7 @@ class CfgFunctions
             class dependencies {};
             class isActive {};
             class backgroundSupplyConvoy {};
+            class unlockDealer {};
             class deliveryDestination {};
             class startAbandonedTown {};
             class runAbandonedTown {};
@@ -53,10 +54,29 @@ class CfgFunctions
             class finishSupplySeizure {};
             class cleanupSupplySeizure {};
             class supplyTaskTick {};
+            class requestExtraction {};
+            class requestCivilianExtraction {};
+            class runCivilianDialog {};
+            class dispatchExtraction {};
+            class labelExtractionControl {};
+            class extractionTaskBusy {};
+            class startExtraction {};
+            class runExtraction {};
+            class extractionTaskOutcome {};
+            class convertExtractionRescues {};
+            class finishExtraction {};
+            class extractionTaskTick {};
+            class cleanupExtraction {};
             class extractionLocations {};
             class extractionTargets {};
             class findExtractionShelter {};
             class createExtractionSurvivors {};
+            class extractionAction {};
+            class setExtractionActions {};
+            class requestExtractionRelease {};
+            class beginExtractionRelease {};
+            class extractionRecruitLocal {};
+            class extractionReleaseTick {};
             class eliminationTaskBusy {};
             class startElimination {};
             class runElimination {};
@@ -266,6 +286,16 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalDialogCivFinished { file = "\x\a3a\addons\patcom\functions\Civilian\fn_dialogCivFinished.sqf"; };
+            class originalENCTrader { file = "\x\a3a\addons\core\functions\Missions\fn_ENC_Trader.sqf"; };
+            class originalRepairAntenna { file = "\x\a3a\addons\core\functions\Missions\fn_REP_Antenna.sqf"; };
+            class originalRESShipwreck { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Shipwreck.sqf"; };
+            class originalRESInformer { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Informer.sqf"; };
+            class originalRESRefugees { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Refugees.sqf"; };
+            class originalRESPrisoners { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Prisoners.sqf"; };
+            class originalRESDeserters { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Deserters.sqf"; };
+            class originalRIVRESPrisoners { file = "\x\a3a\addons\core\functions\Missions\fn_RIV_RES_Prisoners.sqf"; };
+
             class originalSelectIntel { file = "\x\a3a\addons\core\functions\Intel\fn_selectIntel.sqf"; };
             class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
             class originalTownBattle { file = "\x\a3a\addons\core\functions\CREATE\fn_townBattle.sqf"; };
@@ -329,6 +359,7 @@ class CfgFunctions
     {
         class Civilian
         {
+            class dialogCivFinished { file = "\x\a3i\addons\core\overrides\fn_dialogCivFinished.sqf"; };
             class createAmbientCivTraffic { file = "\x\a3i\addons\core\overrides\fn_createAmbientCivTraffic.sqf"; };
         };
         class Intel
@@ -345,6 +376,15 @@ class CfgFunctions
         };
         class Missions
         {
+            class ENC_Trader { file = "\x\a3i\addons\core\overrides\fn_ENC_Trader.sqf"; };
+            class REP_Antenna { file = "\x\a3i\addons\core\overrides\fn_REP_Antenna.sqf"; };
+            class RES_Shipwreck { file = "\x\a3i\addons\core\overrides\fn_RES_Shipwreck.sqf"; };
+            class RES_Informer { file = "\x\a3i\addons\core\overrides\fn_RES_Informer.sqf"; };
+            class RES_Refugees { file = "\x\a3i\addons\core\overrides\fn_RES_Refugees.sqf"; };
+            class RES_Prisoners { file = "\x\a3i\addons\core\overrides\fn_RES_Prisoners.sqf"; };
+            class RES_Deserters { file = "\x\a3i\addons\core\overrides\fn_RES_Deserters.sqf"; };
+            class RIV_RES_Prisoners { file = "\x\a3i\addons\core\overrides\fn_RIV_RES_Prisoners.sqf"; };
+
             class AS_Ambush { file = "\x\a3i\addons\core\overrides\fn_AS_Ambush.sqf"; };
             class AS_Official { file = "\x\a3i\addons\core\overrides\fn_AS_Official.sqf"; };
             class AS_Smasher { file = "\x\a3i\addons\core\overrides\fn_AS_Smasher.sqf"; };

@@ -75,14 +75,18 @@ if (_result) then {
 deleteVehicle petros; petros = objNull; sleep 0.1; deleteGroup _hqGroup;
 call _resetDispatch;
 sidesX setVariable [_town,west]; gameMode = 1; spawner setVariable [_enemySite,0];
-[0,4] call _setLimits;
+[1,4] call _setLimits;
+private _occupied=["reserve",["major:fixture-block",1,1]] call A3I_fnc_budget;
+["major_active_budget_occupied",_occupied # 0 && {(["stats"] call A3I_fnc_budget) # 1 # 0==1}
+    && {(["stats"] call A3I_fnc_budget) # 1 # 2==1},[A3I_activeLimit,_occupied]] call _check;
 _result = [west] call A3A_fnc_chooseAttack;
 ["major_choose_active_invader_horde",_result && {A3A_resourcesAttackOcc == -399}
-    && {A3A_tasksData isEqualTo []}] call _check;
+    && {A3A_tasksData isEqualTo []},[_result,A3A_resourcesAttackOcc,A3A_tasksData,A3I_activeLimit]] call _check;
 if (_result) then {
     _job = A3I_majorAttacks get A3I_majorGlobalOwner;
     _job set ["emptyDeadline",time - 1]; [_job] call _waitJob;
 };
+if (_occupied # 0) then {["cancel",[_occupied # 1 # 0]] call A3I_fnc_budget};
 [4,4] call _setLimits;
 call _resetDispatch;
 private _choice = [_enemySite,_source,1,0,0,8];

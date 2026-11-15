@@ -1,5 +1,14 @@
 params ["_arguments","_function"];
 if (!isServer) exitWith {};
+if (_function isEqualType "" && {toLower _function == "a3a_fnc_enc_trader"}
+    && {_arguments isEqualType []} && {[west] call A3I_fnc_isActive})
+    exitWith {_arguments remoteExec [_function,2]};
+if (_function isEqualType "" && {toLower _function == "a3a_fnc_rep_antenna"}
+    && {[west] call A3I_fnc_isActive}) exitWith {};
+if (_function isEqualType "" && {toLower _function in
+    ["a3a_fnc_res_shipwreck","a3a_fnc_res_informer","a3a_fnc_res_refugees","a3a_fnc_res_prisoners","a3a_fnc_res_deserters","a3a_fnc_riv_res_prisoners"]}
+    && {_arguments isEqualType []} && {[west] call A3I_fnc_isActive})
+    exitWith {_arguments remoteExec [_function,2]};
 if (_function isEqualType "" && {toLower _function == "a3a_fnc_createambientcivtraffic"}
     && {_arguments isEqualType []} && {[west] call A3I_fnc_isActive})
     exitWith {_arguments remoteExec [_function,2]};

@@ -1180,6 +1180,51 @@ certify connected player rewards, visible menu behavior, campaign progression,
 terrain, saves, performance or a sprint gate. Manual Dev9 remains unchanged.
 
 
+## 15 November 2026 - Extraction release review
+
+Reviewed actor/ledger identity, server-side request checks, duplicate reservations,
+three-second revalidation, cleanup ownership and late-join prevention. Review
+found a JIP-key cleanup gap when actor ownership changes; Dev2 retires that key
+while preserving the foreign actor state. The 89-check combined Extraction suite,
+eleven missing-dependency checks, three parser tests and all 268 source/PBO hashes
+pass. Native FIA initialization is observed on the dedicated server. Actual
+client action visibility and client-owned recruitment remain untested, as do
+full combined regression and the public mission controller. No gate is closed.
+
+## 15 November 2026 - Extraction controller review
+
+Review covered task/ledger identity, all-resolved/deadline outcomes, native HR
+rounding and reward idempotence, preservation of missing-arsenal deliveries,
+successor-owned actors, delayed deletion of undelivered squad members, and
+server-pinned public requests. Caller audit found RES_Informer and the native
+civilian mission flag; both are now integrated without claiming or clearing
+foreign flags. Scheduled civilian intel retains its return value, and delayed
+zone dialogue explicitly carries its caller. Native behavior is aliased outside
+Infection. Client-origin dialogue verifies caller ownership.
+
+Dev4: 150 isolated Extraction checks and eleven missing-dependency checks pass,
+with no recorded engine/SQF errors. Three parser tests and all 287 production
+source/PBO identities pass. Reviewed warnings and rejected prior attempts are
+retained in the research/evidence records. Full cross-system regression is
+running; connected-player UI/ownership, campaign saves and sprint acceptance
+remain unproven. PR 52 is draft, with PR 51 included as its prerequisite.
+
+## 15 November 2026 - Route follow-up and dealer review
+
+Closed the registered Shipwreck endpoint gap without adding naval rescue sources.
+The approved tower policy blocks repair missions at dispatch and endpoint while
+leaving destroyed tower serialization intact. Gang routes remain native. Dealer
+review preserves native trigger timing, disabled-trader behavior, stock selection
+and saved position/flags; strips introduction tasks and discovery rewards; and
+adds server pinning, duplicate protection and bounded failed-placement retry.
+
+The dealer fixture uses real native creation and stock; market dispatch is
+recorded and forwarded to the native function. Dedicated servers cannot establish
+visible action usability. The initial marker-recorder/error and UI assertion
+failures are retained as rejected. Corrected 28-check and eleven dependency
+runs pass with all 291 production/PBO identities verified. Full cross-system,
+connected purchases/JIP and save/reload acceptance remain open.
+
 ## 15 November 2026 - Focused integrated survivor-defense result
 
 The third focused run (13:14:17 RPT) passes all 249 checks with no engine/SQF
@@ -1204,3 +1249,10 @@ array ordering, and final cleanup succeeds. The later shared Major fixture
 zero-limit defect is documented and corrected in the combined integration
 branch. PR 49 is ready for source integration; connected players, save/reload,
 real terrain and sprint acceptance remain open. Manual Dev9 is unchanged.
+
+15 November combined integration review: CampaignIntegration Dev1 passes
+1,806 isolated checks and 67 roles, with 322 source/PBO identities verified and
+no recorded engine/SQF or native Antistasi Error-level records. Earlier rejected
+Extraction evidence is retained. This supports source integration, not sprint
+or release acceptance; native Redux startup defects, connected players, JIP,
+full mission playthroughs and performance remain open. See CAMPAIGN_INTEGRATION.md.
