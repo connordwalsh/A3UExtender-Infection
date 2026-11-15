@@ -17,7 +17,8 @@ fn_RIV_SUPP_Salvage.sqf; CREATE/fn_AIVEHinit.sqf.
   therefore need guarded Infection behavior, preserving ordinary campaigns.
 - Native normal/difficult deadlines are 60/30 minutes. It creates an invulnerable
   Land_FoodSacks_01_cargo_brown_F package near HQ, adds native loading and rope
-  support, and initializes it as Rebel-owned. This is a delivery package, not
+  support, and passes teamPlayer to AIVEHinit. That function returns before its
+  ownership/resource hooks for this non-crewed object. This is a delivery package, not
   the recoverable truck used by Supplies Seizure.
 - Native placement uses findEmptyPosition without a checked empty-result branch.
   The replacement needs bounded, collision-checked HQ placement and rollback.
@@ -110,3 +111,21 @@ support/aggression state and logistics registration, with controlled travel and
 time. Player notifications, connected loading and cash/score delivery remain
 NOT RUN. Engine evidence for this integration is pending; earlier ledger results
 do not certify the new public controller.
+
+
+## Focused controller evidence
+
+AidTask Dev2 passes 50 focused engine checks, 11 actual missing-dependency
+checks and three parser tests, with no engine/SQF errors. Sixteen focused and
+seven missing-dependency startup notices match the reviewed dependency baseline.
+All 229 production inputs and the PBO match the manifest after execution.
+SHA-256: `7b9a870e341ccfccd47d908359f9d51fe8bdd817e595a9cee3b859b46ac3d2d3`.
+Both completed servers exited before the combined run started.
+
+The rejected initial report is retained: its 48 assertions passed, but the
+fixture had not initialized the marker-update log used by native support changes.
+The corrected fixture initializes that state. Two added checks verify foreign
+asset preservation and that unexplained package deletion cancels without penalty.
+Cleanup now preserves the object-derived native logistics JIP action when an
+existing package has been reassigned. This is server-side preservation evidence,
+not connected JIP acceptance. The combined regression is still running.
