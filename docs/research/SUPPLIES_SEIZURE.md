@@ -98,3 +98,30 @@ The strengthened run also checks all six conventional permanent-site types for
 ammunition/fuel/repair eligibility. The original passing 43-check report is
 retained as supply-task-engine-initial.json; the accepted 45-check report is
 supply-task-engine.json. Production remained unchanged between these runs.
+
+## Public dispatch increment
+
+All six native LOG entry points (Ammo, Bank, Salvage, Airdrop, Crashsite,
+Helicrash) now route to the server-owned Supplies Seizure controller in Infection.
+Ordinary campaigns delegate to their original source functions. The bank object
+is resolved only to an eligible containing source; invalid locations do not
+silently fall back to a different mission. Scheduler routing stays on the server
+when an HC is registered. Direct remote calls accept only the server or registered
+HC owners; the creator remains local-only.
+
+LOG requests preserve the foreign mission-request lock and native HQ leader
+check. They report success only after task registration, honor silent requests,
+and refuse duplicate preparation or retained native LOG tasks. Both menu buttons
+show Supplies Seizure while preserving native actions and inheritance. The pinned
+caller audit found all six variants selected by missionRequest; old airdrop and
+crash missions retry through that same request entry. No separate LOG branch was
+found in the intel override.
+
+SupplyDispatch Dev1 passes 36 focused engine checks, 11 actual missing-dependency
+checks and three parser tests. No engine/SQF errors; 16 startup warnings in the
+focused run and seven in the absent-dependency run were reviewed. All 203 production
+inputs and the PBO match the manifest. Artifact SHA-256:
+`b5869202dff7e72f29dd3c6c30020efe6befe9fe04a2ee7c9edafd4b4f0fc289`.
+Both focused servers exited. Combined regression is the next integration gate.
+Menu configuration is verified; visible menus, client/HC relay and player-facing
+notification delivery are not accepted by this isolated server evidence.

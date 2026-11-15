@@ -17,7 +17,7 @@ isNil {
     _record set ["truck",_truck];
     _truck setVariable ["A3I_supplyTaskOwner",[_record get "name",_record get "serial"]];
     _record set ["deadline",time + (_record get "duration")];
-    private _description = format ["Intelligence reports a %1 truck was positioned in %2 before the infection. Bring the truck back to friendly territory for distribution.<br/><br/>Deliver it to Rebel HQ (within 100 metres), or inside a Rebel-held base, outpost, airfield, factory, resource site or seaport. Keep the truck intact; it remains yours after delivery. You have %3 minutes. Recovery continues if the settlement changes hands.",
+    private _description = format ["Intelligence reports a %1 truck was positioned in %2 before the infection. Bring the truck back to friendly territory for distribution.<br/><br/>Deliver it to Rebel HQ (within 100 metres), or inside a Rebel-held base, outpost, airfield, factory, resource site or seaport. Keep the truck intact; it remains yours after delivery. You have %3 minutes. Capturing this permanent site also completes delivery here. Recovery otherwise continues if the settlement changes hands.",
         _record get "kind",[_target] call A3A_fnc_localizar,(_record get "duration") / 60];
     [[teamPlayer,civilian],_record get "name",[_description,"Supplies Seizure",_target],
         getPosATL _truck,false,0,true,"rearm",true] call BIS_fnc_taskCreate;

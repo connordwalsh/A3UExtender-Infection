@@ -38,6 +38,9 @@ class CfgFunctions
             class findSupplyPosition {};
             class supplyTaskBusy {};
             class startSupplySeizure {};
+            class requestSupplySeizure {};
+            class dispatchSupplySeizure {};
+            class labelSupplyControl {};
             class runSupplySeizure {};
             class supplyTaskOutcome {};
             class finishSupplySeizure {};
@@ -189,6 +192,12 @@ class CfgFunctions
             class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
             class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
             class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
+            class originalLOGAmmo { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Ammo.sqf"; };
+            class originalLOGBank { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Bank.sqf"; };
+            class originalLOGSalvage { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Salvage.sqf"; };
+            class originalLOGAirdrop { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Airdrop.sqf"; };
+            class originalLOGCrashsite { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Crashsite.sqf"; };
+            class originalLOGHelicrash { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Helicrash.sqf"; };
             class originalMissionRequest { file = "\x\a3a\addons\core\functions\Missions\fn_missionRequest.sqf"; };
             class originalRequestMissionDialog { file = "\x\a3a\addons\gui\functions\GUI\fn_requestMissionDialog.sqf"; };
             class originalDestroyVehicle { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Vehicle.sqf"; };
@@ -238,6 +247,12 @@ class CfgFunctions
         };
         class Missions
         {
+            class LOG_Ammo { file = "\x\a3i\addons\core\overrides\fn_LOG_Ammo.sqf"; };
+            class LOG_Bank { file = "\x\a3i\addons\core\overrides\fn_LOG_Bank.sqf"; };
+            class LOG_Salvage { file = "\x\a3i\addons\core\overrides\fn_LOG_Salvage.sqf"; };
+            class LOG_Airdrop { file = "\x\a3i\addons\core\overrides\fn_LOG_Airdrop.sqf"; };
+            class LOG_Crashsite { file = "\x\a3i\addons\core\overrides\fn_LOG_Crashsite.sqf"; };
+            class LOG_Helicrash { file = "\x\a3i\addons\core\overrides\fn_LOG_Helicrash.sqf"; };
             class CONVOY { file = "\x\a3i\addons\core\overrides\fn_CONVOY.sqf"; };
             class DES_Vehicle { file = "\x\a3i\addons\core\overrides\fn_DES_Vehicle.sqf"; };
             class DES_Heli { file = "\x\a3i\addons\core\overrides\fn_DES_Heli.sqf"; };
