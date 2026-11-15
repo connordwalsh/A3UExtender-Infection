@@ -970,3 +970,20 @@ is retained. Boat and driven-traffic branches are preserved in source but gated
 out of this fixture. Redux, connected driving, optional packs, HC/JIP, towing,
 garage and disk saves remain open. No sprint acceptance gate is closed and the
 manual Dev9 installation remains untouched.
+
+
+### Redux parking validation follow-up
+
+Unchanged AbandonedTowns Dev2 passes 163 checks across all 49 towns initialized
+by Ultimate on installed Chernarus Redux. It created 110 cars and completed all
+bounded deletion checks without leftover entities/groups. All 262 inputs and
+PBO still match. Sixteen reviewed baseline notices, no engine/SQF errors. The
+first full sweep is retained as rejected (15 premature cleanup assertions), and
+a deliberately interrupted diagnostic records the engine-deletion boundary.
+The corrected fixture waits for both controller retirement and object deletion,
+with a five-second limit and no forced cleanup before the assertion. Native
+parking attempts may yield zero cars when every candidate is unsafe; Nadezhdino
+was such a case in the accepted sweep. No placement fallback or extra attempt was
+added. The server exited. Driving, horde navigation, boats/traffic, towing, garage,
+saves and full campaign acceptance remain open. README/backlog/override records
+now distinguish current mission implementations from the retired conquest race.

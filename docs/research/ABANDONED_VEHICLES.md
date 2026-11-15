@@ -134,3 +134,29 @@ e4a8e98b39a449dac9e725a5029a236dbcf776778e335161686adeeb106167f1.
 Redux roads, connected driving, headless clients, optional faction packs,
 boat/traffic runtime regression, towing interactions, garage and disk save/reload
 remain unaccepted. The manual Dev9 installation is untouched.
+
+
+## Redux parking sweep and fixture correction
+
+The named ReduxParking probe loads the installed Chernarus Redux and CUP Terrains
+Core alongside the minimal Infection stack. It calls Ultimate's actual
+getCityData/initCities functions, so the 49 town names, populations, marker
+positions and native road offsets come from installed campaign/map data.
+Only parking is exercised: there are no sea spawns and heavy fog gates out driven
+traffic. War level 1 and the native traffic multiplier 1 define the scenario.
+
+The first completed sweep created 112 cars and passed all placement assertions,
+but failed 15 immediate cleanup checks. It is retained as rejected, not accepted.
+Its final entity/group cleanup passed. A separate diagnostic run captured cars
+still present immediately after the controller retired its visit record; that
+run was deliberately stopped after capturing failures and remains incomplete.
+The fixture now waits at most five seconds for both record retirement and actual
+vehicle deletion before asserting cleanup. It does not remove extra entities to
+force a pass, and the production Dev2 PBO is unchanged. The corrected full sweep
+passed all 163 checks across 49 towns, created 110 cars and left no fixture
+vehicles/groups. Nadezhdino had zero successful placements in this randomized
+visit; native attempts are preserved rather than guaranteeing a car at an unsafe
+position. The per-town attempt/spawn counts are committed as CSV. All 262 source
+inputs and the Dev2 PBO still matched; no engine/SQF errors, with the same 16
+reviewed startup notices. The completed Redux server was stopped. These checks do not establish vehicle driving, pedestrian/horde
+navigation, civilian traffic, boats, towing, save/reload or full campaign acceptance.

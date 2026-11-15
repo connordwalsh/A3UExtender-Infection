@@ -10,13 +10,14 @@ and controller results remain recorded separately. Campaign acceptance is open.
 Status is evidence-based; successful packing does not complete a gameplay story.
 
 Latest integration checkpoint: merged PR 40 covers Supplies Seizure after 1228
-combined checks and 67 role-spawn records; PR 41 adds Extraction scenes (35 focused
-checks); PR 42 adds the Humanitarian Aid unloading ledger (37). All pass their
-actual missing-dependency checks. Humanitarian Aid's public controller in PR 43
-passes 50 focused checks, with combined regression in progress. Public Extraction
-and Elimination remain unfinished. Extraction's post-rescue disposition is still
-awaiting owner input. The separate 56-trial special lifecycle diagnostic remains
-FAILED with model errors and Corrupted possession requiring explicit tracking.
+combined checks and 67 role-spawn records. PRs 41/42 add Extraction scenes and the
+Aid unloading ledger; PRs 44/45 add Elimination tracking and scenes. Public Aid
+and Elimination are implemented in draft PRs 43/46; their combined Dev3 regression
+was interrupted before completion and is being rerun on the unchanged build.
+The interrupted report is retained and does not count as a pass. PR 47 adds
+abandoned vehicle assets; PR 48 connects them to town visits, passing 36 focused
+Altis-road checks and 11 actual missing-dependency checks. The Redux parking sweep passes 163 checks across 49 towns. Public Extraction and post-rescue disposition remain unfinished.
+The separate large-creature diagnostic remains failed and is tracked separately.
 No sprint acceptance gate is closed. The manual Dev9 installation is unchanged.
 
 14 November amendment: [Mission redesign](MISSION_REDESIGN.md) records the
@@ -59,7 +60,7 @@ none of these stories is complete.
 | S8-1 | Reproducible release candidate | Backlog | Clean-install and artifact/source matching. |
 | S8-2 | User and maintenance documentation | Backlog | Verified behavior and override ledger. |
 | S8-3 | Acceptance and handoff | Backlog | Traceability, defect closure, user sign-off. |
-| V-1 | Abandoned, repairable, drivable vehicles | In progress | Asset helpers pass 42 focused checks; town adapter passes 36 Altis-road lifecycle checks and 11 dependency-absence checks; Redux, player driving, garage and saves remain open. See ABANDONED_VEHICLES.md. |
+| V-1 | Abandoned, repairable, drivable vehicles | In progress | Asset helpers pass 42 focused checks; town adapter passes 36 Altis-road lifecycle checks and 11 dependency-absence checks; Redux parking passes 163 checks across 49 towns. Player driving, garage and saves remain open. See ABANDONED_VEHICLES.md. |
 
 ## Working session: 12 November 2026
 
