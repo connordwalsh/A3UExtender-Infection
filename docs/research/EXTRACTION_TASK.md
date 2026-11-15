@@ -47,3 +47,29 @@ then null, with the player group and Petros intact. The rejected report is kept.
 Caller audit found a fifth route, RES_Informer, and the native civilian-conversation
 mission flag. Those still require integration before the rescue caller surface
 is complete. Full combined regression and connected-player acceptance remain open.
+
+Dev4 adds the fifth legacy rescue route, RES_Informer, and adapts the pinned
+civilian conversation endpoint. Conversation success/mission probabilities,
+undercover and already-spoken checks, intel responses and zone reveals retain
+the native structure. Rescue location choices are restricted to eligible
+Extraction locations near both HQ and the civilian. The local scheduled worker
+reports success only after the public task is registered. It does not acquire or
+clear the native civilian mission flag; foreign native flags remain respected,
+and the atomic Extraction registry prevents duplicate jobs. Client-origin dialog
+requests must identify their own player. The delayed zone-reveal response now
+carries its caller explicitly rather than relying on an expired local variable.
+
+The Dev4 combined Extraction regression is running; its additional checks cover
+the informer route directly and through server scheduling, native delegation,
+civilian reservation/retirement, invalid targets and already-spoken civilians.
+These are server contracts, not connected-player conversation acceptance.
+
+Dev4 completed: 150 combined Extraction checks, eleven missing-dependency checks
+and three parser tests pass. No recorded engine/SQF errors; 26/7 reviewed warnings
+remain (dependency animation/config notices, native final-function notices,
+object-removal traffic and null-player notification targets in the AI-only
+fixture). All 287 production inputs and the PBO match the retained manifest.
+Both completed Extraction servers were stopped after collection. The separate
+full survivor-defense regression remains running in its unchanged worktree.
+Connected-player conversation, remote ownership, release UI, HC/JIP and campaign
+saves remain unverified.

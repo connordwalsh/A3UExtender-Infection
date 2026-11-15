@@ -54,6 +54,8 @@ class CfgFunctions
             class cleanupSupplySeizure {};
             class supplyTaskTick {};
             class requestExtraction {};
+            class requestCivilianExtraction {};
+            class runCivilianDialog {};
             class dispatchExtraction {};
             class labelExtractionControl {};
             class extractionTaskBusy {};
@@ -254,6 +256,8 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalDialogCivFinished { file = "\x\a3a\addons\patcom\functions\Civilian\fn_dialogCivFinished.sqf"; };
+            class originalRESInformer { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Informer.sqf"; };
             class originalRESRefugees { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Refugees.sqf"; };
             class originalRESPrisoners { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Prisoners.sqf"; };
             class originalRESDeserters { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Deserters.sqf"; };
@@ -320,6 +324,7 @@ class CfgFunctions
     {
         class Civilian
         {
+            class dialogCivFinished { file = "\x\a3i\addons\core\overrides\fn_dialogCivFinished.sqf"; };
             class createAmbientCivTraffic { file = "\x\a3i\addons\core\overrides\fn_createAmbientCivTraffic.sqf"; };
         };
         class Intel
@@ -332,6 +337,7 @@ class CfgFunctions
         };
         class Missions
         {
+            class RES_Informer { file = "\x\a3i\addons\core\overrides\fn_RES_Informer.sqf"; };
             class RES_Refugees { file = "\x\a3i\addons\core\overrides\fn_RES_Refugees.sqf"; };
             class RES_Prisoners { file = "\x\a3i\addons\core\overrides\fn_RES_Prisoners.sqf"; };
             class RES_Deserters { file = "\x\a3i\addons\core\overrides\fn_RES_Deserters.sqf"; };

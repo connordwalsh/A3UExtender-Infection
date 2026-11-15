@@ -43,8 +43,8 @@ private _clean={params ["_r"];_r set ["taskDeleteAt",time-1];_r set ["cleanupAt"
 
 A3I_test_originals=[]; A3I_test_comms=[]; hcArray=[];
 A3I_extractionTasks=createHashMap;
-private _variants=["RES_Refugees","RES_Prisoners","RES_Deserters","RIV_RES_Prisoners"];
-private _aliases=["originalRESRefugees","originalRESPrisoners","originalRESDeserters","originalRIVRESPrisoners"];
+private _variants=["RES_Informer","RES_Refugees","RES_Prisoners","RES_Deserters","RIV_RES_Prisoners"];
+private _aliases=["originalRESInformer","originalRESRefugees","originalRESPrisoners","originalRESDeserters","originalRIVRESPrisoners"];
 private _get={
     [{count A3I_extractionTasks==1}] call _wait;
     private _job=(values A3I_extractionTasks) param [0,createHashMap];
@@ -65,6 +65,8 @@ private _expected=[];
 {[_source] call (missionNamespace getVariable ("A3A_fnc_"+_x));
     _expected pushBack [_aliases # _forEachIndex,[_source]]
 } forEach _variants;
+[petros,petros] call A3A_fnc_dialogCivFinished;
+_expected pushBack ["originalDialogCivFinished",[petros,petros]];
 ["RES",2,true] call A3A_fnc_missionRequest;
 [[_source],"A3A_fnc_RES_Refugees"] call A3A_fnc_scheduler;
 _expected append [["missionRequest",["RES",2,true]],["originalScheduler",[[_source],"A3A_fnc_RES_Refugees"]]];
@@ -111,6 +113,31 @@ sidesX setVariable [_source,east];A3I_test_comms=[];
 sidesX setVariable [_source,west];
 [""] call A3A_fnc_RES_Refugees;["missing"] call A3A_fnc_RES_Prisoners;sleep 0.3;
 ["exdispatch_invalid_source_refused",count A3I_extractionTasks==0] call _check;
+// Civilian worker uses the same atomic task reservation without owning the native flag.
+A3U_dialogCivMissionInProgress=true;
+private _civilianResult=[_source,petros,petros] call A3I_fnc_requestCivilianExtraction;
+["exdispatch_civilian_foreign_flag",!_civilianResult && {A3U_dialogCivMissionInProgress} && {count A3I_extractionTasks==0}] call _check;
+A3U_dialogCivMissionInProgress=false;A3I_test_comms=[];
+_civilianResult=[_source,petros,petros] call A3I_fnc_requestCivilianExtraction;
+_job=call _get;
+[{A3I_test_comms isNotEqualTo []},3] call _wait;
+["exdispatch_civilian_registered",_civilianResult && {count _job>0} && {_job get "taskRegistered"}
+    && {!A3U_dialogCivMissionInProgress} && {A3I_test_comms findIf {(_x param [2,""]) find "A group of survivors"==0}>=0}] call _check;
+private _civilianSerial=A3I_extractionTaskSerial;
+["exdispatch_civilian_duplicate_refused",!([_source,petros,petros] call A3I_fnc_requestCivilianExtraction)
+    && {A3I_extractionTaskSerial==_civilianSerial}] call _check;
+if (count _job>0) then {[_job] call _retire};
+["exdispatch_civilian_retirement_unlocked",!A3U_dialogCivMissionInProgress && {count A3I_extractionTasks==0}] call _check;
+sidesX setVariable [_source,east];
+["exdispatch_civilian_invalid_no_lock",!([_source,petros,petros] call A3I_fnc_requestCivilianExtraction)
+    && {!A3U_dialogCivMissionInProgress} && {count A3I_extractionTasks==0}] call _check;
+sidesX setVariable [_source,west];
+petros setVariable ["A3U_civDialogHasSpoken",true];
+[petros,petros] call A3A_fnc_dialogCivFinished;sleep 0.3;
+["exdispatch_civilian_spoken_no_task",count A3I_extractionTasks==0] call _check;
+["exdispatch_civilian_config",getText (configFile >> "CfgFunctions" >> "A3A" >> "Civilian" >> "dialogCivFinished" >> "file")
+    == "\x\a3i\addons\core\overrides\fn_dialogCivFinished.sqf"] call _check;
+A3U_dialogCivMissionInProgress=nil;
 private _modern=configFile >> "A3A_RequestMissionDialog" >> "Controls" >> "MainContent" >> "Controls" >> "RescueButton";
 private _legacy=configFile >> "missionMenu" >> "Controls" >> "resButton";
 ["exdispatch_menu_hooks",getText (_modern >> "onLoad")=="_this call A3I_fnc_labelExtractionControl"

@@ -62,6 +62,8 @@ class CfgFunctions
         };
         class Originals
         {
+            class originalDialogCivFinished { file = "\x\a3i\tests\contracts\fn_originalDialogCivFinished.sqf"; };
+            class originalRESInformer { file = "\x\a3i\tests\contracts\fn_originalRESInformer.sqf"; };
             class originalRESRefugees { file = "\x\a3i\tests\contracts\fn_originalRESRefugees.sqf"; };
             class originalRESPrisoners { file = "\x\a3i\tests\contracts\fn_originalRESPrisoners.sqf"; };
             class originalRESDeserters { file = "\x\a3i\tests\contracts\fn_originalRESDeserters.sqf"; };
