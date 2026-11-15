@@ -481,3 +481,11 @@ both shared slots are reserved. The rejected first report preserves the fixture'
 incorrect shared-versus-total capacity assertion; production code is unchanged.
 The integrated 1089-check regression is the next gate; parent regressions remain
 separate. See INTERCEPTION_DISPATCH.md for scope and open acceptance work.
+
+
+Integrated interception checkpoint: InterceptionDispatch Dev1 passes 1089 combined
+checks and 67 role spawns without engine/SQF errors. All 177 inputs and the PBO
+match the tested manifest. Administration persistence, automatic arrival aftermath
+and public mission dispatch can integrate together through PR 35. The earlier
+1040-check fixture failure remains rejected evidence. Connected play, travel,
+actual campaign save/load and sprint acceptance remain open; see REVIEWS.md.

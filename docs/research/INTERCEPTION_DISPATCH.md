@@ -2,8 +2,9 @@
 
 Status: all 36 focused runtime checks pass. Packaging, three parser tests
 and eleven actual missing-dependency checks pass without engine/SQF errors.
-The parent aftermath component also passes its 35 focused checks. Integrated
-combined regression remains pending. No manual installation update.
+The parent aftermath component also passes its 35 focused checks. The integrated
+177-input candidate passes all 1089 combined checks and 67 role-spawn records.
+No manual installation update.
 
 ## Creation
 
@@ -60,9 +61,10 @@ approved catalog, not removal of Russian background activity.
 
 Artifact: `@Infection_InterceptionDispatch_Dev1`, 177 production inputs, SHA-256
 `79db3352bb737f40dab6ad6f5165e321829cf4468e38427f4841a20f5be831b8`.
-All production inputs match the manifest after dependency testing. Reports are
-`interception-dispatch-engine.json`, `interception-dispatch-build.json` and `interception-dispatch-dependencies.json`
-under `evidence/sprint-4`. Both isolated servers exited.
+All 177 production inputs and the PBO match the manifest after combined testing.
+Reports are `interception-dispatch-engine.json`, `interception-dispatch-build.json`,
+`interception-dispatch-dependencies.json` and `interception-dispatch-combined.json`
+under `evidence/sprint-4`. All completed isolated servers exited.
 
 All 36 focused checks pass without engine/SQF errors; 16 startup/dependency
 notices were reviewed. The first run is retained as
@@ -71,6 +73,14 @@ limit with the API's combined shared-plus-dedicated capacity. The corrected chec
 also reserves both shared slots before creation and proves further shared work
 is refused while all 40 interception actors spawn. Production code is unchanged.
 
-Combined regression, stochastic intel outcomes, connected menu
+The combined run has 93 reviewed warnings: 16 startup/dependency notices,
+72 object-deletion notices and five missing-fixture-commander notification targets.
+Self-review covers administration save payload validation, casualty persistence,
+arrival ownership and complete-group transfer, observer-safe cleanup, server
+authority, concurrent creation, native request locks and source cooldowns.
+The earlier 1040-check report remains rejected; this corrected combined run
+includes the bounded native task/reward settlement assertions.
+
+Stochastic intel outcomes, connected menu
 interaction, actual HC relay, terrain travel, saves and campaign acceptance remain
-open. No Computer Use was performed. This draft does not close a sprint gate.
+open. No Computer Use was performed. This component integration does not close a sprint gate.
