@@ -13,15 +13,6 @@ private _candidates=_targets select {([_x] call A3I_fnc_liquidationTargetKind) i
 ["eligible_queued_site",_candidates isNotEqualTo [],[_candidates,_limit]] call _check;
 if (_candidates isEqualTo []) exitWith {call _finish};
 private _target=_candidates # 0;private _original=count (garrison getVariable [_target,[]]);
-// Diagnostic only: observe calls entering the native receiver, then invoke the
-// unchanged native implementation with the original arguments and scheduling.
-// This run is causal investigation, not an uninstrumented acceptance result.
-A3I_probeNativeGarrisonUpdate=A3A_fnc_garrisonUpdate;
-A3A_fnc_garrisonUpdate={
-    diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] garrison_enter %1",[_this,diag_frameNo]];
-    _this call A3I_probeNativeGarrisonUpdate;
-    diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] garrison_exit %1",[_this,garrison getVariable [_this # 2,[]],diag_frameNo]];
-};
 [[_target],"A3A_fnc_CON_Outpost"] call A3A_fnc_scheduler;
 private _dispatched=[{count ([_target] call A3I_fnc_liquidationClaim)>0}] call _wait;
 ["native_scheduler_dispatch",_dispatched,[_target,_original]] call _check;
@@ -96,6 +87,4 @@ private _context="site:"+_target;
 sleep 5;
 ["reward_stable",server getVariable "resourcesFIA"==_funds+_reward] call _check;
 ["hq_intact",alive petros && {!isNull boxX} && {!isNull flagX}] call _check;
-A3A_fnc_garrisonUpdate=A3I_probeNativeGarrisonUpdate;
-A3I_probeNativeGarrisonUpdate=nil;
 call _finish;

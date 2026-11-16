@@ -96,3 +96,28 @@ liquidation-dispatch-combined.json and liquidation-dispatch-dependencies.json.
 Earlier component evidence remains separate from this integrated result. Fixtures use controlled campaign records and notification
 hooks. Actual player/commander reward receipt, visual UI, HC/client connections,
 Redux travel, performance, saves and complete missions remain unverified.
+
+## Native queued-garrison regression, 16 November 2026
+
+The native campaign probe now dispatches CON through Ultimate's scheduler and
+activates factory_9 through forcedSpawn. Its 16 defenders exceed the shared cap
+of 12: killing the first group must not capture while four defenders are queued.
+The probe then kills the arriving defenders through real engine death events.
+It does not replace clearance, ownership, reward or task-settlement endpoints.
+
+Both `native-liquidation-dev1-rejected` and `native-liquidation-diag1-rejected`
+retain failed runs in evidence/sprint-6. Each completed 17 Liquidation checks
+with five failures, plus 19 passing campaign checks and zero matched errors.
+All 16 defenders appeared and died; Infection's remaining-defender ledger reached
+zero without missing actors. Ultimate's roster retained three SquadLeader entries,
+so clearance correctly refused capture with `garrison_pending`. Capture, success,
+reward and target retirement therefore remain unverified. Do not bypass this
+guard or treat earlier component tests as native mission acceptance.
+
+Diag2 was aborted during startup after source inspection showed that Ultimate's
+finalized functions cannot be replaced by a runtime logging wrapper. Its inputs
+and log are retained in `native-liquidation-diag2-aborted`; it proves no outcome.
+The optional `-TraceGarrison` diagnostic instead registers a test-only receiver
+at addon startup and calls the unchanged native implementation with the original
+arguments. That instrumented run is causal investigation, not acceptance. It
+also logs each defender's role, marker and side immediately before death.
