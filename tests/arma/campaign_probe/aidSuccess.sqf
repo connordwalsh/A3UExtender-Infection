@@ -42,8 +42,11 @@ private _settled=[{_record get "settled"},_required+120] call _wait;
 ["native_unloading_succeeded",_settled && {_record get "outcome"=="delivered"}
     && {_ledger get "unloadedSeconds"==_required},[_required,_ledger get "unloadedSeconds",diag_tickTime-_start]] call _check;
 ["timer_not_shortened",diag_tickTime-_start>=_required-_progressBefore-2] call _check;
-["native_task_succeeded",[_name] call BIS_fnc_taskState=="SUCCEEDED"
-    && {(A3A_tasksData findIf {_x # 0==_name && {_x # 1=="SUPP"} && {_x # 2=="SUCCEEDED"}})>=0}] call _check;
+private _taskSnapshot={[[ _name] call BIS_fnc_taskState,A3A_tasksData select {_x # 0==_name}]};
+private _initialTask=call _taskSnapshot;
+private _taskSucceeded=[{[_name] call BIS_fnc_taskState=="SUCCEEDED"
+    && {(A3A_tasksData findIf {_x # 0==_name && {_x # 1=="SUPP"} && {_x # 2=="SUCCEEDED"}})>=0}},10] call _wait;
+["native_task_succeeded",_taskSucceeded,[_initialTask,call _taskSnapshot]] call _check;
 private _bonus=[1,2] select (_record get "difficult");
 private _delta=5*_bonus*200/((_support # 0) max 50);
 private _gov=0 max ((_support # 2)-_delta);private _reb=0 max ((_support # 3)+_delta);
