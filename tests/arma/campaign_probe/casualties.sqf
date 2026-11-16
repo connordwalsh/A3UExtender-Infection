@@ -30,7 +30,7 @@ if (_ranked isNotEqualTo []) then {
     for "_visit" from 1 to 2 do {
         private _prefix=format ["visit_%1_",_visit];
         forcedSpawn pushBackUnique _marker;
-        private _started=[{_marker in A3I_sites}] call _wait;
+        private _started=[{_marker in (missionNamespace getVariable ["A3I_sites",createHashMap])}] call _wait;
         [_prefix+"dispatch",_started,[_marker]] call _check;
         if (_started) then {
             private _record=A3I_sites get _marker;

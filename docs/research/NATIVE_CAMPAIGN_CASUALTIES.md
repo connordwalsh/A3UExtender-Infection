@@ -21,3 +21,12 @@ Five collector regression tests pass; the launcher passes PowerShell parsing.
 Runtime result is pending. This is not player combat, natural weapon damage,
 corpse cleanup, capture, save/reload of these casualties, multiplayer or
 performance evidence. Corpses remain under Ultimate's native postmortem policy.
+
+## Rejected Dev1
+
+All 18 behavioral assertions completed, but eight error records reject the run.
+The fixture read the lazily initialized A3I_sites registry before first native
+dispatch. The corrected wait reads it with an empty-map fallback, as the prior
+site-lifecycle fixture already does. Production code is unchanged. Exact helper,
+receipt, raw log and failed report are preserved under
+`evidence/sprint-6/native-campaign-casualties-dev1-rejected`.
