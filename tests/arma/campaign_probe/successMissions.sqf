@@ -57,6 +57,20 @@ if (_elim getOrDefault ["taskRegistered",false]) then {
     ["elim_budget_released",(_tickets findIf {_x in A3I_budgetRecords})==-1] call _check;
 };
 private _supplyTargets=call A3I_fnc_supplyTargets;
+private _fuelClasses=["fuel"] call A3I_fnc_supplyTruckClasses;
+["supply_bounds_available",_fuelClasses isNotEqualTo [] && {
+    (_fuelClasses findIf {([_x] call A3I_fnc_supplyTruckBounds) isEqualTo []}) == -1
+}] call _check;
+private _failedPointRefused=true;
+{
+    private _class=_x;
+    {
+        private _result=[[2645.5,5082.5,0],_class,_x] call A3I_fnc_supplyPositionClear;
+        if (_result # 0 || {_result # 1 != "truck_geometry"}) then {_failedPointRefused=false};
+        diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["regression",_class,_x,_result]];
+    } forEach [0,45,90,131.552,180,225,270,315];
+} forEach _fuelClasses;
+["supply_failed_point_refused",_failedPointRefused] call _check;
 if (_supplyReproduction) then {
     private _point=[2645.5,5082.5,0];
     diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["failed_point",_point,surfaceNormal _point,
@@ -105,7 +119,7 @@ if (_supplyReproduction) then {
 // and observer state do not change vehicle damage, placement, tasks or timers.
 private _createdEH=addMissionEventHandler ["EntityCreated",{
     params ["_vehicle"];
-    if !(_vehicle isKindOf "Car") exitWith {};
+    if (!(_vehicle isKindOf "Car") || {isSimpleObject _vehicle}) exitWith {};
     diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["created",time,typeOf _vehicle,getPosATL _vehicle,getDir _vehicle]];
     diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["created_geometry",typeOf _vehicle,sizeOf typeOf _vehicle,boundingBoxReal _vehicle,
         surfaceNormal getPosATL _vehicle,([0,3,6,10] apply {[_x,(getPosATL _vehicle) isFlatEmpty [_x,-1,0.2,_x max 1,0,false,_vehicle]]})]];

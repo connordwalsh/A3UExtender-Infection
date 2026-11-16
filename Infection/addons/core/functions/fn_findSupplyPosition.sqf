@@ -23,7 +23,8 @@ for "_attempt" from 0 to 23 do {
     _candidate set [2,0];
     _candidate = _candidate findEmptyPosition [0,12,_class];
     if (_candidate isEqualTo [] || {!([_candidate,_target] call A3I_fnc_interceptionContains)}) then {continue};
-    if (([_candidate,_class,_observers,getMarkerPos _hq] call A3I_fnc_positionSafety) # 0)
+    if (([_candidate,_class,_observers,getMarkerPos _hq] call A3I_fnc_positionSafety) # 0
+        && {([_candidate,_class,_heading] call A3I_fnc_supplyPositionClear) # 0})
         exitWith {_result = [_candidate,_heading]};
 };
 _result

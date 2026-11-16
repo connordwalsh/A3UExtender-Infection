@@ -9,6 +9,7 @@ import runpy
 
 parse_array=runpy.run_path(str(Path(__file__).with_name('collect-probe.py')))['parse_array']
 EXPECTED={'elim_'+x for x in ['eligible','dispatch','registered','primary_approved','escorts_different','search_area','native_created','neutralized','native_succeeded','reward_exact','assets_cleaned','search_removed','budget_released']}|{'supply_'+x for x in ['eligible','dispatch','registered','allowed_kind','truck_ready','native_created','hq_position','delivered','native_succeeded','reward_exact','truck_kept','persistent_truck','settlement_stable']}|{'hq_intact'}
+EXPECTED |= {'supply_bounds_available', 'supply_failed_point_refused'}
 
 def collect(path):
     expected=EXPECTED
