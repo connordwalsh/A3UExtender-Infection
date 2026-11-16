@@ -67,3 +67,8 @@ missing reward/registration path as the immediate cause. Unsafe physical spawn
 placement is now the focus; slope/geometry and model-clearance diagnostics remain
 necessary before selecting a correction. Preserve the entire failed trace under
 `native-success-missions-fuel-repro1`. No production changes have been made.
+
+FuelGeometry1 was interrupted when the owner paused the goal. Its server was
+stopped and absence confirmed on resume. Startup/save checks had run, but no
+mission/geometry assertions began. The exact helper, receipt and incomplete raw
+result are preserved under `native-success-missions-geometry1-interrupted`.
