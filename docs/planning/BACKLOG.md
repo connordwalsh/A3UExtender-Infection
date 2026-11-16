@@ -830,3 +830,11 @@ package, Invader town capture, penalty-free cancellation and native cleanup
 pass 16 checks plus 19 campaign checks with zero matched errors. See
 HUMANITARIAN_AID.md and frozen native-campaign-aid-cancel-dev1 evidence.
 Unloading success, actual player transport and multiplayer remain open.
+
+16 November native Aid unloading checkpoint: corrected Dev2 passes 23 mission
+checks plus 19 campaign checks, zero matched errors. A real AI escort activates
+Pavlovo's full 127 infected; nearby-infected pause, controlled clearance, the
+180-second ledger, exact support reward and cleanup pass. Dev1's immediate
+task-state assertion remains rejected and preserved; Dev2 uses a bounded wait
+for Ultimate's queued task-store update. See HUMANITARIAN_AID.md for scope and
+limits. No production/faction changes or Computer Use; manual Dev9 unchanged.
