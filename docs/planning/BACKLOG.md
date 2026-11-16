@@ -815,3 +815,12 @@ funds and delayed cleanup are verified with controlled HQ placement. See
 NATIVE_EXTRACTION.md and the frozen success Dev1 evidence. No faction work or
 Computer Use occurred; player escort, deadline, multiplayer and release gates
 remain open. The manual Dev9 install is unchanged.
+
+16 November mission-caller audit: MISSION_CALLER_AUDIT.md and the reproducible
+source inventory classify all 42 native core Missions endpoints across 2,979
+source files. Required replacement/disabled endpoint registrations are present;
+retained gang attacks and site defense alerts are explicitly distinguished.
+The direct map-menu supply path reaches the Humanitarian Aid adapter. This is
+bounded source coverage, not exhaustive dynamic reachability or runtime
+acceptance. External encounters, connected-player menus and wider Occupant
+caller coverage remain open. No faction implementation was added.
