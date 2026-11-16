@@ -73,5 +73,7 @@ if (_ranked isNotEqualTo []) then {
             [_prefix+"reduced_roster_preserved",garrison getVariable [_marker,[]] isEqualTo _expected] call _check;
         } else {forcedSpawn=forcedSpawn-[_marker]};
     };
+    A3I_casualtyProbeResult=createHashMapFromArray [["marker",_marker],["roster",+_expected],
+        ["originalCount",(_ranked # 0) # 0],["passed",_checks==18 && {_failures isEqualTo []}]];
 };
 diag_log format ["[INFECTION_CAMPAIGN_CASUALTIES] %1",["complete",_checks,_failures]];

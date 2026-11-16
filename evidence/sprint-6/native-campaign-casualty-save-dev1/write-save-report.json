@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "phase": "write",
+  "scope": "Native campaign casualty save/restart/load and site activation; not player combat or multiplayer acceptance",
+  "source_log_sha256": "bdb88c4b25390b33dcb3358909a32ae98d2c06ba0b8c21ede4e807639a2b7749",
+  "validation": {
+    "one_run": true,
+    "schema": true,
+    "expected_checks_once": true,
+    "checks_pass": true,
+    "no_engine_or_native_errors": true,
+    "complete_matches": true
+  },
+  "records": [
+    [
+      "check",
+      "write_receipt_valid",
+      true,
+      []
+    ],
+    [
+      "check",
+      "write_native_save_completed",
+      true,
+      []
+    ],
+    [
+      "check",
+      "write_campaign_identity",
+      true,
+      []
+    ],
+    [
+      "check",
+      "write_saved_reduced_roster",
+      true,
+      [
+        "factory_1",
+        12
+      ]
+    ],
+    [
+      "check",
+      "write_saved_funds_exact",
+      true,
+      [
+        1000
+      ]
+    ],
+    [
+      "check",
+      "write_receipt_written",
+      true,
+      []
+    ]
+  ],
+  "failed": [],
+  "errors": [],
+  "malformed": []
+}

@@ -4,3 +4,4 @@
 /evidence/sprint-4/crate-*/** -text
 /evidence/sprint-6/native-campaign-sites-*/** -text
 /evidence/sprint-6/native-campaign-casualties-*/** -text
+/evidence/sprint-6/native-campaign-casualty-save-*/** -text

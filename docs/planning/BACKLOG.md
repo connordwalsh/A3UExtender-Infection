@@ -16,8 +16,9 @@ to one town and six permanent-site categories, alongside the 19 campaign checks.
 Seaport/base/airport rosters retain 4/20/32 queued defenders beyond 12 active.
 See NATIVE_CAMPAIGN_SITES.md. The subsequent casualty probe passes 18 checks: four deaths reduce a native
 factory garrison, four queued infected replace them, and the reduced roster
-returns on revisit. Connected-player, player combat, casualty save/reload,
-full-map coverage, performance and release acceptance remain open.
+returns on revisit. A subsequent native save/restart run passes six writer and
+ten reader checks, retaining that reduced factory roster. Connected-player,
+player combat, full-map coverage, performance and release acceptance remain open.
 
 Earlier mission integration checkpoint: merged PR 40 covers Supplies Seizure after 1228
 combined checks and 67 role-spawn records. PRs 41/42 add Extraction scenes and the
@@ -754,3 +755,10 @@ four queued defenders replace them and the reduced roster survives a revisit.
 The rejected fixture initialization error is retained separately. See
 NATIVE_CAMPAIGN_CASUALTIES.md. Player combat, casualty save/reload, capture and
 multiplayer remain open; no production changes or other faction work occurred.
+
+16 November casualty persistence: native save and fresh-process load retain the
+reduced factory_1 roster (16 minus four deaths = 12). Six write and ten read
+checks pass alongside 19 campaign checks per phase and zero matched errors;
+the writer also repeats all 18 casualty checks. See NATIVE_CASUALTY_SAVE.md.
+This is a sampled permanent-garrison result, not broad progression, combat,
+multiplayer or release acceptance. Production source is unchanged.

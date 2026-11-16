@@ -139,7 +139,11 @@ sleep 75;
 if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\site-mode.sqf") then {
     call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\sites.sqf";
 };
-if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\casualty-mode.sqf") then {
+private _casualtySave=call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\casualty-save-mode.sqf";
+if ((call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\casualty-mode.sqf") || {_casualtySave && {_new}}) then {
     call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\casualties.sqf";
+};
+if (_casualtySave) then {
+    [_phase] call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\casualtySave.sqf";
 };
 call _finish;
