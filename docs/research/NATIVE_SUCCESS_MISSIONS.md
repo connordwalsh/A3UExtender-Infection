@@ -159,3 +159,12 @@ match the launch/build receipts. Evidence is in
 `native-success-missions-clearance1`; the server is stopped. This supports the
 sampled regression correction; other truck types, broad contract regression,
 player driving and representative parking availability still need validation.
+
+The focused SupplyTrucks regression now passes all 35 dedicated checks with
+zero matched errors on the same candidate. It covers ammunition/fuel/repair
+creation, allowed pools, native initialization and Rebel capture, retained
+claimed trucks, neutral resource effects on creation/destruction/cleanup, and
+asset cleanup. The original report and fixture inputs are preserved under
+`native-success-missions-truck-contracts1`. The combined Full contract suite is
+running as TruckClearanceFull1; representative Redux parking availability is
+still outstanding. PR 75 remains draft.
