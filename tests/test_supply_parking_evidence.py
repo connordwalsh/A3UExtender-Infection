@@ -7,7 +7,7 @@ collect = runpy.run_path(str(Path(__file__).resolve().parents[1] / 'Tools/dev/co
 
 
 class ParkingEvidence(unittest.TestCase):
-    def report(self, available=True, omit=False, extra='', valid=True):
+    def report(self, available=True, omit=False, extra='', valid=True, baseline=False):
         rows = ['["start","chernarusredux",1]', '["planned","milbase","fuel","truck"]']
         result = '["result","milbase","fuel","truck",%s,%s,[%s,0],0.1]' % (str(available).lower(), str(valid).lower(), '[1000,2000,0]' if available else '[]')
         if not omit:
@@ -15,8 +15,9 @@ class ParkingEvidence(unittest.TestCase):
         rows.append('["complete",1,%d,%d,%d]' % (available, not available, not valid))
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'probe.rpt'
-            path.write_text('\n'.join('[INFECTION_SUPPLY_PARKING] ' + r for r in rows) + '\n' + extra)
-            return collect(path)
+            tag = '[INFECTION_SUPPLY_PARKING_BASELINE] ' if baseline else '[INFECTION_SUPPLY_PARKING] '
+            path.write_text('\n'.join(tag + r for r in rows) + '\n' + extra)
+            return collect(path, baseline)
 
     def test_complete(self): self.assertEqual(self.report()['status'], 'complete')
     def test_missing_result(self): self.assertEqual(self.report(omit=True)['status'], 'failed')
@@ -25,6 +26,9 @@ class ParkingEvidence(unittest.TestCase):
     def test_duplicate_result(self):
         extra = '[INFECTION_SUPPLY_PARKING] ["result","milbase","fuel","truck",true,true,[[1000,2000,0],0],0.1]'
         self.assertEqual(self.report(extra=extra)['status'], 'failed')
+    def test_baseline_kept_separate(self):
+        extra = '[INFECTION_SUPPLY_PARKING] ["result","milbase","fuel","truck",true,true,[[1000,2000,0],0],0.1]'
+        self.assertEqual(self.report(extra=extra, baseline=True)['status'], 'complete')
     def test_unavailable_preserved(self):
         report = self.report(available=False)
         self.assertEqual(report['status'], 'complete')

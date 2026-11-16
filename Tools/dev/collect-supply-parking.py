@@ -11,15 +11,16 @@ import runpy
 parse_array = runpy.run_path(str(Path(__file__).with_name('collect-probe.py')))['parse_array']
 
 
-def collect(path):
+def collect(path, baseline=False):
     raw = Path(path).read_bytes()
+    tag = '[INFECTION_SUPPLY_PARKING_BASELINE] ' if baseline else '[INFECTION_SUPPLY_PARKING] '
     starts, plans, results, finishes, errors, malformed = [], [], [], [], [], []
     for number, line in enumerate(raw.decode('utf-8-sig', errors='replace').splitlines(), 1):
         if re.search(r'\bError(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|\| Error \|', line, re.I):
             errors.append({'line': number, 'message': line})
-        if '[INFECTION_SUPPLY_PARKING] ' not in line:
+        if tag not in line:
             continue
-        payload = line.split('[INFECTION_SUPPLY_PARKING] ', 1)[1].strip()
+        payload = line.split(tag, 1)[1].strip()
         if payload.endswith('"'):
             payload = payload[:-1].replace('""', '"')
         try:
@@ -59,7 +60,7 @@ def collect(path):
         'no_errors': not errors,
     }
     return {'status': 'complete' if all(checks.values()) else 'failed' if finishes else 'incomplete',
-            'scope': 'One native parking search per current infected site/kind/class; availability observations, not vehicle survival or performance acceptance',
+            'scope': ('Historical search, revalidated against candidate clearance; ' if baseline else 'Candidate native search; ') + 'one search per current infected site/kind/class; not vehicle survival or performance acceptance',
             'source_log_sha256': hashlib.sha256(raw).hexdigest(), 'validation': checks,
             'counts': dict(zip(['searches', 'available', 'unavailable', 'invalid'], counts)),
             'unavailable': [r[1:4] for r in results if not r[4]],
@@ -69,8 +70,9 @@ def collect(path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('log'); parser.add_argument('output')
+    parser.add_argument('--baseline', action='store_true')
     args = parser.parse_args()
-    report = collect(args.log)
+    report = collect(args.log, args.baseline)
     Path(args.output).write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps({key: report[key] for key in ['status', 'counts', 'validation']}))
     raise SystemExit(0 if report['status'] == 'complete' else 1)

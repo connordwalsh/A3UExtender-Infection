@@ -58,6 +58,7 @@ Copy-Item -LiteralPath (Join-Path $source 'casualtySave.sqf') -Destination $addo
 Copy-Item -LiteralPath (Join-Path $source 'extraction.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'successMissions.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'supplyParking.sqf') -Destination $addon
+Copy-Item -LiteralPath (Join-Path $source 'legacySupplyPosition.sqf') -Destination $addon
 $(if ($SupplyParking) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'supply-parking-mode.sqf') -Encoding ASCII
 $(if ($SupplyReproduction) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'supply-reproduction-mode.sqf') -Encoding ASCII
 $(if ($SuccessMissions) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'success-missions-mode.sqf') -Encoding ASCII
@@ -118,6 +119,7 @@ if ($CasualtySave) {$helperInputs['casualtySave.sqf']=(Get-FileHash (Join-Path $
 if ($ExtractionLifecycle) {$helperInputs['extraction.sqf']=(Get-FileHash (Join-Path $source 'extraction.sqf')).Hash}
 if ($SuccessMissions) {$helperInputs['successMissions.sqf']=(Get-FileHash (Join-Path $source 'successMissions.sqf')).Hash}
 if ($SupplyParking) {$helperInputs['supplyParking.sqf']=(Get-FileHash (Join-Path $source 'supplyParking.sqf')).Hash}
+if ($SupplyParking) {$helperInputs['legacySupplyPosition.sqf']=(Get-FileHash (Join-Path $source 'legacySupplyPosition.sqf')).Hash}
 $receipt=[ordered]@{SupplyParking=[bool]$SupplyParking;SupplyReproduction=[bool]$SupplyReproduction;SuccessMissions=[bool]$SuccessMissions;ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
     StartedUTC=[DateTime]::UtcNow.ToString('o');ProductionPBO=(Get-FileHash (Join-Path $modRoot 'addons/a3i_core.pbo')).Hash;
     HelperPBO=(Get-FileHash (Join-Path $output 'a3i_campaign_probe.pbo')).Hash;
