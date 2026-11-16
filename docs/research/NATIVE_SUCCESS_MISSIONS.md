@@ -231,3 +231,27 @@ The production parking search now adopts the tested 96-attempt bound; its source
 matches the local proposal evaluated above. A new build/native regression is
 required before this final version is accepted. No other production behavior
 changed after the full regression.
+
+## Final production verification and review
+
+TruckClearance2 passes 29 native mission checks and 19 campaign checks with zero
+matched errors on the final 96-attempt build. The known bad point is rejected
+for both fuel classes at eight headings; a milbase O_T_Truck_03_fuel_ghex_F
+survives observation, delivers for exactly 300, remains usable/Rebel-owned and
+appears once in native persistence registration. Its exact helper, all 326
+production inputs and PBO hash match the launch/build receipts. Evidence is in
+`native-success-missions-clearance2`; the server has exited.
+
+Self-review covers both guard call sites, server/local execution boundaries,
+temporary-model deletion and bounds caching, finite search limits and unchanged
+failure handling. No other faction templates or generic infected spawn rules
+change. Thirteen mission/parking collector tests pass. The full contract run
+covers the guard; the subsequent native run verifies the only final production
+change, the separately evaluated 96-attempt bound. No further implementation
+changes occurred after those checks.
+
+This closes the sampled immediate truck-spawn destruction regression, not all
+possible vehicle collisions or campaign release gates. The finite search can
+still return no safe parking (12 of 413 proposal samples); it never treats an
+unsafe fallback as valid. Player driving/combat, connected clients/JIP, broad
+campaign progression and representative performance remain unverified here.

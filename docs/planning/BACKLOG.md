@@ -797,3 +797,13 @@ tracking a continuing possessed threat if Corrupted is ever enabled. The report
 is not acceptance evidence for the large creatures. The approved initial
 Elimination roster remains Screamer, Boomer and Leaper 2. See the preserved
 [focused investigation](https://github.com/connordwalsh/A3UExtender-Infection/blob/fba3c979c9af12af10ca83a890cbdb6cf6d451ab/docs/research/SPECIAL_LIFECYCLE.md).
+
+16 November truck-placement correction: final native verification passes 29
+mission checks and 19 campaign checks with zero matched errors. The guard also
+passes 35 focused vehicle checks and the combined 1,807-check/67-role suite.
+Parking selection and final creation now reject footprint geometry conflicts;
+the 96-attempt search matched the evaluated proposal (401/413 valid parking
+samples). The original failed spawn point is rejected for both fuel classes at
+eight headings. Exact evidence and remaining limitations are recorded in
+NATIVE_SUCCESS_MISSIONS.md. This is a bounded spawn-regression fix, not sprint
+or release acceptance; the manual Dev9 install remains unchanged.
