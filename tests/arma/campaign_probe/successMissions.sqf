@@ -1,4 +1,5 @@
 // Real native campaign requests and completion handlers. No endpoint stubs.
+private _supplyReproduction=call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\supply-reproduction-mode.sqf";
 private _checks=0;private _failures=[];
 private _check={params ["_name","_ok",["_details",[]]];
     _checks=_checks+1;if (!_ok) then {_failures pushBack _name};
@@ -9,7 +10,10 @@ private _wait={params ["_condition",["_seconds",180]];private _until=diag_tickTi
 };
 private _request={params ["_type","_serialVar","_registryVar","_namePrefix","_checkPrefix"];
     private _serial=missionNamespace getVariable [_serialVar,0];
-    [_type,2,true] spawn A3A_fnc_missionRequest;
+    if (_type=="LOG" && {_supplyReproduction}) then {
+        diag_log "[INFECTION_SUPPLY_TRACE] targeted_milbase_fuel";
+        ["milbase","fuel"] spawn A3I_fnc_startSupplySeizure;
+    } else {[_type,2,true] spawn A3A_fnc_missionRequest};
     private _started=[{(missionNamespace getVariable [_serialVar,0])>_serial}] call _wait;
     [_checkPrefix+"dispatch",_started] call _check;
     if (!_started) exitWith {createHashMap};
@@ -86,6 +90,7 @@ private _trace=[{
 ["supply_eligible",_supplyTargets isNotEqualTo []] call _check;
 private _supply=["LOG","A3I_supplySerial","A3I_supplyTasks","A3I_SUPPLY_","supply_"] call _request;
 if (_supply getOrDefault ["taskRegistered",false]) then {
+    if (_supplyReproduction) then {sleep 10};
     private _name=_supply get "name";private _truck=_supply get "truck";
     ["supply_allowed_kind",(_supply get "source") in _supplyTargets
         && {(_supply get "kind") in ([_supply get "source"] call A3I_fnc_supplySiteKinds)},[_supply get "source",_supply get "kind",typeOf _truck]] call _check;

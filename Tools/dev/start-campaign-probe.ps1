@@ -11,6 +11,7 @@ param(
     [switch]$CasualtySave,
     [switch]$ExtractionLifecycle,
     [switch]$SuccessMissions,
+    [switch]$SupplyReproduction,
     [ValidateSet('Write','Read')][string]$Phase='Write',
     [ValidatePattern('^[A-Za-z0-9_-]{1,24}$')][string]$Instance='ReduxSave1',
     [ValidateRange(1024,65531)][int]$Port=5002
@@ -18,6 +19,7 @@ param(
 $ErrorActionPreference='Stop'
 if ($TraceStartup -and $TraceCrate) {throw 'Choose one startup diagnostic.'}
 if ($CrateKeepInventory -and !$TraceCrate) {throw 'Keeping inventory is only a crate diagnostic control.'}
+if ($SupplyReproduction -and !$SuccessMissions) {throw 'Supply reproduction requires SuccessMissions.'}
 if ($SuccessMissions -and ($ExtractionLifecycle -or $CasualtySave -or $SiteCasualties -or $SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose successful mission checks without other diagnostics.'}
 if ($ExtractionLifecycle -and ($CasualtySave -or $SiteCasualties -or $SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose Extraction lifecycle without other diagnostics.'}
 if ($CasualtySave -and ($SiteCasualties -or $SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose casualty save testing without other diagnostic modes.'}
@@ -53,6 +55,7 @@ Copy-Item -LiteralPath (Join-Path $source 'casualties.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'casualtySave.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'extraction.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'successMissions.sqf') -Destination $addon
+$(if ($SupplyReproduction) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'supply-reproduction-mode.sqf') -Encoding ASCII
 $(if ($SuccessMissions) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'success-missions-mode.sqf') -Encoding ASCII
 $(if ($ExtractionLifecycle) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'extraction-mode.sqf') -Encoding ASCII
 $(if ($CasualtySave) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'casualty-save-mode.sqf') -Encoding ASCII
@@ -110,7 +113,7 @@ if ($SiteCasualties -or $CasualtySave) {$helperInputs['casualties.sqf']=(Get-Fil
 if ($CasualtySave) {$helperInputs['casualtySave.sqf']=(Get-FileHash (Join-Path $source 'casualtySave.sqf')).Hash}
 if ($ExtractionLifecycle) {$helperInputs['extraction.sqf']=(Get-FileHash (Join-Path $source 'extraction.sqf')).Hash}
 if ($SuccessMissions) {$helperInputs['successMissions.sqf']=(Get-FileHash (Join-Path $source 'successMissions.sqf')).Hash}
-$receipt=[ordered]@{SuccessMissions=[bool]$SuccessMissions;ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
+$receipt=[ordered]@{SupplyReproduction=[bool]$SupplyReproduction;SuccessMissions=[bool]$SuccessMissions;ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
     StartedUTC=[DateTime]::UtcNow.ToString('o');ProductionPBO=(Get-FileHash (Join-Path $modRoot 'addons/a3i_core.pbo')).Hash;
     HelperPBO=(Get-FileHash (Join-Path $output 'a3i_campaign_probe.pbo')).Hash;
     HelperSource=(Get-FileHash (Join-Path $source 'run.sqf')).Hash;ReduxFixes=$companionReceipt}

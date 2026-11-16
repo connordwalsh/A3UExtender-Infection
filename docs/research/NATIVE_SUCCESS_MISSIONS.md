@@ -47,3 +47,11 @@ The exact helper, raw log, receipt, reports and manifests are archived under
 `native-success-missions-dev2`. All 324 production inputs and helper hashes match;
 production code is unchanged. Both isolated servers have exited. No Computer Use
 or other faction development occurred.
+
+## Targeted reproduction mode
+
+`-SuccessMissions -SupplyReproduction` keeps the Elimination request but calls
+the production Supplies Seizure starter with explicit `milbase`/`fuel` inputs.
+It waits ten seconds at the original truck position before attempting delivery.
+Vehicle/task diagnostics remain read-only. This is a targeted production-starter
+test, not public LOG selection coverage; the launch receipt identifies the mode.

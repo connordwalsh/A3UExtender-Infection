@@ -31,7 +31,7 @@ def collect(path):
            'checks_pass':not failed,'no_engine_or_native_errors':not errors,
            'complete_matches':len(finishes)==1 and finishes[0][1:]==[len(checks),failed]}
     return {'status':'passed' if all(valid.values()) else 'failed' if finishes else 'incomplete',
-            'scope':'Native public Elimination and Supplies Seizure success via engine death and truck placement; not player combat, driving or multiplayer acceptance',
+            'scope':'Native Elimination and Supplies Seizure success via engine death and truck placement; not player combat, driving or multiplayer acceptance',
             'source_log_sha256':hashlib.sha256(raw).hexdigest(),'validation':valid,'records':checks,'failed':failed,'errors':errors,'malformed':malformed}
 
 if __name__=='__main__':
