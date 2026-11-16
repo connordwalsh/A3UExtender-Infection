@@ -186,3 +186,31 @@ This accepts the combined code regression containing public Aid and Elimination,
 not a standalone passing Aid Dev4 full run or campaign acceptance. Connected
 players, visible menus/rewards, real-terrain mission behavior, HC/JIP, saves and
 performance remain open. No sprint gate or manual Dev9 installation changed.
+
+## Native ownership cancellation, 16 November 2026
+
+The `-AidLifecycle` campaign probe uses the public SUPP request in a fresh
+Redux campaign and the unchanged production build. It validates the native
+loadable HQ package and CREATED task, then invokes Ultimate's actual
+Invader town-capture transaction. No ledger, reward, task-state or timer
+endpoint is replaced. The package remains paused at HQ before capture.
+
+All 16 Aid assertions and 19 campaign startup/save checks pass with zero matched
+errors. Ownership cancellation removes the package, pickup marker and native
+task, retires the controller, releases the supply lock, and excludes the captured
+town from subsequent Aid targets. Town data remains [367,122.333,75,0]; Rebel
+funds and manpower are unchanged. HQ remains intact. The isolated server exited.
+Five collector tests, launcher parsing and self-review pass. The probe observes
+native task removal after cancellation; it does not claim visible client feedback.
+
+Evidence: `evidence/sprint-6/native-campaign-aid-cancel-dev1`, including raw RPT,
+exact three helper inputs, launch receipt, both build manifests and reports.
+All helper hashes match. Of 326 production inputs, 324 match byte-for-byte and
+two match after checkout line-ending normalization, with their original frozen
+source hashes verified. Production files and the manual Dev9 install did not
+change. No faction implementation or Computer Use occurred.
+
+Unloading success still requires a native capable Rebel escort, which also
+activates ordinary nearby site spawning. Do not stub that interaction merely
+to obtain a passing unloading timer. Real transport, visible menus/actions,
+player rewards, Rebel capture cancellation and multiplayer remain open.

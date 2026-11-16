@@ -1,0 +1,150 @@
+{
+  "status": "passed",
+  "scope": "Native Aid request, HQ package, Invader town capture cancellation and cleanup; not unloading, player transport, UI or multiplayer acceptance",
+  "source_log_sha256": "9228d24629b48ca99784f139b1c39b7fd025caeef38f4086a1f07c2665f6a2d1",
+  "validation": {
+    "one_run": true,
+    "schema": true,
+    "expected_checks_once": true,
+    "checks_pass": true,
+    "no_engine_or_native_errors": true,
+    "complete_matches": true
+  },
+  "records": [
+    [
+      "check",
+      "eligible_targets",
+      true,
+      [
+        [
+          "Zelenogorsk",
+          30412300.0,
+          "Myshkino",
+          13437.5,
+          "Pavlovo",
+          187236000.0,
+          "Drozhino",
+          3103.93,
+          "Sosnovka",
+          13646100.0
+        ]
+      ]
+    ],
+    [
+      "check",
+      "public_dispatch",
+      true,
+      []
+    ],
+    [
+      "check",
+      "task_registered",
+      true,
+      [
+        ""
+      ]
+    ],
+    [
+      "check",
+      "infected_target",
+      true,
+      [
+        "Zelenogorsk"
+      ]
+    ],
+    [
+      "check",
+      "native_package",
+      true,
+      [
+        [
+          378.491,
+          4850.5,
+          0.000202179
+        ]
+      ]
+    ],
+    [
+      "check",
+      "native_task_created",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_package_paused",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_town_capture",
+      true,
+      []
+    ],
+    [
+      "check",
+      "ownership_cancelled",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_cleanup",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_task_removed",
+      true,
+      []
+    ],
+    [
+      "check",
+      "supply_lock_released",
+      true,
+      []
+    ],
+    [
+      "check",
+      "no_support_penalty",
+      true,
+      [
+        [
+          367,
+          122.333,
+          75,
+          0
+        ],
+        [
+          367,
+          122.333,
+          75,
+          0
+        ]
+      ]
+    ],
+    [
+      "check",
+      "no_resource_penalty",
+      true,
+      []
+    ],
+    [
+      "check",
+      "captured_town_ineligible",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_intact",
+      true,
+      []
+    ]
+  ],
+  "failed": [],
+  "errors": [],
+  "malformed": []
+}

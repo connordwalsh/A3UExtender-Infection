@@ -824,3 +824,9 @@ The direct map-menu supply path reaches the Humanitarian Aid adapter. This is
 bounded source coverage, not exhaustive dynamic reachability or runtime
 acceptance. External encounters, connected-player menus and wider Occupant
 caller coverage remain open. No faction implementation was added.
+
+16 November native Aid cancellation checkpoint: public request, logistics
+package, Invader town capture, penalty-free cancellation and native cleanup
+pass 16 checks plus 19 campaign checks with zero matched errors. See
+HUMANITARIAN_AID.md and frozen native-campaign-aid-cancel-dev1 evidence.
+Unloading success, actual player transport and multiplayer remain open.
