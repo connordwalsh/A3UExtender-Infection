@@ -31,3 +31,16 @@ launch receipt, raw RPT, both reports and both build manifests. All 324 producti
 source inputs and helper hashes match. Production PBOs are unchanged. The exact
 isolated server has exited. This samples the public request/failure/asset path
 at one town; successful player extraction and multiplayer remain open.
+
+## Successful Extraction validation in progress
+
+The optional `-ExtractionLifecycle -ExtractionSuccess` probe uses the trusted
+server AI release entry with an existing vanilla unit. It rejects that AI at the
+public player entry, checks native recruit initialization, then places each
+released survivor at HQ. Native ledger conversion must award incremental
+manpower and recover inventory, keep the task pending while survivors remain,
+and settle success with exact funds only after all survivors are resolved.
+The normal delayed asset cleanup and stable rewards are checked. No task state,
+reward endpoint, deadline or cleanup timer is replaced. Ten collector tests and
+PowerShell parsing pass; engine validation is pending. This is not a player
+interaction, travel, deadline, multiplayer or faction implementation test.

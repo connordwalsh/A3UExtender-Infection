@@ -10,6 +10,7 @@ param(
     [switch]$SiteCasualties,
     [switch]$CasualtySave,
     [switch]$ExtractionLifecycle,
+    [switch]$ExtractionSuccess,
     [switch]$SuccessMissions,
     [switch]$SupplyReproduction,
     [switch]$SupplyParking,
@@ -18,6 +19,7 @@ param(
     [ValidateRange(1024,65531)][int]$Port=5002
 )
 $ErrorActionPreference='Stop'
+if ($ExtractionSuccess -and !$ExtractionLifecycle) {throw 'Extraction success requires ExtractionLifecycle.'}
 if ($SupplyParking -and ($SuccessMissions -or $ExtractionLifecycle -or $CasualtySave -or $SiteCasualties -or $SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose the parking survey without other diagnostics.'}
 if ($TraceStartup -and $TraceCrate) {throw 'Choose one startup diagnostic.'}
 if ($CrateKeepInventory -and !$TraceCrate) {throw 'Keeping inventory is only a crate diagnostic control.'}
@@ -56,6 +58,8 @@ Copy-Item -LiteralPath (Join-Path $source 'sites.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'casualties.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'casualtySave.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'extraction.sqf') -Destination $addon
+Copy-Item -LiteralPath (Join-Path $source 'extractionSuccess.sqf') -Destination $addon
+$(if ($ExtractionSuccess) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'extraction-success-mode.sqf') -Encoding ASCII
 Copy-Item -LiteralPath (Join-Path $source 'successMissions.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'supplyParking.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'legacySupplyPosition.sqf') -Destination $addon
@@ -117,12 +121,13 @@ foreach ($inputName in $inputNames) {$helperInputs[$inputName]=(Get-FileHash (Jo
 if ($SiteLifecycle) {$helperInputs['sites.sqf']=(Get-FileHash (Join-Path $source 'sites.sqf')).Hash}
 if ($SiteCasualties -or $CasualtySave) {$helperInputs['casualties.sqf']=(Get-FileHash (Join-Path $source 'casualties.sqf')).Hash}
 if ($CasualtySave) {$helperInputs['casualtySave.sqf']=(Get-FileHash (Join-Path $source 'casualtySave.sqf')).Hash}
+if ($ExtractionSuccess) {$helperInputs['extractionSuccess.sqf']=(Get-FileHash (Join-Path $source 'extractionSuccess.sqf')).Hash}
 if ($ExtractionLifecycle) {$helperInputs['extraction.sqf']=(Get-FileHash (Join-Path $source 'extraction.sqf')).Hash}
 if ($SuccessMissions) {$helperInputs['successMissions.sqf']=(Get-FileHash (Join-Path $source 'successMissions.sqf')).Hash}
 if ($SupplyParking) {$helperInputs['supplyParking.sqf']=(Get-FileHash (Join-Path $source 'supplyParking.sqf')).Hash}
 if ($SupplyParking) {$helperInputs['legacySupplyPosition.sqf']=(Get-FileHash (Join-Path $source 'legacySupplyPosition.sqf')).Hash}
 if ($SupplyParking) {$helperInputs['tunedSupplyPosition.sqf']=(Get-FileHash (Join-Path $source 'tunedSupplyPosition.sqf')).Hash}
-$receipt=[ordered]@{SupplyParking=[bool]$SupplyParking;SupplyReproduction=[bool]$SupplyReproduction;SuccessMissions=[bool]$SuccessMissions;ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
+$receipt=[ordered]@{ExtractionSuccess=[bool]$ExtractionSuccess;SupplyParking=[bool]$SupplyParking;SupplyReproduction=[bool]$SupplyReproduction;SuccessMissions=[bool]$SuccessMissions;ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
     StartedUTC=[DateTime]::UtcNow.ToString('o');ProductionPBO=(Get-FileHash (Join-Path $modRoot 'addons/a3i_core.pbo')).Hash;
     HelperPBO=(Get-FileHash (Join-Path $output 'a3i_campaign_probe.pbo')).Hash;
     HelperSource=(Get-FileHash (Join-Path $source 'run.sqf')).Hash;ReduxFixes=$companionReceipt}
