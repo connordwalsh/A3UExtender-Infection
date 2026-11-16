@@ -136,4 +136,7 @@ if (_new) then {
 private _backgroundWindowStart=diag_tickTime;
 sleep 75;
 ["background_window_completed",diag_tickTime-_backgroundWindowStart>=75,[diag_tickTime-_backgroundWindowStart]] call _check;
+if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\site-mode.sqf") then {
+    call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\sites.sqf";
+};
 call _finish;

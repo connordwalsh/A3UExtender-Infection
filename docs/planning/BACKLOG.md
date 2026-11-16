@@ -9,7 +9,14 @@ and controller results remain recorded separately. Campaign acceptance is open.
 [PRODUCT_DECISIONS.md](PRODUCT_DECISIONS.md) records the user's amendments.
 Status is evidence-based; successful packing does not complete a gameplay story.
 
-Latest integration checkpoint: merged PR 40 covers Supplies Seizure after 1228
+Current campaign checkpoint: merged PR 69 records native startup, save and
+fresh-process reload passing 19 checks per phase with zero matched errors.
+The subsequent native site probe passes 29 lifecycle checks over two visits each
+to Olsha (21 infected) and one resource site (eight defenders), alongside the 19
+campaign checks. See NATIVE_CAMPAIGN_SITES.md. Connected-player, combat, other
+site categories, performance and release acceptance remain open.
+
+Earlier mission integration checkpoint: merged PR 40 covers Supplies Seizure after 1228
 combined checks and 67 role-spawn records. PRs 41/42 add Extraction scenes and the
 Aid unloading ledger; PRs 44/45 add Elimination tracking and scenes. Public Aid
 and Elimination are merged through PR 46 after their unchanged Dev3 rerun passed
@@ -32,13 +39,13 @@ none of these stories is complete.
 
 | Story | Work | Status | Evidence / next check |
 | --- | --- | --- | --- |
-| S0-1 | Versions, dependencies, clean local and dedicated baseline | In progress | Local save and process-restart reload verified with matching ID/resources; dedicated campaign open. |
+| S0-1 | Versions, dependencies, clean local and dedicated baseline | In progress | Local save/reload and isolated dedicated native startup/save/reload verified; dedicated runs pass 19 checks per phase with zero matched errors. Connected-player baseline remains open. |
 | S0-2 | Prepared-class catalog and behavior | In progress | All 112 controlled behavior trials completed on 12.4.2; basic movement/targeting observed. Seven special deletion/locality cases and large-creature model errors remain unresolved; see BEHAVIOR_12.4.2.md. |
 | S0-3 | Occupant impact map | In progress | 24 integration areas and 86 pinned source files mapped; remaining caller audit open. |
 | S1-1 | Infection scaffold and dependency checks | In progress | Built and loaded; isolated dependency-present/absent checks passed. Campaign setup acceptance remains open. |
 | S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
 | S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns, strongholds, routine repair, roaming and capture responses and tactical support avoid conventional pools in the 684-check suite; remaining mission/convoy routes remain open. |
-| S2-1 | Occupied-site lifecycle | In progress | Six persistent types and transient controls/towns/administrations pass isolated spawning/cleanup/reentry checks, including full queued rosters and stopped-controller recovery. Redux campaign acceptance remains open. |
+| S2-1 | Occupied-site lifecycle | In progress | Isolated contracts cover six persistent types and transient controls/towns/administrations. Native Redux campaign forced activation, cleanup and second visits pass for Olsha and one resource site. Other campaign site categories, player proximity and combat remain open. |
 | S2-2 | Foot patrols and road controls | In progress | Controls, towns and roaming pass 37, 67 and 39 dedicated cases within the 684-check suite. Towns preserve approved per-visit regeneration. Redux navigation, connected players and repeated patrol circuits remain open. |
 | S2-2a | Population-based town infestations | In progress | The approved 10â€“200 logistic, complete activation, all infected-held towns and ownership handoffs pass 67 town cases within the 684-check regression; 78 focused and 11 missing-dependency checks also pass. See TOWN_INFESTATIONS.md. Redux navigation, connected players and performance remain open. |
 | S2-3 | Capture and persistence | In progress | Queued defenders block capture; roster death/reentry contracts pass. Administration clearing uses the actual native ownership/support transaction, including after building destruction. Full campaign ownership/rewards/save/reload/recapture remain open. |

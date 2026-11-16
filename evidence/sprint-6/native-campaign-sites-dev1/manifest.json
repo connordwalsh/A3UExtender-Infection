@@ -1,0 +1,14 @@
+{
+  "scope": "Native campaign site diagnostic evidence",
+  "files": {
+    "campaign-report.json": "53dd1073a703524d7c9781719e9c9f52ef0e498e6470f8bc7cba4e5b8ad5bb0b",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "aa9a4bc752fad266a7ecbda729c918e19baa338df9fa3b60c46b32e8e51807fb",
+    "fixture/sites.sqf": "e3fa57f61245d796909c33c38a1de9b065790fc799026e532d4f14b3cb8ab86d",
+    "infection-build.json": "058f279f58b5c91abe4e8c1b4b0a0c9969119bef11a1e8918abe5bd07b3d5cf4",
+    "launch.json": "7490aa4553f43febd9795ad3c11433c11e9c301a1ae23692f83bb730f2780ec8",
+    "probe.rpt": "b7a4ec9d79303f63bb57448fac57b7251adef0fbb894c03fd9be2c7f938baacb",
+    "redux-fixes-build.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1",
+    "sites-report.json": "463811f3ab49dc2d046c47d45df3e6e0877032f4090af90557e72ec35029ca49"
+  }
+}
