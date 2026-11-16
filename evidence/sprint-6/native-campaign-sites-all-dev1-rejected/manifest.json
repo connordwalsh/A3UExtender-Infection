@@ -1,0 +1,11 @@
+{
+  "scope": "Rejected fixture: incorrectly treated context ceiling as configured limit",
+  "files": {
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "aa9a4bc752fad266a7ecbda729c918e19baa338df9fa3b60c46b32e8e51807fb",
+    "fixture/sites.sqf": "dbb4b7b630003d355b257e7765adfbf16b53c685fea44112d0424dbf6416b8da",
+    "launch.json": "82c6d0814199f97c41f0559bd2f2473f7c16186fc896276d7198ebc45445c5e5",
+    "probe.rpt": "331eeb24d642957ea200f82ff4c83edeb8f8e88ea3482100ca9a5c955c1ffcef",
+    "sites-report.json": "97350e7bb4ccb89fe7bc5ec41c3d030d0c0a524bfba88fd631384a91ad342ea7"
+  }
+}
