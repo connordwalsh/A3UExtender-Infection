@@ -1,0 +1,14 @@
+{
+  "scope": "Seven native campaign site categories, two visits each; no player, combat, JIP or performance acceptance",
+  "files": {
+    "campaign-report.json": "4555f0f15a920dc606702af39a9986da7e019e28062f5982e918f9dc31a9ac8f",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "aa9a4bc752fad266a7ecbda729c918e19baa338df9fa3b60c46b32e8e51807fb",
+    "fixture/sites.sqf": "1c3917b8b1f4eb10f77b38a7c0dd74657b7fe452df7517b451f932eee0ee1f5e",
+    "infection-build.json": "058f279f58b5c91abe4e8c1b4b0a0c9969119bef11a1e8918abe5bd07b3d5cf4",
+    "launch.json": "c9df7d38c7d8683eaa7d60d39ac126cdd309c491d26d1de897e5cad4e81313e0",
+    "probe.rpt": "71149bfacf477343b79ac14dbf5f2c648887b6ce05e649bf920e6374dd84dad8",
+    "redux-fixes-build.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1",
+    "sites-report.json": "ff77b41969e7a1b0212bab706ac6fe10ba8e5b4b238fa2da425bd34a61a3159e"
+  }
+}

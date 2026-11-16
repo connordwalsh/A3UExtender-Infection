@@ -78,3 +78,34 @@ The corrected fixture reads and logs both live settings. No production code or
 budget setting is changed to satisfy the test. The smaller earlier Dev1 never
 exceeded 12 actors at its permanent resource site; its bounded result remains
 distinct from overflow validation.
+
+## Seven-category Dev2 result
+
+The 16 November 2026 run passes all 113 lifecycle checks and all 19 native
+campaign startup/save checks, with zero matched engine/native errors. Each of
+the following sites completes two visits with a new controller, preserved native
+roster, retired tracked units/groups/assets and released budget reservations:
+
+| Category | Marker | Living + queued on each visit |
+| --- | --- | --- |
+| Town | Olsha | 21 + 0 |
+| Resource | resource | 8 + 0 |
+| Factory | factory_5 | 12 + 0 |
+| Outpost | outpost_30 | 12 + 0 |
+| Seaport | seaport | 12 + 4 |
+| Military base | milbase_1 | 12 + 20 |
+| Airport | airport | 12 + 32 |
+
+The unchanged context/shared settings are 12/40. Overflow is preserved rather
+than discarded. This run does not kill defenders, so replacement of casualties
+from those queues still requires separate native campaign evidence.
+
+The exact helper snapshot, launch receipt, both build manifests, raw RPT and
+reports are in `evidence/sprint-6/native-campaign-sites-all-dev2`. All 324
+production source inputs match the frozen Infection build; helper source hashes
+match the launch receipt. The production PBOs retain the hashes recorded above.
+Fourteen campaign/site/parser regression tests pass. The exact isolated server
+was stopped and its disappearance confirmed before finalizing the archive; the
+archived log matches the stopped profile log byte for byte. No Computer Use,
+manual-install changes or other faction development occurred. Connected-player,
+combat, capture, full-map sweep, JIP and performance gates remain open.
