@@ -1,0 +1,22 @@
+{
+  "scope": "Native casualty save and fresh-process restart/load; not player combat or multiplayer",
+  "files": {
+    "fixture/casualties.sqf": "f76e03dbb6b931abba75782d7539006e461ce03af00c100bbd797b69e9c60588",
+    "fixture/casualtySave.sqf": "c8b3d3c4030c5deec8faab16c908cdf02b064841e5120d3ab2e4c1f31ef674f3",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "04200c3ec5e5cf5241df3859ab6c74a2cb2424cf99439339654100c4f6cd4162",
+    "infection-build.json": "058f279f58b5c91abe4e8c1b4b0a0c9969119bef11a1e8918abe5bd07b3d5cf4",
+    "read-campaign-report.json": "280e9900cb77b9bde690f6e604c919671431968334c0cfab319dc107738d2cf4",
+    "read-launch.json": "328a7a275bc5e2904c0ff8134849df243b9a77b4e13a0ea5e887c36fc9e4d72c",
+    "read-save-report.json": "52ccd7f8571589a12615287f19eee5630b3a5af3189bf39dd5acc09bf4efb3e8",
+    "read.rpt": "6b1c3be8dbde1a48a318d1e0514ba4647dc2de4ae8f79738beb39ecbcf624144",
+    "redux-fixes-build.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1",
+    "write-AntistasiUltimate.vars": "ec0c628fba88cd9c90fa365775416149384c2402e436edcaa439256948d13d2b",
+    "write-campaign-report.json": "e4a9e9aedfbfca0710e0f1173649dc067d1a2966f1c7ab79757f2992c01c129a",
+    "write-casualties-report.json": "3759190e0996786eef08aa907b5484dc4baa3056526fb3696d95f3d3bac1c20a",
+    "write-InfectionCampaign_CasualtySave1.vars.Arma3Profile": "186cb6957361042072101143d855317d8d95e102ceb3bebdbe237daf774d812a",
+    "write-launch.json": "00085e893a9eaa557f77c3152e2a9752407c3a6df1fd143fcc8faab0de3eee84",
+    "write-save-report.json": "ffb20b1add7061d9134136807f4ff11021dc9ba65af2ef9888518808bdc6c63f",
+    "write.rpt": "bdb88c4b25390b33dcb3358909a32ae98d2c06ba0b8c21ede4e807639a2b7749"
+  }
+}

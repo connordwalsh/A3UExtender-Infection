@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "phase": "read",
+  "scope": "Native campaign casualty save/restart/load and site activation; not player combat or multiplayer acceptance",
+  "source_log_sha256": "6b1c3be8dbde1a48a318d1e0514ba4647dc2de4ae8f79738beb39ecbcf624144",
+  "validation": {
+    "one_run": true,
+    "schema": true,
+    "expected_checks_once": true,
+    "checks_pass": true,
+    "no_engine_or_native_errors": true,
+    "complete_matches": true
+  },
+  "records": [
+    [
+      "check",
+      "read_receipt_valid",
+      true,
+      []
+    ],
+    [
+      "check",
+      "read_campaign_identity",
+      true,
+      []
+    ],
+    [
+      "check",
+      "read_native_roster_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "read_ownership_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "read_native_dispatch",
+      true,
+      []
+    ],
+    [
+      "check",
+      "read_only_reduced_roster_spawned",
+      true,
+      [
+        12,
+        12
+      ]
+    ],
+    [
+      "check",
+      "read_valid_infected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "read_native_cleanup",
+      true,
+      []
+    ],
+    [
+      "check",
+      "read_budget_released",
+      true,
+      []
+    ],
+    [
+      "check",
+      "read_roster_unchanged",
+      true,
+      []
+    ]
+  ],
+  "failed": [],
+  "errors": [],
+  "malformed": []
+}
