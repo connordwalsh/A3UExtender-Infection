@@ -807,3 +807,11 @@ samples). The original failed spawn point is rejected for both fuel classes at
 eight headings. Exact evidence and remaining limitations are recorded in
 NATIVE_SUCCESS_MISSIONS.md. This is a bounded spawn-regression fix, not sprint
 or release acceptance; the manual Dev9 install remains unchanged.
+
+16 November Extraction success checkpoint: 24 trusted server AI release/delivery
+checks plus 19 native campaign checks pass with zero matched errors. Native
+incremental manpower, recovered inventory, pending partial rescue, final success
+funds and delayed cleanup are verified with controlled HQ placement. See
+NATIVE_EXTRACTION.md and the frozen success Dev1 evidence. No faction work or
+Computer Use occurred; player escort, deadline, multiplayer and release gates
+remain open. The manual Dev9 install is unchanged.
