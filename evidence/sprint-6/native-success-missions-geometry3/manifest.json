@@ -1,0 +1,12 @@
+{
+  "scope": "Complete object logs around failed and successful positions; passing different truck and position does not resolve FuelRepro1.",
+  "files": {
+    "campaign-report.json": "f49213da5addae46a69c3fee4d52a7eaefb7f21885efc6c7c924925d49646f3e",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "5f8eddd97d5974161da6b91ce88c563d9703b32a2406079cd59b5950f691211b",
+    "fixture/successMissions.sqf": "5395701d78f8bea35838fee4f0d395a896ae5ea86a5ac69f070eef0a28924079",
+    "launch.json": "e7bd05427924bf1e0c059036ee6217d54894fc0a81e6d488eb13e5ca25098bec",
+    "missions-report.json": "c0e1bb796eb0f52c1ce672323e8c511407cb8593b42893376caeac446a2496b8",
+    "probe.rpt": "6770e29abd1444bedfb1193cfc7374f9ce57c9af7dff1866b22aa8fe03949ea9"
+  }
+}

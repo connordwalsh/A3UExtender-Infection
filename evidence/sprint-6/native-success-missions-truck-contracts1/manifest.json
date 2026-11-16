@@ -1,0 +1,14 @@
+{
+  "scope": "35 isolated dedicated SupplyTrucks checks; no player driving or full campaign acceptance.",
+  "source_commit": "3c68293ebb7e950862b90be1d2e483fee7acea1e",
+  "files": {
+    "install.json": "02e2c8e8fdb0a3d40fe24514a657600fd157596a60b7ae5345d8b7769062f53a",
+    "probe.rpt": "9b8a54f921bb4876cc4ce4dc99395f2723bb4c2ac2ee8454aaa93a8184304057",
+    "production-build-manifest.json": "d23f1190901630d5fc186f72f4dcd577d1688e36560cd04a18ccb4c06be9ba32",
+    "report.json": "7a51c3759109d8fced7f57511fdfcbd5e8339b59fd3e46c2ee9bbe9ef5ac657a",
+    "fixture/description.ext": "d23d0b6a438414749717f47516247a931adde3dc7114cb6ffac9c89ac3667624",
+    "fixture/initServer.sqf": "71a629edb2c462970e3e00e0a0782590523cf29df0a55af67a795ea1c3571e5f",
+    "fixture/mission.sqm": "b0f1a5d920d1e9803e85eca28d178cdaae203586a93536c6e8e41bbc840c7f2f",
+    "fixture/supplyTruckChecks.sqf": "6febb945d968e433a8e8a30681602ef193eec28b17386eb54743647b290925ed"
+  }
+}

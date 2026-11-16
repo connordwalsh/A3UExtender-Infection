@@ -1,0 +1,11 @@
+{
+  "scope": "Interrupted when owner paused goal, before mission diagnostic began; not acceptance evidence",
+  "files": {
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "5f8eddd97d5974161da6b91ce88c563d9703b32a2406079cd59b5950f691211b",
+    "fixture/successMissions.sqf": "534575b00a9dfc61cbc6fb59596621b6e4fe7b666e7c3e46d82140d80969e4ea",
+    "launch.json": "25c6ac8e5977263092daaf3589b2837345131b394fe7e4e6ff1c4da3c7d3ac16",
+    "missions-report.json": "7cbfca7776e83e903027b26a88dd5ba83e4d786a4b5767200d23f4a45bc306d5",
+    "probe.rpt": "c740c9565c251b00df1afad1534d7de2baf0307603247ddb8390d48f4a58c0de"
+  }
+}

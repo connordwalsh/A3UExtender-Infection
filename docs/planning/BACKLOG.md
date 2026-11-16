@@ -769,3 +769,41 @@ zero rescue credit and normal one-minute actor/group cleanup with released
 budget and intact HQ. Thirteen mission checks and 19 campaign checks pass with
 zero matched errors. See NATIVE_EXTRACTION.md. Player release/delivery/success,
 multiplayer and long task-display retirement remain unverified.
+
+16 November native successful missions: PR 75 remains draft. Dev1 passes native
+Elimination but its milbase fuel truck disappears before delivery inspection;
+three checks fail and six cannot execute. Diagnostic Dev2 passes 27 mission plus
+19 campaign checks at a different outpost/ammunition sample, with exact 1000/300
+rewards and retained truck. Both have zero matched errors. The original truck
+disappearance remains unresolved; do not interpret Dev2 as a fix. See
+NATIVE_SUCCESS_MISSIONS.md and both preserved raw logs.
+
+16 November truck-placement investigation: a targeted run confirms the original
+fuel truck is destroyed immediately at its spawn point. Fixed-position geometry
+sampling finds a hut inside the truck envelope. PR 75 now includes a candidate
+class/heading footprint guard in parking selection and final creation. Build and
+collector checks pass; native regression is pending. The PR remains draft and
+the original defect is not yet closed. Other faction development remains out
+of scope; the manual Dev9 install is unchanged.
+
+16 November evidence reconciliation: the separate `codex/special-lifecycle`
+branch already completed the follow-up to the seven ambiguous ownership/deletion
+observations. Its commit `fba3c979c9af12af10ca83a890cbdb6cf6d451ab` records 56
+completed trials with cleanup, 936 model/attachment errors across five classes,
+and Corrupted possession deleting a living body without a Killed event. Review
+that existing failed report before repeating lifecycle trials. Existing actors
+remained server-local; the remaining work is model/attachment investigation and
+tracking a continuing possessed threat if Corrupted is ever enabled. The report
+is not acceptance evidence for the large creatures. The approved initial
+Elimination roster remains Screamer, Boomer and Leaper 2. See the preserved
+[focused investigation](https://github.com/connordwalsh/A3UExtender-Infection/blob/fba3c979c9af12af10ca83a890cbdb6cf6d451ab/docs/research/SPECIAL_LIFECYCLE.md).
+
+16 November truck-placement correction: final native verification passes 29
+mission checks and 19 campaign checks with zero matched errors. The guard also
+passes 35 focused vehicle checks and the combined 1,807-check/67-role suite.
+Parking selection and final creation now reject footprint geometry conflicts;
+the 96-attempt search matched the evaluated proposal (401/413 valid parking
+samples). The original failed spawn point is rejected for both fuel classes at
+eight headings. Exact evidence and remaining limitations are recorded in
+NATIVE_SUCCESS_MISSIONS.md. This is a bounded spawn-regression fix, not sprint
+or release acceptance; the manual Dev9 install remains unchanged.

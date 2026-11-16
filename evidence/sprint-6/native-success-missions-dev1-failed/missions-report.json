@@ -1,0 +1,172 @@
+{
+  "status": "failed",
+  "scope": "Native public Elimination and Supplies Seizure success via engine death and truck placement; not player combat, driving or multiplayer acceptance",
+  "source_log_sha256": "b91455144824ddcabf6bf8ba8257e1d908b275b7bf9a398e4f4c720fc1b0b053",
+  "validation": {
+    "one_run": true,
+    "schema": true,
+    "expected_checks_once": false,
+    "checks_pass": false,
+    "no_engine_or_native_errors": true,
+    "complete_matches": true
+  },
+  "records": [
+    [
+      "check",
+      "elim_eligible",
+      true,
+      []
+    ],
+    [
+      "check",
+      "elim_dispatch",
+      true,
+      []
+    ],
+    [
+      "check",
+      "elim_registered",
+      true,
+      [
+        "Myshkino",
+        ""
+      ]
+    ],
+    [
+      "check",
+      "elim_primary_approved",
+      true,
+      [
+        "Zombie_Special_BLUFOR_Screamer"
+      ]
+    ],
+    [
+      "check",
+      "elim_escorts_different",
+      true,
+      [
+        [
+          "Zombie_B_Shambler_Civ",
+          "Zombie_B_Shambler_Civ",
+          "Zombie_B_Shambler_Civ",
+          "Zombie_B_Shambler_Civ",
+          "Zombie_Special_BLUFOR_Leaper_2"
+        ]
+      ]
+    ],
+    [
+      "check",
+      "elim_search_area",
+      true,
+      []
+    ],
+    [
+      "check",
+      "elim_native_created",
+      true,
+      []
+    ],
+    [
+      "check",
+      "elim_neutralized",
+      true,
+      []
+    ],
+    [
+      "check",
+      "elim_native_succeeded",
+      true,
+      []
+    ],
+    [
+      "check",
+      "elim_reward_exact",
+      true,
+      [
+        1000,
+        1000,
+        2000
+      ]
+    ],
+    [
+      "check",
+      "elim_assets_cleaned",
+      true,
+      []
+    ],
+    [
+      "check",
+      "elim_search_removed",
+      true,
+      []
+    ],
+    [
+      "check",
+      "elim_budget_released",
+      true,
+      []
+    ],
+    [
+      "check",
+      "supply_eligible",
+      true,
+      []
+    ],
+    [
+      "check",
+      "supply_dispatch",
+      true,
+      []
+    ],
+    [
+      "check",
+      "supply_registered",
+      true,
+      [
+        "milbase",
+        ""
+      ]
+    ],
+    [
+      "check",
+      "supply_allowed_kind",
+      true,
+      [
+        "milbase",
+        "fuel",
+        ""
+      ]
+    ],
+    [
+      "check",
+      "supply_truck_ready",
+      false,
+      []
+    ],
+    [
+      "check",
+      "supply_native_created",
+      false,
+      []
+    ],
+    [
+      "check",
+      "supply_hq_position",
+      false,
+      []
+    ],
+    [
+      "check",
+      "hq_intact",
+      true,
+      []
+    ]
+  ],
+  "failed": [
+    "supply_truck_ready",
+    "supply_native_created",
+    "supply_hq_position"
+  ],
+  "errors": [],
+  "malformed": []
+}

@@ -9,7 +9,7 @@ if (_radius <= 0) exitWith {[[],0]};
 private _roads = _center nearRoads _radius;
 private _observers = call A3I_fnc_spawnObservers;
 private _result = [[],0];
-for "_attempt" from 0 to 23 do {
+for "_attempt" from 0 to 95 do {
     private _heading = random 360;
     private _candidate = [];
     if (_attempt < 12 && {_roads isNotEqualTo []}) then {
@@ -23,7 +23,8 @@ for "_attempt" from 0 to 23 do {
     _candidate set [2,0];
     _candidate = _candidate findEmptyPosition [0,12,_class];
     if (_candidate isEqualTo [] || {!([_candidate,_target] call A3I_fnc_interceptionContains)}) then {continue};
-    if (([_candidate,_class,_observers,getMarkerPos _hq] call A3I_fnc_positionSafety) # 0)
+    if (([_candidate,_class,_observers,getMarkerPos _hq] call A3I_fnc_positionSafety) # 0
+        && {([_candidate,_class,_heading] call A3I_fnc_supplyPositionClear) # 0})
         exitWith {_result = [_candidate,_heading]};
 };
 _result

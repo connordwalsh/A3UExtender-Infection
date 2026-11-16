@@ -1,0 +1,18 @@
+{
+  "scope": "Full isolated contracts: 1807 checks and 67 role spawns; not full campaign or connected-player acceptance.",
+  "production_commit": "88be80b2ca19434eb62f7a15c490b1bb2b20cc49",
+  "files": {
+    "fixture-inputs.json": "039be138ceb0e50e09f5fe27649aba85ad783e2cdaf2cfa58bdd2590cf0b681f",
+    "install.json": "5dc6013903e5a3ae171937eff25fc65dc32da0c3786870d091a0afc338a5d032",
+    "probe.rpt": "c527735166f00c8715f3ada88d8929c1d2d659b98fb1484ba0ecd16b7ba147c6",
+    "production-build-manifest.json": "d23f1190901630d5fc186f72f4dcd577d1688e36560cd04a18ccb4c06be9ba32",
+    "report.json": "ac73a7d95808b4b03d98396d93e814eb0e4a66d7471d83a20b32c0924caa0363",
+    "warning-review.json": "b1405b1222e4ff516e69131d6e42482c1befe396568723f4c70a37075eaafbe3",
+    "fixture/expectedDependencies.sqf": "49628009a4b6e1f4b66b9f3b6842423d60085f9ec94467f3ccbbf28862d78f7a",
+    "fixture/initServer.sqf": "71a629edb2c462970e3e00e0a0782590523cf29df0a55af67a795ea1c3571e5f",
+    "fixture/selectedSuite.sqf": "d01b964347170f88ba752fb5bd11f7c4d9d5c4f20a10a45655fd982d070e0e67",
+    "fixture/supplyDispatchChecks.sqf": "a8f2a0281a069268a98e9c0762f8864a401cbf631f842f4f2dd0c92241ed0753",
+    "fixture/supplyTaskChecks.sqf": "3975acc70021fab6eca725fd60c5726620d0484965eb473c778beae3b120e2e4",
+    "fixture/supplyTruckChecks.sqf": "6febb945d968e433a8e8a30681602ef193eec28b17386eb54743647b290925ed"
+  }
+}

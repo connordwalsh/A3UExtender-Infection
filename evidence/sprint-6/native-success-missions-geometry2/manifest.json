@@ -1,0 +1,12 @@
+{
+  "scope": "Geometry diagnostic; passing different milbase fuel truck and position does not resolve FuelRepro1 spawn destruction. Long geometry records truncated by engine log.",
+  "files": {
+    "campaign-report.json": "951579efd9a24a594711218fa8d71a92670137198fba040f7acc7466a5536a93",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "5f8eddd97d5974161da6b91ce88c563d9703b32a2406079cd59b5950f691211b",
+    "fixture/successMissions.sqf": "534575b00a9dfc61cbc6fb59596621b6e4fe7b666e7c3e46d82140d80969e4ea",
+    "launch.json": "9e4c461d60bcdd37afce23e12ecef1e45bf263473d0dac9ff517fbefcf10f79d",
+    "missions-report.json": "c6fbbdab672bdf8245f80e90e4b592afc0320eb79eb58fd3271d30df4325e5c8",
+    "probe.rpt": "c7a529c3cece0bee41eb95add4ee280f3bd8ecbdc4af160dea461a06417540da"
+  }
+}

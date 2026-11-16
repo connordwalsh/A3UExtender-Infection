@@ -21,6 +21,8 @@ private _hq = missionNamespace getVariable ["respawnTeamPlayer",""];
 if !(_hq in allMapMarkers) exitWith {[objNull,"hq_unavailable"]};
 private _safe = [_position,_class,call A3I_fnc_spawnObservers,getMarkerPos _hq] call A3I_fnc_positionSafety;
 if !(_safe # 0) exitWith {[objNull,_safe # 1]};
+private _clear = [_position,_class,_heading] call A3I_fnc_supplyPositionClear;
+if !(_clear # 0) exitWith {[objNull,_clear # 1]};
 private _vehicle = createVehicle [_class,_position,[],0,"NONE"];
 if (isNull _vehicle) exitWith {[objNull,"creation_failed"]};
 if (!alive _vehicle || {_vehicle distance2D _position > 0.5}) exitWith {

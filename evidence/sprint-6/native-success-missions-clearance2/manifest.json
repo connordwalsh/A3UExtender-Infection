@@ -1,0 +1,14 @@
+{
+  "scope": "Final 96-attempt production build; 29 native mission and 19 campaign checks, not connected-player or release acceptance.",
+  "production_commit": "641504ce2dfdeda63e491fab0b2dda38cc1ab9b2",
+  "files": {
+    "campaign-report.json": "53c06fa54b80920633950f865c89c389702fbdd905ddedf0caac1fdcdcea7878",
+    "launch.json": "ae1cf1a8aa556604aa6542ca65996bd326f49a3e68f98871dd9c60ada9069f63",
+    "missions-report.json": "5eb68a1920565eaf3231b80ef3dd4507eced900c3b17ef4ba16556f287edc025",
+    "probe.rpt": "ee43cb4a0e2e073eb6b82af9468c2590705b0bb563d86e9872664c37c66192ec",
+    "production-build-manifest.json": "bbd967930289d9b3a416f4200efce49f12118d891666736b2476a971faf60a3a",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "20811a13e3cd54e3fc21edee81903fe76a9715b65e00a5805ee5985ad9eaa010",
+    "fixture/successMissions.sqf": "0cf822d970a9a5d60333069ee1ef4b8abd2eaaffff01db60aa341ddbfc2f8fc5"
+  }
+}

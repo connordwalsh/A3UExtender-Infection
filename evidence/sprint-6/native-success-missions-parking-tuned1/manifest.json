@@ -1,0 +1,17 @@
+{
+  "scope": "96-attempt local proposal compared with 24-attempt production search; independent random samples, not a production change or gameplay performance acceptance.",
+  "source_commit": "c915689",
+  "files": {
+    "campaign-report.json": "ed8d92aeafb53f75ec2f1405894e7eaed0447ca4ffa7843e90b2ae8fc0516dd3",
+    "current-report.json": "cb82ff08de5504e09ab412920119f5bb0208a60ab395e7b3ebc6a9893c547ddc",
+    "launch.json": "808d3ce9f00bf9832d4c4b3cd4ad07ca838be9092938c54b70c52702a4b38028",
+    "probe.rpt": "6c16ebbdf0894770712d6aa38e5321ca14adee077fbbdec2763d2f740ad580a0",
+    "production-build-manifest.json": "d23f1190901630d5fc186f72f4dcd577d1688e36560cd04a18ccb4c06be9ba32",
+    "proposed-report.json": "f3c2c93493a2402b2f3158e84bdf391f9ba537cfa502f5eb4659d0d10a28317c",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/legacySupplyPosition.sqf": "a4fe974c45daf587d4e686f676e935a6f296e15ba0290bd6181af711b76c1a72",
+    "fixture/run.sqf": "20811a13e3cd54e3fc21edee81903fe76a9715b65e00a5805ee5985ad9eaa010",
+    "fixture/supplyParking.sqf": "880f57b87bb5fc6c99c146c58b4980501d6ac32c58ff0d77a9008f08b2064a56",
+    "fixture/tunedSupplyPosition.sqf": "e3d1b8b19f863448cb3a0fa23bf041cd5c2b714f7db027686939eb449dedffcd"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "scope": "Targeted milbase fuel reproduction; immediate destruction and cleanup confirmed",
+  "files": {
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "5f8eddd97d5974161da6b91ce88c563d9703b32a2406079cd59b5950f691211b",
+    "fixture/successMissions.sqf": "4ded17a2bb8252bcb8bb0e40fb80e7d6bc81b43f81b1b4f76a3cb578c614d80f",
+    "launch.json": "2410e0d1dc6f94ca64b06656ef50f8ac75edf46ace87d5110380116d2b9ec5e2",
+    "missions-report.json": "e010445098af3dfccc242d8ee83291d93cfe3e6797c6d7b088744f5a6559914d",
+    "probe.rpt": "7328eb4fcb59b260f91a02fc8b9d444322264a5532f223233bf7d2b96b956af7"
+  }
+}

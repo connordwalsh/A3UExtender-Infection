@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "scope": "Official Redux mission, native server campaign init/save/load; no connected-player, UI, JIP, combat or long-session acceptance",
+  "phase": "write",
+  "status": "passed",
+  "collected_at_utc": "2026-11-16T19:54:06.956670+00:00",
+  "source_log": "probe.rpt",
+  "source_log_sha256": "61a031409ea12de4cdac404174dcde64254f49f6730a636cb64db12bc55fa82a",
+  "source_sha256": {
+    "tests/arma/campaign_probe/casualties.sqf": "f76e03dbb6b931abba75782d7539006e461ce03af00c100bbd797b69e9c60588",
+    "tests/arma/campaign_probe/casualtySave.sqf": "c8e5024f9bace2391d5e0ec0f0e5665dccfcbe0ca73301ed4c4bbe84d84b4219",
+    "tests/arma/campaign_probe/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "tests/arma/campaign_probe/crate-trace-config.cpp": "e7057e894ad96dbe3f73e9815fc8855eedeebfd5d434365c8f2c79f94395c73b",
+    "tests/arma/campaign_probe/extraction.sqf": "ae6389379864a3fbe39d477909ac0ca6a409a4250a980042f1447c28de2edbde",
+    "tests/arma/campaign_probe/observe.sqf": "77854f9f9bd85705f5fd18ea617808b12669d8d9be1b1ed264abc2d7181275e2",
+    "tests/arma/campaign_probe/run.sqf": "5f8eddd97d5974161da6b91ce88c563d9703b32a2406079cd59b5950f691211b",
+    "tests/arma/campaign_probe/sites.sqf": "1c3917b8b1f4eb10f77b38a7c0dd74657b7fe452df7517b451f932eee0ee1f5e",
+    "tests/arma/campaign_probe/successMissions.sqf": "267a79556f4e41565c39bc1c33f22cc7f87db059e78d2734051338307e550af5",
+    "tests/arma/campaign_probe/trace-config.cpp": "82570b840e17a63b25b8f72f0b1d628f04645d968ba48bf99cb7249240dc44cd",
+    "tests/arma/campaign_probe/traceActivateAddons.sqf": "1a46747a2f53b0e731820b4309215e5441fb5d9d5c82f380e522a190c950bc79",
+    "tests/arma/campaign_probe/traceInitAmmoBox.sqf": "816210c3a7c1a37e3968650f40882a4778602aa741d82edba76072e86f8c8d72",
+    "Tools/dev/collect-campaign.py": "569e51c1b879ff4528d0094e5b626ac1fecf85000329ecc589508279dd8c968a",
+    "Tools/dev/start-campaign-probe.ps1": "544635b548f98b95429bc3c50774921b5f1146e1f805043ced0b2dcac7998712"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "schema_valid": true,
+    "correct_phase_and_terrain": true,
+    "all_expected_checks_once": true,
+    "runtime_checks_pass": true,
+    "completion_matches": true,
+    "no_engine_or_native_errors": true
+  },
+  "failed_checks": [],
+  "malformed_lines": [],
+  "errors": [],
+  "records": [
+    [
+      "start",
+      "write",
+      "chernarusredux",
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ],
+      [
+        2026,
+        11,
+        16,
+        19,
+        50,
+        27,
+        88
+      ]
+    ],
+    [
+      "check",
+      "background_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_inventory_cleared",
+      true,
+      [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    ],
+    [
+      "check",
+      "empty_hc_deferred",
+      true,
+      []
+    ],
+    [
+      "check",
+      "curator_addons_preserved",
+      true,
+      [
+        2874,
+        2874
+      ]
+    ],
+    [
+      "check",
+      "fresh_profile",
+      true,
+      []
+    ],
+    [
+      "check",
+      "campaign_initialized",
+      true,
+      [
+        "completed"
+      ]
+    ],
+    [
+      "check",
+      "infection_selected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_hq_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "black_market_only_hq_absent",
+      true,
+      []
+    ],
+    [
+      "check",
+      "black_market_only_native_quote",
+      true,
+      [
+        28800,
+        28800
+      ]
+    ],
+    [
+      "check",
+      "redux_parking_slots",
+      true,
+      [
+        [
+          [
+            "outpost_6",
+            1
+          ],
+          [
+            "resource_1",
+            1
+          ],
+          [
+            "resource_2",
+            1
+          ],
+          [
+            "resource_3",
+            1
+          ],
+          [
+            "resource_7",
+            1
+          ],
+          [
+            "resource_10",
+            1
+          ]
+        ]
+      ]
+    ],
+    [
+      "check",
+      "redux_orphan_reconnected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "real_sites_available",
+      true,
+      [
+        49,
+        4
+      ]
+    ],
+    [
+      "check",
+      "dealer_unlocked",
+      true,
+      []
+    ],
+    [
+      "check",
+      "loot_crate_fixture",
+      true,
+      [
+        1,
+        100,
+        1000
+      ]
+    ],
+    [
+      "check",
+      "native_save_completed",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_save_has_campaign",
+      true,
+      [
+        72
+      ]
+    ],
+    [
+      "check",
+      "loot_crate_refund_exact",
+      true,
+      [
+        1100,
+        1100
+      ]
+    ],
+    [
+      "check",
+      "background_window_completed",
+      true,
+      [
+        75.014
+      ]
+    ],
+    [
+      "complete",
+      "write",
+      19,
+      []
+    ]
+  ]
+}

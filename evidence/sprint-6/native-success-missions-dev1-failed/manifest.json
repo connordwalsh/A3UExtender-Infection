@@ -1,0 +1,11 @@
+{
+  "scope": "Failed native Supplies Seizure run: truck deleted before delivery inspection; cause not yet established",
+  "files": {
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "5f8eddd97d5974161da6b91ce88c563d9703b32a2406079cd59b5950f691211b",
+    "fixture/successMissions.sqf": "5156a49b2d4ca76fd04000c219f3843396a8ccb41775542ae8fbc5b3a0e5fc67",
+    "launch.json": "ca4a2242498c6be00c37da46062648ed2637b7d7a7646c4e216f9a752b8f1d0f",
+    "missions-report.json": "3af519170b125f214dd144278c630a38ed8446aec5add64a98e6ca858ca87c96",
+    "probe.rpt": "b91455144824ddcabf6bf8ba8257e1d908b275b7bf9a398e4f4c720fc1b0b053"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "Candidate truck footprint guard: 29 native mission checks including bad-point rejection; not player driving or broad vehicle acceptance.",
+  "production_commit": "88be80b2ca19434eb62f7a15c490b1bb2b20cc49",
+  "files": {
+    "campaign-report.json": "3bb0fb61ecc49c9796365999bdbf72c4361f2cd6486b8b14e8e4eb526569aea3",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "5f8eddd97d5974161da6b91ce88c563d9703b32a2406079cd59b5950f691211b",
+    "fixture/successMissions.sqf": "0cf822d970a9a5d60333069ee1ef4b8abd2eaaffff01db60aa341ddbfc2f8fc5",
+    "launch.json": "29d2762144aab2f9ecce4953c06aa93bbe29502845138dc81bcbc2eb6460106f",
+    "missions-report.json": "d503d38458f298c7838dfbeefaa1bd92ac09f6dd6b81ac6c9024e62d916c9268",
+    "probe.rpt": "5ab6061a0796f64dead15818a8d42562af30ebebef9225f399fa73c7558a7a0b",
+    "production-build-manifest.json": "d23f1190901630d5fc186f72f4dcd577d1688e36560cd04a18ccb4c06be9ba32"
+  }
+}

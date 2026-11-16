@@ -1,0 +1,29 @@
+{
+  "SupplyParking": false,
+  "SupplyReproduction": true,
+  "SuccessMissions": true,
+  "ExtractionLifecycle": false,
+  "CasualtySave": false,
+  "SiteCasualties": false,
+  "Phase": "Write",
+  "TraceStartup": false,
+  "TraceCrate": false,
+  "CrateKeepInventory": false,
+  "SiteLifecycle": false,
+  "HelperInputs": {
+    "successMissions.sqf": "0CF822D970A9A5D60333069EE1EF4B8ABD2EAAFFFF01DB60AA341DDBFC2F8FC5",
+    "config.cpp": "38AD298AE6600345ED6AA4B14F1D1D65A4DE10D610E7E226205F374B1F2DDCBA",
+    "run.sqf": "20811A13E3CD54E3FC21EDEE81903FE76A9715B65E00A5805EE5985AD9EAA010"
+  },
+  "ProcessId": 44796,
+  "ProfileDirectory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Zombie Occupant Faction\\.work\\campaign-success-missions\\.work\\profiles\\campaign-server-TruckClearance2",
+  "Port": 9992,
+  "StartedUTC": "2026-11-16T20:41:22.6288831Z",
+  "ProductionPBO": "3E9475EFB3B586BEC5801EFCD4ACC9194F56EF07E8F2C78208690FA28B457226",
+  "HelperPBO": "5443D2D94F23328D751408142DDAF285BFDE9ECEB3794E57682F8A436E47A34A",
+  "HelperSource": "20811A13E3CD54E3FC21EDEE81903FE76A9715B65E00A5805EE5985AD9EAA010",
+  "ReduxFixes": {
+    "Directory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Chernarus Redux Map Change\\.work\\build\\@A3U_Redux_Fixes",
+    "PBO": "CCFAEEB0245C8916327AAA179A7A111EC86080F1649EA1FB57D9E58F4374586E"
+  }
+}

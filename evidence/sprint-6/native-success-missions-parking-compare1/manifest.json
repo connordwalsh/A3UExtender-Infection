@@ -1,0 +1,16 @@
+{
+  "scope": "Same-campaign observational comparison with independent random searches; historical positions revalidated under new guard, not proof of truck destruction at every rejected point.",
+  "source_commit": "550e8a7",
+  "files": {
+    "baseline-report.json": "7480dae1ac711c7560684eba9c9dc97ac576e6f86733aecb8f8b76536e041f54",
+    "campaign-report.json": "913a7983d6f39d98f894fc3779b5ca33c9842d4a7255f34da5e87e1cd0729e87",
+    "candidate-report.json": "7fb2ac19b344161cbae7e595d2191f3d2402bfce7c999324c4753ac45bacbe71",
+    "launch.json": "2be95705cf68b355a288cbc9be6b39e3816146afef9d9c234ee2efb4cf115828",
+    "probe.rpt": "7a51a4508c81136a042fb21f2068b310a456dbd193761ac231f090ac4be79df6",
+    "production-build-manifest.json": "d23f1190901630d5fc186f72f4dcd577d1688e36560cd04a18ccb4c06be9ba32",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/legacySupplyPosition.sqf": "a4fe974c45daf587d4e686f676e935a6f296e15ba0290bd6181af711b76c1a72",
+    "fixture/run.sqf": "20811a13e3cd54e3fc21edee81903fe76a9715b65e00a5805ee5985ad9eaa010",
+    "fixture/supplyParking.sqf": "129be2693b820d6f047d2a3b12281c627dcf36f35b3a9331315db374cc278f04"
+  }
+}

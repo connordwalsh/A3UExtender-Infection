@@ -44,6 +44,8 @@ class CfgFunctions
             class supplySiteKinds {};
             class supplyTargets {};
             class findSupplyPosition {};
+            class supplyTruckBounds {};
+            class supplyPositionClear {};
             class supplyTaskBusy {};
             class startSupplySeizure {};
             class requestSupplySeizure {};

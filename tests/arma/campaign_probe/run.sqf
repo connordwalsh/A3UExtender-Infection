@@ -149,4 +149,10 @@ if (_casualtySave) then {
 if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\extraction-mode.sqf") then {
     call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\extraction.sqf";
 };
+if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\success-missions-mode.sqf") then {
+    call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\successMissions.sqf";
+};
+if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\supply-parking-mode.sqf") then {
+    call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\supplyParking.sqf";
+};
 call _finish;
