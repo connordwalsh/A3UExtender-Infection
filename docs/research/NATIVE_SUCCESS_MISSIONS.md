@@ -184,3 +184,21 @@ attributing them to the new guard or changing search bounds. The exact helper,
 receipt, build manifest, reports and raw log are in
 `native-success-missions-parking1`; its server has stopped. Full contract
 regression remains running and no production inputs have changed underneath it.
+
+TruckParkingCompare1 repeats the 413 combinations and also runs the exact
+pre-guard findSupplyPosition source from d666fff as a local code value, without
+replacing the production endpoint. Candidate: 355 found, 58 unavailable, zero
+invalid. Historical search: 413 found, zero unavailable, but 333 fail the new
+clearance revalidation (80 pass). Both have complete records and no matched
+errors. The baseline report deliberately remains failed for its invalid-position
+check; it is not rewritten as passing evidence.
+
+The candidate finds both Kozlovka classes and one class each at outpost_7 and
+outpost_29 this time. Thus the earlier empty results at those sites are not proof
+of an absolute exclusion. Independent random samples and already-loaded models
+mean this comparison is observational, not a paired deterministic experiment or
+proof that all 333 rejected legacy positions would destroy a truck. Candidate
+search times observed here are median 0.037 s, p95 0.109 s, maximum 0.215 s;
+this is not gameplay performance acceptance. Next evaluate a larger bounded
+search budget while retaining the tested geometry guard. The stopped comparison
+is preserved under `native-success-missions-parking-compare1`.
