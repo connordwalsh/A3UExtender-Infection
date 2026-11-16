@@ -1,0 +1,12 @@
+{
+  "campaign-report.json": "6790718dc2b002f3db1b5898b6e6ca0a3bce1eadaf5ecd2e5575a2d4d207e202",
+  "fixture\\config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+  "fixture\\garrison-trace-config.cpp": "b879c3839ff923fa950bd43c537cd33244d8b16f86546fff88762be690c2e04d",
+  "fixture\\liquidation.sqf": "21710bb91ddf9bdd193d80a109fa5c99038bbc12006ac70013d56010c93992f1",
+  "fixture\\run.sqf": "d1071893601c89795dae180c30e9b87670bf40c83a268e73daf6411161283a44",
+  "fixture\\traceGarrisonUpdate.sqf": "61acd0f298a7f9dce714fb15c373963d07df97eae48dfd85ac81f6868da24b9b",
+  "launch.json": "1ccddee786878844f569457815567ccb59f7e478a73f6ae74596dddac8d01030",
+  "liquidation-report.json": "cef37ff3bb767d5bf16567e969d7246d72c300a4757f1ef3435e9bbbd3174885",
+  "probe.rpt": "8b426917066a611d33673faaa985fae71a31f1cd82789e3e03fadd6dda542c31",
+  "README.txt": "6d32605dfa2a92f36c486f2bf174385e89bef40ec88a267ff1452c862be971f1"
+}

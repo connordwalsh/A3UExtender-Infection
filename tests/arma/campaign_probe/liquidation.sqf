@@ -6,6 +6,14 @@ private _wait={params ["_condition",["_seconds",180]];private _until=diag_tickTi
     waitUntil {sleep 1;call _condition || {diag_tickTime>=_until}};call _condition};
 private _finish={diag_log format ["[INFECTION_CAMPAIGN_LIQUIDATION] %1",["complete",_checks,_failures]]};
 diag_log "[INFECTION_CAMPAIGN_LIQUIDATION] start";
+private _traceExpected=call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\garrison-trace-mode.sqf";
+private _receiverFile=getText (configFile >> "CfgFunctions" >> "A3A" >> "CREATE" >> "garrisonUpdate" >> "file");
+private _receiverTraced=(str A3A_fnc_garrisonUpdate) find "garrison_enter" >= 0;
+diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] receiver %1",[_traceExpected,_receiverFile,_receiverTraced]];
+if (_traceExpected && {!_receiverTraced}) exitWith {
+    diag_log "[INFECTION_LIQ_DIAGNOSTIC] invalid trace receiver; no deaths attempted";
+    call _finish;
+};
 private _targets=call A3I_fnc_liquidationTargets;
 private _limit=(floor A3I_contextLimit) min (floor A3I_activeLimit) min 24;
 private _candidates=_targets select {([_x] call A3I_fnc_liquidationTargetKind) in ["Resource","Outpost"]
@@ -13,6 +21,7 @@ private _candidates=_targets select {([_x] call A3I_fnc_liquidationTargetKind) i
 ["eligible_queued_site",_candidates isNotEqualTo [],[_candidates,_limit]] call _check;
 if (_candidates isEqualTo []) exitWith {call _finish};
 private _target=_candidates # 0;private _original=count (garrison getVariable [_target,[]]);
+diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] original_roster %1",garrison getVariable [_target,[]]];
 [[_target],"A3A_fnc_CON_Outpost"] call A3A_fnc_scheduler;
 private _dispatched=[{count ([_target] call A3I_fnc_liquidationClaim)>0}] call _wait;
 ["native_scheduler_dispatch",_dispatched,[_target,_original]] call _check;

@@ -64,8 +64,9 @@ New-Item -ItemType Directory -Path $addon,$packed,$output,$profile -Force | Out-
 Copy-Item -LiteralPath (Join-Path $source 'run.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'liquidation.sqf') -Destination $addon
 if ($TraceGarrison) {
-    Copy-Item -LiteralPath (Join-Path $source 'config.cpp'),(Join-Path $source 'traceGarrisonUpdate.sqf') -Destination $addon
+    Copy-Item -LiteralPath (Join-Path $source 'traceGarrisonUpdate.sqf') -Destination $addon
 }
+$(if ($TraceGarrison) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'garrison-trace-mode.sqf') -Encoding ASCII
 $(if ($LiquidationLifecycle) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'liquidation-mode.sqf') -Encoding ASCII
 Copy-Item -LiteralPath (Join-Path $source 'aid.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'aidSuccess.sqf') -Destination $addon
