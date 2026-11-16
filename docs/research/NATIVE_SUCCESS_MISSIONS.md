@@ -89,3 +89,17 @@ safety discriminator. Long terrain-object arrays are truncated in the engine
 log; subsequent diagnostics emit one object per record, including its identity
 and direction. Production remains unchanged. The stopped run, exact fixture,
 receipt and reports are archived under `native-success-missions-geometry2`.
+
+## FuelGeometry3: complete nearby-object records
+
+All 27 mission and 19 campaign checks pass, with zero matched errors. Another
+O_T_Truck_03_fuel_ghex_F survives at [2546.5,5096.5,0]. The original failed point
+has Land_Hutch_01_F at [2649.3,5082.17,0], roughly 3.8 metres from its centre,
+plus nearby vegetation and unnamed terrain objects. This suggests a footprint
+overlap but does not identify the collision by itself. Object records are now
+complete rather than truncated. Archive: `native-success-missions-geometry3`.
+
+The next diagnostic samples vertical GEOM and PHYSX rays over a conservative
+4 x 12 metre envelope at the failed point and both observed surviving points,
+using eight headings. It only observes geometry; the failed truck's final
+heading was not logged, and this envelope is not a production safety rule.

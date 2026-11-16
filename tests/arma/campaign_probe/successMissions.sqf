@@ -66,6 +66,40 @@ if (_supplyReproduction) then {
     {
         diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["failed_point_object",_forEachIndex,str _x,typeOf _x,getPosATL _x,getDir _x,boundingBoxReal _x]];
     } forEach ((nearestTerrainObjects [_point,[],20,false,true]) select [0,15]);
+    // Diagnostic only: compare a conservative 4 x 12 m truck envelope at fixed
+    // observed positions. This is not the production placement predicate and
+    // does not claim the failed truck's unrecorded final heading is known.
+    {
+        private _sample = _x;
+        {
+            private _heading = _x;
+            private _objects = [];
+            for "_long" from -6 to 6 do {
+                for "_across" from -2 to 2 do {
+                    private _probe = _sample vectorAdd [
+                        _long * sin _heading + _across * cos _heading,
+                        _long * cos _heading - _across * sin _heading,0];
+                    private _base = ATLToASL _probe;
+                    {
+                        private _lod = _x;
+                        private _hits = lineIntersectsSurfaces [_base vectorAdd [0,0,0.25],
+                            _base vectorAdd [0,0,4.5],objNull,objNull,true,-1,_lod,"NONE"];
+                        {
+                            private _object = _x # 3;
+                            if (isNull _object) then {_object = _x # 2};
+                            if (!isNull _object && {!(_object in _objects)}) then {
+                                _objects pushBack _object;
+                                diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["footprint_hit",_sample,_heading,
+                                    [_across,_long],_lod,str _object,typeOf _object,_x # 0]];
+                            };
+                        } forEach _hits;
+                    } forEach ["GEOM","PHYSX"];
+                };
+            };
+            diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["footprint_summary",_sample,_heading,count _objects]];
+            sleep 0.01;
+        } forEach [0,45,90,131.552,180,225,270,315];
+    } forEach [[2645.5,5082.5,0],[2528.52,5088.48,0],[2546.5,5096.5,0]];
 };
 // Read-only diagnostics for the failed native truck lifetime. Event handlers
 // and observer state do not change vehicle damage, placement, tasks or timers.
