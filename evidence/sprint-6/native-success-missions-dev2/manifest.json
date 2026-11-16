@@ -1,0 +1,14 @@
+{
+  "scope": "Passing diagnostic rerun at a different source; earlier milbase fuel truck disappearance remains unresolved",
+  "files": {
+    "campaign-report.json": "ec32d88a8bff280d5146929909f34f77063df8b04679ed61001a77d008a7a273",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "5f8eddd97d5974161da6b91ce88c563d9703b32a2406079cd59b5950f691211b",
+    "fixture/successMissions.sqf": "66894c61f4d366734b3b49d309167748902c0b762763ef013e08eca37378cf34",
+    "infection-build.json": "058f279f58b5c91abe4e8c1b4b0a0c9969119bef11a1e8918abe5bd07b3d5cf4",
+    "launch.json": "7e23927604d6570067f72ccef977d91b815eaf6aadba76a3885128af035046b6",
+    "missions-report.json": "aa838c7701722a231d00e2da1c4fe6a73cbfe2266f4edfcfbc43746cca781cc2",
+    "probe.rpt": "ccf86a5f7996295fc961ebd188fbd51b29aed67f5bf5ae6b82a28829ff4c1e47",
+    "redux-fixes-build.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1"
+  }
+}

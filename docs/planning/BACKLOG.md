@@ -769,3 +769,11 @@ zero rescue credit and normal one-minute actor/group cleanup with released
 budget and intact HQ. Thirteen mission checks and 19 campaign checks pass with
 zero matched errors. See NATIVE_EXTRACTION.md. Player release/delivery/success,
 multiplayer and long task-display retirement remain unverified.
+
+16 November native successful missions: PR 75 remains draft. Dev1 passes native
+Elimination but its milbase fuel truck disappears before delivery inspection;
+three checks fail and six cannot execute. Diagnostic Dev2 passes 27 mission plus
+19 campaign checks at a different outpost/ammunition sample, with exact 1000/300
+rewards and retained truck. Both have zero matched errors. The original truck
+disappearance remains unresolved; do not interpret Dev2 as a fix. See
+NATIVE_SUCCESS_MISSIONS.md and both preserved raw logs.

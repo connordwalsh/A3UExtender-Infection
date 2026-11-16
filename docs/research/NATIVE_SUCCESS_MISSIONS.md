@@ -15,8 +15,8 @@ HQ must remain intact.
 The test uses setDamage for the target and places the truck at an engine-found
 empty position within HQ's delivery range. This is not player combat or driving.
 It does not prove every target class/truck kind/location, save/reload of the
-truck, multiplayer or the native task-display retirement timer. Runtime evidence
-is pending. Five collector tests and launcher parsing pass.
+truck, multiplayer or the native task-display retirement timer. Runtime results are recorded below; the original truck disappearance
+remains unresolved. Five collector tests and launcher parsing pass.
 
 ## Failed Dev1
 
@@ -28,3 +28,22 @@ cannot execute. The report contains only 21 of 27 expected checks, with three ex
 failures and zero matched errors. Preserve the entire run under
 `native-success-missions-dev1-failed`. Cause is not established; add read-only
 vehicle/task diagnostics before changing production behavior.
+
+## Diagnostic Dev2: passing different sample, original failure open
+
+Dev2 passes all 27 mission checks and 19 campaign checks with zero matched errors.
+At outpost_27, the Leaper 2 Elimination target pays exactly 1000 and cleans up.
+The ammunition truck O_T_Truck_03_ammo_ghex_F from outpost_27 delivers at HQ,
+pays exactly 300, stays usable and Rebel-owned, and appears exactly once in
+staticsToSave. Further ticks preserve the truck and funds (2300 total).
+
+This does not reproduce or resolve Dev1's milbase fuel-truck disappearance.
+Read-only entity creation/death/deletion and frequent task-state logs were added;
+they observe the different successful truck. Keep the original failure open and
+PR 75 draft. Next investigate a targeted milbase/fuel reproduction and the
+placement/vehicle lifetime before changing production behavior.
+
+The exact helper, raw log, receipt, reports and manifests are archived under
+`native-success-missions-dev2`. All 324 production inputs and helper hashes match;
+production code is unchanged. Both isolated servers have exited. No Computer Use
+or other faction development occurred.
