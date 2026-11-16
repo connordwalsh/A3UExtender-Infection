@@ -1,0 +1,28 @@
+{
+  "SupplyReproduction": true,
+  "SuccessMissions": true,
+  "ExtractionLifecycle": false,
+  "CasualtySave": false,
+  "SiteCasualties": false,
+  "Phase": "Write",
+  "TraceStartup": false,
+  "TraceCrate": false,
+  "CrateKeepInventory": false,
+  "SiteLifecycle": false,
+  "HelperInputs": {
+    "run.sqf": "5F8EDDD97D5974161DA6B91CE88C563D9703B32A2406079CD59B5950F691211B",
+    "successMissions.sqf": "267A79556F4E41565C39BC1C33F22CC7F87DB059E78D2734051338307E550AF5",
+    "config.cpp": "38AD298AE6600345ED6AA4B14F1D1D65A4DE10D610E7E226205F374B1F2DDCBA"
+  },
+  "ProcessId": 46736,
+  "ProfileDirectory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Zombie Occupant Faction\\.work\\campaign-success-missions\\.work\\profiles\\campaign-server-FuelFootprint1",
+  "Port": 9922,
+  "StartedUTC": "2026-11-16T19:50:04.1609922Z",
+  "ProductionPBO": "B4B0C17E92A87E16020635ED4EBCD8AD1E28DD2FF78C5866C494EC23DD981085",
+  "HelperPBO": "1FF15406E2AC37887117E284DD7E46FAC73479EB487094F10252C5DD27FACA17",
+  "HelperSource": "5F8EDDD97D5974161DA6B91CE88C563D9703B32A2406079CD59B5950F691211B",
+  "ReduxFixes": {
+    "PBO": "CCFAEEB0245C8916327AAA179A7A111EC86080F1649EA1FB57D9E58F4374586E",
+    "Directory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Chernarus Redux Map Change\\.work\\build\\@A3U_Redux_Fixes"
+  }
+}

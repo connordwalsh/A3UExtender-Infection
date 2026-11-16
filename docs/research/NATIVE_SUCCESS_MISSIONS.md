@@ -103,3 +103,28 @@ The next diagnostic samples vertical GEOM and PHYSX rays over a conservative
 4 x 12 metre envelope at the failed point and both observed surviving points,
 using eight headings. It only observes geometry; the failed truck's final
 heading was not logged, and this envelope is not a production safety rule.
+
+## FuelFootprint1: failed-point envelope intersects hut
+
+The fixed-position diagnostic completes without matched errors. Each of eight
+headings at [2645.5,5082.5,0] intersects Land_Hutch_01_F geometry inside the
+sampled envelope. At 131.552 degrees a hit is only two metres along the centre
+line, at ASL [2647,5081.17,196.16]. This is direct geometry evidence against
+accepting that centre point merely because findEmptyPosition accepted it.
+It does not reconstruct the original truck's unknown final heading or prove
+which contact caused the recorded destruction. Both surviving positions also
+have geometry inside this conservative envelope, so actual class dimensions
+and heading must inform the production correction rather than copying this
+diagnostic rectangle as a universal truck size.
+
+The same run passes 27 mission and 19 campaign checks, including a separate
+milbase fuel truck delivered for 300. Exact logs, fixture, receipt and reports
+are preserved in `native-success-missions-footprint1`; the isolated server is
+stopped. No production correction is implemented or validated yet.
+
+Engine query references: [boundingBoxReal](https://community.bistudio.com/wiki/boundingBoxReal)
+reports model-space bounds; [lineIntersectsSurfaces](https://community.bistudio.com/wiki/lineIntersectsSurfaces)
+accepts ASL endpoints and GEOM/PHYSX collision LODs. The next change needs a
+truck-specific footprint guard before creation, applied in both selection and
+final validation, with the failed position as a regression case and real
+surviving spawns to check that the search remains usable.

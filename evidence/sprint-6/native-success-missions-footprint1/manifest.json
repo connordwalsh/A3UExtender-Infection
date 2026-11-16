@@ -1,0 +1,12 @@
+{
+  "scope": "Read-only fixed-position envelope geometry; confirms hut inside failed-point sample at all eight headings, not exact failed vehicle collision reconstruction or a verified fix.",
+  "files": {
+    "campaign-report.json": "924cfd7ed08414dfd6c695b65e282ef3ec09bc1d4c5eaa67e7e6ae667d5a5d6c",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "5f8eddd97d5974161da6b91ce88c563d9703b32a2406079cd59b5950f691211b",
+    "fixture/successMissions.sqf": "267a79556f4e41565c39bc1c33f22cc7f87db059e78d2734051338307e550af5",
+    "launch.json": "225e2efd59fd073209fc7624e47da660b3b6b09e6347a1c024fae1a39929af2c",
+    "missions-report.json": "1e1a146893edfb9d0ffa528b7810d1e18c08af791361b8be222e47bf8812a106",
+    "probe.rpt": "61a031409ea12de4cdac404174dcde64254f49f6730a636cb64db12bc55fa82a"
+  }
+}
