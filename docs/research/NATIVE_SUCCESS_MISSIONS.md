@@ -72,3 +72,20 @@ FuelGeometry1 was interrupted when the owner paused the goal. Its server was
 stopped and absence confirmed on resume. Startup/save checks had run, but no
 mission/geometry assertions began. The exact helper, receipt and incomplete raw
 result are preserved under `native-success-missions-geometry1-interrupted`.
+
+## FuelGeometry2: passing different position; geometry logging limitation
+
+The resumed fresh run passes 27 mission and 19 campaign checks with zero matched
+errors. The milbase fuel truck is O_T_Truck_03_fuel_ghex_F at
+[2528.52,5088.48,0], not the failed O_T_Truck_02_fuel_F position. It survives the
+ten-second observation and delivers for exactly 600, retaining the usable truck.
+This is not a fix or a reproduction of the original failing geometry.
+
+At the original failed position, surfaceNormal is [0,0,1]; findEmptyPosition
+accepts both fuel classes while sizeOf returns zero before either is instantiated.
+The radius-3/6/10 isFlatEmpty checks reject both the failed point and the new
+successful point. Therefore those checks alone do not establish a useful spawn
+safety discriminator. Long terrain-object arrays are truncated in the engine
+log; subsequent diagnostics emit one object per record, including its identity
+and direction. Production remains unchanged. The stopped run, exact fixture,
+receipt and reports are archived under `native-success-missions-geometry2`.

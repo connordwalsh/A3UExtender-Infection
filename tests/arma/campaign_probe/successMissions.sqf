@@ -61,8 +61,11 @@ if (_supplyReproduction) then {
     private _point=[2645.5,5082.5,0];
     diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["failed_point",_point,surfaceNormal _point,
         ([0,3,6,10] apply {[_x,_point isFlatEmpty [_x,-1,0.2,_x max 1,0,false,objNull]]}),
-        ((["fuel"] call A3I_fnc_supplyTruckClasses) apply {[_x,sizeOf _x,_point findEmptyPosition [0,0,_x]]}),
-        ((nearestTerrainObjects [_point,[],20,false,true]) select [0,15]) apply {[typeOf _x,getPosATL _x,boundingBoxReal _x]}]];
+        ((["fuel"] call A3I_fnc_supplyTruckClasses) apply {[_x,sizeOf _x,_point findEmptyPosition [0,0,_x]]})]];
+    // One object per record avoids truncating geometry at the engine log limit.
+    {
+        diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["failed_point_object",_forEachIndex,str _x,typeOf _x,getPosATL _x,getDir _x,boundingBoxReal _x]];
+    } forEach ((nearestTerrainObjects [_point,[],20,false,true]) select [0,15]);
 };
 // Read-only diagnostics for the failed native truck lifetime. Event handlers
 // and observer state do not change vehicle damage, placement, tasks or timers.
@@ -71,8 +74,10 @@ private _createdEH=addMissionEventHandler ["EntityCreated",{
     if !(_vehicle isKindOf "Car") exitWith {};
     diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["created",time,typeOf _vehicle,getPosATL _vehicle,getDir _vehicle]];
     diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["created_geometry",typeOf _vehicle,sizeOf typeOf _vehicle,boundingBoxReal _vehicle,
-        surfaceNormal getPosATL _vehicle,([0,3,6,10] apply {[_x,(getPosATL _vehicle) isFlatEmpty [_x,-1,0.2,_x max 1,0,false,_vehicle]]}),
-        ((nearestTerrainObjects [_vehicle,[],20,false,true]) select [0,15]) apply {[typeOf _x,getPosATL _x,boundingBoxReal _x]}]];
+        surfaceNormal getPosATL _vehicle,([0,3,6,10] apply {[_x,(getPosATL _vehicle) isFlatEmpty [_x,-1,0.2,_x max 1,0,false,_vehicle]]})]];
+    {
+        diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["created_geometry_object",_forEachIndex,str _x,typeOf _x,getPosATL _x,getDir _x,boundingBoxReal _x]];
+    } forEach ((nearestTerrainObjects [_vehicle,[],20,false,true]) select [0,15]);
     _vehicle addEventHandler ["Killed",{
         params ["_vehicle"];
         diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["killed",time,typeOf _vehicle,getPosATL _vehicle,damage _vehicle,
