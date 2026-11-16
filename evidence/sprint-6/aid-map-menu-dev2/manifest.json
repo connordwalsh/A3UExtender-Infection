@@ -1,0 +1,8 @@
+{
+  "build-manifest.json": "d74b15eb7aaa257d10b55a926a4d07e27f764839abee554ecaa4839c87896b4f",
+  "fixture\\aidTaskChecks.sqf": "792b3edfd5561f2e1950cf8cfb1746e620cf114b10d13b57723785a6e23fb0e3",
+  "fixture\\initServer.sqf": "71a629edb2c462970e3e00e0a0782590523cf29df0a55af67a795ea1c3571e5f",
+  "install.json": "adb73f0eaa1910c57de04c636a82e10284fc4e62fa8f2fe7dcf599e0451d9aa3",
+  "probe.rpt": "95aab6fa74c326214c50b9b064975ff9fb51d398b2215eaabdcb072ce366001c",
+  "report.json": "dd1323138b9ed8603bfbf553619702f8497d7b65e14b0a8030934f550f01d318"
+}

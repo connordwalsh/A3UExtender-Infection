@@ -838,3 +838,10 @@ Pavlovo's full 127 infected; nearby-infected pause, controlled clearance, the
 task-state assertion remains rejected and preserved; Dev2 uses a bounded wait
 for Ultimate's queued task-store update. See HUMANITARIAN_AID.md for scope and
 limits. No production/faction changes or Computer Use; manual Dev9 unchanged.
+
+16 November Aid map shortcut: the direct hover-menu path now uses the Humanitarian
+Aid label and shares town eligibility with the server selector; ordinary campaigns
+keep their native entry. All 60 focused Aid/config checks and 11 actual
+missing-dependency checks pass with zero engine/SQF error records. Dev1's
+unlocalized-title assertion remains rejected and preserved. See AID_MAP_MENU.md.
+Connected-client rendering/data propagation remain open. Manual Dev9 unchanged.

@@ -1,0 +1,506 @@
+class CfgPatches
+{
+    class A3I_core
+    {
+        name = "Antistasi Ultimate: Infection";
+        author = "Antistasi Ultimate: Infection contributors";
+        units[] = {};
+        weapons[] = {};
+        requiredVersion = 2.22;
+        requiredAddons[] = {"A3A_core", "A3A_patcom", "A3A_ultimate", "A3A_ultimate_dynamic_hover_menu", "A3A_scrt", "A3A_gui", "cba_main", "cba_settings"};
+        version = 0.1;
+        versionStr = "0.1.0-dev";
+        A3A_compatibility[] = {12, 4};
+    };
+};
+
+class CfgFunctions
+{
+    class A3I
+    {
+        tag = "A3I";
+        class Core
+        {
+            file = "\x\a3i\addons\core\functions";
+            class bootstrap { preInit = 1; };
+            class initSettings { preInit = 1; };
+            class registerPersistence { postInit = 1; };
+            class saveAdministrationExtras {};
+            class loadAdministrationExtras {};
+            class dependencies {};
+            class isActive {};
+            class backgroundSupplyConvoy {};
+            class unlockDealer {};
+            class deliveryDestination {};
+            class startAbandonedTown {};
+            class runAbandonedTown {};
+            class abandonedTownTick {};
+            class cleanupAbandonedTown {};
+            class abandonedVehicleClasses {};
+            class abandonedParkedCount {};
+            class createAbandonedVehicle {};
+            class supplyTruckClasses {};
+            class createSupplyTruck {};
+            class supplySiteKinds {};
+            class supplyTargets {};
+            class findSupplyPosition {};
+            class supplyTruckBounds {};
+            class supplyPositionClear {};
+            class supplyTaskBusy {};
+            class startSupplySeizure {};
+            class requestSupplySeizure {};
+            class dispatchSupplySeizure {};
+            class labelSupplyControl {};
+            class runSupplySeizure {};
+            class supplyTaskOutcome {};
+            class finishSupplySeizure {};
+            class cleanupSupplySeizure {};
+            class supplyTaskTick {};
+            class requestExtraction {};
+            class requestCivilianExtraction {};
+            class runCivilianDialog {};
+            class dispatchExtraction {};
+            class labelExtractionControl {};
+            class extractionTaskBusy {};
+            class startExtraction {};
+            class runExtraction {};
+            class extractionTaskOutcome {};
+            class convertExtractionRescues {};
+            class finishExtraction {};
+            class extractionTaskTick {};
+            class cleanupExtraction {};
+            class extractionLocations {};
+            class extractionTargets {};
+            class findExtractionShelter {};
+            class createExtractionSurvivors {};
+            class extractionAction {};
+            class setExtractionActions {};
+            class requestExtractionRelease {};
+            class beginExtractionRelease {};
+            class extractionRecruitLocal {};
+            class extractionReleaseTick {};
+            class eliminationTaskBusy {};
+            class startElimination {};
+            class runElimination {};
+            class eliminationTaskOutcome {};
+            class finishElimination {};
+            class cleanupElimination {};
+            class eliminationTaskTick {};
+            class requestElimination {};
+            class dispatchElimination {};
+            class labelEliminationControl {};
+            class eliminationClasses {};
+            class eliminationTargets {};
+            class eliminationRoster {};
+            class spawnEliminationScene {};
+            class createEliminationLedger {};
+            class eliminationTargetEvent {};
+            class updateEliminationLedger {};
+            class releaseEliminationLedger {};
+            class aidPackageEvent {};
+            class aidTargets {};
+            class requestHumanitarianAid {};
+            class dispatchHumanitarianAid {};
+            class labelAidControl {};
+            class aidPackagePositionSafe {};
+            class findAidPackagePosition {};
+            class createAidPackage {};
+            class aidTaskBusy {};
+            class startHumanitarianAid {};
+            class runHumanitarianAid {};
+            class aidTaskOutcome {};
+            class finishHumanitarianAid {};
+            class cleanupHumanitarianAid {};
+            class aidTaskTick {};
+            class aidPackageActions {};
+            class aidProgressHint {};
+            class createAidLedger {};
+            class updateAidLedger {};
+            class releaseAidLedger {};
+            class createExtractionLedger {};
+            class extractionMemberEvent {};
+            class updateExtractionLedger {};
+            class releaseExtractionLedger {};
+            class hideRemovedMissionControl {};
+            class isManagedUnit {};
+            class initInfected {};
+            class infectedDamageObserved {};
+            class infectedKilled {};
+            class infectedDeleted {};
+            class budget {};
+            class cleanupGroups {};
+            class cleanupGroupTick {};
+            class spawnObservers {};
+            class positionSafety {};
+            class findSpawnPosition {};
+            class spawnGroup {};
+            class adoptReinforcement {};
+            class reinforcementEligible {};
+            class reinforcementSources {};
+            class requestReinforcement {};
+            class runReinforcement {};
+            class reinforcementWatchdog {};
+            class reinforcementTick {};
+            class roamingEligible {};
+            class roamingBases {};
+            class roamingRoute {};
+            class startRoaming {};
+            class runRoaming {};
+            class roamingWatchdog {};
+            class counterattackEligible {};
+            class counterattackSourceEligible {};
+            class counterattackSources {};
+            class startCounterattack {};
+            class runCounterattack {};
+            class counterattackWatchdog {};
+            class tacticalSources {};
+            class startTacticalSupport {};
+            class requestTacticalSupport {};
+            class runTacticalSupport {};
+            class tacticalWatchdog {};
+            class routeRebuildSupport {};
+            class receiveRebuildSupport {};
+            class rebuildSupport {};
+            class rebuildSupportWatchdog {};
+            class majorAttackTargets {};
+            class majorSourceEligible {};
+            class chooseMajorAttack {};
+            class simulateMajorAttack {};
+            class startMajorAttack {};
+            class runMajorAttack {};
+            class finishMajorAttack {};
+            class majorWatchdog {};
+            class liberationSources {};
+            class createLiberationSurvivor {};
+            class cleanupLiberationSurvivor {};
+            class liberationOutcome {};
+            class runLiberationHorde {};
+            class startLiberation {};
+            class requestLiberation {};
+            class runLiberation {};
+            class finishLiberation {};
+            class rewardLiberation {};
+            class liberationVehicleClasses {};
+            class createLiberationVehicle {};
+            class createLiberationFire {};
+            class applyLiberationFire {};
+            class cleanupLiberationEffects {};
+            class liberationBodyRoles {};
+            class createLiberationBody {};
+            class cleanupLiberationBodies {};
+            class liberationWreckClasses {};
+            class createLiberationWreck {};
+            class cleanupLiberationWrecks {};
+            class damageLiberationBuilding {};
+            class liberationBuildingChanged {};
+            class cleanupLiberationBuildings {};
+            class liberationRoofPosition {};
+            class decorateLiberationBuilding {};
+            class createLiberationScene {};
+            class cleanupLiberationScene {};
+            class liberationWatchdog {};
+            class startSite {};
+            class trackSiteDefender {};
+            class siteDefenderEvent {};
+            class siteClearance {};
+            class liquidationTargetKind {};
+            class liquidationTargets {};
+            class liquidationClaim {};
+            class liquidationTransition {};
+            class liquidationMarkerChange {};
+            class liquidationCityCapture {};
+            class interceptionMarchTick {};
+            class interceptionTaskOutcome {};
+            class finishInterception {};
+            class interceptionTaskTick {};
+            class watchInterceptionTask {};
+            class cleanupInterceptionTask {};
+            class interceptionTaskCleanupTick {};
+            class registerInterceptionTask {};
+            class watchInterceptionLifecycle {};
+            class interceptionLifecycleTick {};
+            class interceptionAftermath {};
+            class interceptionBusy {};
+            class startInterception {};
+            class runInterception {};
+            class requestInterception {};
+            class dispatchInterception {};
+            class labelInterceptionControl {};
+            class interceptionIntel {};
+            class selectInfectionIntel {};
+            class storeInterceptionArrivals {};
+            class adoptInterceptionArrivals {};
+            class interceptionPreparing {};
+            class trackInterceptionMember {};
+            class interceptionMemberEvent {};
+            class prepareInterception {};
+            class releaseInterceptionFormation {};
+            class retireInterceptionFormation {};
+            class interceptionSize {};
+            class interceptionLocations {};
+            class interceptionRadius {};
+            class interceptionContains {};
+            class interceptionRoutes {};
+            class startLiquidation {};
+            class requestLiquidation {};
+            class dispatchLiquidation {};
+            class labelLiquidationControl {};
+            class liquidationOutcome {};
+            class captureLiquidation {};
+            class runLiquidation {};
+            class finishLiquidation {};
+            class liquidationWatchdog {};
+            class runSite {};
+            class cleanupSite {};
+            class siteWatchdog {};
+            class siteCaptureBlocked {};
+            class controlRoster {};
+            class runPatrol {};
+            class cityRoster {};
+            class siteExtraRoster {};
+            class cityPopulationTarget {};
+            class findCitySpawnPosition {};
+            class patrolWaypoints {};
+            class administrationRoster {};
+            class runAdministration {};
+            class trackAdministrationDefender {};
+            class administrationDefenderEvent {};
+            class tryCaptureAdministration {};
+            class administrationPositions {};
+            class indoorPosition {};
+            class administrationAssets {};
+            class survivorAction {};
+            class requestRescue {};
+            class beginRescue {};
+            class rescueTick {};
+            class tryCaptureControl {};
+            class controlResetTick {};
+            class elapsedDateMinutes {};
+        };
+        class Garrison
+        {
+            file = "\x\a3i\addons\core\functions";
+            class createFootGarrisonLine {};
+            class originalCreateGarrisonLine
+            {
+                file = "\x\a3a\addons\core\functions\Garrison\fn_createGarrisonLine.sqf";
+            };
+        };
+        class Originals
+        {
+            class originalDialogCivFinished { file = "\x\a3a\addons\patcom\functions\Civilian\fn_dialogCivFinished.sqf"; };
+            class originalRivalsIntroduction { file = "\x\a3a\addons\core\functions\Missions\fn_RIV_ENC_Rivals.sqf"; };
+            class originalENCTrader { file = "\x\a3a\addons\core\functions\Missions\fn_ENC_Trader.sqf"; };
+            class originalRepairAntenna { file = "\x\a3a\addons\core\functions\Missions\fn_REP_Antenna.sqf"; };
+            class originalRESShipwreck { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Shipwreck.sqf"; };
+            class originalRESInformer { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Informer.sqf"; };
+            class originalRESRefugees { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Refugees.sqf"; };
+            class originalRESPrisoners { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Prisoners.sqf"; };
+            class originalRESDeserters { file = "\x\a3a\addons\core\functions\Missions\fn_RES_Deserters.sqf"; };
+            class originalRIVRESPrisoners { file = "\x\a3a\addons\core\functions\Missions\fn_RIV_RES_Prisoners.sqf"; };
+
+            class originalSelectIntel { file = "\x\a3a\addons\core\functions\Intel\fn_selectIntel.sqf"; };
+            class originalConvoy { file = "\x\a3a\addons\core\functions\Missions\fn_CONVOY.sqf"; };
+            class originalTownBattle { file = "\x\a3a\addons\core\functions\CREATE\fn_townBattle.sqf"; };
+            class originalResourceCheck { file = "\x\a3a\addons\core\functions\init\fn_resourcecheck.sqf"; };
+            class originalChooseAttack { file = "\x\a3a\addons\core\functions\Base\fn_chooseAttack.sqf"; };
+            class originalFindAttackTargets { file = "\x\a3a\addons\core\functions\Base\fn_findAttackTargets.sqf"; };
+            class originalAmbientCivTraffic { file = "\x\a3a\addons\patcom\functions\Civilian\fn_createAmbientCivTraffic.sqf"; };
+            class originalASAmbush { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Ambush.sqf"; };
+            class originalASOfficial { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Official.sqf"; };
+            class originalASSmasher { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Smasher.sqf"; };
+            class originalASspecOP { file = "\x\a3a\addons\core\functions\Missions\fn_AS_specOP.sqf"; };
+            class originalASTraitor { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Traitor.sqf"; };
+            class originalASZombies { file = "\x\a3a\addons\core\functions\Missions\fn_AS_Zombies.sqf"; };
+            class originalRIVASTraitor { file = "\x\a3a\addons\core\functions\Missions\fn_RIV_AS_Traitor.sqf"; };
+            class originalSUPPSupplies { file = "\x\a3a\addons\core\functions\Missions\fn_SUPP_Supplies.sqf"; };
+            class originalRIVSUPPSalvage { file = "\x\a3a\addons\core\functions\Missions\fn_RIV_SUPP_Salvage.sqf"; };
+            class originalLOGAmmo { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Ammo.sqf"; };
+            class originalLOGBank { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Bank.sqf"; };
+            class originalLOGSalvage { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Salvage.sqf"; };
+            class originalLOGAirdrop { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Airdrop.sqf"; };
+            class originalLOGCrashsite { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Crashsite.sqf"; };
+            class originalLOGHelicrash { file = "\x\a3a\addons\core\functions\Missions\fn_LOG_Helicrash.sqf"; };
+            class originalMissionRequest { file = "\x\a3a\addons\core\functions\Missions\fn_missionRequest.sqf"; };
+            class originalRequestMissionDialog { file = "\x\a3a\addons\gui\functions\GUI\fn_requestMissionDialog.sqf"; };
+            class originalDestroyVehicle { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Vehicle.sqf"; };
+            class originalDestroyHeli { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Heli.sqf"; };
+            class originalDestroyAntenna { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Antenna.sqf"; };
+            class originalDestroyArtillery { file = "\x\a3a\addons\core\functions\Missions\fn_DES_Artillery.sqf"; };
+            class originalConquestMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_Outpost.sqf"; };
+            class originalAdministrationMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_MilAdmin.sqf"; };
+            class originalZombieConquestMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_Outpost_Zombies.sqf"; };
+            class originalCompetitiveMission { file = "\x\a3a\addons\core\functions\Missions\fn_CON_Outpost_Compet.sqf"; };
+            class originalNATOinit
+            {
+                file = "\x\a3a\addons\core\functions\CREATE\fn_NATOinit.sqf";
+            };
+            class originalScheduler { file = "\x\a3a\addons\core\functions\Base\fn_scheduler.sqf"; };
+            class originalPatrolReinf { file = "\x\a3a\addons\core\functions\CREATE\fn_patrolReinf.sqf"; };
+            class originalReinforcementsAI { file = "\x\a3a\addons\core\functions\CREATE\fn_reinforcementsAI.sqf"; };
+            class originalAAFroadPatrol { file = "\x\a3a\addons\core\functions\CREATE\fn_AAFroadPatrol.sqf"; };
+            class originalSingleAttack { file = "\x\a3a\addons\core\functions\CREATE\fn_singleAttack.sqf"; };
+            class originalInitSupports { file = "\x\a3a\addons\core\functions\Supports\fn_initSupports.sqf"; };
+            class originalCreateSupport { file = "\x\a3a\addons\core\functions\Supports\fn_createSupport.sqf"; };
+            class originalSUPQRFLand { file = "\x\a3a\addons\core\functions\Supports\fn_SUP_QRFLand.sqf"; };
+            class originalSUPQRFAir { file = "\x\a3a\addons\core\functions\Supports\fn_SUP_QRFAir.sqf"; };
+            class originalCreateAIResources { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIResources.sqf"; };
+            class originalCreateAIOutposts { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIOutposts.sqf"; };
+            class originalCreateAIMilbase { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIMilbase.sqf"; };
+            class originalCreateAIAirplane { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIAirplane.sqf"; };
+            class originalCreateAIcontrols { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIcontrols.sqf"; };
+            class originalCreateAICities { file = "\x\a3a\addons\core\functions\CREATE\fn_createAICities.sqf"; };
+            class originalCreateAIMilAdmin { file = "\x\a3a\addons\core\functions\CREATE\fn_createAIMilAdmin.sqf"; };
+            class originalRemoveMilAdmin { file = "\x\a3a\addons\scrt\Location\fn_location_removeMilAdmin.sqf"; };
+            class originalMarkerChange { file = "\x\a3a\addons\core\functions\Base\fn_markerChange.sqf"; };
+            class originalCityChangeSide { file = "\x\a3a\addons\core\functions\Base\fn_cityChangeSide.sqf"; };
+            class originalMrkWIN { file = "\x\a3a\addons\core\functions\Base\fn_mrkWIN.sqf"; };
+            class originalSurrenderAction { file = "\x\a3a\addons\core\functions\AI\fn_surrenderAction.sqf"; };
+        };
+    };
+    class A3A
+    {
+        class Civilian
+        {
+            class dialogCivFinished { file = "\x\a3i\addons\core\overrides\fn_dialogCivFinished.sqf"; };
+            class createAmbientCivTraffic { file = "\x\a3i\addons\core\overrides\fn_createAmbientCivTraffic.sqf"; };
+        };
+        class Intel
+        {
+            class selectIntel { file = "\x\a3i\addons\core\overrides\fn_selectIntel.sqf"; };
+        };
+        class GUI
+        {
+            class requestMissionDialog { file = "\x\a3i\addons\core\overrides\fn_requestMissionDialog.sqf"; };
+        };
+        class init
+        {
+            class resourcecheck { file = "\x\a3i\addons\core\overrides\fn_resourcecheck.sqf"; };
+        };
+        class Missions
+        {
+            class RIV_ENC_Rivals { file = "\x\a3i\addons\core\overrides\fn_RIV_ENC_Rivals.sqf"; };
+            class ENC_Trader { file = "\x\a3i\addons\core\overrides\fn_ENC_Trader.sqf"; };
+            class REP_Antenna { file = "\x\a3i\addons\core\overrides\fn_REP_Antenna.sqf"; };
+            class RES_Shipwreck { file = "\x\a3i\addons\core\overrides\fn_RES_Shipwreck.sqf"; };
+            class RES_Informer { file = "\x\a3i\addons\core\overrides\fn_RES_Informer.sqf"; };
+            class RES_Refugees { file = "\x\a3i\addons\core\overrides\fn_RES_Refugees.sqf"; };
+            class RES_Prisoners { file = "\x\a3i\addons\core\overrides\fn_RES_Prisoners.sqf"; };
+            class RES_Deserters { file = "\x\a3i\addons\core\overrides\fn_RES_Deserters.sqf"; };
+            class RIV_RES_Prisoners { file = "\x\a3i\addons\core\overrides\fn_RIV_RES_Prisoners.sqf"; };
+
+            class AS_Ambush { file = "\x\a3i\addons\core\overrides\fn_AS_Ambush.sqf"; };
+            class AS_Official { file = "\x\a3i\addons\core\overrides\fn_AS_Official.sqf"; };
+            class AS_Smasher { file = "\x\a3i\addons\core\overrides\fn_AS_Smasher.sqf"; };
+            class AS_specOP { file = "\x\a3i\addons\core\overrides\fn_AS_specOP.sqf"; };
+            class AS_Traitor { file = "\x\a3i\addons\core\overrides\fn_AS_Traitor.sqf"; };
+            class AS_Zombies { file = "\x\a3i\addons\core\overrides\fn_AS_Zombies.sqf"; };
+            class RIV_AS_Traitor { file = "\x\a3i\addons\core\overrides\fn_RIV_AS_Traitor.sqf"; };
+            class SUPP_Supplies { file = "\x\a3i\addons\core\overrides\fn_SUPP_Supplies.sqf"; };
+            class RIV_SUPP_Salvage { file = "\x\a3i\addons\core\overrides\fn_RIV_SUPP_Salvage.sqf"; };
+            class LOG_Ammo { file = "\x\a3i\addons\core\overrides\fn_LOG_Ammo.sqf"; };
+            class LOG_Bank { file = "\x\a3i\addons\core\overrides\fn_LOG_Bank.sqf"; };
+            class LOG_Salvage { file = "\x\a3i\addons\core\overrides\fn_LOG_Salvage.sqf"; };
+            class LOG_Airdrop { file = "\x\a3i\addons\core\overrides\fn_LOG_Airdrop.sqf"; };
+            class LOG_Crashsite { file = "\x\a3i\addons\core\overrides\fn_LOG_Crashsite.sqf"; };
+            class LOG_Helicrash { file = "\x\a3i\addons\core\overrides\fn_LOG_Helicrash.sqf"; };
+            class CONVOY { file = "\x\a3i\addons\core\overrides\fn_CONVOY.sqf"; };
+            class DES_Vehicle { file = "\x\a3i\addons\core\overrides\fn_DES_Vehicle.sqf"; };
+            class DES_Heli { file = "\x\a3i\addons\core\overrides\fn_DES_Heli.sqf"; };
+            class DES_Antenna { file = "\x\a3i\addons\core\overrides\fn_DES_Antenna.sqf"; };
+            class DES_Artillery { file = "\x\a3i\addons\core\overrides\fn_DES_Artillery.sqf"; };
+            class missionRequest { file = "\x\a3i\addons\core\overrides\fn_missionRequest.sqf"; };
+            class CON_Outpost { file = "\x\a3i\addons\core\overrides\fn_CON_Outpost.sqf"; };
+            class CON_MilAdmin { file = "\x\a3i\addons\core\overrides\fn_CON_MilAdmin.sqf"; };
+            class CON_Outpost_Zombies { file = "\x\a3i\addons\core\overrides\fn_CON_Outpost_Zombies.sqf"; };
+            class CON_Outpost_Compet { file = "\x\a3i\addons\core\overrides\fn_CON_Outpost_Compet.sqf"; };
+        };
+        class CREATE
+        {
+            class townBattle { file = "\x\a3i\addons\core\overrides\fn_townBattle.sqf"; };
+            class NATOinit { file = "\x\a3i\addons\core\overrides\fn_NATOinit.sqf"; };
+            class patrolReinf { file = "\x\a3i\addons\core\overrides\fn_patrolReinf.sqf"; };
+            class reinforcementsAI { file = "\x\a3i\addons\core\overrides\fn_reinforcementsAI.sqf"; };
+            class AAFroadPatrol { file = "\x\a3i\addons\core\overrides\fn_AAFroadPatrol.sqf"; };
+            class singleAttack { file = "\x\a3i\addons\core\overrides\fn_singleAttack.sqf"; };
+            class createAIResources { file = "\x\a3i\addons\core\overrides\fn_createAIResources.sqf"; };
+            class createAIOutposts { file = "\x\a3i\addons\core\overrides\fn_createAIOutposts.sqf"; };
+            class createAIMilbase { file = "\x\a3i\addons\core\overrides\fn_createAIMilbase.sqf"; };
+            class createAIAirplane { file = "\x\a3i\addons\core\overrides\fn_createAIAirplane.sqf"; };
+            class createAIcontrols { file = "\x\a3i\addons\core\overrides\fn_createAIcontrols.sqf"; };
+            class createAICities { file = "\x\a3i\addons\core\overrides\fn_createAICities.sqf"; };
+            class createAIMilAdmin { file = "\x\a3i\addons\core\overrides\fn_createAIMilAdmin.sqf"; };
+        };
+        class Base
+        {
+            class chooseAttack { file = "\x\a3i\addons\core\overrides\fn_chooseAttack.sqf"; };
+            class findAttackTargets { file = "\x\a3i\addons\core\overrides\fn_findAttackTargets.sqf"; };
+            class scheduler { file = "\x\a3i\addons\core\overrides\fn_scheduler.sqf"; };
+            class markerChange { file = "\x\a3i\addons\core\overrides\fn_markerChange.sqf"; };
+            class cityChangeSide { file = "\x\a3i\addons\core\overrides\fn_cityChangeSide.sqf"; };
+            class mrkWIN { file = "\x\a3i\addons\core\overrides\fn_mrkWIN.sqf"; };
+        };
+        class AI
+        {
+            class surrenderAction { file = "\x\a3i\addons\core\overrides\fn_surrenderAction.sqf"; };
+        };
+        class Supports
+        {
+            class initSupports { file = "\x\a3i\addons\core\overrides\fn_initSupports.sqf"; };
+            class createSupport { file = "\x\a3i\addons\core\overrides\fn_createSupport.sqf"; };
+            class SUP_QRFLand { file = "\x\a3i\addons\core\overrides\fn_SUP_QRFLand.sqf"; };
+            class SUP_QRFAir { file = "\x\a3i\addons\core\overrides\fn_SUP_QRFAir.sqf"; };
+        };
+        class Garrison
+        {
+            class createGarrisonLine
+            {
+                file = "\x\a3i\addons\core\overrides\fn_createGarrisonLine.sqf";
+            };
+        };
+    };
+    class SCRT
+    {
+        class Location
+        {
+            class location_removeMilAdmin { file = "\x\a3i\addons\core\overrides\fn_location_removeMilAdmin.sqf"; };
+        };
+    };
+};
+
+#include "missionMenus.hpp"
+#include "mapMissionMenus.hpp"
+
+class CfgMarkers
+{
+    class flag_NATO;
+    class A3I_infected : flag_NATO
+    {
+        name = "Infected";
+        icon = "\A3\Data_F\Flags\Flag_red_CO.paa";
+        texture = "\A3\Data_F\Flags\Flag_red_CO.paa";
+    };
+};
+
+class A3A
+{
+    class Templates
+    {
+        class Vanilla_Base;
+        class A3I_Infected : Vanilla_Base
+        {
+            side = "Occ";
+            name = "Infection: infected Occupants";
+            description = "WebKnight infected on BLUFOR. Requires a new Infection campaign.";
+            basepath = "\x\a3i\addons\core\templates";
+            file = "Infected";
+            requiredAddons[] = {"WBK_ZombieCreatures", "WebKnight_StarWars_MoveSet"};
+            flagTexture = "\A3\Data_F\Flags\Flag_red_CO.paa";
+            maps[] = {};
+            climate[] = {"arid", "arctic", "temperate", "tropical"};
+            // Never silently replace the player's normal Occupant selection.
+            priority = -10;
+            equipFlags[] = {"vanilla"};
+        };
+    };
+};
