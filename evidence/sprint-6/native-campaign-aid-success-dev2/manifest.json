@@ -1,0 +1,13 @@
+{
+  "aid-report.json": "3764f460cdb82438b62a5c8ac8247590c9645118e2a627f28eaaf1c789871033",
+  "campaign-report.json": "8873743eb9c0108de5acf2ac6ece5a738cd83b152a1ec36dd42666acb30ddabf",
+  "fixture\\aid.sqf": "86c6dbbba6f9f58e4c99817c99de697c0a2ae5b7eb4c3193a828cdb4349270fa",
+  "fixture\\aidSuccess.sqf": "5368145933506555af0dcb7e29b17a870b7b7e757489ab8a1749f7efed9c4a01",
+  "fixture\\config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+  "fixture\\run.sqf": "ebe9a1fe7090b316edfd1a0f2d2f5b405aad343aa9ac8807d4b8355071839b00",
+  "infection-build.json": "bbd967930289d9b3a416f4200efce49f12118d891666736b2476a971faf60a3a",
+  "launch.json": "62aa730759236ceba4f629ae86015df9ca270eba5ba0eb6cd45979484a2ac6bd",
+  "probe.rpt": "02895ca7cb9817cbf28d22c1e2bece6113ed2b6f0f47ff9999a9a695012ad96b",
+  "redux-fixes-build.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1",
+  "source-verification.json": "e793d1a7a8271ff4142c615bce1a5e7c4adf66e10774565c09484ba2f41db1db"
+}

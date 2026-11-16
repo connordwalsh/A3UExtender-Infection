@@ -214,3 +214,50 @@ Unloading success still requires a native capable Rebel escort, which also
 activates ordinary nearby site spawning. Do not stub that interaction merely
 to obtain a passing unloading timer. Real transport, visible menus/actions,
 player rewards, Rebel capture cancellation and multiplayer remain open.
+
+## Native unloading interaction (in progress)
+
+AidSuccess Dev1 activated Pavlovo through a real capable AI escort and accounted
+for all 127 town infected. Controlled nearby placement verified paused progress;
+controlled engine deaths cleared the town and unloading resumed. The unchanged
+180-second ledger reached delivery, support changed by the native population
+scale, assets were removed and the town despawned after escort deletion.
+
+The run is REJECTED: 22 of 23 assertions passed, but an immediate native task
+state assertion failed. Zero matched engine errors; 19 campaign checks passed.
+Exact inputs/logs are retained in native-campaign-aid-success-dev1-rejected.
+Ultimate taskSetState queues taskUpdate via remoteExecCall while updating the
+BIS task locally. The revised probe allows up to ten seconds for both stores
+and records their initial/final values. Production remains unchanged; Dev2 is
+running and the timing explanation remains subject to its evidence.
+
+The fixture explicitly uses an invulnerable stationary AI escort, controlled
+package placement and controlled infected deaths. Initial unloading can accrue
+before the native distance loop activates the town; the ledger's complete
+required total is retained and its remaining interval is checked after clearance.
+This does not demonstrate player transport, combat, visible task/UI behavior,
+multiplayer, or final task display retirement.
+
+### Accepted Dev2 rerun
+
+All 23 Aid checks and 19 campaign checks pass with zero matched errors on the
+unchanged production PBO. Pavlovo again activates all 127 infected. Nearby
+infected pause unloading, controlled clearance resumes it, and the ledger
+completes its full 180-second requirement. Both native task stores report
+SUCCEEDED. Town support changes from government 36.7469/Rebel 0 to
+30.7228/6.0241, matching the native population-scaled reward for 166 citizens.
+The package and pickup marker retire, the supply lock releases, rewards remain
+stable, and the town despawns after escort deletion. HQ remains intact.
+
+The Dev2 initial task snapshot already showed both stores updated. Thus this
+rerun verifies eventual success but does not conclusively reconstruct Dev1's
+failed immediate observation. Dev1 stays rejected. The bounded observation wait
+matches Ultimate's queued task-store update; no production fix was made.
+
+Evidence is frozen in `native-campaign-aid-success-dev2`, alongside rejected
+Dev1. All four helper hashes match; 324 production inputs match byte-for-byte
+and two differ only in checkout line endings, with frozen originals verified.
+Eight collector tests and launcher parsing pass. Self-review confirms no timer,
+reward, town roster or task-state replacement. Both test servers have exited.
+This accepts the controlled native unloading interaction only; the player,
+transport, combat, multiplayer and display-retirement limits above remain open.
