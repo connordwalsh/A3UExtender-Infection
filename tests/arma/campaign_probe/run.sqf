@@ -146,4 +146,7 @@ if ((call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\casualty-mode
 if (_casualtySave) then {
     [_phase] call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\casualtySave.sqf";
 };
+if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\extraction-mode.sqf") then {
+    call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\extraction.sqf";
+};
 call _finish;

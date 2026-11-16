@@ -27,7 +27,7 @@ and Elimination are merged through PR 46 after their unchanged Dev3 rerun passed
 1,427 checks and 67 role-spawn records. The earlier interrupted report is retained
 and does not count as a pass. PR 47 adds
 abandoned vehicle assets; PR 48 connects them to town visits, passing 36 focused
-Altis-road checks and 11 actual missing-dependency checks. The Redux parking sweep passes 163 checks across 49 towns. Public Extraction and post-rescue disposition remain unfinished.
+Altis-road checks and 11 actual missing-dependency checks. The Redux parking sweep passes 163 checks across 49 towns. The subsequent combined CampaignIntegration run verifies implemented public Extraction and post-rescue disposition in isolated contracts (1,806 checks and 67 roles); native mission and connected-player acceptance remain open.
 The separate large-creature diagnostic remains failed and is tracked separately.
 No sprint acceptance gate is closed. The manual Dev9 installation is unchanged.
 
