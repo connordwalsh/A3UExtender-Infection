@@ -11,9 +11,11 @@ import runpy
 parse_array = runpy.run_path(str(Path(__file__).with_name('collect-probe.py')))['parse_array']
 
 
-def collect(path, baseline=False):
+def collect(path, baseline=False, tuned=False):
     raw = Path(path).read_bytes()
-    tag = '[INFECTION_SUPPLY_PARKING_BASELINE] ' if baseline else '[INFECTION_SUPPLY_PARKING] '
+    if baseline and tuned:
+        raise ValueError('Choose one comparison mode')
+    tag = '[INFECTION_SUPPLY_PARKING_TUNED] ' if tuned else '[INFECTION_SUPPLY_PARKING_BASELINE] ' if baseline else '[INFECTION_SUPPLY_PARKING] '
     starts, plans, results, finishes, errors, malformed = [], [], [], [], [], []
     for number, line in enumerate(raw.decode('utf-8-sig', errors='replace').splitlines(), 1):
         if re.search(r'\bError(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|\| Error \|', line, re.I):
@@ -60,7 +62,7 @@ def collect(path, baseline=False):
         'no_errors': not errors,
     }
     return {'status': 'complete' if all(checks.values()) else 'failed' if finishes else 'incomplete',
-            'scope': ('Historical search, revalidated against candidate clearance; ' if baseline else 'Candidate native search; ') + 'one search per current infected site/kind/class; not vehicle survival or performance acceptance',
+            'scope': ('Proposed 96-attempt local search; ' if tuned else 'Historical search, revalidated against candidate clearance; ' if baseline else 'Candidate native search; ') + 'one search per current infected site/kind/class; not vehicle survival or performance acceptance',
             'source_log_sha256': hashlib.sha256(raw).hexdigest(), 'validation': checks,
             'counts': dict(zip(['searches', 'available', 'unavailable', 'invalid'], counts)),
             'unavailable': [r[1:4] for r in results if not r[4]],
@@ -70,9 +72,11 @@ def collect(path, baseline=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('log'); parser.add_argument('output')
-    parser.add_argument('--baseline', action='store_true')
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument('--baseline', action='store_true')
+    modes.add_argument('--tuned', action='store_true')
     args = parser.parse_args()
-    report = collect(args.log, args.baseline)
+    report = collect(args.log, args.baseline, args.tuned)
     Path(args.output).write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps({key: report[key] for key in ['status', 'counts', 'validation']}))
     raise SystemExit(0 if report['status'] == 'complete' else 1)

@@ -10,8 +10,8 @@ private _plan=[];
         } forEach (([_kind] call A3I_fnc_supplyTruckClasses) arrayIntersect ([_kind] call A3I_fnc_supplyTruckClasses));
     } forEach ([_site] call A3I_fnc_supplySiteKinds);
 } forEach (call A3I_fnc_interceptionLocations);
-// Historical search is a local code value; no global endpoint is replaced.
-private _baseline=compile preprocessFileLineNumbers "\x\a3i\tests\campaign\legacySupplyPosition.sqf";
+// Proposed 96-attempt search is local; production endpoints stay unchanged.
+private _tuned=compile preprocessFileLineNumbers "\x\a3i\tests\campaign\tunedSupplyPosition.sqf";
 {
     _x params ["_tag","_search"];
     diag_log format ["%1 %2",_tag,["start",worldName,count _plan]];
@@ -37,4 +37,4 @@ private _baseline=compile preprocessFileLineNumbers "\x\a3i\tests\campaign\legac
     diag_log format ["%1 %2",_tag,["complete",count _plan,_found,_unavailable,_invalid]];
 
 } forEach [["[INFECTION_SUPPLY_PARKING]",A3I_fnc_findSupplyPosition],
-    ["[INFECTION_SUPPLY_PARKING_BASELINE]",_baseline]];
+    ["[INFECTION_SUPPLY_PARKING_TUNED]",_tuned]];
