@@ -158,4 +158,7 @@ if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\supply-parking
 if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\aid-mode.sqf") then {
     call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\aid.sqf";
 };
+if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\liquidation-mode.sqf") then {
+    call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\liquidation.sqf";
+};
 call _finish;
