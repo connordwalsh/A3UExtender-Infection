@@ -7,7 +7,7 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = 2.22;
-        requiredAddons[] = {"A3A_core", "A3A_patcom", "A3A_ultimate", "A3A_scrt", "A3A_gui", "cba_main", "cba_settings"};
+        requiredAddons[] = {"A3A_core", "A3A_patcom", "A3A_ultimate", "A3A_ultimate_dynamic_hover_menu", "A3A_scrt", "A3A_gui", "cba_main", "cba_settings"};
         version = 0.1;
         versionStr = "0.1.0-dev";
         A3A_compatibility[] = {12, 4};
@@ -99,6 +99,7 @@ class CfgFunctions
             class releaseEliminationLedger {};
             class aidPackageEvent {};
             class aidTargets {};
+            class aidTargetEligible {};
             class requestHumanitarianAid {};
             class dispatchHumanitarianAid {};
             class labelAidControl {};
@@ -469,6 +470,7 @@ class CfgFunctions
 };
 
 #include "missionMenus.hpp"
+#include "mapMissionMenus.hpp"
 
 class CfgMarkers
 {

@@ -1,0 +1,10 @@
+{
+  "build-manifest.json": "e35375b2d2adaa5bbc269f7f1fb0c208a4f41d55707fa1e88ebe0f710605e086",
+  "fixture\\aidTaskChecks.sqf": "90fbb7a858f1ad93625654cefeeed6f1563d367aad47d0c8fc5d7e7480201fde",
+  "fixture\\initServer.sqf": "71a629edb2c462970e3e00e0a0782590523cf29df0a55af67a795ea1c3571e5f",
+  "install.json": "65bf3ab315e90eca32271132f482383e9e08fd6cfda0664e75cfe754c260ef3a",
+  "probe.rpt": "5243491ce1ba2a4819c2942582ed2a45cdad0dc2cb44f30508d9cbee3f53ac99",
+  "production\\config.cpp": "00f04b88d9864fe4359c215e04527c27cca3f052c518c353a3935beb3618949b",
+  "production\\mapMissionMenus.hpp": "c7dd0c305175205856e18643553c1ff225cdef7289d1ae0fb9b7a990179e9b7f",
+  "report.json": "ffefa02e739fd011b6940cc32609c5906b476650b28eb2c2e3cb2b1cb6c2b029"
+}

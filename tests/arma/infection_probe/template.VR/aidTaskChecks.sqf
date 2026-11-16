@@ -49,6 +49,42 @@ private _retire = {
     [{count A3I_aidTasks == 0 && {isNil "A3I_aidTaskHandle"}}] call _wait;
     sidesX setVariable [_town,west];
 };
+// Evaluate the actual merged menu conditions without claiming a rendered client UI.
+private _mapRoot=configFile >> "A3U" >> "CfgMapContextMenu" >> "Location";
+private _nativeMap=_mapRoot >> "A3A_ultimate_dynamic_hover_menu_DeliverSupplies";
+private _aidMap=_mapRoot >> "A3I_HumanitarianAid";
+private _nativeCondition=compile getText (_nativeMap >> "condition");
+private _aidCondition=compile getText (_aidMap >> "condition");
+private _isCommander=true;private _isDestroyed=false;
+["atask_map_registered",isClass _nativeMap && {isClass _aidMap}
+    && {getText (_aidMap >> "title")=="Humanitarian Aid"}
+    && {getText (_aidMap >> "statement") isNotEqualTo ""}
+    && {getText (_aidMap >> "statement")==getText (_nativeMap >> "statement")}] call _check;
+["atask_map_infection_only",([_town,petros] call _aidCondition) && {!([_town,petros] call _nativeCondition)}] call _check;
+["atask_map_foreign_hidden",!([_other,petros] call _aidCondition)] call _check;
+_isCommander=false;
+["atask_map_noncommander_hidden",!([_town,petros] call _aidCondition)] call _check;
+_isCommander=true;_isDestroyed=true;
+["atask_map_destroyed_hidden",!([_town,petros] call _aidCondition)] call _check;
+_isDestroyed=false;A3A_supplyMissionActive=true;
+["atask_map_busy_hidden",!([_town,petros] call _aidCondition)] call _check;
+A3A_supplyMissionActive=nil;
+A3A_townData set [_town,[200,0,10,90]];
+["atask_map_high_support_hidden",!([_town,petros] call _aidCondition)] call _check;
+A3A_townData set [_town,[200,0,50,20]];
+distanceMission=500;
+["atask_map_distant_hidden",!([_town,petros] call _aidCondition)] call _check;
+distanceMission=2000;
+A3A_tasksData=[["existing","SUPP","SUCCEEDED",time]];
+["atask_map_task_slot_busy",!([_town,petros] call _aidCondition)] call _check;
+A3A_tasksData=[];
+private _savedInfection=A3A_faction_occ get "infectionTemplate";
+A3A_faction_occ set ["infectionTemplate",""];
+["atask_map_ordinary_preserved",([_town,petros] call _nativeCondition)
+    && {!([_town,petros] call _aidCondition)}
+    && {getText (_nativeMap >> "title")==localize "STR_A3U_CONTEXT_DELIVER_SUPPLIES"},
+    [[_town,petros] call _nativeCondition,[_town,petros] call _aidCondition,getText (_nativeMap >> "title"),localize "STR_A3U_CONTEXT_DELIVER_SUPPLIES"]] call _check;
+A3A_faction_occ set ["infectionTemplate",_savedInfection];
 ["atask_targets_infected_only",(call A3I_fnc_aidTargets) isEqualTo [_town,80000000]] call _check;
 A3A_townData set [_town,[200,0,10,90]];
 ["atask_high_support_excluded",call A3I_fnc_aidTargets isEqualTo []] call _check;
