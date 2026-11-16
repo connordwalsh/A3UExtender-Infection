@@ -128,3 +128,34 @@ accepts ASL endpoints and GEOM/PHYSX collision LODs. The next change needs a
 truck-specific footprint guard before creation, applied in both selection and
 final validation, with the failed position as a regression case and real
 surviving spawns to check that the search remains usable.
+
+## Truck-clearance candidate (runtime validation pending)
+
+The candidate introduces supplyTruckBounds and supplyPositionClear. A temporary
+local simple model supplies actual class bounds, then is deleted immediately;
+bounds are cached per class. No simulated truck is used for this measurement.
+The guard rotates the footprint by the intended heading, adds a 0.25 m margin,
+samples at no more than 0.75 m spacing, and rejects water, steep/uneven ground,
+or GEOM/PHYSX intersections. Horizontal scans supplement the vertical samples.
+Both the parking selector and final unscheduled creation path enforce it.
+Generic infected spawn rules are unchanged.
+
+This is a conservative sampled envelope, not a mathematical proof that every
+possible tiny obstacle is excluded. Runtime usability, representative truck
+classes and mission regressions must pass before accepting the correction.
+The native helper now requires 29 checks, including nonempty bounds for both
+selected fuel classes and rejection of the historical failed point in eight
+headings per class. Earlier archived 27-check reports retain their original
+meaning. The candidate builds and five collector tests pass; native validation
+is pending on TruckClearance1.
+
+TruckClearance1 now passes all 29 mission and 19 campaign checks with zero
+matched errors. Both selected fuel classes reject the historical failed point
+as truck_geometry at all eight headings. The originally failing class,
+O_T_Truck_02_fuel_F, spawns elsewhere at milbase, survives the ten-second
+observation, delivers at HQ for exactly 300, stays usable/Rebel-owned and is
+registered once for saving. The exact helper and all 326 production inputs
+match the launch/build receipts. Evidence is in
+`native-success-missions-clearance1`; the server is stopped. This supports the
+sampled regression correction; other truck types, broad contract regression,
+player driving and representative parking availability still need validation.

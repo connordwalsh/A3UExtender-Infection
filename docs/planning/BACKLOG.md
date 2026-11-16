@@ -777,3 +777,11 @@ three checks fail and six cannot execute. Diagnostic Dev2 passes 27 mission plus
 rewards and retained truck. Both have zero matched errors. The original truck
 disappearance remains unresolved; do not interpret Dev2 as a fix. See
 NATIVE_SUCCESS_MISSIONS.md and both preserved raw logs.
+
+16 November truck-placement investigation: a targeted run confirms the original
+fuel truck is destroyed immediately at its spawn point. Fixed-position geometry
+sampling finds a hut inside the truck envelope. PR 75 now includes a candidate
+class/heading footprint guard in parking selection and final creation. Build and
+collector checks pass; native regression is pending. The PR remains draft and
+the original defect is not yet closed. Other faction development remains out
+of scope; the manual Dev9 install is unchanged.
