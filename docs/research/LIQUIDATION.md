@@ -133,6 +133,8 @@ Exact evidence: `native-liquidation-diag4-rejected`.
 
 The shared Ultimate update race is being fixed independently in
 [Redux Fixes PR 10](https://github.com/connordwalsh/A3U-Redux-Fixes/pull/10).
-Its candidate builds, but focused concurrency validation has failures and must
-be resolved before merge. The uninstrumented Liquidation regression using that
-candidate is pending. No Infection gameplay changes were required so far.
+Its candidate builds, but focused concurrency validation has failures. The
+uninstrumented Liquidation regression also retains three roster entries after
+all defenders die, with the candidate receiver path confirmed. The candidate
+is rejected and the exact lost-update mechanism remains under investigation.
+No Infection gameplay changes were required so far.
