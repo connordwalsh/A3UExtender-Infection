@@ -1,0 +1,14 @@
+{
+  "scope": "Complete parking survey: 413 searches, 356 found, 57 unavailable, zero invalid; not an all-locations availability pass.",
+  "source_commit": "1972a3d",
+  "files": {
+    "campaign-report.json": "7e996fb0d866a6c529ec04038acab61995c6012599aa9e747e153d8dd29bbc13",
+    "launch.json": "aacb978b39c32dd70450addf5e8b0a2a9fbc02c8aa8801599a009f9ea83774f4",
+    "parking-report.json": "b8b786774ad5ca8be0ee37171b4b03704e37275b922899af392d02cf1192a03d",
+    "probe.rpt": "53ac3201b97091885ca62ef03afdb40056ddf2f2e23d0c3a0613851cc562e7c6",
+    "production-build-manifest.json": "d23f1190901630d5fc186f72f4dcd577d1688e36560cd04a18ccb4c06be9ba32",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "20811a13e3cd54e3fc21edee81903fe76a9715b65e00a5805ee5985ad9eaa010",
+    "fixture/supplyParking.sqf": "c4ee32aedbc6220dc6a445900de552956d67cd8280e3271a5dc5f3a2391e9900"
+  }
+}

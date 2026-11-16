@@ -168,3 +168,19 @@ asset cleanup. The original report and fixture inputs are preserved under
 `native-success-missions-truck-contracts1`. The combined Full contract suite is
 running as TruckClearanceFull1; representative Redux parking availability is
 still outstanding. PR 75 remains draft.
+
+TruckParking1 surveys all 413 current infected-held site/kind/class combinations
+in a fresh native Redux campaign. It records 356 available positions, 57 empty
+search results, zero invalid returned positions and zero matched errors. Native
+startup/save also passes 19 checks. Kozlovka, outpost_7 and outpost_29 have no
+successful class search in this single pass. Class totals/available are
+O_T_Truck_02_fuel_F 112/90, O_T_Truck_03_fuel_ghex_F 112/103,
+O_T_Truck_03_ammo_ghex_F 63/59, O_T_Truck_03_repair_ghex_F 63/56 and
+O_T_Truck_02_Box_F 63/48. These are search observations, not truck survival tests.
+
+The survey is complete, not an all-locations availability pass. Empty results
+must be reviewed against the previous search and existing exclusions before
+attributing them to the new guard or changing search bounds. The exact helper,
+receipt, build manifest, reports and raw log are in
+`native-success-missions-parking1`; its server has stopped. Full contract
+regression remains running and no production inputs have changed underneath it.
