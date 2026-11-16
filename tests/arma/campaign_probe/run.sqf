@@ -12,6 +12,12 @@ diag_log format ["[INFECTION_CAMPAIGN] %1",["start",_phase,worldName,productVers
 private _background=[{missionNamespace getVariable ["A3A_backgroundInitDone",false]}] call _wait;
 ["background_ready",_background] call _check;
 if (!_background) exitWith {call _finish};
+// Check before JNA startup can clear or replace the HQ inventory itself.
+private _hqCargo=[getWeaponCargo boxX,getMagazineCargo boxX,getItemCargo boxX,getBackpackCargo boxX];
+["hq_inventory_cleared",boxX getVariable ["A3URF_hqCargoCleared",false]
+    && {scriptDone (boxX getVariable ["A3URF_hqCargoWorker",scriptNull])}
+    && {_hqCargo isEqualTo [[[],[]],[[],[]],[[],[]],[[],[]]]}
+    && {count everyContainer boxX==0},_hqCargo] call _check;
 // Read-only native module state: distinguish missing-player HC from other errors.
 private _hc=missionNamespace getVariable ["BIS_HC_mainscope",objNull];
 diag_log format ["[INFECTION_STARTUP] %1",["native_modules",count allPlayers,

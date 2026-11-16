@@ -42,8 +42,9 @@ preserves that earlier wrapper exactly.
 
 ## Remaining work
 
-Develop a narrowly scoped correction that still leaves the intended HQ cargo
-empty. Validate positive and failure/edge cases, then repeat the uninstrumented
-native campaign startup, save, restart, and reload checks. Connected-player,
-JIP, and manual playthrough evidence are still outstanding. No Computer Use
-was used in this investigation.
+Follow-up: the independent guarded deferral now passes uninstrumented campaign
+write/restart/read with empty HQ cargo and zero matched errors. See
+REDUX_CRATE_VALIDATION.md for the exact scope and remaining player-facing gates.
+
+Connected-player, JIP, and manual playthrough evidence are still outstanding.
+No Computer Use was used in this investigation.

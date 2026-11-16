@@ -720,3 +720,14 @@ elsewhere and for new/malformed requests. Uninstrumented campaign save/reload
 pass 18 assertions each and 75-second windows; all 2874 Curator addons remain
 available. Only two missing-object error records still fail the clean-log gate.
 See REDUX_CURATOR_VALIDATION.md. No client or release gate is closed.
+
+15 November HQ inventory correction: complete-mission traces identify the two
+missing objects as HQ crate backpacks removed by the early Eden attribute.
+Independent Redux Fixes defers that exact empty-cargo request until simulation
+starts. Native uninstrumented write/restart/read now pass 19 assertions per
+phase, including empty physical HQ cargo before JNA and 75-second background
+windows, with zero records under the unchanged error matcher. Six native
+delegation checks pass on each of Redux and Altis; 34 companion evidence tests
+and eight campaign/parser tests pass. See REDUX_CRATE_VALIDATION.md. This closes
+the bounded dedicated-server startup/save/reload error check, not the broader
+baseline, connected-player, JIP, manual playthrough, performance or release gates.
