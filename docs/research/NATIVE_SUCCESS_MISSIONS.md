@@ -55,3 +55,15 @@ the production Supplies Seizure starter with explicit `milbase`/`fuel` inputs.
 It waits ten seconds at the original truck position before attempting delivery.
 Vehicle/task diagnostics remain read-only. This is a targeted production-starter
 test, not public LOG selection coverage; the launch receipt identifies the mode.
+
+## FuelRepro1 confirms spawn destruction
+
+The explicit milbase/fuel run reproduces all three Dev1 failures without script
+errors. O_T_Truck_02_fuel_F is created at [2645.5,5082.5,0], alive and undamaged.
+At simulation time 131.097 it receives Killed at that position. Subsequent frames
+show damage 1 and violent displacement upward (over nine metres ATL); at 132.012
+it is deleted, then the native task records destroyed/FAILED. This rules out a
+missing reward/registration path as the immediate cause. Unsafe physical spawn
+placement is now the focus; slope/geometry and model-clearance diagnostics remain
+necessary before selecting a correction. Preserve the entire failed trace under
+`native-success-missions-fuel-repro1`. No production changes have been made.
