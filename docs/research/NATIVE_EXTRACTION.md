@@ -31,3 +31,37 @@ launch receipt, raw RPT, both reports and both build manifests. All 324 producti
 source inputs and helper hashes match. Production PBOs are unchanged. The exact
 isolated server has exited. This samples the public request/failure/asset path
 at one town; successful player extraction and multiplayer remain open.
+
+## Successful Extraction validation in progress
+
+The optional `-ExtractionLifecycle -ExtractionSuccess` probe uses the trusted
+server AI release entry with an existing vanilla unit. It rejects that AI at the
+public player entry, checks native recruit initialization, then places each
+released survivor at HQ. Native ledger conversion must award incremental
+manpower and recover inventory, keep the task pending while survivors remain,
+and settle success with exact funds only after all survivors are resolved.
+The normal delayed asset cleanup and stable rewards are checked. No task state,
+reward endpoint, deadline or cleanup timer is replaced. Ten collector tests and
+PowerShell parsing pass; engine validation is pending. This is not a player
+interaction, travel, deadline, multiplayer or faction implementation test.
+
+### Success Dev1 result (16 November 2026)
+
+All 24 success checks and 19 native campaign startup/save checks pass with zero
+matched errors. Two survivors join the trusted AI rescuer and receive native
+recruit initialization. Controlled HQ deliveries increase manpower from 8 to
+11 (factor 1.5), return four FirstAidKits, and award exactly 200 funds. The task
+remains CREATED after the first delivery and becomes SUCCEEDED after the last.
+The unchanged cleanup removes tracked actors/groups and releases the mission
+budget; rewards remain stable and HQ remains intact. The isolated server exited.
+
+`evidence/sprint-6/native-campaign-extraction-success-dev1` contains the raw RPT,
+exact helper inputs, launch receipt, build manifests, strict reports and hashes.
+Of 326 production inputs, 324 match byte-for-byte; two truck guard files differ
+only in Git checkout line endings, with the frozen build sources verified
+against the manifest. All four helper input hashes match. No production or
+faction changes were made. Self-review confirmed the delivery assertion uses
+the actual HQ marker, and the probe changes no native settlement or timer.
+Player interaction, real escort travel, mixed rescue/death native outcomes,
+deadline behavior, task display retirement and multiplayer acceptance remain
+open. This result does not complete Sprint 6 or release acceptance.

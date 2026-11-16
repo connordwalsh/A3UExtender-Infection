@@ -1,4 +1,5 @@
 // Public mission request in the actual Redux campaign. No endpoint stubs.
+private _successMode=call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\extraction-success-mode.sqf";
 private _checks=0;private _failures=[];
 private _check={params ["_name","_ok",["_details",[]]];
     _checks=_checks+1;if (!_ok) then {_failures pushBack _name};
@@ -32,6 +33,10 @@ private _survivors=+(_record get "units");private _guards=+(_record get "guards"
 ["native_task_created",(A3A_tasksData findIf {_x # 0==_name && {_x # 1=="RES"} && {_x # 2=="CREATED"}})>=0
     && {[_name] call BIS_fnc_taskState=="CREATED"}] call _check;
 // Real deaths exercise the mission ledger/tick; do not force task state or timers.
+if (_successMode) exitWith {
+    [_record,_survivors,_guards,_groups,_check,_wait] call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\extractionSuccess.sqf";
+    call _finish;
+};
 {_x setDamage 1} forEach _survivors;
 private _settled=[{_record get "settled"},30] call _wait;
 ["all_dead_failed",_settled && {_record get "outcome"=="failed"}] call _check;
