@@ -1,7 +1,8 @@
 # Native campaign site lifecycle probe
 
-This probe extends the normal Redux new-campaign save test with two visits to
-one infected-held town and one infected-held resource site. It is opt-in through
+The current probe extends the normal Redux new-campaign save test with two visits
+to each of seven categories: town, resource, factory, outpost, seaport, military
+base and airport. It is opt-in through
 `Tools/dev/start-campaign-probe.ps1 -SiteLifecycle`; tracing modes are rejected
 when this option is used. The production Infection addon is unchanged.
 
@@ -19,13 +20,21 @@ disable and despawn it. No artificial player or commander is introduced.
 Each visit checks native dispatch, a distinct controller, full roster accounting
 (living actors plus queued defenders), valid initialized WEST infected, retirement
 of the tracked units and groups, released spawn-budget records, and unchanged
-saved roster. Towns must activate their full population; a resource site may
-retain defenders queued beyond its existing 24-actor context limit. The second
-visit repeats the same checks. All 29 expected checks must appear exactly once.
+saved roster. It additionally checks retirement of the tracked flags, crates and
+civilian actors. Towns must activate their full population; permanent sites may
+retain defenders queued beyond their existing 24-actor context limit. The second
+visit repeats the same checks. All 113 expected checks must appear exactly once.
 Timeouts and whole-log engine/native errors fail the result.
+
+Factory and resource markers share the Resource controller; seaports and
+outposts share Outpost. The probe records the requested category separately from
+that expected controller type, preserving native dispatch coverage for each.
 
 The collector is `Tools/dev/collect-campaign-sites.py`. Its regression cases
 reject missing and duplicate checks, incomplete runs, and extra error records.
+Its default requires all seven categories. Use `--coverage basic` only to
+recollect the preserved earlier two-category run; that log fails all-category
+validation rather than silently inheriting the larger coverage claim.
 Results are archived separately from the normal 19 campaign checks.
 
 This is not a player-proximity test: Ultimate's civilian town spawner uses actual
@@ -33,7 +42,7 @@ players and is not activated by this forced-spawn request. It also does not prov
 combat, capture, JIP, two-client ownership, vehicle driving, full-map coverage or
 representative performance. These remain separate plan gates.
 
-## Dev1 result
+## Earlier two-category Dev1 result
 
 The completed 15 November 2026 local-time run passes all 29 lifecycle checks and
 the existing 19 native campaign startup/save checks. Both reports find zero
@@ -50,3 +59,6 @@ Redux Fixes is `CCFAEEB0245C8916327AAA179A7A111EC86080F1649EA1FB57D9E58F4374586E
 Thirteen campaign/site/parser regression tests pass. The server was stopped after
 checking its exact executable and profile. No Computer Use or manual-install
 changes occurred; no broader sprint acceptance gate is closed.
+
+The seven-category expansion adds coverage rather than extending this earlier
+29-check result by inference. Its evidence will be recorded separately.
