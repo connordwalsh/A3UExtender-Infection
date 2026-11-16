@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "scope": "Official Redux mission, native server campaign init/save/load; no connected-player, UI, JIP, combat or long-session acceptance",
+  "phase": "read",
+  "status": "passed",
+  "collected_at_utc": "2026-11-16T04:43:59.826298+00:00",
+  "source_log": "redux-companion-crate-read-dev1.rpt",
+  "source_log_sha256": "d077952ae3e00016489a4401e8c96dfbe9a9c7a936ad6c4ffee6ff337d9d482e",
+  "source_sha256": {
+    "tests/arma/campaign_probe/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "tests/arma/campaign_probe/crate-trace-config.cpp": "97d660114706a77ce491eff92b50cde5dd35a056f1284ecf62191dfa6b227244",
+    "tests/arma/campaign_probe/observe.sqf": "77854f9f9bd85705f5fd18ea617808b12669d8d9be1b1ed264abc2d7181275e2",
+    "tests/arma/campaign_probe/run.sqf": "8fb4d50636841ab5f3db2e14918df7b4e2646ea07b67532f75f04aad5caefcba",
+    "tests/arma/campaign_probe/trace-config.cpp": "82570b840e17a63b25b8f72f0b1d628f04645d968ba48bf99cb7249240dc44cd",
+    "tests/arma/campaign_probe/traceActivateAddons.sqf": "1a46747a2f53b0e731820b4309215e5441fb5d9d5c82f380e522a190c950bc79",
+    "tests/arma/campaign_probe/traceInitAmmoBox.sqf": "a2742d5ea51aa083f77f183ca2ecff03a8e83b136bcb206bcb4d475a892fd4ae",
+    "Tools/dev/collect-campaign.py": "569e51c1b879ff4528d0094e5b626ac1fecf85000329ecc589508279dd8c968a",
+    "Tools/dev/start-campaign-probe.ps1": "e0ff49547a09effddd74c4b8a3b75a85de0082881bb5da351b56d18c58e24f02"
+  },
+  "checks": {
+    "one_start_and_completion": true,
+    "schema_valid": true,
+    "correct_phase_and_terrain": true,
+    "all_expected_checks_once": true,
+    "runtime_checks_pass": true,
+    "completion_matches": true,
+    "no_engine_or_native_errors": true
+  },
+  "failed_checks": [],
+  "malformed_lines": [],
+  "errors": [],
+  "records": [
+    [
+      "start",
+      "read",
+      "chernarusredux",
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ],
+      [
+        2026,
+        11,
+        16,
+        4,
+        41,
+        33,
+        907
+      ]
+    ],
+    [
+      "check",
+      "background_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_inventory_cleared",
+      true,
+      [
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ],
+        [
+          [],
+          []
+        ]
+      ]
+    ],
+    [
+      "check",
+      "empty_hc_deferred",
+      true,
+      []
+    ],
+    [
+      "check",
+      "curator_addons_preserved",
+      true,
+      [
+        2874,
+        2874
+      ]
+    ],
+    [
+      "check",
+      "saved_receipt_present",
+      true,
+      []
+    ],
+    [
+      "check",
+      "campaign_initialized",
+      true,
+      [
+        "completed"
+      ]
+    ],
+    [
+      "check",
+      "infection_selected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_hq_ready",
+      true,
+      []
+    ],
+    [
+      "check",
+      "black_market_only_hq_absent",
+      true,
+      []
+    ],
+    [
+      "check",
+      "black_market_only_native_quote",
+      true,
+      [
+        28800,
+        28800
+      ]
+    ],
+    [
+      "check",
+      "redux_parking_slots",
+      true,
+      [
+        [
+          [
+            "outpost_6",
+            1
+          ],
+          [
+            "resource_1",
+            1
+          ],
+          [
+            "resource_2",
+            1
+          ],
+          [
+            "resource_3",
+            1
+          ],
+          [
+            "resource_7",
+            1
+          ],
+          [
+            "resource_10",
+            1
+          ]
+        ]
+      ]
+    ],
+    [
+      "check",
+      "redux_orphan_reconnected",
+      true,
+      []
+    ],
+    [
+      "check",
+      "town_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "admin_extras_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "dealer_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "save_identity_restored",
+      true,
+      []
+    ],
+    [
+      "check",
+      "saved_crate_resources_restored",
+      true,
+      [
+        1100,
+        1100
+      ]
+    ],
+    [
+      "check",
+      "background_window_completed",
+      true,
+      [
+        75.001
+      ]
+    ],
+    [
+      "complete",
+      "read",
+      19,
+      []
+    ]
+  ]
+}
