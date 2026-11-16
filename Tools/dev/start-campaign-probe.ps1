@@ -4,11 +4,15 @@ param(
     [Parameter(Mandatory=$true)][string]$InfectionMod,
     [string]$ReduxFixesMod,
     [switch]$TraceStartup,
+    [switch]$TraceCrate,
+    [switch]$CrateKeepInventory,
     [ValidateSet('Write','Read')][string]$Phase='Write',
     [ValidatePattern('^[A-Za-z0-9_-]{1,24}$')][string]$Instance='ReduxSave1',
     [ValidateRange(1024,65531)][int]$Port=5002
 )
 $ErrorActionPreference='Stop'
+if ($TraceStartup -and $TraceCrate) {throw 'Choose one startup diagnostic.'}
+if ($CrateKeepInventory -and !$TraceCrate) {throw 'Keeping inventory is only a crate diagnostic control.'}
 $repoRoot=(Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
 $gameDirectory=Join-Path $SteamLibrary 'steamapps/common/Arma 3'
 $executable=Join-Path $gameDirectory 'arma3server_x64.exe'
@@ -37,9 +41,17 @@ Copy-Item -LiteralPath (Join-Path $source 'run.sqf') -Destination $addon
 if ($TraceStartup) {
     Copy-Item -LiteralPath (Join-Path $source 'observe.sqf'),(Join-Path $source 'traceActivateAddons.sqf') -Destination $addon
 }
+if ($TraceCrate) {
+    Copy-Item -LiteralPath (Join-Path $source 'observe.sqf'),(Join-Path $source 'traceInitAmmoBox.sqf') -Destination $addon
+}
 ('"'+$Phase.ToLowerInvariant()+'"') | Set-Content -LiteralPath (Join-Path $addon 'phase.sqf') -Encoding ASCII
-$helperConfig=if ($TraceStartup) {'trace-config.cpp'} else {'config.cpp'}
-& $converter -bin -dst (Join-Path $addon 'config.bin') (Join-Path $source $helperConfig)
+$helperConfig=if ($TraceCrate) {'crate-trace-config.cpp'} elseif ($TraceStartup) {'trace-config.cpp'} else {'config.cpp'}
+$configSource=Join-Path $source $helperConfig
+if ($CrateKeepInventory) {
+    $configSource=Join-Path $stage 'crate-control.cpp'
+    ((Get-Content (Join-Path $source $helperConfig) -Raw)+"`nA3I_traceKeepCrateInventory=1;`n") | Set-Content $configSource -Encoding UTF8
+}
+& $converter -bin -dst (Join-Path $addon 'config.bin') $configSource
 if ($LASTEXITCODE -ne 0) {throw 'Campaign helper configuration failed'}
 & $packer -property 'prefix=x\a3i\tests\campaign' -dst $packed $addon
 if ($LASTEXITCODE -ne 0) {throw 'Campaign helper packing failed'}
@@ -71,9 +83,9 @@ $launchArgs=@('-autoInit','-noSound','-ip=127.0.0.1',('-port='+$Port),('-name=In
     ('"-profiles={0}"' -f $profile),('"-config={0}"' -f $config),('"-mod={0}"' -f ($mods -join ';')))
 $process=Start-Process -FilePath $executable -ArgumentList $launchArgs -WorkingDirectory $gameDirectory -WindowStyle Hidden -PassThru
 $helperInputs=@{}
-$inputNames=if ($TraceStartup) {@('trace-config.cpp','observe.sqf','traceActivateAddons.sqf')} else {@('config.cpp','run.sqf')}
+$inputNames=if ($TraceCrate) {@('crate-trace-config.cpp','observe.sqf','traceInitAmmoBox.sqf')} elseif ($TraceStartup) {@('trace-config.cpp','observe.sqf','traceActivateAddons.sqf')} else {@('config.cpp','run.sqf')}
 foreach ($inputName in $inputNames) {$helperInputs[$inputName]=(Get-FileHash (Join-Path $source $inputName)).Hash}
-$receipt=[ordered]@{Phase=$Phase;TraceStartup=[bool]$TraceStartup;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
+$receipt=[ordered]@{Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
     StartedUTC=[DateTime]::UtcNow.ToString('o');ProductionPBO=(Get-FileHash (Join-Path $modRoot 'addons/a3i_core.pbo')).Hash;
     HelperPBO=(Get-FileHash (Join-Path $output 'a3i_campaign_probe.pbo')).Hash;
     HelperSource=(Get-FileHash (Join-Path $source 'run.sqf')).Hash;ReduxFixes=$companionReceipt}

@@ -1,0 +1,10 @@
+{
+  "scope": "Diagnostic control only; not production acceptance",
+  "inventory_retained": false,
+  "errors": [
+    "23:32:54 Error: Object(2 : 9) not found",
+    "23:32:54 Error: Object(2 : 10) not found"
+  ],
+  "sha256": "2be6cd16d9369cf0a7c779772fe07268351048b0fe87ddd1daf910e5bbb73115",
+  "observation_complete": true
+}

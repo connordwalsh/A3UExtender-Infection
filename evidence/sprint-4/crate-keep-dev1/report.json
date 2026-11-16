@@ -1,0 +1,7 @@
+{
+  "scope": "Diagnostic control only; not production acceptance",
+  "inventory_retained": true,
+  "errors": [],
+  "sha256": "de5b5c298310c19f32f6c646ff927544899d1833aacf2a027562778f05ec56dd",
+  "observation_complete": true
+}

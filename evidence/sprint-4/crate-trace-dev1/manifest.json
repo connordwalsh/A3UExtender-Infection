@@ -1,0 +1,10 @@
+{
+  "files": {
+    "fixture/crate-trace-config.cpp": "97d660114706a77ce491eff92b50cde5dd35a056f1284ecf62191dfa6b227244",
+    "fixture/observe.sqf": "77854f9f9bd85705f5fd18ea617808b12669d8d9be1b1ed264abc2d7181275e2",
+    "fixture/traceInitAmmoBox.sqf": "49778fc1fd3546194519cf999f2587e67f2ffc63aa1fd74baf0524e25dabaff6",
+    "launch.json": "298d5a922b9d696bc6c6f1a5c1e031296c5e17ef70bdbde1bf03f076b3cf955e",
+    "probe.rpt": "2be6cd16d9369cf0a7c779772fe07268351048b0fe87ddd1daf910e5bbb73115",
+    "report.json": "d12f44dabb1f59f59ed26cb130f352e9a219cfea04a3a89ed92a19fbb46fd469"
+  }
+}

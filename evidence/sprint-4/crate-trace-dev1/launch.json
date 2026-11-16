@@ -1,0 +1,21 @@
+{
+  "Phase": "Write",
+  "TraceStartup": false,
+  "TraceCrate": true,
+  "HelperInputs": {
+    "crate-trace-config.cpp": "97D660114706A77CE491EFF92B50CDE5DD35A056F1284ECF62191DFA6B227244",
+    "observe.sqf": "77854F9F9BD85705F5FD18EA617808B12669D8D9BE1B1ED264ABC2D7181275E2",
+    "traceInitAmmoBox.sqf": "49778FC1FD3546194519CF999F2587E67F2FFC63AA1FD74BAF0524E25DABAFF6"
+  },
+  "ProcessId": 65772,
+  "ProfileDirectory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Zombie Occupant Faction\\.work\\crate-startup-trace\\.work\\profiles\\campaign-server-CrateTrace1",
+  "Port": 9442,
+  "StartedUTC": "2026-11-16T04:32:36.6527758Z",
+  "ProductionPBO": "B4B0C17E92A87E16020635ED4EBCD8AD1E28DD2FF78C5866C494EC23DD981085",
+  "HelperPBO": "BF34D205971ED033290E0A897447F06C1FC417C976F86A5929424C0397A4D22D",
+  "HelperSource": "523307F2AEA2DD07CA673AEA07309B9A19F9AB3419BE7B3C076CC1B124280C4A",
+  "ReduxFixes": {
+    "Directory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Chernarus Redux Map Change\\.work\\build\\@A3U_Redux_Fixes",
+    "PBO": "9A9FB05FDE9935EB09E12D2E235EA43DEA753F704EFE2412C9D9B33C9D456836"
+  }
+}
