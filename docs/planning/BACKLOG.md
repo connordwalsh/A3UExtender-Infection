@@ -785,3 +785,15 @@ class/heading footprint guard in parking selection and final creation. Build and
 collector checks pass; native regression is pending. The PR remains draft and
 the original defect is not yet closed. Other faction development remains out
 of scope; the manual Dev9 install is unchanged.
+
+16 November evidence reconciliation: the separate `codex/special-lifecycle`
+branch already completed the follow-up to the seven ambiguous ownership/deletion
+observations. Its commit `fba3c979c9af12af10ca83a890cbdb6cf6d451ab` records 56
+completed trials with cleanup, 936 model/attachment errors across five classes,
+and Corrupted possession deleting a living body without a Killed event. Review
+that existing failed report before repeating lifecycle trials. Existing actors
+remained server-local; the remaining work is model/attachment investigation and
+tracking a continuing possessed threat if Corrupted is ever enabled. The report
+is not acceptance evidence for the large creatures. The approved initial
+Elimination roster remains Screamer, Boomer and Leaper 2. See the preserved
+[focused investigation](https://github.com/connordwalsh/A3UExtender-Infection/blob/fba3c979c9af12af10ca83a890cbdb6cf6d451ab/docs/research/SPECIAL_LIFECYCLE.md).
