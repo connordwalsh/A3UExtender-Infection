@@ -202,3 +202,19 @@ search times observed here are median 0.037 s, p95 0.109 s, maximum 0.215 s;
 this is not gameplay performance acceptance. Next evaluate a larger bounded
 search budget while retaining the tested geometry guard. The stopped comparison
 is preserved under `native-success-missions-parking-compare1`.
+
+TruckParkingTuned1 evaluates a local copy of the candidate search with only the
+attempt bound changed from 24 to 96. Its 413 samples find 401 valid positions
+and 12 unavailable, versus 356 valid/57 unavailable for the production search
+in the same campaign. Neither returns an invalid position or matches an error.
+Native startup/save passes 19 checks. Search duration median/p95/max is
+0.037/0.146/0.468 s for the proposal and 0.037/0.109/0.181 s for production.
+These independent random observations support adopting the larger finite budget,
+not claiming universal availability or gameplay performance acceptance.
+
+The guard, first 12 roadside attempts, ownership/boundary/exclusion rules and
+failure return are unchanged. The proposal is not yet in production: the active
+Full regression still uses the frozen 24-attempt build. The comparison server is
+stopped and its exact inputs/results are preserved under
+`native-success-missions-parking-tuned1`. After the frozen regression is archived,
+apply the proven one-line budget change and verify the resulting production build.
