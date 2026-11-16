@@ -1,0 +1,11 @@
+{
+  "scope": "Rejected fixture: reads uninitialized lazy site registry during first native dispatch",
+  "files": {
+    "casualties-report.json": "21f4df25ca02b7f63809121a3456f67e632d3ebf12bc44433e747a57851fe28c",
+    "fixture/casualties.sqf": "772b7db5dd8f98bf2b33dfdf4383226626b85d84c4401b67d9993f1728f81de7",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "08dcae24df37f4acb35454421b6ea690ec500b5ca95bb23a25c472313b8c2ed4",
+    "launch.json": "44689a439d336a42e1ba13ae87a39cd359237de71ab091081900a2b418d3c854",
+    "probe.rpt": "57523719e2a2a4aa82c4b186bbd90d0a82d8d4756539c07d738d8a42d32262ad"
+  }
+}

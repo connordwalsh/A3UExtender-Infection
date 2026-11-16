@@ -139,4 +139,7 @@ sleep 75;
 if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\site-mode.sqf") then {
     call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\sites.sqf";
 };
+if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\casualty-mode.sqf") then {
+    call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\casualties.sqf";
+};
 call _finish;
