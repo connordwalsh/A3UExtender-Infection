@@ -121,3 +121,18 @@ The optional `-TraceGarrison` diagnostic instead registers a test-only receiver
 at addon startup and calls the unchanged native implementation with the original
 arguments. That instrumented run is causal investigation, not acceptance. It
 also logs each defender's role, marker and side immediately before death.
+
+Diag3 ended before cleanup and its receiver was not active; its incomplete result
+is retained. Diag4 removed the duplicate uninstrumented config.cpp from the test
+PBO and verified both the configured receiver path and compiled function before
+deaths. All 16 death calls entered and exited the native receiver, but roster
+snapshots regained previously removed roles during overlapping updates. Two
+roles remained after all deaths. The completed run again failed five of 17
+mission checks, with all 19 campaign checks passing and zero matched errors.
+Exact evidence: `native-liquidation-diag4-rejected`.
+
+The shared Ultimate update race is being fixed independently in
+[Redux Fixes PR 10](https://github.com/connordwalsh/A3U-Redux-Fixes/pull/10).
+Its candidate builds, but focused concurrency validation has failures and must
+be resolved before merge. The uninstrumented Liquidation regression using that
+candidate is pending. No Infection gameplay changes were required so far.

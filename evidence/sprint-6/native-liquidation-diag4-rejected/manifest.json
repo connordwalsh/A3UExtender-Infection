@@ -1,0 +1,13 @@
+{
+  "campaign-report.json": "34cac7c09982b27b485e84060aa6bc03c65af384427c0ce4dd62d7f54d5778a4",
+  "fixture\\config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+  "fixture\\garrison-trace-config.cpp": "b879c3839ff923fa950bd43c537cd33244d8b16f86546fff88762be690c2e04d",
+  "fixture\\liquidation.sqf": "9fe252ea1d5569bd850c4d83748ccc9d96767eac44f1f9874479754e4b167297",
+  "fixture\\run.sqf": "d1071893601c89795dae180c30e9b87670bf40c83a268e73daf6411161283a44",
+  "fixture\\traceGarrisonUpdate.sqf": "61acd0f298a7f9dce714fb15c373963d07df97eae48dfd85ac81f6868da24b9b",
+  "infection-build.json": "d74b15eb7aaa257d10b55a926a4d07e27f764839abee554ecaa4839c87896b4f",
+  "launch.json": "9437aac85825b0545eda41286ea8bfa9c3cd30fe1623b478ca311eb42df74fc0",
+  "liquidation-report.json": "9d7afdce75f22724affb9a19327481bd0d5efe02194180d42ff183daa2abf06e",
+  "probe.rpt": "fb23b065b71bc553425b93e2ab48d9fd6d84420ffc3ab3e25ab17113dac0a6d0",
+  "redux-fixes-build.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1"
+}
