@@ -31,6 +31,10 @@ private _pickup=_record get "pickupMarker";
     && {(A3A_tasksData findIf {_x # 0==_name && {_x # 1=="SUPP"} && {_x # 2=="CREATED"}})>=0}] call _check;
 sleep 5;
 ["hq_package_paused",_ledger get "unloadedSeconds"==0 && {!(_record get "settled")}] call _check;
+if (call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\aid-success-mode.sqf") exitWith {
+    [_record,_check,_wait] call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\aidSuccess.sqf";
+    call _finish;
+};
 private _funds=server getVariable "resourcesFIA";private _hr=server getVariable "hr";
 private _support=+(A3A_townData get _target);
 // Capture through the actual transaction, not a replacement ledger/side endpoint.
