@@ -53,6 +53,36 @@ if (_elim getOrDefault ["taskRegistered",false]) then {
     ["elim_budget_released",(_tickets findIf {_x in A3I_budgetRecords})==-1] call _check;
 };
 private _supplyTargets=call A3I_fnc_supplyTargets;
+// Read-only diagnostics for the failed native truck lifetime. Event handlers
+// and observer state do not change vehicle damage, placement, tasks or timers.
+private _createdEH=addMissionEventHandler ["EntityCreated",{
+    params ["_vehicle"];
+    if !(_vehicle isKindOf "Car") exitWith {};
+    diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["created",time,typeOf _vehicle,getPosATL _vehicle,getDir _vehicle]];
+    _vehicle addEventHandler ["Killed",{
+        params ["_vehicle"];
+        diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["killed",time,typeOf _vehicle,getPosATL _vehicle,damage _vehicle,
+            _vehicle getVariable ["A3I_supplyTaskOwner",[]]]];
+    }];
+    _vehicle addEventHandler ["Deleted",{
+        params ["_vehicle"];
+        diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["deleted",time,typeOf _vehicle,getPosATL _vehicle,alive _vehicle,damage _vehicle,
+            _vehicle getVariable ["A3I_supplyTaskOwner",[]]]];
+    }];
+}];
+A3I_probeSupplySnapshots=createHashMap;
+private _trace=[{
+    {
+        private _job=_y;private _vehicle=_job get "truck";
+        private _state=[_job get "phase",_job get "outcome",_job get "fault",isNull _vehicle,alive _vehicle,
+            damage _vehicle,typeOf _vehicle,getPosATL _vehicle,_vehicle getVariable ["ownerSide",sideUnknown],
+            _job get "taskRegistered",[_x] call BIS_fnc_taskState];
+        if !(_state isEqualTo (A3I_probeSupplySnapshots getOrDefault [_x,[]])) then {
+            diag_log format ["[INFECTION_SUPPLY_TRACE] %1",["state",time,_x,_job get "class",_job get "source",_state]];
+            A3I_probeSupplySnapshots set [_x,_state];
+        };
+    } forEach (missionNamespace getVariable ["A3I_supplyTasks",createHashMap]);
+},0.05] call CBA_fnc_addPerFrameHandler;
 ["supply_eligible",_supplyTargets isNotEqualTo []] call _check;
 private _supply=["LOG","A3I_supplySerial","A3I_supplyTasks","A3I_SUPPLY_","supply_"] call _request;
 if (_supply getOrDefault ["taskRegistered",false]) then {
@@ -79,5 +109,7 @@ if (_supply getOrDefault ["taskRegistered",false]) then {
         ["supply_settlement_stable",alive _truck && {server getVariable "resourcesFIA"==_funds+_reward}] call _check;
     };
 };
+removeMissionEventHandler ["EntityCreated",_createdEH];
+[_trace] call CBA_fnc_removePerFrameHandler;
 ["hq_intact",alive petros && {!isNull boxX} && {!isNull flagX}] call _check;
 diag_log format ["[INFECTION_MISSION_SUCCESS] %1",["complete",_checks,_failures]];

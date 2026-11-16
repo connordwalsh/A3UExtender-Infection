@@ -17,3 +17,14 @@ empty position within HQ's delivery range. This is not player combat or driving.
 It does not prove every target class/truck kind/location, save/reload of the
 truck, multiplayer or the native task-display retirement timer. Runtime evidence
 is pending. Five collector tests and launcher parsing pass.
+
+## Failed Dev1
+
+Elimination at Myshkino succeeds with a Screamer, four basic escorts and a
+Leaper 2 escort; its exact 1000 reward and cleanup pass. Supplies Seizure registers
+at milbase with fuel cargo, but the truck is already deleted at inspection.
+Truck readiness, CREATED state and HQ placement fail, and the success assertions
+cannot execute. The report contains only 21 of 27 expected checks, with three explicit
+failures and zero matched errors. Preserve the entire run under
+`native-success-missions-dev1-failed`. Cause is not established; add read-only
+vehicle/task diagnostics before changing production behavior.
