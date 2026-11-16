@@ -27,7 +27,7 @@ and Elimination are merged through PR 46 after their unchanged Dev3 rerun passed
 1,427 checks and 67 role-spawn records. The earlier interrupted report is retained
 and does not count as a pass. PR 47 adds
 abandoned vehicle assets; PR 48 connects them to town visits, passing 36 focused
-Altis-road checks and 11 actual missing-dependency checks. The Redux parking sweep passes 163 checks across 49 towns. Public Extraction and post-rescue disposition remain unfinished.
+Altis-road checks and 11 actual missing-dependency checks. The Redux parking sweep passes 163 checks across 49 towns. The subsequent combined CampaignIntegration run verifies implemented public Extraction and post-rescue disposition in isolated contracts (1,806 checks and 67 roles); native mission and connected-player acceptance remain open.
 The separate large-creature diagnostic remains failed and is tracked separately.
 No sprint acceptance gate is closed. The manual Dev9 installation is unchanged.
 
@@ -56,8 +56,8 @@ none of these stories is complete.
 | S3-1 | QRF and attack routing | In progress | Capture-triggered foot counterattacks pass 51 cases in the 684-check regression, including native distance activation, paid arrival handoff, town population startup and cleanup. Tactical support passes 70 additional cases, including rebuilding policy and remote context. Strategic walking hordes pass 114 cases; the superseded competitive prototype is retired. Connected-player rebuilding, remaining missions and special creatures remain open; see CAPTURE_COUNTERATTACKS.md and TACTICAL_SUPPORT_CONTRACTS.md. |
 | S3-2 | Garrison repair | In progress | Routine paid foot arrivals and virtual repair pass 39 cases in the 340-check suite: original queue priority, cooldown/combat/ownership, active limits, roster handoff and cleanup. Redux travel, nearby players and restart persistence remain open. |
 | S3-3 | Conventional force disposition | In progress | Response source audit records remaining vehicle, support, task and payment contracts. Complete route disposition and Invader campaign regression remain open. |
-| S4-1 | Complete mission classification | In progress | Liquidation covers all four native conquest entry points. Other replacement families and automatic-trigger classification remain open. |
-| S4-2 | Mission eligibility and common objectives | In progress | Liquidation target, capture, controller and dispatch integration passes 764 combined checks, 37 dispatch-focused checks and 11 dependency-absent checks. Town liberation and the five other replacement families remain open. |
+| S4-1 | Complete mission classification | In progress | Six requested categories, all six legacy rescue endpoints and dealer/tower/gang route dispositions are integrated. Exhaustive caller audit and native campaign acceptance remain open. |
+| S4-2 | Mission eligibility and common objectives | In progress | The six replacement request paths, Extraction disposition, dealer/tower rules and survivor-defense integration pass the combined 1,806-check/67-role contract run. Native mission, connected-player and campaign acceptance remain open. |
 | S4-3 | Existing outbreak mission adaptations | Backlog | Survivor civilian configuration. |
 | S5-1 | Central spawn budget | In progress | Sites, controls/towns/administrations, routine repair, roaming, capture responses, tactical support, strategic hordes and competitive conquest use the budget in the 684-check suite. Towns have separate non-transferable full-population allowances. Remaining response/mission callers, terrain/player validation and performance remain open. |
 | S5-2 | Special roles and escalation | Backlog | Largest types restricted to declared events. |
@@ -762,3 +762,10 @@ checks pass alongside 19 campaign checks per phase and zero matched errors;
 the writer also repeats all 18 casualty checks. See NATIVE_CASUALTY_SAVE.md.
 This is a sampled permanent-garrison result, not broad progression, combat,
 multiplayer or release acceptance. Production source is unchanged.
+
+16 November native Extraction request: Zelenogorsk public RES dispatch creates
+two survivors/four infected guards. All-survivor deaths yield native FAILED,
+zero rescue credit and normal one-minute actor/group cleanup with released
+budget and intact HQ. Thirteen mission checks and 19 campaign checks pass with
+zero matched errors. See NATIVE_EXTRACTION.md. Player release/delivery/success,
+multiplayer and long task-display retirement remain unverified.

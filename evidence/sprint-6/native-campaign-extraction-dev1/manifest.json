@@ -1,0 +1,14 @@
+{
+  "scope": "Native public Extraction request, all-survivors-dead failure and asset cleanup; no player rescue or multiplayer acceptance",
+  "files": {
+    "campaign-report.json": "599c586b8315990f204133c7ecd7e04ee2ab481a05a0a1f24e95255771f77d57",
+    "extraction-report.json": "491f1409620da9fcf3b530ec954eec21fe41ba1f20507ce7c0d7d8b83dd0f89b",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/extraction.sqf": "2242ced04e3fb46ff0c43f55eece2b3ee71788b9538798dea2011aaf5a668c54",
+    "fixture/run.sqf": "629d1dd3f070e516aba1527e4098327e5b63920ec8d4f9ecf4cf3a1c348edb55",
+    "infection-build.json": "058f279f58b5c91abe4e8c1b4b0a0c9969119bef11a1e8918abe5bd07b3d5cf4",
+    "launch.json": "b4d20c81c6437212d2778388b729b106ffcad5cc6736f54bd731076f111e9469",
+    "probe.rpt": "007b8b49f925fbd83ce753f0dd8ea83ce4f987ab6bdd59f4979c793c1f66699d",
+    "redux-fixes-build.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1"
+  }
+}

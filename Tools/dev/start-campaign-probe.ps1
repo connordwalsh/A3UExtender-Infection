@@ -9,6 +9,7 @@ param(
     [switch]$SiteLifecycle,
     [switch]$SiteCasualties,
     [switch]$CasualtySave,
+    [switch]$ExtractionLifecycle,
     [ValidateSet('Write','Read')][string]$Phase='Write',
     [ValidatePattern('^[A-Za-z0-9_-]{1,24}$')][string]$Instance='ReduxSave1',
     [ValidateRange(1024,65531)][int]$Port=5002
@@ -16,6 +17,7 @@ param(
 $ErrorActionPreference='Stop'
 if ($TraceStartup -and $TraceCrate) {throw 'Choose one startup diagnostic.'}
 if ($CrateKeepInventory -and !$TraceCrate) {throw 'Keeping inventory is only a crate diagnostic control.'}
+if ($ExtractionLifecycle -and ($CasualtySave -or $SiteCasualties -or $SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose Extraction lifecycle without other diagnostics.'}
 if ($CasualtySave -and ($SiteCasualties -or $SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose casualty save testing without other diagnostic modes.'}
 if ($SiteCasualties -and ($SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose casualty testing without other diagnostic modes.'}
 if ($SiteLifecycle -and ($TraceStartup -or $TraceCrate)) {throw 'Site lifecycle requires the normal campaign helper.'}
@@ -47,6 +49,8 @@ Copy-Item -LiteralPath (Join-Path $source 'run.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'sites.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'casualties.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'casualtySave.sqf') -Destination $addon
+Copy-Item -LiteralPath (Join-Path $source 'extraction.sqf') -Destination $addon
+$(if ($ExtractionLifecycle) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'extraction-mode.sqf') -Encoding ASCII
 $(if ($CasualtySave) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'casualty-save-mode.sqf') -Encoding ASCII
 $(if ($SiteCasualties) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'casualty-mode.sqf') -Encoding ASCII
 $(if ($SiteLifecycle) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'site-mode.sqf') -Encoding ASCII
@@ -100,7 +104,8 @@ foreach ($inputName in $inputNames) {$helperInputs[$inputName]=(Get-FileHash (Jo
 if ($SiteLifecycle) {$helperInputs['sites.sqf']=(Get-FileHash (Join-Path $source 'sites.sqf')).Hash}
 if ($SiteCasualties -or $CasualtySave) {$helperInputs['casualties.sqf']=(Get-FileHash (Join-Path $source 'casualties.sqf')).Hash}
 if ($CasualtySave) {$helperInputs['casualtySave.sqf']=(Get-FileHash (Join-Path $source 'casualtySave.sqf')).Hash}
-$receipt=[ordered]@{CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
+if ($ExtractionLifecycle) {$helperInputs['extraction.sqf']=(Get-FileHash (Join-Path $source 'extraction.sqf')).Hash}
+$receipt=[ordered]@{ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
     StartedUTC=[DateTime]::UtcNow.ToString('o');ProductionPBO=(Get-FileHash (Join-Path $modRoot 'addons/a3i_core.pbo')).Hash;
     HelperPBO=(Get-FileHash (Join-Path $output 'a3i_campaign_probe.pbo')).Hash;
     HelperSource=(Get-FileHash (Join-Path $source 'run.sqf')).Hash;ReduxFixes=$companionReceipt}
