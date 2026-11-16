@@ -13,6 +13,15 @@ private _candidates=_targets select {([_x] call A3I_fnc_liquidationTargetKind) i
 ["eligible_queued_site",_candidates isNotEqualTo [],[_candidates,_limit]] call _check;
 if (_candidates isEqualTo []) exitWith {call _finish};
 private _target=_candidates # 0;private _original=count (garrison getVariable [_target,[]]);
+// Diagnostic only: observe calls entering the native receiver, then invoke the
+// unchanged native implementation with the original arguments and scheduling.
+// This run is causal investigation, not an uninstrumented acceptance result.
+A3I_probeNativeGarrisonUpdate=A3A_fnc_garrisonUpdate;
+A3A_fnc_garrisonUpdate={
+    diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] garrison_enter %1",[_this,diag_frameNo]];
+    _this call A3I_probeNativeGarrisonUpdate;
+    diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] garrison_exit %1",[_this,garrison getVariable [_this # 2,[]],diag_frameNo]];
+};
 [[_target],"A3A_fnc_CON_Outpost"] call A3A_fnc_scheduler;
 private _dispatched=[{count ([_target] call A3I_fnc_liquidationClaim)>0}] call _wait;
 ["native_scheduler_dispatch",_dispatched,[_target,_original]] call _check;
@@ -35,7 +44,10 @@ private _ready=[{count ((_site get "units") select {alive _x})>=_limit}] call _w
 private _funds=server getVariable "resourcesFIA";
 private _killed=[];
 isNil {
-    {if (alive _x) then {_killed pushBackUnique _x;_x setDamage 1}} forEach (_site get "units");
+    {if (alive _x) then {
+        diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] before_death %1",[_x getVariable ["unitType",""],_x getVariable ["markerX",""],_x getVariable ["originalSide",sideUnknown],diag_frameNo]];
+        _killed pushBackUnique _x;_x setDamage 1
+    }} forEach (_site get "units");
     ["queue_blocks_capture",!(([_target] call A3I_fnc_siteClearance) # 0)
         && {_record get "outcome"=="pending"} && {sidesX getVariable _target==west}] call _check;
 };
@@ -44,7 +56,10 @@ private _until=diag_tickTime+240;
 waitUntil {
     sleep 1;
     // Real defender deaths, without changing roster, ledger or capture endpoints.
-    {if (alive _x) then {_killed pushBackUnique _x;_x setDamage 1}} forEach (_site get "units");
+    {if (alive _x) then {
+        diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] before_death %1",[_x getVariable ["unitType",""],_x getVariable ["markerX",""],_x getVariable ["originalSide",sideUnknown],diag_frameNo]];
+        _killed pushBackUnique _x;_x setDamage 1
+    }} forEach (_site get "units");
     private _snapshot=[[_target] call A3I_fnc_siteClearance,
         count (garrison getVariable [_target,[]]),count (_site get "queue"),
         {alive _x} count (_site get "units"),_site get "clearanceRemaining",_site get "clearanceMissing",
@@ -81,4 +96,6 @@ private _context="site:"+_target;
 sleep 5;
 ["reward_stable",server getVariable "resourcesFIA"==_funds+_reward] call _check;
 ["hq_intact",alive petros && {!isNull boxX} && {!isNull flagX}] call _check;
+A3A_fnc_garrisonUpdate=A3I_probeNativeGarrisonUpdate;
+A3I_probeNativeGarrisonUpdate=nil;
 call _finish;
