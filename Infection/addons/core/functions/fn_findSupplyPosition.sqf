@@ -9,7 +9,7 @@ if (_radius <= 0) exitWith {[[],0]};
 private _roads = _center nearRoads _radius;
 private _observers = call A3I_fnc_spawnObservers;
 private _result = [[],0];
-for "_attempt" from 0 to 23 do {
+for "_attempt" from 0 to 95 do {
     private _heading = random 360;
     private _candidate = [];
     if (_attempt < 12 && {_roads isNotEqualTo []}) then {

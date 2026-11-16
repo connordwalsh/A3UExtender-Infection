@@ -218,3 +218,16 @@ Full regression still uses the frozen 24-attempt build. The comparison server is
 stopped and its exact inputs/results are preserved under
 `native-success-missions-parking-tuned1`. After the frozen regression is archived,
 apply the proven one-line budget change and verify the resulting production build.
+
+TruckClearanceFull1 has now passed all 1,807 isolated contract checks and 67
+role-spawn records with zero matched errors. Final convoy workers and assets
+clean up successfully. The 123 retained warnings introduce no normalized warning
+types beyond the earlier CampaignIntegration report (128 warnings); exact
+comparison details are archived, not filtered out. All 326 production source
+hashes and the installed fixture receipt match. The server is stopped and the
+complete evidence is preserved under `native-success-missions-full1`.
+
+The production parking search now adopts the tested 96-attempt bound; its source
+matches the local proposal evaluated above. A new build/native regression is
+required before this final version is accepted. No other production behavior
+changed after the full regression.

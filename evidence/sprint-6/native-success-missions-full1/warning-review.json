@@ -1,0 +1,7 @@
+{
+  "baseline": "evidence/sprint-4/campaign-integration-full-dev1.json",
+  "normalization": "Replace decimal object IDs and hexadecimal identifiers only",
+  "current_count": 123,
+  "baseline_count": 128,
+  "new_types": []
+}
