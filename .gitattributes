@@ -2,3 +2,4 @@
 /evidence/sprint-4/redux-companion-*.rpt -text
 /evidence/sprint-4/startup-trace-*/probe.rpt -text
 /evidence/sprint-4/crate-*/** -text
+/evidence/sprint-6/native-campaign-sites-*/** -text
