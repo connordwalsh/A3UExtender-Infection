@@ -39,11 +39,26 @@ isNil {
     ["queue_blocks_capture",!(([_target] call A3I_fnc_siteClearance) # 0)
         && {_record get "outcome"=="pending"} && {sidesX getVariable _target==west}] call _check;
 };
+private _lastDiagnostic=[];
 private _until=diag_tickTime+240;
 waitUntil {
     sleep 1;
     // Real defender deaths, without changing roster, ledger or capture endpoints.
     {if (alive _x) then {_killed pushBackUnique _x;_x setDamage 1}} forEach (_site get "units");
+    private _snapshot=[[_target] call A3I_fnc_siteClearance,
+        count (garrison getVariable [_target,[]]),count (_site get "queue"),
+        {alive _x} count (_site get "units"),_site get "clearanceRemaining",_site get "clearanceMissing",
+        _record get "outcome",scriptDone (_record get "script"),
+        scriptDone (_record getOrDefault ["captureScript",scriptNull]),_target in markersChanging];
+    if (_snapshot isNotEqualTo _lastDiagnostic) then {
+        diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] state %1",_snapshot];
+        {diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] actor %1",[typeOf _x,alive _x,
+            _x getVariable ["A3I_clearanceTracked",false],_x getVariable ["A3I_clearanceResolved",false],
+            _x getVariable ["A3I_clearanceSiteId",-1],_site get "id",
+            _x getVariable ["A3I_finalized",false],_x getVariable ["unitType",""]]]} forEach _killed;
+        diag_log format ["[INFECTION_LIQ_DIAGNOSTIC] roster %1",garrison getVariable [_target,[]]];
+        _lastDiagnostic=_snapshot;
+    };
     _record get "settled" || {diag_tickTime>=_until}
 };
 ["all_defenders_appeared",count _killed==_original,[count _killed,_original]] call _check;
