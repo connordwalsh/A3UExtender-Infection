@@ -14,7 +14,9 @@ fresh-process reload passing 19 checks per phase with zero matched errors.
 The subsequent native site probe passes 113 lifecycle checks over two visits each
 to one town and six permanent-site categories, alongside the 19 campaign checks.
 Seaport/base/airport rosters retain 4/20/32 queued defenders beyond 12 active.
-See NATIVE_CAMPAIGN_SITES.md. Connected-player, combat, casualty replacement,
+See NATIVE_CAMPAIGN_SITES.md. The subsequent casualty probe passes 18 checks: four deaths reduce a native
+factory garrison, four queued infected replace them, and the reduced roster
+returns on revisit. Connected-player, player combat, casualty save/reload,
 full-map coverage, performance and release acceptance remain open.
 
 Earlier mission integration checkpoint: merged PR 40 covers Supplies Seizure after 1228
@@ -46,7 +48,7 @@ none of these stories is complete.
 | S1-1 | Infection scaffold and dependency checks | In progress | Built and loaded; isolated dependency-present/absent checks passed. Campaign setup acceptance remains open. |
 | S1-2 | Basic infected tier/group definitions | In progress | All 67 definitions spawned through Ultimate with valid side, equipment, identity and cleanup; site integration remains open. |
 | S1-3 | Vehicle/template contract | In progress | Foot lines, six persistent site types, controls, towns, strongholds, routine repair, roaming and capture responses and tactical support avoid conventional pools in the 684-check suite; remaining mission/convoy routes remain open. |
-| S2-1 | Occupied-site lifecycle | In progress | Isolated contracts cover six persistent types and transient controls/towns/administrations. Native Redux campaign forced activation, cleanup of tracked units/groups/assets and second visits pass for one town and all six permanent-site categories (113 checks). Overflow rosters are retained. Player proximity, casualty replacement, capture and combat remain open. |
+| S2-1 | Occupied-site lifecycle | In progress | Isolated contracts cover six persistent types and transient controls/towns/administrations. Native Redux campaign forced activation, cleanup of tracked units/groups/assets and second visits pass for one town and all six permanent-site categories (113 checks). Overflow rosters are retained. Native factory casualty/refill/revisit passes 18 checks. Player proximity, capture and player combat remain open. |
 | S2-2 | Foot patrols and road controls | In progress | Controls, towns and roaming pass 37, 67 and 39 dedicated cases within the 684-check suite. Towns preserve approved per-visit regeneration. Redux navigation, connected players and repeated patrol circuits remain open. |
 | S2-2a | Population-based town infestations | In progress | The approved 10â€“200 logistic, complete activation, all infected-held towns and ownership handoffs pass 67 town cases within the 684-check regression; 78 focused and 11 missing-dependency checks also pass. See TOWN_INFESTATIONS.md. Redux navigation, connected players and performance remain open. |
 | S2-3 | Capture and persistence | In progress | Queued defenders block capture; roster death/reentry contracts pass. Administration clearing uses the actual native ownership/support transaction, including after building destruction. Full campaign ownership/rewards/save/reload/recapture remain open. |
@@ -745,3 +747,10 @@ baseline, connected-player, JIP, manual playthrough, performance or release gate
 The rejected Dev1 fixture and corrected Dev2 evidence are retained separately.
 No production limits were increased. Full roster accounting includes queues;
 combat-driven replacement, full-map coverage and multiplayer remain open.
+
+16 November native casualties: corrected Dev2 passes 18 checks and 19 campaign
+checks with zero matched errors. Four killed factory defenders stay removed;
+four queued defenders replace them and the reduced roster survives a revisit.
+The rejected fixture initialization error is retained separately. See
+NATIVE_CAMPAIGN_CASUALTIES.md. Player combat, casualty save/reload, capture and
+multiplayer remain open; no production changes or other faction work occurred.

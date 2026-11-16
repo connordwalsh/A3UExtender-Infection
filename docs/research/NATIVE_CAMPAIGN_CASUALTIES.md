@@ -18,7 +18,8 @@ and the reduced roster on a second visit. The collector rejects missing or
 duplicate checks, incomplete runs and engine/native errors across the whole log.
 Five collector regression tests pass; the launcher passes PowerShell parsing.
 
-Runtime result is pending. This is not player combat, natural weapon damage,
+Dev2 passes all 18 casualty checks and 19 campaign checks with zero matched
+engine/native errors. This is not player combat, natural weapon damage,
 corpse cleanup, capture, save/reload of these casualties, multiplayer or
 performance evidence. Corpses remain under Ultimate's native postmortem policy.
 
@@ -30,3 +31,21 @@ dispatch. The corrected wait reads it with an empty-map fallback, as the prior
 site-lifecycle fixture already does. Production code is unchanged. Exact helper,
 receipt, raw log and failed report are preserved under
 `evidence/sprint-6/native-campaign-casualties-dev1-rejected`.
+
+## Dev2 result
+
+The corrected 16 November run selects factory_1: 12 active infected and four
+queued from its native 16-defender garrison. Four engine deaths finalize and
+remove the exact four role entries from the native roster. Four different,
+initialized WEST infected replace them, leaving 12 living and zero queued.
+After native distance cleanup, the second controller activates the reduced
+12-defender roster. Both visits release their spawn budget and preserve the
+reduced stored roster.
+
+Evidence is in `evidence/sprint-6/native-campaign-casualties-dev2`, with exact
+helper, receipt, raw RPT, both build manifests and both reports. All 324 production
+source hashes and helper inputs match their receipts. Production PBOs remain
+B4B0C17E92A87E16020635ED4EBCD8AD1E28DD2FF78C5866C494EC23DD981085 (Infection)
+and CCFAEEB0245C8916327AAA179A7A111EC86080F1649EA1FB57D9E58F4374586E (Redux Fixes).
+Sixteen campaign/site/casualty collector regression tests pass. The exact server
+was stopped and its exit confirmed. No Computer Use or manual profile changes.

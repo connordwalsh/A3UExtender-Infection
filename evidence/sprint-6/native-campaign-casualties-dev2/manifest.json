@@ -1,0 +1,14 @@
+{
+  "scope": "Native campaign casualty bookkeeping, queue replacement and revisit, not player combat or save/reload",
+  "files": {
+    "campaign-report.json": "457727ed806b8195ee4fd045cdd0f593209b5bbd76c09db9367d34edc58cb7d2",
+    "casualties-report.json": "95561ac0b9fddb109cef49a6ec05738f1b30dd3447837c698e49f487b4a634cc",
+    "fixture/casualties.sqf": "cbf1dcdf5d3aecf7ec31da863fbe571b7b327fecd84f4103582c7029b1fdad76",
+    "fixture/config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+    "fixture/run.sqf": "08dcae24df37f4acb35454421b6ea690ec500b5ca95bb23a25c472313b8c2ed4",
+    "infection-build.json": "058f279f58b5c91abe4e8c1b4b0a0c9969119bef11a1e8918abe5bd07b3d5cf4",
+    "launch.json": "baf2e343dd33d8cd311b7d48319bd178e13860dd1f2206519a7456a9bad42901",
+    "probe.rpt": "59fe3df29ee84af8ad16f872ebfb714936f92619e8229bcd499daa3bec9616f6",
+    "redux-fixes-build.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1"
+  }
+}
