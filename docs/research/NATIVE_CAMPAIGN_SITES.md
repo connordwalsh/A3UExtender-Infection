@@ -22,7 +22,8 @@ Each visit checks native dispatch, a distinct controller, full roster accounting
 of the tracked units and groups, released spawn-budget records, and unchanged
 saved roster. It additionally checks retirement of the tracked flags, crates and
 civilian actors. Towns must activate their full population; permanent sites may
-retain defenders queued beyond their existing 24-actor context limit. The second
+retain defenders queued beyond the live configured context/shared limits (12
+per context by default; 24 is only the context ceiling). The second
 visit repeats the same checks. All 113 expected checks must appear exactly once.
 Timeouts and whole-log engine/native errors fail the result.
 
@@ -62,3 +63,18 @@ changes occurred; no broader sprint acceptance gate is closed.
 
 The seven-category expansion adds coverage rather than extending this earlier
 29-check result by inference. Its evidence will be recorded separately.
+
+## Rejected seven-category Dev1
+
+The first expansion incorrectly used the 24-unit ceiling as the active context
+setting. At the seaport, the real budget correctly admitted 12 living defenders
+and retained four queued entries, preserving all 16. The fixture nevertheless
+waited for 16 simultaneous actors and failed its combined readiness/accounting
+check. This is a test defect, not evidence of a production spawn failure.
+
+The run was stopped and preserved under
+`native-campaign-sites-all-dev1-rejected`, including exact fixture and receipt.
+The corrected fixture reads and logs both live settings. No production code or
+budget setting is changed to satisfy the test. The smaller earlier Dev1 never
+exceeded 12 actors at its permanent resource site; its bounded result remains
+distinct from overflow validation.

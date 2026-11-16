@@ -44,14 +44,18 @@ private _choices=[];
         if (_started) then {
             [_prefix+"new_controller",(_record get "id")!=_priorId && {_record get "kind"==_controllerKind}] call _siteCheck;
             _priorId=_record get "id";
-            private _wanted=if (_kind=="City") then {_expected} else {_expected min 24};
+            // 24 is the implementation ceiling, not the configured default.
+            // Respect the live shared/context settings without changing them.
+            private _contextLimit=(floor (missionNamespace getVariable ["A3I_contextLimit",12])) max 0 min 24;
+            private _activeLimit=(floor (missionNamespace getVariable ["A3I_activeLimit",40])) max 0 min 48;
+            private _wanted=if (_kind=="City") then {_expected} else {_expected min _contextLimit min _activeLimit};
             private _ready=[{count ((_record get "units") select {alive _x})>=_wanted || {_record get "fault"!=""}},180] call _siteWait;
             private _units=+(_record get "units");
             private _groups=+(_record get "groups");
             private _assets=(_record get "crates")+(_record get "civilians")+[_record get "flag"];
             private _queue=count (_record get "queue")+count (_record getOrDefault ["extraQueue",[]]);
             [_prefix+"full_roster_accounted",_ready && {_record get "fault"==""}
-                && {count (_units select {alive _x})+_queue==_expected},[count _units,_queue,_expected,_record get "fault"]] call _siteCheck;
+                && {count (_units select {alive _x})+_queue==_expected},[count _units,_queue,_expected,_record get "fault",_wanted,_contextLimit,_activeLimit]] call _siteCheck;
             [_prefix+"valid_infected",_units isNotEqualTo [] && {(_units findIf {!alive _x || {side group _x!=west}
                 || {!(_x getVariable ["A3I_initialized",false])}})==-1}] call _siteCheck;
             // Use the same native forced-spawn API for release; wait for distance
