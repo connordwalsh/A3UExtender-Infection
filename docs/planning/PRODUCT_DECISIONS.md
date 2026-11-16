@@ -13,6 +13,7 @@ original project plan; they are not evidence that the behavior is implemented.
 | Occupant forces | Infected on BLUFOR. No conventional infected vehicle crews. |
 | Other factions | Rebels/NATO on INDEP; Invaders/Russia and Rivals/gangs on OPFOR. Civilians/survivors preferably on INDEP; CIV is acceptable if Ultimate requires it. Verify the actual side relationships and targeting. |
 | Equipment fallback | Use vanilla stand-ins with the minimum dependency stack. Support authentic modern Russian/NATO equipment through optional mods; do not make a faction pack mandatory. |
+| Other faction authoring boundary | On 16 November the owner explicitly clarified that building other factions is not an objective. Do not create or alter other faction templates. Existing faction selections remain integration-test inputs; the FIA selection in automated tests is not a proposed replacement or authorization to build NATO Rebels. |
 | Civilian infection | Preserve WebKnight's default behavior. Determine that behavior from the installed code and live tests; do not invent an automatic-conversion rule. |
 | Major infected | Largest creatures appear only in designated special missions or military-base capture QRFs at a sufficiently high war level. The developer may choose the threshold after inspecting the current war-level system. |
 | Saves | New campaigns only. Existing campaigns are unsupported and must not be silently modified. |
