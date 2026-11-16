@@ -1,0 +1,114 @@
+{
+  "status": "passed",
+  "scope": "Native Redux public Extraction request, scene, all-survivors-dead failure and asset cleanup; not player rescue, success, task-retirement timer or multiplayer acceptance",
+  "source_log_sha256": "007b8b49f925fbd83ce753f0dd8ea83ce4f987ab6bdd59f4979c793c1f66699d",
+  "validation": {
+    "one_run": true,
+    "schema": true,
+    "expected_checks_once": true,
+    "checks_pass": true,
+    "no_engine_or_native_errors": true,
+    "complete_matches": true
+  },
+  "records": [
+    [
+      "check",
+      "eligible_targets",
+      true,
+      [
+        [
+          "Pavlovo",
+          "milbase",
+          "outpost_9",
+          "Zelenogorsk",
+          "Sosnovka",
+          "outpost_27",
+          "Myshkino",
+          "Drozhino"
+        ]
+      ]
+    ],
+    [
+      "check",
+      "public_dispatch",
+      true,
+      []
+    ],
+    [
+      "check",
+      "task_registered",
+      true,
+      [
+        "Zelenogorsk",
+        ""
+      ]
+    ],
+    [
+      "check",
+      "source_eligible",
+      true,
+      []
+    ],
+    [
+      "check",
+      "survivor_contract",
+      true,
+      [
+        2
+      ]
+    ],
+    [
+      "check",
+      "guard_contract",
+      true,
+      [
+        4
+      ]
+    ],
+    [
+      "check",
+      "native_task_created",
+      true,
+      []
+    ],
+    [
+      "check",
+      "all_dead_failed",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_task_failed",
+      true,
+      []
+    ],
+    [
+      "check",
+      "no_rescue_credit",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_delayed_asset_cleanup",
+      true,
+      []
+    ],
+    [
+      "check",
+      "budget_released",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_intact",
+      true,
+      []
+    ]
+  ],
+  "failed": [],
+  "errors": [],
+  "malformed": []
+}
