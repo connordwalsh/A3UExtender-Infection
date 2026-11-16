@@ -1,0 +1,14 @@
+{
+  "production_inputs": 326,
+  "byte_exact": 324,
+  "line_endings_only": [
+    "Infection/addons/core/functions/fn_supplyPositionClear.sqf",
+    "Infection/addons/core/functions/fn_supplyTruckBounds.sqf"
+  ],
+  "helper_inputs_verified": {
+    "run.sqf": "EBE9A1FE7090B316EDFD1A0F2D2F5B405AAD343AA9AC8807D4B8355071839B00",
+    "config.cpp": "38AD298AE6600345ED6AA4B14F1D1D65A4DE10D610E7E226205F374B1F2DDCBA",
+    "aid.sqf": "F44DEA22082633F491668E82A1BE5A7E08A61DAF53AA722E16CE76FD2B70C863"
+  },
+  "server_exit_verified": true
+}
