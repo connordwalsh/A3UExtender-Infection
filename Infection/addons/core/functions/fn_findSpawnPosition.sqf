@@ -1,12 +1,13 @@
-/* Bounded outdoor search. [center, min radius, max radius, prepared class]
+/* Bounded outdoor search. [center, min radius, max radius, prepared class, optional area marker]
    -> [safe ATL position or [], last rejection reason]. No center fallback. */
-params ["_center", "_minimum", "_maximum", "_class"];
+params ["_center", "_minimum", "_maximum", "_class",["_area","",[""]]];
 if !(_center isEqualType [] && {count _center in [2,3]}
     && {(_center findIf {!(_x isEqualType 0) || {!finite _x}}) == -1}
     && {_minimum isEqualType 0} && {finite _minimum} && {_minimum >= 0}
     && {_maximum isEqualType 0} && {finite _maximum} && {_maximum >= _minimum}
     && {_maximum <= 2000} && {_class isEqualType ""}
-    && {isClass (configFile >> "CfgVehicles" >> _class)}) exitWith {[[],"invalid_request"]};
+    && {isClass (configFile >> "CfgVehicles" >> _class)}
+    && {_area == "" || {_area in allMapMarkers}}) exitWith {[[],"invalid_request"]};
 private _hqMarker = missionNamespace getVariable ["respawnTeamPlayer", ""];
 if !(_hqMarker isEqualType "" && {_hqMarker in allMapMarkers}) exitWith {[[],"hq_unavailable"]};
 private _hq = getMarkerPos _hqMarker;
@@ -22,6 +23,7 @@ for "_attempt" from 1 to 16 do {
     if (_candidate isEqualTo []) then {_reason = "no_empty_position"; continue};
     private _distance = _candidate distance2D _center;
     if (_distance < _minimum || {_distance > _maximum}) then {_reason = "search_bounds"; continue};
+    if (_area != "" && {!(_candidate inArea _area)}) then {_reason = "area_bounds"; continue};
     private _safety = [_candidate,_class,_observers,_hq] call A3I_fnc_positionSafety;
     if (_safety # 0) exitWith {_result = _candidate; _reason = ""};
     _reason = _safety # 1;

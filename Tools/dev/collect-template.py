@@ -50,6 +50,7 @@ BUDGET_CHECKS = {
 SPAWN_CHECKS = {
     "spawn_invalid_positions", "spawn_hq_exclusion", "spawn_observer_distance",
     "spawn_visible_rejected", "spawn_obscured_position", "spawn_occupied_position",
+    "spawn_area_contains_result", "spawn_area_rejects_outside", "spawn_area_missing_rejected",
     "spawn_bounded_search", "spawn_no_center_fallback", "spawn_invalid_search",
     "spawn_budgeted_basics", "spawn_full_budget_denied", "spawn_raw_class_denied",
     "spawn_missing_hq_releases", "spawn_inactive_site_denied", "spawn_ownership_race",

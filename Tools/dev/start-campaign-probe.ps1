@@ -16,6 +16,8 @@ param(
     [switch]$ExtractionLifecycle,
     [switch]$ExtractionSuccess,
     [switch]$ExtractionMixed,
+    [switch]$TraceExtraction,
+    [ValidatePattern('^[A-Za-z0-9_]*$')][string]$ExtractionSource='',
     [switch]$SuccessMissions,
     [switch]$SupplyReproduction,
     [switch]$SupplyParking,
@@ -24,6 +26,8 @@ param(
     [ValidateRange(1024,65531)][int]$Port=5002
 )
 $ErrorActionPreference='Stop'
+if (($TraceExtraction -or $ExtractionSource -ne '') -and !$ExtractionLifecycle) {throw 'Extraction tracing/source require ExtractionLifecycle.'}
+if ($TraceExtraction -and ($TraceGarrison -or $TraceStartup -or $TraceCrate)) {throw 'Use one trace mode.'}
 if ($TraceGarrison -and !$LiquidationLifecycle) {throw 'Garrison tracing requires LiquidationLifecycle.'}
 if ($LiquidationLifecycle -and ($AidLifecycle -or $SupplyParking -or $SuccessMissions -or $ExtractionLifecycle -or $CasualtySave -or $SiteCasualties -or $SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose Liquidation lifecycle without other diagnostics.'}
 if ($AidSuccess -and !$AidLifecycle) {throw 'Aid success requires AidLifecycle.'}
@@ -78,6 +82,16 @@ Copy-Item -LiteralPath (Join-Path $source 'casualties.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'casualtySave.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'extraction.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'extractionSuccess.sqf') -Destination $addon
+('"'+$ExtractionSource+'"') | Set-Content (Join-Path $addon 'extraction-source.sqf') -Encoding ASCII
+$(if ($TraceExtraction) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'extraction-trace-mode.sqf') -Encoding ASCII
+if ($TraceExtraction) {
+    $trace=Get-Content (Join-Path $repoRoot 'Infection/addons/core/functions/fn_runExtraction.sqf') -Raw
+    $trace=$trace.Replace('    if (!(_unit inArea _source) || {_record get "settled"}) exitWith {false};',
+        '    diag_log format ["[EXTRACTION_GUARD_TRACE] candidate %1",[_source,getPosATL _unit,getMarkerPos _source,markerSize _source,_unit inArea _source,_record get "settled",_unit getVariable ["A3I_initialized",false]]];'+[Environment]::NewLine+
+        '    if (!(_unit inArea _source) || {_record get "settled"}) exitWith {false};')
+    if (!$trace.Contains('[EXTRACTION_GUARD_TRACE]')) {throw 'Extraction trace anchor missing'}
+    $trace | Set-Content (Join-Path $addon 'traceExtraction.sqf') -Encoding UTF8
+}
 $(if ($ExtractionSuccess -or $ExtractionMixed) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'extraction-success-mode.sqf') -Encoding ASCII
 $(if ($ExtractionMixed) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'extraction-mixed-mode.sqf') -Encoding ASCII
 Copy-Item -LiteralPath (Join-Path $source 'successMissions.sqf') -Destination $addon
@@ -98,7 +112,7 @@ if ($TraceCrate) {
     Copy-Item -LiteralPath (Join-Path $source 'observe.sqf'),(Join-Path $source 'traceInitAmmoBox.sqf') -Destination $addon
 }
 ('"'+$Phase.ToLowerInvariant()+'"') | Set-Content -LiteralPath (Join-Path $addon 'phase.sqf') -Encoding ASCII
-$helperConfig=if ($TraceGarrison) {'garrison-trace-config.cpp'} elseif ($TraceCrate) {'crate-trace-config.cpp'} elseif ($TraceStartup) {'trace-config.cpp'} else {'config.cpp'}
+$helperConfig=if ($TraceExtraction) {'extraction-trace-config.cpp'} elseif ($TraceGarrison) {'garrison-trace-config.cpp'} elseif ($TraceCrate) {'crate-trace-config.cpp'} elseif ($TraceStartup) {'trace-config.cpp'} else {'config.cpp'}
 $configSource=Join-Path $source $helperConfig
 if ($CrateKeepInventory) {
     $configSource=Join-Path $stage 'crate-control.cpp'
@@ -153,7 +167,7 @@ if ($SuccessMissions) {$helperInputs['successMissions.sqf']=(Get-FileHash (Join-
 if ($SupplyParking) {$helperInputs['supplyParking.sqf']=(Get-FileHash (Join-Path $source 'supplyParking.sqf')).Hash}
 if ($SupplyParking) {$helperInputs['legacySupplyPosition.sqf']=(Get-FileHash (Join-Path $source 'legacySupplyPosition.sqf')).Hash}
 if ($SupplyParking) {$helperInputs['tunedSupplyPosition.sqf']=(Get-FileHash (Join-Path $source 'tunedSupplyPosition.sqf')).Hash}
-$receipt=[ordered]@{TraceGarrison=[bool]$TraceGarrison;LiquidationLifecycle=[bool]$LiquidationLifecycle;AidSuccess=[bool]$AidSuccess;AidLifecycle=[bool]$AidLifecycle;ExtractionSuccess=[bool]$ExtractionSuccess;ExtractionMixed=[bool]$ExtractionMixed;SupplyParking=[bool]$SupplyParking;SupplyReproduction=[bool]$SupplyReproduction;SuccessMissions=[bool]$SuccessMissions;ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
+$receipt=[ordered]@{TraceGarrison=[bool]$TraceGarrison;LiquidationLifecycle=[bool]$LiquidationLifecycle;AidSuccess=[bool]$AidSuccess;AidLifecycle=[bool]$AidLifecycle;ExtractionSuccess=[bool]$ExtractionSuccess;ExtractionMixed=[bool]$ExtractionMixed;TraceExtraction=[bool]$TraceExtraction;ExtractionSource=$ExtractionSource;SupplyParking=[bool]$SupplyParking;SupplyReproduction=[bool]$SupplyReproduction;SuccessMissions=[bool]$SuccessMissions;ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
     StartedUTC=[DateTime]::UtcNow.ToString('o');ProductionPBO=(Get-FileHash (Join-Path $modRoot 'addons/a3i_core.pbo')).Hash;
     HelperPBO=(Get-FileHash (Join-Path $output 'a3i_campaign_probe.pbo')).Hash;
     HelperSource=(Get-FileHash (Join-Path $source 'run.sqf')).Hash;ReduxFixes=$companionReceipt}

@@ -61,6 +61,16 @@ _search = [[500,500,0],0,20,_class] call A3I_fnc_findSpawnPosition;
 _search = [[4500,4500,0],100,20,_class] call A3I_fnc_findSpawnPosition;
 ["spawn_invalid_search",_search isEqualTo [[],"invalid_request"],_search] call _check;
 
+private _area=createMarker ["A3I_spawn_area_fixture",[4500,4500,0]];
+_area setMarkerShape "ELLIPSE";_area setMarkerSize [80,80];
+_search = [[4500,4500,0],20,60,_class,_area] call A3I_fnc_findSpawnPosition;
+["spawn_area_contains_result",(_search # 0) isNotEqualTo [] && {(_search # 0) inArea _area},_search] call _check;
+_area setMarkerPos [6000,6000,0];
+_search = [[4500,4500,0],20,60,_class,_area] call A3I_fnc_findSpawnPosition;
+["spawn_area_rejects_outside",_search isEqualTo [[],"area_bounds"],_search] call _check;
+deleteMarker _area;
+_search = [[4500,4500,0],20,60,_class,"A3I_spawn_area_fixture"] call A3I_fnc_findSpawnPosition;
+["spawn_area_missing_rejected",_search isEqualTo [[],"invalid_request"],_search] call _check;
 [3,3] call _setLimits;
 _result = ["spawn_contract",_roles + [_roles # 0],[4500,4500,0],10,60,_site] call A3I_fnc_spawnGroup;
 private _units = _result # 1 # 1;

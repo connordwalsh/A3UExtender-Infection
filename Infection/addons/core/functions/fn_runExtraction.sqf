@@ -22,7 +22,7 @@ private _guard=[_context,_record get "guardRoles",_center,10,50,"","legacy",4,fa
     (_record get "guards") pushBack _unit;
     (_record get "groups") pushBackUnique group _unit;
     true
-}] call A3I_fnc_spawnGroup;
+},_source] call A3I_fnc_spawnGroup;
 if (!(_guard # 0) || {count (_record get "guards") != 4}) exitWith {_record set ["fault","guard_"+(_guard # 2)]};
 private _guardGroup=_guard # 1 # 0;
 [_guardGroup,_center,30] call BIS_fnc_taskPatrol;

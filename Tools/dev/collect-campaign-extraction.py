@@ -21,8 +21,9 @@ SUCCESS_EXPECTED=(EXPECTED-{'all_dead_failed','native_task_failed','no_rescue_cr
 
 MIXED_EXPECTED=(SUCCESS_EXPECTED-{'all_rescued_succeeded'}) | {'mixed_resolved_succeeded'}
 
-def collect(path,success=False,mixed=False):
+def collect(path,success=False,mixed=False,targeted=False):
     expected=MIXED_EXPECTED if mixed else SUCCESS_EXPECTED if success else EXPECTED
+    if targeted: expected=(expected-{'public_dispatch'}) | {'targeted_dispatch'}
     raw=Path(path).read_bytes();checks=[];finishes=[];errors=[];malformed=[];starts=0
     for number,line in enumerate(raw.decode('utf-8-sig',errors='replace').splitlines(),1):
         if re.search(r'\bError(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|\| Error \|',line,re.I):errors.append({'line':number,'message':line})
@@ -43,10 +44,11 @@ def collect(path,success=False,mixed=False):
            'complete_matches':len(finishes)==1 and finishes[0][1:]==[len(checks),failed]}
     return {'status':'passed' if all(valid.values()) else 'failed' if finishes else 'incomplete',
             'scope':('Native Redux one trusted AI rescue followed by remaining survivor deaths, scaled rewards and cleanup; not player escort, deadline or multiplayer acceptance' if mixed else 'Native Redux trusted server AI release, controlled HQ placement, incremental manpower, inventory, success rewards and asset cleanup; not player interaction, travel, deadline or multiplayer acceptance' if success else 'Native Redux public Extraction request, scene, all-survivors-dead failure and asset cleanup; not player rescue, success, task-retirement timer or multiplayer acceptance'),
+            'dispatch':'targeted native entry' if targeted else 'public mission request',
             'source_log_sha256':hashlib.sha256(raw).hexdigest(),'validation':valid,'records':checks,'failed':failed,'errors':errors,'malformed':malformed}
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('log');parser.add_argument('output');parser.add_argument('--success',action='store_true');parser.add_argument('--mixed',action='store_true');args=parser.parse_args()
-    report=collect(args.log,args.success,args.mixed);Path(args.output).write_text(json.dumps(report,indent=2)+'\n')
+    parser=argparse.ArgumentParser();parser.add_argument('log');parser.add_argument('output');parser.add_argument('--success',action='store_true');parser.add_argument('--mixed',action='store_true');parser.add_argument('--targeted',action='store_true');args=parser.parse_args()
+    report=collect(args.log,args.success,args.mixed,args.targeted);Path(args.output).write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps({'status':report['status'],'checks':len(report['records']),'failed':report['failed'],'errors':len(report['errors'])}))
     raise SystemExit(0 if report['status']=='passed' else 1)

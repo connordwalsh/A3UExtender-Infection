@@ -1,17 +1,18 @@
 /* Server scheduled bounded creation for registered basic infected.
    [context, roles, center, minRadius, maxRadius, marker, pool, localLimit,
-    trackGarrison, eligibility={}, prepay=false, majorDebtToken="", afterInit={true}]
+    trackGarrison, eligibility={}, prepay=false, majorDebtToken="", afterInit={true}, area=""]
    -> [success, [group, created units, budget ticket], reason].
    A partial result consumes only the first count(units) roles. The caller owns
    the remaining queue and must not treat a refused spawn as a killed defender. */
 params ["_context", "_roles", "_center", "_minimum", "_maximum",
     ["_marker",""], ["_pool","garrison"], ["_localLimit",12], ["_trackGarrison",true,[true]],
-    ["_eligibility",{true},[{}]], ["_prepay",false,[true]], ["_majorDebtToken","",[""]], ["_afterInit",{true},[{}]]];
+    ["_eligibility",{true},[{}]], ["_prepay",false,[true]], ["_majorDebtToken","",[""]], ["_afterInit",{true},[{}]],["_area","",[""]]];
 private _empty = [grpNull,[],""];
 if (!isServer || {isRemoteExecuted && {remoteExecutedOwner != 2}}) exitWith {[false,_empty,"server_origin_only"]};
 if (!canSuspend) exitWith {[false,_empty,"scheduled_required"]};
 if !([west] call A3I_fnc_isActive) exitWith {[false,_empty,"inactive"]};
 if !(_roles isEqualType [] && {_roles isNotEqualTo []} && {count _roles <= 256}
+    && {_area == "" || {_area in allMapMarkers}}
     && {_marker isEqualType ""} && {_pool in ["garrison","attack","defence","legacy"]}
     && {!_prepay || {_pool in ["attack","defence"]}}
     && {_majorDebtToken == "" || {_prepay && {_pool == "attack"}}})
@@ -67,7 +68,7 @@ if (isNull _group) then {_reason = "group_limit"} else {
         private _class = _classes # _index;
         private _search = if (_town) then {
             [_marker,_class,_townAnchor,_site get "townRoads"] call A3I_fnc_findCitySpawnPosition
-        } else {[_center,_minimum,_maximum,_class] call A3I_fnc_findSpawnPosition};
+        } else {[_center,_minimum,_maximum,_class,_area] call A3I_fnc_findSpawnPosition};
         if (_search # 0 isEqualTo []) exitWith {_reason = _search # 1};
         private _position = _search # 0;
         private _unit = objNull;
@@ -77,6 +78,7 @@ if (isNull _group) then {_reason = "group_limit"} else {
             private _hqMarker = missionNamespace getVariable ["respawnTeamPlayer", ""];
             if (!(call _allowed) || {!(_hqMarker in allMapMarkers)}) exitWith {_reason = "inactive_site"};
             if (_town && {!(_position inArea _marker)}) exitWith {_reason = "town_bounds"};
+            if (_area != "" && {!(_position inArea _area)}) exitWith {_reason = "area_bounds"};
             private _safety = [_position,_class,call A3I_fnc_spawnObservers,getMarkerPos _hqMarker] call A3I_fnc_positionSafety;
             if !(_safety # 0) exitWith {_reason = _safety # 1};
             private _remaining = ["remaining",[_ticket]] call A3I_fnc_budget;

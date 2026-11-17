@@ -85,3 +85,16 @@ that the guard callback rejects units outside the source boundary, while guard
 position search currently has no source-area constraint; this is a candidate
 cause, not yet a proven diagnosis. Preserve the original failure when testing
 that path. Do not count a successful different random location as its fix.
+
+The targeted trace confirms the cause at outpost_27: a guard at
+[3001.5,5352.5,0] had initialized successfully, the mission was not settled, and
+inArea returned false. The unchanged callback rejected it. The compiled trace
+receiver was verified. Evidence: native-extraction-guard-trace1.
+
+Candidate correction: add an optional area constraint to the bounded outdoor
+search and shared spawn transaction. Extraction passes its source marker as the
+area without enabling garrison activation/tracking. Out-of-area candidates are
+rejected before creation, and the transaction rechecks the final position.
+The guard callback remains as a final check. Three engine search assertions
+cover contained, outside, and missing areas. Native targeted and combined runs
+are in progress; 70 repository evidence/tool tests pass. No manual install changed.
