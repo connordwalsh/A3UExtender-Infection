@@ -1,5 +1,7 @@
 // Trusted server AI release and controlled delivery, not a player action test.
 params ["_record","_survivors","_guards","_groups","_check","_wait"];
+private _mixedMode=call compile preprocessFileLineNumbers "\x\a3i\tests\campaign\extraction-mixed-mode.sqf";
+private _rescueCount=if (_mixedMode) then {1} else {count _survivors};
 private _name=_record get "name";
 private _ledger=_record get "ledger";
 private _funds=server getVariable "resourcesFIA";
@@ -53,7 +55,8 @@ private _details=[];
             && {server getVariable "resourcesFIA"==_funds};
     };
     _details pushBack [_index,_accepted,_released,_initialized,_delivered,_credited,server getVariable "hr"];
-} forEach _survivors;
+} forEach (_survivors select [0,_rescueCount]);
+if (_mixedMode) then {{_x setDamage 1} forEach (_survivors select [_rescueCount])};
 ["trusted_releases_accepted",_releaseOK,_details] call _check;
 ["survivors_join_ai_group",_joinOK] call _check;
 ["native_recruit_initialization",_nativeOK] call _check;
@@ -63,11 +66,11 @@ private _details=[];
 ["inventory_returns_to_hq",([boxX] call _itemCount)==_itemsBefore+_itemsDelivered,
     [_itemsBefore,_itemsDelivered,[boxX] call _itemCount]] call _check;
 private _settled=[{_record get "settled"},30] call _wait;
-["all_rescued_succeeded",_settled && {_record get "outcome"=="succeeded"}
-    && {_ledger get "rescued"==count _survivors} && {_ledger get "killed"==0}] call _check;
+[["all_rescued_succeeded","mixed_resolved_succeeded"] select _mixedMode,_settled && {_record get "outcome"=="succeeded"}
+    && {_ledger get "rescued"==_rescueCount} && {_ledger get "killed"==(count _survivors-_rescueCount)}] call _check;
 ["native_task_succeeded",(A3A_tasksData findIf {_x # 0==_name && {_x # 1=="RES"} && {_x # 2=="SUCCEEDED"}})>=0
     && {[_name] call BIS_fnc_taskState=="SUCCEEDED"}] call _check;
-private _expectedFunds=_funds+100*(count _survivors)*_bonus;
+private _expectedFunds=_funds+100*_rescueCount*_bonus;
 private _paid=[{server getVariable "resourcesFIA"==_expectedFunds},30] call _wait;
 ["completion_reward_exact",_paid,[_funds,_expectedFunds,server getVariable "resourcesFIA"]] call _check;
 private _clean=[{_record get "assetRetired" && {((_survivors+_guards) findIf {!isNull _x})==-1}

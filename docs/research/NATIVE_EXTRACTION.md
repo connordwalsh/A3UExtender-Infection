@@ -65,3 +65,13 @@ the actual HQ marker, and the probe changes no native settlement or timer.
 Player interaction, real escort travel, mixed rescue/death native outcomes,
 deadline behavior, task display retirement and multiplayer acceptance remain
 open. This result does not complete Sprint 6 or release acceptance.
+
+## Mixed rescue/death native case
+
+The optional `-ExtractionLifecycle -ExtractionMixed` test follows the same
+trusted AI release and HQ delivery path for one survivor, verifies the mission
+remains pending, then kills the remaining survivors through engine damage. It
+requires native success only after all are resolved, one-survivor manpower and
+money credit, inventory recovery and normal delayed cleanup. No production
+controller, ledger, deadline or reward endpoint is replaced. Native execution
+is pending; this is not player escort or deadline acceptance.
