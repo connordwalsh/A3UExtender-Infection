@@ -1,0 +1,11 @@
+{
+  "campaign-report.json": "2e70dcb0eece8f6d65054a6f3de0689166304460a02bf34c12c08e281e804ede",
+  "fixture\\config.cpp": "38ad298ae6600345ed6aa4b14f1d1d65a4de10d610e7e226205f374b1f2ddcba",
+  "fixture\\liquidation.sqf": "f9ba80dc227584821bb26ea272af28debafefb035fc7255fc463b3946c1c420b",
+  "fixture\\run.sqf": "d1071893601c89795dae180c30e9b87670bf40c83a268e73daf6411161283a44",
+  "infection-build.json": "d74b15eb7aaa257d10b55a926a4d07e27f764839abee554ecaa4839c87896b4f",
+  "launch.json": "08873f805abadf5d33e536b409fdecbd7f1476562b21c981a5fd29049596e495",
+  "liquidation-report.json": "8b86971870b88801421011dd686cb4fa49fd40407cd61ac92da8477609685112",
+  "probe.rpt": "270ff45041a2757f28bf142f03a6f36189215b9fa93f2f207b2d111919daeeb4",
+  "redux-fixes-build.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1"
+}

@@ -845,3 +845,11 @@ keep their native entry. All 60 focused Aid/config checks and 11 actual
 missing-dependency checks pass with zero engine/SQF error records. Dev1's
 unlocalized-title assertion remains rejected and preserved. See AID_MAP_MENU.md.
 Connected-client rendering/data propagation remain open. Manual Dev9 unchanged.
+
+16 November native Liquidation regression remains open: all 16 factory defenders
+spawn and die, including four queued behind the active cap, but three native
+SquadLeader roster entries remain and block capture. Two completed failed runs
+are preserved; each has 12/17 passing mission checks and 19 passing campaign
+checks with zero matched errors. Receiver instrumentation is investigating the
+missing removals. See LIQUIDATION.md. No production fix or faction development
+has been made for this issue; manual Dev9 remains unchanged.

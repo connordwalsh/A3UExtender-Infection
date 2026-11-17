@@ -9,6 +9,8 @@ param(
     [switch]$SiteLifecycle,
     [switch]$SiteCasualties,
     [switch]$CasualtySave,
+    [switch]$LiquidationLifecycle,
+    [switch]$TraceGarrison,
     [switch]$AidSuccess,
     [switch]$AidLifecycle,
     [switch]$ExtractionLifecycle,
@@ -21,6 +23,8 @@ param(
     [ValidateRange(1024,65531)][int]$Port=5002
 )
 $ErrorActionPreference='Stop'
+if ($TraceGarrison -and !$LiquidationLifecycle) {throw 'Garrison tracing requires LiquidationLifecycle.'}
+if ($LiquidationLifecycle -and ($AidLifecycle -or $SupplyParking -or $SuccessMissions -or $ExtractionLifecycle -or $CasualtySave -or $SiteCasualties -or $SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose Liquidation lifecycle without other diagnostics.'}
 if ($AidSuccess -and !$AidLifecycle) {throw 'Aid success requires AidLifecycle.'}
 if ($AidLifecycle -and ($SupplyParking -or $SuccessMissions -or $ExtractionLifecycle -or $CasualtySave -or $SiteCasualties -or $SiteLifecycle -or $TraceStartup -or $TraceCrate)) {throw 'Choose Aid lifecycle without other diagnostics.'}
 if ($ExtractionSuccess -and !$ExtractionLifecycle) {throw 'Extraction success requires ExtractionLifecycle.'}
@@ -58,6 +62,12 @@ foreach ($required in @($executable,$converter,$packer,(Join-Path $modRoot 'addo
 }
 New-Item -ItemType Directory -Path $addon,$packed,$output,$profile -Force | Out-Null
 Copy-Item -LiteralPath (Join-Path $source 'run.sqf') -Destination $addon
+Copy-Item -LiteralPath (Join-Path $source 'liquidation.sqf') -Destination $addon
+if ($TraceGarrison) {
+    Copy-Item -LiteralPath (Join-Path $source 'traceGarrisonUpdate.sqf') -Destination $addon
+}
+$(if ($TraceGarrison) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'garrison-trace-mode.sqf') -Encoding ASCII
+$(if ($LiquidationLifecycle) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'liquidation-mode.sqf') -Encoding ASCII
 Copy-Item -LiteralPath (Join-Path $source 'aid.sqf') -Destination $addon
 Copy-Item -LiteralPath (Join-Path $source 'aidSuccess.sqf') -Destination $addon
 $(if ($AidSuccess) {'true'} else {'false'}) | Set-Content (Join-Path $addon 'aid-success-mode.sqf') -Encoding ASCII
@@ -86,7 +96,7 @@ if ($TraceCrate) {
     Copy-Item -LiteralPath (Join-Path $source 'observe.sqf'),(Join-Path $source 'traceInitAmmoBox.sqf') -Destination $addon
 }
 ('"'+$Phase.ToLowerInvariant()+'"') | Set-Content -LiteralPath (Join-Path $addon 'phase.sqf') -Encoding ASCII
-$helperConfig=if ($TraceCrate) {'crate-trace-config.cpp'} elseif ($TraceStartup) {'trace-config.cpp'} else {'config.cpp'}
+$helperConfig=if ($TraceGarrison) {'garrison-trace-config.cpp'} elseif ($TraceCrate) {'crate-trace-config.cpp'} elseif ($TraceStartup) {'trace-config.cpp'} else {'config.cpp'}
 $configSource=Join-Path $source $helperConfig
 if ($CrateKeepInventory) {
     $configSource=Join-Path $stage 'crate-control.cpp'
@@ -126,9 +136,13 @@ $process=Start-Process -FilePath $executable -ArgumentList $launchArgs -WorkingD
 $helperInputs=@{}
 $inputNames=if ($TraceCrate) {@('crate-trace-config.cpp','observe.sqf','traceInitAmmoBox.sqf')} elseif ($TraceStartup) {@('trace-config.cpp','observe.sqf','traceActivateAddons.sqf')} else {@('config.cpp','run.sqf')}
 foreach ($inputName in $inputNames) {$helperInputs[$inputName]=(Get-FileHash (Join-Path $source $inputName)).Hash}
+if ($TraceGarrison) {
+    foreach ($inputName in @('garrison-trace-config.cpp','traceGarrisonUpdate.sqf')) {$helperInputs[$inputName]=(Get-FileHash (Join-Path $source $inputName)).Hash}
+}
 if ($SiteLifecycle) {$helperInputs['sites.sqf']=(Get-FileHash (Join-Path $source 'sites.sqf')).Hash}
 if ($SiteCasualties -or $CasualtySave) {$helperInputs['casualties.sqf']=(Get-FileHash (Join-Path $source 'casualties.sqf')).Hash}
 if ($CasualtySave) {$helperInputs['casualtySave.sqf']=(Get-FileHash (Join-Path $source 'casualtySave.sqf')).Hash}
+if ($LiquidationLifecycle) {$helperInputs['liquidation.sqf']=(Get-FileHash (Join-Path $source 'liquidation.sqf')).Hash}
 if ($AidSuccess) {$helperInputs['aidSuccess.sqf']=(Get-FileHash (Join-Path $source 'aidSuccess.sqf')).Hash}
 if ($AidLifecycle) {$helperInputs['aid.sqf']=(Get-FileHash (Join-Path $source 'aid.sqf')).Hash}
 if ($ExtractionSuccess) {$helperInputs['extractionSuccess.sqf']=(Get-FileHash (Join-Path $source 'extractionSuccess.sqf')).Hash}
@@ -137,7 +151,7 @@ if ($SuccessMissions) {$helperInputs['successMissions.sqf']=(Get-FileHash (Join-
 if ($SupplyParking) {$helperInputs['supplyParking.sqf']=(Get-FileHash (Join-Path $source 'supplyParking.sqf')).Hash}
 if ($SupplyParking) {$helperInputs['legacySupplyPosition.sqf']=(Get-FileHash (Join-Path $source 'legacySupplyPosition.sqf')).Hash}
 if ($SupplyParking) {$helperInputs['tunedSupplyPosition.sqf']=(Get-FileHash (Join-Path $source 'tunedSupplyPosition.sqf')).Hash}
-$receipt=[ordered]@{AidSuccess=[bool]$AidSuccess;AidLifecycle=[bool]$AidLifecycle;ExtractionSuccess=[bool]$ExtractionSuccess;SupplyParking=[bool]$SupplyParking;SupplyReproduction=[bool]$SupplyReproduction;SuccessMissions=[bool]$SuccessMissions;ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
+$receipt=[ordered]@{TraceGarrison=[bool]$TraceGarrison;LiquidationLifecycle=[bool]$LiquidationLifecycle;AidSuccess=[bool]$AidSuccess;AidLifecycle=[bool]$AidLifecycle;ExtractionSuccess=[bool]$ExtractionSuccess;SupplyParking=[bool]$SupplyParking;SupplyReproduction=[bool]$SupplyReproduction;SuccessMissions=[bool]$SuccessMissions;ExtractionLifecycle=[bool]$ExtractionLifecycle;CasualtySave=[bool]$CasualtySave;SiteCasualties=[bool]$SiteCasualties;Phase=$Phase;TraceStartup=[bool]$TraceStartup;TraceCrate=[bool]$TraceCrate;CrateKeepInventory=[bool]$CrateKeepInventory;SiteLifecycle=[bool]$SiteLifecycle;HelperInputs=$helperInputs;ProcessId=$process.Id;ProfileDirectory=$profile;Port=$Port;
     StartedUTC=[DateTime]::UtcNow.ToString('o');ProductionPBO=(Get-FileHash (Join-Path $modRoot 'addons/a3i_core.pbo')).Hash;
     HelperPBO=(Get-FileHash (Join-Path $output 'a3i_campaign_probe.pbo')).Hash;
     HelperSource=(Get-FileHash (Join-Path $source 'run.sqf')).Hash;ReduxFixes=$companionReceipt}

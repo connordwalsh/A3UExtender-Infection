@@ -1,0 +1,50 @@
+{
+  "PBO": "83EC670405476A3943E3CD2D00B325139D370778B8B6C24C57E61F23307ACD51",
+  "BuiltUTC": "2026-11-16T22:44:45.6709441Z",
+  "Inputs": [
+    {
+      "SHA256": "92A1A57757FCA53A936B02FB1528D903254D17FD14D823D8048A1429A2ACDB10",
+      "Path": "ReduxFixes\\mod.cpp"
+    },
+    {
+      "SHA256": "C9B1A00BBA562DCA8293006AAC2CC6D7B68E133D1F8365F87792285256D89023",
+      "Path": "ReduxFixes\\addons\\core\\config.cpp"
+    },
+    {
+      "SHA256": "E5FB4758A881B50D8FE2EECC04486B5D004291E63DFA5B7469C5EF38F49311DA",
+      "Path": "ReduxFixes\\addons\\core\\fn_activateAddons.sqf"
+    },
+    {
+      "SHA256": "41390343198F2BA735D4C5AC7526EF5E48954FAA94942A73F47DC6026E2B0363",
+      "Path": "ReduxFixes\\addons\\core\\fn_garrisonUpdate.sqf"
+    },
+    {
+      "SHA256": "E84E2CE664038B10DC28CD73C636503F9B0EA28FAE48BA4299C808FB725F9631",
+      "Path": "ReduxFixes\\addons\\core\\fn_getCityData.sqf"
+    },
+    {
+      "SHA256": "9391ED2075C87C0D461D47247A6EF1792CA7B059645415FB3602E70E20F00F4B",
+      "Path": "ReduxFixes\\addons\\core\\fn_initAmmoBox.sqf"
+    },
+    {
+      "SHA256": "D3DAE0DA9D29CB6F209C617DB012F990BB604BDE413BFA6EAA452B7A6BDA7141",
+      "Path": "ReduxFixes\\addons\\core\\fn_initHighCommand.sqf"
+    },
+    {
+      "SHA256": "6665C6DB815DC3BC72E514C369AA50FCAF2EB98E3074D70D74FA28DAD4086DF6",
+      "Path": "ReduxFixes\\addons\\core\\fn_prepareMarkerArrays.sqf"
+    },
+    {
+      "SHA256": "11AD54FBF8E3BA32CAD67112F4D70D488C7EE211E73C61892968FE968CBBD449",
+      "Path": "ReduxFixes\\addons\\core\\fn_repairParkingMarkers.sqf"
+    },
+    {
+      "SHA256": "CB6574998FE70B83BC58D7177BB54CF93BBFEA719172F6452D27C243EFE75034",
+      "Path": "ReduxFixes\\addons\\core\\fn_smartMarkers.sqf"
+    },
+    {
+      "SHA256": "261786650C7269EB916288B00B14547AEB9B3FFBA3FB9F2ADBABE8CE399EC3FB",
+      "Path": "ReduxFixes\\addons\\core\\fn_vehiclePrice.sqf"
+    }
+  ]
+}
