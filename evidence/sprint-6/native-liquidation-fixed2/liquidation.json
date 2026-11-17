@@ -1,0 +1,141 @@
+{
+  "status": "passed",
+  "scope": "Native scheduled Liquidation, queued persistent site, controlled defender deaths, capture/reward/cleanup; not player combat, UI, task display retirement or multiplayer acceptance",
+  "source_log_sha256": "56f5321064bd2ca1b664d038f98f335a8b07e60b1fbb4d95aa330226d1d71301",
+  "validation": {
+    "one_run": true,
+    "schema": true,
+    "expected_checks_once": true,
+    "checks_pass": true,
+    "no_engine_or_native_errors": true,
+    "complete_matches": true
+  },
+  "records": [
+    [
+      "check",
+      "eligible_queued_site",
+      true,
+      [
+        [
+          "factory_9",
+          "outpost_9",
+          "outpost_27"
+        ],
+        12
+      ]
+    ],
+    [
+      "check",
+      "native_scheduler_dispatch",
+      true,
+      [
+        "factory_9",
+        16
+      ]
+    ],
+    [
+      "check",
+      "native_task_created",
+      true,
+      []
+    ],
+    [
+      "check",
+      "inactive_site_not_cleared",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_site_activation",
+      true,
+      []
+    ],
+    [
+      "check",
+      "queued_roster_retained",
+      true,
+      [
+        12,
+        4,
+        16
+      ]
+    ],
+    [
+      "check",
+      "queue_blocks_capture",
+      true,
+      []
+    ],
+    [
+      "check",
+      "all_defenders_appeared",
+      true,
+      [
+        16,
+        16
+      ]
+    ],
+    [
+      "check",
+      "native_capture_won",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_task_succeeded",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_reward_exact",
+      true,
+      [
+        1000,
+        800,
+        1800
+      ]
+    ],
+    [
+      "check",
+      "capture_worker_unlocked",
+      true,
+      []
+    ],
+    [
+      "check",
+      "captured_site_ineligible",
+      true,
+      []
+    ],
+    [
+      "check",
+      "native_site_cleanup",
+      true,
+      []
+    ],
+    [
+      "check",
+      "budget_released",
+      true,
+      []
+    ],
+    [
+      "check",
+      "reward_stable",
+      true,
+      []
+    ],
+    [
+      "check",
+      "hq_intact",
+      true,
+      []
+    ]
+  ],
+  "failed": [],
+  "errors": [],
+  "malformed": []
+}

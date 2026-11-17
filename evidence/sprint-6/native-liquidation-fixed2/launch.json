@@ -1,0 +1,34 @@
+{
+  "TraceGarrison": false,
+  "LiquidationLifecycle": true,
+  "AidSuccess": false,
+  "AidLifecycle": false,
+  "ExtractionSuccess": false,
+  "SupplyParking": false,
+  "SupplyReproduction": false,
+  "SuccessMissions": false,
+  "ExtractionLifecycle": false,
+  "CasualtySave": false,
+  "SiteCasualties": false,
+  "Phase": "Write",
+  "TraceStartup": false,
+  "TraceCrate": false,
+  "CrateKeepInventory": false,
+  "SiteLifecycle": false,
+  "HelperInputs": {
+    "run.sqf": "D1071893601C89795DAE180C30E9B87670BF40C83A268E73DAF6411161283A44",
+    "config.cpp": "38AD298AE6600345ED6AA4B14F1D1D65A4DE10D610E7E226205F374B1F2DDCBA",
+    "liquidation.sqf": "9FE252EA1D5569BD850C4D83748CCC9D96767EAC44F1F9874479754E4B167297"
+  },
+  "ProcessId": 46820,
+  "ProfileDirectory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Zombie Occupant Faction\\.work\\campaign-liquidation\\.work\\profiles\\campaign-server-LiquidationFixed2",
+  "Port": 10002,
+  "StartedUTC": "2026-11-16T23:54:57.4037024Z",
+  "ProductionPBO": "09FD668CC767F59BD07628B6173F4E0CB945D17966EA6DA4146FE6AA975D1A1C",
+  "HelperPBO": "04BBC8E92A76232ABAE22E31E653C3920A26B946B438D36E47CE04304E9AB799",
+  "HelperSource": "D1071893601C89795DAE180C30E9B87670BF40C83A268E73DAF6411161283A44",
+  "ReduxFixes": {
+    "PBO": "F828C0F035266CFA93B165FAA91ECA6877108DB6FE09D66F699976E7D6C3551D",
+    "Directory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Chernarus Redux Map Change\\.work\\garrison-serialization\\.work\\build\\@A3U_Redux_Fixes"
+  }
+}

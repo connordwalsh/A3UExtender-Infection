@@ -138,3 +138,12 @@ uninstrumented Liquidation regression also retains three roster entries after
 all defenders die, with the candidate receiver path confirmed. The candidate
 is rejected and the exact lost-update mechanism remains under investigation.
 No Infection gameplay changes were required so far.
+
+Latest result: `native-liquidation-fixed2` supersedes the failed candidates above.
+Redux Fixes candidate a7fbc5d passes all 17 Liquidation and 19 campaign checks,
+with zero matched errors. All 16 defenders at factory_9 appear, the native roster
+reaches zero, capture and task success occur, the exact 800 reward is paid once,
+and cleanup releases the budget. Infection gameplay code and clearance guards
+remain unchanged. Generic focused checks (29) and separate native late-join/live
+synchronization tests pass. Review and merge of the companion fix remain pending;
+this is not manual player-combat, UI, or performance acceptance.

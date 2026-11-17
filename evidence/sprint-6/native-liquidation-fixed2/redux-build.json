@@ -1,0 +1,58 @@
+{
+  "PBO": "F828C0F035266CFA93B165FAA91ECA6877108DB6FE09D66F699976E7D6C3551D",
+  "Inputs": [
+    {
+      "Path": "ReduxFixes\\mod.cpp",
+      "SHA256": "92A1A57757FCA53A936B02FB1528D903254D17FD14D823D8048A1429A2ACDB10"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\config.cpp",
+      "SHA256": "60D6EBD138A3093B9842707CF583EF970C423CC17D9D7B3299C5148691CCC275"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_activateAddons.sqf",
+      "SHA256": "E5FB4758A881B50D8FE2EECC04486B5D004291E63DFA5B7469C5EF38F49311DA"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_garrisonUpdate.sqf",
+      "SHA256": "7EC91400A02F36C2CD48BDC09EB08F27B644205E902206B807A1B887F978975C"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_getCityData.sqf",
+      "SHA256": "E84E2CE664038B10DC28CD73C636503F9B0EA28FAE48BA4299C808FB725F9631"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_initAmmoBox.sqf",
+      "SHA256": "9391ED2075C87C0D461D47247A6EF1792CA7B059645415FB3602E70E20F00F4B"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_initHighCommand.sqf",
+      "SHA256": "D3DAE0DA9D29CB6F209C617DB012F990BB604BDE413BFA6EAA452B7A6BDA7141"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_prepareMarkerArrays.sqf",
+      "SHA256": "6665C6DB815DC3BC72E514C369AA50FCAF2EB98E3074D70D74FA28DAD4086DF6"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_receiveGarrison.sqf",
+      "SHA256": "CAD2727621318ABC69A6D9167FCF9EEBFEE4A80AABE0173761A956CBA060363C"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_repairParkingMarkers.sqf",
+      "SHA256": "11AD54FBF8E3BA32CAD67112F4D70D488C7EE211E73C61892968FE968CBBD449"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_sendGarrison.sqf",
+      "SHA256": "9CEDF613F9DDF21A3D127AEF4441766F311B20F336C32870C41153B96D849C58"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_smartMarkers.sqf",
+      "SHA256": "CB6574998FE70B83BC58D7177BB54CF93BBFEA719172F6452D27C243EFE75034"
+    },
+    {
+      "Path": "ReduxFixes\\addons\\core\\fn_vehiclePrice.sqf",
+      "SHA256": "261786650C7269EB916288B00B14547AEB9B3FFBA3FB9F2ADBABE8CE399EC3FB"
+    }
+  ],
+  "BuiltUTC": "2026-11-16T23:50:05.8945149Z"
+}
