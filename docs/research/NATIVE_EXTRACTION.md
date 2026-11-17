@@ -107,3 +107,11 @@ Inventory recovery, delayed cleanup and reward stability pass. Frozen evidence
 is native-extraction-bounds-dev1. The untraced public request run Mixed2 and
 combined shared-spawner suite ExtractionBoundsFull are still running; this is
 not yet acceptance of the complete regression or release gate.
+
+Untraced public Mixed2 is rejected: selection chose outpost_9 and returned
+no_safe_shelter before guard creation or task registration. Only three checks
+ran; baseline 19 campaign checks pass with zero matched errors. This distinct
+selection/scene failure is preserved in native-extraction-mixed-dev2-rejected.
+The boundary fix at original outpost_27 remains verified; broader combined
+regression is still running. Investigate availability selection rather than
+silently retrying random locations and declaring the public case fixed.
