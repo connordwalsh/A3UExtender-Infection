@@ -98,3 +98,12 @@ rejected before creation, and the transaction rechecks the final position.
 The guard callback remains as a final check. Three engine search assertions
 cover contained, outside, and missing areas. Native targeted and combined runs
 are in progress; 70 repository evidence/tool tests pass. No manual install changed.
+
+Corrected targeted Dev1 passes all 24 mixed Extraction and 19 campaign checks,
+zero matched errors. The verified trace records all four initialized guards
+inside outpost_27. One survivor is rescued and one killed; the task remains
+pending after rescue, then succeeds with two manpower and exactly 100 funds.
+Inventory recovery, delayed cleanup and reward stability pass. Frozen evidence
+is native-extraction-bounds-dev1. The untraced public request run Mixed2 and
+combined shared-spawner suite ExtractionBoundsFull are still running; this is
+not yet acceptance of the complete regression or release gate.
