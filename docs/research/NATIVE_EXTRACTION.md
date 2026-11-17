@@ -75,3 +75,13 @@ requires native success only after all are resolved, one-survivor manpower and
 money credit, inventory recovery and normal delayed cleanup. No production
 controller, ledger, deadline or reward endpoint is replaced. Native execution
 is pending; this is not player escort or deadline acceptance.
+
+Mixed Dev1 is rejected: public dispatch selected outpost_27, but the controller
+reported guard_initialization_failed before registering the task. Only three
+checks ran, with task_registered failing; the mixed-outcome checks did not run.
+All 19 baseline campaign checks pass and zero matched errors were recorded.
+Preserved evidence: native-extraction-mixed-dev1-rejected. Source review shows
+that the guard callback rejects units outside the source boundary, while guard
+position search currently has no source-area constraint; this is a candidate
+cause, not yet a proven diagnosis. Preserve the original failure when testing
+that path. Do not count a successful different random location as its fix.
