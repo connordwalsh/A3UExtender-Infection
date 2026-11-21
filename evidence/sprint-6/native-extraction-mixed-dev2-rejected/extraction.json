@@ -1,0 +1,53 @@
+{
+  "status": "failed",
+  "scope": "Native Redux one trusted AI rescue followed by remaining survivor deaths, scaled rewards and cleanup; not player escort, deadline or multiplayer acceptance",
+  "dispatch": "public mission request",
+  "source_log_sha256": "a664bdfed543feedb202b99baf149a4e8169ae7ae95a5ffbe5562e497611fe92",
+  "validation": {
+    "one_run": true,
+    "schema": true,
+    "expected_checks_once": false,
+    "checks_pass": false,
+    "no_engine_or_native_errors": true,
+    "complete_matches": true
+  },
+  "records": [
+    [
+      "check",
+      "eligible_targets",
+      true,
+      [
+        [
+          "Pavlovo",
+          "milbase",
+          "outpost_9",
+          "Zelenogorsk",
+          "Sosnovka",
+          "outpost_27",
+          "Myshkino",
+          "Drozhino"
+        ]
+      ]
+    ],
+    [
+      "check",
+      "public_dispatch",
+      true,
+      []
+    ],
+    [
+      "check",
+      "task_registered",
+      false,
+      [
+        "outpost_9",
+        "no_safe_shelter"
+      ]
+    ]
+  ],
+  "failed": [
+    "task_registered"
+  ],
+  "errors": [],
+  "malformed": []
+}

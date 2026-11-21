@@ -1,0 +1,38 @@
+{
+  "TraceGarrison": false,
+  "LiquidationLifecycle": false,
+  "AidSuccess": false,
+  "AidLifecycle": false,
+  "ExtractionSuccess": false,
+  "ExtractionMixed": true,
+  "TraceExtraction": false,
+  "ExtractionSource": "",
+  "SupplyParking": false,
+  "SupplyReproduction": false,
+  "SuccessMissions": false,
+  "ExtractionLifecycle": true,
+  "CasualtySave": false,
+  "SiteCasualties": false,
+  "Phase": "Write",
+  "TraceStartup": false,
+  "TraceCrate": false,
+  "CrateKeepInventory": false,
+  "SiteLifecycle": false,
+  "HelperInputs": {
+    "run.sqf": "D1071893601C89795DAE180C30E9B87670BF40C83A268E73DAF6411161283A44",
+    "extraction.sqf": "0648A07AF1C16154B4415DF1D8F297C72D785027CF420F923A372D69809B76A0",
+    "extractionSuccess.sqf": "1A2EF9CDEEBAD0802CD1A124D4CEFF575E07F7619AC8F43C8CBCE6D3014063F6",
+    "config.cpp": "38AD298AE6600345ED6AA4B14F1D1D65A4DE10D610E7E226205F374B1F2DDCBA"
+  },
+  "ProcessId": 39672,
+  "ProfileDirectory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Zombie Occupant Faction\\.work\\campaign-extraction-mixed\\.work\\profiles\\campaign-server-ExtractionMixed2",
+  "Port": 10012,
+  "StartedUTC": "2026-11-17T00:20:54.3187488Z",
+  "ProductionPBO": "5FCED65C4B85D6A7E515726A848C36BF6402B059923359DE582BEB5FD0527BDB",
+  "HelperPBO": "3CDA33D51153BBD53D33BC2B6EB53073C75B3A293884A62DDD7293658B261BAF",
+  "HelperSource": "D1071893601C89795DAE180C30E9B87670BF40C83A268E73DAF6411161283A44",
+  "ReduxFixes": {
+    "Directory": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Chernarus Redux Map Change\\.work\\garrison-serialization\\.work\\build\\@A3U_Redux_Fixes",
+    "PBO": "F828C0F035266CFA93B165FAA91ECA6877108DB6FE09D66F699976E7D6C3551D"
+  }
+}

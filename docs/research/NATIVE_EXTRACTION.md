@@ -65,3 +65,53 @@ the actual HQ marker, and the probe changes no native settlement or timer.
 Player interaction, real escort travel, mixed rescue/death native outcomes,
 deadline behavior, task display retirement and multiplayer acceptance remain
 open. This result does not complete Sprint 6 or release acceptance.
+
+## Mixed rescue/death native case
+
+The optional `-ExtractionLifecycle -ExtractionMixed` test follows the same
+trusted AI release and HQ delivery path for one survivor, verifies the mission
+remains pending, then kills the remaining survivors through engine damage. It
+requires native success only after all are resolved, one-survivor manpower and
+money credit, inventory recovery and normal delayed cleanup. No production
+controller, ledger, deadline or reward endpoint is replaced. Native execution
+is pending; this is not player escort or deadline acceptance.
+
+Mixed Dev1 is rejected: public dispatch selected outpost_27, but the controller
+reported guard_initialization_failed before registering the task. Only three
+checks ran, with task_registered failing; the mixed-outcome checks did not run.
+All 19 baseline campaign checks pass and zero matched errors were recorded.
+Preserved evidence: native-extraction-mixed-dev1-rejected. Source review shows
+that the guard callback rejects units outside the source boundary, while guard
+position search currently has no source-area constraint; this is a candidate
+cause, not yet a proven diagnosis. Preserve the original failure when testing
+that path. Do not count a successful different random location as its fix.
+
+The targeted trace confirms the cause at outpost_27: a guard at
+[3001.5,5352.5,0] had initialized successfully, the mission was not settled, and
+inArea returned false. The unchanged callback rejected it. The compiled trace
+receiver was verified. Evidence: native-extraction-guard-trace1.
+
+Candidate correction: add an optional area constraint to the bounded outdoor
+search and shared spawn transaction. Extraction passes its source marker as the
+area without enabling garrison activation/tracking. Out-of-area candidates are
+rejected before creation, and the transaction rechecks the final position.
+The guard callback remains as a final check. Three engine search assertions
+cover contained, outside, and missing areas. Native targeted and combined runs
+are in progress; 70 repository evidence/tool tests pass. No manual install changed.
+
+Corrected targeted Dev1 passes all 24 mixed Extraction and 19 campaign checks,
+zero matched errors. The verified trace records all four initialized guards
+inside outpost_27. One survivor is rescued and one killed; the task remains
+pending after rescue, then succeeds with two manpower and exactly 100 funds.
+Inventory recovery, delayed cleanup and reward stability pass. Frozen evidence
+is native-extraction-bounds-dev1. The untraced public request run Mixed2 and
+combined shared-spawner suite ExtractionBoundsFull are still running; this is
+not yet acceptance of the complete regression or release gate.
+
+Untraced public Mixed2 is rejected: selection chose outpost_9 and returned
+no_safe_shelter before guard creation or task registration. Only three checks
+ran; baseline 19 campaign checks pass with zero matched errors. This distinct
+selection/scene failure is preserved in native-extraction-mixed-dev2-rejected.
+The boundary fix at original outpost_27 remains verified; broader combined
+regression is still running. Investigate availability selection rather than
+silently retrying random locations and declaring the public case fixed.

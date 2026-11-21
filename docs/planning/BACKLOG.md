@@ -853,3 +853,16 @@ are preserved; each has 12/17 passing mission checks and 19 passing campaign
 checks with zero matched errors. Receiver instrumentation is investigating the
 missing removals. See LIQUIDATION.md. No production fix or faction development
 has been made for this issue; manual Dev9 remains unchanged.
+
+17 November Liquidation checkpoint: companion Redux Fixes PR 10 and Infection
+PR 81 are merged. The corrected native run passes 17 Liquidation and 19 campaign
+checks with zero matched errors; all 16 queued/active defenders resolve, capture
+and exact reward succeed, and cleanup releases the budget. The companion also
+passes 29 focused garrison checks and live/late-join tests around native resets.
+This supersedes the earlier open lost-roster defect. Manual Dev9 is unchanged.
+
+Next native mission case: mixed Extraction, one rescued survivor and the rest
+killed. The test must keep the task pending after the first rescue, settle only
+after all remaining survivors resolve, credit only the rescued survivor, and
+retire assets without duplicate rewards. Deadline/player/multiplayer acceptance
+remain separate open work.
